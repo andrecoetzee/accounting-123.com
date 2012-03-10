@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<transactiondata>
+
+	<includes type="pricelist">
+		<incdef name="Standard" id="3"></incdef>
+	</includes>
+	
+	<includes type="department">
+		<incdef id="1" name="Ledger 1" deptno="1" debtacc="55" credacc="56" pia="6" pca="61" div="2"></incdef>
+	</includes>
+	
+	<includes type="currency">
+		<incdef id="4" symbol="R" descrip="Rand" rate="0.00" def="" curcode="ZAR"></incdef>
+	</includes>
+	
+	<debtor id="1">
+		<iinfo name="cusnum" value="1" />
+		<iinfo name="accno" value="AC001" />
+		<iinfo name="surname" value="Beukes" />
+		<iinfo name="title" value="Mr" />
+		<iinfo name="init" value="Q" />
+		<iinfo name="cusname" value="Quintin" />
+		<iinfo name="category" value="2" />
+		<iinfo name="class" value="2" />
+		<iinfo name="paddr1" value=" " />
+		<iinfo name="paddr2" value=" " />
+		<iinfo name="paddr3" value=" " />
+		<iinfo name="addr1" value=" " />
+		<iinfo name="addr2" value=" " />
+		<iinfo name="addr3" value=" " />
+		<iinfo name="contname" value="Quintin" />
+		<iinfo name="bustel" value="0726734831" />
+		<iinfo name="tel" value="0726734831" />
+		<iinfo name="cellno" value="0726734831" />
+		<iinfo name="fax" value="0866571831" />
+		<iinfo name="email" value="quintin@last.za.net" />
+		<iinfo name="saleterm" value="0" />
+		<iinfo name="traddisc" value="0" />
+		<iinfo name="setdisc" value="0" />
+		<iinfo name="pricelist" include="3" />
+		<iinfo name="chrgint" value="yes" />
+		<iinfo name="overdue" value="0" />
+		<iinfo name="chrgvat" value="yes" />
+		<iinfo name="vatinc" value="" />
+		<iinfo name="credterm" value="0" />
+		<iinfo name="odate" value="2006-01-01" />
+		<iinfo name="credlimit" value="50000" />
+		<iinfo name="blocked" value="no" />
+		<iinfo name="deptid" include="1" />
+		<iinfo name="vatnum" value="0" />
+		<iinfo name="div" value="2" />
+		<iinfo name="url" value=" " />
+		<iinfo name="ddiv" value="0" />
+		<iinfo name="intrate" value="0" />
+		<iinfo name="balance" value="0" />
+		<iinfo name="day30" value="0" />
+		<iinfo name="day60" value="0" />
+		<iinfo name="day90" value="0" />
+		<iinfo name="day120" value="0" />
+		<iinfo name="classname" value="General" />
+		<iinfo name="catname" value="General" />
+		<iinfo name="deptname" value="Ledger 1" />
+		<iinfo name="fbalance" value="0" />
+		<iinfo name="fcid" include="4" />
+		<iinfo name="location" value="loc" />
+		<iinfo name="currency" value="R" />
+		<iinfo name="lead_source" value="None" />
+		<iinfo name="comments" value=" " />
+		<iinfo name="add1" value="" />
+		<iinfo name="add2" value="" />
+		<iinfo name="del_addr1" value="" />
+		<iinfo name="sales_rep" value="0" />
+		<iinfo name="bankname" value="Absa" />
+		<iinfo name="branname" value="Pta North" />
+		<iinfo name="brancode" value="001" />
+		<iinfo name="bankaccno" value="123123123" />
+		<iinfo name="bankaccname" value="Q Beukes" />
+		<iinfo name="team_id" value="0" />
+		<iinfo name="registration" value="AC001R19" />
+		<iinfo name="bankacctype" value="Savings" />
+	</debtor>
+	
+	<includes type="accounts">
+		<incdef id="14" accid="14" accname="Sales" topacc="1000" accnum="000" />
+	</includes>
+	
+	<journal type="creditor">
+		<jinfo name="creditacc" include="14" />
+		<jinfo name="date">2006-01-01</jinfo>
+		<jinfo name="refno">111</jinfo>
+		<jinfo name="amount">333</jinfo>
+		<jinfo name="details">base64 details</jinfo>
+	</journal>
+	
+	<journal type="creditor">
+		<jinfo name="debitacc" include="14" />
+		<jinfo name="date">2006-01-01</jinfo>
+		<jinfo name="refno">111</jinfo>
+		<jinfo name="amount">333</jinfo>
+		<jinfo name="details">more details</jinfo>
+	</journal>
+	
+</transactiondata>

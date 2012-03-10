@@ -1,0 +1,5 @@
+<?
+
+	require("../template.php");
+
+?>

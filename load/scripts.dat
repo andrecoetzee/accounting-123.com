@@ -1,0 +1,34 @@
+buycharge-add.php	add buying charge
+buycharge-rem.php	remove buying charge
+buycharge-view.php	view buying charges
+cashsecrate-add.php	add cash security rate
+cashsecrate-rem.php	remove cash security rate
+cashsecrate-view.php	view cash security rates
+cert-list-glas.php	list invoice purchased without clearance certificates
+cert-list.php	list invoice purchased without clearance certificates
+geoarea-add.php	add geographic area
+geoarea-rem.php	remove a geographic area
+geoarea-view.php	view geographic areas
+glassinv-add.php	add a glass invoice purchase
+glassinv-det.php	view a glass invoice purchases details
+glassinv-edit.php	edit a glass invoice purchase
+glassinv-rem.php	remove a glass invoice purchase
+glassinv-view.php	view glass invoice purchases
+insurecomp-add.php	add a panel beaters invoice purchase
+insurecomp-det.php	view a panel beaters invoice purchase details
+insurecomp-edit.php	edit a panel beaters invoice purchase
+insurecomp-rem.php	remove a panel beaters invoice purchase
+insurecomp-view.php	view a panel beaters invoice purchases
+list-age.php	View Age analysis report
+list-dormacc.php	view dormant accounts report
+list-out.php	view outstanding items report
+list-seqid.php	view sequence ID report
+list-statemnt.php	view client statements
+list-turnover.php	view turnover reports
+salesrep-add.php	add a sales represantative
+salesrep-edit.php	edit a sales represantative
+salesrep-rem.php	remove a sales represantative
+salesrep-view.php	view a sales represantatives
+vatrate-add.php	add vat rate
+vatrate-rem.php	remove vat rate
+vatrate-view.php	view vat rates

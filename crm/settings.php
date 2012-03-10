@@ -1,0 +1,5 @@
+<?
+
+	require("../settings.php");
+
+?>

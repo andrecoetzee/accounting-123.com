@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="%%PAGETITLE%%">
+
+<menubar oncommand="loadURL(event);">
+	<menuitem label="Home" target="mainframe" value="%%ENTRYPAGE%%" />
+
+	<menuitem label="New Window" target="blank" />
+	
+	<menuitem label="Print" target="print" />
+	
+	<menuitem label="Save Page As" target="saveit" />
+	
+	<menuitem label="Email This Page" target="mailit" />
+
+	<menuitem label="Logout" target="parent" value="logout.php" />
+</menubar>
+
+<iframe id="mainframe" src="%%ENTRYPAGE%%" flex="1" />
+
+</window>
+

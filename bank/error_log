@@ -1,0 +1,54 @@
+
+2006.01.09 05.42.43 - cheq-return.php - Root - Unable to update Invoice information in the database.
+2006.01.09 05.43.02 - cheq-return.php - Root - Unable to update Invoice information in the database.
+2006.01.09 05.43.26 - cheq-return.php - Root - Unable to update Invoice information in the database.
+2006.02.27 23.44.29 - bank-pay-edit.php - Root - Unable to update cashbook
+2006.02.28 00.41.14 - bank-trans.php - Root - Unable to add bank payment to database.
+2006.02.28 01.04.38 - batch-cashbook-view.php - Root - Unable to add bank payment to database.
+2006.02.28 02.51.14 - stock-tran.php - Root - Unable to add bank payment to database.
+2006.02.22 15.52.24 - petty-req-multi-add.php - Root - Unable to add Petty Cash requisition to database.
+2006.02.23 11.58.03 - multi-bank-pay-add.php - Root - unable to isert vat record.INSERT INTO vatreport(cid,date,sdate,type,code,ref,description,amount,vat) VALUES 
+		('2','23-02-2006','2006-02-23','INPUT','01','79','multi bank payment 2','-238000','-14000')
+2006.03.12 13.36.35 - pettycashbook-view.php - Root - ERROR: Unable to retrieve petty cash entrie from database.
+2006.03.12 14.15.26 - pettycashbook-view.php - Root - ERROR: Unable to retrieve petty cash entrie from database.
+2006.03.12 14.16.22 - pettycashbook-view.php - Root - ERROR: Unable to retrieve petty cash entrie from database.
+2006.03.12 14.16.28 - pettycashbook-view.php - Root - ERROR: Unable to retrieve petty cash entrie from database.
+2006.03.12 14.16.55 - pettycashbook-view.php - Root - ERROR: Unable to retrieve petty cash entrie from database.
+2006.03.12 14.28.44 - bank-pay-supp.php - Root - Unable to access database
+2006.03.12 14.31.13 - bank-pay-supp.php - Root - Unable to access database
+2006.03.12 14.34.21 - bank-pay-supp.php - Root - Unable to access database
+2006.02.26 15.25.35 - multi-bank-pay-edit.php - Root - Unable to add bank payment to database.
+2006.02.25 19.14.37 - multi-bank-recpt-edit.php - Root - Unable to add bank Receipt to database.
+2006.05.04 15.09.02 - petty-trans.php - Root - Unable to insert Transaction  details to database
+2006.05.04 15.14.12 - petty-trans.php - Root - Unable to insert Transaction  details to database
+2006.05.04 15.16.47 - petty-trans.php - Root - Unable to insert Transaction  details to database
+2006.05.04 15.17.19 - petty-trans.php - Root - Unable to insert Transaction  details to database
+2006.05.04 04.23.40 - bank-recpt-add.php - Root - Unable to retrieve bank account link from the database
+2006.05.04 06.15.52 - bank-recpt-inv.php - Root - Unable to retrieve invoice details from database.
+2006.05.04 06.17.55 - bank-recpt-inv.php - Root - Unable to retrieve invoice details from database.
+2006.05.04 06.19.44 - bank-recpt-inv.php - Root - Unable to update Invoice information in the database.
+2006.05.04 06.21.01 - bank-recpt-inv.php - Root - Unable to update int purchases information in the database.
+2006.05.03 09.33.33 - bank-pay-add.php - Root - Unable to retrieve bank account link from the database
+2006.05.03 12.46.49 - bank-pay-add.php - Root - Unable to retrieve bank account link from the database
+2006.04.21 15.57.31 - cheq-return.php - Root - Unable to cancel cheque.
+2006.04.22 13.03.38 - bank-pay-edit.php - Root - Unable to retrieve bank account link from the database
+2006.04.25 14.03.21 - bank-pay-add.php - Root - SQL Failed: cubit.currency - fcid=''
+2006.04.25 14.10.19 - bank-pay-add.php - Root - SQL Failed: cubit.currency - fcid=>'2'
+2006.05.04 14.51.33 - bank-recpt-edit.php - Root - Unable to retrieve bank account link from Cubit
+2006.05.11 16.59.45 - bank-pay-edit.php - Root - Unable to update cashbook
+2006.05.15 14.03.43 - cashbook-entry.php - Root - Unable to retrieve user language information from Cubit.
+2006.05.22 15.26.44 - bank-recpt-inv.php - Root - Unable to access database
+2006.07.11 14.40.27 - bank-recpt-inv.php - Root - Unable to insert invoice to the period database.
+2006.07.11 14.54.49 - bank-recpt-inv.php - Root - Unable to insert invoice to the period database.
+2006.07.11 14.55.34 - bank-recpt-inv.php - Root - Unable to insert invoice to the period database.
+2006.07.11 14.56.31 - bank-recpt-inv.php - Root - Unable to insert invoice to the period database.
+2006.07.11 15.03.00 - bank-recpt-inv.php - Root - Unable to insert invoice to the period database.
+2006.07.11 15.11.35 - bank-recpt-inv.php - Root - Unable to insert invoice to the period database.
+2006.07.11 15.14.46 - bank-recpt-inv.php - Root - Unable to insert invoice to the period database.
+2006.07.11 15.15.24 - bank-recpt-inv.php - Root - Unable to insert invoice to the period database.
+2006.07.11 15.19.00 - bank-recpt-inv.php - Root - a
+2006.07.11 15.19.15 - bank-recpt-inv.php - Root - a
+2006.07.11 15.19.25 - bank-recpt-inv.php - Root - a
+2006.07.11 15.19.39 - bank-recpt-inv.php - Root - Unable to insert invoice to the period database.
+2006.07.12 12.20.45 - bank-recpt-edit.php - Root - SQL Failed: cubit.vatcodes - (("id"='2')) AND ("div"='2')
+2006.07.13 13.25.38 - bank-stmnt.php - Root - Unable to add bank payment to database.

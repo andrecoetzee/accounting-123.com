@@ -1,0 +1,8 @@
+2006.02.14 18.58.46 - import-stock.php - Root - Unable to insert stock to the database.
+2006.01.20 16.32.32 - import-tb.php - Root - Unable to Insert statement record in the database.
+2006.01.20 16.33.12 - import-tb.php - Root - Unable to Insert statement record in the database.
+2006.01.20 16.33.46 - import-tb.php - Root - Unable to Insert statement record in the database.
+2006.01.24 09.06.30 - import-tb.php - Root - Unable to clear import table
+2006.01.24 13.09.23 - import-stock.php - Root - Unable to insert stock to the database.
+2006.07.31 12.33.29 - import-tb.php - Root - Error validating data.
+2006.07.12 13.02.43 - import-tb.php - Root - SQL Failed: cubit.import_date - des1='7000/000' AND id!='1'

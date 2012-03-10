@@ -1,0 +1,4 @@
+debtors-batch-proc.php	process debtors batch entries
+debtors-batch-view.php	view debtors batch entries
+debtors-batch.php	add debtors batch entries
+debtors-multi-pay.php	process multiple debtors payments 

@@ -1,0 +1,9 @@
+2006.03.11 01.25.17 - irp5-pdf.php - Root - Unable to retrieve taxable annual payments from the database.
+2006.03.09 18.04.12 - irp5-pdf.php - Root - Unable to retrieve deductions from the database.
+2006.04.26 10.49.00 - pdf-statement.php - Root - Unable to retrieve invoices statement from database.
+2006.04.26 13.33.25 - pdf-tax-invoice.php - Root - Unable to retrieve invoice info.
+2006.05.04 09.31.45 - cust-pdf-print-invoices.php - Root - Unable to retrieve invoice info.
+2006.05.04 11.12.41 - cust-pdf-print-invoices.php - Root - Unable to retrieve invoice info.
+2006.05.04 11.43.26 - cust-pdf-print-invoices.php - Root - Unable to retrieve invoice info.
+2006.05.12 15.28.44 - pdf-statement.php - Root - Unable to retrieve comments from Cubit.
+2006.05.22 10.17.01 - pdf-tax-invoice.php - Root - Unable to retrieve currency from Cubit.

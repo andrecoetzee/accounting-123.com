@@ -1,0 +1,33 @@
+2006.02.27 12.54.59 - acc-edit.php - Root - Unable to add edit account no system.
+2006.03.13 08.38.05 - yr-close.php - Root - Error reading period-month map.
+2006.03.13 08.38.26 - yr-close.php - Root - Error reading period-month map.
+2006.03.13 09.10.06 - prd-close.php - Root - Unable to copy period transactions table to 'Audit' database.
+2006.03.13 09.12.31 - prd-close.php - Root - Unable to copy period transactions table to 'Audit' database.
+2006.03.13 09.14.40 - prd-close.php - Root - Unable to copy period transactions table to 'Audit' database.
+2006.03.13 09.23.24 - prd-close.php - Root - Unable to copy period transactions table to 'Audit' database.
+2006.03.13 09.59.25 - prd-close.php - Root - Unable to copy period transactions table to 'Audit' database.
+2006.03.13 10.37.17 - prd-close.php - Root - Unable to copy period transactions table to 'Audit' database.
+2006.05.04 18.53.12 - trans-new.php - Root - Unable to insert Transaction  details to database
+2006.05.04 04.09.27 - yr-close.php - Root - Error calculating previous year profit or loss (QR).
+2006.05.04 06.21.57 - trans-new.php - Root - Unable to insert ledger entry to the Database.
+2006.05.04 06.23.21 - trans-new.php - Root - Unable to insert ledger entry to the Database.
+2006.05.04 06.23.42 - trans-new.php - Root - <li> Retained Income / Accumulated Loss Account number : 5200/000 does not exist
+2006.05.04 06.24.09 - trans-new.php - Root - <li> Retained Income / Accumulated Loss Account number : 5200/000 does not exist
+2006.05.04 06.29.21 - yr-close.php - Root - Unable to insert Transaction  details to database
+2006.05.04 06.30.29 - yr-close.php - Root - Unable to insert Transaction  details to database
+2006.05.04 06.30.48 - yr-close.php - Root - Unable to insert Transaction  details to database
+2006.04.27 00.55.11 - acc-edit.php - Root - Unable to add edit account no system.
+2006.04.26 17.03.04 - yr-close.php - Root - SQL Failed: core.save_bal_sheet - (true)
+2006.04.26 17.03.33 - yr-close.php - Root - SQL Failed: core.save_bal_sheet - (true)
+2006.05.12 16.38.33 - yr-close.php - Root - SQL Failed: core.save_balsheet - (true)
+2006.05.15 10.46.51 - trans-new.php - Root - Unable to select next value for reference number.
+2006.08.08 16.06.28 - yr-close.php - Root - SQL Failed: Resource id #11.globalset - name='docroot'
+2006.08.08 16.07.53 - yr-close.php - Root - SQL Failed: Resource id #11.globalset - name='docroot'
+2006.08.08 16.08.58 - yr-close.php - Root - SQL Failed: Resource id #11.globalset - name='docroot'
+2006.08.08 16.09.10 - yr-close.php - Root - SQL Failed: Resource id #11.globalset - name='docroot'
+2006.08.08 16.09.28 - yr-close.php - Root - SQL Failed: Resource id #11.globalset - name='docroot'
+2006.08.08 16.09.36 - yr-close.php - Root - SQL Failed: Resource id #11.globalset - name='docroot'
+2006.08.08 16.09.43 - yr-close.php - Root - SQL Failed: Resource id #11.globalset - name='docroot'
+2006.05.25 17.01.53 - trans-new.php - Root - Error reading account number.
+2006.07.07 14.26.26 - acc-new2.php - Root - Error inserting 'Accounts Receivable' into trial balance.
+2006.07.07 14.27.40 - acc-new2.php - Root - Error inserting 'Accounts Receivable' into trial balance.

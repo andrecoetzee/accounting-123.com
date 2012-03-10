@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="%%PAGETITLE%%">
+
+<script type="application/x-javascript">
+	var winCount = 0;
+
+	function loadURL(event) {
+		var mainframe = document.getElementById('mainframe');
+		var url = event.target.getAttribute('value');
+		var target = event.target.getAttribute('target');
+
+		switch (target) {
+		case "mainframe":
+			mainframe.setAttribute('src', null);
+			mainframe.setAttribute('src', url);
+			break;
+		case "parent":
+			document.location.href = url;
+			break;
+		case "print":
+			printMainframe();
+			break;
+		case "saveit":
+			saveMainframe();
+			break;
+		case "mailit":
+			emailMainframe();
+			break;
+		case "blank":
+			popupWindow('index.xul.php', 'Cubit: ' + new Date(), 'toolbar=no');
+			break;
+		case "emailpopup":
+			popupWindow('groupware/index.php','email_window', 'resizable=yes, scrollbars=yes, width=750, height=550');
+			break;
+		case "crmPopup":
+			popupWindow(url,'crm_popup','scrollbars=yes, statusbar=no, width=750, height=550');
+		}
+	}
+
+	function popupWindow(url, name, opt) {
+		window.open(url,name, opt).focus();
+	}
+
+	function printMainframe() {
+		mainframe.focus();
+		mainframe.print();
+	}
+
+	function saveMainframe() {
+		mainframe.focus();
+		mainframe.savePage();
+	}
+
+	function emailMainframe() {
+		mainframe.focus();
+		mainframe.emailPage();
+	}
+</script>
+
+<menubar oncommand="loadURL(event);">
+	<menuitem label="Home" target="mainframe" value="%%ENTRYPAGE%%" />
+
+	<menuitem label="New Window" target="blank" />
+	
+	<menuitem label="Print" target="print" />
+	
+	<menuitem label="Save Page As" target="saveit" />
+	
+	<menuitem label="Email This Page" target="mailit" />
+
+	<menuitem label="Logout" target="parent" value="logout.php" />
+</menubar>
+
+<iframe id="mainframe" src="%%ENTRYPAGE%%" flex="1" />
+
+</window>
+

@@ -1,0 +1,11 @@
+bank-recpt-add.php	add bank receipts
+bank-bank.php	proccess cash book entries
+bank-pay-add.php	add bank payments
+bank-bankall.php	proccess multiple cashbook entries
+compinfo-view.php	view company info
+multi-trans-accnum.php	add multiple journal records
+multi-trans.php	add multiple journal records by selecting account
+banked.php	cash book analysis
+employee-detail.php	employee details
+user-add.php	add user
+user-view.php	view users

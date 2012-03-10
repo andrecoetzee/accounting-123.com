@@ -1,0 +1,319 @@
+/* Menu Style Sheet */
+
+.topMenu,.topSubMenuTable
+{
+	font-family: sans-serif;
+	font-size: 12px;
+	padding: 0;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.topSubMenu
+{
+	position:	absolute;
+	visibility:	hidden;
+
+	/*
+	   Netscape/Mozilla renders borders by increasing
+	   their z-index.  The following line is necessary
+	   to cover any borders underneath
+	*/
+	z-index:	100;
+	border:		0;
+	padding:	0;
+
+	overflow:	visible;
+	border:		1px solid #8C867B;
+}
+
+.topSubMenuTable
+{
+
+}
+
+.topMainItem,.topMainItemHover,.topMainItemActive,
+.topMenuItem,.topMenuItemHover,.topMenuItemActive
+{
+	border:		0;
+	cursor:		default;
+	white-space:	nowrap;
+}
+
+.topMainItem
+{
+	background-color: #70a0ff;
+	color:#ffffff;
+	font-weight:bold;
+	font-size:13px;
+}
+
+.topMainItemHover,.topMainItemActive
+{
+	background-color:	#3276c9;
+	color:#d3e7ff;
+	font-weight:bold;
+	font-size:13px;
+}
+
+.topMenuItem
+{
+	background-color: #FFFFFF;
+	color: #333333;
+	font-weight:bold;
+	font-size:13px;
+}
+
+.topMenuItemHover,.topMenuItemActive
+{
+	background-color: #b4f40a;
+	color: #000000;
+	font-weight:bold;
+	font-size:13px;
+}
+
+
+/* horizontal main menu */
+
+.topMainItem
+{
+	padding: 5px;
+	border-top: 1px solid #000;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	border-left: 1px solid #000;
+	color: #000;
+}
+
+td.topMainItemHover,td.topMainItemActive
+{
+	padding: 5px;
+	border-top: 1px solid #000;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	border-left: 1px solid #000;
+	background: #b4f40a;
+	color: #000;
+}
+
+.topMainFolderLeft,.topMainItemLeft,
+.topMainFolderText,.topMainItemText,
+.topMainFolderRight,.topMainItemRight
+{
+	background-color:	inherit;
+}
+
+/* vertical main menu sub components */
+
+td.topMainFolderLeft,td.topMainItemLeft
+{
+	padding-top:	2px;
+	padding-bottom:	2px;
+	padding-left:	0px;
+	padding-right:	2px;
+
+	border-top:		1px solid #3169C6;
+	border-bottom:	1px solid #3169C6;
+	border-left:	1px solid #3169C6;
+
+	background-color:	inherit;
+}
+
+td.topMainFolderText,td.topMainItemText
+{
+	padding-top:	2px;
+	padding-bottom:	2px;
+	padding-left:	5px;
+	padding-right:	5px;
+
+	border-top:	1px solid #3169C6;
+	border-bottom:	1px solid #3169C6;
+
+	background-color:	inherit;
+	white-space:	nowrap;
+}
+
+td.topMainFolderRight,td.topMainItemRight
+{
+	padding-top:	2px;
+	padding-bottom:	2px;
+	padding-left:	0px;
+	padding-right:	0px;
+
+	border-top:		1px solid #3169C6;
+	border-bottom:	1px solid #3169C6;
+	border-right:	1px solid #3169C6;
+
+	background-color:	inherit;
+}
+
+tr.topMainItem td.topMainFolderLeft,
+tr.topMainItem td.topMainItemLeft
+{
+	padding-top:	3px;
+	padding-bottom:	3px;
+	padding-left:	1px;
+	padding-right:	2px;
+
+	white-space:	nowrap;
+
+	border:		0;
+	background-color:	inherit;
+}
+
+tr.topMainItem td.topMainFolderText,
+tr.topMainItem td.topMainItemText
+{
+	padding-top:	3px;
+	padding-bottom:	3px;
+	padding-left:	5px;
+	padding-right:	5px;
+
+	border:		0;
+	background-color:	inherit;
+}
+
+tr.topMainItem td.topMainItemRight,
+tr.topMainItem td.topMainFolderRight
+{
+	padding-top:	3px;
+	padding-bottom:	3px;
+	padding-left:	0px;
+	padding-right:	1px;
+
+	border:		0;
+	background-color:	inherit;
+}
+
+/* sub menu sub components */
+
+.topMenuFolderLeft,.topMenuItemLeft
+{
+	padding-top:	2px;
+	padding-bottom:	2px;
+	padding-left:	1px;
+	padding-right:	3px;
+
+	border-top:		1px solid #838899;
+	border-bottom:	1px solid #838899;
+	border-left:	1px solid #838899;
+
+	background-color:	inherit;
+	white-space:	nowrap;
+}
+
+.topMenuFolderText,.topMenuItemText
+{
+	padding-top:	2px;
+	padding-bottom:	2px;
+	padding-left:	5px;
+	padding-right:	5px;
+
+	border-top:	1px solid #838899;
+	border-bottom:	1px solid #838899;
+
+	background-color:	inherit;
+	white-space:	nowrap;
+}
+
+.topMenuFolderRight,.topMenuItemRight
+{
+	padding-top:	2px;
+	padding-bottom:	2px;
+	padding-left:	0px;
+	padding-right:	0px;
+
+	border-top:	1px solid #838899;
+	border-bottom:	1px solid #838899;
+	border-right:	1px solid #838899;
+
+	background-color:	inherit;
+	white-space:	nowrap;
+}
+
+.topMenuItem .topMenuFolderLeft,
+.topMenuItem .topMenuItemLeft
+{
+	padding-top:	3px;
+	padding-bottom:	3px;
+	padding-left:	2px;
+	padding-right:	3px;
+
+	white-space:	nowrap;
+
+	border:		0;
+	background-color:	#D5D5E0;
+}
+
+.topMenuItem .topMenuFolderText,
+.topMenuItem .topMenuItemText
+{
+	padding-top:	3px;
+	padding-bottom:	3px;
+	padding-left:	5px;
+	padding-right:	5px;
+
+	border:		0;
+	background-color:	inherit;
+}
+
+.topMenuItem .topMenuFolderRight,
+.topMenuItem .topMenuItemRight
+{
+	padding-top:	3px;
+	padding-bottom:	3px;
+	padding-left:	0px;
+	padding-right:	1px;
+
+	border:		0;
+	background-color:	inherit;
+}
+
+/* menu splits */
+
+.topMenuSplit
+{
+	margin:		2px;
+	height:		1px;
+	overflow:	hidden;
+	background-color:	inherit;
+	border-top:	1px solid #C6C3BD;
+}
+
+/* image shadow animation */
+
+/*
+	seq1:	image for normal
+	seq2:	image for hover and active
+
+	To use, in the icon field, input the following:
+	<img class="seq1" src="normal.gif" /><img class="seq2" src="hover.gif" />
+*/
+
+.topMenuItem .seq2,
+.topMenuItemHover .seq2,
+.topMenuItemActive .seq2
+{
+	display:	none;
+}
+
+.topMenuItemHover .seq1,
+.topMenuItemActive .seq1
+{
+	display:	inline;
+}
+
+
+
+.topMainItem img.seq1
+{
+	display:	inline;
+}
+
+
+.topMainItem .seq2,
+.topMainItemHover .seq1,
+.topMainItemActive .seq1
+{
+	display:	none;
+}

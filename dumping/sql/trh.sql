@@ -1,0 +1,27 @@
+CREATE TYPE "trh".t_key AS (ip inet, send_key varchar, recv_key varchar);
+CREATE TYPE "trh".suppinfo AS (supp_id int4, intl bool, purchases_id int4, nons_purchases_id int4, pricelist_id int4);
+CREATE TYPE "trh".t_io AS (send bool, recv bool);
+CREATE TYPE "trh".t_reqtype AS (orderreq bool, orderconfirm bool, invoice bool, pricelist bool);
+CREATE TYPE "trh".custinfo AS (cust_id int4, intl bool, invoices_id int4, nons_invoices_id int4, quotes_id int4, pinvoices_id int4);
+CREATE TABLE suppstock ("id" serial NOT NULL PRIMARY KEY ,"suppid" int4 DEFAULT 0,"stkid" int4 DEFAULT 0,"stkcod" varchar ,"onhand" numeric DEFAULT 0,"price" numeric(16, 2) DEFAULT 0) WITH OIDS;
+SELECT setval('suppstock_id_seq',1);
+CREATE TABLE requests ("id" serial NOT NULL PRIMARY KEY ,"key_id" int4 DEFAULT 0,"req_io" t_io ,"req_type" t_reqtype ,"supp" suppinfo ,"cust" custinfo ,"approved" bool ) WITH OIDS;
+SELECT setval('requests_id_seq',1);
+CREATE TABLE keys ("id" serial NOT NULL PRIMARY KEY ,"userid" int4 DEFAULT 0,"introtime" timestamptz ,"introip" inet ,"email" varchar ,"compname" varchar ,"bustel" varchar ,"custid" int4 DEFAULT 0,"suppid" int4 DEFAULT 0,"key" t_key ) WITH OIDS;
+SELECT setval('keys_id_seq',1);
+CREATE TABLE recvpurch ("id" serial NOT NULL PRIMARY KEY ,"custid" numeric DEFAULT 0,"trhkey" t_key ,"approved" varchar ,"purid" numeric DEFAULT 0,"deptid" numeric DEFAULT 0,"supid" numeric DEFAULT 0,"supaddr" varchar ,"terms" numeric DEFAULT 0,"pdate" date ,"ddate" date ,"remarks" varchar ,"received" varchar ,"done" varchar ,"refno" varchar ,"vatinc" varchar ,"prd" numeric DEFAULT 0,"ordernum" varchar ,"part" varchar ,"div" numeric DEFAULT 0,"purnum" varchar ,"edit" numeric DEFAULT 0,"supname" varchar ,"supno" varchar ,"shipchrg" numeric(16, 2) DEFAULT 0,"subtot" numeric(16, 2) DEFAULT 0,"total" numeric(16, 2) DEFAULT 0,"balance" numeric(16, 2) DEFAULT 0,"vat" numeric(16, 2) DEFAULT 0,"supinv" varchar ,"apprv" varchar ,"appname" varchar ,"appdate" date ,"rvat" numeric(16, 2) DEFAULT 0,"rshipchrg" numeric(16, 2) DEFAULT 0,"rsubtot" numeric(16, 2) DEFAULT 0,"rtotal" numeric(16, 2) DEFAULT 0,"jobid" numeric DEFAULT 0,"jobnum" varchar ,"toggle" varchar ,"cash" varchar ,"shipping" numeric(16, 2) DEFAULT 0,"invcd" varchar ,"rshipping" numeric(16, 2) DEFAULT 0,"noted" varchar ,"returned" varchar ,"iamount" numeric(16, 2) DEFAULT 0,"ivat" numeric(16, 2) DEFAULT 0,"delvat" int4 DEFAULT 0,"trh_status" varchar ) WITH OIDS;
+SELECT setval('recvpurch_id_seq',1);
+CREATE TABLE config ("id" serial NOT NULL PRIMARY KEY ,"name" varchar ,"description" varchar ,"value" varchar ,"type" varchar ,"readonly" bool ) WITH OIDS;
+SELECT setval('config_id_seq',10);
+INSERT INTO config ("id","name","description","value","type","readonly") VALUES('1','SMTP_SERVER','SMTP Server','','str','f');
+INSERT INTO config ("id","name","description","value","type","readonly") VALUES('2','SMTP_FROM','From Email Address','','str','f');
+INSERT INTO config ("id","name","description","value","type","readonly") VALUES('3','SMTP_USER','SMTP Username (Leave blank if none)','','str','f');
+INSERT INTO config ("id","name","description","value","type","readonly") VALUES('4','SMTP_PASS','SMTP Password','','passwd','f');
+INSERT INTO config ("id","name","description","value","type","readonly") VALUES('5','POP3_SERVER','POP3 Server','','str','f');
+INSERT INTO config ("id","name","description","value","type","readonly") VALUES('6','POP3_USER','POP3 Username','','str','f');
+INSERT INTO config ("id","name","description","value","type","readonly") VALUES('7','POP3_PASS','POP3 Password','','passwd','f');
+INSERT INTO config ("id","name","description","value","type","readonly") VALUES('9','INTERVAL','Seconds between each consecutive check for requests/responses.','180','str','f');
+INSERT INTO config ("id","name","description","value","type","readonly") VALUES('10','MANAGEUSER','Managing User.','-1','ulist','f');
+CREATE TABLE recvpurch_items ("id" serial NOT NULL PRIMARY KEY ,"recvpurch_id" numeric DEFAULT 0,"purid" numeric DEFAULT 0,"whid" numeric DEFAULT 0,"stkid" numeric DEFAULT 0,"qty" numeric DEFAULT 0,"ddate" date ,"div" numeric DEFAULT 0,"qpack" numeric DEFAULT 0,"upack" numeric DEFAULT 0,"ppack" numeric DEFAULT 0,"svat" numeric DEFAULT 0,"rqty" numeric DEFAULT 0,"tqty" numeric DEFAULT 0,"unitcost" numeric(16, 2) DEFAULT 0,"amt" numeric(16, 2) DEFAULT 0,"iqty" int4 DEFAULT 0,"vatcode" int4 DEFAULT 0,"description" varchar ,"account" int4 DEFAULT 0,"sup_stkcod" varchar ) WITH OIDS;
+SELECT setval('recvpurch_items_id_seq',1);
+

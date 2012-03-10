@@ -1,0 +1,1339 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="%%PAGETITLE%%">
+
+<script type="application/x-javascript">
+	var winCount = 0;
+
+	function loadURL(event) {
+		var mainframe = document.getElementById('mainframe');
+		var url = event.target.getAttribute('value');
+		var target = event.target.getAttribute('target');
+
+		switch (target) {
+		case "mainframe":
+			mainframe.setAttribute('src', null);
+			mainframe.setAttribute('src', url);
+			break;
+		case "groupware":
+			mainframe.setAttribute("src", null);
+			mainframe.setAttribute("src", "groupware/index.php?script=" + url);
+			break;
+		case "parent":
+			document.location.href = url;
+			break;
+		case "print":
+			printMainframe();
+			break;
+		case "saveit":
+			saveMainframe();
+			break;
+		case "mailit":
+			emailMainframe();
+			break;
+		case "blank":
+			popupWindow('index.xul.php', 'Cubit: ' + new Date(), 'toolbar=no');
+			break;
+		case "emailpopup":
+			popupWindow('groupware/index.php','email_window', 'resizable=yes, scrollbars=yes, width=750, height=550');
+			break;
+		case "crmPopup":
+			popupWindow(url,'crm_popup','scrollbars=yes, statusbar=no, width=screen.width, height=screen.height');
+		case "popupOpen":
+
+
+		}
+	}
+
+	function popupWindow(url, name, opt) {
+		window.open(url,name, opt).focus();
+	}
+
+	function printMainframe() {
+		mainframe.focus();
+		mainframe.print();
+	}
+
+	function saveMainframe() {
+		mainframe.focus();
+		mainframe.savePage();
+	}
+
+	function emailMainframe() {
+		mainframe.focus();
+		mainframe.emailPage();
+	}
+</script>
+
+<menubar oncommand="loadURL(event);">
+	<menuitem label="Home" target="mainframe" value="%%ENTRYPAGE%%" />
+
+	<menu label="Admin">
+	<menupopup>
+		<menu label="Settings">
+		<menupopup>
+			<menuitem label="Quick Setup" target="mainframe" value="setup.php" />
+			<menuitem label="Change Splash Screen" target="mainframe" value="splash.php" />
+			<menuitem label="Cubit Colour Template Editor" target="mainframe" value="settings/cubit-template.php" />
+			<menuitem label="Printing Options" target="mainframe" value="printing.php" />
+			<menuitem label="Stock Purchase Default VAT Setting" target="mainframe" value="settings/purchase-default-vat-setting.php" />
+
+			<cubitmodule menu="admin/settings" separator="both" />
+
+			<menu label="Admin">
+			<menupopup>
+				<cubitmodule menu="admin/settings/admin" />
+				<menuitem label="Set Account Creation" target="mainframe" value="set.php" />
+				<menuitem label="Set Login Retries" target="mainframe" value="set-login-retries.php" />
+
+				<menuitem label="Set Debtors Statement Type" target="mainframe" value="set-state.php" />
+				<menuitem label="Set Interest Calculation Method" target="mainframe" value="set-int-type.php" />
+				<menuitem label="Set/Show Financial Year Names" target="mainframe" value="core/finyearnames-new.php" />
+				<menuitem label="View Year Names" target="mainframe" value="core/finyearnames-view.php" />
+				<menuitem label="Set Period Range" target="mainframe" value="core/finyear-range.php" />
+				<menuitem label="View Period Range" target="mainframe" value="core/finyear-range.php" />
+				<menuitem label="Close Year" target="mainframe" value="core/yr-close.php" />
+				<menuitem label="Enter Previous Year/Current Year Transactions" target="mainframe" value="set-period-use.php" />
+				<menuitem label="View Settings" target="mainframe" value="set-view.php" />
+				<menuitem label="Add VAT Code" target="mainframe" value="vatcodes-add.php" />
+				<menuitem label="View VAT Codes" target="mainframe" value="vatcodes-view.php" />
+				<menuitem label="Add Public Holiday" target="mainframe" value="public_holiday_add.php" />
+				<menuitem label="View Public Holidays" target="mainframe" value="public_holiday_list.php" />
+				<menuitem label="VAT Period Setting" target="mainframe" value="vat_period_setting.php" />
+				<menuitem label="Customer Statement Age Setting" target="mainframe" value="settings/customer-statement-setting.php" />
+				<menuitem label="Set Active Transaction Date" target="mainframe" value="settings/transaction-date.php" />
+				<menuitem label="Set Accounts Dropdown Sort Order" target="mainframe" value="settings/accounts-drop.php" />
+				<menuitem label="Set Accounts To Use On Non Stock Invoices" target="mainframe" value="settings/non-stock-accounts.php" />
+				<menuitem label="Set Accounts To Use On Non Stock Purchases" target="mainframe" value="settings/non-purchases-accounts.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="Accounts">
+			<menupopup>
+				<cubitmodule menu="admin/settings/accounts" />
+				<menuitem label="Set Cost Center Usage" target="mainframe" value="set-costcenter-use.php" />
+				<menuitem label="Add New Account" target="mainframe" value="core/acc-new-dec.php" />
+				<menuitem label="View Accounts" target="mainframe" value="core/acc-view.php" />
+				<menuitem label="Add Account Category" target="mainframe" value="core/accat-new.php" />
+				<menuitem label="Set/Show Financial Year Names" target="mainframe" value="core/finyearnames-new.php" />
+				<menuitem label="View Year Names" target="mainframe" value="core/finyearnames-view.php" />
+				<menuitem label="Set Period Range" target="mainframe" value="core/finyear-range.php" />
+				<menuitem label="View Period Range" target="mainframe" value="core/finyear-range.php" />
+				<menuitem label="Close Year" target="mainframe" value="core/yr-close.php" />
+
+				<menuitem label="Link Accounts to Ratios" target="mainframe" value="ratio_settings.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="Navigation">
+			<menupopup>
+				<cubitmodule menu="admin/settings/navigation" />
+				<menuitem label="Set Invoice Complete Navigation" target="mainframe" value="settings/cust-credit-stockinv-newsetting.php?change=yes" />
+				<menuitem label="Customer Statement Age Analysis Setting" target="mainframe" value="settings/customer-statement-setting.php" />
+				<menuitem label="Set Accounts To Use On General Credit Note" target="mainframe" value="settings/credit-note-accounts.php" />
+				<menuitem label="Set Supplier Payment Output Type" target="mainframe" value="settings/supp-payment-type.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="Sales">
+
+			<menupopup>
+				<cubitmodule menu="admin/settings/sales" />
+				<menuitem label="Add Department" target="mainframe" value="toms/dept-add.php" />
+				<menuitem label="View Departments" target="mainframe" value="toms/dept-view.php" />
+				<menuitem label="Add Sales Person" target="mainframe" value="toms/salesp-add.php" />
+				<menuitem label="View Sales People" target="mainframe" value="toms/salesp-view.php" />
+				<menuitem label="Add Call Out Person" target="mainframe" value="toms/calloutp-add.php" />
+				<menuitem label="View Call Out People" target="mainframe" value="toms/calloutp-view.php" />
+				<menuitem label="Add Category" target="mainframe" value="toms/cat-add.php" />
+				<menuitem label="View Categories" target="mainframe" value="toms/cat-view.php" />
+				<menuitem label="Add Classification" target="mainframe" value="toms/class-add.php" />
+				<menuitem label="View Classifications" target="mainframe" value="toms/class-view.php" />
+				<menuitem label="Set rounding account" target="mainframe" value="core/sales-link.php?type=E&amp;payname=rounding" />
+				<menuitem label="Set Sale of Assets Account" target="mainframe" value="core/sales-link.php?type=I&amp;payname=saleofassets" />
+				<menuitem label="Set POS credit card control" target="mainframe" value="core/sal-link.php?type=B&amp;payname=cc" />
+				<menuitem label="Set Invoice Number" target="mainframe" value="toms/invid-set.php" />
+				<menuitem label="Set Sales Rep Commission" target="mainframe" value="coms-edit.php" />
+				<menuitem label="Add Interest Bracket" target="mainframe" value="intbrac-add.php" />
+				<menuitem label="View Interest Bracket" target="mainframe" value="intbrac-view.php" />
+				<menuitem label="Point of Sale Rounding" target="mainframe" value="pos-setting.php" />
+				<menuitem label="Point of Sale Comments" target="mainframe" value="pos-options.php" />
+				<menuitem label="Invoice / Statement Template Settings" target="mainframe" value="templates/template-settings.php" />
+				<menuitem label="Invoice Default Comments" target="mainframe" value="default-comments.php" />
+				<menuitem label="POS Invoice Default Comments" target="mainframe" value="default-pos-comments.php" />
+				<menuitem label="Statement Default Comments" target="mainframe" value="default-stmnt-comments.php" />
+				<menuitem label="Bank Receipt Statement Default Comments" target="mainframe" value="default-bank-recpt-comments.php" />
+				<menuitem label="Set Customer Credit Limit Response" target="mainframe" value="set-cust-inv-warn.php" />
+				<menuitem label="Sales Order Negative Stock Display Setting" target="mainframe" value="settings/sorder-neg-stock-response.php" />
+				<menuitem label="Add Team" target="mainframe" value="projectman/team_save.php" />
+				<menuitem label="View Teams" target="mainframe" value="projectman/team_view.php" />
+				<menuitem label="Allocate People to Teams" target="mainframe" value="projectman/team_allocate.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="Stock">
+			<menupopup>
+				<cubitmodule menu="admin/settings/stock" />
+				<menuitem label="Add Stock Category" target="mainframe" value="stockcat-add.php" />
+				<menuitem label="View Stock Categories" target="mainframe" value="stockcat-view.php" />
+				<menuitem label="Add Stock Classification" target="mainframe" value="stockclass-add.php" />
+				<menuitem label="View Stock Classification" target="mainframe" value="stockclass-view.php" />
+				<menuitem label="Add Store" target="mainframe" value="toms/whouse-add.php" />
+				<menuitem label="View Stores" target="mainframe" value="toms/whouse-view.php" />
+				<menuitem label="Add Pricelist" target="mainframe" value="toms/pricelist-add.php" />
+				<menuitem label="View Pricelists" target="mainframe" value="toms/pricelist-view.php" />
+				<menuitem label="Adjust Pricelist" target="mainframe" value="pricelist_adjust.php" />
+				<menuitem label="Advanced Adjust Pricelist" target="mainframe" value="pricelist_adjust_detailed.php" />
+				<menuitem label="Add Supplier Pricelist" target="mainframe" value="toms/sup-pricelist-add.php" />
+				<menuitem label="View Supplier Pricelists" target="mainframe" value="toms/sup-pricelist-view.php" />
+				<menuitem label="Increase Selling Price" target="mainframe" value="stock-price-inc.php" />
+				<menuitem label="Decrease Selling Price" target="mainframe" value="stock-price-dec.php" />
+				<menuitem label="Set Cost Variance Account" target="mainframe" value="core/pchs-link.php?acctype=E&amp;payname=Cost Variance" />
+				<menuitem label="Set Default Store" target="mainframe" value="toms/defwh-set.php" />
+				<menuitem label="Set Selling price VAT Type" target="mainframe" value="set-vat-type.php" />
+				<menuitem label="Set Stock Purchases Approval" target="mainframe" value="set-purch-apprv.php" />
+				<menuitem label="Point of Sale Setting" target="mainframe" value="pos-set.php" />
+				<menuitem label="Workshop Conditions" target="mainframe" value="workshop-settings.php" />
+				<menuitem label="Dispatch Settings" target="mainframe" value="picking_slips/picking_slip_settings.php" />
+				<menuitem label="Pre Stock Take Stock Display Limit" target="mainframe" value="settings/pre-stock-take-limit.php" />
+				<menuitem label="Additional Stock Filters On Invoices/Reports" target="mainframe" value="settings/stock-optional-filters.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="Salary">
+			<menupopup>
+				<cubitmodule menu="admin/settings/salary" />
+				<menuitem label="Add Loan Type" target="mainframe" value="loan_type_add.php" />
+				<menuitem label="View Loan Types" target="mainframe" value="loan_type_view.php" />
+				<menuitem label="Add Salary Account Link" target="mainframe" value="core/sal-link.php?type=E&amp;payname=salaries" />
+				<menuitem label="Add Interest Received Account Link" target="mainframe" value="core/sal-link.php?type=I&amp;payname=interestreceived" />
+				<menuitem label="Add Salary Control Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=salaries%20control" />
+				<menuitem label="Add Commission Account Link" target="mainframe" value="core/sal-link.php?type=E&amp;payname=Commision" />
+				<menuitem label="Add PAYE Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=PAYE" />
+				<menuitem label="Add UIF Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=UIF" />
+				<menuitem label="Add Pension Expense Account Link" target="mainframe" value="core/sal-link.php?type=E&amp;payname=pensionexpense" />
+				<menuitem label="Add Retirement Annuity Fund Expense Account Link" target="mainframe" value="core/sal-link.php?type=E&amp;payname=retireexpense" />
+				<menuitem label="Add Medical Aid Expense Account Link" target="mainframe" value="core/sal-link.php?type=E&amp;payname=medicalexpense" />
+				<menuitem label="Add Pension Control Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=pension" />
+				<menuitem label="Add Retirement Annuity Fund Control Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=retire" />
+				<menuitem label="Add Medical Aid Control Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=medical" />
+				<menuitem label="Add Cash Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=cash" />
+				<menuitem label="Bank Account Types" target="mainframe" value="accounttype-add.php" />
+				<menuitem label="General Settings" target="mainframe" value="salwages/settings-acc-edit.php" />
+				<menuitem label="Previous Employee Salary Payments" target="mainframe" value="recovery/prevemp-salrate.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="Locale">
+			<menupopup>
+				<cubitmodule menu="admin/settings/locale" />
+				<menuitem label="Locale Settings" target="mainframe" value="locale-settings.php" />
+				<menuitem label="Translate Cubit" target="mainframe" value="locale-translate.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="User Groups">
+			<menupopup>
+				<cubitmodule menu="admin/settings/usergroups" />
+				<menuitem label="Add Cubit Team" target="mainframe" value="crm/team-add.php" />
+				<menuitem label="View Cubit Teams" target="mainframe" value="crm/team-list.php" />
+				<menuitem label="Allocate Users to Cubit Teams" target="mainframe" value="crm/team-alloc.php" />
+
+				<menuseparator />
+
+				<menuitem label="Add Project Management Team" target="mainframe" value="projectman/team_save.php" />
+				<menuitem label="View Project Management Teams" target="mainframe" value="projectman/team_view.php" />
+				<menuitem label="Allocate People to Project Management Teams" target="mainframe" value="projectman/team_allocate.php" />
+				
+				<menuseparator />
+
+			</menupopup>
+			</menu>
+	
+			<menuitem label="Blocked Period Setting" target="mainframe" value="settings/blocked-period.php" />
+			<menuitem label="Statement Import Settings" target="mainframe" value="import/import-settings.php" />
+			<menuitem label="Email Settings" target="mainframe" value="email-settings.php" />
+		</menupopup>
+		</menu>
+
+		<menuitem label="Set Currency Symbol" target="mainframe" value="set-currency-symbol.php" />
+		<menuitem label="Set Company Banking Details" target="mainframe" value="set-inv-bankdetails.php" />
+		<menuitem label="Enter Previous Year/Current Year Transactions" target="mainframe" value="set-period-use.php" />
+
+		<menuseparator />
+
+		<menuitem label="Update Exchange Rate" target="mainframe" value="toms/xrate-change.php" />
+		<menuitem label="Add Currency" target="mainframe" value="currency-add.php" />
+		<menuitem label="View Currencies" target="mainframe" value="currency-view.php" />
+
+		<menuseparator />
+
+		<menuitem label="Add Users" target="mainframe" value="admin-usradd.php" />
+		<menuitem label="Add POS users" target="mainframe" value="pos-user-add.php" />
+		<menuitem label="View Users" target="mainframe" value="admin-usrview.php" />
+		<menuitem label="Add User Department" target="mainframe" value="admin-deptadd.php" />
+		<menuitem label="View User Department" target="mainframe" value="admin-deptview.php" />
+		<menuitem label="Company Details" target="mainframe" value="compinfo-view.php" />
+		<menuitem label="Cubit Version Information" target="mainframe" value="ch.php" />
+
+		<menuseparator />
+
+		<menu label="Audit">
+		<menupopup>
+			<cubitmodule menu="admin/settings/audit" />
+			<menuitem label="View Year Close Reports (Trial Balance)" target="mainframe" value="audit/trial-bal.php" />
+			<menuitem label="View Year Close Reports (Income Statement)" target="mainframe" value="audit/yr-income-stmnt.php" />
+			<menuitem label="View Year Close Reports (Balance Sheet)" target="mainframe" value="audit/balance-sheet.php" />
+			<menuitem label="View Previous Year Employee Ledger" target="mainframe" value="audit/emp-ledger-audit.php" />
+			<menuitem label="View Previous Year General Ledger" target="mainframe" value="audit/ledger-audit.php" />
+			<menuitem label="View Previous Year General Ledger by Period Range" target="mainframe" value="audit/ledger-audit-prd.php" />
+			<menuitem label="View Previous Year Debtors Ledger" target="mainframe" value="audit/cust-ledger-audit.php" />
+			<menuitem label="View Previous Year Creditors Ledger" target="mainframe" value="audit/supp-ledger-audit.php" />
+			<menuitem label="View Previous Year Stock Ledger" target="mainframe" value="audit/stock-ledger-audit.php" />
+			<menuseparator />
+
+			<menuitem label="Auditor Report" target="mainframe" value="reporting/auditor_record.php" />
+			<menuitem label="ASA 401 assistance report" target="mainframe" value="reporting/report_asa401.php" />
+		</menupopup>
+		</menu>
+
+		<menuseparator/>
+
+		<menuitem label="Register Cubit" target="mainframe" value="register.php" />
+		<menuitem label="Cubit Documents" target="mainframe" value="cubit_docs.php" />
+		<menuitem label="Cubit Support Database" target="mainframe" value="support_search.php" />
+	</menupopup>
+	</menu>
+
+	<menu label="Accounting">
+	<menupopup>
+		<cubitmodule menu="accounting" />
+
+		<menu label="Settings">
+		<menupopup>
+			<menuitem label="Quick Setup" target="mainframe" value="setup.php" />
+			<menuitem label="Change Splash Screen" target="mainframe" value="splash.php" />
+			<menuitem label="Cubit Colour Template Editor" target="mainframe" value="settings/cubit-template.php" />
+			<menuitem label="Printing Options" target="mainframe" value="printing.php" />
+			<menuitem label="Stock Purchase Default VAT Setting" target="mainframe" value="settings/purchase-default-vat-setting.php" />
+
+			<cubitmodule menu="admin/settings" separator="both" />
+
+			<menu label="Admin">
+			<menupopup>
+				<cubitmodule menu="admin/settings/admin" />
+				<menuitem label="Set Account Creation" target="mainframe" value="set.php" />
+				<menuitem label="Set Login Retries" target="mainframe" value="set-login-retries.php" />
+
+				<menuitem label="Set Debtors Statement Type" target="mainframe" value="set-state.php" />
+				<menuitem label="Set Interest Calculation Method" target="mainframe" value="set-int-type.php" />
+				<menuitem label="Set/Show Financial Year Names" target="mainframe" value="core/finyearnames-new.php" />
+				<menuitem label="View Year Names" target="mainframe" value="core/finyearnames-view.php" />
+				<menuitem label="Set Period Range" target="mainframe" value="core/finyear-range.php" />
+				<menuitem label="View Period Range" target="mainframe" value="core/finyear-range.php" />
+				<menuitem label="Close Year" target="mainframe" value="core/yr-close.php" />
+				<menuitem label="Enter Previous Year/Current Year Transactions" target="mainframe" value="set-period-use.php" />
+				<menuitem label="View Settings" target="mainframe" value="set-view.php" />
+				<menuitem label="Add VAT Code" target="mainframe" value="vatcodes-add.php" />
+				<menuitem label="View VAT Codes" target="mainframe" value="vatcodes-view.php" />
+				<menuitem label="Add Public Holiday" target="mainframe" value="public_holiday_add.php" />
+				<menuitem label="View Public Holidays" target="mainframe" value="public_holiday_list.php" />
+				<menuitem label="VAT Period Setting" target="mainframe" value="vat_period_setting.php" />
+				<menuitem label="Customer Statement Age Setting" target="mainframe" value="settings/customer-statement-setting.php" />
+				<menuitem label="Set Active Transaction Date" target="mainframe" value="settings/transaction-date.php" />
+				<menuitem label="Set Accounts Dropdown Sort Order" target="mainframe" value="settings/accounts-drop.php" />
+				<menuitem label="Set Accounts To Use On Non Stock Invoices" target="mainframe" value="settings/non-stock-accounts.php" />
+				<menuitem label="Set Accounts To Use On Non Stock Purchases" target="mainframe" value="settings/non-purchases-accounts.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="Accounts">
+			<menupopup>
+				<cubitmodule menu="admin/settings/accounts" />
+				<menuitem label="Set Cost Center Usage" target="mainframe" value="set-costcenter-use.php" />
+				<menuitem label="Add New Account" target="mainframe" value="core/acc-new-dec.php" />
+				<menuitem label="View Accounts" target="mainframe" value="core/acc-view.php" />
+				<menuitem label="Add Account Category" target="mainframe" value="core/accat-new.php" />
+				<menuitem label="Set/Show Financial Year Names" target="mainframe" value="core/finyearnames-new.php" />
+				<menuitem label="View Year Names" target="mainframe" value="core/finyearnames-view.php" />
+				<menuitem label="Set Period Range" target="mainframe" value="core/finyear-range.php" />
+				<menuitem label="View Period Range" target="mainframe" value="core/finyear-range.php" />
+				<menuitem label="Close Year" target="mainframe" value="core/yr-close.php" />
+
+				<menuitem label="Link Accounts to Ratios" target="mainframe" value="ratio_settings.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="Navigation">
+			<menupopup>
+				<cubitmodule menu="admin/settings/navigation" />
+				<menuitem label="Set Invoice Complete Navigation" target="mainframe" value="settings/cust-credit-stockinv-newsetting.php?change=yes" />
+				<menuitem label="Customer Statement Age Analysis Setting" target="mainframe" value="settings/customer-statement-setting.php" />
+				<menuitem label="Set Accounts To Use On General Credit Note" target="mainframe" value="settings/credit-note-accounts.php" />
+				<menuitem label="Set Supplier Payment Output Type" target="mainframe" value="settings/supp-payment-type.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="Sales">
+
+			<menupopup>
+				<cubitmodule menu="admin/settings/sales" />
+				<menuitem label="Add Department" target="mainframe" value="toms/dept-add.php" />
+				<menuitem label="View Departments" target="mainframe" value="toms/dept-view.php" />
+				<menuitem label="Add Sales Person" target="mainframe" value="toms/salesp-add.php" />
+				<menuitem label="View Sales People" target="mainframe" value="toms/salesp-view.php" />
+				<menuitem label="Add Call Out Person" target="mainframe" value="toms/calloutp-add.php" />
+				<menuitem label="View Call Out People" target="mainframe" value="toms/calloutp-view.php" />
+				<menuitem label="Add Category" target="mainframe" value="toms/cat-add.php" />
+				<menuitem label="View Categories" target="mainframe" value="toms/cat-view.php" />
+				<menuitem label="Add Classification" target="mainframe" value="toms/class-add.php" />
+				<menuitem label="View Classifications" target="mainframe" value="toms/class-view.php" />
+				<menuitem label="Set rounding account" target="mainframe" value="core/sales-link.php?type=E&amp;payname=rounding" />
+				<menuitem label="Set Sale of Assets Account" target="mainframe" value="core/sales-link.php?type=I&amp;payname=saleofassets" />
+				<menuitem label="Set POS credit card control" target="mainframe" value="core/sal-link.php?type=B&amp;payname=cc" />
+				<menuitem label="Set Invoice Number" target="mainframe" value="toms/invid-set.php" />
+				<menuitem label="Set Sales Rep Commission" target="mainframe" value="coms-edit.php" />
+				<menuitem label="Add Interest Bracket" target="mainframe" value="intbrac-add.php" />
+				<menuitem label="View Interest Bracket" target="mainframe" value="intbrac-view.php" />
+				<menuitem label="Point of Sale Rounding" target="mainframe" value="pos-setting.php" />
+				<menuitem label="Point of Sale Comments" target="mainframe" value="pos-options.php" />
+				<menuitem label="Invoice / Statement Template Settings" target="mainframe" value="templates/template-settings.php" />
+				<menuitem label="Invoice Default Comments" target="mainframe" value="default-comments.php" />
+				<menuitem label="POS Invoice Default Comments" target="mainframe" value="default-pos-comments.php" />
+				<menuitem label="Statement Default Comments" target="mainframe" value="default-stmnt-comments.php" />
+				<menuitem label="Bank Receipt Statement Default Comments" target="mainframe" value="default-bank-recpt-comments.php" />
+				<menuitem label="Set Customer Credit Limit Response" target="mainframe" value="set-cust-inv-warn.php" />
+				<menuitem label="Sales Order Negative Stock Display Setting" target="mainframe" value="settings/sorder-neg-stock-response.php" />
+				<menuitem label="Add Team" target="mainframe" value="projectman/team_save.php" />
+				<menuitem label="View Teams" target="mainframe" value="projectman/team_view.php" />
+				<menuitem label="Allocate People to Teams" target="mainframe" value="projectman/team_allocate.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="Stock">
+			<menupopup>
+				<cubitmodule menu="admin/settings/stock" />
+				<menuitem label="Add Stock Category" target="mainframe" value="stockcat-add.php" />
+				<menuitem label="View Stock Categories" target="mainframe" value="stockcat-view.php" />
+				<menuitem label="Add Stock Classification" target="mainframe" value="stockclass-add.php" />
+				<menuitem label="View Stock Classification" target="mainframe" value="stockclass-view.php" />
+				<menuitem label="Add Store" target="mainframe" value="toms/whouse-add.php" />
+				<menuitem label="View Stores" target="mainframe" value="toms/whouse-view.php" />
+				<menuitem label="Add Pricelist" target="mainframe" value="toms/pricelist-add.php" />
+				<menuitem label="View Pricelists" target="mainframe" value="toms/pricelist-view.php" />
+				<menuitem label="Adjust Pricelist" target="mainframe" value="pricelist_adjust.php" />
+				<menuitem label="Advanced Adjust Pricelist" target="mainframe" value="pricelist_adjust_detailed.php" />
+				<menuitem label="Add Supplier Pricelist" target="mainframe" value="toms/sup-pricelist-add.php" />
+				<menuitem label="View Supplier Pricelists" target="mainframe" value="toms/sup-pricelist-view.php" />
+				<menuitem label="Increase Selling Price" target="mainframe" value="stock-price-inc.php" />
+				<menuitem label="Decrease Selling Price" target="mainframe" value="stock-price-dec.php" />
+				<menuitem label="Set Cost Variance Account" target="mainframe" value="core/pchs-link.php?acctype=E&amp;payname=Cost Variance" />
+				<menuitem label="Set Default Store" target="mainframe" value="toms/defwh-set.php" />
+				<menuitem label="Set Selling price VAT Type" target="mainframe" value="set-vat-type.php" />
+				<menuitem label="Set Stock Purchases Approval" target="mainframe" value="set-purch-apprv.php" />
+				<menuitem label="Point of Sale Setting" target="mainframe" value="pos-set.php" />
+				<menuitem label="Workshop Conditions" target="mainframe" value="workshop-settings.php" />
+				<menuitem label="Dispatch Settings" target="mainframe" value="picking_slips/picking_slip_settings.php" />
+				<menuitem label="Pre Stock Take Stock Display Limit" target="mainframe" value="settings/pre-stock-take-limit.php" />
+				<menuitem label="Additional Stock Filters On Invoices/Reports" target="mainframe" value="settings/stock-optional-filters.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="Salary">
+			<menupopup>
+				<cubitmodule menu="admin/settings/salary" />
+				<menuitem label="Add Loan Type" target="mainframe" value="loan_type_add.php" />
+				<menuitem label="View Loan Types" target="mainframe" value="loan_type_view.php" />
+				<menuitem label="Add Salary Account Link" target="mainframe" value="core/sal-link.php?type=E&amp;payname=salaries" />
+				<menuitem label="Add Interest Received Account Link" target="mainframe" value="core/sal-link.php?type=I&amp;payname=interestreceived" />
+				<menuitem label="Add Salary Control Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=salaries%20control" />
+				<menuitem label="Add Commission Account Link" target="mainframe" value="core/sal-link.php?type=E&amp;payname=Commision" />
+				<menuitem label="Add PAYE Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=PAYE" />
+				<menuitem label="Add UIF Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=UIF" />
+				<menuitem label="Add Pension Expense Account Link" target="mainframe" value="core/sal-link.php?type=E&amp;payname=pensionexpense" />
+				<menuitem label="Add Retirement Annuity Fund Expense Account Link" target="mainframe" value="core/sal-link.php?type=E&amp;payname=retireexpense" />
+				<menuitem label="Add Medical Aid Expense Account Link" target="mainframe" value="core/sal-link.php?type=E&amp;payname=medicalexpense" />
+				<menuitem label="Add Pension Control Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=pension" />
+				<menuitem label="Add Retirement Annuity Fund Control Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=retire" />
+				<menuitem label="Add Medical Aid Control Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=medical" />
+				<menuitem label="Add Cash Account Link" target="mainframe" value="core/sal-link.php?type=B&amp;payname=cash" />
+				<menuitem label="Bank Account Types" target="mainframe" value="accounttype-add.php" />
+				<menuitem label="General Settings" target="mainframe" value="salwages/settings-acc-edit.php" />
+				<menuitem label="Previous Employee Salary Payments" target="mainframe" value="recovery/prevemp-salrate.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="Locale">
+			<menupopup>
+				<cubitmodule menu="admin/settings/locale" />
+				<menuitem label="Locale Settings" target="mainframe" value="locale-settings.php" />
+				<menuitem label="Translate Cubit" target="mainframe" value="locale-translate.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="User Groups">
+			<menupopup>
+				<cubitmodule menu="admin/settings/usergroups" />
+				<menuitem label="Add Cubit Team" target="mainframe" value="crm/team-add.php" />
+				<menuitem label="View Cubit Teams" target="mainframe" value="crm/team-list.php" />
+				<menuitem label="Allocate Users to Cubit Teams" target="mainframe" value="crm/team-alloc.php" />
+
+				<menuseparator />
+
+				<menuitem label="Add Project Management Team" target="mainframe" value="projectman/team_save.php" />
+				<menuitem label="View Project Management Teams" target="mainframe" value="projectman/team_view.php" />
+				<menuitem label="Allocate People to Project Management Teams" target="mainframe" value="projectman/team_allocate.php" />
+				
+				<menuseparator />
+
+			</menupopup>
+			</menu>
+	
+			<menuitem label="Blocked Period Setting" target="mainframe" value="settings/blocked-period.php" />
+			<menuitem label="Statement Import Settings" target="mainframe" value="import/import-settings.php" />
+			<menuitem label="Email Settings" target="mainframe" value="email-settings.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Company">
+		<menupopup>
+			<cubitmodule menu="accounting/company" />
+			<menuitem label="Add New Company" target="mainframe" value="company-new.php" />
+			<menuitem label="View Companies" target="mainframe" value="company-view.php" />
+			<menuitem label="Import Company" target="mainframe" value="company-import.php" />
+			<menuitem label="Export Company" target="mainframe" value="company-export.php" />
+			<menuitem label="Company Details" target="mainframe" value="compinfo-view.php" />
+			<menuseparator />
+			<menuitem label="Reports" target="mainframe" value="reporting/index-reports.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Import">
+		<menupopup>
+			<cubitmodule menu="accounting/import" />
+			<menuitem label="Import Stock" target="mainframe" value="dealers/import-stock.php" />
+			<menuitem label="Import Customers" target="mainframe" value="dealers/import-customers.php" />
+			<menuitem label="Import Suppliers" target="mainframe" value="dealers/import-suppliers.php" />
+			<menuitem label="Import Trial Balance" target="mainframe" value="dealers/import-tb.php" />
+			<menuitem label="Import Assets" target="mainframe" value="asset-import.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Transaction Interaction">
+		<menupopup>
+			<cubitmodule menu="accounting/import" />
+			<menuitem label="Transactions Record" target="mainframe" value="tranreplay/record-trans.php" />
+			<menuitem label="View Recorded Transactions" target="mainframe" value="tranreplay/replay-trans-view.php" />
+			<menuitem label="Export Recorded Transactions" target="mainframe" value="tranreplay/export-xml.php" />
+			<menuitem label="Replay Transaction File" target="mainframe" value="tranreplay/replay-file-trans.php" />
+			<menuitem label="Clear Transaction Replay Entries" target="mainframe" value="tranreplay/replay-trans-clear.php" />
+
+		</menupopup>
+		</menu>
+
+		<menuseparator />
+
+		<menuitem label="Show Financial Year Names" target="mainframe" value="core/finyearnames-new.php" />
+		<menuitem label="Close Year" target="mainframe" value="core/yr-close.php" />
+		<menuitem label="Enter Previous Year/Current Year Transactions" target="mainframe" value="set-period-use.php" />
+
+		<menuseparator />
+
+		<menu label="Financials">
+		<menupopup>
+			<cubitmodule menu="accounting/financials" />
+			<menuitem label="Show All Report Options" target="mainframe" value="reporting/index-reports.php" />
+			<menuitem label="Show All Accounts/Categories" target="mainframe" value="reporting/allcat.php" />
+			<menuitem label="Show All Accounts/Categories (New Window)" target="crmPopup" value="reporting/allcat.php?popup=t" />
+			<menuitem label="Banking" target="mainframe" value="reporting/index-reports-banking.php" />
+			<menuitem label="Current Year Financial Statements" target="mainframe" value="reporting/index-reports-stmnt.php" />
+			<menuitem label="Debtors &amp; Creditors" target="mainframe" value="reporting/index-reports-debtcred.php" />
+			<menuitem label="Current Year Detailed General Ledger" target="mainframe" value="reporting/index-reports-journal.php" />
+			<menuitem label="VAT 201" target="mainframe" value="reporting/vat_return_report.php" />
+			<menuitem label="View Saved VAT 201's" target="mainframe" value="vat-report-view.php" />
+			<menuitem label="Other" target="mainframe" value="reporting/index-reports-other.php" />
+			<menuitem label="Stock - What Happened?" target="mainframe" value="reporting/whathappened_stock.php" />
+			<menuitem label="Debtors - What Happened?" target="mainframe" value="reporting/whathappened_debtor.php" />
+			<menuitem label="Creditors - What Happened?" target="mainframe" value="reporting/whathappened_creditor.php" />
+			<menuitem label="Daily Activity Report" target="mainframe" value="day_end_report.php" />
+			<menuitem label="Stock Sales GP Report" target="mainframe" value="stock-sales-gp.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Cost Ledger">
+		<menupopup>
+			<cubitmodule menu="accounting/costcenters" />
+				<menu label='Transaction Input'>
+				<menupopup>
+					<cubitmodule menu="accounting/costcenters/inputs" />
+					<menuitem label="Add Cost Center Entry" target="mainframe" value="costcenter-tran.php" />
+					<menuitem label="Allocate Outstanding Cost Center Data" target="mainframe" value="costcenter-unallocated.php" />
+				</menupopup>
+				</menu>
+				<menu label='Reports'>
+				<menupopup>
+					<cubitmodule menu="accounting/costcenters/reports" />
+					<menuitem label="Cost Ledger (Income And Expense)" target="mainframe" value="costcenter-rep.php" />
+					<menuitem label="Period Range Cost Ledger Report" target="mainframe" value="costcenter-rep-prd.php" />
+				</menupopup>
+				</menu>
+				<menu label='Settings'>
+				<menupopup>
+					<cubitmodule menu="accounting/costcenters/settings" />
+					<menuitem label="Add Cost Center" target="mainframe" value="costcenter-add.php" />
+					<menuitem label="View Cost Centers" target="mainframe" value="costcenter-view.php" />
+					<menuitem label="Add Project" target="mainframe" value="project-add.php" />
+					<menuitem label="Edit Projects And Cost Center Allocation" target="mainframe" value="projects-edit.php" />
+					<menuitem label="Set Cost Center Usage" target="mainframe" value="set-costcenter-use.php" />
+				</menupopup>
+				</menu>
+		</menupopup>
+		</menu>
+
+		<menu label="Journal Transactions">
+		<menupopup>
+			<cubitmodule menu="accounting/journaltransactions" />
+			<menuitem label="Add Journal Transaction" target="mainframe" value="core/trans-new.php" />
+			<menuitem label="Add Journal Transaction (one DR/CR, multiple CR/DR)" target="mainframe" value="core/trans-new-sep.php" />
+			<menuitem label="Add Recurring Journal Transaction" target="mainframe" value="core/rectrans-new.php" />
+			<menuitem label="View Recurring Journal Transactions" target="mainframe" value="core/rectrans-view.php" />
+			<menuitem label="Add Multiple Journal Transactions" target="mainframe" value="core/multi-trans.php" />
+			<menuitem label="Add Multiple Account Journal Transactions" target="mainframe" value="core/multi-account-trans.php" />
+			<menuitem label="Add Journal Transaction to Batch" target="mainframe" value="core/trans-batch-new.php" />
+			<menuitem label="Add Multiple Journal Transactions to Batch" target="mainframe" value="core/trans-batch.php" />
+			<menuitem label="View Batch" target="mainframe" value="core/batch-view.php" />
+		</menupopup>
+		</menu>
+
+		<menuitem label="Add High Speed Ledger" target="mainframe" value="ledger/ledger-new.php" />
+		<menuitem label="View High Speed Ledgers" target="mainframe" value="ledger/ledger-view.php" />
+
+		<menu label="Asset Ledger">
+		<menupopup>
+			<cubitmodule menu="accounting/assetledger" />
+			<menuitem label="Add Asset" target="mainframe" value="asset-new.php" />
+			<menuitem label="View Assets" target="mainframe" value="asset-view.php" />
+			<menuitem label="View Previous Assets" target="mainframe" value="asset-view.php?type=p" />
+			<menuitem label="Add Asset Group" target="mainframe" value="assetgrp-new.php" />
+			<menuitem label="View Asset Groups" target="mainframe" value="assetgrp-view.php" />
+			<menuitem label="Add Asset Type" target="mainframe" value="asset_type_save.php" />
+			<menuitem label="View Asset Type" target="mainframe" value="asset_type_view.php" />
+			<menuitem label="Assets Service History" target="mainframe" value="asset_service_hist.php" />
+			<menuitem label="Sale of Assets" target="mainframe" value="asset-sale.php" />
+			<menuitem label="Add to Workshop" target="mainframe" value="workshop-add-asset.php" />
+			<menuitem label="Apply Automatic Monthly Depreciation" target="mainframe" value="asset-autodep.php" />
+		</menupopup>
+		</menu>
+
+		<menuseparator />
+
+		<menu label="Petty Cash Book">
+		<menupopup>
+			<cubitmodule menu="accounting/pettycashbook" />
+			<menuitem label="Set Petty Cash Account" target="mainframe" value="core/cash-link.php" />
+			<menuitem label="Transfer Funds to Petty Cash Account" target="mainframe" value="bank/petty-trans.php" />
+			<menuitem label="Bank Petty Cash" target="mainframe" value="bank/petty-bank.php" />
+			<menuitem label="Add Petty Cash Requisition" target="mainframe" value="bank/petty-req-add.php" />
+			<menuitem label="Add Multiple Petty Cash Requisitions" target="mainframe" value="bank/petty-req-multi-add.php" />
+			<menuitem label="Pay Customer" target="mainframe" value="bank/petty-pay-cust.php" />
+			<menuitem label="Pay Supplier" target="mainframe" value="bank/petty-pay-supp.php" />
+			<menuitem label="Receive from Customer" target="mainframe" value="bank/petty-recpt-cust.php" />
+			<menuitem label="Receive from Supplier" target="mainframe" value="bank/petty-recpt-supp.php" />
+			<menuitem label="View Petty Cash Requisistions" target="mainframe" value="bank/pettycashbook-view.php" />
+			<menuitem label="Petty Cash Book Report" target="mainframe" value="bank/pettycash-rep.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Cash Book">
+		<menupopup>
+			<cubitmodule menu="accounting/cashbook" />
+			<menuitem label="Cash Book Entry" target="mainframe" value="bank/cashbook-entry.php" />
+			<menuitem label="Bank Transfer" target="mainframe" value="bank/bank-trans.php" />
+			<menuitem label="Transfer Funds to/from foreign accounts" target="mainframe" value="bank/bank-trans-int.php" />
+			<menuitem label="Add Bank Payment (non Suppliers)" target="mainframe" value="bank/bank-pay-add.php" />
+			<menuitem label="Add Bank Receipt (non Customers)" target="mainframe" value="bank/bank-recpt-add.php" />
+			<menuitem label="Add Multiple Bank Payment" target="mainframe" value="bank/multi-bank-pay-add.php" />
+			<menuitem label="Add Multiple Entries" target="mainframe" value="bank/bank-stmnt.php" />
+			<menuitem label="Add Multiple Bank Receipt" target="mainframe" value="bank/multi-bank-recpt-add.php" />
+			<menuitem label="Add Bank Receipt (for Customers)" target="mainframe" value="bank/bank-recpt-inv.php" />
+			<menuitem label="Add Multiple Bank Receipt (For Customers)" target="mainframe" value="bank/bank-recpt-multi-debtor.php" />
+			<menuitem label="Add Multiple Entries (Customer Receipts)" target="mainframe" value="bank/multi-bank-recpt-inv.php" />
+			<menuitem label="Add Bank Payment (to Suppliers)" target="mainframe" value="bank/bank-pay-supp.php" />
+			<menuitem label="View Cash Book" target="mainframe" value="bank/cashbook-view.php" />
+			<menuitem label="Add Receipt from Supplier" target="mainframe" value="bank/bank-recpt-supp.php" />
+			<menuitem label="Add Bank Payment to Customers" target="mainframe" value="bank/bank-pay-cus.php" />
+
+			<menuseparator />
+
+			<menuitem label="Import bank statement" target="mainframe" value="import/import-statement.php" />
+
+			<menuseparator />
+
+			<menuitem label="View Batch Entries" target="mainframe" value="bank/batch-cashbook-view.php" />
+			<menuitem label="Bank Reconciliation" target="mainframe" value="reporting/bank-recon.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Budgeting">
+		<menupopup>
+			<cubitmodule menu="accounting/budgeting" />
+			<menuitem label="New Monthly Budget" target="mainframe" value="budget/budget-new.php" />
+			<menuitem label="New Yearly Budget" target="mainframe" value="budget/budget-yr-new.php" />
+			<menuitem label="View Budgets" target="mainframe" value="budget/budget-view.php" />
+			<menuitem label="Add Cash Flow Budget Entry" target="mainframe" value="budget/cfe-add.php" />
+			<menuitem label="View Cash Flow Budget Entries" target="mainframe" value="budget/cfe-view.php" />
+			<menuitem label="Cash Flow Budget Report" target="mainframe" value="budget/cashflow-report.php" />
+		</menupopup>
+		</menu>
+
+		<menuseparator />
+
+		<menuitem label="Add Credit Card" target="mainframe" value="bank/creditcard-new.php" />
+		<menuitem label="Add Petrol Card" target="mainframe" value="bank/petrolcard-new.php" />
+		<menuitem label="Add Bank Account" target="mainframe" value="bank/bankacct-new.php" />
+		<menuitem label="View/Edit Bank Account" target="mainframe" value="bank/bankacct-view.php" />
+		<menuitem label="Daily Activity Report" target="mainframe" value="day_end_report.php" />
+	</menupopup>
+	</menu>
+
+	<menu label="Sales">
+	<menupopup>
+		<cubitmodule menu="sales" />
+		
+		<menu label="Invoices">
+		<menupopup>
+			<cubitmodule menu="sales/invoices" />
+			<menuitem label="Find Invoice" target="mainframe" value="invoice-search.php" />
+
+			<menuseparator />
+
+			<menuitem label="New Invoice" target="mainframe" value="cust-credit-stockinv.php" />
+			<menuitem label="New Invoice (No negative stock)" target="mainframe" value="cust-credit-stockinv-no-neg.php" />
+			<menuitem label="New Volume Invoice" target="mainframe" value="calc-cust-credit-stockinv.php" />
+			<menuitem label="View Invoices" target="mainframe" value="invoice-view.php" />
+			<menuitem label="View Paid Invoices" target="mainframe" value="invoice-view-prd.php" />
+			<menuitem label="View Incomplete Invoices" target="mainframe" value="invoice-unf-view.php" />
+			<menuitem label="View Canceled Invoices" target="mainframe" value="invoice-canc-view.php" />
+
+			<menuseparator />
+
+			<menuitem label="New POS Invoice" target="mainframe" value="pos-invoice-new.php" />
+			<menuitem label="View unprocessed POS Invoices" target="mainframe" value="pos-invoice-list.php" />
+			<menuitem label="View processed POS Invoices" target="mainframe" value="pos-invoice-view-prd.php" />
+
+			<menuseparator />
+
+			<menuitem label="View Credit Notes" target="mainframe" value="invoice-note-view-prd.php" />
+
+			<menuseparator />
+
+			<menuitem label="New Non Stock Invoice" target="mainframe" value="nons-invoice-new.php" />
+			<menuitem label="New Multi Line Invoice" target="mainframe" value="nons-multiline-invoice-new.php" />
+			<menuitem label="New International Non Stock Invoice" target="mainframe" value="nons-intinvoice-new.php" />
+			<menuitem label="View Non Stock Invoices" target="mainframe" value="nons-invoice-view.php" />
+			<menuitem label="View Paid Non Stock Invoices" target="mainframe" value="nons-processed-view.php" />
+			<menuitem label="View Incomplete Non Stock Invoices" target="mainframe" value="nons-invoice-unf-view.php" />
+			<menuitem label="View Non Stock Credit notes" target="mainframe" value="nons-invoice-note-view.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Recurring Invoices">
+		<menupopup>
+			<cubitmodule menu="sales/recurringinvoices" />
+			<menuitem label="New Recurring Invoice" target="mainframe" value="rec-invoice-new.php" />
+			<menuitem label="View Recurring Invoices" target="mainframe" value="rec-invoice-view.php" />
+			<menuitem label="New Recurring Non Stock Invoice" target="mainframe" value="rec-nons-invoice-new.php" />
+			<menuitem label="View Recurring Non Stock Invoice" target="mainframe" value="rec-nons-invoice-view.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Orders">
+		<menupopup>
+			<cubitmodule menu="sales/orders" />
+			<menuitem label="New Sales Order" target="mainframe" value="sorder-new.php" />
+			<menuitem label="View Sales Orders" target="mainframe" value="sorder-view.php" />
+			<menuitem label="View Incomplete Sales Orders" target="mainframe" value="sorder-unf-view.php" />
+			<menuitem label="View Canceled Sales Order" target="mainframe" value="sorder-canc-view.php" />
+			<menuitem label="View Invoiced Sales Orders" target="mainframe" value="sorder-invoiced.php" />
+
+			<menuseparator />
+
+			<menuitem label="New Non-Stock Sales Order" target="mainframe" value="nons-sorder-new.php" />
+			<menuitem label="View Non-Stock Sales Orders" target="mainframe" value="nons-sorder-view.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Quotes">
+		<menupopup>
+			<cubitmodule menu="sales/quotes" />
+			<menuitem label="New Quote" target="mainframe" value="quote-new.php" />
+			<menuitem label="View Quotes" target="mainframe" value="quote-view.php" />
+			<menuitem label="View Incomplete Quotes" target="mainframe" value="quote-unf-view.php" />
+			<menuitem label="View Canceled Quotes" target="mainframe" value="quote-canc-view.php" />
+			<menuitem label="View Invoiced Quotes" target="mainframe" value="quote-invoiced.php" />
+
+			<menuseparator />
+
+			<menuitem label="New POS Quote" target="mainframe" value="pos-quote-new.php" />
+			<menuitem label="View POS Quote" target="mainframe" value="pos-quote-view.php" />
+			<menuitem label="View Incomplete POS Quotes" target="mainframe" value="pos-quote-unf-view.php" />
+			<menuitem label="View Canceled POS Quotes" target="mainframe" value="pos-quote-canc-view.php" />
+
+			<menuseparator />
+
+			<menuitem label="New Non Stock Quote" target="mainframe" value="nons-quote-new.php" />
+			<menuitem label="New Multi Line Quote" target="mainframe" value="nons-multiline-quote-new.php" />
+			<menuitem label="View Non Stock Quotes" target="mainframe" value="nons-quote-view.php" />
+		</menupopup>
+		</menu>
+
+		<menuitem label="Sales Person Today Display" target="mainframe" value="groupware/dashboard.php" />
+
+		<menu label="Consignment Orders">
+		<menupopup>
+			<cubitmodule menu="sales/consignmentorders" />
+			<menuitem label="New Consignment Order" target="mainframe" value="corder-new.php" />
+			<menuitem label="View Consignment Orders" target="mainframe" value="corder-view.php" />
+			<menuitem label="View Incomplete Consignment Orders" target="mainframe" value="corder-unf-view.php" />
+			<menuitem label="View Canceled Consigment Orders" target="mainframe" value="corder-canc-view.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Call Out Documents">
+		<menupopup>
+			<cubitmodule menu="sales/calloutdocuments" />
+			<menuitem label="New Call Out Document" target="mainframe" value="callout-new.php" />
+			<menuitem label="Return From Call Out" target="mainframe" value="callout-view.php" />
+			<menuitem label="View Invoiced Documents" target="mainframe" value="callout-inved-view.php" />
+			<menuitem label="View Stored/Incomplete Call Out Documents" target="mainframe" value="callout-unf-view.php" />
+			<menuitem label="View Canceled Call Out Documents" target="mainframe" value="callout-canc-view.php" />
+		</menupopup>
+		</menu>
+
+		<menuseparator />
+
+		<menuitem label="General Credit Note" target="mainframe" value="general-creditnote.php" />
+		<menuitem label="View General Credit Notes" target="mainframe" value="credit-notes-view.php" />
+
+		<menuseparator />
+
+		<menu label="Reports">
+		<menupopup>
+			<cubitmodule menu="sales/reports" />
+			<menuitem label="Total Sales Report" target="mainframe" value="sn-sales-rep.php" />
+			<menuitem label="Stock Sales GP Report" target="mainframe" value="stock-sales-gp.php" />
+			<menuitem label="Unscanned Invoices" target="mainframe" value="invoices-unscanned.php" />
+			<menuitem label="Stock Sales Report (VAT)" target="mainframe" value="stock-sales-rep.php" />
+			<menuitem label="Sales Report (Invoices Only)" target="mainframe" value="sales_report.php" />
+			<menuitem label="Sales Report (POS Invoices Only)" target="mainframe" value="pos-report-sales.php" />
+			<menuitem label="Period Range Stock Sales Report" target="mainframe" value="stock-sales-rep-stk.php" />
+			<menuitem label="Period Range Non-Stock Sales Report" target="mainframe" value="nons-sales-rep.php" />
+			<menuitem label="Sales Orders Past Due Date" target="mainframe" value="sorder-due.php" />
+			<menuitem label="Invoice Discounts Report" target="mainframe" value="invoice-disc-rep.php" />
+			<menuitem label="Sales Rep Commission Report" target="mainframe" value="coms-report.php" />
+			<menuitem label="Sales Forecast" target="mainframe" value="sales_forecast.php" />
+			<menuitem label="Point in Time Sales Forecast" target="mainframe" value="sales_forecast_pit.php" />
+			<menuitem label="View Sales Forecasts" target="mainframe" value="sales_forecast_view.php" />
+		</menupopup>
+		</menu>
+
+		<menuitem label="View Temp/Invoice Number" target="mainframe" value="find-num.php" />
+		<menuitem label="Record month end for age analysis" target="mainframe" value="month-end.php" />
+
+		<menuseparator />
+
+			<menuitem label="POS Cash Report" target="mainframe" value="pos-report-user.php" />
+		<menuitem label="Sale of Assets" target="mainframe" value="asset-sale.php" />
+	</menupopup>
+	</menu>
+
+	<menu label="Business">
+	<menupopup>
+		<cubitmodule menu="business" />
+
+                <menu label="Third Party">
+                <menupopup>
+                        <menuitem label="Process CubitPOS Transactions" target="mainframe" value="thirdparty/pos_run.php" />
+                        <menuitem label="Process Equipment Rental Transactions" target="mainframe" value="thirdparty/hirepos_run" />
+                        <menuitem label="Process Video Rental Transactions" target="mainframe" value="thirdparty/videoposrun" />
+                </menupopup>
+                </menu>
+
+		<menu label="Transactioning">
+		<menupopup>
+			<cubitmodule menu="business/transactioning" />
+			<menuitem label="Approve Customer Sales Orders" target="mainframe" value="transheks/order_approve.php" />
+			<menuitem label="View Unknown Transactioning Requests" target="mainframe" value="transheks/commapprove.php" />
+
+			<menuseparator />
+
+			<menuitem label="Configuration" target="mainframe" value="transheks/configuration.php" />
+		</menupopup>
+		</menu>
+
+		<menuitem label="New Lead" target="mainframe" value="crmsystem/leads_new.php" />
+		<menuitem label="View Leads" target="crmPopup" value="crmsystem/leads_list.php" />
+
+		<menuseparator />
+
+		<menu label="Project Management">
+			<menupopup>
+				<cubitmodule menu="business/projectmanagement" />
+				<menuitem label="Add Project" target="mainframe" value="projectman/project_save.php" />
+				<menuitem label="View Projects" target="mainframe" value="projectman/project_view.php" />
+				<menuitem label="Project Charter" target="mainframe" value="projectman/project_charter.php" />
+				<menuitem label="Gantt Chart" target="mainframe" value="projectman/gantt_display.php" />
+
+				<menuseparator />
+
+				<menuitem label="Add Person" target="mainframe" value="projectman/people_save.php" />
+				<menuitem label="View People" target="mainframe" value="projectman/people_view.php" />
+
+				<menuseparator />
+
+				<menuitem label="Add Position" target="mainframe" value='projectman/position_save.php' />
+				<menuitem label="View Positions" target="mainframe" value="projectman/position_view.php" />
+
+				<menuseparator />
+
+				<menuitem label="Add Task" target="mainframe" value="projectman/task_save.php" />
+				<menuitem label="View Tasks" target="mainframe" value="projectman/task_view.php" />
+				<menuitem label="Add Task Type" target="mainframe" value="projectman/task_type_save.php" />
+				<menuitem label="View Task Types" target="mainframe" value="projectman/task_type_view.php" />
+
+				<menuseparator />
+
+				<menuitem label="Add Project Document Type" target="mainframe" value="projectman/doc_type_save.php" />
+				<menuitem label="View Project Document Types" target="mainframe" value="projectman/doc_type_view.php" />
+			</menupopup>
+			</menu>
+
+			<menu label="User Groups">
+			<menupopup>
+				<cubitmodule menu="business/projectmanagement/usergroups" />
+				<menuitem label="Add Cubit Team" target="mainframe" value="crm/team-add.php" />
+				<menuitem label="View Cubit Teams" target="mainframe" value="crm/team-list.php" />
+				<menuitem label="Allocate Users to Cubit Teams" target="mainframe" value="crm/team-alloc.php" />
+
+				<menuseparator />
+
+				<menuitem label="Add Project Management Team" target="mainframe" value="projectman/team_save.php" />
+				<menuitem label="View Project Management Teams" target="mainframe" value="projectman/team_view.php" />
+				<menuitem label="Allocate People to Project Management Teams" target="mainframe" value="projectman/team_allocate.php" />
+
+			</menupopup>
+			</menu>
+
+			<menu label="Email Marketing">
+			<menupopup>
+				<cubitmodule menu="business/projectmanagement/emailmarketing" />
+				<menuitem label="Email Marketing" target="mainframe" value="email-groups.php" />
+				<menuitem label="Send Emails In Queue" target="mainframe" value="email-queue-manage.php" />
+				<menuitem label="Resend Failed Emails In Queue" target="mainframe" value="email-queue-failures.php" />
+				<menuitem label="Import Emails From File" target="mainframe" value="emails_file_upload.php" />
+				<menuitem label="Change Email Marketing From Address" target="mainframe" value="settings/email-market-address.php" />
+			</menupopup>
+			</menu>
+		
+		
+		<menuitem label="List Unallocated Queries" target="mainframe" value="crm/tokens-list-unall.php" />
+		<menuitem label="New Query" target="mainframe" value="crm/tokens-new.php" />
+		<menuitem label="Manage Queries" target="mainframe" value="crm/tokens-manage.php" />
+
+		<menu label="Reports">
+		<menupopup>
+			<cubitmodule menu="business/reports" />
+			<menuitem label="Outstanding Query Statistics" target="mainframe" value="crm/reports-tokens-stats.php" />
+			<menuitem label="Search Closed Queries" target="mainframe" value="crm/reports-tokens-closed.php" />
+			<menuitem label="List Closed Queries" target="mainframe" value="crm/reports-tokens-closed2.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Query Settings">
+		<menupopup>
+			<cubitmodule menu="business/querysettings" />
+			<menuitem label="Add Query Category" target="mainframe" value="crm/tcat-add.php" />
+			<menuitem label="View Query Categories" target="mainframe" value="crm/tcat-list.php" />
+			<menuitem label="Add Action" target="mainframe" value="crm/action-add.php" />
+			<menuitem label="View Actions" target="mainframe" value="crm/action-list.php" />
+		</menupopup>
+		</menu>
+	</menupopup>
+	</menu>
+
+	<menu label="Purchases">
+	<menupopup>
+		<cubitmodule menu="purchases" />
+		<menuitem label="Receive Order" target="mainframe" value="purch-recv-purnum.php" />
+		<menuitem label="Add Batch Creditor Non-Stock Invoices" target="mainframe" value="nons-purch-batch-add.php" />
+
+		<menuseparator />
+
+		<menu label="Orders">
+		<menupopup>
+			<cubitmodule menu="purchases/orders" />
+			<menuitem label="New Order" target="mainframe" value="purchase-new.php" />
+			<menuitem label="View Orders" target="mainframe" value="purchase-view.php" />
+			<menuitem label="View Received Purchases" target="mainframe" value="purchase-view-prd.php" />
+			<menuitem label="View Returned Purchases" target="mainframe" value="purchase-view-ret.php" />
+			<menuitem label="View Canceled Orders" target="mainframe" value="purch-canc-view.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Non Stock Orders">
+			<menupopup>
+				<cubitmodule menu="purchases/nonstockorders" />
+				<menuitem label="New Non Stock Order" target="mainframe" value="nons-purchase-new.php" />
+				<menuitem label="New Linked Non Stock Order" target="mainframe" value="lnons-purch-new.php" />
+				<menuitem label="View Non Stock Orders" target="mainframe" value="nons-purchase-view.php" />
+				<menuitem label="View Received Non Stock Purchases" target="mainframe" value="nons-purchase-view-prd.php" />
+				<menuitem label="View Returned Non Stock Purchases" target="mainframe" value="nons-note-view.php" />
+			</menupopup>
+		</menu>
+
+		<menu label="International Purchases">
+		<menupopup>
+			<cubitmodule menu="purchases/internationalpurchases" />
+			<menuitem label="New International Order" target="mainframe" value="purch-int-new.php?noduty=yes" />
+			<menuitem label="New International Order(Import agent)" target="mainframe" value="purch-int-new.php" />
+			<menuitem label="View International Orders" target="mainframe" value="purch-int-view.php" />
+			<menuitem label="View Received International Purchases" target="mainframe" value="purch-int-view-prd.php" />
+			<menuitem label="View Returned International Purchases" target="mainframe" value="purch-int-view-ret.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="International Non Stock Orders">
+		<menupopup>
+			<cubitmodule menu="purchases/internationalnonstockorders" />
+			<menuitem label="New International Non Stock Order" target="mainframe" value="nons-purch-int-new.php" />
+			<menuitem label="View International Non Stock Purchases" target="mainframe" value="nons-purch-int-view.php" />
+			<menuitem label="View Received International Non Stock Purchases" target="mainframe" value="nons-purch-int-view-prd.php" />
+			<menuitem label="View Returned International Non Stock Purchases" target="mainframe" value="nons-purch-int-view-ret.php" />
+		</menupopup>
+		</menu>
+
+		<menuseparator />
+
+		<menuitem label="Purchase Planning" target="mainframe" value="purchase_planning.php" />
+		<menuitem label="Suppliers Transaction Report" target="mainframe" value="supp-tran-rep.php" />
+		<menuitem label="Required Purchases" target="mainframe" value="required_purchases.php" />
+	</menupopup>
+	</menu>
+
+	<menu label="Stock">
+	<menupopup>
+		<cubitmodule menu="stock" />
+		<menuitem label="Find Serial No." target="mainframe" value="stock-serno-find.php" />
+		<menuitem label="Add Stock" target="mainframe" value="stock-add.php" />
+		<menuitem label="View Stock" target="mainframe" value="stock-view.php" />
+		<menuitem label="Picking Slip" target="mainframe" value="picking_slips/sorder-view.php" />
+		<menu label="Dispatch">
+		<menupopup>
+			<menuitem label="Dispatch Now" target="mainframe" value="picking_slips/dispatch.php" />
+			<menuitem label="Scan Customer Signed Invoices" target="mainframe" value="picking_slips/signed_invoices.php" />
+			<menuitem label="Outstanding Invoices" target="mainframe" value="picking_slips/unsigned_invoices_report.php" />
+			<menuitem label="Check Customer Signed Invoices" target="mainframe" value="picking_slips/signed_invoices.php?key=select" />
+		</menupopup>
+		</menu>	
+		<menu label="Stock Take">
+		<menupopup>
+			<menuitem label="Pre Stock Take" target="mainframe" value="stock_take_pre.php" />
+			<menuitem label="Post Stock Take" target="mainframe" value="stock_take_post.php" />
+			<menuitem label="Stock Take Adjust" target="mainframe" value="stock_take_adjust.php" />
+			<menuitem label="Stock Take Report" target="mainframe" value="stock_take_report.php" />
+		</menupopup>
+		</menu>
+		<menuitem label="Search Stock" target="mainframe" value="stock-search.php" />
+		<menuitem label="POS Pricelist Edit" target="mainframe" value="pos-pricelist-edit.php" />
+		<menuitem label="Stock Transfer (store)" target="mainframe" value="stock-transfer.php" />
+		<menuitem label="View Workshop" target="mainframe" value="workshop-view.php" />
+		<menuitem label="Add to Workshop" target="mainframe" value="workshop-add.php" />
+		<menuitem label="Manufacturing Recipes" target="mainframe" value="manu_recipe.php" />
+
+		<menuseparator />
+
+		<menu label="Labels">
+		<menupopup>
+			<cubitmodule menu="stock/labels" />
+			<menuitem label="Print Stock Labels" target="mainframe" value="label-stock-print.php" />
+			<menuitem label="Save Stock Labels" target="mainframe" value="label-stock-save.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Reports">
+		<menupopup>
+			<cubitmodule menu="stock/reports" />
+			<menuitem label="Search Stock" target="mainframe" value="stock-search.php" />
+			<menuitem label="View Stock" target="mainframe" value="stock-view.php" />
+			<menuitem label="Stock - What Happened?" target="mainframe" value="reporting/whathappened_stock.php" />
+			<menuitem label="Inventory - Ledger" target="mainframe" value="reporting/stock-ledger.php" />
+			<menuitem label="Available Stock" target="mainframe" value="stock-avail.php" />
+			<menuitem label="Stock Levels" target="mainframe" value="stock-lvl-rep.php" />
+			<menuitem label="Stock Sales Report" target="mainframe" value="stock-sales-rep-stk.php" />
+			<menuitem label="Stock Movement Report" target="mainframe" value="stock-move-rep.php" />
+			<menuitem label="Lead Time Report" target="mainframe" value="lead_time_report.php" />
+			<menuitem label="Recommended Order Date and Qty Report" target="mainframe" value="purchase_dateqty_report.php" />
+			<menuitem label="Recommended Minimum/Maximum Stock Levels" target="mainframe" value="stock_minmax.php" />
+			<menuitem label="Stock Transfer" target="mainframe" value="reporting/stock-transfer.php" />
+<!--			<menuitem label="Manufacturing Cost Report" target="mainframe" value="manu_cost_report.php" />-->
+		</menupopup>
+		</menu>
+	</menupopup>
+	</menu>
+
+	<menu label="Debtors">
+	<menupopup>
+		<cubitmodule menu="debtors" />
+		<menuitem label="Add Customer" target="mainframe" value="customers-new.php" />
+		<menuitem label="View Customers" target="mainframe" value="customers-view.php" />
+		<menuitem label="Debtors Statements PDF" target="mainframe" value="pdf/pdf-statement.php?key=getcusdetailsall" />
+		<menuitem label="Email Customers" target="mainframe" value="customers-email.php" />
+		<menuitem label="Find Customer" target="mainframe" value="customers-view.php?findcust=t" />
+
+<menuitem label="Debtors - What Happened?" target="mainframe" value="reporting/whathappened_debtor.php" />
+			<menuitem label="Debtors - Age Analysis" target="mainframe" value="reporting/debt-age-analysis.php" />
+			<menuitem label="Debtors - Ledger" target="mainframe" value="reporting/cust-ledger.php" />
+
+		<menuitem label="Print Customer List" target="mainframe" value="cust-list.php" />
+		<menuitem label="Calculate Interest" target="mainframe" value="calc-int.php" />
+		<menuitem label="Allocate Customer Receipts" target="mainframe" value="debtor-payments-allocation.php" />
+		<menuitem label="Debtors Reconciliation Tool" target="mainframe" value="debtors-reconciliation-tool.php" />
+<!--		<menuitem label="Debtors Settlement Discount" target="mainframe" value="debtors-settlement-discount.php" />-->
+		<menu label='Labels'>
+		<menupopup>
+			<cubitmodule menu="debtors/labels" />
+			<menuitem label="Print Customer Labels" target="mainframe" value="label-cust-print.php" />
+			<menuitem label="Save Customer Labels" target="mainframe" value="label-cust-save.php" />
+		</menupopup>
+		</menu>
+<!--		<menu label="Reports">
+		<menupopup>
+			<cubitmodule menu="debtors/reports" />
+			<menuitem label="Debtors - What Happened?" target="mainframe" value="reporting/whathappened_debtor.php" />
+			<menuitem label="Debtors - Age Analysis" target="mainframe" value="reporting/debt-age-analysis.php" />
+			<menuitem label="Debtors - Ledger" target="mainframe" value="reporting/cust-ledger.php" />
+		</menupopup>
+		</menu>-->
+	</menupopup>
+	</menu>
+
+	<menu label="Creditors">
+	<menupopup>
+		<cubitmodule menu="creditors" />
+		<menuitem label="Add Supplier" target="mainframe" value="supp-new.php" />
+		<menuitem label="View Suppliers" target="mainframe" value="supp-view.php" />
+		<menuseparator />
+
+		<menuitem label="Confirm Creditor Payments" target="mainframe" value="bank/bank-pay-supp-process.php" />
+		<menuitem label="Creditor Payment Run" target="mainframe" value="supp-payment-run.php" />
+		<menuitem label="Creditor Payment Run Listing" target="mainframe" value="contract/supp-payment-list.php" />
+		<menuitem label="View Processed Creditor Payment Runs" target="mainframe" value="contract/supp-payment-run-view.php" />
+		<menuitem label="Batch Creditor Invoices" target="mainframe" value="nons-purch-batch-add.php" />
+
+		<menuseparator />
+
+		<menuitem label="Add Supplier Group" target="mainframe" value="supp-group-add.php" />
+		<menuitem label="View Supplier Groups" target="mainframe" value="supp-group-view.php" />
+		<menuitem label="Find Supplier" target="mainframe" value="supp-find.php" />
+		<menuitem label="Print Supplier List" target="mainframe" value="supp-list.php" />
+
+		<menuitem label="Creditors Reconciliation Tool" target="mainframe" value="creditors-reconciliation-tool.php" />
+
+		<menu label="Labels">
+		<menupopup>
+			<cubitmodule menu="creditors/labels" />
+			<menuitem label="Print Supplier Labels" target="mainframe" value="label-supp-print.php" />
+			<menuitem label="Save Supplier Labels" target="mainframe" value="label-supp-save.php" />
+		</menupopup>
+		</menu>
+		
+		<menu label="Reports">
+		<menupopup>
+			<cubitmodule menu="creditors/reports" />
+			<menuitem label="Creditors - What Happened?" target="mainframe" value="reporting/whathappened_creditor.php" />
+			<menuitem label="Creditors - Age Analysis" target="mainframe" value="reporting/cred-age-analysis.php" />
+			<menuitem label="Creditors - Ledger" target="mainframe" value="reporting/supp-ledger.php" />
+			<menuitem label="Creditor Recon Report - Reasons" target="mainframe" value="recon_report_ct.php" />
+			<menuitem label="Creditor Recon Report - Variance" target="mainframe" value="recon_report_variance_ct.php" />
+			<menuitem label="Creditor Recon Report - Reason Variances" target="mainframe" value="recon_report_reason_variance_ct.php" />
+		</menupopup>
+		</menu>
+
+	</menupopup>
+	</menu>
+
+	<menu label="Salaries">
+	<menupopup>
+		<cubitmodule menu="salaries" />
+		<menuitem label="Add New Employee" target="mainframe" value="admin-employee-add.php" />
+		<menuitem label="View/Edit Employees" target="mainframe" value="admin-employee-view.php" />
+
+		<menu label="Adjust Payroll">
+		<menupopup>
+			<cubitmodule menu="salaries/adjustpayroll" />
+			<menuitem label="General" target="mainframe" value="salwages/adjust-general.php" />
+			<menuitem label="Hours" target="mainframe" value="salwages/nextver.php" />
+			<menuitem label="Commission" target="mainframe" value="dealers/import-commission.php" />
+			<menuitem label="Leave" target="mainframe" value="dealers/import-leave.php" />
+		</menupopup>
+		</menu>
+
+		<menuitem label="Run Payroll Bulk" target="mainframe" value="admin-employee-view.php" />
+		<menuitem label="Run Payroll Individual" target="mainframe" value="salwages/salaries-staff.php" />
+		<menuitem label="View Paid Salaries" target="mainframe" value="salwages/payslips.php" />
+		<menuitem label="View Reversed Salaries" target="mainframe" value="salwages/payslipsr.php" />
+		<menuitem label="View Employee Salary" target="mainframe" value="salwages/payslips.php?key=emp" />
+		<menuitem label="Export Payroll Data To Bank File" target="mainframe" value="process_bank_file.php" />
+		<menuitem label="Employee Card" target="mainframe" value="employee-card.php" />
+		<menuitem label="Time and Attendance" target="mainframe" value="timelog/employee_timelog.php" />
+
+		<menu label="Employee Resources">
+		<menupopup>
+			<cubitmodule menu="salaries/employeeresources" />
+			<menuitem label="Add Employee Report" target="mainframe" value="salwages/employee-reports-add.php" />
+			<menuitem label="Time and Attendance Log Report" target="mainframe" value="timelog/employee_timelog_report.php" />
+			<menuitem label="Time and Attendance Total Time Report" target="mainframe" value="timelog/employee_timelog_report.php?key=times" />
+			<menuitem label="New Report Type" target="mainframe" value="salwages/report-type-add.php" />
+			<menuitem label="Apply for Leave" target="mainframe" value="salwages/employee-leave-apply.php" />
+			<menuitem label="Add Salary Deduction" target="mainframe" value="salwages/salded-add.php" />
+			<menuitem label="Add Allowance" target="mainframe" value="salwages/allowance-add.php" />
+			<menuitem label="Add Fringe Benefit" target="mainframe" value="salwages/fringeben-add.php" />
+			<menuitem label="Add Subsistence Allowance" target="mainframe" value="salwages/subsistence-edit.php" />
+			<menuitem label="Add Reimbursement" target="mainframe" value="salwages/rbs-add.php" />
+			<menuitem label="Apply For Loan" target="mainframe" value="salwages/loan_apply.php" />
+			<menuitem label="Add Grievances" target="mainframe" value="grievances-add.php" />
+			<menuitem label="Add Staff Training" target="mainframe" value="employee-training-add.php" />
+			<menuitem label="Search Staff Training" target="mainframe" value="training-search.php" />
+			<menuitem label="Staff Training Report" target="mainframe" value="reporting/employee-training-rep.php" />
+			<menuitem label="Add Staff Training Provider" target="mainframe" value="training-provider-add.php" />
+			<menuitem label="Add Medical Aid" target="mainframe" value="medical_aid_add.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="View Employee Resources">
+		<menupopup>
+			<cubitmodule menu="salaries/employeeresources" />
+			<menuitem label="View Employee Report" target="mainframe" value="salwages/employee-reports-view.php" />
+			<menuitem label="View Leave" target="mainframe" value="salwages/employee-leave-view.php" />
+			<menuitem label="View Salary Deduction" target="mainframe" value="salwages/salded-view.php" />
+			<menuitem label="View Allowance" target="mainframe" value="salwages/allowances-view.php" />
+			<menuitem label="View Fringe Benefits" target="mainframe" value="salwages/fringebens-view.php" />
+			<menuitem label="View/Edit Subsistence Allowances" target="mainframe" value="salwages/subsistence-view.php" />
+			<menuitem label="View Reimbursements" target="mainframe" value="salwages/rbs-view.php" />
+			<menuitem label="View/Approve Loans" target="mainframe" value="salwages/loan_apply_view.php" />
+			<menuitem label="View Archived Loans" target="mainframe" value="salwages/loans-archive.php" />
+			<menuitem label="View Employees on Leave" target="mainframe" value="salwages/employee-onleave.php" />
+			<menuitem label="View Open Grievances" target="mainframe" value="grievances-view.php?mode=open" />
+			<menuitem label="View Closed Grievances" target="mainframe" value="grievances-view.php?mode=closed" />
+			<menuitem label="View Staff Training" target="mainframe" value="training-view.php" />
+			<menuitem label="View Medical Aid" target="mainframe" value="medical_aid_view.php" />
+			<menuitem label="View Appointment Report" target="mainframe" value="admin-employee-appointment-report.php" />
+			<menuitem label="View Medical Aid Report" target="mainframe" value="medical_aid_report.php" />
+		</menupopup>
+		</menu>
+
+		<menuitem label="View Past Employees" target="mainframe" value="admin-lemployee-view.php" />
+		<menuitem label="Reverse Staff Salaries" target="mainframe" value="salwages/salaries-staffr.php" />
+
+		<menuitem label="Export Payroll File" target="mainframe" value="export_sarsefiling.php" />
+	</menupopup>
+	</menu>
+
+	<menuseparator />
+
+	<menu label="Services">
+	<menupopup>
+		<cubitmodule menu="services" />
+
+		<menuitem label="New Window" target="blank" />
+		<menuitem label="Save Page As" target="saveit" />
+		<menuitem label="Email This Page" target="mailit" />
+		<menuseparator />
+
+		<menu label="Maintenance">
+		<menupopup>
+		        <cubitmodule menu="services/maintenance" />
+		        <menuitem label="Cubit Speed" target="mainframe" value="speed_update.php" />
+		</menupopup>
+		</menu>
+
+		<menuseparator />
+
+		<menuitem label="Today" target="groupware" value="today.php" />
+		<menuitem label="Todo" target="groupware" value="todo_sub_save.php" />
+		<menuitem label="Password" target="mainframe" value="admin-usrpasswd.php" />
+
+		<menu label="Documents">
+		<menupopup>
+			<cubitmodule menu="services/documents" />
+			<menuitem label="Add Document" target="groupware" value="document_save.php" />
+			<menuitem label="View Documents" target="groupware" value="document_view.php" />
+
+			<menuseparator />
+
+			<menuitem label="Add Document Type" target="groupware" value="doc_type_save.php" />
+			<menuitem label="View Document Types" target="groupware" value="doc_type_view.php" />
+
+			<menuseparator />
+
+			<menuitem label="Add Document Department" target="groupware" value="doc_dep_save.php" />
+			<menuitem label="View Document Departments" target="groupware" value="doc_dep_view.php" />
+
+			<menuitem label="Document Movement Report" target="groupware" value="document_movement.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Diary">
+		<menupopup>
+			<cubitmodule menu="services/diary" />
+			<menuitem label="Day View" target="groupware" value="diary-index.php" />
+			<menuitem label="Monthly View" target="groupware" value="diary-index.php?key=month" />
+			<menuitem label="Diary Privileges" target="mainframe" value="diary/diary-privileges.php" />
+		</menupopup>
+		</menu>
+
+		<menu label="Contacts">
+		<menupopup>
+			<cubitmodule menu="services/contacts" />
+			<menuitem label="Add New Contact" target="groupware" value="new_con.php" />
+			<menuitem label="View Contacts" target="groupware" value="list_cons.php" />
+			<menuitem label="View Customers" target="mainframe" value="list_cons.php?ref=customers" />
+			<menuitem label="View Suppliers" target="mainframe" value="list_cons.php?ref=suppliers" />
+		</menupopup>
+		</menu>
+
+
+		<menu label="Messages">
+		<menupopup>
+			<cubitmodule menu="services/messages" />
+			<menuitem label="New Message" target="groupware" value="req_gen.php" />
+			<menuitem label="View Messages" target="groupware" value="view_req.php" />
+		</menupopup>
+		</menu>
+
+		<menuitem label="Email" target="mainframe" value="groupware/index.php" />
+		<menu label="Backup">
+		<menupopup>
+			<cubitmodule menu="services/backup" />
+			<menuitem label="Make Backup" target="mainframe" value="company-export.php" />
+			<menuitem label="Restore Backup" target="mainframe" value="company-import.php" />
+		</menupopup>
+		</menu>
+
+		<menuitem label="Word Processor" target="groupware" value="word_proc.php" />
+
+		<menuitem label="Logout" target="parent" value="logout.php" />
+	</menupopup>
+	</menu>
+
+	<menuseparator />
+
+	<menuitem label="Print" target="print" />
+</menubar>
+
+<iframe id="mainframe" src="%%ENTRYPAGE%%" flex="1" />
+
+</window>
+
