@@ -26,11 +26,11 @@
 require ("settings.php");
 
 // Decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "printSupp":
-			$OUTPUT = print_supp($HTTP_POST_VARS);
+			$OUTPUT = print_supp($_POST);
 			break;
 	}
 } else {
@@ -46,8 +46,8 @@ require ("template.php");
 function print_supp ($errors="")
 {
 
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 
 	if (!isset($fdate_day)) $fdate_day = "01";
 	if (!isset($fdate_month)) $fdate_month = date("m");

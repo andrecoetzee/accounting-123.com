@@ -49,7 +49,7 @@ if (DEBUG > 0) {
 }
 
 // make the title
-$title = TMPL_title." [ $HTTP_SESSION_VARS[comp] - $HTTP_SESSION_VARS[BRAN_NAME] - $HTTP_SESSION_VARS[USER_NAME] $dbgtitle]";
+$title = TMPL_title." [ $_SESSION[comp] - $_SESSION[BRAN_NAME] - $_SESSION[USER_NAME] $dbgtitle]";
 
 $xulcontent = file_get_contents("index.$wxul.xul");
 

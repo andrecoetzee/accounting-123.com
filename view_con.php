@@ -35,15 +35,15 @@ require ("settings.php");
 
 // store the post vars in get vars, so that both vars can be accessed at once
 // it is done this was around, so post vars get's higher priority and overwrites duplicated in get vars
-if ( isset($HTTP_POST_VARS) ) {
-	foreach( $HTTP_POST_VARS as $arr => $arrval ) {
-		$HTTP_GET_VARS[$arr] = $arrval;
+if ( isset($_POST) ) {
+	foreach( $_POST as $arr => $arrval ) {
+		$_GET[$arr] = $arrval;
 	}
 }
 
 // see what to do
-if (isset ($HTTP_GET_VARS["key"])) {
-	switch ($HTTP_GET_VARS["key"]) {
+if (isset ($_GET["key"])) {
+	switch ($_GET["key"]) {
 		case "delete":
 		case "confirm_delete":
 			$OUTPUT = deleteContact();
@@ -59,10 +59,10 @@ if (isset ($HTTP_GET_VARS["key"])) {
 require ("template.php");
 # enter new data
 function viewContact () {
-	global $HTTP_GET_VARS;
+	global $_GET;
 	global $user_admin;
 
-  foreach ($HTTP_GET_VARS as $key => $value) {
+  foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -116,7 +116,7 @@ $Day=substr($date,8,2);
     $hadd=$Data['hadd'];
     $padd=$Data['padd'];
 
-$busy_deleting = isset($HTTP_GET_VARS["key"]) && $HTTP_GET_VARS["key"] == "confirm_delete";
+$busy_deleting = isset($_GET["key"]) && $_GET["key"] == "confirm_delete";
 
 // only show this when not deleting
 $viewContact = "";
@@ -311,19 +311,19 @@ return $viewContact;
 
 // function that deletes a contact
 function deleteContact() {
-	global $HTTP_GET_VARS, $HTTP_SESSION_VARS;
+	global $_GET, $_SESSION;
 	global $user_admin;
 
 	$OUTPUT = "";
 
-	if ( isset($HTTP_GET_VARS["key"]) && isset($HTTP_GET_VARS["id"]) ) {
-		$id=$HTTP_GET_VARS["id"];
-		$key=$HTTP_GET_VARS["key"];
+	if ( isset($_GET["key"]) && isset($_GET["id"]) ) {
+		$id=$_GET["id"];
+		$key=$_GET["key"];
 
 		// first make sure it is this person's contact, or that the user is root
 		if ( ! $user_admin ) {
 			$rslt = db_exec("SELECT * FROM cons WHERE id='$id' AND
-				( by='$HTTP_SESSION_VARS[USER_NAME]' )");
+				( by='$_SESSION[USER_NAME]' )");
 			if ( pg_num_rows($rslt) <= 0 ) {
 				return "You are not allowed to delete this entry!";
 			}

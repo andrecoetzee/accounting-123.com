@@ -29,8 +29,8 @@ require ("settings.php");
 require ("libs/ext.lib.php");
 require ("core-settings.php");
 
-if (isset($HTTP_POST_VARS['key'])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST['key'])) {
+	switch ($_POST["key"]) {
 		case "calc":
 			$OUTPUT = calculate ();
 			break;

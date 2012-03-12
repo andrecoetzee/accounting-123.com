@@ -29,8 +29,8 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "printsave":
 			$OUTPUT = save_bal();
 			break;

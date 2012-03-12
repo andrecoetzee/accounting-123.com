@@ -38,8 +38,8 @@ require("template.php");
 
 function list_tokens(){
 
-        global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+        global $_POST;
+	extract($_POST);
 
 	db_conn('crm');
         $Sl="SELECT * FROM crms WHERE userid='".USER_ID."'";

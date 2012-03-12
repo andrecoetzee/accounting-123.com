@@ -28,8 +28,8 @@
  */
 
 $getvars = "doc-index.php?";
-if (isset($HTTP_GET_VARS)) {
-	foreach($HTTP_GET_VARS as $key => $val) {
+if (isset($_GET)) {
+	foreach($_GET as $key => $val) {
 		$getvars .= "&$key=$val";
 	}
 }

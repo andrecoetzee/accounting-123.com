@@ -26,7 +26,7 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["export"])) {
+if(isset($_POST["export"])) {
 	$OUTPUT = export ();
 } else {
 	$OUTPUT = printStk ();

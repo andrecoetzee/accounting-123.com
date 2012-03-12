@@ -26,7 +26,7 @@
 # get settings
 require ("../settings.php");
 
-$OUTPUT = viewAllow ($HTTP_POST_VARS);
+$OUTPUT = viewAllow ($_POST);
 
 $OUTPUT .= mkQuickLinks(
 	ql("rbs-add.php","Add Reimbursement"),

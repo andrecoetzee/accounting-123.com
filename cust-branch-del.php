@@ -28,22 +28,22 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-        switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+        switch ($_POST["key"]) {
                 case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
                         break;
 
                 default:
-                        if(isset($HTTP_GET_VARS['cusnum']) AND isset($HTTP_GET_VARS['editid'])){
-                                $OUTPUT = confirm($HTTP_GET_VARS['cusnum'],$HTTP_GET_VARS['editid']);
+                        if(isset($_GET['cusnum']) AND isset($_GET['editid'])){
+                                $OUTPUT = confirm($_GET['cusnum'],$_GET['editid']);
                         }else{
                                 $OUTPUT = "<li class=err> Invalid use of module.";
                         }
         }
 } else {
-        if(isset($HTTP_GET_VARS['cusnum']) AND isset($HTTP_GET_VARS['editid'])){
-                $OUTPUT = confirm($HTTP_GET_VARS['cusnum'],$HTTP_GET_VARS['editid']);
+        if(isset($_GET['cusnum']) AND isset($_GET['editid'])){
+                $OUTPUT = confirm($_GET['cusnum'],$_GET['editid']);
         }else{
                 $OUTPUT = "<li class=err> Invalid use of module.";
         }
@@ -90,10 +90,10 @@ function confirm($cusnum,$editid)
 
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
         # get vars
-        foreach ($HTTP_POST_VARS as $key => $value) {
+        foreach ($_POST as $key => $value) {
                 $$key = $value;
         }
 

@@ -29,13 +29,13 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = view();
@@ -225,11 +225,11 @@ function view($VARS = array(), $err="")
 
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -264,7 +264,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err> - ".$e["msg"]."<br>";
 		}
-		return view($HTTP_POST_VARS, $confirm);
+		return view($_POST, $confirm);
 	}
 
 
@@ -378,14 +378,14 @@ function confirm($HTTP_POST_VARS)
 }
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (isset($btn_back))
-		return view ($HTTP_POST_VARS);
+		return view ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -415,7 +415,7 @@ function write($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return view($HTTP_POST_VARS, $confirm);
+		return view($_POST, $confirm);
 		$confirm .= "<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirm;
 	}

@@ -28,8 +28,8 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["ordnum"])) {
-	$OUTPUT = details($HTTP_GET_VARS["ordnum"]);
+if (isset($_GET["ordnum"])) {
+	$OUTPUT = details($_GET["ordnum"]);
 }else{
 	$OUTPUT = "<li> Invalid Order number";
 }

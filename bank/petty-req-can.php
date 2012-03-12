@@ -28,24 +28,24 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "cancel":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 
 		default:
 			# Display default output
-			if(isset($HTTP_GET_VARS['cashid'])){
-					$OUTPUT = confirm($HTTP_GET_VARS['cashid']);
+			if(isset($_GET['cashid'])){
+					$OUTPUT = confirm($_GET['cashid']);
 			}else{
 					$OUTPUT = "<li class=err> Invalid use of mudule";
 			}
 	}
 } else {
 	# Display default output
-	if(isset($HTTP_GET_VARS['cashid'])){
-			$OUTPUT = confirm($HTTP_GET_VARS['cashid']);
+	if(isset($_GET['cashid'])){
+			$OUTPUT = confirm($_GET['cashid']);
 	}else{
 			$OUTPUT = "<li class=err> Invalid use of mudule";
 	}
@@ -116,13 +116,13 @@ function confirm($cashid)
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	//processes
 	db_connect();
 
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

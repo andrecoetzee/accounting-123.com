@@ -39,28 +39,28 @@ require_lib("validate");
 require_lib("mail.smtp");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
 // overwrite the GET VARS with POST VARS (so both can be access at any times)
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $arr => $arrval ) {
-		$HTTP_GET_VARS[$arr] = $arrval;
+if ( isset($_POST) ) {
+	foreach ( $_POST as $arr => $arrval ) {
+		$_GET[$arr] = $arrval;
 	}
 }
 
 // make sure something is being done
-if ( ! isset($HTTP_GET_VARS["key"]) ) $HTTP_GET_VARS["key"] = "create";
+if ( ! isset($_GET["key"]) ) $_GET["key"] = "create";
 
-switch ( $HTTP_GET_VARS["key"] ) {
+switch ( $_GET["key"] ) {
 	case "send": // send the form
 		$OUTPUT = sendMsg();
 		break;
@@ -75,14 +75,14 @@ require ("template.php");
 
 // creates the form of the new message
 function writeMsg() {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	$OUTPUT = "";
 
 	$es = qryEmailSettings();
 
 	// restore the previous entries if any (on errors)
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 	extract($_FILES);
 
 	if (!isset($emails)) {
@@ -255,22 +255,22 @@ function writeMsg() {
 
 // verifies the message and sends it, the store it in database under sent items
 function sendMsg() {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	$v = & new validate;
 
 	$OUTPUT = "";
 
 	// restore the variables
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 	extract($_FILES);
 
-	if ( ! isset($HTTP_GET_VARS["send_to"]) ) $send_to = "";
-	if ( ! isset($HTTP_GET_VARS["send_bcc"]) ) $send_bcc = "";
-	if ( ! isset($HTTP_GET_VARS["send_cc"]) ) $send_cc = "";
-	if ( ! isset($HTTP_GET_VARS["subject"]) ) $subject = "";
+	if ( ! isset($_GET["send_to"]) ) $send_to = "";
+	if ( ! isset($_GET["send_bcc"]) ) $send_bcc = "";
+	if ( ! isset($_GET["send_cc"]) ) $send_cc = "";
+	if ( ! isset($_GET["subject"]) ) $subject = "";
 	if ( ! isset($_FILES["attachment"]) ) $attachment = "";
-	if ( ! isset($HTTP_GET_VARS["body"]) ) $body = "";
+	if ( ! isset($_GET["body"]) ) $body = "";
 
 	$v->resetErrors();
 	$v->isOK($subject, "string", 1, 255, "Invalid subject.");
@@ -279,7 +279,7 @@ function sendMsg() {
 	// $v->isOK($send_cc, "email", 0, 255, "Invalid cc recipient.");
 	// $v->isOK($send_bcc, "email", 0, 255, "Invalid bcc recipient.");
 	//if ( ! $v->isOK($bodydata, "string", 1, 255, "Invalid text in body.") ) {
-	//	$HTTP_GET_VARS["body"] = htmlspecialchars($body); // makes sure we dont get cross site scripting
+	//	$_GET["body"] = htmlspecialchars($body); // makes sure we dont get cross site scripting
 	//}
 
 	// ok now print errors if any

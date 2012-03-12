@@ -29,31 +29,31 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "details":
-			if(isset($HTTP_POST_VARS['details'])){
-					$OUTPUT = details($HTTP_POST_VARS);
+			if(isset($_POST['details'])){
+					$OUTPUT = details($_POST);
 			}else{
-					$OUTPUT = details2($HTTP_POST_VARS);
+					$OUTPUT = details2($_POST);
 			}
 			break;
 		default:
-			if (isset($HTTP_GET_VARS['cusnum'])){
-				$OUTPUT = slctacc ($HTTP_GET_VARS);
+			if (isset($_GET['cusnum'])){
+				$OUTPUT = slctacc ($_GET);
 			} else {
 				$OUTPUT = "<li> - Invalid use of module.</li>";
 			}
 	}
 } else {
-	if (isset($HTTP_GET_VARS['cusnum'])){
-		$OUTPUT = slctacc ($HTTP_GET_VARS);
+	if (isset($_GET['cusnum'])){
+		$OUTPUT = slctacc ($_GET);
 	} else {
 		$OUTPUT = get_customer ();
 	}
@@ -112,10 +112,10 @@ function get_customer ()
 
 
 # Select Accounts
-function slctacc($HTTP_GET_VARS)
+function slctacc($_GET)
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -236,11 +236,11 @@ function slctacc($HTTP_GET_VARS)
 
 
 # Enter Details of Transaction
-function details($HTTP_POST_VARS)
+function details($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -360,11 +360,11 @@ function details($HTTP_POST_VARS)
 }
 
 # Enter Details of Transaction
-function details2($HTTP_POST_VARS)
+function details2($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -401,14 +401,14 @@ function details2($HTTP_POST_VARS)
 			// account numbers
 			$accRs = get("core","*","accounts","topacc",$accnum[0]."' AND accnum = '000");
 			if(pg_numrows($accRs) < 1){
-					return "<li> Accounts number : $accnum[0] does not exist".slctacc($HTTP_POST_VARS);
+					return "<li> Accounts number : $accnum[0] does not exist".slctacc($_POST);
 			}
 			$acc  = pg_fetch_array($accRs);
         }else{
 			// account numbers
 			$accRs = get("core","*","accounts","topacc","$accnum[0]' AND accnum = '$accnum[1]");
 			if(pg_numrows($accRs) < 1){
-					return "<li> Accounts number : $accnum[0]/$accnum[1] does not exist".slctacc($HTTP_POST_VARS);
+					return "<li> Accounts number : $accnum[0]/$accnum[1] does not exist".slctacc($_POST);
 			}
 			$acc  = pg_fetch_array($accRs);
         }
@@ -502,14 +502,14 @@ function details2($HTTP_POST_VARS)
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		return slctacc($HTTP_POST_VARS);
+		return slctacc($_POST);
 	}
 
 	# validate input
@@ -539,10 +539,10 @@ function confirm($HTTP_POST_VARS)
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
 		if($type==1) {
-			return $confirm.details($HTTP_POST_VARS);
+			return $confirm.details($_POST);
 		} else {
-			$HTTP_POST_VARS["accnum"]=$ac;
-			return $confirm.details2($HTTP_POST_VARS);
+			$_POST["accnum"]=$ac;
+			return $confirm.details2($_POST);
 		}
 	}
 
@@ -647,18 +647,18 @@ function confirm($HTTP_POST_VARS)
 
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 		# Get vars
-		extract ($HTTP_POST_VARS);
+		extract ($_POST);
 
 		if(isset($back)) {
 			if($type==1) {
-				return details($HTTP_POST_VARS);
+				return details($_POST);
 			} else {
-				$HTTP_POST_VARS["accnum"]=$ac;
-				return details2($HTTP_POST_VARS);
+				$_POST["accnum"]=$ac;
+				return details2($_POST);
 			}
 		}
 

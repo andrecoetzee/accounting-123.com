@@ -30,28 +30,28 @@ require("../template.php");
 require ("../settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmPaye ($HTTP_POST_VARS);
+			$OUTPUT = confirmPaye ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writePaye ($HTTP_POST_VARS);
+			$OUTPUT = writePaye ($_POST);
 			break;
 		default:
-			$OUTPUT = enterPaye ($HTTP_POST_VARS);
+			$OUTPUT = enterPaye ($_POST);
 	}
 } else {
-	$OUTPUT = enterPaye ($HTTP_POST_VARS);
+	$OUTPUT = enterPaye ($_POST);
 }
 
 # display output
 require ("../template.php");
 
 # enter new paye bracket details
-function enterPaye ($HTTP_POST_VARS)
+function enterPaye ($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(!isset($min)) {
 		$min="";
@@ -81,10 +81,10 @@ function enterPaye ($HTTP_POST_VARS)
 }
 
 # confirm new paye bracket details
-function confirmPaye ($HTTP_POST_VARS)
+function confirmPaye ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -102,7 +102,7 @@ function confirmPaye ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirmCust .= "<li class=err>".$e["msg"];
 		}
-		return $confirmCust."</li>".enterPaye($HTTP_POST_VARS);
+		return $confirmCust."</li>".enterPaye($_POST);
 	}
 
 	$confirmPaye ="<h3>Confirm new PAYE bracket</h3>
@@ -130,15 +130,15 @@ function confirmPaye ($HTTP_POST_VARS)
 }
 
 # write new paye bracket
-function writePaye ($HTTP_POST_VARS)
+function writePaye ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
 	if(isset($back)) {
-		return enterPaye($HTTP_POST_VARS);
+		return enterPaye($_POST);
 	}
 
 	# validate input

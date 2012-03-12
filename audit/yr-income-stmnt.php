@@ -31,14 +31,14 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 			case "print":
-				$OUTPUT = inc($HTTP_POST_VARS);
+				$OUTPUT = inc($_POST);
 				break;
 
 			case "printsave":
-				$OUTPUT = save_inc($HTTP_POST_VARS);
+				$OUTPUT = save_inc($_POST);
 				break;
 
 
@@ -125,10 +125,10 @@ function ret($OUTPUT){
 	require("../template.php");
 }
 
-function inc($HTTP_POST_VARS)
+function inc($_POST)
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 
@@ -246,10 +246,10 @@ function inc($HTTP_POST_VARS)
         return $income;
 }
 
-function save_inc($HTTP_POST_VARS)
+function save_inc($_POST)
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 

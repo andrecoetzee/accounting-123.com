@@ -26,17 +26,17 @@ require ("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
             case "out":
-				if(isset($HTTP_POST_VARS["upBtn"])){
-					$OUTPUT = update($HTTP_POST_VARS);
+				if(isset($_POST["upBtn"])){
+					$OUTPUT = update($_POST);
 				}else{
-					$OUTPUT = cashbook($HTTP_POST_VARS);
+					$OUTPUT = cashbook($_POST);
 				}
 				break;
 			case "save":
-				$OUTPUT = save($HTTP_POST_VARS);
+				$OUTPUT = save($_POST);
 				break;
 
 			default:
@@ -87,10 +87,10 @@ function view()
 	return $view;
 }
 
-function cashbook($HTTP_POST_VARS, $err="")
+function cashbook($_POST, $err="")
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -216,17 +216,17 @@ function cashbook($HTTP_POST_VARS, $err="")
 	return $cashbook;
 }
 
-function update($HTTP_POST_VARS)
+function update($_POST)
 {
 	# Get Vars ( banked[] )
-	foreach($HTTP_POST_VARS as $key => $value){
+	foreach($_POST as $key => $value){
 			$$key = $value;
 	}
 
 	# Check if anything is selected
 	if(!isset($banked)){
 			$err = "<li class=err> Please Select at least one entry to update.";
-			return cashbook($HTTP_POST_VARS, $err);
+			return cashbook($_POST, $err);
 	}
 
 	/* - Start Hooks - */
@@ -345,10 +345,10 @@ function update($HTTP_POST_VARS)
 }
 
 # Save
-function save($HTTP_POST_VARS)
+function save($_POST)
 {
 	# Get Vars ( banked[] )
-	foreach($HTTP_POST_VARS as $key => $value){
+	foreach($_POST as $key => $value){
 			$$key = $value;
 	}
 

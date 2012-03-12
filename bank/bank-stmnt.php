@@ -29,23 +29,23 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "enter":
-			$OUTPUT = enter($HTTP_POST_VARS);
+			$OUTPUT = enter($_POST);
 			break;
 		case "confirm":
 			if (isset ($_REQUEST["another"])){
-				$OUTPUT = enter($HTTP_POST_VARS);
+				$OUTPUT = enter($_POST);
 			}else {
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 			}
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "":
-			$OUTPUT = enter ($HTTP_POST_VARS);
+			$OUTPUT = enter ($_POST);
 			break;
 		default:
 			$OUTPUT = view();
@@ -63,8 +63,8 @@ require("../template.php");
 function view()
 {
 
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	if(!isset($number)) {
 		$number = 1;
@@ -126,11 +126,11 @@ function view()
 
 
 # Default View
-function enter($HTTP_POST_VARS, $error="")
+function enter($_POST, $error="")
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset ($number)) 
 		$number = 1;
@@ -378,10 +378,10 @@ function enter($HTTP_POST_VARS, $error="")
 
 
 # Alt confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if (isset($back)) {
 		return view();
@@ -421,7 +421,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return enter($HTTP_POST_VARS, $confirm);
+		return enter($_POST, $confirm);
 		$confirm .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirm;
 	}
@@ -519,7 +519,7 @@ function confirm($HTTP_POST_VARS)
 
 	if(strlen($trans) < 5){
 		$err = "<li class='err'> - Please enter full transaction details";
-		return enter($HTTP_POST_VARS, $err);
+		return enter($_POST, $err);
 	}
 
 	$confirm .= "
@@ -542,14 +542,14 @@ function confirm($HTTP_POST_VARS)
 
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return enter($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return enter($_POST);
 	}
 
 	# CHECK IF THIS DATE IS IN THE BLOCKED RANGE

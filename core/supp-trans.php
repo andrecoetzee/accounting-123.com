@@ -28,34 +28,34 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "details":
-			if(isset($HTTP_POST_VARS['details'])){
-				$OUTPUT = details($HTTP_POST_VARS);
+			if(isset($_POST['details'])){
+				$OUTPUT = details($_POST);
 			}else{
-				$OUTPUT = details2($HTTP_POST_VARS);
+				$OUTPUT = details2($_POST);
 			}
 			break;
 		case "":
-			$OUTPUT = slctacc($HTTP_POST_VARS);
+			$OUTPUT = slctacc($_POST);
 			break;
 		default:
-			if (isset($HTTP_GET_VARS['supid'])){
-				$OUTPUT = slctacc ($HTTP_GET_VARS);
+			if (isset($_GET['supid'])){
+				$OUTPUT = slctacc ($_GET);
 			} else {
 				$OUTPUT = "<li> - Invalid use of module.</li>";
 			}
 	}
 } else {
-	if (isset($HTTP_GET_VARS['supid'])){
-		$OUTPUT = slctacc ($HTTP_GET_VARS);
+	if (isset($_GET['supid'])){
+		$OUTPUT = slctacc ($_GET);
 	} else {
 		$OUTPUT = "<li> - Invalid use of module.</li>";
 	}
@@ -70,10 +70,10 @@ require("template.php");
 
 
 # Select Accounts
-function slctacc($HTTP_GET_VARS)
+function slctacc($_GET)
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -236,11 +236,11 @@ function slctacc($HTTP_GET_VARS)
 
 
 # Enter Details of Transaction
-function details($HTTP_POST_VARS)
+function details($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($chrgvat))
 		$chrgvat = "yes";
@@ -411,11 +411,11 @@ function details($HTTP_POST_VARS)
 
 
 # Enter Details of Transaction
-function details2($HTTP_POST_VARS)
+function details2($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -454,7 +454,7 @@ function details2($HTTP_POST_VARS)
 		}
 		$acc  = pg_fetch_array($accRs);
 		if(isDisabled($acc['accid'])) 
-			return "<li> Accounts number : $accnum[0]/$accnum[1] is invalid. (Blocked).</li>".slctacc($HTTP_POST_VARS);
+			return "<li> Accounts number : $accnum[0]/$accnum[1] is invalid. (Blocked).</li>".slctacc($_POST);
     }else{
 		// account numbers
 		$accRs = get("core","*","accounts","topacc","$accnum[0]' AND accnum = '$accnum[1]");
@@ -463,7 +463,7 @@ function details2($HTTP_POST_VARS)
 		}
 		$acc  = pg_fetch_array($accRs);
 		if(isDisabled($acc['accid'])) 
-			return "<li> Accounts number : $accnum[0]/$accnum[1] is invalid. (Blocked).</li>".slctacc($HTTP_POST_VARS);
+			return "<li> Accounts number : $accnum[0]/$accnum[1] is invalid. (Blocked).</li>".slctacc($_POST);
     }
 
 	# Select supplier
@@ -560,14 +560,14 @@ function details2($HTTP_POST_VARS)
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		return slctacc($HTTP_POST_VARS);
+		return slctacc($_POST);
 	}
 
 	# validate input
@@ -748,15 +748,15 @@ function confirm($HTTP_POST_VARS)
 
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return details($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return details($_POST);
 	}
 
 	# validate input

@@ -29,10 +29,10 @@ require("../settings.php");
 require("../core-settings.php");
 require("../libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "print":
-			$OUTPUT = sheet($HTTP_POST_VARS);
+			$OUTPUT = sheet($_POST);
 			break;
 
 		default:
@@ -48,10 +48,10 @@ Stream("IncomeStatement", $OUTPUT);
 exit;
 
 # details
-function sheet($HTTP_POST_VARS)
+function sheet($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

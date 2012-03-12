@@ -26,19 +26,19 @@
 require("../settings.php");
 require("../core-settings.php");
 
-if (isset($HTTP_POST_VARS["key"]) AND isset($HTTP_POST_VARS["continue"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"]) AND isset($_POST["continue"])) {
+	switch ($_POST["key"]) {
 		case "excel":
 			$OUTPUT = excel();
 			break;
 		case "viewtran":
-			$OUTPUT = viewtran($HTTP_POST_VARS);
+			$OUTPUT = viewtran($_POST);
 			break;
 		default:
-			$OUTPUT = slctacc($HTTP_POST_VARS);
+			$OUTPUT = slctacc($_POST);
 	}
 } else {
-	$OUTPUT = slctacc($HTTP_POST_VARS);
+	$OUTPUT = slctacc($_POST);
 }
 
 # Get templete
@@ -47,10 +47,10 @@ require("../template.php");
 
 
 
-function slctacc($HTTP_POST_VARS)
+function slctacc($_POST)
 {
 	
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# from period
 	global $PRDMON;
@@ -170,10 +170,10 @@ function slctacc($HTTP_POST_VARS)
 
 
 
-function viewtran($HTTP_POST_VARS, $pure = false)
+function viewtran($_POST, $pure = false)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new  validate ();
@@ -187,7 +187,7 @@ function viewtran($HTTP_POST_VARS, $pure = false)
 				$v->isOk ($stkid, "num", 1, 20, "Invalid Stock code.");
 			}
 		}else{
-			return "<li class='err'>ERROR : Please select at least one Stock Item.</li>".slctacc($HTTP_POST_VARS);
+			return "<li class='err'>ERROR : Please select at least one Stock Item.</li>".slctacc($_POST);
 		}
 	}
 

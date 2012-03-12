@@ -33,23 +33,23 @@
 # Please ensure that we have your correct banking details.
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
 // shows the day calendar
 function showCalendar_day() {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	// get the post_vars
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	// create the day view and month view data
 	if ( ( ! isset($view_diary) ) || $view_diary == USER_NAME ) {
@@ -91,7 +91,7 @@ function showCalendar_day() {
 
 // creates the day view of the current day
 function createDayView($mday,$month,$year,$view_diary) {
-	// generate the previous day link data (for GET_VARS)
+	// generate the previous day link data (for _GET)
 	if ( $mday == 1 ) {
 		if ( $month == 1 ) {
 			$tmpmonth=12;
@@ -110,7 +110,7 @@ function createDayView($mday,$month,$year,$view_diary) {
 
 	$prevlink="mday=$tmpday&month=$tmpmonth&year=$tmpyear";
 
-	// generate the next day link data (for GET_VARS)
+	// generate the next day link data (for _GET)
 	if ( $mday == getDaysInMonth($month,$year) ) {
 		if ( $month == 12 ) {
 			$tmpmonth=1;
@@ -165,7 +165,7 @@ function createDayView($mday,$month,$year,$view_diary) {
 
 // create the month view of the current, previous and next month
 function createMonthViews($month,$year,$view_diary) {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	// compute the previous month and it's year
 	if ( $month == 1 ) {
@@ -193,7 +193,7 @@ function createMonthViews($month,$year,$view_diary) {
 	// generate the month and year selections
 	$select_month = "<select name='month'>";
 	for ( $i=1 ; $i<=12 ; $i++ ) {
-		if ( isset($HTTP_GET_VARS["month"]) && $HTTP_GET_VARS["month"] == $i )
+		if ( isset($_GET["month"]) && $_GET["month"] == $i )
 			$selected="selected";
 		else
 			$selected="";
@@ -204,7 +204,7 @@ function createMonthViews($month,$year,$view_diary) {
 
 	$select_year = "<select name='year'>";
 	for ( $i = 1990 ; $i <= 2050 ; $i++ ) {
-		if ( isset($HTTP_GET_VARS["year"]) && $HTTP_GET_VARS["year"] == $i )
+		if ( isset($_GET["year"]) && $_GET["year"] == $i )
 			$selected="selected";
 		else
 			$selected="";
@@ -310,7 +310,7 @@ function createNotices() {
 
 // creates a little month calendar
 function generateMonthView_small($month,$year,$view_diary) {
-    global $HTTP_GET_VARS;
+    global $_GET;
 
 	$OUTPUT="
 		<table width=190 cellspacing=0>
@@ -360,18 +360,18 @@ function generateMonthView_small($month,$year,$view_diary) {
     }
 
 	// create a view variables
-	$selected_month=$HTTP_GET_VARS["month"];
+	$selected_month=$_GET["month"];
 
     // create the previous month's entries
     $c_weeknum=getWeekNumber($tmp_day,$tmp_month,$tmp_year);
-	$selected_weeknum=getWeekNumber($HTTP_GET_VARS["mday"],$HTTP_GET_VARS["month"],$HTTP_GET_VARS["year"]);
+	$selected_weeknum=getWeekNumber($_GET["mday"],$_GET["month"],$_GET["year"]);
 
 	// if today's week number = the current generated week's number, hightlight the row, as so with the selected week,
 	if ( ( $c_weeknum == getTodayWeekNumber() && $tmp_year == date("Y") && $month == date("m"))
 		|| ( getTodayWeekNumber() == 0 && $month == date("m") && $year == date("Y") ) ) { // today's week
 		$OUTPUT.="<tr bgcolor='".TMPL_calSmallMonthCurrentWeek."'>";
 		$ROW_COLORED=1;
-	} else if ( ($month == $HTTP_GET_VARS["month"] && $c_weeknum == $selected_weeknum && $month == $HTTP_GET_VARS["month"])
+	} else if ( ($month == $_GET["month"] && $c_weeknum == $selected_weeknum && $month == $_GET["month"])
 			|| ( $c_weeknum==52 && $selected_weeknum==0 )) { // selected week, the last check is for the first week in jan
 		$OUTPUT.="<tr bgcolor='".TMPL_calSmallMonthSelectedWeek."'>";
 		$ROW_COLORED=1;
@@ -407,7 +407,7 @@ function generateMonthView_small($month,$year,$view_diary) {
 			if ( $c_weeknum == getTodayWeekNumber() && $year == date("Y") && $month == date("m")) { // today's week
 				$OUTPUT.="<tr bgcolor='".TMPL_calSmallMonthCurrentWeek."'>";
 				$ROW_COLORED=1;
-			} else if ( ($month == $HTTP_GET_VARS["month"] && $c_weeknum == $selected_weeknum) ) { // selected week
+			} else if ( ($month == $_GET["month"] && $c_weeknum == $selected_weeknum) ) { // selected week
 				$OUTPUT.="<tr bgcolor='".TMPL_calSmallMonthSelectedWeek."'>";
 				$ROW_COLORED=1;
 			} else {  // other dates
@@ -420,9 +420,9 @@ function generateMonthView_small($month,$year,$view_diary) {
 		}
 
 		// change the fill color if it it 2day's date we are printing, or the selected date
-		if ( $c_day == $HTTP_GET_VARS["mday"]
-				&& $month == $HTTP_GET_VARS["month"]
-				&& $year == $HTTP_GET_VARS["year"]) { // selected date
+		if ( $c_day == $_GET["mday"]
+				&& $month == $_GET["month"]
+				&& $year == $_GET["year"]) { // selected date
 			$dayfill="bgcolor=".TMPL_calSmallMonthSelectedDay;
 			$a_id="calSmallMonthCMLinkSelected";
 		} else if ( date("d") == $c_day && date("m") == $month && date("Y") == $year) { // 2day's date

@@ -27,13 +27,13 @@
 require ("../settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmType ($HTTP_POST_VARS);
+			$OUTPUT = confirmType ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writeType ($HTTP_POST_VARS);
+			$OUTPUT = writeType ($_POST);
 			break;
 		default:
 			$OUTPUT = enterType ();
@@ -69,10 +69,10 @@ function enterType ()
 }
 
 # confirm new data
-function confirmType ($HTTP_POST_VARS)
+function confirmType ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -112,10 +112,10 @@ function confirmType ($HTTP_POST_VARS)
 }
 
 # write new data
-function writeType ($HTTP_POST_VARS)
+function writeType ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

@@ -25,27 +25,27 @@
 
 require("../settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT ="Invalid";
 	}
-} elseif(isset($HTTP_GET_VARS["id"])&&isset($HTTP_GET_VARS["type"])) {
-	$OUTPUT = enter($HTTP_GET_VARS);
+} elseif(isset($_GET["id"])&&isset($_GET["type"])) {
+	$OUTPUT = enter($_GET);
 } else {
 	return "Invalid .";
 }
 
 require("gw-tmpl.php");
 
-function enter($HTTP_GET_VARS) {
-	extract($HTTP_GET_VARS);
+function enter($_GET) {
+	extract($_GET);
 
 	$id+=0;
 
@@ -190,10 +190,10 @@ function enter($HTTP_GET_VARS) {
 
 
 
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$id+=0;
 
@@ -216,7 +216,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return $confirm.enter($HTTP_POST_VARS);
+		return $confirm.enter($_POST);
 	}
 
 
@@ -322,10 +322,10 @@ function confirm($HTTP_POST_VARS)
 
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$id+=0;
 
@@ -348,7 +348,7 @@ function write($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return $confirm.enter($HTTP_POST_VARS);
+		return $confirm.enter($_POST);
 	}
 
 

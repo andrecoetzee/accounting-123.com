@@ -28,14 +28,14 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if(isset($HTTP_POST_VARS["confirm"])) {
-	$OUTPUT = confirm($HTTP_POST_VARS);
-} elseif(isset($HTTP_POST_VARS["write"])) {
-	$OUTPUT = write($HTTP_POST_VARS);
-} elseif (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if(isset($_POST["confirm"])) {
+	$OUTPUT = confirm($_POST);
+} elseif(isset($_POST["write"])) {
+	$OUTPUT = write($_POST);
+} elseif (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "viewcash":
-			$OUTPUT = viewcash($HTTP_POST_VARS);
+			$OUTPUT = viewcash($_POST);
 			break;
 		default:
 			$OUTPUT = view();
@@ -112,10 +112,10 @@ function view()
 
 
 # view cash book
-function viewcash($HTTP_POST_VARS)
+function viewcash($_POST)
 {
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -507,11 +507,11 @@ function viewcash($HTTP_POST_VARS)
 }
 
 # view cash book
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -789,11 +789,11 @@ function confirm($HTTP_POST_VARS)
 
 
 # view cash book
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# get vars
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");

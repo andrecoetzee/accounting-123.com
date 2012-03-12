@@ -27,27 +27,27 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "bank":
-                        $OUTPUT = bank($HTTP_POST_VARS);
+                        $OUTPUT = bank($_POST);
 			break;
 
                 default:
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 	}
 } else {
-        $OUTPUT = confirm($HTTP_POST_VARS);
+        $OUTPUT = confirm($_POST);
 }
 
 
 # get templete
 require("template.php");
 
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
         # Get Vars ( banked[] )
-        foreach($HTTP_POST_VARS as $key => $value){
+        foreach($_POST as $key => $value){
                 $$key = $value;
         }
 
@@ -100,13 +100,13 @@ function confirm($HTTP_POST_VARS)
 
 
 # write
-function bank($HTTP_POST_VARS)
+function bank($_POST)
 {
         //processes
         db_connect();
 
         # get var ( bank[] )
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

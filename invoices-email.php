@@ -27,10 +27,10 @@ require ("settings.php");
 require_lib("mail.smtp");
 require ("pdf-settings.php");
 
-if(isset($HTTP_POST_VARS["key"]) && $HTTP_POST_VARS["key"] == "print") {
-	$OUTPUT = send($HTTP_POST_VARS);
-} elseif(isset($HTTP_GET_VARS["evs"])) {
-	$OUTPUT = confirm($HTTP_GET_VARS);
+if(isset($_POST["key"]) && $_POST["key"] == "print") {
+	$OUTPUT = send($_POST);
+} elseif(isset($_GET["evs"])) {
+	$OUTPUT = confirm($_GET);
 } else {
 	$OUTPUT = "Invalid use of module.";
 }
@@ -49,10 +49,10 @@ require("template.php");
 
 
 
-function confirm($HTTP_GET_VARS)
+function confirm($_GET)
 {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	$invoices = explode(",",$evs);
 
@@ -132,10 +132,10 @@ function confirm($HTTP_GET_VARS)
 
 
 
-function send($HTTP_POST_VARS)
+function send($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$out = "
 		<h3>Results</h3>

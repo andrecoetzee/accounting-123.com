@@ -25,14 +25,14 @@
 
 require ("../settings.php");
 
-if ($HTTP_POST_VARS) {
-	if ($HTTP_POST_VARS["key"] == "write") {
+if ($_POST) {
+	if ($_POST["key"] == "write") {
 		# remove paye
-		$OUTPUT = remPaye ($HTTP_POST_VARS);
+		$OUTPUT = remPaye ($_POST);
 	}
 } else {
 	# confirm removal
-	$OUTPUT = confirmPaye ($HTTP_GET_VARS);
+	$OUTPUT = confirmPaye ($_GET);
 }
 
 
@@ -43,10 +43,10 @@ require ("../template.php");
 ##
 
 # confirm removal
-function confirmPaye ($HTTP_GET_VARS)
+function confirmPaye ($_GET)
 {
 	# get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -101,10 +101,10 @@ function confirmPaye ($HTTP_GET_VARS)
 }
 
 # remove entry
-function remPaye ($HTTP_POST_VARS)
+function remPaye ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

@@ -314,7 +314,7 @@ class clsSMTPMail {
 	 * @return bool
 	 */
 	function smtp_helo() {
-		global $HTTP_SERVER_VARS;
+		global $_SERVER;
 
 		// transmit data
 		$this->sock_write( "EHLO fr13nd" );

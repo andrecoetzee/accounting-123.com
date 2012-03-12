@@ -26,13 +26,13 @@
 # get settings
 require ("../settings.php");
 
-$OUTPUT = entries($HTTP_GET_VARS);
+$OUTPUT = entries($_GET);
 
 require("../template.php");
 
-function entries($HTTP_GET_VARS) {
+function entries($_GET) {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	db_conn('cubit');
 

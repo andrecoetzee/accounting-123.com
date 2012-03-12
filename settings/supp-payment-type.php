@@ -2,26 +2,26 @@
 
 require ("../settings.php");
 
-if (isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if (isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = confirm_info_setting ($HTTP_POST_VARS);
+			$OUTPUT = confirm_info_setting ($_POST);
 			break;
 		default:
-			$OUTPUT = get_info_setting ($HTTP_POST_VARS);
+			$OUTPUT = get_info_setting ($_POST);
 	}
 }else {
-	$OUTPUT = get_info_setting ($HTTP_POST_VARS);
+	$OUTPUT = get_info_setting ($_POST);
 }
 
 require ("../template.php");
 
 
 
-function get_info_setting ($HTTP_POST_VARS, $err="")
+function get_info_setting ($_POST, $err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	#handle unset vars
 	if (!isset($pay_type))
@@ -93,10 +93,10 @@ function get_info_setting ($HTTP_POST_VARS, $err="")
 
 
 
-function confirm_info_setting ($HTTP_POST_VARS)
+function confirm_info_setting ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -143,7 +143,7 @@ function confirm_info_setting ($HTTP_POST_VARS)
 
 	pglib_transaction("COMMIT") or errDie ("Unable to complete transaction.");
 
-	return get_info_setting($HTTP_POST_VARS,"<li class='err'>Supplier Settings Updated</li><br>");
+	return get_info_setting($_POST,"<li class='err'>Supplier Settings Updated</li><br>");
 
 }
 

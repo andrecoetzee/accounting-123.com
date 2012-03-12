@@ -27,19 +27,19 @@
 require ("../settings.php");
 require("../core-settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "enter_data":
-			$OUTPUT = enter_data($HTTP_POST_VARS,$HTTP_POST_FILES);
+			$OUTPUT = enter_data($_POST,$_FILES);
 			break;
 		case "enter2":
-			$OUTPUT = enter_data2($HTTP_POST_VARS);
+			$OUTPUT = enter_data2($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = confirm_data($HTTP_POST_VARS,$HTTP_POST_FILES);
+			$OUTPUT = confirm_data($_POST,$_FILES);
 			break;
 		case "write":
-			$OUTPUT = write_data($HTTP_POST_VARS);
+			$OUTPUT = write_data($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid";
@@ -58,7 +58,7 @@ require("../template.php");
 function select_file ()
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
 	$qry = new dbQuery(DB_SQL,"SELECT SUM(debit) = 0 AND SUM(credit) = 0 AS res FROM core.trial_bal");
 	$qry->run();
@@ -119,15 +119,15 @@ function select_file ()
 
 
 
-function enter_data($HTTP_POST_VARS,$HTTP_POST_FILES="")
+function enter_data($_POST,$_FILES="")
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
-	if($HTTP_POST_FILES != "") {
+	if($_FILES != "") {
 
 		$importfile = tempnam("/tmp", "cubitimport_");
-		$file = fopen($HTTP_POST_FILES["compfile"]["tmp_name"], "r");
+		$file = fopen($_FILES["compfile"]["tmp_name"], "r");
 
 		if ( $file == false) {
 			return "<li class='err'>Cannot read file.</li>".select_file();
@@ -183,18 +183,18 @@ function enter_data($HTTP_POST_VARS,$HTTP_POST_FILES="")
 		fclose($file);
 	}
 
-	global $HTTP_SESSION_VARS;
+	global $_SESSION;
 
 	$out = "
 		<h3>Trial Balance Import</h3>
 		<form action='".SELF."' method='POST'>
 			<input type='hidden' name='key' value='enter2'>
 			<input type='hidden' name='login' value='1'>
-			<input type='hidden' name='div' value='$HTTP_SESSION_VARS[USER_DIV]'>
-			<input type='hidden' name='login_user' value='$HTTP_SESSION_VARS[USER_NAME]'>
-			<input type='hidden' name='login_pass' value='$HTTP_SESSION_VARS[USER_PASS]'>
-			<input type='hidden' name='code' value='$HTTP_SESSION_VARS[code]'>
-			<input type='hidden' name='comp' value='$HTTP_SESSION_VARS[comp]'>
+			<input type='hidden' name='div' value='$_SESSION[USER_DIV]'>
+			<input type='hidden' name='login_user' value='$_SESSION[USER_NAME]'>
+			<input type='hidden' name='login_pass' value='$_SESSION[USER_PASS]'>
+			<input type='hidden' name='code' value='$_SESSION[code]'>
+			<input type='hidden' name='comp' value='$_SESSION[comp]'>
 			<input type='hidden' name='noroute' value='1'>
 		<table ".TMPL_tblDflts.">
 			<tr>
@@ -379,12 +379,12 @@ function enter_data($HTTP_POST_VARS,$HTTP_POST_FILES="")
 
 
 
-function enter_data2($HTTP_POST_VARS)
+function enter_data2($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
-	global $HTTP_SESSION_VARS;
+	global $_SESSION;
 
 	$out = "
 		<h3>Trial Balance Import</h3>
@@ -392,11 +392,11 @@ function enter_data2($HTTP_POST_VARS)
 		<form action='".SELF."' method='POST'>
 			<input type='hidden' name='key' value='confirm' />
 			<input type='hidden' name='login' value='1' />
-			<input type='hidden' name='div' value='$HTTP_SESSION_VARS[USER_DIV]' />
-			<input type='hidden' name='login_user' value='$HTTP_SESSION_VARS[USER_NAME]' />
-			<input type='hidden' name='login_pass' value='$HTTP_SESSION_VARS[USER_PASS]' />
-			<input type='hidden' name='code' value='$HTTP_SESSION_VARS[code]' />
-			<input type='hidden' name='comp' value='$HTTP_SESSION_VARS[comp]' />
+			<input type='hidden' name='div' value='$_SESSION[USER_DIV]' />
+			<input type='hidden' name='login_user' value='$_SESSION[USER_NAME]' />
+			<input type='hidden' name='login_pass' value='$_SESSION[USER_PASS]' />
+			<input type='hidden' name='code' value='$_SESSION[code]' />
+			<input type='hidden' name='comp' value='$_SESSION[comp]' />
 			<input type='hidden' name='noroute' value='1' />
 			<input type='hidden' name='prd' value='$prd' />
 		<table ".TMPL_tblDflts.">
@@ -590,7 +590,7 @@ function enter_data2($HTTP_POST_VARS)
 
 				$ad = pg_fetch_array($Rx);
 
-				return enter_data($HTTP_POST_VARS)."<li class='err'>You cannot link an account to more than one account($ad[accname]).</li>";
+				return enter_data($_POST)."<li class='err'>You cannot link an account to more than one account($ad[accname]).</li>";
 			}
 
 			$blocked[] = $accounts[$fid];
@@ -916,13 +916,13 @@ function enter_data2($HTTP_POST_VARS)
 
 
 
-function confirm_data($HTTP_POST_VARS)
+function confirm_data($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(isset($back)) {
-		return enter_data($HTTP_POST_VARS);
+		return enter_data($_POST);
 	}
 
 	/* do account number changes */
@@ -964,23 +964,23 @@ function confirm_data($HTTP_POST_VARS)
 			$check_dup->run();
 
 			if ($check_num->num_rows() > 0 || $check_dup->num_rows() > 0) {
-				return enter_data2($HTTP_POST_VARS);
+				return enter_data2($_POST);
 			}
 		}
 	}
 
-	global $HTTP_SESSION_VARS;
+	global $_SESSION;
 
 	$out = "
 		<h3>Trial Balance Import</h3>
 		<form action='".SELF."' method='POST'>
 			<input type='hidden' name='key' value='write' />
 			<input type='hidden' name='login' value='1' />
-			<input type='hidden' name='div' value='$HTTP_SESSION_VARS[USER_DIV]' />
-			<input type='hidden' name='login_user' value='$HTTP_SESSION_VARS[USER_NAME]' />
-			<input type='hidden' name='login_pass' value='$HTTP_SESSION_VARS[USER_PASS]' />
-			<input type='hidden' name='code' value='$HTTP_SESSION_VARS[code]' />
-			<input type='hidden' name='comp' value='$HTTP_SESSION_VARS[comp]' />
+			<input type='hidden' name='div' value='$_SESSION[USER_DIV]' />
+			<input type='hidden' name='login_user' value='$_SESSION[USER_NAME]' />
+			<input type='hidden' name='login_pass' value='$_SESSION[USER_PASS]' />
+			<input type='hidden' name='code' value='$_SESSION[code]' />
+			<input type='hidden' name='comp' value='$_SESSION[comp]' />
 			<input type='hidden' name='noroute' value='1' />
 			<input type='hidden' name='prd' value='$prd' />
 		<table ".TMPL_tblDflts.">
@@ -1013,7 +1013,7 @@ function confirm_data($HTTP_POST_VARS)
 			$catss = explode(":",$cat[$fid]);
 
 			if($catss[0] == "0") {
-				return enter_data2($HTTP_POST_VARS)."<li class=err>You need to select a category for the new account</li>";
+				return enter_data2($_POST)."<li class=err>You need to select a category for the new account</li>";
 			}
 
 			$add = "<input type='hidden' name='cat[$fid]' value='$cat[$fid]'>
@@ -1104,7 +1104,7 @@ function confirm_data($HTTP_POST_VARS)
 		$out .= TBL_BR;
 
 		if(sprint($cc_tot)!=sprint($tot)) {
-			return enter_data2($HTTP_POST_VARS)."<li class='err'>The total amount for balances for customers you entered is: ".CUR." $tot, the
+			return enter_data2($_POST)."<li class='err'>The total amount for balances for customers you entered is: ".CUR." $tot, the
 			total for the control account is: ".sprint($cc_tot).". These need to be the same.</li>";
 		}
 	}
@@ -1163,7 +1163,7 @@ function confirm_data($HTTP_POST_VARS)
 		$out .= TBL_BR;
 
 		if(sprint($sc_tot) != sprint($tot)) {
-			return enter_data2($HTTP_POST_VARS)."<li class='err'>The total amount for balances for suppliers you entered is: ".CUR." $tot, the
+			return enter_data2($_POST)."<li class='err'>The total amount for balances for suppliers you entered is: ".CUR." $tot, the
 			total for the control account is: ".sprint($sc_tot).". These need to be the same.</li>";
 		}
 	}
@@ -1230,7 +1230,7 @@ function confirm_data($HTTP_POST_VARS)
 		$out .= "<tr><td><br></td></tr>";
 
 		if(sprint($sal_tot) != sprint($tot)) {
-			return enter_data2($HTTP_POST_VARS)."<li class=err>The total amount for balances for employees you entered is: ".CUR." $tot, the
+			return enter_data2($_POST)."<li class=err>The total amount for balances for employees you entered is: ".CUR." $tot, the
 			total for the control account is: ".sprint($sal_tot).". These need to be the same.</li>";
 		}
 	}
@@ -1272,7 +1272,7 @@ function confirm_data($HTTP_POST_VARS)
 			$units[$iid] += 0;
 
 			if((sprint($ibalance[$iid]) > 0) && ($units[$iid]) <= 0) {
-				return enter_data2($HTTP_POST_VARS)."<li class='err'>You specified $units[$iid] units for $cd[stkcod], but ".CUR." $ibalance[$iid].
+				return enter_data2($_POST)."<li class='err'>You specified $units[$iid] units for $cd[stkcod], but ".CUR." $ibalance[$iid].
 				If you want to enter an amount you need to give the qty.</li>";
 			}
 
@@ -1300,7 +1300,7 @@ function confirm_data($HTTP_POST_VARS)
 		$out .= "<tr><td><br></td></tr>";
 
 		if(sprint($i_tot) != sprint($tot)) {
-			return enter_data2($HTTP_POST_VARS)."<li class='err'>The total amount for balances for inventory you entered is: ".CUR." $tot, the
+			return enter_data2($_POST)."<li class='err'>The total amount for balances for inventory you entered is: ".CUR." $tot, the
 			total for the control account is: ".sprint($i_tot).". These need to be the same.</li>";
 		}
 	}
@@ -1320,13 +1320,13 @@ function confirm_data($HTTP_POST_VARS)
 
 }
 
-function write_data($HTTP_POST_VARS)
+function write_data($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(isset($back)) {
-		return enter_data2($HTTP_POST_VARS);
+		return enter_data2($_POST);
 	}
 
 	db_conn('core');
@@ -1598,7 +1598,7 @@ function write_data($HTTP_POST_VARS)
 
 		$tot = array_sum($cbalance);
 		if(sprint($cc_tot) != sprint($tot)) {
-			return enter_data2($HTTP_POST_VARS)."<li class='err'>The total amount for balances for customers you entered is: ".CUR." $tot, the
+			return enter_data2($_POST)."<li class='err'>The total amount for balances for customers you entered is: ".CUR." $tot, the
 			total for the control account is: ".sprint($cc_tot).". These need to be the same.</li>";
 		}
 
@@ -1766,7 +1766,7 @@ function write_data($HTTP_POST_VARS)
 
 
 		if(sprint($sc_tot) != sprint($tot)) {
-			return enter_data2($HTTP_POST_VARS)."<li class='err'>The total amount for balances for suppliers you entered is: ".CUR." $tot, the
+			return enter_data2($_POST)."<li class='err'>The total amount for balances for suppliers you entered is: ".CUR." $tot, the
 			total for the control account is: ".sprint($sc_tot).". These need to be the same.</li>";
 		}
 	}
@@ -1815,7 +1815,7 @@ function write_data($HTTP_POST_VARS)
 		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
 		if(sprint($sal_tot) != sprint($tot)) {
-			return enter_data2($HTTP_POST_VARS)."<li class='err'>The total amount for balances for employees you entered is: ".CUR." $tot, the
+			return enter_data2($_POST)."<li class='err'>The total amount for balances for employees you entered is: ".CUR." $tot, the
 			total for the control account is: ".sprint($sal_tot).". These need to be the same.</li>";
 		}
 	}
@@ -1893,7 +1893,7 @@ function write_data($HTTP_POST_VARS)
 		}
 
 		if(sprint($i_tot) != sprint($tot)) {
-			return enter_data2($HTTP_POST_VARS)."<li class='err'>The total amount for balances for inventory you entered is: ".CUR." $tot, the
+			return enter_data2($_POST)."<li class='err'>The total amount for balances for inventory you entered is: ".CUR." $tot, the
 			total for the control account is: ".sprint($sal_tot).". These need to be the same.</li>";
 		}
 	}
@@ -1919,10 +1919,10 @@ function write_data($HTTP_POST_VARS)
 
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	db_conn('cubit');
 

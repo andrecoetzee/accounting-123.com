@@ -27,13 +27,13 @@
 
 require ("settings.php");
 
-if ($HTTP_POST_VARS) {
-	switch ($HTTP_POST_VARS["key"]) {
+if ($_POST) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmUser ($HTTP_POST_VARS);
+			$OUTPUT = confirmUser ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writeUser ($HTTP_POST_VARS);
+			$OUTPUT = writeUser ($_POST);
 			break;
 		default:
 			$OUTPUT = enterUser ();
@@ -250,11 +250,11 @@ function enterUser ($username="", $err="")
 
 
 # confirm entered info
-function confirmUser ($HTTP_POST_VARS)
+function confirmUser ($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require ("libs/validate.lib.php");
@@ -554,14 +554,14 @@ function confirmUser ($HTTP_POST_VARS)
 
 
 # write user to db
-function writeUser ($HTTP_POST_VARS)
+function writeUser ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 //	if(!isset($doneBtn))
-	//	return confirmUser($HTTP_POST_VARS);
+	//	return confirmUser($_POST);
 
 
 	# validate input
@@ -731,7 +731,7 @@ function writeUser ($HTTP_POST_VARS)
 
 
 	if(!isset($doneBtn)){
-		return confirmUser($HTTP_POST_VARS);
+		return confirmUser($_POST);
 	}
 
 	# status report

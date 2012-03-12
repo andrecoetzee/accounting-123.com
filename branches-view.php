@@ -2,7 +2,7 @@
 
 	require ("settings.php");
 
-	if (isset($HTTP_POST_VARS["key"])){
+	if (isset($_POST["key"])){
 		$OUTPUT = show_branches ($active_search=TRUE);
 	}else {
 		$OUTPUT = show_branches ();

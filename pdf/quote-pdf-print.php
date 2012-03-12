@@ -4,12 +4,12 @@ require ("../settings.php");
 require ("../core-settings.php");
 require ("../pdf-settings.php");
 
-quoteDetails($HTTP_GET_VARS);
+quoteDetails($_GET);
 
-function quoteDetails($HTTP_GET_VARS)
+function quoteDetails($_GET)
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 	global $set_mainFont;
 
 	$showvat = TRUE;

@@ -28,27 +28,27 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
 			if (isset ($_REQUEST["another"])){
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 			}else {
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 			}
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "details":
-			$OUTPUT = details($HTTP_POST_VARS);
+			$OUTPUT = details($_POST);
 			break;
 		default:
-			$OUTPUT = slctacc($HTTP_POST_VARS);
+			$OUTPUT = slctacc($_POST);
 	}
 } else {
 	# Display default output
-	$OUTPUT = slctacc($HTTP_POST_VARS);
+	$OUTPUT = slctacc($_POST);
 }
 
 # get templete
@@ -58,10 +58,10 @@ require("template.php");
 
 
 # Select Accounts
-function slctacc($HTTP_POST_VARS)
+function slctacc($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(!isset($date_year)) {
 		$accid = 0;
@@ -140,11 +140,11 @@ function slctacc($HTTP_POST_VARS)
 }
 
 # Enter Details of Transaction
-function details($HTTP_POST_VARS)
+function details($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset ($numcont)) 
 		$numcont = 1;
@@ -171,7 +171,7 @@ function details($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return $confirm.slctacc($HTTP_POST_VARS);
+		return $confirm.slctacc($_POST);
 	}
 
 	$blocked_date_from = getCSetting("BLOCKED_FROM");
@@ -329,14 +329,14 @@ function details($HTTP_POST_VARS)
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		return slctacc($HTTP_POST_VARS);
+		return slctacc($_POST);
 	}
 
 	# validate input
@@ -364,7 +364,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return $confirm.details($HTTP_POST_VARS);
+		return $confirm.details($_POST);
 	}
 
 	# get account
@@ -430,7 +430,7 @@ function confirm($HTTP_POST_VARS)
 	}
 
 	if(strlen($trans) < 5){
-		return "<li class='err'> - Please enter full transaction details</li>".details($HTTP_POST_VARS);
+		return "<li class='err'> - Please enter full transaction details</li>".details($_POST);
 	}
 
 	$confirm .= "
@@ -464,16 +464,16 @@ function confirm($HTTP_POST_VARS)
 
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	# print "<pre>"; var_dump($HTTP_POST_VARS);exit;
+	# print "<pre>"; var_dump($_POST);exit;
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return details($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return details($_POST);
 	}
 
 	# validate input

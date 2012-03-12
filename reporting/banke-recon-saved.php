@@ -29,10 +29,10 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "viewsaved":
-			$OUTPUT = viewsaved($HTTP_POST_VARS);
+			$OUTPUT = viewsaved($_POST);
 			break;
                 default:
 			$OUTPUT = view();
@@ -96,10 +96,10 @@ function view()
 }
 
 # view cash book
-function viewsaved($HTTP_POST_VARS)
+function viewsaved($_POST)
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 

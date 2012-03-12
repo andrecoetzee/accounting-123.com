@@ -31,35 +31,35 @@ require("libs/ext.lib.php");
 require("picking_slips/picking_slip.lib.php");
 
 // Merge get vars with post vars
-foreach ($HTTP_GET_VARS as $key=>$val) {
-	$HTTP_POST_VARS[$key] = $val;
+foreach ($_GET as $key=>$val) {
+	$_POST[$key] = $val;
 }
 
 // We need the invid
-if (!isset($HTTP_POST_VARS["invid"])) {
+if (!isset($_POST["invid"])) {
 	$OUTPUT = "<li class='err'>Invalid use of module.</li>";
 }
 
 // Decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "details":
-			$OUTPUT = details($HTTP_POST_VARS);
+			$OUTPUT = details($_POST);
 			break;
 	}
 } else {
-	$OUTPUT = details($HTTP_POST_VARS);
+	$OUTPUT = details($_POST);
 }
 require("template.php");
 
 
 
 
-function details($HTTP_POST_VARS)
+function details($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$showvat = TRUE;
 

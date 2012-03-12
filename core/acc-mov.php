@@ -27,26 +27,26 @@
 require ("settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
             case "confirm":
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 				break;
 
 			case "write":
-            	$OUTPUT = write($HTTP_POST_VARS);
+            	$OUTPUT = write($_POST);
 				break;
 
 			default:
-				if (isset($HTTP_GET_VARS['accid'])){
-					$OUTPUT = edit ($HTTP_GET_VARS['accid']);
+				if (isset($_GET['accid'])){
+					$OUTPUT = edit ($_GET['accid']);
 				} else {
 					$OUTPUT = "<li> - Invalid use of module";
 				}
 	}
 } else {
-		if (isset($HTTP_GET_VARS['accid'])){
-			$OUTPUT = edit ($HTTP_GET_VARS['accid']);
+		if (isset($_GET['accid'])){
+			$OUTPUT = edit ($_GET['accid']);
 		} else {
 			$OUTPUT = "<li> - Invalid use of module";
 		}
@@ -155,8 +155,8 @@ function edit($accid, $err = "") {
 }
 
 # confirm new data
-function confirm ($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function confirm ($_POST) {
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -173,7 +173,7 @@ function confirm ($HTTP_POST_VARS) {
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return edit($HTTP_POST_VARS, $confirm);
+		return edit($_POST, $confirm);
 	}
 
 	# Select account
@@ -221,7 +221,7 @@ function confirm ($HTTP_POST_VARS) {
 	$cRslt = db_exec ($sql) or errDie ("Unable to retrieve Account details from database.");
 	if (pg_numrows($cRslt) > 0) {
 		$confirm = "<li class=err>Selected Account number already in use.";
-		return edit($HTTP_POST_VARS, $confirm);
+		return edit($_POST, $confirm);
 	}
 
 	/* sub categories */
@@ -328,8 +328,8 @@ function confirm ($HTTP_POST_VARS) {
 }
 
 # write new data
-function write ($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function write ($_POST) {
+	extract($_POST);
 	# validate input
 	require_lib("validate");
 	$v = new  validate ();
@@ -341,7 +341,7 @@ function write ($HTTP_POST_VARS) {
 
 	if ($v->isError()) {
 		$err = $v->genErrors();
-		return edit($HTTP_POST_VARS, $err);
+		return edit($_POST, $err);
 	}
 
 	core_connect();

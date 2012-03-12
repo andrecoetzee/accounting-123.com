@@ -31,16 +31,16 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "add":
-			$OUTPUT = add($HTTP_POST_VARS);
+			$OUTPUT = add($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = slct();
@@ -151,11 +151,11 @@ function slct()
 
 
 # Insert details
-function add($HTTP_POST_VARS)
+function add($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -275,11 +275,11 @@ function add($HTTP_POST_VARS)
 
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -402,13 +402,13 @@ function confirm($HTTP_POST_VARS)
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	db_connect();
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

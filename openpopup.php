@@ -26,11 +26,11 @@
 
 require ("settings.php");
 
-if(!isset($HTTP_GET_VARS["redir"]) OR (strlen($HTTP_GET_VARS["redir"]) < 1)){
+if(!isset($_GET["redir"]) OR (strlen($_GET["redir"]) < 1)){
 	return "Invalid use of module.";
 }
 
-$redir = $HTTP_GET_VARS["redir"];
+$redir = $_GET["redir"];
 
 $navlink_target = getNavLinkTarget();
 

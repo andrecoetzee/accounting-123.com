@@ -27,10 +27,10 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "viewLedg":
-			$OUTPUT = viewLedg($HTTP_POST_VARS);
+			$OUTPUT = viewLedg($_POST);
 			break;
 		default:
 			$OUTPUT = view();
@@ -105,11 +105,11 @@ function view()
 
 
 # View Categories
-function viewLedg($HTTP_POST_VARS)
+function viewLedg($_POST)
 {
 
     # get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

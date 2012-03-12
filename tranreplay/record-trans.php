@@ -2,16 +2,16 @@
 
 require ("../settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "record":
-			$OUTPUT = run_trans ($HTTP_POST_VARS);
+			$OUTPUT = run_trans ($_POST);
 			break;
 		default:
-			$OUTPUT = get_trans ($HTTP_POST_VARS);
+			$OUTPUT = get_trans ($_POST);
 	}
 }else {
-	$OUTPUT = get_trans ($HTTP_POST_VARS);
+	$OUTPUT = get_trans ($_POST);
 }
 
 $OUTPUT .= "<br>"
@@ -25,10 +25,10 @@ require ("../template.php");
 
 
 
-function get_trans ($HTTP_POST_VARS)
+function get_trans ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	$display = "
 					<h2>Record Transaction</h2>
@@ -61,10 +61,10 @@ function get_trans ($HTTP_POST_VARS)
 
 
 
-function run_trans ($HTTP_POST_VARS)
+function run_trans ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_conn ("exten");
 

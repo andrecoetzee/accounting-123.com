@@ -2,35 +2,35 @@
 
 	require ("settings.php");
 
-	if(isset($HTTP_POST_VARS["key"])){
-		switch ($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch ($_POST["key"]){
 			case "write":
-				$OUTPUT = write_details ($HTTP_POST_VARS);
+				$OUTPUT = write_details ($_POST);
 				break;
 			default:
-				$OUTPUT = confirm_details ($HTTP_POST_VARS);
+				$OUTPUT = confirm_details ($_POST);
 		}
 	}else {
-		$OUTPUT = confirm_details ($HTTP_POST_VARS);
+		$OUTPUT = confirm_details ($_POST);
 	}
 
 	require ("template.php");
 
 
 
-function confirm_details ($HTTP_POST_VARS)
+function confirm_details ($_POST)
 {
 
-	global $HTTP_GET_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_GET;
+	extract ($_POST);
 
-	if(!isset($HTTP_GET_VARS["id"])){
+	if(!isset($_GET["id"])){
 		return "Invalid use of module. Invalid ID.";
 	}
 
 	db_connect ();
 
-	$get_burs = "SELECT * FROM active_bursaries WHERE id = '$HTTP_GET_VARS[id]' LIMIT 1";
+	$get_burs = "SELECT * FROM active_bursaries WHERE id = '$_GET[id]' LIMIT 1";
 	$run_burs = db_exec($get_burs) or errDie("Unable to get bursaries information.");
 	if(pg_numrows($run_burs) < 1){
 		return "<li class='err'>Invalid Use Of Module. Invalid Bursary Recipient.</li>";
@@ -52,7 +52,7 @@ function confirm_details ($HTTP_POST_VARS)
 			<table ".TMPL_tblDflts.">
 			<form action='".SELF."' method='POST'>
 				<input type='hidden' name='key' value='write'>
-				<input type='hidden' name='id' value='$HTTP_GET_VARS[id]'>
+				<input type='hidden' name='id' value='$_GET[id]'>
 				<input type='hidden' name='bursary' value='$bursary'>
 				<tr>
 					<th colspan='2'>Recipient Information</th>
@@ -115,10 +115,10 @@ function confirm_details ($HTTP_POST_VARS)
 }
 
 
-function write_details ($HTTP_POST_VARS)
+function write_details ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$from_date = "$from_year-$from_month-$from_day";
 	$to_date = "$to_year-$to_month-$to_day";

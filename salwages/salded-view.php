@@ -26,7 +26,7 @@
 # get settings
 require ("../settings.php");
 
-$OUTPUT = viewDeducts ($HTTP_POST_VARS);
+$OUTPUT = viewDeducts ($_POST);
 
 # display output
 require ("../template.php");

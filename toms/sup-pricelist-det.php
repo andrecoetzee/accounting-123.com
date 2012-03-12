@@ -28,8 +28,8 @@ require ("../settings.php");
 require ("../core-settings.php");
 require ("../libs/ext.lib.php");
 
-if (isset($HTTP_GET_VARS['listid'])){
-	$OUTPUT = edit ($HTTP_GET_VARS['listid']);
+if (isset($_GET['listid'])){
+	$OUTPUT = edit ($_GET['listid']);
 } else {
 	$OUTPUT = "<li> - Invalid use of module";
 }

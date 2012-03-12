@@ -1,14 +1,14 @@
 <?
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return alloc($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return alloc($_POST);
 	}
 
 	$all = $all_val;

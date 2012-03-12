@@ -30,26 +30,26 @@ require_lib("docman");
 require("../libs/ext.lib.php");
 
 # Decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "cancel":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 	case "confirm2":
-			$OUTPUT = confirm2($HTTP_POST_VARS);
+			$OUTPUT = confirm2($_POST);
 			break;
 		default:
 			# Display default output
-			if(isset($HTTP_GET_VARS['cashid'])){
-					$OUTPUT = confirm($HTTP_GET_VARS['cashid']);
+			if(isset($_GET['cashid'])){
+					$OUTPUT = confirm($_GET['cashid']);
 			}else{
 					$OUTPUT = "<li class=err> Invalid use of mudule";
 			}
 	}
 } else {
 	# Display default output
-	if(isset($HTTP_GET_VARS['cashid'])){
-			$OUTPUT = confirm($HTTP_GET_VARS['cashid']);
+	if(isset($_GET['cashid'])){
+			$OUTPUT = confirm($_GET['cashid']);
 	}else{
 			$OUTPUT = "<li class=err> Invalid use of mudule";
 	}
@@ -141,9 +141,9 @@ function confirm($cashid)
 # confirm
 function confirm2()
 {
-	global $HTTP_POST_VARS;
+	global $_POST;
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# Validate input
 	require_lib("validate");
@@ -262,11 +262,11 @@ function confirm2()
 }
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
     # Get vars
-	global $HTTP_POST_FILES;
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	global $_FILES;
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	$vatcode+=0;
@@ -291,13 +291,13 @@ function write($HTTP_POST_VARS)
 	
 	$date = DATE_STD;
 
-	if (is_uploaded_file ($HTTP_POST_FILES["doc"]["tmp_name"])) {
-		$doctyp = $HTTP_POST_FILES["doc"]["type"];
-		$filename = $HTTP_POST_FILES["doc"]["name"];
+	if (is_uploaded_file ($_FILES["doc"]["tmp_name"])) {
+		$doctyp = $_FILES["doc"]["type"];
+		$filename = $_FILES["doc"]["name"];
 
 		# Open file in "read, binary" mode
 		$docu = "";
-		$file = fopen ($HTTP_POST_FILES['doc']['tmp_name'], "rb");
+		$file = fopen ($_FILES['doc']['tmp_name'], "rb");
 		while (!feof ($file)) {
 			# fread is binary safe
 			$docu .= fread ($file, 1024);

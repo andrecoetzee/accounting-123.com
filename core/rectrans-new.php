@@ -32,19 +32,19 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "details":
-			if(isset($HTTP_POST_VARS['detail'])){
-				$OUTPUT = details($HTTP_POST_VARS);
+			if(isset($_POST['detail'])){
+				$OUTPUT = details($_POST);
 			}else{
-				$OUTPUT = details2($HTTP_POST_VARS);
+				$OUTPUT = details2($_POST);
 			}
 			break;
 		default:
@@ -250,11 +250,11 @@ function slctacc()
 
 
 # Enter Details of Transaction
-function details($HTTP_POST_VARS,$err="")
+function details($_POST,$err="")
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -379,11 +379,11 @@ function details($HTTP_POST_VARS,$err="")
 
 
 # Enter Details of Transaction
-function details2($HTTP_POST_VARS)
+function details2($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -525,11 +525,11 @@ function details2($HTTP_POST_VARS)
 
 
 # Select vat accounts
-function slctVatAcc($HTTP_POST_VARS)
+function slctVatAcc($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -558,7 +558,7 @@ function slctVatAcc($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return details ($HTTP_POST_VARS,$confirm);
+		return details ($_POST,$confirm);
 	}
 
 
@@ -680,15 +680,15 @@ function slctVatAcc($HTTP_POST_VARS)
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Redirect if must chrgvat
 	if($chrgvat == 'yes' && !isset($vataccid)){
-		return slctVatAcc($HTTP_POST_VARS);
+		return slctVatAcc($_POST);
 	}
 
 	if(isset($vatcode)) {
@@ -698,11 +698,11 @@ function confirm($HTTP_POST_VARS)
 	}
 
 	if(isb($dtaccid)) {
-		return "<li class='err'>You selected a main account.</li>".slctacc($HTTP_POST_VARS);
+		return "<li class='err'>You selected a main account.</li>".slctacc($_POST);
 	}
 
 	if(isb($ctaccid)) {
-		return "<li class='err'>You selected a main account.</li>".slctacc($HTTP_POST_VARS);
+		return "<li class='err'>You selected a main account.</li>".slctacc($_POST);
 	}
 
 	# validate input
@@ -737,12 +737,12 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return details ($HTTP_POST_VARS,$confirm);
+		return details ($_POST,$confirm);
 	}
 
 
 	if ($amount <= 0){
-		return details($HTTP_POST_VARS,"<li class='err'>Invalid Amount To Process.</li>");
+		return details($_POST,"<li class='err'>Invalid Amount To Process.</li>");
 	}
 
 	$dtaccRs = get("core","*","accounts","accid",$dtaccid);
@@ -872,11 +872,11 @@ function confirm($HTTP_POST_VARS)
 
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$vatcode+=0;
 

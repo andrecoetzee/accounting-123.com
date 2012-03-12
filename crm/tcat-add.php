@@ -25,13 +25,13 @@
 
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid use of script";
@@ -67,9 +67,9 @@ function enter() {
 	return $out;
 }
 
-function entererr($HTTP_POST_VARS,$errors="") {
+function entererr($_POST,$errors="") {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$out="<h3>Add Query Category</h3>
 	$errors
@@ -86,9 +86,9 @@ function entererr($HTTP_POST_VARS,$errors="") {
 	return $out;
 }
 
-function confirm($HTTP_POST_VARS,$errors="") {
+function confirm($_POST,$errors="") {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new  validate ();
@@ -102,7 +102,7 @@ function confirm($HTTP_POST_VARS,$errors="") {
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return entererr($HTTP_POST_VARS, $confirm."</li>");
+		return entererr($_POST, $confirm."</li>");
 	}
 
 	$out="<h3>Add Query Category</h3>
@@ -119,9 +119,9 @@ function confirm($HTTP_POST_VARS,$errors="") {
 	return $out;
 }
 
-function write($HTTP_POST_VARS) {
+function write($_POST) {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new  validate ();
@@ -135,7 +135,7 @@ function write($HTTP_POST_VARS) {
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return entererr($HTTP_POST_VARS, $confirm."</li>");
+		return entererr($_POST, $confirm."</li>");
 	}
 
 	db_conn('crm');

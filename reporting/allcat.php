@@ -43,7 +43,7 @@ $OUTPUT .= "
 <tr><th>Quick Links</th></tr>
 $ex";
 
-if ( isset($HTTP_GET_VARS["popup"]) ) {
+if ( isset($_GET["popup"]) ) {
 	$OUTPUT .= "<tr class=datacell><td align=center><a href='../core/acc-new2.php'>Add account</a></td></tr>";
 } else {
 	$OUTPUT .= "<tr class=datacell><td align=center><a target=_blank href='../core/acc-new2.php'>Add account (New Window)</a></td></tr>";

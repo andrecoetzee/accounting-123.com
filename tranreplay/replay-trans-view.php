@@ -2,7 +2,7 @@
 
 require ("../settings.php");
 
-$OUTPUT = show_trans ($HTTP_POST_VARS);
+$OUTPUT = show_trans ($_POST);
 
 $OUTPUT .= "<br>"
 			.mkQuickLinks(

@@ -25,10 +25,10 @@
 
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "view":
-			$OUTPUT = printInvoice ($HTTP_POST_VARS);
+			$OUTPUT = printInvoice ($_POST);
 			break;
 		default:
 			$OUTPUT = slct ();
@@ -38,7 +38,7 @@ if (isset($HTTP_POST_VARS["key"])) {
 	isset($_GET["from_year"]) && isset($_GET["to_year"]) && isset($_GET["from_month"]) && 
 	isset($_GET["to_month"]) && isset($_GET["from_day"]) && isset($_GET["to_day"])
 ) {
-	$OUTPUT = printInvoice ($HTTP_GET_VARS);
+	$OUTPUT = printInvoice ($_GET);
 }else {
 	# Display default output
 	$OUTPUT = slct ();
@@ -102,11 +102,11 @@ function slct()
 
 
 # show
-function printInvoice ($HTTP_POST_VARS)
+function printInvoice ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

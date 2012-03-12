@@ -29,13 +29,13 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["invid"])) {
+	$OUTPUT = details($_GET);
 } else {
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "accept":
-				$OUTPUT = accept($HTTP_POST_VARS);
+				$OUTPUT = accept($_POST);
 				break;
 
 			default:
@@ -49,11 +49,11 @@ if (isset($HTTP_GET_VARS["invid"])) {
 require("template.php");
 
 # Details
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 
 	# Get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -178,9 +178,9 @@ function details($HTTP_GET_VARS)
 	return $details;
 }
 
-function accept($HTTP_POST_VARS)
+function accept($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# Validate input
 	require_lib("validate");

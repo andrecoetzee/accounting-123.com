@@ -32,16 +32,16 @@
 #
 # Please ensure that we have your correct banking details.
 
-if ( isset($HTTP_POST_VARS) && is_array($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = $value;
+if ( isset($_POST) && is_array($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_GET[$key] = $value;
 	}
 }
 
 // shows the month calendar
 function showCalendar_month() {
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	// check diary view permissions
 	if ( ! isset($view_diary) || $view_diary == USER_NAME) {
@@ -76,7 +76,7 @@ function showCalendar_month() {
 
 // creates a little month calendar
 function generateMonthView_large( $month, $year, $view_diary ) {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	$valid_date = mktime(0, 0, 0, $month, 1, $year);
 	$month = date("m", $valid_date);
@@ -171,11 +171,11 @@ function generateMonthView_large( $month, $year, $view_diary ) {
         }
 
 	// create a view variables
-	$selected_month = $HTTP_GET_VARS["month"];
+	$selected_month = $_GET["month"];
 
 	// create the previous month's entries
 	$c_weeknum = getWeekNumber( $tmp_day, $tmp_month, $tmp_year );
-	$selected_weeknum = getWeekNumber( $HTTP_GET_VARS["mday"], $HTTP_GET_VARS["month"], $HTTP_GET_VARS["year"] );
+	$selected_weeknum = getWeekNumber( $_GET["mday"], $_GET["month"], $_GET["year"] );
 
 	$OUTPUT .= "<tr>";
 

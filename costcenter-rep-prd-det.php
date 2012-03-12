@@ -27,10 +27,10 @@ require ("settings.php");
 require ("core-settings.php");
 require ("libs/ext.lib.php");
 
-if (isset($HTTP_GET_VARS["ccid"]) && isset($HTTP_GET_VARS["from_prd"]) && isset($HTTP_GET_VARS["to_prd"])) {
-	$OUTPUT = printCenter($HTTP_GET_VARS);
-}elseif(isset($HTTP_POST_VARS["key"])){
-	$OUTPUT = export_data($HTTP_POST_VARS);
+if (isset($_GET["ccid"]) && isset($_GET["from_prd"]) && isset($_GET["to_prd"])) {
+	$OUTPUT = printCenter($_GET);
+}elseif(isset($_POST["key"])){
+	$OUTPUT = export_data($_POST);
 } else {
 	# Display default output
 	$OUTPUT = "<li class='err'> - Invalid use of module.</li>";
@@ -39,11 +39,11 @@ if (isset($HTTP_GET_VARS["ccid"]) && isset($HTTP_GET_VARS["from_prd"]) && isset(
 require ("template.php");
 
 # show stock
-function printCenter ($HTTP_GET_VARS)
+function printCenter ($_GET)
 {
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if(!isset($ccid) OR strlen($ccid) < 1){
 		return "<li class='err'>Invalid Cost Center. Cost Center Not Found.</li>";
@@ -227,12 +227,12 @@ function printCenter ($HTTP_GET_VARS)
 
 
 
-function export_data ($HTTP_POST_VARS)
+function export_data ($_POST)
 {
 	require_lib ("xls");
-	extract ($HTTP_POST_VARS);
-	$data = clean_html(printCenter($HTTP_POST_VARS));
-	//$data =get_data($HTTP_POST_VARS);
+	extract ($_POST);
+	$data = clean_html(printCenter($_POST));
+	//$data =get_data($_POST);
 	StreamXLS ("report","$data");
 }
 

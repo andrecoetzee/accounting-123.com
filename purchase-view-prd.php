@@ -26,13 +26,13 @@
 require ("settings.php");
 require ("core-settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "view":
-			$OUTPUT = printPurch($HTTP_POST_VARS);
+			$OUTPUT = printPurch($_POST);
 			break;
 		case "export":
-			$OUTPUT = export($HTTP_POST_VARS);
+			$OUTPUT = export($_POST);
 			break;
 		default:
 			$OUTPUT = slct();
@@ -102,10 +102,10 @@ function slct()
 
 
 /* print the purchase list */
-function printPurch($HTTP_POST_VARS, $pure = false)
+function printPurch($_POST, $pure = false)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new validate ();
@@ -271,8 +271,8 @@ function printPurch($HTTP_POST_VARS, $pure = false)
 
 
 /* spreadsheet function */
-function export($HTTP_POST_VARS) {
-	$OUT = printPurch($HTTP_POST_VARS, true);
+function export($_POST) {
+	$OUT = printPurch($_POST, true);
 	$OUT = clean_html($OUT);
 
 	require_lib("xls");

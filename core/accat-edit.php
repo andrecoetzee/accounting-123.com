@@ -27,26 +27,26 @@
 require ("settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
             case "confirm":
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 				break;
 
 			case "write":
-            	$OUTPUT = write($HTTP_POST_VARS);
+            	$OUTPUT = write($_POST);
 				break;
 
 			default:
-				if (isset($HTTP_GET_VARS['catid'])){
-					$OUTPUT = edit ($HTTP_GET_VARS['catid']);
+				if (isset($_GET['catid'])){
+					$OUTPUT = edit ($_GET['catid']);
 				} else {
 					$OUTPUT = "<li> - Invalid use of module";
 				}
 	}
 } else {
-		if (isset($HTTP_GET_VARS['catid'])){
-			$OUTPUT = edit ($HTTP_GET_VARS['catid']);
+		if (isset($_GET['catid'])){
+			$OUTPUT = edit ($_GET['catid']);
 		} else {
 			$OUTPUT = "<li> - Invalid use of module";
 		}
@@ -125,10 +125,10 @@ function edit($catid)
 	return $edit;
 }
 
-function edit_err($HTTP_POST_VARS, $error = "")
+function edit_err($_POST, $error = "")
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 
@@ -187,10 +187,10 @@ function edit_err($HTTP_POST_VARS, $error = "")
 }
 
 # confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -207,7 +207,7 @@ function confirm ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return edit_err($HTTP_POST_VARS, $confirm);
+		return edit_err($_POST, $confirm);
 	}
 
 	# Check category name
@@ -216,7 +216,7 @@ function confirm ($HTTP_POST_VARS)
 	$checkRslt = db_exec ($sql) or errDie ("Unable to retrieve Account Category details from database.");
 	if (pg_numrows($checkRslt) > 0) {
 		$confirm = "<li class=err> Account Category name already exist.";
-		return edit_err($HTTP_POST_VARS, $confirm);
+		return edit_err($_POST, $confirm);
 	}
 
 	$confirm = "<h3>Confirm edit Account Category</h3>
@@ -244,10 +244,10 @@ function confirm ($HTTP_POST_VARS)
 }
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

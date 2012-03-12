@@ -29,21 +29,21 @@
 require ("settings.php");
 require ("core-settings.php");
 
-if (isset($HTTP_POST_VARS["update"])){
-	$OUTPUT = save_entries ($HTTP_POST_VARS);
-}elseif(isset($HTTP_POST_VARS["process"])){
-	if(isset($HTTP_POST_VARS["supinv"]) AND strlen($HTTP_POST_VARS["supinv"]) > 0){
-		$OUTPUT = save_entries ($HTTP_POST_VARS);
+if (isset($_POST["update"])){
+	$OUTPUT = save_entries ($_POST);
+}elseif(isset($_POST["process"])){
+	if(isset($_POST["supinv"]) AND strlen($_POST["supinv"]) > 0){
+		$OUTPUT = save_entries ($_POST);
 	}else {
-		$OUTPUT = process_entries ($HTTP_POST_VARS);
+		$OUTPUT = process_entries ($_POST);
 	}
 }else {
-	if(isset($HTTP_POST_VARS["rem_selected"])){
-		$OUTPUT = remove_entries ($HTTP_POST_VARS);
-	}elseif(isset($HTTP_POST_VARS["remcost"])){
-		$OUTPUT = remove_cost_entries ($HTTP_POST_VARS);
+	if(isset($_POST["rem_selected"])){
+		$OUTPUT = remove_entries ($_POST);
+	}elseif(isset($_POST["remcost"])){
+		$OUTPUT = remove_cost_entries ($_POST);
 	}else {
-		$OUTPUT = get_items ($HTTP_POST_VARS);
+		$OUTPUT = get_items ($_POST);
 	}
 }
 
@@ -52,10 +52,10 @@ require ("template.php");
 
 
 
-function get_items ($HTTP_POST_VARS,$err="")
+function get_items ($_POST,$err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$old_entries = "";
 	$new_entry = "";
@@ -94,7 +94,7 @@ function get_items ($HTTP_POST_VARS,$err="")
 			$get_supp = "SELECT * FROM suppliers WHERE supid = '$earr[supplier]' LIMIT 1";
 			$run_supp = db_exec($get_supp) or errDie("Unable to get supplier information.");
 			if(pg_numrows($run_supp) < 1){
-				unset ($HTTP_POST_VARS["new"]);
+				unset ($_POST["new"]);
 				$showsupplier = "Supplier Not Found.";
 			}else {
 				$sarr = pg_fetch_array($run_supp);
@@ -109,7 +109,7 @@ function get_items ($HTTP_POST_VARS,$err="")
 			$sql = "SELECT * FROM accounts WHERE accid = '$earr[account]' LIMIT 1";
 			$accRslt = db_exec($sql);
 			if(pg_numrows($accRslt) < 1){
-				unset ($HTTP_POST_VARS["new"]);
+				unset ($_POST["new"]);
 				$showaccount = "Account Not Found.";
 			}else {
 				$aarr = pg_fetch_array($accRslt);
@@ -242,7 +242,7 @@ function get_items ($HTTP_POST_VARS,$err="")
 		$get_supp = "SELECT * FROM suppliers WHERE div = '".USER_DIV."' AND ((length(blocked) < 3) OR (blocked IS NULL)) ";
 		$run_supp = db_exec($get_supp) or errDie("Unable to get supplier information.");
 		if(pg_numrows($run_supp) < 1){
-			unset ($HTTP_POST_VARS["new"]);
+			unset ($_POST["new"]);
 			return "<li class='err'>No Suppliers Found.</li><br>".
 				mkQuickLinks(
 					ql("supp-new.php","Add Supplier"),
@@ -252,7 +252,7 @@ function get_items ($HTTP_POST_VARS,$err="")
 					ql("nons-purchase-new.php","Add Non-Stock Purchase"),
 					ql("nons-purchase-view.php","View Non-Stock Purchases")
 				);
-//			return get_items ($HTTP_POST_VARS,"<li class='err'>No Suppliers Found.</li>");
+//			return get_items ($_POST,"<li class='err'>No Suppliers Found.</li>");
 		}else {
 			$supplier_drop = "<select name='supplier'>";
 			while ($sarr = pg_fetch_array($run_supp)){
@@ -273,8 +273,8 @@ function get_items ($HTTP_POST_VARS,$err="")
 		$sql = "SELECT * FROM accounts WHERE div = '".USER_DIV."' ORDER BY accname ASC";
 		$accRslt = db_exec($sql);
 		if(pg_numrows($accRslt) < 1){
-			unset ($HTTP_POST_VARS["new"]);
-			return get_items ($HTTP_POST_VARS,"<li class='err'>There are No accounts in Cubit.</li>");
+			unset ($_POST["new"]);
+			return get_items ($_POST,"<li class='err'>There are No accounts in Cubit.</li>");
 		}
 
 		$accounts_drop = mkAccSelect ("account", $account);
@@ -462,10 +462,10 @@ function get_items ($HTTP_POST_VARS,$err="")
 
 
 
-function process_entries ($HTTP_POST_VARS)
+function process_entries ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# CHECK IF THIS DATE IS IN THE BLOCKED RANGE
 	$blocked_date_from = getCSetting("BLOCKED_FROM");
@@ -497,7 +497,7 @@ pglib_transaction("BEGIN") or errDie("Unable to start transaction.");
 		$get_sup = "SELECT distinct(supplier) FROM purch_batch_entries";
 		$run_sup = db_exec($get_sup) or errDie("Unable to get supplier information.");
 		if(pg_numrows($run_sup) < 1){
-			return get_items ($HTTP_POST_VARS,"<li class='err'>Please Add At Least One Item.</li>");
+			return get_items ($_POST,"<li class='err'>Please Add At Least One Item.</li>");
 		}else {
 			while ($sarr0 = pg_fetch_array($run_sup)){
 
@@ -517,7 +517,7 @@ pglib_transaction("BEGIN") or errDie("Unable to start transaction.");
 				$get_inv = "SELECT distinct (supinv) FROM purch_batch_entries WHERE supplier = '$sarr0[supplier]'";
 				$run_inv = db_exec($get_inv) or errDie("Unable to get batch entries.");
 				if(pg_numrows($run_inv) < 1){
-					return get_items ($HTTP_POST_VARS,"<li class='err'>Please Add At Least One Item.</li>");
+					return get_items ($_POST,"<li class='err'>Please Add At Least One Item.</li>");
 				}else {
 					while ($earr = pg_fetch_array($run_inv)){
 
@@ -525,7 +525,7 @@ pglib_transaction("BEGIN") or errDie("Unable to start transaction.");
 						$get_items = "SELECT * FROM purch_batch_entries WHERE supplier = '$sarr0[supplier]' AND supinv = '$earr[supinv]'";
 						$run_items = db_exec($get_items) or errDie("Unable to get purchase information.");
 						if(pg_numrows($run_items) < 1){
-							return get_items($HTTP_POST_VARS,"<li class='err'>Please Add At Least One Item.</li>");
+							return get_items($_POST,"<li class='err'>Please Add At Least One Item.</li>");
 						}else {
 							$total = 0;
 							while ($arr1 = pg_fetch_array($run_items)){
@@ -545,7 +545,7 @@ pglib_transaction("BEGIN") or errDie("Unable to start transaction.");
 						$get_items = "SELECT * FROM purch_batch_entries WHERE supplier = '$sarr0[supplier]' AND supinv = '$earr[supinv]'";
 						$run_items = db_exec($get_items) or errDie("Unable to get purchase information.");
 						if(pg_numrows($run_items) < 1){
-							return get_items($HTTP_POST_VARS,"<li class='err'>Please Add At Least One Item.</li>");
+							return get_items($_POST,"<li class='err'>Please Add At Least One Item.</li>");
 						}else {
 							#################[ write the non stock purchase ]################
 							$remarks = "";
@@ -613,7 +613,7 @@ pglib_transaction("BEGIN") or errDie("Unable to start transaction.");
 								$Sl = "SELECT * FROM vatcodes WHERE id='$vatcodes[$keys]'";
 								$Ri = db_exec($Sl);
 								if(pg_num_rows($Ri) < 1) {
-									return get_items($HTTP_POST_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+									return get_items($_POST, "<li class='err'>Please select the vatcode for all your items.</li>");
 								}
 								$vd = pg_fetch_array($Ri);
 								$VATP = $vd['vat_amount'];
@@ -1175,10 +1175,10 @@ pglib_transaction("COMMIT") or errDie("Unable to complete transaction.");
 
 
 
-function save_entries ($HTTP_POST_VARS)
+function save_entries ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	#do validation here
 	# validate input
@@ -1260,8 +1260,8 @@ function save_entries ($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		$HTTP_POST_VARS["new"] = "yes";
-		return get_items ($HTTP_POST_VARS, $err);
+		$_POST["new"] = "yes";
+		return get_items ($_POST, $err);
 	}
 
 
@@ -1269,7 +1269,7 @@ function save_entries ($HTTP_POST_VARS)
 
 	#verify the percentages matches
 //	if(sum($costperc) != 100){
-//		return get_items ($HTTP_POST_VARS,"li class='err'>Cost Ledger Total Percentage Must Be 100%</li>");
+//		return get_items ($_POST,"li class='err'>Cost Ledger Total Percentage Must Be 100%</li>");
 //	}
 
 
@@ -1300,7 +1300,7 @@ function save_entries ($HTTP_POST_VARS)
 				$get_cname = "SELECT * FROM costcenters WHERE centercode = '$newcostcenter' LIMIT 1";
 				$run_cname = db_exec($get_cname) or errDie("Unable to get cost center description information.");
 				if(pg_numrows($run_cname) < 1){
-					return get_items ($HTTP_POST_VARS,"<li class='err'>Invalid Cost Center Selected</li>");
+					return get_items ($_POST,"<li class='err'>Invalid Cost Center Selected</li>");
 				}else {
 					$csarr = pg_fetch_array($run_cname);
 					$description = $csarr['centername'];
@@ -1339,7 +1339,7 @@ function save_entries ($HTTP_POST_VARS)
 			$get_csts = "SELECT * FROM purch_batch_entries_newcostcenters";
 			$run_csts = db_exec($get_csts) or errDie("Unable to get cost ledger information.");
 			if(pg_numrows($run_csts) < 1){
-				return get_items ($HTTP_POST_VARS);
+				return get_items ($_POST);
 			}else {
 				while ($csarr = pg_fetch_array($run_csts)){
 					$ins_sql = "
@@ -1358,39 +1358,39 @@ function save_entries ($HTTP_POST_VARS)
 
 		}
 
-		$HTTP_POST_VARS['supinv'] = "";
-		$HTTP_POST_VARS['description'] = "";
-		$HTTP_POST_VARS['qty'] = "";
-		$HTTP_POST_VARS['price'] = "";
-		$HTTP_POST_VARS['newproject'] = "";
-		$HTTP_POST_VARS['newcostcenter'] = "";
-		$HTTP_POST_VARS['newcostperc'] = "";
+		$_POST['supinv'] = "";
+		$_POST['description'] = "";
+		$_POST['qty'] = "";
+		$_POST['price'] = "";
+		$_POST['newproject'] = "";
+		$_POST['newcostcenter'] = "";
+		$_POST['newcostperc'] = "";
 
 		#redirect
-		return get_items ($HTTP_POST_VARS);
+		return get_items ($_POST);
 
 	}else {
 
 
 	#remove any selected entries
 
-//	$HTTP_POST_VARS['supplier'] = "";
-//	$HTTP_POST_VARS['account'] = "";
-//	$HTTP_POST_VARS['date_year'] = "";
-//	$HTTP_POST_VARS['date_month'] = "";
-//	$HTTP_POST_VARS['date_day'] = "";
-//	$HTTP_POST_VARS['vatcode'] = "";
+//	$_POST['supplier'] = "";
+//	$_POST['account'] = "";
+//	$_POST['date_year'] = "";
+//	$_POST['date_month'] = "";
+//	$_POST['date_day'] = "";
+//	$_POST['vatcode'] = "";
 
-//	$HTTP_POST_VARS['supinv'] = "";
-//	$HTTP_POST_VARS['description'] = "";
-//	$HTTP_POST_VARS['qty'] = "";
-//	$HTTP_POST_VARS['price'] = "";
-	$HTTP_POST_VARS['newproject'] = "";
-	$HTTP_POST_VARS['newcostcenter'] = "";
-	$HTTP_POST_VARS['newcostperc'] = "";
+//	$_POST['supinv'] = "";
+//	$_POST['description'] = "";
+//	$_POST['qty'] = "";
+//	$_POST['price'] = "";
+	$_POST['newproject'] = "";
+	$_POST['newcostcenter'] = "";
+	$_POST['newcostperc'] = "";
 
 	#redirect
-	return get_items ($HTTP_POST_VARS,"<li class='err'>Please Ensure Cost Center Total Is 100%</li>");
+	return get_items ($_POST,"<li class='err'>Please Ensure Cost Center Total Is 100%</li>");
 
 	}
 }
@@ -1414,10 +1414,10 @@ function save_entries ($HTTP_POST_VARS)
 
 
 
-function remove_entries ($HTTP_POST_VARS)
+function remove_entries ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 
@@ -1428,7 +1428,7 @@ function remove_entries ($HTTP_POST_VARS)
 		}
 	}
 
-	return get_items ($HTTP_POST_VARS);
+	return get_items ($_POST);
 
 }
 
@@ -1439,10 +1439,10 @@ function remove_entries ($HTTP_POST_VARS)
 
 
 
-function remove_cost_entries ($HTTP_POST_VARS)
+function remove_cost_entries ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 
@@ -1451,7 +1451,7 @@ function remove_cost_entries ($HTTP_POST_VARS)
 		$run_rem = db_exec($rem_sql) or errDie("Unable to remove batch entry.");
 	}
 
-	return get_items ($HTTP_POST_VARS);
+	return get_items ($_POST);
 
 }
 

@@ -29,36 +29,36 @@ require("../core-settings.php");
 require ("../libs/ext.lib.php");
 require ("bank-pay-supp-write.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "method":
 			# redirect if not local supplier
-			if(!is_local("suppliers", "supid", $HTTP_POST_VARS["supid"])){
+			if(!is_local("suppliers", "supid", $_POST["supid"])){
 				// print "SpaceBar";
-				header("Location: bank-pay-supp-int.php?supid=$HTTP_POST_VARS[supid]");
+				header("Location: bank-pay-supp-int.php?supid=$_POST[supid]");
 				exit;
 			}
-			$OUTPUT = method ($HTTP_POST_VARS["supid"]);
+			$OUTPUT = method ($_POST["supid"]);
 			break;
 		case "alloc":
-			$OUTPUT = alloc ($HTTP_POST_VARS);
+			$OUTPUT = alloc ($_POST);
 			break;
 		case "confirm":
-			if(isset($HTTP_POST_VARS["confirm"]))
-				$OUTPUT = confirm ($HTTP_POST_VARS);
+			if(isset($_POST["confirm"]))
+				$OUTPUT = confirm ($_POST);
 			else 
-				$OUTPUT = alloc ($HTTP_POST_VARS);
+				$OUTPUT = alloc ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_cheque ($HTTP_POST_VARS);
+			$OUTPUT = write_cheque ($_POST);
 			break;
 		default:
 			$OUTPUT = sel_sup ();
 	}
-} elseif(isset($HTTP_GET_VARS["account"])) {
-	$OUTPUT =  alloc ($HTTP_GET_VARS);
-}elseif(isset($HTTP_GET_VARS["supid"])) {
-	$OUTPUT =  alloc ($HTTP_GET_VARS);
+} elseif(isset($_GET["account"])) {
+	$OUTPUT =  alloc ($_GET);
+}elseif(isset($_GET["supid"])) {
+	$OUTPUT =  alloc ($_GET);
 }else {
 	$OUTPUT = sel_sup ();
 }
@@ -81,9 +81,9 @@ require("../template.php");
 function sel_sup()
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(!isset($supid))
 		$supid = 0;
@@ -134,10 +134,10 @@ function sel_sup()
 
 
 # confirm
-function alloc($HTTP_POST_VARS,$err="")
+function alloc($_POST,$err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	#if quick ... redirect here
 	if (isset($quickpay)){
@@ -250,7 +250,7 @@ function alloc($HTTP_POST_VARS,$err="")
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return $confirm.alloc($HTTP_POST_VARS,$confirm."<br>");
+		return $confirm.alloc($_POST,$confirm."<br>");
 	}
 
 
@@ -890,14 +890,14 @@ function alloc($HTTP_POST_VARS,$err="")
 
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 	
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		return alloc($HTTP_POST_VARS);
+		return alloc($_POST);
 	}
 
 
@@ -989,7 +989,7 @@ function confirm($HTTP_POST_VARS)
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
 	//	$confirm .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
-		return alloc ($HTTP_POST_VARS, $confirm."<br>");
+		return alloc ($_POST, $confirm."<br>");
 	}
 
 	#set some vars, after validation of course ...
@@ -1027,13 +1027,13 @@ function confirm($HTTP_POST_VARS)
 
 	if(sprint($tot + $out + $out1 + $out2 + $out3 + $out4 + $out5 - $amt) > sprint (0)){
 		return "<li class='err'>The total amount for invoices is greater than the amount received.
-		Please check the details.</li>".alloc($HTTP_POST_VARS);
+		Please check the details.</li>".alloc($_POST);
 	}
 
 	if (sprint ($setamt) > 0){
 		if (array_sum ($stock_setamt) != $setamt){
 			return "<li class='err'>The total settlement amount for invoices is not equal to the amount received.
-			Please check the details.</li>".alloc($HTTP_POST_VARS);
+			Please check the details.</li>".alloc($_POST);
 		}
 	}
 
@@ -1392,15 +1392,15 @@ function confirm($HTTP_POST_VARS)
 
 
 
-function write_cheque ($HTTP_POST_VARS)
+function write_cheque ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return alloc($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return alloc($_POST);
 	}
 
 	# validate input
@@ -1453,16 +1453,16 @@ function write_cheque ($HTTP_POST_VARS)
 		return "<li class='err'>Supplier information not found.</li>";
 	}
 
-	unset ($HTTP_POST_VARS["process_type"]);
+	unset ($_POST["process_type"]);
 	$suparr = pg_fetch_array($run_sup);
 
 	$sqlkey = "";
 	$sqlval = "";
 	$send_post_vars = "";
-	foreach ($HTTP_POST_VARS AS $key => $value){
+	foreach ($_POST AS $key => $value){
 		if(($key == "all") OR ($key == "OUT1") OR ($key == "OUT2") OR ($key == "OUT3") OR ($key == "OUT4") OR ($key == "OUT5")){
 			$newval = strtolower($key)."_val";
-			$HTTP_POST_VARS[$newval] = $value;
+			$_POST[$newval] = $value;
 		}
 		if (!is_array ($value)){
 			$send_post_vars .= "<input type='hidden' name='$key' value='$value'>\n";
@@ -1509,7 +1509,7 @@ function write_cheque ($HTTP_POST_VARS)
 		$write_sql = "INSERT INTO supp_payment_cheques ($sqlkey) VALUES ($sqlval)";
 		$run_sql = db_exec($write_sql) or errDie ("Unable to record payment details.");
 	}else {
-		write ($HTTP_POST_VARS);
+		write ($_POST);
 	}
 
 	$checkdate = getCSetting("SUPP_PAY_DATE");

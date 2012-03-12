@@ -27,22 +27,22 @@
 require ("settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 			case "write":
-            	$OUTPUT = write($HTTP_POST_VARS);
+            	$OUTPUT = write($_POST);
 				break;
 
 			default:
-				if (isset($HTTP_GET_VARS['id'])){
-					$OUTPUT = rem ($HTTP_GET_VARS['id']);
+				if (isset($_GET['id'])){
+					$OUTPUT = rem ($_GET['id']);
 				} else {
 					$OUTPUT = "<li> - Invalid use of module";
 				}
 	}
 } else {
-		if (isset($HTTP_GET_VARS['id'])){
-			$OUTPUT = rem ($HTTP_GET_VARS['id']);
+		if (isset($_GET['id'])){
+			$OUTPUT = rem ($_GET['id']);
 		} else {
 			$OUTPUT = "<li> - Invalid use of module";
 		}
@@ -103,10 +103,10 @@ function rem($id)
 }
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

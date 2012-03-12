@@ -26,22 +26,22 @@
 require("../settings.php");
 require("../core-settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "enter2":
-			$OUTPUT = enter2($HTTP_POST_VARS);
+			$OUTPUT = enter2($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid";
 	}
 } else {
-	$OUTPUT = enter($HTTP_POST_VARS);
+	$OUTPUT = enter($_POST);
 }
 
 $OUTPUT .= "
@@ -62,10 +62,10 @@ require("../template.php");
 
 
 
-function enter($HTTP_POST_VARS)
+function enter($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 	
 	if(!isset($pn)) {
 		$pn = "+";
@@ -165,10 +165,10 @@ function enter($HTTP_POST_VARS)
 
 
 
-function enter2($HTTP_POST_VARS)
+function enter2($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 	
 	$description = safe($description);
 	$pn = safe($pn);
@@ -176,11 +176,11 @@ function enter2($HTTP_POST_VARS)
 	$action = safe($action);
 	
 	if($action == "Customer Payment" && $pn == "-") {
-		return "<li class='err'>You cannot have a 'Payment from customer' on your statement for a negative amount.</li>".enter($HTTP_POST_VARS);
+		return "<li class='err'>You cannot have a 'Payment from customer' on your statement for a negative amount.</li>".enter($_POST);
 	}
 	
 	if($action == "Supplier Payment" && $pn == "+") {
-		return "<li class='err'>You cannot have a 'Payment to supplier' on your statement for a positive amount.</li>".enter($HTTP_POST_VARS);
+		return "<li class='err'>You cannot have a 'Payment to supplier' on your statement for a positive amount.</li>".enter($_POST);
 	}
 	
 	if($action == "Insert into cashbook") {
@@ -281,10 +281,10 @@ function enter2($HTTP_POST_VARS)
 
 
 
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 	
 	$description = safe($description);
 	$pn = safe($pn);
@@ -380,10 +380,10 @@ function confirm($HTTP_POST_VARS)
 
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 	
 	$description = safe($description);
 	$pn = safe($pn);

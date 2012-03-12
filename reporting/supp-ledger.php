@@ -27,13 +27,13 @@
 require("../settings.php");
 require("../core-settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "viewtran":
-			if(isset($HTTP_POST_VARS["export"])){
-				$OUTPUT = export_data($HTTP_POST_VARS);
+			if(isset($_POST["export"])){
+				$OUTPUT = export_data($_POST);
 			}else {
-				$OUTPUT = viewtran($HTTP_POST_VARS);
+				$OUTPUT = viewtran($_POST);
 				$OUTPUT .= "
 								<p>
 								<table ".TMPL_tblDflts." width='25%'>
@@ -151,11 +151,11 @@ function slctacc()
 
 
 # View all transaction for the ledger
-function viewtran($HTTP_POST_VARS)
+function viewtran($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -398,13 +398,13 @@ function viewtran($HTTP_POST_VARS)
 }
 
 
-function export_data ($HTTP_POST_VARS)
+function export_data ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	require_lib ("xls");
 
-	$data = clean_html(viewtran($HTTP_POST_VARS));
+	$data = clean_html(viewtran($_POST));
 
 	StreamXLS ("suppledger","$data");
 

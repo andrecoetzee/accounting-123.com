@@ -30,10 +30,10 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if(isset($HTTP_GET_VARS["id"])){
-	$OUTPUT = show_question ($HTTP_GET_VARS["id"]);
-}elseif (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if(isset($_GET["id"])){
+	$OUTPUT = show_question ($_GET["id"]);
+}elseif (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
 			$OUTPUT = results_db();
 			break;
@@ -76,8 +76,8 @@ function search_db ()
 function results_db ()
 {
 
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 
 	#fist we process the query
 	#stip out unneccessary tags,etc

@@ -27,13 +27,13 @@ require ("settings.php");
 require ("core-settings.php");
 require_lib("docman");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
         case "view":
-			$OUTPUT = printPurch ($HTTP_POST_VARS);
+			$OUTPUT = printPurch ($_POST);
 			break;
         case "export":
-        	$OUTPUT = export ($HTTP_POST_VARS);
+        	$OUTPUT = export ($_POST);
         	break;
 		default:
 			$OUTPUT = slct ();
@@ -99,11 +99,11 @@ function slct()
 
 
 # show stock
-function printPurch ($HTTP_POST_VARS,$flag=TRUE)
+function printPurch ($_POST,$flag=TRUE)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -247,8 +247,8 @@ function printPurch ($HTTP_POST_VARS,$flag=TRUE)
 }
 
 
-function export ($HTTP_POST_VARS) {
-	$OUT = printPurch($HTTP_POST_VARS, FALSE);
+function export ($_POST) {
+	$OUT = printPurch($_POST, FALSE);
 	$OUT = clean_html($OUT);
 
 	require_lib("xls");

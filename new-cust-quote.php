@@ -32,22 +32,22 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
                 case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
 			break;
 
                 default:
 			$OUTPUT = view();
 	}
-}elseif(isset($HTTP_GET_VARS["err"])){
-        # get vars from HTTP_GET_VARS
-        foreach($HTTP_GET_VARS as $key => $value){
+}elseif(isset($_GET["err"])){
+        # get vars from _GET
+        foreach($_GET as $key => $value){
                 $$key = $value;
         }
         $OUTPUT = view ($cusname, $addr1, $addr2, $addr3, $paddr1, $paddr2, $paddr3, $tel, $fax, $email, $err);
@@ -91,10 +91,10 @@ function view($cusname="", $addr1="", $addr2="", $addr3="",  $paddr1="", $paddr2
 }
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -161,14 +161,14 @@ function confirm($HTTP_POST_VARS)
 }
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
     //processes
     db_connect();
 
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

@@ -2,13 +2,13 @@
 
 require ("../settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch($_POST["key"]){
 		case "confirm":
-			$OUTPUT = generate_recommended ($HTTP_POST_VARS);
+			$OUTPUT = generate_recommended ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_report ($HTTP_POST_VARS);
+			$OUTPUT = write_report ($_POST);
 			break;
 		default:
 			$OUTPUT = get_period ();
@@ -120,10 +120,10 @@ function get_period ()
 }
 
 
-function generate_recommended ($HTTP_POST_VARS)
+function generate_recommended ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($period) OR (strlen($period) < 1)){
 		return "Invalid Period Length.";
@@ -732,10 +732,10 @@ $taxperiod = $endarr[1].substr($endarr[0],2,2);
 
 
 
- function write_report ($HTTP_POST_VARS)
+ function write_report ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

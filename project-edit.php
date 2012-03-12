@@ -2,19 +2,19 @@
 
 	require ("settings.php");
 
-	if(isset($HTTP_POST_VARS["key"])){
-		switch($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch($_POST["key"]){
 			case "confirm":
-				$OUTPUT = confirm ($HTTP_POST_VARS);
+				$OUTPUT = confirm ($_POST);
 				break;
 			case "write":
-				$OUTPUT = write ($HTTP_POST_VARS);
+				$OUTPUT = write ($_POST);
 				break;
 			default:
-				$OUTPUT = edit ($HTTP_POST_VARS);
+				$OUTPUT = edit ($_POST);
 		}
 	}else {
-		$OUTPUT = edit ($HTTP_GET_VARS);
+		$OUTPUT = edit ($_GET);
 	}
 
 	$OUTPUT .= "
@@ -47,10 +47,10 @@
 
 
 
-function edit ($HTTP_POST_VARS)
+function edit ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($id) OR (strlen($id) < 1)){
 		return "<li class='err'>Invalid Use Of Module. Invalid Project ID.</li>";
@@ -103,10 +103,10 @@ function edit ($HTTP_POST_VARS)
 
 
 
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 
 	$display = "
@@ -143,10 +143,10 @@ function confirm ($HTTP_POST_VARS)
 
 
 
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($id) OR (strlen($id) < 1)){
 		return "<li class='err'>Invalid Use Of Module. Invalid Project ID.</li>";

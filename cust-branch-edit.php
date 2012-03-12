@@ -32,30 +32,30 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-        switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+        switch ($_POST["key"]) {
                 case "details":
-                        $OUTPUT = details($HTTP_POST_VARS);
+                        $OUTPUT = details($_POST);
                         break;
 
               //  case "confirm":
-              //          $OUTPUT = confirm($HTTP_POST_VARS);
+              //          $OUTPUT = confirm($_POST);
                //         break;
 
                 case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
                         break;
 
                 default:
-                        if(isset($HTTP_GET_VARS['cusnum']) AND isset($HTTP_GET_VARS['editid'])){
-                                $OUTPUT = edit($HTTP_GET_VARS['cusnum']);
+                        if(isset($_GET['cusnum']) AND isset($_GET['editid'])){
+                                $OUTPUT = edit($_GET['cusnum']);
                         }else{
                                 $OUTPUT = "<li class='err'> Invalid use of module.";
                         }
         }
 } else {
-        if(isset($HTTP_GET_VARS['cusnum']) AND isset($HTTP_GET_VARS['editid'])){
-                $OUTPUT = edit($HTTP_GET_VARS['cusnum'],$HTTP_GET_VARS['editid']);
+        if(isset($_GET['cusnum']) AND isset($_GET['editid'])){
+                $OUTPUT = edit($_GET['cusnum'],$_GET['editid']);
         }else{
                 $OUTPUT = "<li class='err'> Invalid use of module.";
         }
@@ -110,11 +110,11 @@ function edit($cusnum,$editid)
 
 }
 
-function enter_err ($HTTP_POST_VARS, $err="")
+function enter_err ($_POST, $err="")
 {
 
         # Get vars
-        foreach ($HTTP_POST_VARS as $key => $value) {
+        foreach ($_POST as $key => $value) {
                 $$key = $value;
         }
 
@@ -151,10 +151,10 @@ function enter_err ($HTTP_POST_VARS, $err="")
 }
 /*
 # confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
         # Get vars
-        foreach ($HTTP_POST_VARS as $key => $value) {
+        foreach ($_POST as $key => $value) {
                 $$key = $value;
         }
         # validate input
@@ -170,7 +170,7 @@ function confirm ($HTTP_POST_VARS)
                 foreach ($errors as $e) {
                         $confirm .= "<li class=err>".$e["msg"];
                 }
-                return enter_err($HTTP_POST_VARS, $confirm);
+                return enter_err($_POST, $confirm);
                 exit;
                 $confirm .= "<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
                 return $confirm;
@@ -200,15 +200,15 @@ function confirm ($HTTP_POST_VARS)
 */
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
         # get vars
-        foreach ($HTTP_POST_VARS as $key => $value) {
+        foreach ($_POST as $key => $value) {
                 $$key = $value;
         }
 
         if(isset($back)) {
-                return enter_err($HTTP_POST_VARS);
+                return enter_err($_POST);
         }
 
         # validate input

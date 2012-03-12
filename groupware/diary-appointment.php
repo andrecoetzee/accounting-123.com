@@ -38,21 +38,21 @@ require("gw-common.php");
 require_lib("validate");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
 // overwrite the get vars with the post vars
-if ( isset($HTTP_POST_VARS) ) {
-	foreach($HTTP_POST_VARS as $gvar => $value) {
-		$HTTP_GET_VARS[$gvar]=$value;
+if ( isset($_POST) ) {
+	foreach($_POST as $gvar => $value) {
+		$_GET[$gvar]=$value;
 	}
 }
 
@@ -60,18 +60,18 @@ if ( isset($HTTP_POST_VARS) ) {
 $OUTPUT="";
 
 // set the date to read to current one if not specified
-if ( ! isset($HTTP_GET_VARS["year"]) )
-	$HTTP_GET_VARS["year"] = date("Y");
+if ( ! isset($_GET["year"]) )
+	$_GET["year"] = date("Y");
 
-if ( ! isset($HTTP_GET_VARS["month"]) )
-	$HTTP_GET_VARS["month"] = date("m");
+if ( ! isset($_GET["month"]) )
+	$_GET["month"] = date("m");
 
-if ( ! isset($HTTP_GET_VARS["mday"]) )
-	$HTTP_GET_VARS["mday"] = date("d");
+if ( ! isset($_GET["mday"]) )
+	$_GET["mday"] = date("d");
 
 // DECIDE WHAT TO DO
-if ( isset($HTTP_GET_VARS["key"]) ) {
-	switch ($HTTP_GET_VARS["key"]) {
+if ( isset($_GET["key"]) ) {
+	switch ($_GET["key"]) {
 		case "create": // create the actual entry and close the window
 			$OUTPUT=createAppointment();
 			break;
@@ -99,14 +99,14 @@ require ("gw-tmpl.php");
 
 // creates the "create appointment" form
 function enterAppointment() {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	// if a selected user was specified, but you do not have write permission to his diary, remove
 	// the diary selection and update buttons
-	if ( isset($HTTP_GET_VARS["ap_diaryowner"]) && $HTTP_GET_VARS["ap_diaryowner"] != USER_NAME ) {
+	if ( isset($_GET["ap_diaryowner"]) && $_GET["ap_diaryowner"] != USER_NAME ) {
 		db_conn("cubit");
 		$sql = "SELECT * FROM diary_privileges
-			WHERE diary_owner='$HTTP_GET_VARS[ap_diaryowner]' AND priv_owner='".USER_NAME."' AND privilege='W'";
+			WHERE diary_owner='$_GET[ap_diaryowner]' AND priv_owner='".USER_NAME."' AND privilege='W'";
 		$rslt = db_exec($sql) or errDie("Error checking diary permissions (REMFLD).");
 
 		if ( pg_num_rows($rslt) > 0 ) {
@@ -131,7 +131,7 @@ function enterAppointment() {
 	// generate lists for start time selections
 	$select_day="";
 	for ( $i=1 ; $i<=31 ; $i++ ) {
-		if ( isset($HTTP_GET_VARS["ap_day"]) && $HTTP_GET_VARS["ap_day"] == $i )
+		if ( isset($_GET["ap_day"]) && $_GET["ap_day"] == $i )
 			$selected="selected";
 		else
 			$selected="";
@@ -141,7 +141,7 @@ function enterAppointment() {
 
 	$select_month="";
 	for ( $i=1 ; $i<=12 ; $i++ ) {
-		if ( isset($HTTP_GET_VARS["ap_month"]) && $HTTP_GET_VARS["ap_month"] == $i )
+		if ( isset($_GET["ap_month"]) && $_GET["ap_month"] == $i )
 			$selected="selected";
 		else
 			$selected="";
@@ -151,7 +151,7 @@ function enterAppointment() {
 
 	$select_year="";
 	for ( $i=date("Y") ; $i<=2050 ; $i++ ) {
-		if ( isset($HTTP_GET_VARS["ap_year"]) && $HTTP_GET_VARS["ap_year"] == $i )
+		if ( isset($_GET["ap_year"]) && $_GET["ap_year"] == $i )
 			$selected="selected";
 		else
 			$selected="";
@@ -163,10 +163,10 @@ function enterAppointment() {
 	for ( $i=6 ; $i<=21 ; $i++ ) {
 		$selected1="";
 		$selected2="";
-		if ( isset($HTTP_GET_VARS["ap_start_time"]) ) {
-			if ( $HTTP_GET_VARS["ap_start_time"] == "$i:00" )
+		if ( isset($_GET["ap_start_time"]) ) {
+			if ( $_GET["ap_start_time"] == "$i:00" )
 				$selected1="selected";
-			else if ( $HTTP_GET_VARS["ap_start_time"] == "$i:30" )
+			else if ( $_GET["ap_start_time"] == "$i:30" )
 				$selected2="selected";
 		}
 
@@ -179,15 +179,15 @@ function enterAppointment() {
 	for ( $i=6 ; $i<=22 ; $i++ ) {
 		$selected1="";
 		$selected2="";
-		if ( isset($HTTP_GET_VARS["ap_end_time"]) ) {
-			if ( $HTTP_GET_VARS["ap_end_time"] == "$i:00")
+		if ( isset($_GET["ap_end_time"]) ) {
+			if ( $_GET["ap_end_time"] == "$i:00")
 				$selected1="selected";
-			else if ( $HTTP_GET_VARS["ap_end_time"] == "$i:30")
+			else if ( $_GET["ap_end_time"] == "$i:30")
 				$selected2="selected";
-		} else if ( isset($HTTP_GET_VARS["ap_start_time"]) ) {
-			if ( $HTTP_GET_VARS["ap_start_time"] == ($i-1) . ":30")
+		} else if ( isset($_GET["ap_start_time"]) ) {
+			if ( $_GET["ap_start_time"] == ($i-1) . ":30")
 				$selected1="selected";
-			else if ( $HTTP_GET_VARS["ap_start_time"] == $i.":00")
+			else if ( $_GET["ap_start_time"] == $i.":00")
 				$selected2="selected";
 		}
 
@@ -201,9 +201,9 @@ function enterAppointment() {
 	// lists for repetitions dates
 	$select_repet_day="";
 	for ( $i=1 ; $i<=31 ; $i++ ) {
-		if ( isset($HTTP_GET_VARS["ap_repet_day"]) && $HTTP_GET_VARS["ap_repet_day"] == $i )
+		if ( isset($_GET["ap_repet_day"]) && $_GET["ap_repet_day"] == $i )
 			$selected="selected";
-		else if ( isset($HTTP_GET_VARS["ap_day"]) && $HTTP_GET_VARS["ap_day"] == $i )
+		else if ( isset($_GET["ap_day"]) && $_GET["ap_day"] == $i )
 			$selected="selected";
 		else
 			$selected="";
@@ -213,9 +213,9 @@ function enterAppointment() {
 
 	$select_repet_month="";
 	for ( $i=1 ; $i<=12 ; $i++ ) {
-		if ( isset($HTTP_GET_VARS["ap_repet_month"]) && $HTTP_GET_VARS["ap_repet_month"] == $i )
+		if ( isset($_GET["ap_repet_month"]) && $_GET["ap_repet_month"] == $i )
 			$selected="selected";
-		else if ( isset($HTTP_GET_VARS["ap_month"]) && $HTTP_GET_VARS["ap_month"] == $i )
+		else if ( isset($_GET["ap_month"]) && $_GET["ap_month"] == $i )
 			$selected="selected";
 		else
 			$selected="";
@@ -225,9 +225,9 @@ function enterAppointment() {
 
 	$select_repet_year="";
 	for ( $i=date("Y") ; $i<=2050 ; $i++ ) {
-		if ( isset($HTTP_GET_VARS["ap_repet_year"]) && $HTTP_GET_VARS["ap_repet_year"] == $i )
+		if ( isset($_GET["ap_repet_year"]) && $_GET["ap_repet_year"] == $i )
 			$selected="selected";
-		else if ( isset($HTTP_GET_VARS["ap_year"]) && $HTTP_GET_VARS["ap_year"] == $i )
+		else if ( isset($_GET["ap_year"]) && $_GET["ap_year"] == $i )
 			$selected="selected";
 		else
 			$selected="";
@@ -237,7 +237,7 @@ function enterAppointment() {
 
 	// list of diaries person may edit
 	if ( $NOT_WRITEABLE ) {
-		$diary_list = "$HTTP_GET_VARS[ap_diaryowner]";
+		$diary_list = "$_GET[ap_diaryowner]";
 	} else {
 		db_conn("cubit");
 		$sql = "SELECT '".USER_NAME."' AS diary_owner
@@ -246,9 +246,9 @@ function enterAppointment() {
 		$rslt=db_exec($sql) or errDie("Error reading diaries you may write to.");
 		$diary_list="<select name='ap_diaryowner'>";
 		while ( $row=pg_fetch_array($rslt) ) {
-			if ( isset($HTTP_GET_VARS["ap_diaryowner"]) && $HTTP_GET_VARS["ap_diaryowner"] == $row["diary_owner"] )
+			if ( isset($_GET["ap_diaryowner"]) && $_GET["ap_diaryowner"] == $row["diary_owner"] )
 				$selected = "selected";
-			elseif ( (! isset($HTTP_GET_VARS["ap_diaryowner"]) ) && $row["diary_owner"] == USER_NAME )
+			elseif ( (! isset($_GET["ap_diaryowner"]) ) && $row["diary_owner"] == USER_NAME )
 				$selected = "selected";
 			else
 				$selected="";;
@@ -275,9 +275,9 @@ function enterAppointment() {
 	}
 
 	while ( $row=pg_fetch_row($rslt) ) {
-		if ( isset($HTTP_GET_VARS["ap_category"]) && $HTTP_GET_VARS["ap_category"] == $row[0] )
+		if ( isset($_GET["ap_category"]) && $_GET["ap_category"] == $row[0] )
 			$selected="selected";
-		else if ( ! isset($HTTP_GET_VARS["ap_category"]) && $row[1]=='Appointments')
+		else if ( ! isset($_GET["ap_category"]) && $row[1]=='Appointments')
 			$selected="selected";
 		else
 			$selected="";
@@ -288,9 +288,9 @@ function enterAppointment() {
 	// notify list
 	$select_notify="";
 	for ( $i=0 ; $i<=14 ; $i++ ) {
-		if ( isset($HTTP_GET_VARS["ap_notify"]) && $HTTP_GET_VARS["ap_notify"] == $i )
+		if ( isset($_GET["ap_notify"]) && $_GET["ap_notify"] == $i )
 			$selected="selected";
-		else if ( ! isset($HTTP_GET_VARS["ap_notify"]) && $i == 0 )
+		else if ( ! isset($_GET["ap_notify"]) && $i == 0 )
 			$selected="selected";
 		else
 			$selected="";
@@ -303,12 +303,12 @@ function enterAppointment() {
 	}
 
 	// selection restore for Repetitions
-	if ( isset($HTTP_GET_VARS["ap_repet"]) ) {
-		$HTTP_GET_VARS["ap_repet"]=='N' ? $rep_selected0="checked" : $rep_selected0="";
-		$HTTP_GET_VARS["ap_repet"]=='D' ? $rep_selected1="checked" : $rep_selected1="";
-		$HTTP_GET_VARS["ap_repet"]=='W' ? $rep_selected2="checked" : $rep_selected2="";
-		$HTTP_GET_VARS["ap_repet"]=='M' ? $rep_selected3="checked" : $rep_selected3="";
-		$HTTP_GET_VARS["ap_repet"]=='Y' ? $rep_selected4="checked" : $rep_selected4="";
+	if ( isset($_GET["ap_repet"]) ) {
+		$_GET["ap_repet"]=='N' ? $rep_selected0="checked" : $rep_selected0="";
+		$_GET["ap_repet"]=='D' ? $rep_selected1="checked" : $rep_selected1="";
+		$_GET["ap_repet"]=='W' ? $rep_selected2="checked" : $rep_selected2="";
+		$_GET["ap_repet"]=='M' ? $rep_selected3="checked" : $rep_selected3="";
+		$_GET["ap_repet"]=='Y' ? $rep_selected4="checked" : $rep_selected4="";
 	} else {
 		$rep_selected0="checked";
 		$rep_selected1="";
@@ -318,18 +318,18 @@ function enterAppointment() {
 	}
 
 	// format variables so they are checked or filled again
-	isset($HTTP_GET_VARS["ap_entireday"]) ? $sel_entireday="checked" : $sel_entireday="";
-	isset($HTTP_GET_VARS["ap_private"]) ? $sel_private="checked" : $sel_private="";
-	isset($HTTP_GET_VARS["ap_repet_forever"]) ? $sel_repet_forever="checked" : $sel_repet_forever="";
+	isset($_GET["ap_entireday"]) ? $sel_entireday="checked" : $sel_entireday="";
+	isset($_GET["ap_private"]) ? $sel_private="checked" : $sel_private="";
+	isset($_GET["ap_repet_forever"]) ? $sel_repet_forever="checked" : $sel_repet_forever="";
 
-	isset($HTTP_GET_VARS["ap_title"]) ? $ap_title=$HTTP_GET_VARS["ap_title"] : $ap_title="";
-	isset($HTTP_GET_VARS["ap_location"]) ? $ap_location=$HTTP_GET_VARS["ap_location"] : $ap_location="";
-	isset($HTTP_GET_VARS["ap_homepage"]) ? $ap_homepage=$HTTP_GET_VARS["ap_homepage"] : $ap_homepage="";
-	isset($HTTP_GET_VARS["ap_description"]) ? $ap_description=htmlspecialchars($HTTP_GET_VARS["ap_description"]) : $ap_description="";
-	isset($HTTP_GET_VARS["ap_required"]) ? $ap_required=$HTTP_GET_VARS["ap_required"] : $ap_required="";
-	isset($HTTP_GET_VARS["ap_notrequired"]) ? $ap_notrequired=$HTTP_GET_VARS["ap_notrequired"] : $ap_notrequired="";
-	isset($HTTP_GET_VARS["ap_optional"]) ? $ap_optional=$HTTP_GET_VARS["ap_optional"] : $ap_optional="";
-	isset($HTTP_GET_VARS["ap_leadid"]) ? $ap_leadid=$HTTP_GET_VARS["ap_leadid"] : $ap_leadid = "";
+	isset($_GET["ap_title"]) ? $ap_title=$_GET["ap_title"] : $ap_title="";
+	isset($_GET["ap_location"]) ? $ap_location=$_GET["ap_location"] : $ap_location="";
+	isset($_GET["ap_homepage"]) ? $ap_homepage=$_GET["ap_homepage"] : $ap_homepage="";
+	isset($_GET["ap_description"]) ? $ap_description=htmlspecialchars($_GET["ap_description"]) : $ap_description="";
+	isset($_GET["ap_required"]) ? $ap_required=$_GET["ap_required"] : $ap_required="";
+	isset($_GET["ap_notrequired"]) ? $ap_notrequired=$_GET["ap_notrequired"] : $ap_notrequired="";
+	isset($_GET["ap_optional"]) ? $ap_optional=$_GET["ap_optional"] : $ap_optional="";
+	isset($_GET["ap_leadid"]) ? $ap_leadid=$_GET["ap_leadid"] : $ap_leadid = "";
 
 	// start date
 	$OUTPUT.="<table width=100% cellpadding='2' cellspacing='0' class='shtable'>
@@ -477,21 +477,21 @@ function enterAppointment() {
 
 	if ( ! $NOT_WRITEABLE ) {
 		// attach the appropriate buttons
-		if ( isset($HTTP_GET_VARS["key"]) &&
-			( $HTTP_GET_VARS["key"] == "view" || $HTTP_GET_VARS["key"] == "modify" ) ) {
+		if ( isset($_GET["key"]) &&
+			( $_GET["key"] == "view" || $_GET["key"] == "modify" ) ) {
 			// attach modify button
 			$OUTPUT.="
 				<center><table><tr><td>
 				<input type=hidden name=key value=modify>
-				<input type=hidden name='entry_id' value='$HTTP_GET_VARS[entry_id]'>
+				<input type=hidden name='entry_id' value='$_GET[entry_id]'>
 				<input type=submit name=submit value='Modify Appointment'>
 			</form></td></tr>";
 
 			// attach delete button
-			if ( isset($HTTP_GET_VARS["entry_id"]) ) {
+			if ( isset($_GET["entry_id"]) ) {
 				$OUTPUT.="<tr><td><form action='diary-appointment.php' method=post>
 						<input type=hidden name=key value=delete>
-						<input type=hidden name='entry_id' value='$HTTP_GET_VARS[entry_id]'>
+						<input type=hidden name='entry_id' value='$_GET[entry_id]'>
 						<input type=submit name=submit value='Delete Appointment'>
 					</form></td>
 				</tr></table></center>";
@@ -519,10 +519,10 @@ function enterAppointment() {
 
 // creates the appointment entry
 function createAppointment() {
-	global $HTTP_GET_VARS,$HTTP_SESSION_VARS,$user_admin;
+	global $_GET,$_SESSION,$user_admin;
 
 	// create the recieved variables
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	// check for valid input
 	// check if start date is before end date
@@ -566,7 +566,7 @@ function createAppointment() {
 	}
 
 	// check if may add to this person's diary (if permissions or owner or admin)
-	if ( $HTTP_SESSION_VARS["USER_NAME"] != $ap_diaryowner ) {
+	if ( $_SESSION["USER_NAME"] != $ap_diaryowner ) {
 		// check if has permissions
 		db_conn("cubit");
 		$sql = "SELECT * FROM diary_privileges
@@ -705,11 +705,11 @@ function createAppointment() {
 	return $OUTPUT;
 }
 
-// function that loads the specified appointment into GET_VARS and shows it, with the delete button
+// function that loads the specified appointment into _GET and shows it, with the delete button
 function viewAppointment() {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	if ( ! isset($HTTP_GET_VARS["entry_id"]) )
+	if ( ! isset($_GET["entry_id"]) )
 		return;
 
 	db_conn("cubit");
@@ -725,34 +725,34 @@ function viewAppointment() {
 
 				category_id, notify
 			FROM diary_entries
-			WHERE entry_id=$HTTP_GET_VARS[entry_id]");
+			WHERE entry_id=$_GET[entry_id]");
 
 	if ( $sqlrow = pg_fetch_array($rslt) ) {
 		// general
-		$HTTP_GET_VARS["ap_diaryowner"] = $sqlrow["username"];
-		$HTTP_GET_VARS["ap_title"] = $sqlrow["title"];
-		$HTTP_GET_VARS["ap_location"] = $sqlrow["location"];
-		$HTTP_GET_VARS["ap_homepage"] = $sqlrow["homepage"];
-		$HTTP_GET_VARS["ap_description"] = $sqlrow["description"];
-		$HTTP_GET_VARS["ap_repet"] = $sqlrow["repetitions"];
-		$HTTP_GET_VARS["ap_category"] = $sqlrow["category_id"];
-		$HTTP_GET_VARS["ap_notify"] = $sqlrow["notify"];
-		$HTTP_GET_VARS["ap_leadid"] = $sqlrow["lead_id"];
+		$_GET["ap_diaryowner"] = $sqlrow["username"];
+		$_GET["ap_title"] = $sqlrow["title"];
+		$_GET["ap_location"] = $sqlrow["location"];
+		$_GET["ap_homepage"] = $sqlrow["homepage"];
+		$_GET["ap_description"] = $sqlrow["description"];
+		$_GET["ap_repet"] = $sqlrow["repetitions"];
+		$_GET["ap_category"] = $sqlrow["category_id"];
+		$_GET["ap_notify"] = $sqlrow["notify"];
+		$_GET["ap_leadid"] = $sqlrow["lead_id"];
 
 		// time variables
-		$HTTP_GET_VARS["ap_day"] = $sqlrow["day"];
-		$HTTP_GET_VARS["ap_month"] = $sqlrow["month"];
-		$HTTP_GET_VARS["ap_year"] = $sqlrow["year"];
-		$HTTP_GET_VARS["ap_start_time"] = $sqlrow["shour"] .":". str_pad($sqlrow["smin"],2,"0",STR_PAD_LEFT);
-		$HTTP_GET_VARS["ap_end_time"] = $sqlrow["ehour"] .":". str_pad($sqlrow["emin"],2,"0",STR_PAD_LEFT);
-		$HTTP_GET_VARS["ap_repet_day"] = $sqlrow["rep_day"];
-		$HTTP_GET_VARS["ap_repet_month"] = $sqlrow["rep_month"];
-		$HTTP_GET_VARS["ap_repet_year"] = $sqlrow["rep_year"];
+		$_GET["ap_day"] = $sqlrow["day"];
+		$_GET["ap_month"] = $sqlrow["month"];
+		$_GET["ap_year"] = $sqlrow["year"];
+		$_GET["ap_start_time"] = $sqlrow["shour"] .":". str_pad($sqlrow["smin"],2,"0",STR_PAD_LEFT);
+		$_GET["ap_end_time"] = $sqlrow["ehour"] .":". str_pad($sqlrow["emin"],2,"0",STR_PAD_LEFT);
+		$_GET["ap_repet_day"] = $sqlrow["rep_day"];
+		$_GET["ap_repet_month"] = $sqlrow["rep_month"];
+		$_GET["ap_repet_year"] = $sqlrow["rep_year"];
 
 		// these variables should not be set when false
-		$sqlrow["time_entireday"] == '1' ? $HTTP_GET_VARS["ap_entireday"] = 1 : 1;
-		$sqlrow["type"] == '1' ? $HTTP_GET_VARS["ap_private"] = 1 : 1;
-		$sqlrow["rep_forever"] == '1' ? $HTTP_GET_VARS["ap_repet_forever"] = 1 : 1;
+		$sqlrow["time_entireday"] == '1' ? $_GET["ap_entireday"] = 1 : 1;
+		$sqlrow["type"] == '1' ? $_GET["ap_private"] = 1 : 1;
+		$sqlrow["rep_forever"] == '1' ? $_GET["ap_repet_forever"] = 1 : 1;
 
 		// generate the required, not required and optional fields
 
@@ -767,21 +767,21 @@ function viewAppointment() {
 
 // function that removes a specified entry from Cubit, and closes the window
 function deleteAppointment() {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	if ( ! isset($HTTP_GET_VARS["entry_id"]) )
+	if ( ! isset($_GET["entry_id"]) )
 		return 0;
 
 	// delete from the diary_entries table
-	db_exec("DELETE FROM diary_entries WHERE entry_id='$HTTP_GET_VARS[entry_id]' ");
+	db_exec("DELETE FROM diary_entries WHERE entry_id='$_GET[entry_id]' ");
 
 	// delete all diary entry details
-	db_exec("DELETE FROM diary_entries_details WHERE entry_id='$HTTP_GET_VARS[entry_id]' ");
+	db_exec("DELETE FROM diary_entries_details WHERE entry_id='$_GET[entry_id]' ");
 
-	removeTodayEntry("Diary", $HTTP_GET_VARS["entry_id"]);
+	removeTodayEntry("Diary", $_GET["entry_id"]);
 
 	// only close the window when it is delete key, not modify, else errors wont get displayed
-	if ( $HTTP_GET_VARS["key"] == "delete" ) {
+	if ( $_GET["key"] == "delete" ) {
 		$OUTPUT="
 		<script>
 				obj = window.opener.location.reload();

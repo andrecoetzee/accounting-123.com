@@ -28,10 +28,10 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "viewcat":
-			$OUTPUT = viewcat($HTTP_POST_VARS);
+			$OUTPUT = viewcat($_POST);
 			break;
 
                 default:
@@ -74,10 +74,10 @@ $view = "
 }
 
 # View Categories
-function viewcat($HTTP_POST_VARS)
+function viewcat($_POST)
 {
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

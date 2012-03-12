@@ -4,19 +4,19 @@ require ("../settings.php");
 require ("../core-settings.php");
 require ("bank-pay-supp-write.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "search":
-			$OUTPUT = show_entries ($HTTP_POST_VARS);
+			$OUTPUT = show_entries ($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = process_entries ($HTTP_POST_VARS);
+			$OUTPUT = process_entries ($_POST);
 			break;
 		default:
 			$OUTPUT = get_filter ();
 	}
-}elseif (isset($HTTP_GET_VARS["supid"])) {
-	$OUTPUT = print_entry ($HTTP_GET_VARS);
+}elseif (isset($_GET["supid"])) {
+	$OUTPUT = print_entry ($_GET);
 }else {
 	$OUTPUT = get_filter ();
 }
@@ -54,10 +54,10 @@ function get_filter ()
 
 
 
-function show_entries ($HTTP_POST_VARS,$err="")
+function show_entries ($_POST,$err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$fromdate = "$from_year-$from_month-$from_day";
 	$todate = "$to_year-$to_month-$to_day";
@@ -139,10 +139,10 @@ function show_entries ($HTTP_POST_VARS,$err="")
 }
 
 
-function print_entry ($HTTP_POST_VARS)
+function print_entry ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 
@@ -217,19 +217,19 @@ function print_entry ($HTTP_POST_VARS)
 
 
 
-function process_entries ($HTTP_POST_VARS)
+function process_entries ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (isset($print_submit)){
 		#we want to print ... go there ..
-		return print_entries ($HTTP_POST_VARS);
+		return print_entries ($_POST);
 	}
 
 	#if nothing is set, go back
 	if(!isset($process_entry) OR !is_array ($process_entry)){
-		return show_entries ($HTTP_POST_VARS,"<li class='err'>Please select at least 1 entry to process.</li><br>");
+		return show_entries ($_POST,"<li class='err'>Please select at least 1 entry to process.</li><br>");
 	}
 
 	$pay_type = getCSetting("SUPP_PAY_TYPE");
@@ -246,7 +246,7 @@ function process_entries ($HTTP_POST_VARS)
 			$get_entry = "SELECT * FROM supp_payment_cheques WHERE id = '$own' LIMIT 1";
 			$run_entry = db_exec($get_entry) or errDie ("Unable to get payment information.");
 			if(pg_numrows($run_entry) < 1){
-				return show_entries ($HTTP_POST_VARS,"<li class='err'>Payment information could not be found.</li>");
+				return show_entries ($_POST,"<li class='err'>Payment information could not be found.</li>");
 			}
 
 			$parr = pg_fetch_array ($run_entry);
@@ -512,19 +512,19 @@ if ($pay_type == "export"){
 	}
 }
 
-	return show_entries ($HTTP_POST_VARS, "<li class='err'>Payment Completed.</li>");
+	return show_entries ($_POST, "<li class='err'>Payment Completed.</li>");
 
 }
 
 
 
-function print_entries ($HTTP_POST_VARS)
+function print_entries ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($print_entry) OR !is_array ($print_entry)){
-		return show_entries ($HTTP_POST_VARS,"<li class='err'>Please select at least 1 entry to print.</li><br>");
+		return show_entries ($_POST,"<li class='err'>Please select at least 1 entry to print.</li><br>");
 	}
 
 	db_connect ();

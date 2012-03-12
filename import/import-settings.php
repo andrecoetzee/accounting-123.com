@@ -24,15 +24,15 @@
 #
 
 require ("../settings.php");
-$OUTPUT = settings($HTTP_POST_VARS);
+$OUTPUT = settings($_POST);
 require("../template.php");
 
 
 
-function settings($HTTP_POST_VARS)
+function settings($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	db_conn('cubit');
 

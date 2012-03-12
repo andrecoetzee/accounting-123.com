@@ -28,18 +28,18 @@
 require("settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 			case "slctcat":
-				$OUTPUT = slctCat($HTTP_POST_VARS);
+				$OUTPUT = slctCat($_POST);
 				break;
 
 			case "confirm":
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 				break;
 
 			case "write":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 
 			default:
@@ -72,10 +72,10 @@ function view()
 	return $view;
 }
 
-function viewerr($HTTP_POST_VARS, $err=""){
+function viewerr($_POST, $err=""){
 
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -97,10 +97,10 @@ function viewerr($HTTP_POST_VARS, $err=""){
 }
 
 // select cat
-function slctCat($HTTP_POST_VARS)
+function slctCat($_POST)
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 		# validate input
@@ -141,7 +141,7 @@ function slctCat($HTTP_POST_VARS)
 		if (pg_numrows($checkRslt) > 0) {
 			$err = "<tr><td colspan=2 class=err>Account name already exist.</td></tr>";
 			# return error function
-			return viewerr($HTTP_POST_VARS, $err);
+			return viewerr($_POST, $err);
 			exit;
 		}
 
@@ -152,7 +152,7 @@ function slctCat($HTTP_POST_VARS)
 		if (pg_numrows($cRslt) > 0) {
 			$err = "<tr><td colspan=2 class=err>The Account number is already in use.</td></tr>";
 			# return error function
-			return viewerr($HTTP_POST_VARS, $err);
+			return viewerr($_POST, $err);
 			exit;
 		}
 
@@ -196,10 +196,10 @@ function slctCat($HTTP_POST_VARS)
 }
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 		# validate input
@@ -251,12 +251,12 @@ function confirm($HTTP_POST_VARS)
 }
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	# Processes
 	core_connect();
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -300,7 +300,7 @@ function write($HTTP_POST_VARS)
 		if (pg_numrows($checkRslt) > 0) {
 			$err = "<tr><td colspan=2 class=err>Account name already exist.</td></tr>";
 			# return error function
-			return viewerr($HTTP_POST_VARS, $err);
+			return viewerr($_POST, $err);
 			exit;
 		}
 
@@ -311,7 +311,7 @@ function write($HTTP_POST_VARS)
 		if (pg_numrows($cRslt) > 0) {
 			$err = "<tr><td colspan=2 class=err>The Account number is already in use.</td></tr>";
 			# return error function
-			return viewerr($HTTP_POST_VARS, $err);
+			return viewerr($_POST, $err);
 			exit;
 		}
 

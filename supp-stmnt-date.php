@@ -28,15 +28,15 @@ require("settings.php");
 require("core-settings.php");
 require("libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
         case "view":
-			$OUTPUT = printStmnt($HTTP_POST_VARS);
+			$OUTPUT = printStmnt($_POST);
 			break;
 		default:
 			# decide what to do
-			if (isset($HTTP_GET_VARS["supid"])) {
-				$OUTPUT = slct($HTTP_GET_VARS);
+			if (isset($_GET["supid"])) {
+				$OUTPUT = slct($_GET);
 			} else {
 				$OUTPUT = "<li class='err'>Invalid use of module.</li>";
 			}
@@ -44,8 +44,8 @@ if (isset($HTTP_POST_VARS["key"])) {
 	}
 } else {
 	# decide what to do
-	if (isset($HTTP_GET_VARS["supid"])) {
-		$OUTPUT = slct($HTTP_GET_VARS);
+	if (isset($_GET["supid"])) {
+		$OUTPUT = slct($_GET);
 	} else {
 		$OUTPUT = "<li class='err'>Invalid use of module.</li>";
 	}
@@ -57,11 +57,11 @@ require("template.php");
 
 
 # Default view
-function slct($HTTP_GET_VARS)
+function slct($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -127,11 +127,11 @@ function slct($HTTP_GET_VARS)
 
 
 # Show invoices
-function printStmnt ($HTTP_POST_VARS)
+function printStmnt ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

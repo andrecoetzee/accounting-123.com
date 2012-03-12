@@ -28,10 +28,10 @@ require ("../libs/ext.lib.php");
 
 if(div_isset("DEBT_AGE", "mon")){
 	$OUTPUT = printAgeAge ();
-}elseif (isset($HTTP_POST_VARS["xls"])){
-	$OUTPUT = excel ($HTTP_POST_VARS);
+}elseif (isset($_POST["xls"])){
+	$OUTPUT = excel ($_POST);
 }else {
-	$OUTPUT = printAgeInv ($HTTP_POST_VARS);
+	$OUTPUT = printAgeInv ($_POST);
 }
 
 require ("../template.php");
@@ -40,10 +40,10 @@ require ("../template.php");
 
 
 # Age analysis by date
-function printAgeInv ($HTTP_POST_VARS,$pure=TRUE)
+function printAgeInv ($_POST,$pure=TRUE)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Set up table to display in
 	global $PRDMON;

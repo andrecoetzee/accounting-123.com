@@ -29,24 +29,24 @@ require ("settings.php");
 require ("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 	case "confirm":
-		$OUTPUT = confirm($HTTP_POST_VARS);
+		$OUTPUT = confirm($_POST);
 		break;
 	case "write":
-		$OUTPUT = write($HTTP_POST_VARS);
+		$OUTPUT = write($_POST);
 		break;
 	default:
-		if (isset($HTTP_GET_VARS['cusnum'])){
-			$OUTPUT = edit($HTTP_GET_VARS);
+		if (isset($_GET['cusnum'])){
+			$OUTPUT = edit($_GET);
 		} else {
 			$OUTPUT = "<li>Invalid use of module</li>";
 		}
 	}
 } else {
-	if (isset($HTTP_GET_VARS['cusnum'])){
-		$OUTPUT = edit($HTTP_GET_VARS);
+	if (isset($_GET['cusnum'])){
+		$OUTPUT = edit($_GET);
 	} else {
 		$OUTPUT = "<li>Invalid use of module</li>";
 	}
@@ -58,10 +58,10 @@ require ("template.php");
 
 
 
-function edit($HTTP_GET_VARS, $err="")
+function edit($_GET, $err="")
 {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -430,11 +430,11 @@ function edit($HTTP_GET_VARS, $err="")
 
 
 # confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -506,7 +506,7 @@ function confirm ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>$e[msg]</li>";
 		}
-		return edit($HTTP_POST_VARS, $confirm);
+		return edit($_POST, $confirm);
 		exit;
 		$confirm .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirm;
@@ -517,7 +517,7 @@ function confirm ($HTTP_POST_VARS)
 	$Ri = db_exec($Sl) or errDie("Unablet to get account numbers.");
 
 	if(pg_num_rows($Ri)>0) {
-		return edit($HTTP_POST_VARS, "<li class=err>a Client with this account number already exists</li>");
+		return edit($_POST, "<li class=err>a Client with this account number already exists</li>");
 	}
 
 	// get drop down info
@@ -733,15 +733,15 @@ function confirm ($HTTP_POST_VARS)
 
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
-	if(isset($HTTP_POST_VARS["back"])) {
-		return edit($HTTP_POST_VARS);
+	if(isset($_POST["back"])) {
+		return edit($_POST);
 	}
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -810,7 +810,7 @@ function write ($HTTP_POST_VARS)
 	$Ri = db_exec($Sl) or errDie("Unablet to get account numbers.");
 
 	if(pg_num_rows($Ri)>0) {
-		return edit($HTTP_POST_VARS, "<li class='err'>a Client with this account number already exists</li>");
+		return edit($_POST, "<li class='err'>a Client with this account number already exists</li>");
 	}
 
 	$odate = explode("-", $odate);

@@ -26,14 +26,14 @@
 require ("settings.php");
 require ("core-settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "view":
 			require_lib("docman");
-			$OUTPUT = printPurch ($HTTP_POST_VARS);
+			$OUTPUT = printPurch ($_POST);
 			break;
 		case "export":
-			$OUTPUT = export ($HTTP_POST_VARS);
+			$OUTPUT = export ($_POST);
 			break;
 		default:
 			$OUTPUT = slct ();
@@ -131,11 +131,11 @@ function slct()
 
 
 # show stock
-function printPurch ($HTTP_POST_VARS)
+function printPurch ($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Validate input
 	require_lib("validate");
@@ -281,11 +281,11 @@ function printPurch ($HTTP_POST_VARS)
 
 
 
-function export ($HTTP_POST_VARS)
+function export ($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Validate input
 	require_lib("validate");

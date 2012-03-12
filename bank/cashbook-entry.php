@@ -27,19 +27,19 @@
 require("../settings.php");
 require("../core-settings.php");
 
-$OUTPUT = enter($HTTP_POST_VARS);
+$OUTPUT = enter($_POST);
 
 require("../template.php");
 
 
 
 
-function enter($HTTP_POST_VARS)
+function enter($_POST)
 {
 
 	$shownewaccount = "";
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(isset($ledger) && $ledger != "sel") {
 		$ledgers = $ledger."<input type='hidden' name='ledger' value='$ledger'>";

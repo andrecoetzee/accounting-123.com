@@ -26,33 +26,33 @@
 # get settings
 require ("settings.php");
 
-foreach ($HTTP_GET_VARS as $each => $own){
-	$HTTP_POST_VARS[$each] = $own;	
+foreach ($_GET as $each => $own){
+	$_POST[$each] = $own;	
 }
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "add":
-			$OUTPUT = add_project ($HTTP_POST_VARS);
+			$OUTPUT = add_project ($_POST);
 			break;
 		case "edit":
-			$OUTPUT = edit ($HTTP_POST_VARS);
+			$OUTPUT = edit ($_POST);
 			break;
 		case "confirmedit":
-			$OUTPUT = confirmedit ($HTTP_POST_VARS);
+			$OUTPUT = confirmedit ($_POST);
 			break;
 		case "writeedit":
-			$OUTPUT = writeedit ($HTTP_POST_VARS);
+			$OUTPUT = writeedit ($_POST);
 			break;
 		case "remove":
-			$OUTPUT = remove ($HTTP_POST_VARS);
+			$OUTPUT = remove ($_POST);
 			break;
 		case "writeremove":
-			$OUTPUT = writeremove ($HTTP_POST_VARS);
+			$OUTPUT = writeremove ($_POST);
 			break;
 		case "showedit":
-			$OUTPUT = enter ($HTTP_POST_VARS);
+			$OUTPUT = enter ($_POST);
 			break;
 		default:
 			$OUTPUT = get_project ();
@@ -134,10 +134,10 @@ function get_project ()
 
 
 # enter new data
-function enter ($HTTP_POST_VARS,$err="")
+function enter ($_POST,$err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 
@@ -308,10 +308,10 @@ function enter ($HTTP_POST_VARS,$err="")
 
 
 
-function add_project ($HTTP_POST_VARS)
+function add_project ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 
@@ -340,7 +340,7 @@ function add_project ($HTTP_POST_VARS)
 			return enter ();
 	}
 
-	return enter ($HTTP_POST_VARS,"<li class='err'>Project Information Saved</li>");
+	return enter ($_POST,"<li class='err'>Project Information Saved</li>");
 
 }
 
@@ -348,10 +348,10 @@ function add_project ($HTTP_POST_VARS)
 
 
 
-function edit ($HTTP_POST_VARS)
+function edit ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	if(!isset($id) or (strlen($id) < 1)){
 		return enter ("<li class='err'> Invalid Use Of Module. Invalid ID.</li>");
@@ -419,11 +419,11 @@ function edit ($HTTP_POST_VARS)
 
 
 # confirm new data
-function confirmedit ($HTTP_POST_VARS)
+function confirmedit ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -483,11 +483,11 @@ function confirmedit ($HTTP_POST_VARS)
 
 
 # write new data
-function writeedit ($HTTP_POST_VARS)
+function writeedit ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -538,10 +538,10 @@ function writeedit ($HTTP_POST_VARS)
 
 
 
-function remove ($HTTP_POST_VARS)
+function remove ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($id) or (strlen($id) < 1)){
 		return enter ("<li class='err'> Invalid Use Of Module. Invalid ID.</li>");
@@ -610,10 +610,10 @@ function remove ($HTTP_POST_VARS)
 
 
 
-function writeremove ($HTTP_POST_VARS)
+function writeremove ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

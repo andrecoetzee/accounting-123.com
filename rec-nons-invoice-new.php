@@ -30,21 +30,21 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["done"] = "";
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["invid"]) && isset($_GET["cont"])) {
+	$_GET["done"] = "";
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 		case "details":
-			$OUTPUT = details($HTTP_POST_VARS);
+			$OUTPUT = details($_POST);
 			break;
 		case "update":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "slct":
-			$HTTP_POST_VARS["done"] = "";
-			$OUTPUT = details($HTTP_POST_VARS);
+			$_POST["done"] = "";
+			$OUTPUT = details($_POST);
 			break;
 		default:
 			$OUTPUT = slct();
@@ -64,9 +64,9 @@ require("template.php");
 function slct($err = "")
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(isset($letters)) {
 		$letters = remval($letters);
@@ -205,11 +205,11 @@ function create_dummy($deptid, $ctyp, $tval, $acc, $remarks)
 
 
 # details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($button)&&(isset($starting))) {
 		return slct();
@@ -693,11 +693,11 @@ function details($HTTP_POST_VARS, $error="")
 
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($account)) {
 		$account += 0;
@@ -750,8 +750,8 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		$HTTP_POST_VARS['done'] = "";
-		return details($HTTP_POST_VARS, $err);
+		$_POST['done'] = "";
+		return details($_POST, $err);
 	}
 
 	# Get purchase info
@@ -903,13 +903,13 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					$rslt = db_exec($sql) or errDie("Unable to insert invoice items to Cubit.",SELF);
 				}
 				# everything is set place done button
-				$HTTP_POST_VARS["done"] = " | <input name='doneBtn' type='submit' value='Done'>";
+				$_POST["done"] = " | <input name='doneBtn' type='submit' value='Done'>";
 			}
 		}else{
-			$HTTP_POST_VARS["done"] = "";
+			$_POST["done"] = "";
 		}
 
-		$HTTP_POST_VARS['showvat'] = $showvat;
+		$_POST['showvat'] = $showvat;
 
 		/* --- ----------- Clac --------------------- */
 		##----------------------NEW----------------------
@@ -1027,7 +1027,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 
 
 	if( !isset($doneBtn) ){
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	} else {
 		//$rslt = db_exec($sql) or errDie("Unable to update invoices status in Cubit.$sql",SELF);
 

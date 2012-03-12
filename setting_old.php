@@ -327,22 +327,22 @@ $login = true;
 
 if($login){
 	# login logic
-	if (isset ($HTTP_POST_VARS["login_user"]) && isset ($HTTP_POST_VARS["login_pass"]) && isset ($HTTP_POST_VARS["login"])) {
-		checkLogin ($HTTP_POST_VARS["login_user"], md5 ($HTTP_POST_VARS["login_pass"]));
-		define ("USER_NAME", $HTTP_SESSION_VARS["USER_NAME"]);
-		define ("USER_ID", $HTTP_SESSION_VARS["USER_ID"]);
-		define ("USER_DIV", $HTTP_SESSION_VARS["USER_DIV"]);
-		define ("BRAN_NAME", $HTTP_SESSION_VARS["BRAN_NAME"]);
-		define ("ABO",$HTTP_SESSION_VARS["ABO"]);
-	} elseif (empty ($HTTP_SESSION_VARS["USER_NAME"]) || empty ($HTTP_SESSION_VARS["USER_ID"])) {
+	if (isset ($_POST["login_user"]) && isset ($_POST["login_pass"]) && isset ($_POST["login"])) {
+		checkLogin ($_POST["login_user"], md5 ($_POST["login_pass"]));
+		define ("USER_NAME", $_SESSION["USER_NAME"]);
+		define ("USER_ID", $_SESSION["USER_ID"]);
+		define ("USER_DIV", $_SESSION["USER_DIV"]);
+		define ("BRAN_NAME", $_SESSION["BRAN_NAME"]);
+		define ("ABO",$_SESSION["ABO"]);
+	} elseif (empty ($_SESSION["USER_NAME"]) || empty ($_SESSION["USER_ID"])) {
 		login ();
 	} else {
 		# define constants (for inside scripts)
-		define ("USER_NAME", $HTTP_SESSION_VARS["USER_NAME"]);
-		define ("USER_ID", $HTTP_SESSION_VARS["USER_ID"]);
-		define ("USER_DIV", $HTTP_SESSION_VARS["USER_DIV"]);
-		define ("BRAN_NAME", $HTTP_SESSION_VARS["BRAN_NAME"]);
-		define ("ABO",$HTTP_SESSION_VARS["ABO"]);
+		define ("USER_NAME", $_SESSION["USER_NAME"]);
+		define ("USER_ID", $_SESSION["USER_ID"]);
+		define ("USER_DIV", $_SESSION["USER_DIV"]);
+		define ("BRAN_NAME", $_SESSION["BRAN_NAME"]);
+		define ("ABO",$_SESSION["ABO"]);
 	}
 
 	# connect to db
@@ -356,7 +356,7 @@ if($login){
 	|| basename (getenv ("SCRIPT_NAME")) == "pos-rem.php"
 	||basename (getenv ("SCRIPT_NAME")) == "top_menu.php")){
 			# check permission
-			$chk = "SELECT * FROM userscripts WHERE username = '$HTTP_SESSION_VARS[USER_NAME]' AND script ='".basename (getenv ("SCRIPT_NAME"))."'";
+			$chk = "SELECT * FROM userscripts WHERE username = '$_SESSION[USER_NAME]' AND script ='".basename (getenv ("SCRIPT_NAME"))."'";
 			$chkRslt = db_exec($chk) or errDie("Unable to check user access permissions",SELF);
 			if(pg_numrows($chkRslt) < 1){
 					$OUTPUT = "<li class=err>You <b>don't have sufficient permissions</b> to use this command.".getenv ("SCRIPT_NAME");
@@ -471,15 +471,15 @@ function checkLogin ($username, $password)
 	# register session vars
 	# session_name ("CUBIT_SESSION");
 	# session_start ();
-	global $HTTP_SESSION_VARS;
-	$HTTP_SESSION_VARS["USER_NAME"] = $username;
-	$HTTP_SESSION_VARS["USER_PASS"] = $password;
-	$HTTP_SESSION_VARS["USER_ID"] = $myUsr["userid"];
-	$HTTP_SESSION_VARS["USER_DIV"] = $myUsr["div"];
-	$HTTP_SESSION_VARS["ABO"]= $myUsr["abo"];
+	global $_SESSION;
+	$_SESSION["USER_NAME"] = $username;
+	$_SESSION["USER_PASS"] = $password;
+	$_SESSION["USER_ID"] = $myUsr["userid"];
+	$_SESSION["USER_DIV"] = $myUsr["div"];
+	$_SESSION["ABO"]= $myUsr["abo"];
 
 	// set the type of menu
-	$HTTP_SESSION_VARS["SERVICES_MENU"] = $myUsr["services_menu"];
+	$_SESSION["SERVICES_MENU"] = $myUsr["services_menu"];
 
 	# Select Stock
 	db_connect();
@@ -490,21 +490,21 @@ function checkLogin ($username, $password)
 	}else{
 		$bran = pg_fetch_array($branRslt);
 	}
-	$HTTP_SESSION_VARS["BRAN_NAME"] = $bran['branname'];
+	$_SESSION["BRAN_NAME"] = $bran['branname'];
 }
 
 // checks the preferences/permissions of the users
 function checkPreferences() {
-	global $HTTP_SESSION_VARS;
+	global $_SESSION;
 	global $user_admin;
 	global $dept_count;
 	global $user_dept;
 	global $services_menu_left, $mail_sender;
 
-	$user_name=$HTTP_SESSION_VARS['USER_NAME'];
+	$user_name=$_SESSION['USER_NAME'];
 
 	// where should the menu be showed
-	if ( $HTTP_SESSION_VARS["SERVICES_MENU"] == 'L' )
+	if ( $_SESSION["SERVICES_MENU"] == 'L' )
 		$services_menu_left = true;
 	else
 		$services_menu_left = false;

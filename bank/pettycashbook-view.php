@@ -29,13 +29,13 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "viewcash":
-			$OUTPUT = viewcash($HTTP_POST_VARS);
+			$OUTPUT = viewcash($_POST);
 			break;
 		case "viewallcash":
-			$OUTPUT = viewallcash($HTTP_POST_VARS);
+			$OUTPUT = viewallcash($_POST);
 			break;
 		default:
 			$OUTPUT = view();
@@ -109,11 +109,11 @@ function view()
 
 
 # view cash book
-function viewcash($HTTP_POST_VARS)
+function viewcash($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -271,11 +271,11 @@ function viewcash($HTTP_POST_VARS)
 
 
 # view outstanding cash book
-function viewallcash($HTTP_POST_VARS)
+function viewallcash($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_Connect ();
 

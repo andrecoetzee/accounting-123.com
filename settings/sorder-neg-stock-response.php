@@ -2,7 +2,7 @@
 
 require ("../settings.php");
 
-if (isset($HTTP_POST_VARS["key"]))
+if (isset($_POST["key"]))
 	$OUTPUT = write_setting ();
 else 
 	$OUTPUT = show_setting ();

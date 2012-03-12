@@ -38,30 +38,30 @@ require ("../settings.php");
 require_lib("validate");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
 require ("object_smtpmail.php");
 
 // overwrite the GET VARS with POST VARS (so both can be access at any times)
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $arr => $arrval ) {
-		$HTTP_GET_VARS[$arr] = $arrval;
+if ( isset($_POST) ) {
+	foreach ( $_POST as $arr => $arrval ) {
+		$_GET[$arr] = $arrval;
 	}
 }
 
 // make sure something is being done
-if ( ! isset($HTTP_GET_VARS["key"]) ) $HTTP_GET_VARS["key"] = "create";
+if ( ! isset($_GET["key"]) ) $_GET["key"] = "create";
 
-switch ( $HTTP_GET_VARS["key"] ) {
+switch ( $_GET["key"] ) {
 	case "send": // send the form
 		$OUTPUT = sendMsg();
 		break;
@@ -76,7 +76,7 @@ require ("../template.php");
 
 // creates the form of the new message
 function writeMsg() {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	$OUTPUT = "";
 
@@ -96,15 +96,15 @@ function writeMsg() {
 		return "You have no accounts from which you may send email.";
 
 	// restore the previous entries if any (on errors)
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 	extract($_FILES);
 
-	if ( ! isset($HTTP_GET_VARS["send_to"]) ) $send_to = "";
-	if ( ! isset($HTTP_GET_VARS["send_bcc"]) ) $send_bcc = "";
-	if ( ! isset($HTTP_GET_VARS["send_cc"]) ) $send_cc = "";
-	if ( ! isset($HTTP_GET_VARS["subject"]) ) $subject = "";
+	if ( ! isset($_GET["send_to"]) ) $send_to = "";
+	if ( ! isset($_GET["send_bcc"]) ) $send_bcc = "";
+	if ( ! isset($_GET["send_cc"]) ) $send_cc = "";
+	if ( ! isset($_GET["subject"]) ) $subject = "";
 	if ( ! isset($_FILES["attachment"]) ) $attachment = "";
-	if ( ! isset($HTTP_GET_VARS["body"]) ) $body = "";
+	if ( ! isset($_GET["body"]) ) $body = "";
 
 	// creates the acocunts selection list
 	$select_accounts = "<select name='aid'>";
@@ -399,19 +399,19 @@ function writeMsg() {
 
 // verifies the message and sends it, the store it in database under sent items
 function sendMsg() {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	$v = & new validate;
 
 	$OUTPUT = "";
 
 	// restore the variables
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 	extract($_FILES);
 
 	// check if account is valid
-	if ( isset($HTTP_GET_VARS["aid"]) ) {
-		if ( ! $v->isOk( $HTTP_GET_VARS["aid"], "num", 0, 9, "" ) )
+	if ( isset($_GET["aid"]) ) {
+		if ( ! $v->isOk( $_GET["aid"], "num", 0, 9, "" ) )
 			return "Invalid account number specified";
 
 		// check if you may send mail from here
@@ -433,12 +433,12 @@ function sendMsg() {
 		return "No account specified<br>";
 	}
 
-	if ( ! isset($HTTP_GET_VARS["send_to"]) ) $send_to = "";
-	if ( ! isset($HTTP_GET_VARS["send_bcc"]) ) $send_bcc = "";
-	if ( ! isset($HTTP_GET_VARS["send_cc"]) ) $send_cc = "";
-	if ( ! isset($HTTP_GET_VARS["subject"]) ) $subject = "";
+	if ( ! isset($_GET["send_to"]) ) $send_to = "";
+	if ( ! isset($_GET["send_bcc"]) ) $send_bcc = "";
+	if ( ! isset($_GET["send_cc"]) ) $send_cc = "";
+	if ( ! isset($_GET["subject"]) ) $subject = "";
 	if ( ! isset($_FILES["attachment"]) ) $attachment = "";
-	if ( ! isset($HTTP_GET_VARS["body"]) ) $body = "";
+	if ( ! isset($_GET["body"]) ) $body = "";
 
 	$v->resetErrors();
 	$v->isOK($subject, "string", 1, 255, "Invalid subject.");
@@ -447,7 +447,7 @@ function sendMsg() {
 	// $v->isOK($send_cc, "email", 0, 255, "Invalid cc recipient.");
 	// $v->isOK($send_bcc, "email", 0, 255, "Invalid bcc recipient.");
 	//if ( ! $v->isOK($bodydata, "string", 1, 255, "Invalid text in body.") ) {
-	//	$HTTP_GET_VARS["body"] = htmlspecialchars($body); // makes sure we dont get cross site scripting
+	//	$_GET["body"] = htmlspecialchars($body); // makes sure we dont get cross site scripting
 	//}
 
 	// ok now print errors if any
@@ -467,7 +467,7 @@ function sendMsg() {
 
 	// get the smtp data
 	$rslt = db_exec("SELECT smtp_from, smtp_reply, signature, smtp_host, smtp_auth, smtp_user, smtp_pass
-		FROM mail_accounts WHERE account_id=$HTTP_GET_VARS[aid]");
+		FROM mail_accounts WHERE account_id=$_GET[aid]");
 	$smtp_data = pg_fetch_array($rslt);
 
 	// build msg body
@@ -543,7 +543,7 @@ function sendMsg() {
 		$smtp_data["smtp_pass"],$send_to, $smtp_data["smtp_from"], $subject, $bodydata, $headers);
 
 	if ( $sendmail->bool_success ) {
-		$account_id = "$HTTP_GET_VARS[aid]";
+		$account_id = "$_GET[aid]";
 
 		$type_id = getMsgType($msgtype);
 

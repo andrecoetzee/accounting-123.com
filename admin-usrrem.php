@@ -31,18 +31,18 @@ require ("settings.php");          // Get global variables & functions
 
 // If form was submitted, confirm removal or remove entry
 
-if ($HTTP_GET_VARS) {
-	if ($HTTP_GET_VARS['username']) {
+if ($_GET) {
+	if ($_GET['username']) {
 		// confirm removal
-		$OUTPUT = confirmRem ($HTTP_GET_VARS['username']);
+		$OUTPUT = confirmRem ($_GET['username']);
 	} else {
 		// Invalid use, display error
 		errDie ("ERROR: Invalid use of module.", SELF);
 	}
-} elseif ($HTTP_POST_VARS) {
-	if ($HTTP_POST_VARS['a'] == "rem") {
+} elseif ($_POST) {
+	if ($_POST['a'] == "rem") {
 		// remove entry
-		$OUTPUT = remUser ($HTTP_POST_VARS['username']);
+		$OUTPUT = remUser ($_POST['username']);
 	} else {
 		// Invalid use, display error
 		errDie ("ERROR: Invalid use of module.", SELF);

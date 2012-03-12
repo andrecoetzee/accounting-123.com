@@ -28,19 +28,19 @@ require ("core-settings.php");
 require ("libs/ext.lib.php");
 
 # decide what to do
-if(isset($HTTP_GET_VARS["type"]) && isset($HTTP_GET_VARS["amount"])){
-	$OUTPUT = enter($HTTP_GET_VARS);
-}elseif (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if(isset($_GET["type"]) && isset($_GET["amount"])){
+	$OUTPUT = enter($_GET);
+}elseif (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			if(!isset($HTTP_POST_VARS["done"])){
-				$OUTPUT = enter ($HTTP_POST_VARS);
+			if(!isset($_POST["done"])){
+				$OUTPUT = enter ($_POST);
 			}else {
-				$OUTPUT = confirm ($HTTP_POST_VARS);
+				$OUTPUT = confirm ($_POST);
 			}
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		default:
 			$OUTPUT = enterdet ();
@@ -55,11 +55,11 @@ require ("template.php");
 
 
 # enter new data
-function enter ($HTTP_GET_VARS,$err="")
+function enter ($_GET,$err="")
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	$amount = sprint($amount);
 	
@@ -85,8 +85,8 @@ function enter ($HTTP_GET_VARS,$err="")
 		$run_ccid = db_exec($get_ccid) or errDie("Unable to get cost center information.");
 		if(pg_numrows($run_ccid) > 0){
 			if(!isset($project1) OR ($project1 == "") OR ($project1 == "0")){
-				unset ($HTTP_GET_VARS["search"]);
-				return enter ($HTTP_GET_VARS,"<li class='err'>Please Select A Project First</li>");
+				unset ($_GET["search"]);
+				return enter ($_GET,"<li class='err'>Please Select A Project First</li>");
 			}
 			$temparr = pg_fetch_array($run_ccid);
 			$get_link = "SELECT id FROM costcenters_links WHERE ccid = '$temparr[ccid]' AND project1 = '$project1' LIMIT 1";
@@ -317,11 +317,11 @@ function enter ($HTTP_GET_VARS,$err="")
 
 
 # confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -337,9 +337,9 @@ function confirm ($HTTP_POST_VARS)
 			$v->isOk ($ccperc[$key], "float", 1, 20, "Invalid Cost center percentage.");
 		}
 		if(array_sum($ccperc) <> 100)
-			return enter($HTTP_POST_VARS, "<li class='err'> The total percentage must be exaclly 100%, check percentages.</li>");
+			return enter($_POST, "<li class='err'> The total percentage must be exaclly 100%, check percentages.</li>");
 	}else{
-		return enter($HTTP_POST_VARS, "<li class='err'> There are no Cost centers found.</li>");
+		return enter($_POST, "<li class='err'> There are no Cost centers found.</li>");
 	}
 
 	# display errors, if any
@@ -349,7 +349,7 @@ function confirm ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return enter($HTTP_POST_VARS, $confirm);
+		return enter($_POST, $confirm);
 		$confirm .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirm;
 	}
@@ -444,11 +444,11 @@ function confirm ($HTTP_POST_VARS)
 
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -464,7 +464,7 @@ function write ($HTTP_POST_VARS)
 			$v->isOk ($ccperc[$key], "float", 1, 20, "Invalid Cost center percentage.");
 		}
 	}else{
-		return enter($HTTP_POST_VARS, "<li class=err> There are no Cost centers found.");
+		return enter($_POST, "<li class=err> There are no Cost centers found.");
 	}
 
 	# display errors, if any
@@ -474,7 +474,7 @@ function write ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirmCust .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return enter($HTTP_POST_VARS, $confirm);
+		return enter($_POST, $confirm);
 		$confirmCust .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirmCust;
 	}

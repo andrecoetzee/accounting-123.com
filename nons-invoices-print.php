@@ -30,26 +30,26 @@ require("libs/ext.lib.php");
 require("pdf-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "process":
-			$OUTPUT = process($HTTP_POST_VARS);
+			$OUTPUT = process($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			# decide what to do
-			if (isset($HTTP_GET_VARS["invids"])) {
-				$OUTPUT = details($HTTP_GET_VARS);
+			if (isset($_GET["invids"])) {
+				$OUTPUT = details($_GET);
 			} else {
 				$OUTPUT = "<li class=err>Please select at least one unprinted recurring invoice.</li>";
 			}
 		}
 } else {
 	# decide what to do
-	if (isset($HTTP_GET_VARS["ids"])) {
-		$OUTPUT = details($HTTP_GET_VARS);
+	if (isset($_GET["ids"])) {
+		$OUTPUT = details($_GET);
 	} else {
 		$OUTPUT = "<li class=err>Please select at least one unprinted recurring invoice.</li>";
 	}
@@ -60,10 +60,10 @@ require("template.php");
 
 
 
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	$ids = explode(",",$ids);
 
@@ -141,8 +141,8 @@ function details($HTTP_GET_VARS)
 }
 
 # Create the company
-function process ($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function process ($_POST) {
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -204,13 +204,13 @@ function process ($HTTP_POST_VARS) {
 }
 
 # Details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	# Set max execution time to 12 hours
 	ini_set("max_execution_time", 43200);
 
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -585,9 +585,9 @@ function write($HTTP_POST_VARS)
 	$template = pg_fetch_result($tsRslt, 0);
 
 	if ($template == "invoice-print.php") {
-		pdf($HTTP_POST_VARS);
+		pdf($_POST);
 	} else {
-		templatePdf($HTTP_POST_VARS);
+		templatePdf($_POST);
 	}
 
 	// Final Laytout
@@ -606,14 +606,14 @@ function write($HTTP_POST_VARS)
 	return $write;
 }
 
-function pdf($HTTP_POST_VARS) {
+function pdf($_POST) {
 	$showvat = TRUE;
 
 	global $set_mainFont, $set_txtSize, $set_tlY, $set_tlX;
 	global $set_pgXCenter, $set_maxTblOpt, $set_pgWidth;
 
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -851,10 +851,10 @@ function pdf($HTTP_POST_VARS) {
 }
 
 # long pdf file
-function pdfinv($HTTP_GET_VARS)
+function pdfinv($_GET)
 {
 	# Get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 
@@ -1071,9 +1071,9 @@ function pdfinv($HTTP_GET_VARS)
 
 }
 
-function templatePdf($HTTP_POST_VARS)
+function templatePdf($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	global $set_mainFont;
 
 	$pdf = &new Cezpdf;

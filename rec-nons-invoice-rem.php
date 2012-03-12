@@ -29,10 +29,10 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
-}  elseif(isset($HTTP_POST_VARS["id"])) {
-	$OUTPUT = remove($HTTP_POST_VARS);
+if (isset($_GET["invid"])) {
+	$OUTPUT = details($_GET);
+}  elseif(isset($_POST["id"])) {
+	$OUTPUT = remove($_POST);
 }else {
 	$OUTPUT = "<li class='err'>Invalid use of module.</li>";
 }
@@ -43,11 +43,11 @@ require("template.php");
 
 
 # details
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -240,10 +240,10 @@ function details($HTTP_GET_VARS)
 
 
 
-function remove($HTTP_POST_VARS)
+function remove($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$id += 0;
 

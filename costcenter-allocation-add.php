@@ -2,16 +2,16 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "allocate":
-			$OUTPUT = allocate_centers ($HTTP_POST_VARS);
+			$OUTPUT = allocate_centers ($_POST);
 			break;
 		default:
-			$OUTPUT = get_allocation ($HTTP_POST_VARS);
+			$OUTPUT = get_allocation ($_POST);
 	}
 }else {
-	$OUTPUT = get_allocation ($HTTP_GET_VARS);
+	$OUTPUT = get_allocation ($_GET);
 }
 
 $OUTPUT .= "<br>"
@@ -27,10 +27,10 @@ require ("template.php");
 
 
 
-function get_allocation ($HTTP_POST_VARS,$err="")
+function get_allocation ($_POST,$err="")
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if (!isset($project) OR (strlen($project) < 1)){
 		return "<li class='err'>Invalid Use Of Module. (Invalid Project)</li>";
@@ -132,13 +132,13 @@ function get_allocation ($HTTP_POST_VARS,$err="")
 
 
 
-function allocate_centers ($HTTP_POST_VARS)
+function allocate_centers ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($adds) OR !is_array($adds))
-		return get_allocation($HTTP_POST_VARS,"<li class='err'>Please select at least one Cost Center to add.</li>");
+		return get_allocation($_POST,"<li class='err'>Please select at least one Cost Center to add.</li>");
 
 	if (!isset($project) OR (strlen($project) < 1)){
 		return "<li class='err'>Invalid Use Of Module. (Invalid Project)</li>";

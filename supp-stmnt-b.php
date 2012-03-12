@@ -29,36 +29,36 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 // Merge get vars with post vars
-foreach ($HTTP_GET_VARS as $key=>$val) {
-	$HTTP_POST_VARS[$key] = $val;
+foreach ($_GET as $key=>$val) {
+	$_POST[$key] = $val;
 }
 
 // We need the supid
-if (!isset($HTTP_POST_VARS["supid"])) {
+if (!isset($_POST["supid"])) {
 	$OUTPUT = "<li class=err>Invalid use of module.</li>";
 	require ("template.php");
 }
 
 // Decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "options":
-			$OUTPUT = options($HTTP_POST_VARS);
+			$OUTPUT = options($_POST);
 			break;
 		case "printStmnt":
-			$OUTPUT = printStmnt($HTTP_POST_VARS);
+			$OUTPUT = printStmnt($_POST);
 			break;
 	}
 } else {
-	$OUTPUT = options($HTTP_POST_VARS);
+	$OUTPUT = options($_POST);
 }
 
 require("template.php");
 
-function options ($HTTP_POST_VARS)
+function options ($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($comment)) {
 		db_conn("cubit");
@@ -89,9 +89,9 @@ function options ($HTTP_POST_VARS)
 }
 
 # show invoices
-function printStmnt ($HTTP_POST_VARS)
+function printStmnt ($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");

@@ -27,26 +27,26 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "Submit":
-			$OUTPUT = slctAcc($HTTP_POST_VARS);
+			$OUTPUT = slctAcc($_POST);
 			break;
 
                 case "Add More Sub Headings":
-			$OUTPUT = moresub($HTTP_POST_VARS);
+			$OUTPUT = moresub($_POST);
 			break;
 
                 case "confirm":
-			if(isset($HTTP_POST_VARS['sub'])){
-				$OUTPUT = confirm($HTTP_POST_VARS);
+			if(isset($_POST['sub'])){
+				$OUTPUT = confirm($_POST);
 			}else{
-				$OUTPUT = slctAccR($HTTP_POST_VARS);
+				$OUTPUT = slctAccR($_POST);
 			}
 			break;
 
                 case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 
                 default:
@@ -122,10 +122,10 @@ function cook()
 }
 
 # select accounts (restrict)
-function slctAccR($HTTP_POST_VARS)
+function slctAccR($_POST)
 {
          # get vars
-        foreach ($HTTP_POST_VARS as $key => $value) {
+        foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 
@@ -283,10 +283,10 @@ function check($val, $arr){
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
         # get vars
-        foreach ($HTTP_POST_VARS as $key => $value) {
+        foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 
@@ -389,10 +389,10 @@ function confirm($HTTP_POST_VARS)
 
 
 # write settings
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
         # get vars
-        foreach ($HTTP_POST_VARS as $key => $value) {
+        foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 

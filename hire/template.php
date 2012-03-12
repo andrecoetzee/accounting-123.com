@@ -68,11 +68,11 @@ if (($errid = errorNetSave()) > 0) {
 AJAX_OUT($OUTPUT);
 
 $reload = ""; # temporary : sometimes menu refreshes over and over
-if(isset($HTTP_POST_VARS["stkidss"]) || isset($HTTP_POST_VARS["SCROLL"])){
+if(isset($_POST["stkidss"]) || isset($_POST["SCROLL"])){
 	$bod = "<body onLoad='scrolldown();'>";
 	$exb = "window.scroll(1,8000)";
-}elseif (isset($HTTP_POST_VARS["setfocus"])){
-	$bod = "<body onLoad=\"document.form1.$HTTP_POST_VARS[setfocus].focus();\">";
+}elseif (isset($_POST["setfocus"])){
+	$bod = "<body onLoad=\"document.form1.$_POST[setfocus].focus();\">";
 	$exb = "";
 } else if (defined("JS_ONLOAD")) {
 	$bod = "<body onLoad='".JS_ONLOAD."'>";
@@ -90,9 +90,9 @@ $bgColor = TMPL_bgColor;
 
 	$notice="";
 
-if (isset ($HTTP_POST_VARS["login_user"]) && isset ($HTTP_POST_VARS["login_pass"]) && isset ($HTTP_POST_VARS["login"]) && !defined("LOGIN_SUCCESSFUL") && !defined("LOGIN_SUCCESSFUL_NOROUTE")) {
-	checkLogin ($HTTP_POST_VARS["login_user"], md5 ($HTTP_POST_VARS["login_pass"]), $HTTP_POST_VARS["div"], isset($HTTP_POST_VARS["noroute"]));
-} elseif (empty ($HTTP_SESSION_VARS["USER_NAME"]) || empty ($HTTP_SESSION_VARS["USER_ID"])) {$Out="";}
+if (isset ($_POST["login_user"]) && isset ($_POST["login_pass"]) && isset ($_POST["login"]) && !defined("LOGIN_SUCCESSFUL") && !defined("LOGIN_SUCCESSFUL_NOROUTE")) {
+	checkLogin ($_POST["login_user"], md5 ($_POST["login_pass"]), $_POST["div"], isset($_POST["noroute"]));
+} elseif (empty ($_SESSION["USER_NAME"]) || empty ($_SESSION["USER_ID"])) {$Out="";}
 else {
 		// Files and directories which shouldn't display the previous peroid warning
 		$no_prevprd = array (
@@ -102,7 +102,7 @@ else {
 
 		$tf = FALSE;
 		foreach ($no_prevprd as $val) {
-			if (strpos($HTTP_SERVER_VARS["PHP_SELF"],$val) > 0) {
+			if (strpos($_SERVER["PHP_SELF"],$val) > 0) {
 				$tf = TRUE;
 				break;
 			}
@@ -173,8 +173,8 @@ else {
 	}
 
 
-if ( !isset($HTTP_SESSION_VARS["BRAN_NAME"]) ) $HTTP_SESSION_VARS["BRAN_NAME"]="";
-if ( !isset($HTTP_SESSION_VARS["USER_NAME"]) ) $HTTP_SESSION_VARS["USER_NAME"]="";
+if ( !isset($_SESSION["BRAN_NAME"]) ) $_SESSION["BRAN_NAME"]="";
+if ( !isset($_SESSION["USER_NAME"]) ) $_SESSION["USER_NAME"]="";
 
 if ( defined("CUBIT_MENU_PAGE") ) {
 	$js_hide_menu = "";
@@ -225,8 +225,8 @@ $OUT .= "
 
 	if ( defined("DOC_TITLE") ) {
 		$OUT .= "<title>".DOC_TITLE."</title>";
-	} else if ( isset($HTTP_SESSION_VARS["comp"]) && isset($HTTP_SESSION_VARS["BRAN_NAME"]) && isset($HTTP_SESSION_VARS["USER_NAME"]) ) {
-		$OUT .= "<title>".TMPL_title." [ $HTTP_SESSION_VARS[comp] - $HTTP_SESSION_VARS[BRAN_NAME] - $HTTP_SESSION_VARS[USER_NAME] ]</title>";
+	} else if ( isset($_SESSION["comp"]) && isset($_SESSION["BRAN_NAME"]) && isset($_SESSION["USER_NAME"]) ) {
+		$OUT .= "<title>".TMPL_title." [ $_SESSION[comp] - $_SESSION[BRAN_NAME] - $_SESSION[USER_NAME] ]</title>";
 	} else {
 		$OUT .= "<title>Cubit Accounting</title>";
 	}

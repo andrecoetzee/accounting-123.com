@@ -27,15 +27,15 @@
 require ("settings.php");
 require_lib ("pgsql");
 
-foreach ($HTTP_GET_VARS as $each => $own){
-	$HTTP_POST_VARS[$each] = $own;	
+foreach ($_GET as $each => $own){
+	$_POST[$each] = $own;	
 }
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "add":
-			$OUTPUT = add_project ($HTTP_POST_VARS);
+			$OUTPUT = add_project ($_POST);
 			break;
 		default:
 			$OUTPUT = enter ();
@@ -132,10 +132,10 @@ function enter ($err="")
 
 
 
-function add_project ($HTTP_POST_VARS)
+function add_project ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

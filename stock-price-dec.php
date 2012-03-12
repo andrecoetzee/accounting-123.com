@@ -28,16 +28,16 @@ require("settings.php");
 require("core-settings.php");
 require ("libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "details":
-			$OUTPUT = details($HTTP_POST_VARS);
+			$OUTPUT = details($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = view();
@@ -165,15 +165,15 @@ function view()
 
 
 # details
-function details($HTTP_POST_VARS)
+function details($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# lets get cooking
 	if($dectype == 'per'){
-		return cook($HTTP_POST_VARS);
+		return cook($_POST);
 	}
 
 	# validate input
@@ -294,11 +294,11 @@ function details($HTTP_POST_VARS)
 
 
 # cook up some prices
-function cook($HTTP_POST_VARS)
+function cook($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -342,20 +342,20 @@ function cook($HTTP_POST_VARS)
 		$stkids[$i] = $stkp['stkid'];
 		$prices[$i] = $csprice;
 	}
-	$HTTP_POST_VARS['stkids'] = $stkids;
-	$HTTP_POST_VARS['prices'] = $prices;
+	$_POST['stkids'] = $stkids;
+	$_POST['prices'] = $prices;
 
-	return confirm($HTTP_POST_VARS);
+	return confirm($_POST);
 }
 
 
 
 # Confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -479,11 +479,11 @@ function confirm ($HTTP_POST_VARS)
 
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

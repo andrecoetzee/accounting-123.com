@@ -2,10 +2,10 @@
 
 	require ("settings.php");
 
-	if (isset($HTTP_POST_VARS["key"])){
-		$OUTPUT = write_details ($HTTP_POST_VARS);
+	if (isset($_POST["key"])){
+		$OUTPUT = write_details ($_POST);
 	}else {
-		$OUTPUT = get_details ($HTTP_POST_VARS);
+		$OUTPUT = get_details ($_POST);
 	}
 
 	$OUTPUT .= "
@@ -29,10 +29,10 @@
 
 
 
-function get_details ($HTTP_POST_VARS,$err="")
+function get_details ($_POST,$err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($branch_name))
 		$branch_name = "";
@@ -146,10 +146,10 @@ function get_details ($HTTP_POST_VARS,$err="")
 
 
 
-function write_details ($HTTP_POST_VARS)
+function write_details ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 
 
@@ -174,7 +174,7 @@ function write_details ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirmCust .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return get_details ($HTTP_POST_VARS,$confirmCust);
+		return get_details ($_POST,$confirmCust);
 	}
 
 

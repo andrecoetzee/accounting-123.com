@@ -27,25 +27,25 @@
 require("settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "slctCat":
-			$OUTPUT = slctCat($HTTP_POST_VARS);
+			$OUTPUT = slctCat($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "subacc":
-			$OUTPUT = subacc($HTTP_POST_VARS);
+			$OUTPUT = subacc($_POST);
 			break;
 		case "confirmsub":
-			$OUTPUT = confirmsub($HTTP_POST_VARS);
+			$OUTPUT = confirmsub($_POST);
 			break;
 		case "writesub":
-			$OUTPUT = writesub($HTTP_POST_VARS);
+			$OUTPUT = writesub($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = view();
@@ -69,7 +69,7 @@ function view(){
 		$chk = "SELECT * FROM userscripts WHERE username = '".USER_NAME."' AND script = 'acc-new2.php'";
 		$chkRslt = db_exec($chk) or errDie("Unable to check user access permissions",SELF);
 		if(pg_numrows($chkRslt) < 1){
-			$OUTPUT = "<li class='err'>You <b>don't have sufficient permissions</b> to use this command.$HTTP_SESSION_VARS[USER_NAME] => ".getenv ("SCRIPT_NAME");
+			$OUTPUT = "<li class='err'>You <b>don't have sufficient permissions</b> to use this command.$_SESSION[USER_NAME] => ".getenv ("SCRIPT_NAME");
 			require("template.php");
 		}
 	}
@@ -125,11 +125,11 @@ function view(){
 
 
 # confirm
-function slctCat($HTTP_POST_VARS)
+function slctCat($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -321,11 +321,11 @@ function slctSubCat($type)
 
 
 # confirm
-function subacc($HTTP_POST_VARS)
+function subacc($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -415,11 +415,11 @@ function subacc($HTTP_POST_VARS)
 
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -500,11 +500,11 @@ function confirm($HTTP_POST_VARS)
 
 
 # confirm
-function confirmsub($HTTP_POST_VARS)
+function confirmsub($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -601,14 +601,14 @@ function confirmsub($HTTP_POST_VARS)
 
 
 # write
-function writesub($HTTP_POST_VARS)
+function writesub($_POST)
 {
 
 	//processes
 	core_connect();
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -689,14 +689,14 @@ function writesub($HTTP_POST_VARS)
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	//processes
 	core_connect();
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

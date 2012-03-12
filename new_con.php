@@ -35,26 +35,26 @@ require ("settings.php");
 require ("libs/ext.lib.php");
 
 // remove all '
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = con_data ($HTTP_POST_VARS);
+			$OUTPUT = con_data ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_data ($HTTP_POST_VARS);
+			$OUTPUT = write_data ($_POST);
 			break;
 		default:
 			$OUTPUT = get_data ("");
@@ -68,8 +68,8 @@ require ("template.php");
 # enter new data
 function get_data ($err)
 {
-        global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+        global $_GET;
+	extract($_GET);
 
 	$fields["surname"] = "";
 	$fields["name"] = "";
@@ -373,10 +373,10 @@ function get_data ($err)
 }
 
 # confirm new data
-function con_data ($HTTP_POST_VARS)
+function con_data ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -744,11 +744,11 @@ function con_data ($HTTP_POST_VARS)
         return $con_data;
 }
 # write new data
-function write_data ($HTTP_POST_VARS)
+function write_data ($_POST)
 {
 	$date=date("Y-m-d");
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

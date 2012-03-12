@@ -28,21 +28,21 @@ require("settings.php");
 require("core-settings.php");
 require("libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS['key'])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST['key'])) {
+	switch ($_POST["key"]) {
 		case "write":
-			$OUTPUT = rem ($HTTP_POST_VARS);
+			$OUTPUT = rem ($_POST);
 			break;
 		default:
-			if (isset($HTTP_GET_VARS['id'])){
-					$OUTPUT = confirm ($HTTP_GET_VARS['id']);
+			if (isset($_GET['id'])){
+					$OUTPUT = confirm ($_GET['id']);
 			} else {
 					$OUTPUT = "<li> - Invalid use of module";
 			}
 	}
 } else {
-        if (isset($HTTP_GET_VARS['id'])){
-                $OUTPUT = confirm ($HTTP_GET_VARS['id']);
+        if (isset($_GET['id'])){
+                $OUTPUT = confirm ($_GET['id']);
         } else {
                 $OUTPUT = "<li> - Invalid use of module";
         }
@@ -172,11 +172,11 @@ function confirm($id)
 }
 
 # Write
-function rem($HTTP_POST_VARS)
+function rem($_POST)
 {
 
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

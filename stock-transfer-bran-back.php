@@ -28,25 +28,25 @@ require ("settings.php");
 require("core-settings.php");
 require ("libs/ext.lib.php");
 
-if (isset($HTTP_GET_VARS["stkid"])) {
-	$OUTPUT = details($HTTP_GET_VARS["stkid"]);
+if (isset($_GET["stkid"])) {
+	$OUTPUT = details($_GET["stkid"]);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "view":
-				$OUTPUT = printStk($HTTP_POST_VARS);
+				$OUTPUT = printStk($_POST);
 				break;
 
 			case "details2":
-				$OUTPUT = details2($HTTP_POST_VARS);
+				$OUTPUT = details2($_POST);
 				break;
 
 			case "confirm":
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 				break;
 
 			case "write":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 
 			default:
@@ -139,10 +139,10 @@ function slct()
 }
 
 # Show stock
-function printStk ($HTTP_POST_VARS)
+function printStk ($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -325,10 +325,10 @@ function details($stkid)
 }
 
 # Confirm
-function details2($HTTP_POST_VARS)
+function details2($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -450,10 +450,10 @@ function details2($HTTP_POST_VARS)
 }
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 	# Get stock vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -583,10 +583,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	# get stock vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

@@ -25,16 +25,16 @@
 
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "seltoken":
 			$OUTPUT = seltoken();
 			break;
 		case "report":
-			$OUTPUT = report($HTTP_POST_VARS);
+			$OUTPUT = report($_POST);
 			break;
 		case "find":
-			$OUTPUT = find($HTTP_POST_VARS);
+			$OUTPUT = find($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid";
@@ -50,8 +50,8 @@ require("template.php");
 function seltoken()
 {
 
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	if(!isset($name)) {
 		$name = "";
@@ -254,10 +254,10 @@ function seltoken()
 
 
 
-function find($HTTP_POST_VARS)
+function find($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$id += 0;
 
@@ -280,10 +280,10 @@ function find($HTTP_POST_VARS)
 }
 
 
-function report($HTTP_POST_VARS)
+function report($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(!isset($name)) {
 		$name = "";

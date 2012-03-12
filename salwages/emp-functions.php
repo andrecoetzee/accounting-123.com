@@ -673,8 +673,8 @@ function prdage($from, $to, $type) {
 }
 
 function salary() {
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	if ( empty($all) ) {
 		$all = Array();

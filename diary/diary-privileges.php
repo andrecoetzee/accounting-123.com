@@ -37,14 +37,14 @@
 require("../settings.php");
 require("../libs/ext.lib.php");
 
-if ( isset($HTTP_POST_VARS) && is_array($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = $value;
+if ( isset($_POST) && is_array($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_GET[$key] = $value;
 	}
 }
 
-if ( isset($HTTP_GET_VARS["key"]) ) {
-	switch ( $HTTP_GET_VARS["key"] ) {
+if ( isset($_GET["key"]) ) {
+	switch ( $_GET["key"] ) {
 		case "write":
 			$OUTPUT = write();
 			break;
@@ -58,8 +58,8 @@ if ( isset($HTTP_GET_VARS["key"]) ) {
 require("../template.php");
 
 function enter($err) {
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	$fields["privilege_owner"] = "";
 	$fields["privilege"] = "";
@@ -136,8 +136,8 @@ function enter($err) {
 }
 
 function write() {
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	require_lib("validate");
 	$v = & new Validate();
@@ -176,7 +176,7 @@ function write() {
 		$rslt = db_exec($sql) or errDie("Error deleting diary privileges.");
 	}
 
-	unset($HTTP_GET_VARS["privilege_owner"]);
+	unset($_GET["privilege_owner"]);
 	$OUTPUT = enter("Successfully updated privileges.");
 
 	return $OUTPUT;

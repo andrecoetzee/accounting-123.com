@@ -2,26 +2,26 @@
 
 	require ("settings.php");
 
-	if (isset($HTTP_POST_VARS["key"])){
-		switch ($HTTP_POST_VARS["key"]){
+	if (isset($_POST["key"])){
+		switch ($_POST["key"]){
 			case "confirm":
-				$OUTPUT = run_rem ($HTTP_POST_VARS);
+				$OUTPUT = run_rem ($_POST);
 				break;
 			default:
-				$OUTPUT = confirm_rem($HTTP_POST_VARS);
+				$OUTPUT = confirm_rem($_POST);
 		}
 	}else {
-		$OUTPUT = confirm_rem ($HTTP_GET_VARS);
+		$OUTPUT = confirm_rem ($_GET);
 	}
 
 	require ("template.php");
 
 
 
-function confirm_rem ($HTTP_POST_VARS)
+function confirm_rem ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($bid) or strlen($bid) < 1){
 		return "Invalid Use Of Module. Invalid Branch.";
@@ -76,10 +76,10 @@ function confirm_rem ($HTTP_POST_VARS)
 
 
 
-function run_rem ($HTTP_POST_VARS)
+function run_rem ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($bid) or strlen($bid) < 1){
 		return "Invalid Use Of Module. Invalid Branch.";

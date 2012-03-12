@@ -25,13 +25,13 @@
 
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
         case "report":
-			$OUTPUT = report_display($HTTP_POST_VARS);
+			$OUTPUT = report_display($_POST);
 			break;
 		case "Export to Spreadsheet":
-			$OUTPUT = export_display($HTTP_POST_VARS);
+			$OUTPUT = export_display($_POST);
 			break;
 		default:
 			$OUTPUT = report_options();
@@ -108,10 +108,10 @@ function report_options()
 
 
 # produce report
-function report_display ($HTTP_POST_VARS)
+function report_display ($_POST)
 {
 	
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -261,11 +261,11 @@ function report_display ($HTTP_POST_VARS)
 
 
 # produce report
-function export_display ($HTTP_POST_VARS)
+function export_display ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

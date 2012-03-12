@@ -28,16 +28,16 @@ require ("../core-settings.php");
 require ("../libs/ext.lib.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
 			if (isset ($_REQUEST["continue"]))
-				$OUTPUT = confirm ($HTTP_POST_VARS);
+				$OUTPUT = confirm ($_POST);
 			else 
 				$OUTPUT = enter ();
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		default:
 			$OUTPUT = enter ();
@@ -273,11 +273,11 @@ function enter ()
 
 
 # confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$listing = "";
 
@@ -376,11 +376,11 @@ function confirm ($HTTP_POST_VARS)
 
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

@@ -26,14 +26,14 @@
 require ("settings.php");
 require ("core-settings.php");
 
-$OUTPUT = print_labels ($HTTP_POST_VARS);
+$OUTPUT = print_labels ($_POST);
 
 require ("tmpl-print.php");
 
-function print_labels ($HTTP_POST_VARS)
+function print_labels ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	if (!isset($stock_cat))
 		$stock_cat = "";
 	if (!isset($stock_class))

@@ -30,13 +30,13 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = add();
@@ -235,11 +235,11 @@ function add()
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
 		header("Location: cashbook-entry.php");
@@ -266,7 +266,7 @@ function confirm($HTTP_POST_VARS)
 
 	if ($v->isError ()) {
 		$err = $v->genErrors();
-		return $err.add($HTTP_POST_VARS);
+		return $err.add($_POST);
 	}
 
 
@@ -406,17 +406,17 @@ function confirm($HTTP_POST_VARS)
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Processes
 	db_connect();
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		return add($HTTP_POST_VARS);
+		return add($_POST);
 	}
 
 	# validate input

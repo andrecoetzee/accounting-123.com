@@ -27,8 +27,8 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "search":
 			$OUTPUT = do_search();
 			break;
@@ -74,8 +74,8 @@ function get_search ()
 function do_search ()
 {
 
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 
 	db_connect ();
 

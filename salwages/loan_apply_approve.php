@@ -28,16 +28,16 @@ require ("../settings.php");
 require ("../core-settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "write":
-			$OUTPUT = writeLoan ($HTTP_POST_VARS);
+			$OUTPUT = writeLoan ($_POST);
 			break;
 		default:
-			$OUTPUT = confirmLoan ($HTTP_POST_VARS);
+			$OUTPUT = confirmLoan ($_POST);
 	}
 } else {
-	$OUTPUT = confirmLoan ($HTTP_POST_VARS);
+	$OUTPUT = confirmLoan ($_POST);
 }
 
 
@@ -49,18 +49,18 @@ require ("../template.php");
 
 
 # confirm new data
-function confirmLoan ($HTTP_POST_VARS)
+function confirmLoan ($_POST)
 {
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	if(!isset($HTTP_GET_VARS["id"]) OR (strlen($HTTP_GET_VARS["id"]) < 1)){
+	if(!isset($_GET["id"]) OR (strlen($_GET["id"]) < 1)){
 		return "<li class='err'>Invalid Use Of Mudule. Invalid Loan ID.</li>";
 	}
 
 	db_connect ();
 
-	$get_loan_app = "SELECT * FROM loan_requests WHERE id = '$HTTP_GET_VARS[id]' LIMIT 1";
+	$get_loan_app = "SELECT * FROM loan_requests WHERE id = '$_GET[id]' LIMIT 1";
 	$run_loan_app = db_exec($get_loan_app) or errDie("Unable to get loan application information.");
 	if(pg_numrows($run_loan_app) < 1){
 		return "<li class='err'>Could not get loan application information.</li>";
@@ -76,7 +76,7 @@ function confirmLoan ($HTTP_POST_VARS)
 	$lday = $ldarr[2];
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -209,7 +209,7 @@ function confirmLoan ($HTTP_POST_VARS)
 		<table ".TMPL_tblDflts.">
 		<form action='".SELF."' method='POST'>
 			<input type='hidden' name='key' value='write'>
-			<input type='hidden' name='loanid' value='$HTTP_GET_VARS[id]'>
+			<input type='hidden' name='loanid' value='$_GET[id]'>
 			<input type='hidden' name='empnum' value='$empnum'>
 			<input type='hidden' name='lday' value='$lday'>
 			<input type='hidden' name='lmonth' value='$lmonth'>
@@ -286,11 +286,11 @@ function confirmLoan ($HTTP_POST_VARS)
 
 
 # write new data
-function writeLoan ($HTTP_POST_VARS)
+function writeLoan ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

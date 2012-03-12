@@ -1120,7 +1120,7 @@ function confirm()
 function write()
 {
 
-	global $HTTP_POST_FILES;
+	global $_FILES;
 
 	extract($_POST);
 
@@ -1347,15 +1347,15 @@ function write()
 	}
 
 	#check if we are uploading a new picture
-	if (is_uploaded_file ($HTTP_POST_FILES["picupload_image"]["tmp_name"])) {
+	if (is_uploaded_file ($_FILES["picupload_image"]["tmp_name"])) {
 		# Check file ext
-		if (preg_match ("/(image\/jpeg|image\/png|image\/gif)/", $HTTP_POST_FILES["picupload_image"]["type"], $extension)) {
-			$type = $HTTP_POST_FILES["picupload_image"]["type"];
-			$fname = $HTTP_POST_FILES["picupload_image"]["name"];
+		if (preg_match ("/(image\/jpeg|image\/png|image\/gif)/", $_FILES["picupload_image"]["type"], $extension)) {
+			$type = $_FILES["picupload_image"]["type"];
+			$fname = $_FILES["picupload_image"]["name"];
 
 			// open file in "read, binary" mode
 			$img = "";
-			$file = fopen ($HTTP_POST_FILES['picupload_image']['tmp_name'], "rb");
+			$file = fopen ($_FILES['picupload_image']['tmp_name'], "rb");
 			while (!feof ($file)) {
 				// fread is binary safe
 				$img .= fread ($file, 1024);

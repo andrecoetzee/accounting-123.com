@@ -28,8 +28,8 @@ require("settings.php");
 require("core-settings.php");
 require("libs/ext.lib.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	$OUTPUT = save($HTTP_POST_VARS);
+if(isset($_POST["key"])) {
+	$OUTPUT = save($_POST);
 } else {
 	$OUTPUT = confirm();
 }

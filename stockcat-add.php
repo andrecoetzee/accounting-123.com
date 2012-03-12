@@ -27,14 +27,14 @@
 require("settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
             case "confirm":
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 				break;
 
 			case "write":
-            	$OUTPUT = write($HTTP_POST_VARS);
+            	$OUTPUT = write($_POST);
 				break;
 
 			default:
@@ -75,10 +75,10 @@ function view()
 }
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 		# validate input
@@ -144,10 +144,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

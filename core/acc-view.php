@@ -31,17 +31,17 @@ require("core-settings.php");
 require ("set-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = view($HTTP_POST_VARS);
+			$OUTPUT = view($_POST);
 			break;
 		default:
-			$OUTPUT = view($HTTP_POST_VARS);
+			$OUTPUT = view($_POST);
 	}
 } else {
 	# Display default output
-	$OUTPUT = view($HTTP_POST_VARS);
+	$OUTPUT = view($_POST);
 }
 
 require("template.php");
@@ -49,10 +49,10 @@ require("template.php");
 
 
 
-function view ($HTTP_POST_VARS)
+function view ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$check1 = "";
 	$check2 = "";

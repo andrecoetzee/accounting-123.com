@@ -29,20 +29,20 @@ require ("core-settings.php");
 require_lib("docman");
 
 // Merge get vars and post vars
-foreach ($HTTP_GET_VARS as $key => $val) {
-	$HTTP_POST_VARS[$key] = $val;
+foreach ($_GET as $key => $val) {
+	$_POST[$key] = $val;
 }
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
         case "view":
-			$OUTPUT = printInvoice ($HTTP_POST_VARS);
+			$OUTPUT = printInvoice ($_POST);
 			break;
 		case "delete_confirm":
-			$OUTPUT = delete_confirm ($HTTP_POST_VARS);
+			$OUTPUT = delete_confirm ($_POST);
 			break;
 		case "delete_write":
-			$OUTPUT = delete_write ($HTTP_POST_VARS);
+			$OUTPUT = delete_write ($_POST);
 			break;
 		default:
 			$OUTPUT = slct ();
@@ -83,11 +83,11 @@ function slct()
 }
 
 # show
-function printInvoice ($HTTP_POST_VARS)
+function printInvoice ($_POST)
 {
 
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -257,9 +257,9 @@ function printInvoice ($HTTP_POST_VARS)
 	return $printOrd;
 }
 
-function delete_confirm($HTTP_POST_VARS)
+function delete_confirm($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -322,9 +322,9 @@ function delete_confirm($HTTP_POST_VARS)
 	return $OUTPUT;
 }
 
-function delete_write($HTTP_POST_VARS)
+function delete_write($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;

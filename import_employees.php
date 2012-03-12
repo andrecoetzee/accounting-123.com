@@ -2,8 +2,8 @@
 
 	require ("settings.php");
 
-	if(isset($HTTP_POST_VARS["key"])){
-		$OUTPUT = process_emps ($HTTP_POST_VARS);
+	if(isset($_POST["key"])){
+		$OUTPUT = process_emps ($_POST);
 	}else {
 		$OUTPUT = get_file_location ();
 	}
@@ -54,21 +54,21 @@ function get_file_location ($err="")
 
 }
 
-function process_emps ($HTTP_POST_VARS)
+function process_emps ($_POST)
 {
 
-	global $HTTP_POST_FILES;
-	extract ($HTTP_POST_VARS);
+	global $_FILES;
+	extract ($_POST);
 
 	define("EMP_YEAR", getCSetting("EMP_TAXYEAR"));
 
-	if(!isset($HTTP_POST_FILES['file_upload']['name']) or (strlen($HTTP_POST_FILES['file_upload']['name']) < 1))
+	if(!isset($_FILES['file_upload']['name']) or (strlen($_FILES['file_upload']['name']) < 1))
 		return get_file_location ("<li class='err'>Please Select A File To Import.</li><br>");
 
-	if($HTTP_POST_FILES['file_upload']['size'] == 0)
+	if($_FILES['file_upload']['size'] == 0)
 		return get_file_location ("<li class='err'>Uploaded File Is Empty.</li><br>");
 
-	$file_data = file ($HTTP_POST_FILES['file_upload']['tmp_name']);
+	$file_data = file ($_FILES['file_upload']['tmp_name']);
 
 	if(!isset($mode_setting))
 		$mode_setting = 1;
@@ -390,13 +390,13 @@ function process_emps ($HTTP_POST_VARS)
 
 
 # write to database
-function writeEmp ($HTTP_POST_VARS)
+function writeEmp ($_POST)
 {
 
-	$HTTP_POST_VARS = var_makesafe($HTTP_POST_VARS);
-	global $HTTP_POST_FILES;
+	$_POST = var_makesafe($_POST);
+	global $_FILES;
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$comp_pension+=0;
 	$emp_pension+=0;
@@ -646,17 +646,17 @@ function writeEmp ($HTTP_POST_VARS)
 
 	# deal with logo image
         if ($changelogo == "yes") {
-		if (empty ($HTTP_POST_FILES["logo"])) {
+		if (empty ($_FILES["logo"])) {
 			return "<li class=err> Please select an image to upload from your hard drive.";
 		}
-		if (is_uploaded_file ($HTTP_POST_FILES["logo"]["tmp_name"])) {
+		if (is_uploaded_file ($_FILES["logo"]["tmp_name"])) {
 			# Check file ext
-			if (preg_match ("/(image\/jpeg|image\/png|image\/gif)/", $HTTP_POST_FILES["logo"]["type"], $extension)) {
-				$type = $HTTP_POST_FILES["logo"]["type"];
+			if (preg_match ("/(image\/jpeg|image\/png|image\/gif)/", $_FILES["logo"]["type"], $extension)) {
+				$type = $_FILES["logo"]["type"];
 
 				// open file in "read, binary" mode
 				$img = "";
-				$file = fopen ($HTTP_POST_FILES['logo']['tmp_name'], "rb");
+				$file = fopen ($_FILES['logo']['tmp_name'], "rb");
 				while (!feof ($file)) {
 					// fread is binary safe
 					$img .= fread ($file, 1024);

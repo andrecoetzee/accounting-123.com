@@ -26,7 +26,7 @@
 # get settings
 require ("../settings.php");
 
-$OUTPUT = viewAllow ($HTTP_POST_VARS);
+$OUTPUT = viewAllow ($_POST);
 
 # display output
 require ("../template.php");

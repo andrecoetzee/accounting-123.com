@@ -26,13 +26,13 @@
 require ("settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = con_sets ($HTTP_POST_VARS);
+			$OUTPUT = con_sets ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_sets ($HTTP_POST_VARS);
+			$OUTPUT = write_sets ($_POST);
 			break;
 		default:
 			$OUTPUT = get_sets ();
@@ -74,10 +74,10 @@ function get_sets ()
 }
 
 # confirm new settings
-function con_sets ($HTTP_POST_VARS)
+function con_sets ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -137,10 +137,10 @@ function con_sets ($HTTP_POST_VARS)
         return $sets;
 }
 # write settings
-function write_sets ($HTTP_POST_VARS)
+function write_sets ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

@@ -29,13 +29,13 @@ require ("settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm ($HTTP_POST_VARS);
+			$OUTPUT = confirm ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		case "doc_save":
 			$OUTPUT = doc_save();
@@ -57,8 +57,8 @@ require ("template.php");
 function enter($errors="")
 {
 
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 
 	$fields = array();
 	$fields["re"] = "no";
@@ -181,8 +181,8 @@ function enter($errors="")
 	# Currency drop down
 	$currsel = ext_unddbsel("fcid", "currency", "fcid", "descrip", "There are is no currency found in Cubit, please add currency first.", $fcid);
 
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 	if(isset($crm)) {
 		$ex = "<input type='hidden' name='crm' value=''>";
 	} else {
@@ -498,8 +498,8 @@ function doc_save()
 function confirm ()
 {
 
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -892,12 +892,12 @@ function confirm ()
 
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
 	# Get vars
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	if(isset($back)) {
 		return enter();
@@ -1114,7 +1114,7 @@ function write ($HTTP_POST_VARS)
 		</table>";
 //	return $write;
 
-	$HTTP_POST_VARS = array ();
+	$_POST = array ();
 	return enter ("<li class='yay'>Supplier added to the system. $con_out</li><br>");
 
 }

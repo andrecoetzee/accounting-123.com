@@ -30,19 +30,19 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
-			$OUTPUT = details($HTTP_POST_VARS);
+			$OUTPUT = details($_POST);
 	}
 } else {
-	$OUTPUT = details($HTTP_GET_VARS);
+	$OUTPUT = details($_GET);
 }
 
 # Get templete
@@ -52,13 +52,13 @@ require("template.php");
 
 
 # Details
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 
 	$showvat = TRUE;
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -446,13 +446,13 @@ function details($HTTP_GET_VARS)
 
 
 # Error
-function error($HTTP_GET_VARS, $err = "")
+function error($_GET, $err = "")
 {
 
 	$showvat = TRUE;
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# Validate input
 	require_lib("validate");
@@ -798,13 +798,13 @@ function error($HTTP_GET_VARS, $err = "")
 
 
 # details
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	$showvat = TRUE;
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$pcash+=0;
 	$pcheque+=0;
@@ -866,7 +866,7 @@ function confirm($HTTP_POST_VARS)
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
 		# $confirm .= "<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
-		return error($HTTP_POST_VARS, $err);
+		return error($_POST, $err);
 	}
 
 
@@ -1080,7 +1080,7 @@ function confirm($HTTP_POST_VARS)
 
 	if($c < 1){
 		$err = "<li class=err>Please enter quantity.</li>";
-		return error($HTTP_POST_VARS, $err);
+		return error($_POST, $err);
 	}
 
 	/* calculate delivery charge vat */
@@ -1181,7 +1181,7 @@ function confirm($HTTP_POST_VARS)
 	vsprint($pcredit);
 
 	if(sprint($pcash+$pcheque+$pcc+$pcredit)!=sprint($TOTAL-$rounding)) {
-		return error($HTTP_POST_VARS, "<li class=err>The payments are not equal to the Grand Total</li>");
+		return error($_POST, "<li class=err>The payments are not equal to the Grand Total</li>");
 	}
 
 	if($rounding>0) {
@@ -1395,11 +1395,11 @@ function confirm($HTTP_POST_VARS)
 
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$rounding+=0;
 	$pcredit+=0;
@@ -1456,7 +1456,7 @@ function write($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return error($HTTP_POST_VARS, $err);
+		return error($_POST, $err);
 	}
 
 

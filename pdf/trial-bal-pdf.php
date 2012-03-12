@@ -27,19 +27,19 @@ require ("../settings.php");          // Get global variables & functions
 require("../core-settings.php");
 
 // Merge get and post
-foreach ($HTTP_GET_VARS as $key=>$val) {
-	$HTTP_POST_VARS[$key] = $val;
+foreach ($_GET as $key=>$val) {
+	$_POST[$key] = $val;
 }
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 			case "print":
-				$OUTPUT = printacc($HTTP_POST_VARS);
+				$OUTPUT = printacc($_POST);
 				break;
 
 			case "printsave":
-				$OUTPUT = print_saveacc($HTTP_POST_VARS);
+				$OUTPUT = print_saveacc($_POST);
 				break;
 
 			default:
@@ -86,10 +86,10 @@ function view(){
 }
 
 
-function printacc($HTTP_POST_VARS)
+function printacc($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

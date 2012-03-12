@@ -26,17 +26,17 @@
 
 require("../settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
+if(isset($_POST["key"])) {
 
 
 } else {
-	$OUTPUT = enter($HTTP_POST_VARS);
+	$OUTPUT = enter($_POST);
 }
 
 require("../template.php");
 
-function enter($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function enter($_POST) {
+	extract($_POST);
 
 	$ledgers="<select name=ledger>
 	<option value='sel'>Select Ledger</option>

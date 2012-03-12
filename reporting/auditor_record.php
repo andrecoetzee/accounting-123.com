@@ -29,21 +29,21 @@ require("../settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["cat"]) && isset($HTTP_GET_VARS["action"])) {
-	switch ($HTTP_GET_VARS["action"]){
+if (isset($_GET["cat"]) && isset($_GET["action"])) {
+	switch ($_GET["action"]){
 		case "add":
-			$OUTPUT = add_item ($HTTP_GET_VARS);
+			$OUTPUT = add_item ($_GET);
 			break;
 		case "view":
-			$OUTPUT = view_item ($HTTP_GET_VARS);
+			$OUTPUT = view_item ($_GET);
 			break;
 		default:
 			$OUTPUT = "Invalid use of module";
 	}
-}elseif(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]) {
+}elseif(isset($_POST["key"])){
+	switch ($_POST["key"]) {
 		case "add":
-			$OUTPUT = write_add_item ($HTTP_POST_VARS);
+			$OUTPUT = write_add_item ($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid option selected.";
@@ -169,8 +169,8 @@ function cat_list ()
 function add_item ()
 {
 
-	global $HTTP_GET_VARS;
-	extract ($HTTP_GET_VARS);
+	global $_GET;
+	extract ($_GET);
 
 	if(!isset($action))
 		return "Invalid action";
@@ -203,15 +203,15 @@ function add_item ()
 function write_add_item ()
 {
 
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 
-	global $HTTP_SESSION_VARS;
+	global $_SESSION;
 
 	db_connect ();
 
 	$write_sql = "INSERT INTO auditor_report (cat,detail,date_added,user_added)
-					VALUES ('$cat','$detail','now','$HTTP_SESSION_VARS[USER_NAME]')";
+					VALUES ('$cat','$detail','now','$_SESSION[USER_NAME]')";
 	$run_write = db_exec($write_sql) or errDie("Unable to add report detail");
 
 	return cat_list();
@@ -222,8 +222,8 @@ function write_add_item ()
 function view_item ()
 {
 
-	global $HTTP_GET_VARS;
-	extract ($HTTP_GET_VARS);
+	global $_GET;
+	extract ($_GET);
 
 	if(!isset($action))
 		return "Invalid action";

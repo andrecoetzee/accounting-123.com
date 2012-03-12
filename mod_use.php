@@ -29,22 +29,22 @@
 require ("libs/settings.php");          // Get global variables & functions
 
 // If form was submitted, edit entry or confirm entry or write entry
-if ($HTTP_GET_VARS) {
-	if ($HTTP_GET_VARS['username']) {
+if ($_GET) {
+	if ($_GET['username']) {
 		// print form for data entry
-		$OUTPUT = editUser ($HTTP_GET_VARS['username']);
+		$OUTPUT = editUser ($_GET['username']);
 	} else {
 		// Invalid use, display error
 		errDie ("ERROR: Invalid use of module.", SELF);
 	}
-} elseif ($HTTP_POST_VARS) {
-	if ($HTTP_POST_VARS['a'] == "confirm") {
+} elseif ($_POST) {
+	if ($_POST['a'] == "confirm") {
 		// ask for confirmation
-		$OUTPUT = confirmUser ($HTTP_POST_VARS['oldusrnme'], $HTTP_POST_VARS['username'], $HTTP_POST_VARS['chgpass'], $HTTP_POST_VARS['password'], $HTTP_POST_VARS['password2'], $HTTP_POST_VARS['perm'], $HTTP_POST_VARS['depart']);
+		$OUTPUT = confirmUser ($_POST['oldusrnme'], $_POST['username'], $_POST['chgpass'], $_POST['password'], $_POST['password2'], $_POST['perm'], $_POST['depart']);
 
-	} elseif ($HTTP_POST_VARS['a'] == "write") {
+	} elseif ($_POST['a'] == "write") {
 		// write changes to database
-		$OUTPUT = writeUser ($HTTP_POST_VARS['oldusrnme'], $HTTP_POST_VARS['username'], $HTTP_POST_VARS['MD5_PASS'], $HTTP_POST_VARS['depart']);
+		$OUTPUT = writeUser ($_POST['oldusrnme'], $_POST['username'], $_POST['MD5_PASS'], $_POST['depart']);
 	} else {
 		// Invalid use, display error
 		errDie ("ERROR: Invalid use of module.", SELF);

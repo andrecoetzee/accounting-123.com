@@ -30,13 +30,13 @@
 # get settings
 require ("settings.php");
 
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm ($HTTP_POST_VARS);
+			$OUTPUT = confirm ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		default:
 			$OUTPUT = slctFile ();
@@ -67,28 +67,28 @@ function slctFile ()
         return $slctFile;
 }
 
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
-        # get $HTTP_POST_FILES global var for uploaded files
-        global $HTTP_POST_FILES;
+        # get $_FILES global var for uploaded files
+        global $_FILES;
 
         # save File
-        if (empty ($HTTP_POST_FILES["tfile"])) {
+        if (empty ($_FILES["tfile"])) {
 		return "<li class=err> Please Select A Text File .";
 	}
 
         # die if uploaded file greater than 30k
-	## if ($HTTP_POST_FILES["tfile"]["size"] > 20000) {
+	## if ($_FILES["tfile"]["size"] > 20000) {
 	##	return "<li>Uploaded file is too large. Limit = 30k.";
 	## }
 
         # check if file has been uploaded
-        if (is_uploaded_file ($HTTP_POST_FILES["tfile"]["tmp_name"])) {
+        if (is_uploaded_file ($_FILES["tfile"]["tmp_name"])) {
 
                 # open temp file
-                $file = file($HTTP_POST_FILES['tfile']['tmp_name']);
-                $tmpname = $HTTP_POST_FILES['tfile']['tmp_name'];
-                $filename = $HTTP_POST_FILES['tfile']['name'];
+                $file = file($_FILES['tfile']['tmp_name']);
+                $tmpname = $_FILES['tfile']['tmp_name'];
+                $filename = $_FILES['tfile']['name'];
                 if(!copy($tmpname, dirname($tmpname)."/".$filename)){
                         return "Unable to copy file to temporary location";
                 }
@@ -131,10 +131,10 @@ function confirm ($HTTP_POST_VARS)
 }
 
 # wrote
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
         # strip the vars
-        foreach($HTTP_POST_VARS as $key => $value){
+        foreach($_POST as $key => $value){
                 $$key = $value;
         }
 

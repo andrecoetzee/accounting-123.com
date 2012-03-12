@@ -25,10 +25,10 @@
 
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "email":
-			$OUTPUT = email($HTTP_POST_VARS);
+			$OUTPUT = email($_POST);
 			break;
 	}
 } else {
@@ -37,9 +37,9 @@ if (isset($HTTP_POST_VARS["key"])) {
 
 require ("template.php");
 
-function email($HTTP_POST_VARS)
+function email($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	require_lib("validate");
 	$v = new validate;

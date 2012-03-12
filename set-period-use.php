@@ -29,13 +29,13 @@ require ("core-settings.php");
 
 define("PRD_STATE_NOWARN", true);
 
-if ($HTTP_POST_VARS) {
-	switch ($HTTP_POST_VARS["key"]) {
+if ($_POST) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm ($HTTP_POST_VARS);
+			$OUTPUT = confirm ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		default:
 			$OUTPUT = enter();
@@ -96,11 +96,11 @@ function enter()
 
 
 # confirm entered info
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(PRD_STATE == "py"){
 		$button = "Transactions to be Entered Into Current Year";
@@ -223,11 +223,11 @@ function confirm($HTTP_POST_VARS)
 
 
 # write to db
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(PRD_STATE == "py"){
 		$button = "Current";

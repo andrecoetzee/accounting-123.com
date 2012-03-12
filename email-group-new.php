@@ -2,21 +2,21 @@
 
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "enter":
-			$OUTPUT = enter($HTTP_POST_VARS);
+			$OUTPUT = enter($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 	}
 } else {
-	$OUTPUT = enter($HTTP_POST_VARS);
+	$OUTPUT = enter($_POST);
 }
 
 	$OUTPUT .= "<p>".
@@ -28,10 +28,10 @@ if (isset($HTTP_POST_VARS["key"])) {
 
 require ("template.php");
 
-function enter($HTTP_POST_VARS,$errors="")
+function enter($_POST,$errors="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($group))
 		$group = "";
@@ -59,17 +59,17 @@ function enter($HTTP_POST_VARS,$errors="")
 	return $OUTPUT;
 }
 
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
 	$v->isOk($group, "string", 1, 255, "Invalid group name.");
 
 	if ($v->isError()) {
-		return enter($HTTP_POST_VARS,$v->genErrors());
+		return enter($_POST,$v->genErrors());
 	}
 
 	$OUTPUT = "
@@ -97,17 +97,17 @@ function confirm($HTTP_POST_VARS)
 
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
 	$v->isOk($group, "string", 1, 255, "Invalid group name.");
 
 	if ($v->isError()) {
-		return enter($HTTP_POST_VARS,$v->genErrors());
+		return enter($_POST,$v->genErrors());
 	}
 	
 	#clean and prepare vars

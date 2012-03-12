@@ -31,20 +31,20 @@ require("libs/ext.lib.php");
 
 
 # decide what to do
-if (isset($HTTP_GET_VARS["purid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS['done'] = "";
-	$OUTPUT = details($HTTP_GET_VARS);
-}elseif (isset($HTTP_GET_VARS["deptid"])){
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["purid"]) && isset($_GET["cont"])) {
+	$_GET['done'] = "";
+	$OUTPUT = details($_GET);
+}elseif (isset($_GET["deptid"])){
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
             case "details":
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 				break;
 
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 
             default:
@@ -118,11 +118,11 @@ function view()
 
 
 # Default view
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 	
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Query server for depts
 	db_conn("exten");
@@ -227,11 +227,11 @@ function create_dummy($deptid)
 
 
 # details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 	
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -817,11 +817,11 @@ $l = $i++;
 
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -897,8 +897,8 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		$HTTP_POST_VARS['done'] = "";
-		return details($HTTP_POST_VARS, $err);
+		$_POST['done'] = "";
+		return details($_POST, $err);
 	}
 
 	
@@ -1028,7 +1028,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 								$vatc[$keys] = 0;
 							}
 							if($vat[$keys] <> $vatc[$keys]){
-								$HTTP_POST_VARS["vatc"][$keys] = "yes";
+								$_POST["vatc"][$keys] = "yes";
 							}
 						}
 
@@ -1115,7 +1115,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 							$vatc[$keys] = 0;
 						}
 						if($vat[$keys] <> $vatc[$keys]){
-							$HTTP_POST_VARS["vatc"][$keys] = "yes";
+							$_POST["vatc"][$keys] = "yes";
 						}
 					}
 
@@ -1132,10 +1132,10 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					$rslt = db_exec($sql) or errDie("Unable to update stock to Cubit.",SELF);
 				}
 				# everything is set place done button
-				$HTTP_POST_VARS["done"] = " | <input name=doneBtn type=submit value='Done'>";
+				$_POST["done"] = " | <input name=doneBtn type=submit value='Done'>";
 			}
 		}else{
-			$HTTP_POST_VARS["done"] = "";
+			$_POST["done"] = "";
 		}
 
 	/* --- Clac --- */
@@ -1163,7 +1163,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 			$showvat = FALSE;
 		}
 
-		$HTTP_POST_VARS['showvat'] = $showvat;
+		$_POST['showvat'] = $showvat;
 
 		# If vat is not included (delchrg)
 	//	$VATP = TAX_VAT;
@@ -1209,8 +1209,8 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.",SELF);
 
 	if(!isset($doneBtn)){
-		if(isset($wtd)){$HTTP_POST_VARS['wtd']=$wtd;}
-		return details($HTTP_POST_VARS);
+		if(isset($wtd)){$_POST['wtd']=$wtd;}
+		return details($_POST);
 	}else{
 		# insert purchase to DB
 		$sql = "UPDATE purchases SET done = 'y' WHERE purid = '$purid' AND div = '".USER_DIV."'";

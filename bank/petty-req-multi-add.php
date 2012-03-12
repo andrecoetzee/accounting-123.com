@@ -29,30 +29,30 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "add":
-			$OUTPUT = add($HTTP_POST_VARS);
+			$OUTPUT = add($_POST);
 			break;
 		case "confirm":
 			if (isset ($_REQUEST["another"])){
-				$OUTPUT = add ($HTTP_POST_VARS);
+				$OUTPUT = add ($_POST);
 			}else {
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 			}
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "":
-			$OUTPUT = add ($HTTP_POST_VARS);
+			$OUTPUT = add ($_POST);
 			break;
 		default:
-			$OUTPUT = add ($HTTP_POST_VARS);
+			$OUTPUT = add ($_POST);
 	}
 } else {
 	# Display default output
-	$OUTPUT = add ($HTTP_POST_VARS);
+	$OUTPUT = add ($_POST);
 }
 
 # Get templete
@@ -61,11 +61,11 @@ require("../template.php");
 
 
 # Insert details
-function add($HTTP_POST_VARS, $err = "")
+function add($_POST, $err = "")
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($rnum)) 
 		$rnum = 1;
@@ -208,11 +208,11 @@ function add($HTTP_POST_VARS, $err = "")
 
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -253,7 +253,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return add($HTTP_POST_VARS, $confirm);
+		return add($_POST, $confirm);
 
 		$confirm .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirm;
@@ -370,14 +370,14 @@ function confirm($HTTP_POST_VARS)
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (isset ($back)) 
-		return add($HTTP_POST_VARS);
+		return add($_POST);
 
 	# Validate input
 	require_lib("validate");
@@ -398,7 +398,7 @@ function write($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return add($HTTP_POST_VARS, $confirm);
+		return add($_POST, $confirm);
 		$confirm .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirm;
 	}

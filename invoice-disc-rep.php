@@ -29,14 +29,14 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
             case "slctcust":
-				$OUTPUT = slctCust($HTTP_POST_VARS);
+				$OUTPUT = slctCust($_POST);
 				break;
 
 			case "print":
-				$OUTPUT = printDisc($HTTP_POST_VARS);
+				$OUTPUT = printDisc($_POST);
 				break;
 
             default:
@@ -110,10 +110,10 @@ function view()
 }
 
 # Default view
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Query server for depts
 	db_conn("exten");
@@ -179,11 +179,11 @@ function view_err($HTTP_POST_VARS, $err = "")
 }
 
 # Default view
-function slctCust($HTTP_POST_VARS)
+function slctCust($_POST)
 {
 
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -203,7 +203,7 @@ function slctCust($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$err .= "<li class=err>".$e["msg"];
 		}
-		return view_err($HTTP_POST_VARS, $err);
+		return view_err($_POST, $err);
 	}
 
 		db_connect();
@@ -212,7 +212,7 @@ function slctCust($HTTP_POST_VARS)
 		$custRslt = db_exec ($sql) or errDie ("Unable to view customers");
 		if (pg_numrows ($custRslt) < 1) {
 			$err = "<li class=err>No customer names starting with <b>$letters</b> in database.";
-			return view_err($HTTP_POST_VARS, $err);
+			return view_err($_POST, $err);
 		}else{
 			# connect to database
 			db_connect ();

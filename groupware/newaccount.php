@@ -38,28 +38,28 @@ require ("../settings.php");
 require_lib("validate");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
-// overwrite GET_VARS with postvars, this helps to access both from one
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $arr => $val ) {
-		$HTTP_GET_VARS[$arr] = $val;
+// overwrite _GET with postvars, this helps to access both from one
+if ( isset($_POST) ) {
+	foreach ( $_POST as $arr => $val ) {
+		$_GET[$arr] = $val;
 	}
 }
 
 // set key=view if not set at all
-if ( ! isset($HTTP_GET_VARS["key"]) ) $HTTP_GET_VARS["key"] = "new";
+if ( ! isset($_GET["key"]) ) $_GET["key"] = "new";
 
-switch ( $HTTP_GET_VARS["key"] ) {
+switch ( $_GET["key"] ) {
 case "commitnew":
 	$OUTPUT = writeAccount();
 	break;
@@ -75,12 +75,12 @@ require ("gw-tmpl.php");
 
 // creates and handles the form that u edit the account with
 function newAccount() {
-	global $HTTP_GET_VARS, $user_admin;
+	global $_GET, $user_admin;
 
 	$OUTPUT = "";
 
 	// make a pointer to GET VARS for easier access
-	$det = & $HTTP_GET_VARS;
+	$det = & $_GET;
 
 	// set the variables to blank if not set
 	if (! isset($det["active"]) ) $det["active"] = "";
@@ -299,12 +299,12 @@ function newAccount() {
 
 // checks the submitted data and if valid writes to database
 function writeAccount() {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	$OUTPUT = "";
 
 	// verify
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	$v = & new validate;
 

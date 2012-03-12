@@ -2,13 +2,13 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = show_allocate_entries ($HTTP_POST_VARS);
+			$OUTPUT = show_allocate_entries ($_POST);
 			break;
 		case "allocate":
-			$OUTPUT = allocate_entries ($HTTP_POST_VARS);
+			$OUTPUT = allocate_entries ($_POST);
 			break;
 		default:
 			$OUTPUT = get_data_filter ();
@@ -22,10 +22,10 @@ require ("template.php");
 
 
 
-function show_allocate_entries ($HTTP_POST_VARS,$err=TBL_BR)
+function show_allocate_entries ($_POST,$err=TBL_BR)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 
 	if (!isset($customer) OR !isset($from_year) OR !isset($to_year)){
@@ -255,15 +255,15 @@ function show_allocate_entries ($HTTP_POST_VARS,$err=TBL_BR)
 
 
 
-function allocate_entries ($HTTP_POST_VARS)
+function allocate_entries ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if ((isset($alloc) AND is_array ($alloc)) AND (isset($entries) AND is_array ($entries))){
 		#all set
 	}else {
-		return show_allocate_entries($HTTP_POST_VARS,"<li class='err'>Please Select At Least 1 Receipt And Payment.</li>");
+		return show_allocate_entries($_POST,"<li class='err'>Please Select At Least 1 Receipt And Payment.</li>");
 	}
 
 	#update the allocation
@@ -290,7 +290,7 @@ function allocate_entries ($HTTP_POST_VARS)
 
 	pglib_transaction ("COMMIT") or errDie ("Unable to complete transaction.");
 
-	return show_allocate_entries($HTTP_POST_VARS,"<li class='err'>Allocation Complete.</li>");
+	return show_allocate_entries($_POST,"<li class='err'>Allocation Complete.</li>");
 
 }
 

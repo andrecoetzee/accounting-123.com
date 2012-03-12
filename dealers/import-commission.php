@@ -2,10 +2,10 @@
 
 require ("../settings.php");
 
-if (isset ($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if (isset ($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = run_import_file ($HTTP_POST_VARS);
+			$OUTPUT = run_import_file ($_POST);
 			break;
 		default:
 			$OUTPUT = get_import_file();
@@ -72,10 +72,10 @@ function get_import_file ($err="")
 }
 
 
-function run_import_file ($HTTP_POST_VARS)
+function run_import_file ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset ($_FILES["import_file"])) {
 		return get_import_file ("<li class='err'>Please Choose A Valid File To Import</li>");

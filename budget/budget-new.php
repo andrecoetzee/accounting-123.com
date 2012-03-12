@@ -29,19 +29,19 @@ require("../core-settings.php");
 require("budget.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "details":
-			$OUTPUT = details($HTTP_POST_VARS);
+			$OUTPUT = details($_POST);
 			break;
 
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 	}
 } else {
@@ -55,8 +55,8 @@ require("../template.php");
 # Select Accounts
 function slctOpt($errors="")
 {
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 
 	$fields = array();
 	$fields["budname"] = "Financial Budget";
@@ -163,10 +163,10 @@ function slctOpt($errors="")
 }
 
 # Enter Details of Transaction
-function details($HTTP_POST_VARS, $errata = "<br>")
+function details($_POST, $errata = "<br>")
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -588,13 +588,13 @@ function details($HTTP_POST_VARS, $errata = "<br>")
 }
 
 # Enter Details of Transaction
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 	# Get vars
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(isset($all)) {
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}
 
 	# validate input
@@ -637,7 +637,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>$e[msg]</li>";
 		}
-		return details($HTTP_POST_VARS, $confirm);
+		return details($_POST, $confirm);
 	}
 
 	$ce = new Validate();
@@ -739,7 +739,7 @@ function confirm($HTTP_POST_VARS)
 
 	// Create hidden values
 	$hidden = "";
-	foreach ($HTTP_POST_VARS as $name=>$value) {
+	foreach ($_POST as $name=>$value) {
 		$hidden .= "<input type='hidden' name='$name' value='$value'>";
 	}
 
@@ -817,10 +817,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -864,7 +864,7 @@ function write($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>$e[msg]</li>";
 		}
-		return details($HTTP_POST_VARS, $confirm);
+		return details($_POST, $confirm);
 	}
 
 	global $BUDFOR, $TYPES, $PERIODS;

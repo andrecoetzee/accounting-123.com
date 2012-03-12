@@ -2,11 +2,11 @@
 
 require ("settings.php");
 
-$OUTPUT = display($HTTP_POST_VARS);
+$OUTPUT = display($_POST);
 
 require ("template.php");
 
-function display($HTTP_POST_VARS)
+function display($_POST)
 {
 
 	extract ($_REQUEST);

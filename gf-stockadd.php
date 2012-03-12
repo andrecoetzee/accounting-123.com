@@ -28,13 +28,13 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = view();
@@ -361,10 +361,10 @@ function view()
 
 
 # View Error
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Select the stock warehouse
 	db_conn("exten");
@@ -700,11 +700,11 @@ function view_err($HTTP_POST_VARS, $err = "")
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$supplier1 += 0;
 	$supplier2 += 0;
@@ -751,7 +751,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>$e[msg]</li>";
 		}
-		return view_err($HTTP_POST_VARS, $confirm);
+		return view_err($_POST, $confirm);
 	}
 
 
@@ -792,7 +792,7 @@ function confirm($HTTP_POST_VARS)
 	$cRslt = db_exec($sql);
 	if(pg_numrows($cRslt) > 0){
 		$error = "<li class='err'> An item with stock code : <b>$stkcod</b> already exists in the selected store.</li>";
-		return view_err($HTTP_POST_VARS, $error);
+		return view_err($_POST, $error);
 	}
 
 	if(strlen($bar) > 0) {
@@ -1016,10 +1016,10 @@ function confirm($HTTP_POST_VARS)
 
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$supplier1 += 0;
 	$supplier2 += 0;
@@ -1027,7 +1027,7 @@ function write($HTTP_POST_VARS)
 
 
 	if(isset($back)) {
-		return view_err($HTTP_POST_VARS);
+		return view_err($_POST);
 	}
 
 	$vatcode += 0;
@@ -1102,7 +1102,7 @@ function write($HTTP_POST_VARS)
 	$cRslt = db_exec($sql);
 	if(pg_numrows($cRslt) > 0){
 		$error = "<li class='err'> An item with stock code : <b>$stkcod</b> already exists in the selected store.</li>";
-		return view_err($HTTP_POST_VARS, $error);
+		return view_err($_POST, $error);
 	}
 
 	if(strlen($bar) > 0)
@@ -1205,19 +1205,19 @@ function write($HTTP_POST_VARS)
 	}
 
 	# deal with logo image
-	global $HTTP_POST_FILES;
+	global $_FILES;
 	if ($change_image == "yes") {
-		if (empty ($HTTP_POST_FILES["image"])) {
+		if (empty ($_FILES["image"])) {
 			return "<li class='err'>Please select an image to upload from your hard drive.</li>";
 		}
-		if (is_uploaded_file ($HTTP_POST_FILES["image"]["tmp_name"])) {
+		if (is_uploaded_file ($_FILES["image"]["tmp_name"])) {
 			# Check file ext
-			if (preg_match ("/(image\/jpeg|image\/png|image\/gif)/", $HTTP_POST_FILES["image"]["type"], $extension)) {
-				$type = $HTTP_POST_FILES["image"]["type"];
+			if (preg_match ("/(image\/jpeg|image\/png|image\/gif)/", $_FILES["image"]["type"], $extension)) {
+				$type = $_FILES["image"]["type"];
 
 				// open file in "read, binary" mode
 				$img = "";
-				$file = fopen ($HTTP_POST_FILES['image']['tmp_name'], "rb");
+				$file = fopen ($_FILES['image']['tmp_name'], "rb");
 				while (!feof ($file)) {
 					// fread is binary safe
 					$img .= fread ($file, 1024);

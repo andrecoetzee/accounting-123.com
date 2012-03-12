@@ -26,10 +26,10 @@ require ("../settings.php");          // Get global variables & functions
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 			case "print":
-				$OUTPUT = printacc($HTTP_POST_VARS);
+				$OUTPUT = printacc($_POST);
 				break;
 
 			default:
@@ -71,10 +71,10 @@ function view(){
 	return $view;
 }
 
-function print_saveacc($HTTP_POST_VARS)
+function print_saveacc($_POST)
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 

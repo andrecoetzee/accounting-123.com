@@ -3,25 +3,25 @@
 require ("../settings.php");
 require ("emp-functions.php");
 
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $k => $v ) {
-		$HTTP_POST_VARS[$k] = $v;
+if ( isset($_GET) ) {
+	foreach ( $_GET as $k => $v ) {
+		$_POST[$k] = $v;
 	}
 }
 
-if (isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if (isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "salary":
-			$OUTPUT = multiple_salary ($HTTP_GET_VARS['counter'],$HTTP_GET_VARS['empnum']);
+			$OUTPUT = multiple_salary ($_GET['counter'],$_GET['empnum']);
 			break;
 		case "salary2":
-			$OUTPUT = save_sal ($HTTP_POST_VARS);
+			$OUTPUT = save_sal ($_POST);
 			break;
 		default:
-			$OUTPUT = show_emp_listing($HTTP_POST_VARS);
+			$OUTPUT = show_emp_listing($_POST);
 	}
 }else {
-	$OUTPUT = show_emp_listing ($HTTP_POST_VARS);
+	$OUTPUT = show_emp_listing ($_POST);
 }
 
 require ("../template.php");
@@ -29,10 +29,10 @@ require ("../template.php");
 
 
 
-function show_emp_listing ($HTTP_POST_VARS)
+function show_emp_listing ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$limit = 50;
 
@@ -378,10 +378,10 @@ function show_emp_listing ($HTTP_POST_VARS)
 
 
 
-function save_sal ($HTTP_POST_VARS)
+function save_sal ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -569,8 +569,8 @@ function save_sal ($HTTP_POST_VARS)
 function multiple_salary($counter=0,$empnum=0)
 {
 
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	if ( empty($all) ) {
 		$all = Array();

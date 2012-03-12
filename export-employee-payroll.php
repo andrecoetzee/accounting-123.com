@@ -269,11 +269,11 @@ function slctDate()
 
 
 # confirm new data
-function slip ($HTTP_POST_VARS, $pure = false)
+function slip ($_POST, $pure = false)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$empnum += 0;
 
@@ -682,10 +682,10 @@ print "</pre>";
 
 
 
-function export ($HTTP_POST_VARS)
+function export ($_POST)
 {
 
-	$slip = clean_html(slip($HTTP_POST_VARS, true));
+	$slip = clean_html(slip($_POST, true));
 	include("../xls/temp.xls.php");
 	Stream("Report", $slip);
 

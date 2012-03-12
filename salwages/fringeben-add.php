@@ -29,8 +29,8 @@ require ("../libs/ext.lib.php");
 
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
 			$OUTPUT = confirmFringe();
 			break;
@@ -73,8 +73,8 @@ function enterFringe() {
 
 # confirm new data
 function confirmFringe() {
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -116,8 +116,8 @@ function confirmFringe() {
 
 # write new data
 function writeFringe() {
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");

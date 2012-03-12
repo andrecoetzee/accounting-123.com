@@ -2,13 +2,13 @@
 
 require ("../settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = confirm_file ($HTTP_POST_VARS);
+			$OUTPUT = confirm_file ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_file ($HTTP_POST_VARS);
+			$OUTPUT = write_file ($_POST);
 			break;
 		default:
 			$OUTPUT = get_file ();
@@ -70,13 +70,13 @@ function get_file ($err="")
 
 
 
-function confirm_file ($HTTP_POST_VARS)
+function confirm_file ($_POST)
 {
 
-	global $HTTP_POST_FILES;
+	global $_FILES;
 
 	$importfile = tempnam("/tmp", "cubitimport_");
-	$file = fopen($HTTP_POST_FILES["debt_import"]["tmp_name"], "r");
+	$file = fopen($_FILES["debt_import"]["tmp_name"], "r");
 
 	if ( $file == false) {
 		return "<li class='err'>Cannot read file.</li>".get_file();
@@ -162,7 +162,7 @@ function confirm_file ($HTTP_POST_VARS)
 
 	fclose($file);
 
-	if (!isset($HTTP_POST_FILES['debt_import'])){
+	if (!isset($_FILES['debt_import'])){
 		return "Cannot read file. (2)";
 	}
 
@@ -193,10 +193,10 @@ function confirm_file ($HTTP_POST_VARS)
 
 
 
-function write_file ($HTTP_POST_VARS)
+function write_file ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	foreach ($ids AS $i){
 

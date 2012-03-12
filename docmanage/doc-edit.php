@@ -30,28 +30,28 @@ require ("../core-settings.php");
 require_lib("docman");
 
 # Decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			if(!isset($HTTP_POST_VARS["conf"])){
-				$OUTPUT = edit ($HTTP_POST_VARS);
+			if(!isset($_POST["conf"])){
+				$OUTPUT = edit ($_POST);
 			}else{
-				$OUTPUT = confirm ($HTTP_POST_VARS);
+				$OUTPUT = confirm ($_POST);
 			}
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		default:
-			if(isset($HTTP_GET_VARS['docid'])){
-				$OUTPUT = edit ($HTTP_GET_VARS);
+			if(isset($_GET['docid'])){
+				$OUTPUT = edit ($_GET);
 			}else{
 				$OUTPUT = "<li> - Invalid use of module";
 			}
 	}
 } else {
-	if(isset($HTTP_GET_VARS['docid'])){
-		$OUTPUT = edit ($HTTP_GET_VARS);
+	if(isset($_GET['docid'])){
+		$OUTPUT = edit ($_GET);
 	}else{
 		$OUTPUT = "<li> - Invalid use of module";
 	}
@@ -156,11 +156,11 @@ function edit ($VARS = array(), $errors = "")
 }
 
 # Confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 	# Get vars
-	global $HTTP_POST_FILES, $DOCLIB_DOCTYPES;
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	global $_FILES, $DOCLIB_DOCTYPES;
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# Validate input
@@ -188,7 +188,7 @@ function confirm ($HTTP_POST_VARS)
 			$confirm .= "<li class=err>".$e["msg"];
 		}
 		// $confirm .= "<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
-		return edit($HTTP_POST_VARS, $confirm);
+		return edit($_POST, $confirm);
 	}
 
 	if(!isset($xin)){
@@ -236,11 +236,11 @@ function confirm ($HTTP_POST_VARS)
 }
 
 # Write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 	# Get vars
 	global $DOCLIB_DOCTYPES;
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# Validate input

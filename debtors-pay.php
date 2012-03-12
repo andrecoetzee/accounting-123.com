@@ -27,23 +27,23 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "pay":
-                        $OUTPUT = pay($HTTP_POST_VARS);
+                        $OUTPUT = pay($_POST);
 			break;
 
                 case "confirm":
-                        $OUTPUT = confirm($HTTP_POST_VARS);
+                        $OUTPUT = confirm($_POST);
 			break;
 
                 default:
-			$OUTPUT = details($HTTP_GET_VARS['ordnum']);
+			$OUTPUT = details($_GET['ordnum']);
 	}
 } else {
         # Display default output
-        if(isset($HTTP_GET_VARS['ordnum'])){
-                $OUTPUT = details($HTTP_GET_VARS['ordnum']);
+        if(isset($_GET['ordnum'])){
+                $OUTPUT = details($_GET['ordnum']);
         }else{
                 $OUTPUT = details('none');
         }
@@ -146,13 +146,13 @@ function details($ordnum)
 }
 
 # write
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
         //processes
         db_connect();
 
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -244,13 +244,13 @@ function confirm($HTTP_POST_VARS)
 }
 
 # write
-function pay($HTTP_POST_VARS)
+function pay($_POST)
 {
         //processes
         db_connect();
 
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

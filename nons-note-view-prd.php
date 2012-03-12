@@ -27,10 +27,10 @@ require ("settings.php");
 require ("core-settings.php");
 require_lib("docman");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
         case "view":
-			$OUTPUT = printPurch ($HTTP_POST_VARS);
+			$OUTPUT = printPurch ($_POST);
 			break;
 
 		default:
@@ -92,11 +92,11 @@ function slct()
 }
 
 # show stock
-function printPurch ($HTTP_POST_VARS)
+function printPurch ($_POST)
 {
 
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

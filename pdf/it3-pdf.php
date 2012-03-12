@@ -34,26 +34,26 @@ require ("../pdf-settings.php");
 //die;
 
 // Merge get vars and post vars
-foreach ($HTTP_GET_VARS as $key=>$value) {
-	$HTTP_POST_VARS[$key] = $value;
+foreach ($_GET as $key=>$value) {
+	$_POST[$key] = $value;
 }
 
 // Do we have the employee number?
-if (!isset($HTTP_POST_VARS["empnum"])) {
+if (!isset($_POST["empnum"])) {
 	$OUTPUT = "<li class=err>Invalid use of module.</li>";
 	require ("../template.php");
 	die ();
 }
 
 // Decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "slct":
 			$OUTPUT = slct();
 			break;
 		case "update":
-			$OUTPUT = update($HTTP_POST_VARS);
+			$OUTPUT = update($_POST);
 			break;
 	}
 } else {
@@ -63,8 +63,8 @@ require ("../template.php");
 
 function slct($errors="")
 {
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 
 	$fields["fdate_year"] = date("Y")-1;
 	$fields["fdate_month"] = "03";
@@ -330,10 +330,10 @@ function slct($errors="")
 
 
 
-function update($HTTP_POST_VARS)
+function update($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$nincome_code = "";
 	$nincome_description = "";
@@ -404,7 +404,7 @@ function update($HTTP_POST_VARS)
 
  	// Where to go from here?
 	if (isset($display)) {
-		return display($HTTP_POST_VARS);
+		return display($_POST);
 	} else {
 		return slct();
 	}
@@ -413,10 +413,10 @@ function update($HTTP_POST_VARS)
 
 
 
-function display($HTTP_POST_VARS)
+function display($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	global $PRDMON;
 
 	#determine the date range based on period selection

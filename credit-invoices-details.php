@@ -30,7 +30,7 @@
 require ("settings.php");
 
 # print invoice info
-$OUTPUT = printInv ($HTTP_GET_VARS['ordnum']);
+$OUTPUT = printInv ($_GET['ordnum']);
 
 require ("template.php");
 

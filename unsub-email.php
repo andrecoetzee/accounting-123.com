@@ -2,20 +2,20 @@
 
 	require ("settings.php");
 
-	if (isset($HTTP_POST_VARS["key"])){
-		$OUTPUT = write_remove ($HTTP_POST_VARS);
+	if (isset($_POST["key"])){
+		$OUTPUT = write_remove ($_POST);
 	}else {
-		$OUTPUT = confirm_email ($HTTP_GET_VARS);
+		$OUTPUT = confirm_email ($_GET);
 	}
 
 	require ("template.php");
 
 
 
-function confirm_email ($HTTP_GET_VARS)
+function confirm_email ($_GET)
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if (!isset($email) OR strlen($email) < 1){
 		return "Invalid Use Of Module. Invalid Email Address.";
@@ -56,10 +56,10 @@ function confirm_email ($HTTP_GET_VARS)
 
 
 
-function write_remove ($HTTP_POST_VARS)
+function write_remove ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($email))
 		return "Invalid Use Of Email.";

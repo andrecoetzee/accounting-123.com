@@ -31,10 +31,10 @@ $tmp_prdmap = array();
 $PRDMON = &$tmp_prdmap;
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "write":
-			$OUTPUT = write_sets ($HTTP_POST_VARS);
+			$OUTPUT = write_sets ($_POST);
 			break;
 		default:
 			$OUTPUT = get_sets ();
@@ -244,12 +244,12 @@ function makemap($smonth)
 
 
 # write settings
-function write_sets ($HTTP_POST_VARS)
+function write_sets ($_POST)
 {
 
 	global $catids, $CUBIT_MODULES;
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");

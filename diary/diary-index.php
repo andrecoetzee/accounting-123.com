@@ -37,45 +37,45 @@ require("../settings.php");
 require("../libs/ext.lib.php");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
 // the following two jobs are done to make life easier and more stable
 // overwrite the post vars with the get vars
-if ( isset($HTTP_POST_VARS) ) {
-	foreach($HTTP_POST_VARS as $gvar => $value) {
-		$HTTP_GET_VARS[$gvar]=$value;
+if ( isset($_POST) ) {
+	foreach($_POST as $gvar => $value) {
+		$_GET[$gvar]=$value;
 	}
 }
 
 // set the date to read to current one if not specified
-if ( ! isset($HTTP_GET_VARS["year"]) )
-	$HTTP_GET_VARS["year"] = date("Y");
+if ( ! isset($_GET["year"]) )
+	$_GET["year"] = date("Y");
 
-if ( ! isset($HTTP_GET_VARS["month"]) )
-	$HTTP_GET_VARS["month"] = date("m");
+if ( ! isset($_GET["month"]) )
+	$_GET["month"] = date("m");
 
-if ( ! isset($HTTP_GET_VARS["mday"]) )
-	$HTTP_GET_VARS["mday"] = date("d");
+if ( ! isset($_GET["mday"]) )
+	$_GET["mday"] = date("d");
 
 // specified date in a processed form
-$spec_date = "$HTTP_GET_VARS[year]-$HTTP_GET_VARS[month]-$HTTP_GET_VARS[mday]";
+$spec_date = "$_GET[year]-$_GET[month]-$_GET[mday]";
 
 // check that the date is valid : if not, try to fix it
-if ( ! checkdate( $HTTP_GET_VARS["month"] , $HTTP_GET_VARS["mday"] , $HTTP_GET_VARS["year"] ) ) {
-	$valid_date = mktime(0, 0, 0, $HTTP_GET_VARS["month"], $HTTP_GET_VARS["mday"], $HTTP_GET_VARS["year"]);
-	list($HTTP_GET_VARS["year"], $HTTP_GET_VARS["month"], $HTTP_GET_VARS["mday"])
+if ( ! checkdate( $_GET["month"] , $_GET["mday"] , $_GET["year"] ) ) {
+	$valid_date = mktime(0, 0, 0, $_GET["month"], $_GET["mday"], $_GET["year"]);
+	list($_GET["year"], $_GET["month"], $_GET["mday"])
 		= explode("-", date("Y-m-d", $valid_date));
 		
-	if ( ! checkdate( $HTTP_GET_VARS["month"] , $HTTP_GET_VARS["mday"] , $HTTP_GET_VARS["year"] ) )
+	if ( ! checkdate( $_GET["month"] , $_GET["mday"] , $_GET["year"] ) )
 		die("Invalid date specified: $spec_date<br>Please contact Cubit.");
 }
 
@@ -93,8 +93,8 @@ include("object-dayschedule.php");
 $OUTPUT="";
 
 // decide what to do
-if (isset($HTTP_GET_VARS["key"])) {
-	switch ($HTTP_GET_VARS["key"]) {
+if (isset($_GET["key"])) {
+	switch ($_GET["key"]) {
 		case 'month':
 			$OUTPUT.=showCalendar_month();
 			break;

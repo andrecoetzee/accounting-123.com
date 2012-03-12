@@ -28,7 +28,7 @@ require ("psql_path.php");
 
 $OUTPUT = "";
 
-if ( ! isset($HTTP_GET_VARS["code"]) ) {
+if ( ! isset($_GET["code"]) ) {
 	# Set up table to display in
 	$OUTPUT = "<h3>Select Company to Export</h3>";
 
@@ -70,7 +70,7 @@ if ( ! isset($HTTP_GET_VARS["code"]) ) {
 	require_lib("validate");
 	$v = & new Validate();
 
-	$code = $HTTP_GET_VARS["code"];
+	$code = $_GET["code"];
 
         if ( ! $v->isOk($code, "string", 4, 4, "") ) {
 		errDie("Invalid company selected");

@@ -29,33 +29,33 @@ require("../settings.php");
 require("../core-settings.php");
 require ("../libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "method":
-			$OUTPUT = method($HTTP_POST_VARS);
+			$OUTPUT = method($_POST);
 			break;
 		case "alloc":
 			if (isset ($_REQUEST["another"])){
-				$OUTPUT = method($HTTP_POST_VARS);
+				$OUTPUT = method($_POST);
 			}else {
-				$OUTPUT = alloc($HTTP_POST_VARS);
+				$OUTPUT = alloc($_POST);
 			}
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
-			$OUTPUT = method($HTTP_POST_VARS);
+			$OUTPUT = method($_POST);
 	}
-} elseif(isset($HTTP_GET_VARS["cusnum"])) {
+} elseif(isset($_GET["cusnum"])) {
 	# Display default output
-	$OUTPUT = method($HTTP_GET_VARS["cusnum"]);
+	$OUTPUT = method($_GET["cusnum"]);
 } else {
 	# Display default output
-	$OUTPUT = method($HTTP_POST_VARS);
+	$OUTPUT = method($_POST);
 }
 
 # get templete
@@ -63,10 +63,10 @@ require("../template.php");
 
 
 
-function method($HTTP_POST_VARS,$ex="")
+function method($_POST,$ex="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	// customers Drop down selections
 	db_connect();
@@ -112,7 +112,7 @@ function method($HTTP_POST_VARS,$ex="")
 		$rec_amount++;
 	}
 
-	if(isset($HTTP_GET_VARS["e"])) {
+	if(isset($_GET["e"])) {
 		$ex = "<input type='hidden' name='e' value='y'>";
 	} else {
 		$ex = "";
@@ -212,7 +212,7 @@ function method($HTTP_POST_VARS,$ex="")
 			$sel = fsel($bankid[$i] == $acc["bankid"]);
 			$bankaccs .= "<option $sel value='$acc[bankid]'>$acc[accname] - $acc[bankname] ($acc[acctype])</option>";
 		}
-		if(isset($HTTP_GET_VARS['cash'])) {
+		if(isset($_GET['cash'])) {
 			$sel = fsel($bankid[$i] == $acc["bankid"]);
 			$bankaccs .= "<option $sel value='0'>Receive Cash</option>";
 		}
@@ -342,10 +342,10 @@ function method($HTTP_POST_VARS,$ex="")
 
 
 // allocation
-function alloc($HTTP_POST_VARS)
+function alloc($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if (isset($back)) {
 		if(isset($e)) {
@@ -353,7 +353,7 @@ function alloc($HTTP_POST_VARS)
 			exit;
 		}
 
-		return sel_cus($HTTP_POST_VARS);
+		return sel_cus($_POST);
 	}
 
 	$passon = "";
@@ -406,7 +406,7 @@ function alloc($HTTP_POST_VARS)
 
 	if ($v->isError()) {
 		$confirm = $v->genErrors();
-		return $confirm.method($HTTP_POST_VARS);
+		return $confirm.method($_POST);
 	}
 
 
@@ -709,14 +709,14 @@ function alloc($HTTP_POST_VARS)
 
 
 /* confirm function */
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if (isset($back)) {
 		unset($back);
-		return method($HTTP_POST_VARS);
+		return method($_POST);
 	}
 
 	require_lib("validate");
@@ -777,13 +777,13 @@ function confirm($HTTP_POST_VARS)
 
 		for($t = 0; $t < $rec_amount; $t++){
 			//$temp1 = $out1[$t];
-			$HTTP_POST_VARS["out1[$t]"] = $out1[$t] + 0;
-			$HTTP_POST_VARS["out2[$t]"] = $out2[$t] + 0;
-			$HTTP_POST_VARS["out3[$t]"] = $out3[$t] + 0;
-			$HTTP_POST_VARS["out4[$t]"] = $out4[$t] + 0;
-			$HTTP_POST_VARS["out5[$t]"] = $out5[$t] + 0;
+			$_POST["out1[$t]"] = $out1[$t] + 0;
+			$_POST["out2[$t]"] = $out2[$t] + 0;
+			$_POST["out3[$t]"] = $out3[$t] + 0;
+			$_POST["out4[$t]"] = $out4[$t] + 0;
+			$_POST["out5[$t]"] = $out5[$t] + 0;
 		}
-		return $confirm.alloc($HTTP_POST_VARS);
+		return $confirm.alloc($_POST);
 	}
 
 	$passon = "";
@@ -854,14 +854,14 @@ function confirm($HTTP_POST_VARS)
 		$out[$t] = sprint($out[$t]);
 
 		if (sprint(($tot[$t] + $out[$t] + $out1[$t] + $out2[$t] + $out3[$t] + $out4[$t] + $out5[$t]) - $amt[$t]) != sprint(0)) {
-			$HTTP_POST_VARS["out1[$t]"] = $out1;
-			$HTTP_POST_VARS["out2[$t]"] = $out2;
-			$HTTP_POST_VARS["out3[$t]"] = $out3;
-			$HTTP_POST_VARS["out4[$t]"] = $out4;
-			$HTTP_POST_VARS["out5[$t]"] = $out5;
+			$_POST["out1[$t]"] = $out1;
+			$_POST["out2[$t]"] = $out2;
+			$_POST["out3[$t]"] = $out3;
+			$_POST["out4[$t]"] = $out4;
+			$_POST["out5[$t]"] = $out5;
 
 		//	return "<li class='err'>The total amount for invoices not equal to the amount received.
-		//		Please check the details.</li>".alloc($HTTP_POST_VARS);
+		//		Please check the details.</li>".alloc($_POST);
 		}
 
 		if (isset($bout[$t])) {
@@ -1160,14 +1160,14 @@ function confirm($HTTP_POST_VARS)
 
 
 /* write function */
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if (isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return alloc($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return alloc($_POST);
 	}
 
 	# CHECK IF THIS DATE IS IN THE BLOCKED RANGE
@@ -1218,7 +1218,7 @@ function write($HTTP_POST_VARS)
 
 	if ($v->isError ()) {
 		$confirm = $v->genErrors();
-		return $confirm.confirm($HTTP_POST_VARS);
+		return $confirm.confirm($_POST);
 	}
 
 

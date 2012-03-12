@@ -2,16 +2,16 @@
 
 require ("../settings.php");
 
-$OUTPUT = show_receipt ($HTTP_GET_VARS);
+$OUTPUT = show_receipt ($_GET);
 
 require ("../tmpl-print.php");
 
 
 
-function show_receipt ($HTTP_GET_VARS)
+function show_receipt ($_GET)
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if(!isset($recid) OR strlen($recid) < 1){
 		return "<li class='err'>Invalid use of module. Invalid Receipt ID.</li>";

@@ -29,21 +29,21 @@ require("../settings.php");
 require("../core-settings.php");
 require ("../libs/ext.lib.php");
 
-if(isset($HTTP_GET_VARS["cusid"])){
-	$OUTPUT = sel_bank($HTTP_GET_VARS["cusid"]);
-}elseif (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if(isset($_GET["cusid"])){
+	$OUTPUT = sel_bank($_GET["cusid"]);
+}elseif (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "method":
-			$OUTPUT = method($HTTP_POST_VARS);
+			$OUTPUT = method($_POST);
 			break;
 		case "alloc":
-			$OUTPUT = alloc($HTTP_POST_VARS);
+			$OUTPUT = alloc($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = sel_bank();
@@ -133,7 +133,7 @@ function sel_bank($cusid)
 	}
 
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	// customers Drop down selections
 	db_connect();
@@ -157,7 +157,7 @@ function sel_bank($cusid)
 		$banks .= "<option value=$acc[bankid]>$acc[accname] - $acc[bankname] ($acc[acctype])</option>";
 	}
 
-	if(isset($HTTP_GET_VARS['cash'])) {
+	if(isset($_GET['cash'])) {
 		$banks .= "<option value='0'>Receive Cash</option>";
 	}
 
@@ -209,11 +209,11 @@ function sel_bank($cusid)
 
 
 # Insert details
-function method($HTTP_POST_VARS)
+function method($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -390,11 +390,11 @@ function method($HTTP_POST_VARS)
 
 
 # confirm
-function alloc($HTTP_POST_VARS)
+function alloc($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -763,11 +763,11 @@ function alloc($HTTP_POST_VARS)
 }
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($out1)) {$out1='';}
 	if(!isset($out2)) {$out2='';}
@@ -1584,11 +1584,11 @@ function confirm($HTTP_POST_VARS)
 }
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

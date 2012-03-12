@@ -29,7 +29,7 @@ require ("newsettings.php");
 require ("psql_path.php");
 require_lib("validate");
 
-if (isset($HTTP_POST_FILES["compfile"])) {
+if (isset($_FILES["compfile"])) {
 	$OUTPUT = importFile ();
 } else {
 	$OUTPUT = selectFile();
@@ -43,7 +43,7 @@ require ("newtemplate.php");
 function selectFile ()
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
 	$newcomp = "";
 	if (!isset($_SESSION["USER_NAME"]) ) {
@@ -58,8 +58,8 @@ function selectFile ()
 			header("Location: complogin.php");
 	}
 
-	if ( ! isset($HTTP_POST_VARS["compname"]) )
-		$HTTP_POST_VARS["compname"] = "";
+	if ( ! isset($_POST["compname"]) )
+		$_POST["compname"] = "";
 
 	$OUTPUT = "
 		<h3>Import Company</h3>
@@ -70,7 +70,7 @@ function selectFile ()
 			</tr>
 			<tr bgcolor='".bgcolorg()."'>
 				<td>Name of Company:</td>
-				<td><input type='text' name='compname' value='$HTTP_POST_VARS[compname]'></td>
+				<td><input type='text' name='compname' value='$_POST[compname]'></td>
 			</tr>
 			<tr bgcolor='".bgcolorg()."'>
 				<td>Select Company File:</td>
@@ -92,8 +92,8 @@ function importFile()
 {
 
 
-	global $HTTP_POST_FILES, $HTTP_POST_VARS, $psql_exec;
-	extract($HTTP_POST_VARS);
+	global $_FILES, $_POST, $psql_exec;
+	extract($_POST);
 
 	$OUTPUT = "<h3>Import Company</h3>";
 

@@ -26,23 +26,23 @@
 require ("settings.php");
 require ("core-settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			if (isset ($HTTP_POST_VARS["continue"]))
-				$OUTPUT = confirm_data ($HTTP_POST_VARS);
+			if (isset ($_POST["continue"]))
+				$OUTPUT = confirm_data ($_POST);
 			else 
-				$OUTPUT = get_data($HTTP_POST_VARS);
+				$OUTPUT = get_data($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_data ($HTTP_POST_VARS);
+			$OUTPUT = write_data ($_POST);
 			break;
 		default:
-			$OUTPUT = get_data ($HTTP_POST_VARS);
+			$OUTPUT = get_data ($_POST);
 	}
 	
 }else {
-	$OUTPUT = get_data ($HTTP_POST_VARS);
+	$OUTPUT = get_data ($_POST);
 }
 
 $OUTPUT .= "<br>".
@@ -57,10 +57,10 @@ require ("template.php");
 
 
 
-function get_data ($HTTP_POST_VARS)
+function get_data ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$buttons = "";
 	$sendvars_stockid = "";
@@ -150,10 +150,10 @@ function get_data ($HTTP_POST_VARS)
 
 
 
-function confirm_data ($HTTP_POST_VARS)
+function confirm_data ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 
@@ -206,13 +206,13 @@ function confirm_data ($HTTP_POST_VARS)
 
 
 
-function write_data ($HTTP_POST_VARS)
+function write_data ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back))
-		return get_data($HTTP_POST_VARS);
+		return get_data($_POST);
 
 	db_connect ();
 

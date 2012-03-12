@@ -27,23 +27,23 @@
 require("settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
                 case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
 			break;
 
                 default:
-			$OUTPUT = remcat($HTTP_GET_VARS['catid'], $HTTP_GET_VARS['type']);
+			$OUTPUT = remcat($_GET['catid'], $_GET['type']);
 	}
 } else {
         # Display default output
-        if(!empty($HTTP_GET_VARS['catid'])){
-                $OUTPUT = remcat($HTTP_GET_VARS['catid'], $HTTP_GET_VARS['type']);
+        if(!empty($_GET['catid'])){
+                $OUTPUT = remcat($_GET['catid'], $_GET['type']);
         }else{
                 $OUTPUT = remcat('none','none');
         }
@@ -128,13 +128,13 @@ $rem =
 	return $rem;
 }
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 //processes
 core_connect();
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
         require_lib("validate");

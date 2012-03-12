@@ -29,13 +29,13 @@
 
 require ("settings.php");
 
-if ($HTTP_POST_VARS) {
-	switch ($HTTP_POST_VARS["key"]) {
+if ($_POST) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmUser ($HTTP_POST_VARS);
+			$OUTPUT = confirmUser ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writeUser ($HTTP_POST_VARS);
+			$OUTPUT = writeUser ($_POST);
 			break;
 		default:
 			$OUTPUT = enterUser ();
@@ -74,10 +74,10 @@ $enterUser =
 }
 
 # confirm entered info
-function confirmUser ($HTTP_POST_VARS)
+function confirmUser ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -137,10 +137,10 @@ function confirmUser ($HTTP_POST_VARS)
 }
 
 # write user to db
-function writeUser ($HTTP_POST_VARS)
+function writeUser ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

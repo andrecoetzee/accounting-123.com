@@ -31,29 +31,29 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 
                 case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
         		break;
                 default:
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 	}
 } else {
         # Display default output
-        $OUTPUT = confirm($HTTP_POST_VARS);
+        $OUTPUT = confirm($_POST);
 }
 
 # get templete
 require("template.php");
 
 # Confirm
-function confirms($HTTP_POST_VARS)
+function confirms($_POST)
 {
 // Sanity Checking
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -135,10 +135,10 @@ function confirms($HTTP_POST_VARS)
 }
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

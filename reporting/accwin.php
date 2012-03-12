@@ -29,15 +29,15 @@ require("../settings.php");
 require("../core-settings.php");
 require("../libs/ext.lib.php");
 
-$OUTPUT = win($HTTP_GET_VARS);
+$OUTPUT = win($_GET);
 # get templete
 require("../template.php");
 
 # details
-function win($HTTP_POST_VARS)
+function win($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

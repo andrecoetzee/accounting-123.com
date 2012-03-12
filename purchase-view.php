@@ -29,26 +29,26 @@ require ("core-settings.php");
 require_lib("docman");
 
 // Merge post vars and get vars
-foreach ($HTTP_GET_VARS as $key => $val) {
-	$HTTP_POST_VARS[$key] = $val;
+foreach ($_GET as $key => $val) {
+	$_POST[$key] = $val;
 }
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "view":
-			$OUTPUT = printPurch ($HTTP_POST_VARS);
+			$OUTPUT = printPurch ($_POST);
 			break;
 		case "export":
-			if (isset ($HTTP_POST_VARS["export"])) 
-				$OUTPUT = export ($HTTP_POST_VARS);
+			if (isset ($_POST["export"])) 
+				$OUTPUT = export ($_POST);
 			else 
-				$OUTPUT = printPurch ($HTTP_POST_VARS);
+				$OUTPUT = printPurch ($_POST);
 			break;
 		case "delete_confirm":
-			$OUTPUT = delete_confirm($HTTP_POST_VARS);
+			$OUTPUT = delete_confirm($_POST);
 			break;
 		case "delete_write":
-			$OUTPUT = delete_write($HTTP_POST_VARS);
+			$OUTPUT = delete_write($_POST);
 			break;
 		default:
 			$OUTPUT = slct ();
@@ -117,10 +117,10 @@ function slct()
 
 
 
-function printPurch ($HTTP_POST_VARS)
+function printPurch ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -435,11 +435,11 @@ function printPurch ($HTTP_POST_VARS)
 
 
 
-function export ($HTTP_POST_VARS)
+function export ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -635,10 +635,10 @@ function export ($HTTP_POST_VARS)
 
 
 
-function delete_confirm($HTTP_POST_VARS)
+function delete_confirm($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -724,10 +724,10 @@ function delete_confirm($HTTP_POST_VARS)
 
 
 
-function delete_write($HTTP_POST_VARS)
+function delete_write($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new validate;

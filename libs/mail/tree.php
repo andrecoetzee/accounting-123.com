@@ -37,14 +37,14 @@
 require ("../settings.php");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
@@ -56,7 +56,7 @@ $OUTPUT = "<style> body { margin: 0px; background: #FFFFFF; } </style>
 $JSCRIPT .= "<script>"; // attach a script tag to it, so we can continue adding the variable lists to it
 $tree = & new clsFolderTree;
 
-extract($HTTP_POST_VARS);
+extract($_POST);
 
 if ( isset($newfolder_name) ) {
 	$newfolder_name = str_replace("'", "", $newfolder_name);

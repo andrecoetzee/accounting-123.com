@@ -24,16 +24,16 @@
 #
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "remove":
-			$OUTPUT = remove($HTTP_POST_VARS);
+			$OUTPUT = remove($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid use of script";
 	}
-} elseif(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT=confirm($HTTP_GET_VARS);
+} elseif(isset($_GET["id"])) {
+	$OUTPUT=confirm($_GET);
 } else {
 	$OUTPUT = "Invalid use of script.";
 }
@@ -50,9 +50,9 @@ $OUTPUT.="<p>
 
 require("template.php");
 
-function confirm($HTTP_GET_VARS) {
+function confirm($_GET) {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 	$id+=0;
 
 	db_conn('crm');
@@ -80,9 +80,9 @@ function confirm($HTTP_GET_VARS) {
 	return $out;
 }
 
-function remove($HTTP_POST_VARS) {
+function remove($_POST) {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 	
 	$id+=0;
 

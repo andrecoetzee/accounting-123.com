@@ -26,21 +26,21 @@
 # Get settings
 require("settings.php");
 
-if (isset($HTTP_POST_VARS['key'])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST['key'])) {
+	switch ($_POST["key"]) {
 		case "rem":
-			$OUTPUT = rem ($HTTP_POST_VARS);
+			$OUTPUT = rem ($_POST);
 			break;
 		default:
-			if (isset($HTTP_GET_VARS['stkid'])){
-					$OUTPUT = confirm ($HTTP_GET_VARS['stkid']);
+			if (isset($_GET['stkid'])){
+					$OUTPUT = confirm ($_GET['stkid']);
 			} else {
 					$OUTPUT = "<li class='err'> - Invalid use of module</li>";
 			}
 	}
 } else {
-	if (isset($HTTP_GET_VARS['stkid'])){
-		$OUTPUT = confirm ($HTTP_GET_VARS['stkid']);
+	if (isset($_GET['stkid'])){
+		$OUTPUT = confirm ($_GET['stkid']);
 	} else {
 		$OUTPUT = "<li> - Invalid use of module</li>";
 	}
@@ -262,7 +262,7 @@ function confirm($stkid)
 				$sql = "SELECT * FROM customers WHERE cusnum = '$inv[cusnum]' AND div = '".USER_DIV."'";
 				$custRslt = db_exec ($sql) or errDie ("Unable to get customer information");
 				if (pg_numrows ($custRslt) < 1) {
-					return details($HTTP_POST_VARS);
+					return details($_POST);
 				}
 				$cust = pg_fetch_array($custRslt);
 
@@ -271,7 +271,7 @@ function confirm($stkid)
 				$sql = "SELECT * FROM departments WHERE deptid = '$cust[deptid]' AND div = '".USER_DIV."'";
 				$deptRslt = db_exec($sql);
 				if(pg_numrows($deptRslt) < 1){
-					return details($HTTP_POST_VARS);
+					return details($_POST);
 				}else{
 					$dept = pg_fetch_array($deptRslt);
 				}
@@ -312,7 +312,7 @@ function confirm($stkid)
 				$sql = "SELECT * FROM customers WHERE cusnum = '$inv[cusnum]' AND div = '".USER_DIV."'";
 				$custRslt = db_exec ($sql) or errDie ("Unable to get customer information");
 				if (pg_numrows ($custRslt) < 1) {
-					return details($HTTP_POST_VARS);
+					return details($_POST);
 				}
 				$cust = pg_fetch_array($custRslt);
 
@@ -321,7 +321,7 @@ function confirm($stkid)
 				$sql = "SELECT * FROM departments WHERE deptid = '$cust[deptid]' AND div = '".USER_DIV."'";
 				$deptRslt = db_exec($sql);
 				if(pg_numrows($deptRslt) < 1){
-					return details($HTTP_POST_VARS);
+					return details($_POST);
 				}else{
 					$dept = pg_fetch_array($deptRslt);
 				}
@@ -364,7 +364,7 @@ function confirm($stkid)
 				$sql = "SELECT * FROM departments WHERE deptid = '$inv[deptid]' AND div = '".USER_DIV."'";
 				$deptRslt = db_exec($sql);
 				if(pg_numrows($deptRslt) < 1){
-					return details($HTTP_POST_VARS);
+					return details($_POST);
 				}else{
 					$dept = pg_fetch_array($deptRslt);
 				}
@@ -405,7 +405,7 @@ function confirm($stkid)
 				$sql = "SELECT * FROM customers WHERE cusnum = '$sord[cusnum]' AND div = '".USER_DIV."'";
 				$custRslt = db_exec ($sql) or errDie ("Unable to get customer information");
 				if (pg_numrows ($custRslt) < 1) {
-					return details($HTTP_POST_VARS);
+					return details($_POST);
 				}
 				$cust = pg_fetch_array($custRslt);
 
@@ -414,7 +414,7 @@ function confirm($stkid)
 				$sql = "SELECT * FROM departments WHERE deptid = '$cust[deptid]' AND div = '".USER_DIV."'";
 				$deptRslt = db_exec($sql);
 				if(pg_numrows($deptRslt) < 1){
-					return details($HTTP_POST_VARS);
+					return details($_POST);
 				}else{
 					$dept = pg_fetch_array($deptRslt);
 				}
@@ -456,7 +456,7 @@ function confirm($stkid)
 				$sql = "SELECT * FROM departments WHERE deptid = '$cord[deptid]' AND div = '".USER_DIV."'";
 				$deptRslt = db_exec($sql);
 				if(pg_numrows($deptRslt) < 1){
-				//	return details($HTTP_POST_VARS);
+				//	return details($_POST);
 					return "<li class='err'>Unable to get department information. (Consignment Orders)</li>";
 				}else{
 					$dept = pg_fetch_array($deptRslt);

@@ -28,27 +28,27 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
                 case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
 			break;
 
                 default:
-                        if(isset($HTTP_GET_VARS['purchid'])){
-                                $OUTPUT = details($HTTP_GET_VARS['purchid']);
+                        if(isset($_GET['purchid'])){
+                                $OUTPUT = details($_GET['purchid']);
                         }else{
                                 # Display default output
                                 $OUTPUT = view();
                         }
         }
 }else{
-        if(isset($HTTP_GET_VARS['purchid'])){
-                $OUTPUT = details($HTTP_GET_VARS['purchid']);
+        if(isset($_GET['purchid'])){
+                $OUTPUT = details($_GET['purchid']);
         }else{
                 # Display default output
                 $OUTPUT = view();
@@ -193,10 +193,10 @@ function details($purchid)
 }
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -288,10 +288,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 # Write to Db
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

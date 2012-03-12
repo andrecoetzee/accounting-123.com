@@ -27,19 +27,19 @@
 require ("../settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm ($HTTP_POST_VARS);
+			$OUTPUT = confirm ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid";
 	}
-} elseif(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = enter ($HTTP_GET_VARS);
+} elseif(isset($_GET["id"])) {
+	$OUTPUT = enter ($_GET);
 } else {
 	$OUTPUT = "Invalid.";
 }
@@ -101,10 +101,10 @@ function enter ($HTTP_VARS) {
 }
 
 # error func
-function enter_err ($HTTP_POST_VARS, $err="")
+function enter_err ($_POST, $err="")
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -149,10 +149,10 @@ function enter_err ($HTTP_POST_VARS, $err="")
 }
 
 # confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -183,7 +183,7 @@ function confirm ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return enter_err($HTTP_POST_VARS, $confirm);
+		return enter_err($_POST, $confirm);
 		exit;
 	}
 
@@ -220,15 +220,15 @@ function confirm ($HTTP_POST_VARS)
 }
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
 	if(isset($back)) {
-		return enter_err($HTTP_POST_VARS);
+		return enter_err($_POST);
 	}
 
 	$id+=0;

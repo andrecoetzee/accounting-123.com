@@ -27,30 +27,30 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "details":
-			$OUTPUT = details($HTTP_POST_VARS);
+			$OUTPUT = details($_POST);
 			break;
 
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 
 		default:
-			if(isset($HTTP_GET_VARS['cusnum'])){
-					$OUTPUT = view($HTTP_GET_VARS['cusnum']);
+			if(isset($_GET['cusnum'])){
+					$OUTPUT = view($_GET['cusnum']);
 			}else{
 					$OUTPUT = "<li class=err> Invalid use of module.";
 			}
 	}
 } else {
-	if(isset($HTTP_GET_VARS['cusnum'])){
-			$OUTPUT = view($HTTP_GET_VARS['cusnum']);
+	if(isset($_GET['cusnum'])){
+			$OUTPUT = view($_GET['cusnum']);
 	}else{
 			$OUTPUT = "<li class=err> Invalid use of module.";
 	}
@@ -151,10 +151,10 @@ function view($cusnum)
         return $view;
 }
 
-function details($HTTP_POST_VARS)
+function details($_POST)
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 		# validate input
@@ -253,10 +253,10 @@ function details($HTTP_POST_VARS)
 }
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 		# validate input
@@ -366,13 +366,13 @@ function confirm($HTTP_POST_VARS)
 }
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
         //processes
         db_connect();
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 		# validate input

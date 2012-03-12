@@ -27,19 +27,19 @@
 require ("settings.php");
 require ("libs/ext.lib.php");
 
-if (isset($HTTP_GET_VARS["stkid"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["stkid"])) {
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "view":
-				$OUTPUT = printStk($HTTP_POST_VARS);
+				$OUTPUT = printStk($_POST);
 				break;
 			case "export":
-				$OUTPUT = export($HTTP_POST_VARS);
+				$OUTPUT = export($_POST);
 				break;
 			case "report":
-				$OUTPUT = report($HTTP_POST_VARS);
+				$OUTPUT = report($_POST);
 				break;
 			default:
 				$OUTPUT = slct();
@@ -100,11 +100,11 @@ function slct()
 
 
 # show stock
-function printStk ($HTTP_POST_VARS)
+function printStk ($_POST)
 {
 	
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -307,11 +307,11 @@ function printStk ($HTTP_POST_VARS)
 
 
 
-function export ($HTTP_POST_VARS)
+function export ($_POST)
 {
 	
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

@@ -29,36 +29,36 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 
                 case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
         		break;
                 case "confirm":
-                        $OUTPUT = confirm($HTTP_POST_VARS);
+                        $OUTPUT = confirm($_POST);
         		break;
                 case "writerem":
-                        $OUTPUT = writerem($HTTP_POST_VARS);
+                        $OUTPUT = writerem($_POST);
         		break;
                 default:
-			if(isset($HTTP_POST_VARS['proc'])){
+			if(isset($_POST['proc'])){
                                 # Process
-                                $OUTPUT = det($HTTP_POST_VARS);
-                        }elseif(isset($HTTP_POST_VARS['rem'])){
+                                $OUTPUT = det($_POST);
+                        }elseif(isset($_POST['rem'])){
                                 # Remove
-                                $OUTPUT = rembat($HTTP_POST_VARS);
+                                $OUTPUT = rembat($_POST);
                         }else{
                                $OUTPUT = "<li class=err> Invalid use of module.";
                         }
 	}
 } else {
-        if(isset($HTTP_POST_VARS['proc'])){
+        if(isset($_POST['proc'])){
                 # Process
-                $OUTPUT = det($HTTP_POST_VARS);
-        }elseif(isset($HTTP_POST_VARS['rem'])){
+                $OUTPUT = det($_POST);
+        }elseif(isset($_POST['rem'])){
                 # Remove
-                $OUTPUT = rembat($HTTP_POST_VARS);
+                $OUTPUT = rembat($_POST);
         }else{
                 $OUTPUT = "<li class=err> Invalid use of module.";
         }
@@ -68,10 +68,10 @@ if (isset($HTTP_POST_VARS["key"])) {
 require("template.php");
 
 # Confirm
-function det($HTTP_POST_VARS)
+function det($_POST)
 {
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -176,10 +176,10 @@ function det($HTTP_POST_VARS)
 }
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -280,10 +280,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -438,10 +438,10 @@ function writetrans($dtacc, $ctacc, $date, $refnum, $amount, $details)
 }
 
 # Confirm
-function rembat($HTTP_POST_VARS)
+function rembat($_POST)
 {
                 # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -542,10 +542,10 @@ function rembat($HTTP_POST_VARS)
 }
 
 # Write
-function writerem($HTTP_POST_VARS)
+function writerem($_POST)
 {
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

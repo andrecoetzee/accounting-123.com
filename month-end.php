@@ -27,8 +27,8 @@
 # get settings
 require("settings.php");
 
-if (isset($HTTP_POST_VARS['key'])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST['key'])) {
+	switch ($_POST["key"]) {
 		case "close":
 			$OUTPUT = close ();
 			break;

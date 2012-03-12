@@ -28,14 +28,14 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
             case "slctcust":
-				$OUTPUT = slctCust($HTTP_POST_VARS);
+				$OUTPUT = slctCust($_POST);
 				break;
 
 			case "print":
-				$OUTPUT = printInv($HTTP_POST_VARS);
+				$OUTPUT = printInv($_POST);
 				break;
 
             default:
@@ -91,10 +91,10 @@ function view()
 }
 
 # Default view
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -143,11 +143,11 @@ function view_err($HTTP_POST_VARS, $err = "")
 }
 
 # Default view
-function slctCust($HTTP_POST_VARS)
+function slctCust($_POST)
 {
 
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -167,7 +167,7 @@ function slctCust($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$err .= "<li class=err>".$e["msg"];
 		}
-		return view_err($HTTP_POST_VARS, $err);
+		return view_err($_POST, $err);
 	}
 
 		db_connect();
@@ -176,7 +176,7 @@ function slctCust($HTTP_POST_VARS)
 		$custRslt = db_exec ($sql) or errDie ("Unable to view customers");
 		if (pg_numrows ($custRslt) < 1) {
 			$err = "<li class=err>No customer names starting with <b>$letters</b> in database.";
-			return view_err($HTTP_POST_VARS, $err);
+			return view_err($_POST, $err);
 		}else{
 			$customers = "<select name='cusnum' onChange='javascript:document.form.submit();'>";
 			$customers .= "<option value='-S' disabled selected>Select Customer</option>";
@@ -208,10 +208,10 @@ function slctCust($HTTP_POST_VARS)
 }
 
 # show invoices
-function printInv ($HTTP_POST_VARS)
+function printInv ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -227,7 +227,7 @@ function printInv ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$err .= "<li class=err>".$e["msg"];
 		}
-		return view_err($HTTP_POST_VARS, $err);
+		return view_err($_POST, $err);
 	}
 
 	# Get selected customer info

@@ -2,36 +2,36 @@
 
 	require ("settings.php");
 
-	if(isset($HTTP_POST_VARS["key"])){
-		switch($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch($_POST["key"]){
 
 			case "write":
-				$OUTPUT = write_loan ($HTTP_POST_VARS);
+				$OUTPUT = write_loan ($_POST);
 				break;
 			default:
-				$OUTPUT = confirm_loan ($HTTP_POST_VARS);
+				$OUTPUT = confirm_loan ($_POST);
 		}
 	}else {
-		$OUTPUT = confirm_loan ($HTTP_POST_VARS);
+		$OUTPUT = confirm_loan ($_POST);
 	}
 
 	require ("template.php");
 
 
 
-function confirm_loan ($HTTP_POST_VARS)
+function confirm_loan ($_POST)
 {
 
-	global $HTTP_GET_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_GET;
+	extract ($_POST);
 
-	if(!isset($HTTP_GET_VARS["id"]) OR (strlen($HTTP_GET_VARS["id"]) < 1)){
+	if(!isset($_GET["id"]) OR (strlen($_GET["id"]) < 1)){
 		return "Invalid Use Of Module. Invalid ID.";
 	}
 
 	db_connect ();
 
-	$get_info = "SELECT * FROM loan_types WHERE id = '$HTTP_GET_VARS[id]' LIMIT 1";
+	$get_info = "SELECT * FROM loan_types WHERE id = '$_GET[id]' LIMIT 1";
 	$run_info = db_exec($get_info) or errDie("Unable to get loan type information.");
 	if(pg_numrows($run_info) < 1){
 		return "Could Not Retrieve Loan Type Information. Invalid Loan Type.";
@@ -45,7 +45,7 @@ function confirm_loan ($HTTP_POST_VARS)
 			<table ".TMPL_tblDflts.">
 			<form action='".SELF."' method='POST'>
 				<input type='hidden' name='key' value='write'>
-				<input type='hidden' name='id' value='$HTTP_GET_VARS[id]'>
+				<input type='hidden' name='id' value='$_GET[id]'>
 				<input type='hidden' name='loan_type' value='$loan_type'>
 				<tr>
 					<th>Loan Type</th>
@@ -67,10 +67,10 @@ function confirm_loan ($HTTP_POST_VARS)
 }
 
 
-function write_loan ($HTTP_POST_VARS)
+function write_loan ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

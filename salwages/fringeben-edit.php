@@ -27,8 +27,8 @@
 require ("../settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
 			$OUTPUT = confirmFringe();
 			break;
@@ -47,8 +47,8 @@ require ("../template.php");
 
 # enter new data
 function enterFringe() {
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -106,8 +106,8 @@ function enterFringe() {
 
 # confirm new data
 function confirmFringe() {
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
         # validate input
 	require_lib("validate");
 	$v = new  validate ();
@@ -151,8 +151,8 @@ function confirmFringe() {
 
 # write new data
 function writeFringe() {
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
         # validate input
 	require_lib("validate");

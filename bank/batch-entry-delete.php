@@ -30,17 +30,17 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "remove":
-			$OUTPUT = remove($HTTP_POST_VARS);
+			$OUTPUT = remove($_POST);
 			break;
 		default:
 			$OUTPUT = add();
 	}
-} elseif(isset($HTTP_GET_VARS["id"])) {
+} elseif(isset($_GET["id"])) {
         # Display default output
-        $OUTPUT = add($HTTP_GET_VARS["id"]);
+        $OUTPUT = add($_GET["id"]);
 }
 
 # get templete
@@ -149,19 +149,19 @@ function add($id)
 
 
 # write
-function remove($HTTP_POST_VARS)
+function remove($_POST)
 {
 
 	# processes
 	db_connect();
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$id+=0;
 
 	if(isset($back)) {
-		return add($HTTP_POST_VARS);
+		return add($_POST);
 	}
 
 	# validate input

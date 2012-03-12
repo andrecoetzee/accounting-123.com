@@ -2,13 +2,13 @@
 
 	require ("settings.php");
 
-	if(isset($HTTP_POST_VARS["key"])){
-		switch ($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch ($_POST["key"]){
 			case "confirm":
-				$OUTPUT = confirm_burs ($HTTP_POST_VARS);
+				$OUTPUT = confirm_burs ($_POST);
 				break;
 			case "write":
-				$OUTPUT = write_burs ($HTTP_POST_VARS);
+				$OUTPUT = write_burs ($_POST);
 				break;
 			default:
 				$OUTPUT = get_burs ();
@@ -54,10 +54,10 @@ function get_burs ()
 }
 
 
-function confirm_burs ($HTTP_POST_VARS)
+function confirm_burs ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$display = "
 			<h2>Confirm New Bursary</h2>
@@ -92,10 +92,10 @@ function confirm_burs ($HTTP_POST_VARS)
 }
 
 
-function write_burs ($HTTP_POST_VARS)
+function write_burs ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

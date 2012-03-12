@@ -29,29 +29,29 @@ require ("../core-settings.php");
 require ("../libs/ext.lib.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm ($HTTP_POST_VARS);
+			$OUTPUT = confirm ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		default:
-			$OUTPUT = enter ($HTTP_POST_VARS);
+			$OUTPUT = enter ($_POST);
 	}
 } else {
-	$OUTPUT = enter ($HTTP_POST_VARS);
+	$OUTPUT = enter ($_POST);
 }
 
 # display output
 require ("../template.php");
 
 # enter new data
-function enter ($HTTP_POST_VARS)
+function enter ($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$enter = "
 		<h3>Update Exchange rate</h3>
@@ -108,11 +108,11 @@ function enter ($HTTP_POST_VARS)
 }
 
 # confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	# Validate input
 	require_lib("validate");
@@ -172,13 +172,13 @@ function confirm ($HTTP_POST_VARS)
 }
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	if(isset($back)) {
-		enter($HTTP_POST_VARS);
+		enter($_POST);
 	}
 	
 	# Validate input

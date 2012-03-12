@@ -25,10 +25,10 @@
 
 
 require ("../settings.php");
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "view":
-			$OUTPUT = printCat($HTTP_POST_VARS);
+			$OUTPUT = printCat($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid.";
@@ -52,9 +52,9 @@ $OUTPUT = "<center>
 </table></td>";
 
 
-	function OUTPUT ($HTTP_POST_VARS)
+	function OUTPUT ($_POST)
 	{
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$typeid=remval($typeid);;
 	# Set up table to display in

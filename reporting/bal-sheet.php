@@ -27,38 +27,38 @@ require ("../settings.php");
 require ("../core-settings.php");
 require("finstatements.php");
 
-foreach ($HTTP_GET_VARS as $key=>$value) {
-	$HTTP_POST_VARS[$key] = $value;
+foreach ($_GET as $key=>$value) {
+	$_POST[$key] = $value;
 }
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "display":
-			$OUTPUT = financialStatements::balsheet($HTTP_POST_VARS);
+			$OUTPUT = financialStatements::balsheet($_POST);
 			break;
 		case ct("Print"):
 		case ct("Save"):
 		case ct("Export to Spreadsheet"):
-			$OUTPUT = print_sheet($HTTP_POST_VARS);
+			$OUTPUT = print_sheet($_POST);
 			break;
 		case "customize":
-			$OUTPUT = customize($HTTP_POST_VARS);
+			$OUTPUT = customize($_POST);
 			break;
 		case "add":
 		case "remove selected":
 		case "update":
-			$OUTPUT = update($HTTP_POST_VARS);
+			$OUTPUT = update($_POST);
 			break;
 		case "note_view":
-			$OUTPUT = note_view($HTTP_POST_VARS);
+			$OUTPUT = note_view($_POST);
 			break;
 		case "note_save":
-			$OUTPUT = note_save($HTTP_POST_VARS);
+			$OUTPUT = note_save($_POST);
 			break;
 	}
 } else {
-	$OUTPUT = customize($HTTP_POST_VARS);
+	$OUTPUT = customize($_POST);
 	//$OUTPUT = financialStatements::balsheet($_POST);
 }
 
@@ -100,10 +100,10 @@ function print_sheet() {
 
 
 
-function customize($HTTP_POST_VARS)
+function customize($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$fields = array();
 	$fields["account"] = 0;
@@ -401,10 +401,10 @@ function customize($HTTP_POST_VARS)
 
 
 
-function update($HTTP_POST_VARS)
+function update($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if ($key == "add" && $account != 0) {
 		// has this account already been added
@@ -447,17 +447,17 @@ function update($HTTP_POST_VARS)
 		}
 	}
 
-	return customize($HTTP_POST_VARS);
+	return customize($_POST);
 
 }
 
 
 
 
-function note_view($HTTP_POST_VARS, $msg="")
+function note_view($_POST, $msg="")
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -514,10 +514,10 @@ function note_view($HTTP_POST_VARS, $msg="")
 
 
 
-function note_save($HTTP_POST_VARS)
+function note_save($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -555,7 +555,7 @@ function note_save($HTTP_POST_VARS)
 		$sbsacc_rslt = db_exec($sql) or errDie("Unable to insert account information into the accounts list.");
 	}
 
-	return note_view($HTTP_POST_VARS, "<tr bgcolor='".bgcolorg()."'><td><li>Note has been updated.</li></td></tr>");
+	return note_view($_POST, "<tr bgcolor='".bgcolorg()."'><td><li>Note has been updated.</li></td></tr>");
 
 }
 

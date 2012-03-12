@@ -32,19 +32,19 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "details":
-			if(isset($HTTP_POST_VARS['details'])){
-				$OUTPUT = details($HTTP_POST_VARS);
+			if(isset($_POST['details'])){
+				$OUTPUT = details($_POST);
 			}else{
-				$OUTPUT = details2($HTTP_POST_VARS);
+				$OUTPUT = details2($_POST);
 			}
 			break;
 		default:
@@ -253,12 +253,12 @@ function slctacc()
 
 
 # Enter Details of Transaction
-function details($HTTP_POST_VARS)
+function details($_POST)
 {
 
 // Sanity Checking
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -371,12 +371,12 @@ function details($HTTP_POST_VARS)
 
 
 # Enter Details of Transaction
-function details2($HTTP_POST_VARS)
+function details2($_POST)
 {
 
 	// Sanity Checking
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -508,11 +508,11 @@ function details2($HTTP_POST_VARS)
 
 
 # Select vat accounts
-function slctVatAcc($HTTP_POST_VARS)
+function slctVatAcc($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -660,24 +660,24 @@ function slctVatAcc($HTTP_POST_VARS)
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	// Sanity Checking
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Redirect if must chrgvat
 	if($chrgvat == 'yes' && !isset($vataccid)){
-		return slctVatAcc($HTTP_POST_VARS);
+		return slctVatAcc($_POST);
 	}
 
 	if(isb($dtaccid)) {
-		return "<li class='err'>You selected a main account.</li>".slctacc($HTTP_POST_VARS);
+		return "<li class='err'>You selected a main account.</li>".slctacc($_POST);
 	}
 
 	if(isb($ctaccid)) {
-		return "<li class='err'>You selected a main account.</li>".slctacc($HTTP_POST_VARS);
+		return "<li class='err'>You selected a main account.</li>".slctacc($_POST);
 	}
 
 	if(isset($vatcode)) {
@@ -841,12 +841,12 @@ function confirm($HTTP_POST_VARS)
 
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 // Sanity Checking and get vars(Respectively)
         # Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$vatcode += 0;
 

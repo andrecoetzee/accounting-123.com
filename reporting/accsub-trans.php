@@ -28,20 +28,20 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if(isset($HTTP_GET_VARS['accid'])){
-	$HTTP_GET_VARS['prd'] = PRD_DB;
-	$HTTP_GET_VARS['details'] = "";
-	$OUTPUT = viewtran($HTTP_GET_VARS);
-}elseif (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if(isset($_GET['accid'])){
+	$_GET['prd'] = PRD_DB;
+	$_GET['details'] = "";
+	$OUTPUT = viewtran($_GET);
+}elseif (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "viewtran":
-			$OUTPUT = viewtran($HTTP_POST_VARS);
+			$OUTPUT = viewtran($_POST);
 			break;
 		default:
-			$OUTPUT = slctAcc($HTTP_POST_VARS);
+			$OUTPUT = slctAcc($_POST);
 	}
 } else {
-	$OUTPUT = slctAcc($HTTP_POST_VARS);
+	$OUTPUT = slctAcc($_POST);
 }
 
 # get templete
@@ -124,11 +124,11 @@ function slctAcc()
 
 
 # View per account number and cat
-function viewtran($HTTP_POST_VARS)
+function viewtran($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

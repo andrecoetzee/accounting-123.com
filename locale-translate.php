@@ -29,8 +29,8 @@ error_reporting(E_ALL);
 
 define ("OFFSET_SIZE", 20);
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "enter":
 			$OUTPUT = enter();
 			break;
@@ -38,7 +38,7 @@ if (isset($HTTP_POST_VARS["key"])) {
 			$OUTPUT = translate();
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 	}
 } else {
@@ -141,8 +141,8 @@ function enter($errors="")
 }
 
 function translate($offset = 1) {
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -419,9 +419,9 @@ function translate($offset = 1) {
 	return $OUTPUT;
 }
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	// Make sure the page number is within a valid range
 	if ($page_txt <= 0) $page_txt = 1;
@@ -484,7 +484,7 @@ function removeTranslated($pot_file_ar)
 
 function searchReplace($pot_file_ar, $search, $replace, $locale)
 {
-	global $HTTP_POST_VARS;
+	global $_POST;
 
 	$count = 0;
 	foreach ($pot_file_ar as $key=>$value) {

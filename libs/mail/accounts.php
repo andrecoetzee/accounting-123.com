@@ -37,28 +37,28 @@ require ("../settings.php");
 require_lib("validate");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
-// overwrite GET_VARS with postvars, this helps to access both from one
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $arr => $val ) {
-		$HTTP_GET_VARS[$arr] = $val;
+// overwrite _GET with postvars, this helps to access both from one
+if ( isset($_POST) ) {
+	foreach ( $_POST as $arr => $val ) {
+		$_GET[$arr] = $val;
 	}
 }
 
 // set key=view if not set at all
-if ( ! isset($HTTP_GET_VARS["key"]) ) $HTTP_GET_VARS["key"] = "view";
+if ( ! isset($_GET["key"]) ) $_GET["key"] = "view";
 
-switch ( $HTTP_GET_VARS["key"] ) {
+switch ( $_GET["key"] ) {
 case "commitedit":
 	$OUTPUT = writeAccount();
 	break;
@@ -75,7 +75,7 @@ case "commitdelete":
 case "view":
 default:
 	// check if an account was specified
-	if ( isset($HTTP_GET_VARS["aid"]) && $HTTP_GET_VARS["aid"] == 0 ) {
+	if ( isset($_GET["aid"]) && $_GET["aid"] == 0 ) {
 		$OUTPUT = listAccounts(TRUE); // aid=0, LIST ALL ACCOUNTS (admin only)
 	} else {
 		$OUTPUT = listAccounts(FALSE);
@@ -242,13 +242,13 @@ function checkMayEdit($account_id) {
 
 // creates and handles the form that u edit the account with
 function editAccount() {
-	global $HTTP_GET_VARS, $user_admin;
+	global $_GET, $user_admin;
 
 	// check if an account was specified
-	if ( ! isset($HTTP_GET_VARS["aid"]) ) {
+	if ( ! isset($_GET["aid"]) ) {
 		return "No account specified.";
 	} else {
-		$account_id = $HTTP_GET_VARS["aid"];
+		$account_id = $_GET["aid"];
 	}
 
 	if ( checkMayEdit($account_id) == FALSE )
@@ -269,9 +269,9 @@ function editAccount() {
 
 	$OUTPUT = "";
 
-	// check if each variable is in GET_VARS, meaning it was submitted a previous TIME
+	// check if each variable is in _GET, meaning it was submitted a previous TIME
 	// and overwrite the one returned from dbase
-	foreach ( $HTTP_GET_VARS as $arr => $val ) {
+	foreach ( $_GET as $arr => $val ) {
 		$det[$arr] = $val;
 	}
 
@@ -479,13 +479,13 @@ function editAccount() {
 
 // checks the submitted data and if valid writes to database
 function writeAccount() {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	// check if an account was specified
-	if ( ! isset($HTTP_GET_VARS["aid"]) ) {
+	if ( ! isset($_GET["aid"]) ) {
 		return "No account specified.";
 	} else {
-		$account_id = $HTTP_GET_VARS["aid"];
+		$account_id = $_GET["aid"];
 	}
 
 	// may we edit?
@@ -495,7 +495,7 @@ function writeAccount() {
 	$OUTPUT = "";
 
 	// verify
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	$v = & new validate;
 
@@ -591,13 +591,13 @@ function writeAccount() {
 
 // delete an account
 function deleteAccount() {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	// check if an account was specified
-	if ( ! isset($HTTP_GET_VARS["aid"]) ) {
+	if ( ! isset($_GET["aid"]) ) {
 		return "No account specified.";
 	} else {
-		$account_id = $HTTP_GET_VARS["aid"];
+		$account_id = $_GET["aid"];
 	}
 
 	// may we edit?
@@ -605,7 +605,7 @@ function deleteAccount() {
 		return "You may not edit this account.";
 
 	// check if this is the prompt or the real kill
-	if ( $HTTP_GET_VARS["key"] && $HTTP_GET_VARS["key"] == "delete" ) {
+	if ( $_GET["key"] && $_GET["key"] == "delete" ) {
 		$OUTPUT = "
 		<form method=POST action=accounts.php>
 			Are you sure u want to delete this account?<br>

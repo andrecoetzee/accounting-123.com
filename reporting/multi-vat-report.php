@@ -29,14 +29,14 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
             case "view":
-				if(isset($HTTP_POST_VARS["amt"])){
-					$OUTPUT = viewRepAmt($HTTP_POST_VARS);
+				if(isset($_POST["amt"])){
+					$OUTPUT = viewRepAmt($_POST);
 					break;
 				}else{
-					$OUTPUT = viewRep($HTTP_POST_VARS);
+					$OUTPUT = viewRep($_POST);
 					break;
 				}
 				break;
@@ -81,10 +81,10 @@ function view()
 }
 
 # Default view
-function viewRep($HTTP_POST_VARS)
+function viewRep($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

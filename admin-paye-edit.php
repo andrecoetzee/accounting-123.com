@@ -25,19 +25,19 @@
 
 require ("settings.php");
 
-if ($HTTP_POST_VARS) {
-	if ($HTTP_POST_VARS["key"] == "confirm") {
+if ($_POST) {
+	if ($_POST["key"] == "confirm") {
 		# confirm entered data
-		$OUTPUT = confirmPaye ($HTTP_POST_VARS);
+		$OUTPUT = confirmPaye ($_POST);
 
-	} elseif ($HTTP_POST_VARS["key"] == "write") {
+	} elseif ($_POST["key"] == "write") {
 		# write to database
-		$OUTPUT = writePaye ($HTTP_POST_VARS);
+		$OUTPUT = writePaye ($_POST);
 	}
 
 } else {
 	# enter info to change
-	$OUTPUT = editPaye ($HTTP_GET_VARS);
+	$OUTPUT = editPaye ($_GET);
 }
 
 require ("template.php");
@@ -47,9 +47,9 @@ require ("template.php");
 ##
 
 # enter info to change
-function editPaye ($HTTP_GET_VARS)
+function editPaye ($_GET)
 {
-	$id = preg_replace ("/[^\d]/", "", substr ($HTTP_GET_VARS["id"], 0, 9));
+	$id = preg_replace ("/[^\d]/", "", substr ($_GET["id"], 0, 9));
 
 	# connect to db
 	db_connect ();
@@ -83,10 +83,10 @@ function editPaye ($HTTP_GET_VARS)
 }
 
 # confirm new paye bracket details
-function confirmPaye ($HTTP_POST_VARS)
+function confirmPaye ($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -111,10 +111,10 @@ function confirmPaye ($HTTP_POST_VARS)
 
 	/*
 	# clean non-array vars
-	$min = preg_replace ("/[^\d]/", "", substr ($HTTP_POST_VARS["min"], 0, 9));
-	$max = preg_replace ("/[^\d]/", "", substr ($HTTP_POST_VARS["max"], 0, 9));
-	$percentage = preg_replace ("/[^\d\.]/", "", substr ($HTTP_POST_VARS["percentage"], 0, 6));
-	$id = preg_replace ("/[^\d]/", "", substr ($HTTP_POST_VARS["id"], 0, 20));
+	$min = preg_replace ("/[^\d]/", "", substr ($_POST["min"], 0, 9));
+	$max = preg_replace ("/[^\d]/", "", substr ($_POST["max"], 0, 9));
+	$percentage = preg_replace ("/[^\d\.]/", "", substr ($_POST["percentage"], 0, 6));
+	$id = preg_replace ("/[^\d]/", "", substr ($_POST["id"], 0, 20));
 	*/
 
 	$confirmPaye =
@@ -139,11 +139,11 @@ function confirmPaye ($HTTP_POST_VARS)
 }
 
 # write paye bracket changes to db
-function writePaye ($HTTP_POST_VARS)
+function writePaye ($_POST)
 {
 
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -168,10 +168,10 @@ function writePaye ($HTTP_POST_VARS)
 
 	/*
 	# clean non-array vars
-	$min = preg_replace ("/[^\d]/", "", substr ($HTTP_POST_VARS["min"], 0, 9));
-	$max = preg_replace ("/[^\d]/", "", substr ($HTTP_POST_VARS["max"], 0, 9));
-	$percentage = preg_replace ("/[^\d\.]/", "", substr ($HTTP_POST_VARS["percentage"], 0, 6));
-	$id = preg_replace ("/[^\d]/", "", substr ($HTTP_POST_VARS["id"], 0, 20));
+	$min = preg_replace ("/[^\d]/", "", substr ($_POST["min"], 0, 9));
+	$max = preg_replace ("/[^\d]/", "", substr ($_POST["max"], 0, 9));
+	$percentage = preg_replace ("/[^\d\.]/", "", substr ($_POST["percentage"], 0, 6));
+	$id = preg_replace ("/[^\d]/", "", substr ($_POST["id"], 0, 20));
 	*/
 
 	# connect to db

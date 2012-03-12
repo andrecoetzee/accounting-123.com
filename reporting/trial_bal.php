@@ -28,21 +28,21 @@ require("../core-settings.php");
 require("finstatements.php");
 
 // Merge get vars and post vars
-foreach ($HTTP_GET_VARS as $key=>$value) {
-	$HTTP_POST_VARS[$key] = $value;
+foreach ($_GET as $key=>$value) {
+	$_POST[$key] = $value;
 }
 
-if (isset($HTTP_POST_VARS["key"])) {
+if (isset($_POST["key"])) {
 	// Decide what to do
-	switch ($HTTP_POST_VARS["key"]) {
+	switch ($_POST["key"]) {
 		default:
 		case "customize":
-			$OUTPUT = customize($HTTP_POST_VARS);
+			$OUTPUT = customize($_POST);
 			break;
 		case "add":
 		case "remove selected":
 		case "update":
-			$OUTPUT = update($HTTP_POST_VARS);
+			$OUTPUT = update($_POST);
 			break;
 		case "display":
 			$OUTPUT = financialStatements::trialbal($_POST);
@@ -54,14 +54,14 @@ if (isset($HTTP_POST_VARS["key"])) {
 			$OUTPUT = print_report();
 			break;
 		case "note_view":
-			$OUTPUT = note_view($HTTP_POST_VARS);
+			$OUTPUT = note_view($_POST);
 			break;
 		case "note_save":
-			$OUTPUT = note_save($HTTP_POST_VARS);
+			$OUTPUT = note_save($_POST);
 			break;
 	}
 } else {
-	$OUTPUT = customize($HTTP_POST_VARS);
+	$OUTPUT = customize($_POST);
 	//$OUTPUT = financialStatements::trialbal($_GET);
 	$ql = true;
 }
@@ -70,10 +70,10 @@ require ("../template.php");
 
 
 
-function customize($HTTP_POST_VARS)
+function customize($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$fields["naccount"] = "";
 	$fields["last_year"] = "checked";
@@ -303,10 +303,10 @@ function customize($HTTP_POST_VARS)
 
 
 
-function update($HTTP_POST_VARS)
+function update($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if ($key == "add" && isset($naccount) && $naccount != 0) {
 		// Has this account been added already?
@@ -314,7 +314,7 @@ function update($HTTP_POST_VARS)
 		$sql = "SELECT * FROM saved_tb_accounts WHERE accid='$naccount'";
 		$stb_rslt = db_exec($sql) or errDie("Unable to retrieve saved trial balance accounts from Cubit.");
 		if (pg_num_rows($stb_rslt) > 0) {
-			return customize($HTTP_POST_VARS);
+			return customize($_POST);
 		}
 
 		// Retrieve the account info with the accid
@@ -341,7 +341,7 @@ function update($HTTP_POST_VARS)
 			$stbacc_rslt = db_exec($sql) or errDie("Unable to remove account from the accounts list.");
 		}
 	}
-	return customize($HTTP_POST_VARS);
+	return customize($_POST);
 
 }
 
@@ -392,10 +392,10 @@ function print_report()
 
 
 
-function note_view($HTTP_POST_VARS, $msg="")
+function note_view($_POST, $msg="")
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 
@@ -453,10 +453,10 @@ function note_view($HTTP_POST_VARS, $msg="")
 
 
 
-function note_save($HTTP_POST_VARS)
+function note_save($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -496,7 +496,7 @@ function note_save($HTTP_POST_VARS)
 			)";
 		$sbsacc_rslt = db_exec($sql) or errDie("Unable to insert account information into the accounts list.");
 	}
-	return note_view($HTTP_POST_VARS, "<tr bgcolor='".bgcolorg()."'><td><li>Note has been updated.</li></td></tr>");
+	return note_view($_POST, "<tr bgcolor='".bgcolorg()."'><td><li>Note has been updated.</li></td></tr>");
 
 }
 

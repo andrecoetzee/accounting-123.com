@@ -3,19 +3,19 @@
 require ("settings.php");
 require_lib("mail.smtp");
 
-if(isset($HTTP_POST_VARS["key"])){
-	if ($HTTP_POST_VARS["key"] == "group"){
-		$OUTPUT = get_data ($HTTP_POST_VARS);
-	}elseif($HTTP_POST_VARS["key"] == "process") {
-		$OUTPUT = process_data ($HTTP_POST_VARS);
-	}elseif($HTTP_POST_VARS["key"] == "modify") {
-		if(isset($HTTP_POST_VARS["done"])){
-			$OUTPUT = get_email ($HTTP_POST_VARS);
+if(isset($_POST["key"])){
+	if ($_POST["key"] == "group"){
+		$OUTPUT = get_data ($_POST);
+	}elseif($_POST["key"] == "process") {
+		$OUTPUT = process_data ($_POST);
+	}elseif($_POST["key"] == "modify") {
+		if(isset($_POST["done"])){
+			$OUTPUT = get_email ($_POST);
 		}else {
-			$OUTPUT = process_data ($HTTP_POST_VARS);
+			$OUTPUT = process_data ($_POST);
 		}
-	}elseif($HTTP_POST_VARS["key"] == "send_mail") {
-		$OUTPUT = send_emails ($HTTP_POST_VARS);
+	}elseif($_POST["key"] == "send_mail") {
+		$OUTPUT = send_emails ($_POST);
 	}
 }else {
 	$OUTPUT = select_group ();
@@ -79,10 +79,10 @@ function select_group ()
 
 }
 
-function get_data ($HTTP_POST_VARS)
+function get_data ($_POST)
 {
 	
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	$es = qryEmailSettings();
 
@@ -125,10 +125,10 @@ function get_data ($HTTP_POST_VARS)
 }
 
 
-function process_data ($HTTP_POST_VARS,$err="")
+function process_data ($_POST,$err="")
 {
 	
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	if(isset($add) AND (strlen($add) > 0)){
 		$list = "old";
@@ -226,8 +226,8 @@ function process_data ($HTTP_POST_VARS,$err="")
 				$confirm .= "<li class='err'>$e[msg]</li>";
 			}
 			#remove nasty entry and send error
-			unset ($HTTP_POST_VARS["add"]);
-			return process_data($HTTP_POST_VARS,$confirm);
+			unset ($_POST["add"]);
+			return process_data($_POST,$confirm);
 		}
 
 		$add_sql = "
@@ -395,10 +395,10 @@ function process_data ($HTTP_POST_VARS,$err="")
 
 
 
-function get_email ($HTTP_POST_VARS)
+function get_email ($_POST)
 {
 	
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	$showdoc_html = "''";
 	
 	$groupname = date("Y")."-".date("m")."-".date("d")."_".date("H").":".date("i").":".date("s");
@@ -557,10 +557,10 @@ function get_email ($HTTP_POST_VARS)
 }
 
 
-function send_emails ($HTTP_POST_VARS)
+function send_emails ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (isset($send_format) AND $send_format == "plain")
 		$bodydata = strip_tags($bodydata);

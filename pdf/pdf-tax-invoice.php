@@ -29,30 +29,30 @@ require ("../pdf-settings.php");
 
 //ini_set ("allow_call_time_pass_reference","true");
 
-if (isset($HTTP_GET_VARS['invid']) || isset($HTTP_GET_VARS['noteid']) || isset($HTTP_GET_VARS['invids']) || isset($HTTP_GET_VARS['cusnum'])) {
-	switch ($HTTP_GET_VARS['type']) {
+if (isset($_GET['invid']) || isset($_GET['noteid']) || isset($_GET['invids']) || isset($_GET['cusnum'])) {
+	switch ($_GET['type']) {
 		default:
 		case "inv":
 		case "invreprint":
-			$OUTPUT = invDetails($HTTP_GET_VARS);
+			$OUTPUT = invDetails($_GET);
 			break;
 		case "cusprintinvoices":
-			$OUTPUT = cusPrintInvoices($HTTP_GET_VARS);
+			$OUTPUT = cusPrintInvoices($_GET);
 			break;
 		case "invpaid":
 		case "invpaidreprint":
-			$OUTPUT = invPaidDetails($HTTP_GET_VARS);
+			$OUTPUT = invPaidDetails($_GET);
 			break;
 		case "nons":
 		case "nonsreprint":
-			$OUTPUT = nonsDetails($HTTP_GET_VARS);
+			$OUTPUT = nonsDetails($_GET);
 			break;
 		case "invnotereprint":
 		case "invnote":
-			$OUTPUT = invNoteDetails($HTTP_GET_VARS);
+			$OUTPUT = invNoteDetails($_GET);
 			break;
 		case "nonsnote":
-			$OUTPUT = nonsNoteDetails($HTTP_GET_VARS);
+			$OUTPUT = nonsNoteDetails($_GET);
 			break;
 	}
 } else {
@@ -64,10 +64,10 @@ require ("../template.php");
 
 
 #normal reprint invoice in pdf function
-function invDetails($HTTP_GET_VARS)
+function invDetails($_GET)
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 	global $set_mainFont;
 
 	$showvat = TRUE;
@@ -467,10 +467,10 @@ function invDetails($HTTP_GET_VARS)
 
 
 
-function cusPrintInvoices($HTTP_GET_VARS)
+function cusPrintInvoices($_GET)
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 	global $set_mainFont;
 
 	$showvat = TRUE;
@@ -947,10 +947,10 @@ function cusPrintInvoices($HTTP_GET_VARS)
 
 }
 
-function invPaidDetails($HTTP_GET_VARS)
+function invPaidDetails($_GET)
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 	global $set_mainFont;
 
 	$showvat = TRUE;
@@ -1310,9 +1310,9 @@ function invPaidDetails($HTTP_GET_VARS)
 
 }
 
-function invMultiDetails($HTTP_GET_VARS)
+function invMultiDetails($_GET)
 {
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 	global $set_mainFont;
 
 	$showvat = TRUE;
@@ -1638,10 +1638,10 @@ function invMultiDetails($HTTP_GET_VARS)
 
 }
 
-function nonsDetails($HTTP_GET_VARS)
+function nonsDetails($_GET)
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 	global $set_mainFont;
 
 	$showvat = TRUE;
@@ -1938,10 +1938,10 @@ function nonsDetails($HTTP_GET_VARS)
 
 
 
-function nonsNoteDetails($HTTP_GET_VARS)
+function nonsNoteDetails($_GET)
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 	global $set_mainFont;
 
 	$showvat = TRUE;
@@ -2268,9 +2268,9 @@ function nonsNoteDetails($HTTP_GET_VARS)
 
 }
 
-function invNoteDetails($HTTP_GET_VARS)
+function invNoteDetails($_GET)
 {
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 	global $set_mainFont;
 
 	$showvat = TRUE;

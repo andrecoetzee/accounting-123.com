@@ -26,23 +26,23 @@
 require ("settings.php");
 require ("libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if (isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "do_process":
-			if (isset($HTTP_POST_VARS["process"])){
-				$OUTPUT = get_process ($HTTP_POST_VARS);
+			if (isset($_POST["process"])){
+				$OUTPUT = get_process ($_POST);
 			}else {
-				$OUTPUT = printSupp ($HTTP_POST_VARS);
+				$OUTPUT = printSupp ($_POST);
 			}
 			break;
 		case "alloc":
-			$OUTPUT = alloc_process ($HTTP_POST_VARS);
+			$OUTPUT = alloc_process ($_POST);
 			break;
 		default:
-			$OUTPUT = printSupp ($HTTP_POST_VARS);
+			$OUTPUT = printSupp ($_POST);
 	}
 }else {
-	$OUTPUT = printSupp ($HTTP_POST_VARS);
+	$OUTPUT = printSupp ($_POST);
 }
 
 
@@ -52,10 +52,10 @@ require ("template.php");
 
 
 # show stock
-function printSupp ($HTTP_POST_VARS,$err="")
+function printSupp ($_POST,$err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Set up table to display in
 	global $PRDMON;
@@ -251,8 +251,8 @@ function printSupp ($HTTP_POST_VARS,$err="")
 	$sql = "SELECT * FROM suppliers WHERE $cred_search ORDER BY supname ASC";
 	$suppRslt = db_exec ($sql) or errDie ("Unable to retrieve Suppliers from database.");
 	if (pg_numrows ($suppRslt) < 1) {
-		unset ($HTTP_POST_VARS['creditor']);
-	//	return printsupp($HTTP_POST_VARS,"<li class='err'>No Suppliers matching requirement found.</li>");
+		unset ($_POST['creditor']);
+	//	return printsupp($_POST,"<li class='err'>No Suppliers matching requirement found.</li>");
 	}
 
 	# totals
@@ -445,13 +445,13 @@ function printSupp ($HTTP_POST_VARS,$err="")
 
 
 
-function get_process ($HTTP_POST_VARS)
+function get_process ($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(!isset($runids) OR !is_array($runids))
-		return printSupp($HTTP_POST_VARS,"<li class='err'>Please Select At Least 1 Creditor To Process</li");
+		return printSupp($_POST,"<li class='err'>Please Select At Least 1 Creditor To Process</li");
 
 	# validate input
 	require_lib("validate");
@@ -474,7 +474,7 @@ function get_process ($HTTP_POST_VARS)
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
 //		$confirm .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
-		return printSupp($HTTP_POST_VARS,$confirm);
+		return printSupp($_POST,$confirm);
 	}
 
 
@@ -692,13 +692,13 @@ function calc_stars ($amount,$cents = FALSE)
 }
 
 
-function alloc_process ($HTTP_POST_VARS)
+function alloc_process ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (isset($back))
-		return printSupp ($HTTP_POST_VARS);
+		return printSupp ($_POST);
 
 }
 

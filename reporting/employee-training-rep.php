@@ -27,8 +27,8 @@
 
 require ("../settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm":
 			$OUTPUT = show_training();
 			break;
@@ -91,8 +91,8 @@ function get_emps ()
 function show_training ()
 {
 
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 
 	if(!isset($emps) OR (sizeof($emps) < 1)){
 		return get_emps ();

@@ -2,18 +2,18 @@
 
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 	}
 } else {
-	$OUTPUT = confirm($HTTP_GET_VARS);
+	$OUTPUT = confirm($_GET);
 }
 
 	$OUTPUT .= "<p>".
@@ -26,10 +26,10 @@ if (isset($HTTP_POST_VARS["key"])) {
 require ("template.php");
 
 
-function confirm($HTTP_POST_VARS,$err="")
+function confirm($_POST,$err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($id))
 		return "Invalid Use Of Module.";
@@ -39,7 +39,7 @@ function confirm($HTTP_POST_VARS,$err="")
 	$v->isOk($id, "string", 1, 255, "Invalid group name.");
 
 	if ($v->isError()) {
-		return enter($HTTP_POST_VARS,$v->genErrors());
+		return enter($_POST,$v->genErrors());
 	}
 
 	db_connect ();
@@ -83,24 +83,24 @@ function confirm($HTTP_POST_VARS,$err="")
 
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
 	$v->isOk($id, "num", 1, 255, "Invalid group id.");
 
 	if ($v->isError()) {
-		return enter($HTTP_POST_VARS,$v->genErrors());
+		return enter($_POST,$v->genErrors());
 	}
 
 	$get_grp = "SELECT grouptitle FROM egroups WHERE id = '$id' LIMIT 1";
 	$run_grp = db_exec($get_grp) or errDie ("Unable to get email group information (0)");
 	if (pg_numrows($run_grp) < 1){
 		#no group found ???
-		return confirm ($HTTP_POST_VARS,"<li class='err'>Email group not found.</li>");
+		return confirm ($_POST,"<li class='err'>Email group not found.</li>");
 	}
 
 	$gtitle = pg_fetch_result ($run_grp,0,0);

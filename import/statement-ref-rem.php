@@ -25,10 +25,10 @@
 
 require("../settings.php");
 
-if(isset($HTTP_POST_VARS["delete"])) {
-	$OUTPUT = write($HTTP_POST_VARS);
-} elseif(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = confirm($HTTP_GET_VARS);
+if(isset($_POST["delete"])) {
+	$OUTPUT = write($_POST);
+} elseif(isset($_GET["id"])) {
+	$OUTPUT = confirm($_GET);
 } else {
 	$OUTPUT = "Invalid.";
 }
@@ -51,10 +51,10 @@ require("../template.php");
 
 
 
-function confirm($HTTP_GET_VARS)
+function confirm($_GET)
 {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 	
 	$id += 0;
 	
@@ -92,10 +92,10 @@ function confirm($HTTP_GET_VARS)
 
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 	
 	$id += 0;
 	

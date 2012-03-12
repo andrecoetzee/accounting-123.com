@@ -31,23 +31,23 @@ require ("settings.php");          // Get global variables & functions
 require ("libs/ext.lib.php");          // Get global variables & functions
 
 // If form was submitted, edit entry or confirm entry or write entry
-if ($HTTP_GET_VARS) {
-	if ($HTTP_GET_VARS['username']) {
+if ($_GET) {
+	if ($_GET['username']) {
 		// print form for data entry
-		$OUTPUT = editUser ($HTTP_GET_VARS);
+		$OUTPUT = editUser ($_GET);
 	} else {
 		// Invalid use, display error
 		errDie ("ERROR: Invalid use of module.", SELF);
 	}
-} elseif ($HTTP_POST_VARS) {
-	if ($HTTP_POST_VARS['a'] == "confirm") {
+} elseif ($_POST) {
+	if ($_POST['a'] == "confirm") {
 		// ask for confirmation
-		$perm=(isset($HTTP_POST_VARS['perm'])) ? $HTTP_POST_VARS['perm'] : '';
-		$OUTPUT = confirmUser ($HTTP_POST_VARS);
+		$perm=(isset($_POST['perm'])) ? $_POST['perm'] : '';
+		$OUTPUT = confirmUser ($_POST);
 
-	} elseif ($HTTP_POST_VARS['a'] == "write") {
+	} elseif ($_POST['a'] == "write") {
 		// write changes to database
-		$OUTPUT = writeUser ($HTTP_POST_VARS);
+		$OUTPUT = writeUser ($_POST);
 	} else {
 		// Invalid use, display error
 		errDie ("ERROR: Invalid use of module.", SELF);
@@ -63,10 +63,10 @@ require ("template.php");
 
 
 
-function editUser ($HTTP_POST_VARS)
+function editUser ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$username = substr ($username, 0, 255);
 
@@ -290,10 +290,10 @@ function editUser ($HTTP_POST_VARS)
 
 
 // Confirm that entered info is correct
-function confirmUser ($HTTP_POST_VARS) // Function args
+function confirmUser ($_POST) // Function args
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -352,12 +352,12 @@ function confirmUser ($HTTP_POST_VARS) // Function args
 		$MD5_PASS = pg_result($sql, 0, 0);
 	}
 
-	$HTTP_POST_VARS['MD5_PASS'] = $MD5_PASS;
-	$HTTP_POST_VARS['empnum'] = $empnum;
-	$HTTP_POST_VARS['tool'] = $tool;
+	$_POST['MD5_PASS'] = $MD5_PASS;
+	$_POST['empnum'] = $empnum;
+	$_POST['tool'] = $tool;
 
 	// write user
-	$OUTPUT .= writeUser($HTTP_POST_VARS);
+	$OUTPUT .= writeUser($_POST);
 
 	db_connect ();
 
@@ -438,17 +438,17 @@ function confirmUser ($HTTP_POST_VARS) // Function args
 				<td>User, $username, was successfully edited.</td>
 			</tr>
 		</table>";
-	$OUTPUT .= editUser($HTTP_POST_VARS);
+	$OUTPUT .= editUser($_POST);
 	return $OUTPUT;
 
 }
 
 
 
-function writeUser ($HTTP_POST_VARS)
+function writeUser ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	// Limit field lengths as per database settings ( Regex method doesn't work :-/ )
 	$oldusrnme = substr ($oldusrnme, 0, 255);

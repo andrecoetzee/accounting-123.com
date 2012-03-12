@@ -36,33 +36,33 @@
 require ("../settings.php");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
 require ("object_mailmsg.php");
 
-if ( isset($HTTP_GET_VARS["msg_id"]) ) {
-	$msg_id = $HTTP_GET_VARS["msg_id"];
+if ( isset($_GET["msg_id"]) ) {
+	$msg_id = $_GET["msg_id"];
 } else {
 	$msg_id = 0;
 
 	// no msg id has been specified, get the newest message in the current folder, if any
-	if ( isset($HTTP_GET_VARS["fid"]) ) {
+	if ( isset($_GET["fid"]) ) {
 		$v = & new Validate();
-		if ($v->isOK($HTTP_GET_VARS["fid"], "num", 1, 9, "") == FALSE) {
+		if ($v->isOK($_GET["fid"], "num", 1, 9, "") == FALSE) {
 			die("Invalid folder id specified");
 		}
 
 		$rslt = db_exec("SELECT message_id FROM mail_messages
-			WHERE folder_id='$HTTP_GET_VARS[fid]' ORDER BY date DESC");
+			WHERE folder_id='$_GET[fid]' ORDER BY date DESC");
 
 		if ( pg_num_rows($rslt) > 0 ) {
 			$msg_id = pg_fetch_result($rslt, 0, 0); // fetch the first msg :>
@@ -70,7 +70,7 @@ if ( isset($HTTP_GET_VARS["msg_id"]) ) {
 	}
 }
 
-$passon = "msg_id=$HTTP_GET_VARS[msg_id]&filename=$HTTP_GET_VARS[filename]";
+$passon = "msg_id=$_GET[msg_id]&filename=$_GET[filename]";
 
 // if msg_id is zero by here, there is no possible message to display with the current settings, output message and exit
 if ( $msg_id == 0 ) {
@@ -135,15 +135,15 @@ if ( $msg->maintype == "multipart" ) {
 	$pmsg = & new clsMailMsg;
 	$msgbody["data"] = "";
 
-	$HTTP_GET_VARS["filename"] = base64_decode($HTTP_GET_VARS["filename"]);
-	$HTTP_GET_VARS["filename"] = str_replace("\\\"","\"",$HTTP_GET_VARS["filename"]);
+	$_GET["filename"] = base64_decode($_GET["filename"]);
+	$_GET["filename"] = str_replace("\\\"","\"",$_GET["filename"]);
 
 	foreach ( $msg->parts as $pnum => $partdata ) {
 		$partdata = implode ("\n", $partdata);
 
 		$pmsg->processMessage($partdata);
 
-		if ( $pmsg->getAttachmentFilename() == $HTTP_GET_VARS["filename"] ) {
+		if ( $pmsg->getAttachmentFilename() == $_GET["filename"] ) {
 			$pb = $pmsg->body;
 			foreach ( $pb as $k => $v ) {
 				$pb[$k] = trim($v);
@@ -162,7 +162,7 @@ if ( $msg->maintype == "multipart" ) {
 			// create the output depending on the type of msg
 			$msgbody["data"] = explode("\n", $pmsg_data);
 			$content_type = $pmsg->type;
-			$filename = $HTTP_GET_VARS["filename"];
+			$filename = $_GET["filename"];
 			break;
 		}
 	}

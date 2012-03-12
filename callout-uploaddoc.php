@@ -25,23 +25,23 @@
 
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm ($HTTP_POST_VARS);
+			$OUTPUT = confirm ($_POST);
 			break;
 		default:
-			$OUTPUT = get_doc($HTTP_GET_VARS);
+			$OUTPUT = get_doc($_GET);
 			break;
 	}
 } else {
-        $OUTPUT = get_doc($HTTP_GET_VARS);
+        $OUTPUT = get_doc($_GET);
 }
 
 require ("template.php");
 
-function get_doc($HTTP_GET_VARS, $err="") {
-	extract ($HTTP_GET_VARS);
+function get_doc($_GET, $err="") {
+	extract ($_GET);
 
 	if (!isset($calloutid) OR (strlen($calloutid) < 1)) {
 		return "Invalid use of module";

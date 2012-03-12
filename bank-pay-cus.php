@@ -30,31 +30,31 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 
 		default:
-			$OUTPUT = add($HTTP_POST_VARS);
+			$OUTPUT = add($_POST);
 	}
 } else {
 	# Display default output
-	$OUTPUT = add($HTTP_POST_VARS);
+	$OUTPUT = add($_POST);
 }
 
 # get templete
 require("../template.php");
 
 # Insert details
-function add($HTTP_POST_VARS)
+function add($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 	
 	if(!isset($day)) {
 		$day=date("d");
@@ -67,10 +67,10 @@ function add($HTTP_POST_VARS)
 		$amount="";
 	}
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	if(isset($HTTP_GET_VARS["cusnum"])) {
-		$cusnum=$HTTP_GET_VARS["cusnum"];
+	if(isset($_GET["cusnum"])) {
+		$cusnum=$_GET["cusnum"];
 	}
 		
 	
@@ -144,10 +144,10 @@ function add($HTTP_POST_VARS)
 }
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -176,7 +176,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return $confirm."</li>".add($HTTP_POST_VARS);
+		return $confirm."</li>".add($_POST);
 	}
 
 	# Get bank account name
@@ -226,18 +226,18 @@ function confirm($HTTP_POST_VARS)
 }
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	# processes
 	db_connect();
 
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	
 	if(isset($back)) {
-		return add($HTTP_POST_VARS);
+		return add($_POST);
 	}
 	
 	# validate input

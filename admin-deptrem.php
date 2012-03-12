@@ -28,21 +28,21 @@
 
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS['key'])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST['key'])) {
+	switch ($_POST["key"]) {
 		case "rem":
-			$OUTPUT = rem ($HTTP_POST_VARS);
+			$OUTPUT = rem ($_POST);
 			break;
 		default:
-			if (isset($HTTP_GET_VARS['deptid'])){
-				$OUTPUT = confirm ($HTTP_GET_VARS['deptid']);
+			if (isset($_GET['deptid'])){
+				$OUTPUT = confirm ($_GET['deptid']);
 			} else {
 				$OUTPUT = "<li> - Invalid use of module";
 			}
 	}
 } else {
-	if (isset($HTTP_GET_VARS['deptid'])){
-		$OUTPUT = confirm ($HTTP_GET_VARS['deptid']);
+	if (isset($_GET['deptid'])){
+		$OUTPUT = confirm ($_GET['deptid']);
 	} else {
 		$OUTPUT = "<li> - Invalid use of module.</li>";
 	}
@@ -120,11 +120,11 @@ function confirm ($deptid)
 
 
 // Removes stock from database
-function rem ($HTTP_POST_VARS)
+function rem ($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

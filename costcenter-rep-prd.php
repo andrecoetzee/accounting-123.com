@@ -26,25 +26,25 @@
 require ("settings.php");
 require ("core-settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "view":
-			if(!isset($HTTP_POST_VARS["done"])){
-				$OUTPUT = slct($HTTP_POST_VARS);
+			if(!isset($_POST["done"])){
+				$OUTPUT = slct($_POST);
 			}else {
-				$OUTPUT = printCenter($HTTP_POST_VARS);
+				$OUTPUT = printCenter($_POST);
 			}
 			break;
 		case "export":
-			$OUTPUT = export_data ($HTTP_POST_VARS);
+			$OUTPUT = export_data ($_POST);
 			break;
 		default:
-			$OUTPUT = slct($HTTP_POST_VARS);
+			$OUTPUT = slct($_POST);
 			break;
 	}
 } else {
     # Display default output
-    $OUTPUT = slct($HTTP_POST_VARS);
+    $OUTPUT = slct($_POST);
 }
 
 $OUTPUT .= "
@@ -66,10 +66,10 @@ require ("template.php");
 
 
 # Default view
-function slct($HTTP_POST_VARS)
+function slct($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_conn(YR_DB);
 
@@ -219,11 +219,11 @@ function slct($HTTP_POST_VARS)
 
 
 # show stock
-function printCenter ($HTTP_POST_VARS)
+function printCenter ($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$search = "";
 
@@ -362,13 +362,13 @@ function printCenter ($HTTP_POST_VARS)
 }
 
 
-function export_data ($HTTP_POST_VARS)
+function export_data ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	require_lib ("xls");
 
-	$data = clean_html(printCenter($HTTP_POST_VARS));
+	$data = clean_html(printCenter($_POST));
 
 	StreamXLS ("costcenter_report","$data");
 

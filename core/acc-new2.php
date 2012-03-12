@@ -136,8 +136,8 @@ function checknum()
 //function view()
 //{
 //
-//	global $HTTP_POST_VARS;
-//	extract($HTTP_POST_VARS);
+//	global $_POST;
+//	extract($_POST);
 //
 //	$t1 = "";
 //	$t2 = "";
@@ -190,7 +190,7 @@ function checknum()
 
 
 
-function slctCat($HTTP_POST_VARS, $err="")
+function slctCat($_POST, $err="")
 {
 
 	# get vars
@@ -406,14 +406,14 @@ function slctCat($HTTP_POST_VARS, $err="")
 
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if ($type != $old_type)
-		return slctCat($HTTP_POST_VARS);
+		return slctCat($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -467,7 +467,7 @@ function confirm($HTTP_POST_VARS)
 		$confirm .= "</li>";
 
 		# Return error function
-		return slctCat($HTTP_POST_VARS, $confirm);
+		return slctCat($_POST, $confirm);
 	}
 
 
@@ -487,7 +487,7 @@ function confirm($HTTP_POST_VARS)
 //							<td colspan='2' class='err'>Account name already exist.</td>
 //						</tr>";
 //		# return error function
-//		return slctCat($HTTP_POST_VARS, $confirm);
+//		return slctCat($_POST, $confirm);
 //	}
 
 	$get_accs = "SELECT accname FROM accounts WHERE div = '".USER_DIV."'";
@@ -500,7 +500,7 @@ function confirm($HTTP_POST_VARS)
 					<tr>
 						<td colspan='2'><li class='err'>Account name already exist.</li></td>
 					</tr>";
-				return slctCat($HTTP_POST_VARS, $confirm);
+				return slctCat($_POST, $confirm);
 			}
 		}
 	}
@@ -516,7 +516,7 @@ function confirm($HTTP_POST_VARS)
 				<td colspan='2'><li class='err'>The Account number is already in use.</li></td>
 			</tr>";
 		# return error function
-		return slctCat($HTTP_POST_VARS, $confirm);
+		return slctCat($_POST, $confirm);
 	}
 
 	if ($accnum != "000"){
@@ -529,7 +529,7 @@ function confirm($HTTP_POST_VARS)
 					<td colspan='2'><li class='err'>Main Account doesn't exist.</li></td>
 				</tr>";
 			# return error function
-			return slctCat($HTTP_POST_VARS, $confirm);
+			return slctCat($_POST, $confirm);
 		}
 	}
 
@@ -542,15 +542,15 @@ function confirm($HTTP_POST_VARS)
 		$ad = pg_fetch_array($rslt);
 
 		if ($ad['accname'] == "Customer Control Account") {
-			return slctCat($HTTP_POST_VARS,"<li class='err'>You cannot add a sub account for the Customer Control Account.</li>");
+			return slctCat($_POST,"<li class='err'>You cannot add a sub account for the Customer Control Account.</li>");
 		} else if ($ad['accname'] == "Supplier Control Account") {
-			return slctCat($HTTP_POST_VARS,"<li class='err'>You cannot add a sub account for the Supplier Control Account.</li>");
+			return slctCat($_POST,"<li class='err'>You cannot add a sub account for the Supplier Control Account.</li>");
 		} else if ($ad['accname'] == "Inventory") {
-			return slctCat($HTTP_POST_VARS,"<li class='err'>You cannot add a sub account for the Inventory account.</li>");
+			return slctCat($_POST,"<li class='err'>You cannot add a sub account for the Inventory account.</li>");
 		} else if ($ad['accname'] == "Employees Control Account") {
-			return slctCat($HTTP_POST_VARS,"<li class='err'>You cannot add a sub account for the Employees Control Account.</li>");
+			return slctCat($_POST,"<li class='err'>You cannot add a sub account for the Employees Control Account.</li>");
 		} else if ($ad["balance"] != 0) {
-			return slctCat($HTTP_POST_VARS,"<li class='err'>You cannot create a sub account for a main account that already has transactions.</li>");
+			return slctCat($_POST,"<li class='err'>You cannot create a sub account for a main account that already has transactions.</li>");
 		}
 	}
 
@@ -615,14 +615,14 @@ function confirm($HTTP_POST_VARS)
 
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return slctCat($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return slctCat($_POST);
 	}
 
 	require_lib("validate");

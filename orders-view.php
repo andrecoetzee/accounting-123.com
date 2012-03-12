@@ -25,10 +25,10 @@
 
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "view":
-			$OUTPUT = printOrd($HTTP_POST_VARS);
+			$OUTPUT = printOrd($_POST);
 			break;
 		default:
 			$OUTPUT = slct();
@@ -96,11 +96,11 @@ function slct()
 
 
 # show stock
-function printOrd ($HTTP_POST_VARS)
+function printOrd ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

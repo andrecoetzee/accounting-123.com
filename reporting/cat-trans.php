@@ -28,14 +28,14 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "slctcat":
-			$OUTPUT = slctCat($HTTP_POST_VARS);
+			$OUTPUT = slctCat($_POST);
 			break;
 
                 case "viewtrans":
-			$OUTPUT = viewtrans($HTTP_POST_VARS);
+			$OUTPUT = viewtrans($_POST);
 			break;
 
                 default:
@@ -101,11 +101,11 @@ $view = "
 }
 
 # Select Category
-function slctCat($HTTP_POST_VARS)
+function slctCat($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -207,10 +207,10 @@ function slctCat($HTTP_POST_VARS)
 }
 
 # View per account number and cat
-function viewtran($HTTP_POST_VARS,$accid)
+function viewtran($_POST,$accid)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -276,11 +276,11 @@ function viewtran($HTTP_POST_VARS,$accid)
 	return $OUTPUT;
 }
 
-function viewtrans($HTTP_POST_VARS)
+function viewtrans($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -324,7 +324,7 @@ function viewtrans($HTTP_POST_VARS)
 	$accRslt = db_exec ($sql) or errDie ("ERROR: Unable to retrieve account details from database.", SELF);
 	$numrows = pg_numrows ($accRslt);
 	while($acc = pg_fetch_array($accRslt)){
-			$OUTPUT .= viewtran($HTTP_POST_VARS,$acc['accid']);
+			$OUTPUT .= viewtran($_POST,$acc['accid']);
 	}
 	$OUTPUT .= "
 				<tr><td><br></td></tr>

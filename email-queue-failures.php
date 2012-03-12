@@ -5,33 +5,33 @@
 	require_lib("mail.smtp");
 
 	#read get vars into post vars
-	foreach ($HTTP_GET_VARS AS $each => $own){
-		$HTTP_POST_VARS[$each] = $own;
+	foreach ($_GET AS $each => $own){
+		$_POST[$each] = $own;
 	}
 
-	if(isset($HTTP_POST_VARS["key"])){
-		switch ($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch ($_POST["key"]){
 			case "confirm":
-				$OUTPUT = send_email_groups ($HTTP_POST_VARS);
+				$OUTPUT = send_email_groups ($_POST);
 				break;
 			case "remove":
-				$OUTPUT = remove_group ($HTTP_POST_VARS);
+				$OUTPUT = remove_group ($_POST);
 				break;
 			case "confirm_remove":
-				$OUTPUT = confirm_remove ($HTTP_POST_VARS);
+				$OUTPUT = confirm_remove ($_POST);
 				break;
 			case "viewgroup":
-				$OUTPUT = view_fails ($HTTP_POST_VARS);
+				$OUTPUT = view_fails ($_POST);
 				break;
 			case "removefails":
-				$OUTPUT = remove_fails ($HTTP_POST_VARS);
+				$OUTPUT = remove_fails ($_POST);
 				break;
 			default:
 				$OUTPUT = show_email_groups ();
 		}
 	}else {
-		if(isset($HTTP_GET_VARS["send"])){
-			$OUTPUT = send_email_groups ($HTTP_GET_VARS);
+		if(isset($_GET["send"])){
+			$OUTPUT = send_email_groups ($_GET);
 		}else {
 			$OUTPUT = show_email_groups ();
 		}
@@ -173,10 +173,10 @@ function show_email_groups ($err = "")
 }
 
 
-function view_fails ($HTTP_POST_VARS, $err="")
+function view_fails ($_POST, $err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 
@@ -227,14 +227,14 @@ function view_fails ($HTTP_POST_VARS, $err="")
 }
 
 
-function remove_fails ($HTTP_POST_VARS)
+function remove_fails ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($remove_fails_ids) OR !is_array ($remove_fails_ids))
 		$remove_fails_ids = array ();
-//		return view_fails ($HTTP_POST_VARS, "<li style='color:red'>Please select at least 1 email address to remove.</li>");
+//		return view_fails ($_POST, "<li style='color:red'>Please select at least 1 email address to remove.</li>");
 
 	db_connect ();
 
@@ -282,9 +282,9 @@ function remove_fails ($HTTP_POST_VARS)
 	}
 		
 //	return show_email_groups("<li class='err'>Selected Failed Email Addresses Have Been Updated.</li>");
-	$HTTP_POST_VARS["key"] = "viewgroup";
-	$HTTP_POST_VARS["group"] = $group;
-	return view_fails($HTTP_POST_VARS,"<li class='err'>Updated.</li><br>");
+	$_POST["key"] = "viewgroup";
+	$_POST["group"] = $group;
+	return view_fails($_POST,"<li class='err'>Updated.</li><br>");
 
 }
 
@@ -308,10 +308,10 @@ function remove_fails ($HTTP_POST_VARS)
 
 
 
-function send_email_groups ($HTTP_POST_VARS)
+function send_email_groups ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($sendgroups) OR !is_array ($sendgroups)){
 		return show_email_groups("<li class='err'>Please Select At Least 1 Email Batch To Send.</li><br>");
@@ -561,10 +561,10 @@ If you would like to stop receiving these emails, please leave the following lin
 
 
 
-function remove_group ($HTTP_POST_VARS)
+function remove_group ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($id) OR strlen($id) < 1){
 		return "Invalid Use Of Module.";
@@ -604,10 +604,10 @@ function remove_group ($HTTP_POST_VARS)
 }
 
 
-function confirm_remove ($HTTP_POST_VARS)
+function confirm_remove ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($id) OR strlen($id) < 1){
 		return "Invalid Use Of Module.";

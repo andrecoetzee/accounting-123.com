@@ -30,25 +30,25 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["purid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["done"] = "";
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["purid"]) && isset($_GET["cont"])) {
+	$_GET["done"] = "";
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "details":
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 				break;
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 			default:
-				$HTTP_GET_VARS["done"] = "";
-				$OUTPUT = details($HTTP_GET_VARS);
+				$_GET["done"] = "";
+				$OUTPUT = details($_GET);
 		}
 	} else {
-		$HTTP_GET_VARS["done"] = "";
-		$OUTPUT = slct($HTTP_GET_VARS);
+		$_GET["done"] = "";
+		$OUTPUT = slct($_GET);
 	}
 }
 
@@ -59,7 +59,7 @@ require("template.php");
 
 
 # Details
-function slct($HTTP_GET_VARS, $err = "")
+function slct($_GET, $err = "")
 {
 
 	db_connect();
@@ -151,9 +151,9 @@ function slct($HTTP_GET_VARS, $err = "")
 function create_dummy($deptid)
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	db_connect();
 	# Dummy Vars
@@ -232,11 +232,11 @@ function create_dummy($deptid)
 
 
 # details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -581,7 +581,7 @@ $j = $i + 1;
 				<td valign='center'><textarea name='supaddr' cols='18' rows='3'>$pur[supaddr]</textarea></td>
 			</tr>";
 	} else {
-		return slct($HTTP_POST_VARS);
+		return slct($_POST);
 	}
 
 	$pur['delvat'] += 0;
@@ -792,11 +792,11 @@ $j = $i + 1;
 
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -857,8 +857,8 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		$HTTP_POST_VARS['done'] = "";
-		return details($HTTP_POST_VARS, $err);
+		$_POST['done'] = "";
+		return details($_POST, $err);
 	}
 
 	# Get Order info
@@ -930,7 +930,7 @@ function write($HTTP_POST_VARS)
 // 								$vatc[$keys] = sprintf("%01.2f", (($amt[$keys]/($VATP + 100)) * $VATP));
 // 							}
 // 							if($vat[$keys] <> $vatc[$keys]){
-// 								$HTTP_POST_VARS["vatc"][$keys] = "yes";
+// 								$_POST["vatc"][$keys] = "yes";
 // 							}
 // 						}
 //
@@ -951,7 +951,7 @@ function write($HTTP_POST_VARS)
 					$Ri = db_exec($Sl);
 
 					if(pg_num_rows($Ri) < 1) {
-						return details($HTTP_POST_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+						return details($_POST, "<li class='err'>Please select the vatcode for all your items.</li>");
 					}
 
 					$vd = pg_fetch_array($Ri);
@@ -993,7 +993,7 @@ function write($HTTP_POST_VARS)
 							$vatc[$keys] = sprintf("%01.2f", (($amt[$keys]/($VATP + 100)) * $VATP));
 						}
 						if($vat[$keys] <> $vatc[$keys]){
-							$HTTP_POST_VARS["vatc"][$keys] = "yes";
+							$_POST["vatc"][$keys] = "yes";
 						}
 					}
 
@@ -1014,12 +1014,12 @@ function write($HTTP_POST_VARS)
 					$rslt = db_exec($sql) or errDie("Unable to insert Order items to Cubit.",SELF);
 				}
 				# everything is set place done button
-				$HTTP_POST_VARS["done"] = "&nbsp; | &nbsp;<input name='doneBtn' type='submit' value='Done'>
+				$_POST["done"] = "&nbsp; | &nbsp;<input name='doneBtn' type='submit' value='Done'>
 				&nbsp; | &nbsp;<input name='print'  type='submit' value='Receive'>
 				&nbsp; | &nbsp;<input type='submit' name='donePrnt' value='Done, Print and make another'>";
 			}
 		}else{
-			$HTTP_POST_VARS["done"] = "";
+			$_POST["done"] = "";
 		}
 
 		/* --- Clac --- */
@@ -1047,7 +1047,7 @@ function write($HTTP_POST_VARS)
 			$showvat = FALSE;
 		}
 
-		$HTTP_POST_VARS['showvat'] = $showvat;
+		$_POST['showvat'] = $showvat;
 
 		# If vat is not included (delchrg)
 		//$VATP = TAX_VAT;
@@ -1160,7 +1160,7 @@ function write($HTTP_POST_VARS)
 		header("Location: nons-purch-recv.php?purid=$purid");
 		exit;
 	}elseif(!isset($doneBtn)){
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}else{
 		# insert Order to DB
 		$sql = "UPDATE nons_purchases SET done='y' WHERE purid='$purid' AND div='".USER_DIV."'";

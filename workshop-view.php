@@ -25,21 +25,21 @@
 require ("settings.php");
 
 // Merge get vars with post vars
-foreach ($HTTP_GET_VARS as $key => $val) {
-	$HTTP_POST_VARS[$key] = $val;
+foreach ($_GET as $key => $val) {
+	$_POST[$key] = $val;
 }
 
 // Decide which function to perform
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "display":
 			$OUTPUT = display();
 			break;
 		case "update":
-			$OUTPUT = update($HTTP_POST_VARS);
+			$OUTPUT = update($_POST);
 
-			if ($HTTP_POST_VARS["update"] == "client_collect") {
+			if ($_POST["update"] == "client_collect") {
 				// Extra quick links
 				$extra_qlinks = "
 									<tr class='datacell'>
@@ -54,7 +54,7 @@ if (isset($HTTP_POST_VARS["key"])) {
 			}
 			break;
 		case "client_collect":
-			$OUTPUT = client_collect($HTTP_POST_VARS);
+			$OUTPUT = client_collect($_POST);
 			// Extra quick links
 			$extra_qlinks = "
 								<tr class='datacell'>
@@ -68,22 +68,22 @@ if (isset($HTTP_POST_VARS["key"])) {
 								</tr>";
 			break;
 		case "status_history":
-			$OUTPUT = status_history($HTTP_POST_VARS);
+			$OUTPUT = status_history($_POST);
 			break;
 		case "edit_notes":
-			$OUTPUT = edit_notes($HTTP_POST_VARS);
+			$OUTPUT = edit_notes($_POST);
 			break;
 		case "check_in":
-			$OUTPUT = check_in($HTTP_POST_VARS);
+			$OUTPUT = check_in($_POST);
 			break;
 		case "check_out":
-			$OUTPUT = check_out($HTTP_POST_VARS);
+			$OUTPUT = check_out($_POST);
 			break;
 		case "receipt":
-			receipt($HTTP_POST_VARS);
+			receipt($_POST);
 			break;
 		case "workshop_report":
-			$OUTPUT = workshop_report($HTTP_POST_VARS);
+			$OUTPUT = workshop_report($_POST);
 			break;
 	}
 } else {
@@ -118,8 +118,8 @@ require ("template.php");
 function display($errors="")
 {
 
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	// Validate and set variables
 	require_lib("validate");
@@ -380,10 +380,10 @@ function display($errors="")
 
 
 
-function update($HTTP_POST_VARS)
+function update($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -488,10 +488,10 @@ function update($HTTP_POST_VARS)
 
 
 
-function client_collect($HTTP_POST_VARS)
+function client_collect($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -568,10 +568,10 @@ function client_collect($HTTP_POST_VARS)
 
 
 
-function status_history($HTTP_POST_VARS)
+function status_history($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -623,10 +623,10 @@ function status_history($HTTP_POST_VARS)
 
 
 
-function edit_notes($HTTP_POST_VARS)
+function edit_notes($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -676,10 +676,10 @@ function edit_notes($HTTP_POST_VARS)
 
 
 
-function check_in($HTTP_POST_VARS)
+function check_in($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -763,10 +763,10 @@ function check_in($HTTP_POST_VARS)
 
 
 
-function check_out($HTTP_POST_VARS)
+function check_out($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -867,10 +867,10 @@ function check_out($HTTP_POST_VARS)
 
 
 
-function receipt($HTTP_POST_VARS)
+function receipt($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -999,10 +999,10 @@ function receipt($HTTP_POST_VARS)
 
 
 
-function workshop_report($HTTP_POST_VARS)
+function workshop_report($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new validate;

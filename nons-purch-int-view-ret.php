@@ -27,14 +27,14 @@ require ("settings.php");
 require ("core-settings.php");
 
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
         case "view":
 			require_lib("docman");
-			$OUTPUT = printPurch ($HTTP_POST_VARS);
+			$OUTPUT = printPurch ($_POST);
 			break;
 	case "export":
-			$OUTPUT = export ($HTTP_POST_VARS);
+			$OUTPUT = export ($_POST);
 			break;
 
 		default:
@@ -108,10 +108,10 @@ function slct()
 }
 
 # show stock
-function printPurch ($HTTP_POST_VARS)
+function printPurch ($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -252,10 +252,10 @@ function printPurch ($HTTP_POST_VARS)
 	return $printOrd;
 }
 
-function export ($HTTP_POST_VARS)
+function export ($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

@@ -27,8 +27,8 @@
 require ("settings.php");
 # decide what to do
 
-if (isset($HTTP_GET_VARS['supid'])){
-	$OUTPUT = view ($HTTP_GET_VARS['supid']);
+if (isset($_GET['supid'])){
+	$OUTPUT = view ($_GET['supid']);
 } else {
 	$OUTPUT = "<li> - Invalid use of module.</li>";
 }

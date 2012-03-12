@@ -31,13 +31,13 @@
 require ("settings.php");
 require ("https_urlsettings.php");
 
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmInfo ($HTTP_POST_VARS);
+			$OUTPUT = confirmInfo ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writeInfo ($HTTP_POST_VARS);
+			$OUTPUT = writeInfo ($_POST);
 			break;
 		default:
 			$OUTPUT = showInfo ();
@@ -107,10 +107,10 @@ function showInfo ()
 }
 
 # print Info from db
-function showerr ($HTTP_POST_VARS, $err="")
+function showerr ($_POST, $err="")
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -153,13 +153,13 @@ function showerr ($HTTP_POST_VARS, $err="")
 	return $showerr;
 }
 
-function confirmInfo ($HTTP_POST_VARS)
+function confirmInfo ($_POST)
 {
-        # get $HTTP_POST_FILES global var for uploaded files
-        global $HTTP_POST_FILES;
+        # get $_FILES global var for uploaded files
+        global $_FILES;
 
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
         require_lib("validate");
@@ -189,24 +189,24 @@ function confirmInfo ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return showerr($HTTP_POST_VARS, $confirm);
+		return showerr($_POST, $confirm);
 		$confirm .= "<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirm;
 	}
 
         # deal with logo image
         if ($changelogo == "yes") {
-		if (empty ($HTTP_POST_FILES["logo"])) {
-			return showerr($HTTP_POST_VARS, "<li class=err> Please select an image to upload from your hard drive.");
+		if (empty ($_FILES["logo"])) {
+			return showerr($_POST, "<li class=err> Please select an image to upload from your hard drive.");
 		}
-		if (is_uploaded_file ($HTTP_POST_FILES["logo"]["tmp_name"])) {
+		if (is_uploaded_file ($_FILES["logo"]["tmp_name"])) {
 			# Check file ext
-			if (preg_match ("/(image\/jpeg|image\/png|image\/gif)/", $HTTP_POST_FILES["logo"]["type"], $extension)) {
-				$imgtype = $type = $HTTP_POST_FILES["logo"]["type"];
+			if (preg_match ("/(image\/jpeg|image\/png|image\/gif)/", $_FILES["logo"]["type"], $extension)) {
+				$imgtype = $type = $_FILES["logo"]["type"];
 
 				// open file in "read, binary" mode
 				$img = "";
-				$file = fopen ($HTTP_POST_FILES['logo']['tmp_name'], "rb");
+				$file = fopen ($_FILES['logo']['tmp_name'], "rb");
 				while (!feof ($file)) {
 					// fread is binary safe
 					$img .= fread ($file, 1024);
@@ -232,10 +232,10 @@ function confirmInfo ($HTTP_POST_VARS)
 				$logoimg = "<br><img src='compinfo/getimg.php' width=230 height=47><br><br>";
 				$logo = "compinfo/getimg.php";
 			}else {
-				return showerr($HTTP_POST_VARS, "<li class=err>Please note that we only accept images of the types PNG,GIF and JPEG.");
+				return showerr($_POST, "<li class=err>Please note that we only accept images of the types PNG,GIF and JPEG.");
 			}
 		} else {
-			return showerr($HTTP_POST_VARS, "Unable to upload file, Please check file permissions.");
+			return showerr($_POST, "Unable to upload file, Please check file permissions.");
 		}
 	} else {
 		$logo = "";
@@ -320,10 +320,10 @@ function confirmInfo ($HTTP_POST_VARS)
 }
 
 # write paye bracket changes to db
-function writeInfo ($HTTP_POST_VARS)
+function writeInfo ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input & format confirm

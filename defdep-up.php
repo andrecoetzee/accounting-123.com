@@ -30,25 +30,25 @@
 # get settings
 require ("settings.php");
 
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm ($HTTP_POST_VARS);
+			$OUTPUT = confirm ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 
 		default:
-			if(isset($HTTP_GET_VARS['file'])){
-					$OUTPUT =confirm2($HTTP_GET_VARS['file']);
+			if(isset($_GET['file'])){
+					$OUTPUT =confirm2($_GET['file']);
 			}else{
 					$OUTPUT = show ();
 			}
 	}
 } else {
-	if(isset($HTTP_GET_VARS['file'])){
-		$OUTPUT =confirm2($HTTP_GET_VARS['file']);
+	if(isset($_GET['file'])){
+		$OUTPUT =confirm2($_GET['file']);
 	}else{
 		$OUTPUT = show ();
 	}
@@ -75,23 +75,23 @@ function show ()
         return $show;
 }
 
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
-        # get $HTTP_POST_FILES global var for uploaded files
-        global $HTTP_POST_FILES;
+        # get $_FILES global var for uploaded files
+        global $_FILES;
 
         # get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 
         # deal with logo image
-        if (empty ($HTTP_POST_FILES["accfile"])) {
+        if (empty ($_FILES["accfile"])) {
 			return "<li class=err> Please select a file to upload from your hard drive.";
 		}
-		if (is_uploaded_file ($HTTP_POST_FILES["accfile"]["tmp_name"])) {
+		if (is_uploaded_file ($_FILES["accfile"]["tmp_name"])) {
 			// open the file
-			$file = file($HTTP_POST_FILES["accfile"]["tmp_name"]);
+			$file = file($_FILES["accfile"]["tmp_name"]);
 			// Layout
 			$analyze = "<center><h3>File analysis</h3>
 			<form action='".SELF."' method=post name=form>
@@ -152,10 +152,10 @@ function confirm2($filename)
 	return $analyze;
 }
 
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 

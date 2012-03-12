@@ -2,13 +2,13 @@
 
 	require ("../settings.php");
 
-	if(isset($HTTP_POST_VARS["key"])){
-		switch($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch($_POST["key"]){
 			case "confirm":
-				$OUTPUT = show_report($HTTP_POST_VARS);
+				$OUTPUT = show_report($_POST);
 				break;
 			case "xls":
-				$OUTPUT = show_xls ($HTTP_POST_VARS);
+				$OUTPUT = show_xls ($_POST);
 				break;
 			default:
 				$OUTPUT = get_employee ();
@@ -59,10 +59,10 @@ function get_employee ()
 }
 
 
-function show_report ($HTTP_POST_VARS)
+function show_report ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($employee) OR (strlen($employee) < 1)){
 		return "Invalid use of module.";
@@ -158,8 +158,8 @@ function show_report ($HTTP_POST_VARS)
 
 }
 
-function show_xls ($HTTP_POST_VARS) {
-    $OUT = show_report ($HTTP_POST_VARS);
+function show_xls ($_POST) {
+    $OUT = show_report ($_POST);
     $OUT = clean_html($OUT);
 
     require_lib("xls");

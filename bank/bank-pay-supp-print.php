@@ -2,7 +2,7 @@
 
 	require ("../settings.php");
 	
-	$OUTPUT = printStmnt ($HTTP_GET_VARS);
+	$OUTPUT = printStmnt ($_GET);
 
 	require ("../template.php");
 
@@ -10,11 +10,11 @@
 
 
 
-function printStmnt ($HTTP_GET_VARS)
+function printStmnt ($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	$fields = array();
 	$fields["creditor_balance"] = 0;

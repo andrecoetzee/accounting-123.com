@@ -25,32 +25,32 @@
 
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "seltoken":
 			$OUTPUT = seltoken();
 			break;
 		case "updatecsc":
-			$OUTPUT = updatecsc($HTTP_POST_VARS);
+			$OUTPUT = updatecsc($_POST);
 			break;
 		case "find":
-			$OUTPUT = find($HTTP_POST_VARS);
+			$OUTPUT = find($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid";
 	}
-} elseif(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = manage($HTTP_GET_VARS);
+} elseif(isset($_GET["id"])) {
+	$OUTPUT = manage($_GET);
 } else {
-	$OUTPUT = manage($HTTP_POST_VARS);
+	$OUTPUT = manage($_POST);
 }
 
 require("template.php");
 
 function seltoken() {
 
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	if(!isset($name)) {
 		$name="";
@@ -437,8 +437,8 @@ function seltoken() {
 	return $out;
 }
 
-function find($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function find($_POST) {
+	extract($_POST);
 
 	$id+=0;
 
@@ -463,12 +463,12 @@ function find($HTTP_POST_VARS) {
                 return "The query number you typed in does not belong to your team.".seltoken();
 	}
 
-	return manage($HTTP_POST_VARS);
+	return manage($_POST);
 }
 
-function manage($HTTP_POST_VARS,$Notes="") {
+function manage($_POST,$Notes="") {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 	if(!(isset($id))) {
 		return seltoken();
 	}
@@ -953,8 +953,8 @@ function manage($HTTP_POST_VARS,$Notes="") {
 
 }
 
-function updatecsc ($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function updatecsc ($_POST) {
+	extract($_POST);
 
         $cat+=0;
 	$listcat+=0;
@@ -982,7 +982,7 @@ function updatecsc ($HTTP_POST_VARS) {
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return manage($HTTP_POST_VARS, $confirm."</li>");
+		return manage($_POST, $confirm."</li>");
 	}
 
 	$date=date("Y-m-d");
@@ -992,7 +992,7 @@ function updatecsc ($HTTP_POST_VARS) {
 	$Ry=db_exec($Sl) or errDie("Unable to get query information from system.");
 
 	if(pg_numrows($Ry)<1) {
-		return manage($HTTP_POST_VARS,"<li class=err>Invalid query</li>");
+		return manage($_POST,"<li class=err>Invalid query</li>");
 	}
 
 	$tokendata=pg_fetch_array($Ry);
@@ -1055,7 +1055,7 @@ function updatecsc ($HTTP_POST_VARS) {
 		$Sl="SELECT * FROM tokens WHERE id='$find'";
 		$Ry=db_exec($Sl) or errDie("Unable to find query.");
 		if(pg_numrows($Ry)<1) {
-			return manage($HTTP_POST_VARS,"<li class=err>Query number: '$find' cannnot be found</li>");
+			return manage($_POST,"<li class=err>Query number: '$find' cannnot be found</li>");
 		}
 
 		header("Location: tokens-manage.php?id=$find");
@@ -1064,6 +1064,6 @@ function updatecsc ($HTTP_POST_VARS) {
 
         header("Location: tokens-manage.php?id=$id");
 	exit;
-	return manage($HTTP_POST_VARS,"<li>Query information updated.</li>");
+	return manage($_POST,"<li>Query information updated.</li>");
 }
 ?>

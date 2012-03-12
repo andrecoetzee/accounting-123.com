@@ -28,10 +28,10 @@ require ("settings.php");
 require ("core-settings.php");
 require_lib("docman");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
         case "view":
-			$OUTPUT = printNote($HTTP_POST_VARS);
+			$OUTPUT = printNote($_POST);
 			break;
 
 		default:
@@ -82,11 +82,11 @@ function slct()
 
 
 # show invoices
-function printNote ($HTTP_POST_VARS)
+function printNote ($_POST)
 {
 	
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

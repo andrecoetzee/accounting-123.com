@@ -26,11 +26,11 @@
 require("../settings.php");
 require("../core-settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "viewtran":
-			if(isset($HTTP_POST_VARS['continue']))
-				$OUTPUT = viewtran($HTTP_POST_VARS);
+			if(isset($_POST['continue']))
+				$OUTPUT = viewtran($_POST);
 			else 
 				$OUTPUT = slctacc();
 			break;
@@ -49,8 +49,8 @@ require("../template.php");
 function slctacc()
 {
 
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	$fields["acc_first"] = "topacc";
 
@@ -160,10 +160,10 @@ function slctacc()
 
 
 
-function viewtran($HTTP_POST_VARS)
+function viewtran($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new validate();

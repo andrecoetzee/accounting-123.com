@@ -28,9 +28,9 @@ define("REGISTER_PHP", true);
 require("settings.php");
 require_lib("time");
 
-if (!isset($HTTP_GET_VARS["key"])) $HTTP_GET_VARS["key"] = "info";
+if (!isset($_GET["key"])) $_GET["key"] = "info";
 
-switch($HTTP_GET_VARS["key"]) {
+switch($_GET["key"]) {
 	case "reg":
 		$OUTPUT = reg();
 		break;
@@ -51,8 +51,8 @@ require("template.php");
 function info($err = "")
 {
 
-	global $HTTP_GET_VARS, $uselog;
-	extract($HTTP_GET_VARS);
+	global $_GET, $uselog;
+	extract($_GET);
 
 	if (!isset($regkey)) $regkey = "";
 
@@ -242,8 +242,8 @@ function reg()
 {
 
 	global $uselog;
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	if (!empty($uselog["norefresh"]["str"])) return regmsg();
 

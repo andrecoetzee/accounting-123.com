@@ -27,19 +27,19 @@
 require ("../settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmAllow ($HTTP_POST_VARS);
+			$OUTPUT = confirmAllow ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writeAllow ($HTTP_POST_VARS);
+			$OUTPUT = writeAllow ($_POST);
 			break;
 		default:
-			$OUTPUT = enterAllow ($HTTP_POST_VARS["id"]);
+			$OUTPUT = enterAllow ($_POST["id"]);
 	}
 } else {
-	$OUTPUT = enterAllow ($HTTP_GET_VARS["id"]);
+	$OUTPUT = enterAllow ($_GET["id"]);
 }
 
 # display output
@@ -107,10 +107,10 @@ function enterAllow ($id)
 }
 
 # confirm new data
-function confirmAllow ($HTTP_POST_VARS)
+function confirmAllow ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -158,10 +158,10 @@ function confirmAllow ($HTTP_POST_VARS)
 }
 
 # write new data
-function writeAllow ($HTTP_POST_VARS)
+function writeAllow ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

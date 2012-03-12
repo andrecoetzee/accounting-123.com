@@ -27,8 +27,8 @@ require("settings.php");
 require("core-settings.php");
 require("libs/ext.lib.php");
 
-if (isset($HTTP_GET_VARS["purid"]) && isset($HTTP_GET_VARS["prd"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["purid"]) && isset($_GET["prd"])) {
+	$OUTPUT = details($_GET);
 } else {
 	$OUTPUT = "<li class='err'>Invalid use of module.</li>";
 }
@@ -37,11 +37,11 @@ require("template.php");
 
 
 
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");

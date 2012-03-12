@@ -25,10 +25,10 @@
 
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["sum"])){
-	$OUTPUT = sum($HTTP_POST_VARS);
-} elseif(isset($HTTP_POST_VARS["all"])) {
-	$OUTPUT = all($HTTP_POST_VARS);
+if(isset($_POST["sum"])){
+	$OUTPUT = sum($_POST);
+} elseif(isset($_POST["all"])) {
+	$OUTPUT = all($_POST);
 } else {
 	$OUTPUT = sel();
 }
@@ -85,10 +85,10 @@ function sel()
 
 
 
-function sum($HTTP_POST_VARS)
+function sum($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# Validate input
 	require_lib("validate");
@@ -183,10 +183,10 @@ function sum($HTTP_POST_VARS)
 
 
 
-function all($HTTP_POST_VARS)
+function all($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# Validate input
 	require_lib("validate");

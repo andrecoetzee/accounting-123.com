@@ -27,16 +27,16 @@
 require ("../settings.php");
 
 ## yadda yadda
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "process":
-			$OUTPUT = process($HTTP_POST_VARS);
+			$OUTPUT = process($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = slctEmployee ();
@@ -92,10 +92,10 @@ function slctEmployee ()
 
 
 # confirm new data
-function process ($HTTP_GET_VARS)
+function process ($_GET)
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -269,10 +269,10 @@ function process ($HTTP_GET_VARS)
 }
 
 # Confirm data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -303,9 +303,9 @@ function confirm ($HTTP_POST_VARS)
 
 
 	# Get arrays and totals
-	if(isset($HTTP_POST_VARS['fringebens'])){
+	if(isset($_POST['fringebens'])){
 		// sum up fringes
-		$fringebens = $HTTP_POST_VARS['fringebens'];
+		$fringebens = $_POST['fringebens'];
 		$tlfringe = 0;
 		foreach ($fringebens as $key => $amount) {
 			$tlfringe = ($tlfringe + $amount);
@@ -314,9 +314,9 @@ function confirm ($HTTP_POST_VARS)
 		$tlfringe = 0;
 	}
 
-        if(isset($HTTP_POST_VARS['deductions'])){
+        if(isset($_POST['deductions'])){
                 // sum up deductions
-                $deductions = $HTTP_POST_VARS['deductions'];
+                $deductions = $_POST['deductions'];
                 $tldeduct = 0;
                 foreach ($deductions as $key => $amount) {
 		        $tldeduct = ($tldeduct + $amount);
@@ -325,11 +325,11 @@ function confirm ($HTTP_POST_VARS)
                 $tldeduct = 0;
         }
 
-        if(isset($HTTP_POST_VARS['allowtax'])){
+        if(isset($_POST['allowtax'])){
                 // sum up allowance
-                $allowances = $HTTP_POST_VARS['allowances'];
+                $allowances = $_POST['allowances'];
                 $tlallow = 0;
-                $allowtax  = $HTTP_POST_VARS['allowtax'];
+                $allowtax  = $_POST['allowtax'];
                 foreach ($allowtax as $key => $perc) {
                         if($perc > 0){
                         $tlallow = ($tlallow + $allowances[$key]);
@@ -358,11 +358,11 @@ function confirm ($HTTP_POST_VARS)
         $paye = ((($basic_sal + $commission + $tlallow + $tlfringe)*$payeperc)/100);
 
 	# Get Fringe names and value from arrays
-	if(isset($HTTP_POST_VARS['fringebens'])){
+	if(isset($_POST['fringebens'])){
 		// get fringe values
-		#$fringebens = $HTTP_POST_VARS['fringebens'];
-		#$fringname = $HTTP_POST_VARS['fringename'];
-		#$fringbenid = $HTTP_POST_VARS['fringebenid'];
+		#$fringebens = $_POST['fringebens'];
+		#$fringname = $_POST['fringename'];
+		#$fringbenid = $_POST['fringebenid'];
 		$fringe="";
 		$i = 0;
 		while($i <= (count($fringebens)-1)) {
@@ -385,11 +385,11 @@ function confirm ($HTTP_POST_VARS)
         }
 
 	# Get allowances names and value from array
-	if(isset($HTTP_POST_VARS['allowances'])){
+	if(isset($_POST['allowances'])){
 		// get allowance amount and name
-		#$allowances = $HTTP_POST_VARS['allowances'];
-		#$allowname  = $HTTP_POST_VARS['allowname'];
-		#$allowid  = $HTTP_POST_VARS['allowid'];
+		#$allowances = $_POST['allowances'];
+		#$allowname  = $_POST['allowname'];
+		#$allowid  = $_POST['allowid'];
 		$allow = "";
 		$i = 0;
 		while($i <= (count($allowname)-1)) {
@@ -411,11 +411,11 @@ function confirm ($HTTP_POST_VARS)
         }
 
 	# Get Deductions names and values from arrays
-	if(isset($HTTP_POST_VARS['deductions'])){
+	if(isset($_POST['deductions'])){
 		// get fringe values
-		#$deductions = $HTTP_POST_VARS['deductions'];
-		#$deductname = $HTTP_POST_VARS['deductname'];
-		#$deductid = $HTTP_POST_VARS['deductid'];
+		#$deductions = $_POST['deductions'];
+		#$deductname = $_POST['deductname'];
+		#$deductid = $_POST['deductid'];
 		$deduct="";
 		$i = 0;
 		while($i <= (count($deductions)-1)) {
@@ -501,10 +501,10 @@ function confirm ($HTTP_POST_VARS)
 }
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

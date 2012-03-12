@@ -33,22 +33,22 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "rem":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 
 		default:
-			if(isset($HTTP_GET_VARS['cusnum'])){
-					$OUTPUT = confirm($HTTP_GET_VARS['cusnum']);
+			if(isset($_GET['cusnum'])){
+					$OUTPUT = confirm($_GET['cusnum']);
 			}else{
 					$OUTPUT = "<li class=err> Invalid use of module.";
 			}
 	}
 } else {
-	if(isset($HTTP_GET_VARS['cusnum'])){
-			$OUTPUT = confirm($HTTP_GET_VARS['cusnum']);
+	if(isset($_GET['cusnum'])){
+			$OUTPUT = confirm($_GET['cusnum']);
 	}else{
 			$OUTPUT = "<li class=err> Invalid use of module.";
 	}
@@ -124,10 +124,10 @@ function confirm($cusnum)
 }
 
 # remove customer
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

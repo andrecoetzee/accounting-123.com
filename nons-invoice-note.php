@@ -30,16 +30,16 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["invid"])) {
+	$OUTPUT = details($_GET);
 } else {
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "confirm":
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 				break;
 			case "write":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 			default:
 				$OUTPUT = "<li class='err'> Invalid use of module.</li>";
@@ -56,12 +56,12 @@ require("template.php");
 
 
 # details
-function details($HTTP_GET_VARS, $errata = "")
+function details($_GET, $errata = "")
 {
 
 	$showvat = TRUE;
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -279,13 +279,13 @@ function details($HTTP_GET_VARS, $errata = "")
 
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	$showvat = TRUE;
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -313,7 +313,7 @@ function confirm($HTTP_POST_VARS)
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
 		$confirm = "$err<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
-		return details($HTTP_POST_VARS, $err);
+		return details($_POST, $err);
 		return $confirm;
 	}
 
@@ -416,7 +416,7 @@ function confirm($HTTP_POST_VARS)
 	# if there isn't any products
 	if(!$any){
 		$err = "<li class='err'> Error : There are no products selected.";
-		return details($HTTP_POST_VARS, $err);
+		return details($_POST, $err);
 		return "<li class='err'> Error : There are no products selected.";
 	}
 
@@ -631,13 +631,13 @@ function confirm($HTTP_POST_VARS)
 
 
 # Details
-function write($HTTP_GET_VARS)
+function write($_GET)
 {
 
 	$showvat = TRUE;
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 	
 	# validate input
 	require_lib("validate");

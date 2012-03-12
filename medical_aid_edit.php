@@ -2,19 +2,19 @@
 
 require ("settings.php");
 
-if (isset ($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if (isset ($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = confirm_medical_aid_details ($HTTP_POST_VARS);
+			$OUTPUT = confirm_medical_aid_details ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_medical_aid_details ($HTTP_POST_VARS);
+			$OUTPUT = write_medical_aid_details ($_POST);
 			break;
 		default:
 			$OUTPUT = get_medical_aid_details ();
 	}
 }else {
-	$OUTPUT = get_medical_aid_details ($HTTP_GET_VARS);
+	$OUTPUT = get_medical_aid_details ($_GET);
 }
 
 $OUTPUT .= "
@@ -35,10 +35,10 @@ require ("template.php");
 
 
 
-function get_medical_aid_details ($HTTP_GET_VARS,$err="")
+function get_medical_aid_details ($_GET,$err="")
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if (!isset ($mid) OR strlen ($mid) < 1){
 		return "Invalid Use Of Module";
@@ -100,10 +100,10 @@ function get_medical_aid_details ($HTTP_GET_VARS,$err="")
 
 
 
-function confirm_medical_aid_details ($HTTP_POST_VARS)
+function confirm_medical_aid_details ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$display = "
 		<h4>Confirm Medical Aid Information</h4>
@@ -156,10 +156,10 @@ function confirm_medical_aid_details ($HTTP_POST_VARS)
 
 
 
-function write_medical_aid_details ($HTTP_POST_VARS)
+function write_medical_aid_details ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

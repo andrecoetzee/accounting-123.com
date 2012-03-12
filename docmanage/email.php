@@ -1,13 +1,13 @@
 <?
 require ("../settings.php");
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = con_mail($HTTP_POST_VARS);
+			$OUTPUT = con_mail($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_mail ($HTTP_POST_VARS);
+			$OUTPUT = write_mail ($_POST);
 			break;
 		default:
 			$OUTPUT = get_mail ();
@@ -22,8 +22,8 @@ require ("../template.php");
 
 function get_mail()
 {
-        global $HTTP_POST_VARS;
-	    extract($HTTP_POST_VARS);
+        global $_POST;
+	    extract($_POST);
 		
 		if(!(isset($email))) {
 		$email = "";
@@ -69,11 +69,11 @@ return $get_mail;
 
 }
 # Enter new data Error
-function enter_err($HTTP_POST_VARS, $err="")
+function enter_err($_POST, $err="")
 {
 	
-        global $HTTP_POST_VARS;
-	    extract($HTTP_POST_VARS);
+        global $_POST;
+	    extract($_POST);
 
 		if(!(isset($email))) {
 		$email = "";
@@ -119,10 +119,10 @@ return $get_mail;
 
 }
 
-function con_mail($HTTP_POST_VARS)
+function con_mail($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -138,7 +138,7 @@ function con_mail($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirmCust .= "<li class=err>".$e["msg"]."</li>";
 		}
-		return enter_err($HTTP_POST_VARS, $confirmCust);
+		return enter_err($_POST, $confirmCust);
 		exit;
 		$confirmCust .= "<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirmCust;
@@ -163,7 +163,7 @@ return $con_data;
 
 }
 # write new data
-function write_mail ($HTTP_POST_VARS)
+function write_mail ($_POST)
 {
 	//$date = date("Y-m-d  H:i:s");
 	# validate input
@@ -179,7 +179,7 @@ function write_mail ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirmCust .= "<li class=err>".$e["msg"]."</li>";
 		}
-		return enter_err($HTTP_POST_VARS, $confirmCust);
+		return enter_err($_POST, $confirmCust);
 		exit;
 		$confirmCust .= "<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirmCust;

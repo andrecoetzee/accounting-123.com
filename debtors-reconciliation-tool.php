@@ -2,26 +2,26 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = show_allocate_entries ($HTTP_POST_VARS);
+			$OUTPUT = show_allocate_entries ($_POST);
 			break;
 		case "allocate":
-			if (isset ($HTTP_POST_VARS["update"])){
-				$OUTPUT = update_allocate_entries ($HTTP_POST_VARS);
-			}elseif (isset ($HTTP_POST_VARS["view"])){
-				$OUTPUT = show_allocate_entries ($HTTP_POST_VARS);
+			if (isset ($_POST["update"])){
+				$OUTPUT = update_allocate_entries ($_POST);
+			}elseif (isset ($_POST["view"])){
+				$OUTPUT = show_allocate_entries ($_POST);
 			}else {
-				$OUTPUT = allocate_entries ($HTTP_POST_VARS);
+				$OUTPUT = allocate_entries ($_POST);
 			}
 			break;
 		default:
 			$OUTPUT = get_data_filter ();
 	}
-}elseif ($HTTP_GET_VARS["remid"]) {
-	$OUTPUT = reallocate ($HTTP_GET_VARS);
-}elseif(isset ($HTTP_GET_VARS["customer"])){
+}elseif ($_GET["remid"]) {
+	$OUTPUT = reallocate ($_GET);
+}elseif(isset ($_GET["customer"])){
 	$process = array (
 		"from_day" => $_GET["from_day"],
 		"from_month" => $_GET["from_month"],
@@ -96,10 +96,10 @@ function get_data_filter ()
 
 
 
-function show_allocate_entries ($HTTP_POST_VARS,$err=TBL_BR)
+function show_allocate_entries ($_POST,$err=TBL_BR)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$proc_new = "UPDATE stmnt SET allocation_balance = abs(amount) WHERE allocation_processed = '0'";
 	$run_proc = db_exec ($proc_new) or errDie ("Unable to update new entries");
@@ -386,15 +386,15 @@ function show_allocate_entries ($HTTP_POST_VARS,$err=TBL_BR)
 
 
 
-function allocate_entries ($HTTP_POST_VARS)
+function allocate_entries ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if ((isset($credit) AND is_array($credit)) AND (isset($debit) AND strlen ($debit) > 0)){
 		#all vars set
 	}else {
-		return show_allocate_entries($HTTP_POST_VARS,"<li class='err'>Please Select At Least 1 Receipt And Payment.</li>");
+		return show_allocate_entries($_POST,"<li class='err'>Please Select At Least 1 Receipt And Payment.</li>");
 	}
 
 
@@ -420,12 +420,12 @@ function allocate_entries ($HTTP_POST_VARS)
 	$empty2 = array_shift($tempamountsarr);
 
 	if (in_array ($debit, $templinkedarr)){
-		return show_allocate_entries ($HTTP_POST_VARS, "<li class='err'>Allocation Allready Exists.</li><br>");
+		return show_allocate_entries ($_POST, "<li class='err'>Allocation Allready Exists.</li><br>");
 	}
 
 	foreach ($credit AS $each){
 		if (in_array ($each, $templinkedarr)){
-			return show_allocate_entries ($HTTP_POST_VARS, "<li class='err'>Allocation Allready Exists.</li><br>");
+			return show_allocate_entries ($_POST, "<li class='err'>Allocation Allready Exists.</li><br>");
 		}
 	}
 
@@ -452,16 +452,16 @@ function allocate_entries ($HTTP_POST_VARS)
 
 	pglib_transaction ("COMMIT") or errDie ("Unable to complete transaction.");
 
-	return show_allocate_entries ($HTTP_POST_VARS,"<li class='err'>Allocation Complete.</li><br>");
+	return show_allocate_entries ($_POST,"<li class='err'>Allocation Complete.</li><br>");
 
 }
 
 
 
-function update_allocate_entries ($HTTP_POST_VARS) 
+function update_allocate_entries ($_POST) 
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset ($payment_amount) OR !isset ($invoice_amount)) {
 		return "Invalid Use Of Module.";
@@ -477,10 +477,10 @@ print "$key --> $each<br>";
 }
 
 
-function reallocate ($HTTP_POST_VARS)
+function reallocate ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

@@ -28,18 +28,18 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "bank":
-			$OUTPUT = bank($HTTP_POST_VARS);
+			$OUTPUT = bank($_POST);
 			break;
 		default:
-			$OUTPUT = confirm($HTTP_GET_VARS['cashid']);
+			$OUTPUT = confirm($_GET['cashid']);
 	}
 } else {
 	# Display default output
-	if(isset($HTTP_GET_VARS['cashid'])){
-		$OUTPUT = confirm($HTTP_GET_VARS['cashid']);
+	if(isset($_GET['cashid'])){
+		$OUTPUT = confirm($_GET['cashid']);
 	}else{
 		$OUTPUT = "<li class='err'> Invalid use of mudule.</li>";
 	}
@@ -162,14 +162,14 @@ function confirm($cashid)
 
 
 # write
-function bank($HTTP_POST_VARS)
+function bank($_POST)
 {
 
 	//processes
 	db_connect();
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

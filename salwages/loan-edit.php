@@ -27,19 +27,19 @@
 require ("../settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmLoan ($HTTP_POST_VARS);
+			$OUTPUT = confirmLoan ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writeLoan ($HTTP_POST_VARS);
+			$OUTPUT = writeLoan ($_POST);
 			break;
 		default:
 			$OUTPUT = "<li class='err'>Invalid use of module.</li>";
 	}
 } else {
-	$OUTPUT = enterLoan ($HTTP_GET_VARS);
+	$OUTPUT = enterLoan ($_GET);
 }
 
 # display output
@@ -49,11 +49,11 @@ require ("../template.php");
 
 
 # enter loan details (or immediately reject)
-function enterLoan ($HTTP_GET_VARS)
+function enterLoan ($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -126,11 +126,11 @@ function enterLoan ($HTTP_GET_VARS)
 
 
 # confirm new data
-function confirmLoan ($HTTP_POST_VARS)
+function confirmLoan ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -225,11 +225,11 @@ function confirmLoan ($HTTP_POST_VARS)
 
 
 # write new data
-function writeLoan ($HTTP_POST_VARS)
+function writeLoan ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

@@ -30,29 +30,29 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["purid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["done"] = "";
-	$OUTPUT = details($HTTP_GET_VARS);
-}elseif (isset($HTTP_GET_VARS["assid"]) && isset($HTTP_GET_VARS["grpid"])) {
-	$HTTP_GET_VARS["purid"] = create_dummy(0, $HTTP_GET_VARS["assid"], $HTTP_GET_VARS["grpid"]);
-	$HTTP_GET_VARS["done"] = "";
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["purid"]) && isset($_GET["cont"])) {
+	$_GET["done"] = "";
+	$OUTPUT = details($_GET);
+}elseif (isset($_GET["assid"]) && isset($_GET["grpid"])) {
+	$_GET["purid"] = create_dummy(0, $_GET["assid"], $_GET["grpid"]);
+	$_GET["done"] = "";
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
             case "search":
-				$OUTPUT = search($HTTP_POST_VARS);
+				$OUTPUT = search($_POST);
 				break;
 
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 
             default:
-				$OUTPUT = details($HTTP_GET_VARS);
+				$OUTPUT = details($_GET);
 			}
 	} else {
-		$OUTPUT = details($HTTP_GET_VARS);
+		$OUTPUT = details($_GET);
 	}
 }
 
@@ -103,11 +103,11 @@ function create_dummy($deptid, $assid, $grpid){
 
 
 # details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -170,7 +170,7 @@ function details($HTTP_POST_VARS, $error="")
 
 /* --- Start Products Display --- */
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	# Select all products
 	$products = "
@@ -203,7 +203,7 @@ function details($HTTP_POST_VARS, $error="")
 
 		$stkd['amt'] = round($stkd['amt'], 2);
 
-		if(isset($HTTP_GET_VARS['v'])) {
+		if(isset($_GET['v'])) {
 			$stkd['svat']="";
 		}
 
@@ -463,11 +463,11 @@ function details($HTTP_POST_VARS, $error="")
 
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -529,8 +529,8 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class=err>".$e["msg"];
 		}
-		$HTTP_POST_VARS['done'] = "";
-		return details($HTTP_POST_VARS, $err);
+		$_POST['done'] = "";
+		return details($_POST, $err);
 	}
 
 	
@@ -606,7 +606,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					$Ri=db_exec($Sl);
 
 					if(pg_num_rows($Ri)<1) {
-						return details($HTTP_POST_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+						return details($_POST, "<li class='err'>Please select the vatcode for all your items.</li>");
 					}
 
 					$vd=pg_fetch_array($Ri);
@@ -641,10 +641,10 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					$rslt = db_exec($sql) or errDie("Unable to insert Order items to Cubit.",SELF);
 				}
 				# everything is set place done button
-				$HTTP_POST_VARS["done"] = " | <input name='doneBtn' type='submit' value='Done'>| <input name='print'  type='submit' value='Receive'>";
+				$_POST["done"] = " | <input name='doneBtn' type='submit' value='Done'>| <input name='print'  type='submit' value='Receive'>";
 			}
 		}else{
-			$HTTP_POST_VARS["done"] = "";
+			$_POST["done"] = "";
 		}
 
 		$vatinc=$tvatinc;
@@ -707,7 +707,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 		exit;
 
 	}elseif(!isset($doneBtn)){
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}else{
 		# insert purchase to DB
 		$sql = "UPDATE nons_purchases SET done = 'y', is_asset = 'yes' WHERE purid = '$purid' AND div = '".USER_DIV."'";

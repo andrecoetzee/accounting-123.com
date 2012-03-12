@@ -28,8 +28,8 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-        if(isset($HTTP_GET_VARS['cusnum'])){
-                $OUTPUT = details($HTTP_GET_VARS['cusnum']);
+        if(isset($_GET['cusnum'])){
+                $OUTPUT = details($_GET['cusnum']);
         }else{
                 $OUTPUT = "<li class=err> Invalid use of module.";
         }

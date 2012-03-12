@@ -28,29 +28,29 @@ require("../settings.php");
 require("../core-settings.php");
 require ("../libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "method":
-			$OUTPUT = method($HTTP_POST_VARS);
+			$OUTPUT = method($_POST);
 			break;
 		case "alloc":
-			$OUTPUT = alloc($HTTP_POST_VARS);
+			$OUTPUT = alloc($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = sel_sup();
 	}
-} elseif(isset($HTTP_GET_VARS["account"])) {
+} elseif(isset($_GET["account"])) {
         # Display default output
-        $OUTPUT =  method($HTTP_GET_VARS["account"]);
-}elseif(isset($HTTP_GET_VARS["supid"])) {
+        $OUTPUT =  method($_GET["account"]);
+}elseif(isset($_GET["supid"])) {
         # Display default output
-        $OUTPUT =  method($HTTP_GET_VARS["supid"]);
+        $OUTPUT =  method($_GET["supid"]);
 }else {
         # Display default output
         $OUTPUT = sel_sup();
@@ -66,9 +66,9 @@ require("../template.php");
 function sel_sup()
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(!isset($supid)) {
 		$supid = 0;
@@ -135,10 +135,10 @@ function sel_sup()
 
 
 # Insert details
-function method($HTTP_POST_VARS)
+function method($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -158,9 +158,9 @@ function method($HTTP_POST_VARS)
 
 
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	if(isset($HTTP_GET_VARS["e"])) {
+	if(isset($_GET["e"])) {
 		$ex = "<input type='hidden' name='e' value='y'>";
 	} else {
 		$ex = "";
@@ -257,7 +257,7 @@ function method($HTTP_POST_VARS)
 		}
 		$bankacc .= "</select>";
 	
-	// 	if(isset($HTTP_GET_VARS["cash"])) {
+	// 	if(isset($_GET["cash"])) {
 	// 		$add.="<option value='0'>Pay Cash</option>";
 	// 	}
 	
@@ -317,11 +317,11 @@ function method($HTTP_POST_VARS)
 
 
 # confirm
-function alloc($HTTP_POST_VARS)
+function alloc($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
 		if(isset($e)) {
@@ -721,11 +721,11 @@ function alloc($HTTP_POST_VARS)
 
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
 		return method($supid);
@@ -814,7 +814,7 @@ function confirm($HTTP_POST_VARS)
 
 
 		if(sprint(($tot[$t]+$out[$t]+$out1[$t]+$out2[$t]+$out3[$t]+$out4[$t]+$out5[$t]) - $amt[$t]) != 0){
-//				return "<li class='err'>$tot[$t] - $amt[$t] The total amount is not equal to the amount paid. Please check the details.</li>".alloc($HTTP_POST_VARS);
+//				return "<li class='err'>$tot[$t] - $amt[$t] The total amount is not equal to the amount paid. Please check the details.</li>".alloc($_POST);
 		}
 
 		vsprint($out[$t]);
@@ -1026,13 +1026,13 @@ for ($t = 0;$t < $rec_amount;$t++){
 		if($out2[$t] > 0)
 		{
 			if($out2[$t] > $age30[$t]) {
-				$HTTP_POST_VARS["out1[$t]"] = $out1[$t];
-				$HTTP_POST_VARS["out2[$t]"] = $out2[$t];
-				$HTTP_POST_VARS["out3[$t]"] = $out3[$t];
-				$HTTP_POST_VARS["out4[$t]"] = $out4[$t];
-				$HTTP_POST_VARS["out5[$t]"] = $out5[$t];
+				$_POST["out1[$t]"] = $out1[$t];
+				$_POST["out2[$t]"] = $out2[$t];
+				$_POST["out3[$t]"] = $out3[$t];
+				$_POST["out4[$t]"] = $out4[$t];
+				$_POST["out5[$t]"] = $out5[$t];
 
-				return "<li class='err'>You cannot allocate ".CUR." $out2[$t] to 30 days, you only owe ".CUR." $age30[$t]</li>".alloc($HTTP_POST_VARS);
+				return "<li class='err'>You cannot allocate ".CUR." $out2[$t] to 30 days, you only owe ".CUR." $age30[$t]</li>".alloc($_POST);
 			}
 			// Connect to database
 			db_conn("cubit");
@@ -1094,13 +1094,13 @@ for ($t = 0;$t < $rec_amount;$t++){
 		if($out3[$t] > 0)
 		{
 			if($out3[$t] > $age60[$t]) {
-				$HTTP_POST_VARS["out1[$t]"] = $out1[$t];
-				$HTTP_POST_VARS["out2[$t]"] = $out2[$t];
-				$HTTP_POST_VARS["out3[$t]"] = $out3[$t];
-				$HTTP_POST_VARS["out4[$t]"] = $out4[$t];
-				$HTTP_POST_VARS["out5[$t]"] = $out5[$t];
+				$_POST["out1[$t]"] = $out1[$t];
+				$_POST["out2[$t]"] = $out2[$t];
+				$_POST["out3[$t]"] = $out3[$t];
+				$_POST["out4[$t]"] = $out4[$t];
+				$_POST["out5[$t]"] = $out5[$t];
 
-				return "<li class='err'>You cannot allocate ".CUR." $out3[$t] to 60 days, you only owe ".CUR." $age60[$t] </li>".alloc($HTTP_POST_VARS);
+				return "<li class='err'>You cannot allocate ".CUR." $out3[$t] to 60 days, you only owe ".CUR." $age60[$t] </li>".alloc($_POST);
 			}
 
 			// Connect to database
@@ -1163,13 +1163,13 @@ for ($t = 0;$t < $rec_amount;$t++){
 		if($out4[$t] > 0)
 		{
 			if($out4[$t] > $age90[$t]) {
-				$HTTP_POST_VARS["out1[$t]"] = $out1[$t];
-				$HTTP_POST_VARS["out2[$t]"] = $out2[$t];
-				$HTTP_POST_VARS["out3[$t]"] = $out3[$t];
-				$HTTP_POST_VARS["out4[$t]"] = $out4[$t];
-				$HTTP_POST_VARS["out5[$t]"] = $out5[$t];
+				$_POST["out1[$t]"] = $out1[$t];
+				$_POST["out2[$t]"] = $out2[$t];
+				$_POST["out3[$t]"] = $out3[$t];
+				$_POST["out4[$t]"] = $out4[$t];
+				$_POST["out5[$t]"] = $out5[$t];
 
-				return "<li class='err'>You cannot allocate ".CUR." $out4[$t] to 90 days, you only owe ".CUR." $age90[$t]</li>".alloc($HTTP_POST_VARS);
+				return "<li class='err'>You cannot allocate ".CUR." $out4[$t] to 90 days, you only owe ".CUR." $age90[$t]</li>".alloc($_POST);
 			}
 			// Connect to database
 			db_conn("cubit");
@@ -1231,13 +1231,13 @@ for ($t = 0;$t < $rec_amount;$t++){
 		if($out5[$t] > 0)
 		{
 			if($out5[$t] > $age120[$t]) {
-				$HTTP_POST_VARS["out1[$t]"] = $out1[$t];
-				$HTTP_POST_VARS["out2[$t]"] = $out2[$t];
-				$HTTP_POST_VARS["out3[$t]"] = $out3[$t];
-				$HTTP_POST_VARS["out4[$t]"] = $out4[$t];
-				$HTTP_POST_VARS["out5[$t]"] = $out5[$t];
+				$_POST["out1[$t]"] = $out1[$t];
+				$_POST["out2[$t]"] = $out2[$t];
+				$_POST["out3[$t]"] = $out3[$t];
+				$_POST["out4[$t]"] = $out4[$t];
+				$_POST["out5[$t]"] = $out5[$t];
 
-				return "<li class='err'>You cannot allocate ".CUR." $out5[$t] to 120 days, you only owe ".CUR." $age120[$t]</li>".alloc($HTTP_POST_VARS);
+				return "<li class='err'>You cannot allocate ".CUR." $out5[$t] to 120 days, you only owe ".CUR." $age120[$t]</li>".alloc($_POST);
 			}
 			// Connect to database
 			db_conn("cubit");
@@ -1426,15 +1426,15 @@ for ($t = 0;$t < $rec_amount;$t++){
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return alloc($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return alloc($_POST);
 	}
 
 	# validate input

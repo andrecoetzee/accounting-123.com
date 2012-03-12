@@ -29,14 +29,14 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "view":
-			if(isset($HTTP_POST_VARS["amt"])){
-				$OUTPUT = viewRepAmt($HTTP_POST_VARS);
+			if(isset($_POST["amt"])){
+				$OUTPUT = viewRepAmt($_POST);
 				break;
 			}else{
-				$OUTPUT = viewRep($HTTP_POST_VARS);
+				$OUTPUT = viewRep($_POST);
 				break;
 			}
 			break;
@@ -97,11 +97,11 @@ function view()
 
 
 # Default view
-function viewRep($HTTP_POST_VARS)
+function viewRep($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Validate input
 	require_lib("validate");
@@ -196,11 +196,11 @@ function viewRep($HTTP_POST_VARS)
 
 
 # Default view
-function viewRepAmt($HTTP_POST_VARS)
+function viewRepAmt($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Validate input
 	require_lib("validate");

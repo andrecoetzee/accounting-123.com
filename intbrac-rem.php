@@ -29,14 +29,14 @@
 
 require ("settings.php");
 
-if ($HTTP_POST_VARS) {
-	if ($HTTP_POST_VARS["key"] == "write") {
+if ($_POST) {
+	if ($_POST["key"] == "write") {
 		# remove paye
-		$OUTPUT = remInt ($HTTP_POST_VARS);
+		$OUTPUT = remInt ($_POST);
 	}
 } else {
-	if (isset($HTTP_GET_VARS['id'])){
-		$OUTPUT = confirmInt ($HTTP_GET_VARS);
+	if (isset($_GET['id'])){
+		$OUTPUT = confirmInt ($_GET);
 	} else {
 		$OUTPUT = "<li> - Invalid use of module";
 	}
@@ -50,10 +50,10 @@ require ("template.php");
 ##
 
 # confirm removal
-function confirmInt ($HTTP_GET_VARS)
+function confirmInt ($_GET)
 {
 	# get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -108,10 +108,10 @@ function confirmInt ($HTTP_GET_VARS)
 }
 
 # remove entry
-function remInt ($HTTP_POST_VARS)
+function remInt ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

@@ -2,13 +2,13 @@
 
 	require ("settings.php");
 
-	if(isset($HTTP_POST_VARS["key"])){
-		switch($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch($_POST["key"]){
 			case "confirm":
-				$OUTPUT = confirm_loan ($HTTP_POST_VARS);
+				$OUTPUT = confirm_loan ($_POST);
 				break;
 			case "write":
-				$OUTPUT = write_loan ($HTTP_POST_VARS);
+				$OUTPUT = write_loan ($_POST);
 				break;
 			default:
 				$OUTPUT = get_loan ();
@@ -51,10 +51,10 @@ function get_loan ()
 }
 
 
-function confirm_loan ($HTTP_POST_VARS)
+function confirm_loan ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$display = "
 			<h2>Confirm New Loan Type</h2>
@@ -82,10 +82,10 @@ function confirm_loan ($HTTP_POST_VARS)
 }
 
 
-function write_loan ($HTTP_POST_VARS)
+function write_loan ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

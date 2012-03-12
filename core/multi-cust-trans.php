@@ -33,41 +33,41 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "details":
-			if (isset ($HTTP_POST_VARS['add_batch'])){
-				$OUTPUT = add_to_batch ($HTTP_POST_VARS);
-			}elseif (isset ($HTTP_POST_VARS['remove_entries'])) {
-				$OUTPUT = remove_batch_entries ($HTTP_POST_VARS);
-			}elseif (isset ($HTTP_POST_VARS['process_batch'])) {
-				$OUTPUT = write ($HTTP_POST_VARS);
+			if (isset ($_POST['add_batch'])){
+				$OUTPUT = add_to_batch ($_POST);
+			}elseif (isset ($_POST['remove_entries'])) {
+				$OUTPUT = remove_batch_entries ($_POST);
+			}elseif (isset ($_POST['process_batch'])) {
+				$OUTPUT = write ($_POST);
 			}else {
-				if(isset($HTTP_POST_VARS['details'])){
-					$OUTPUT = details($HTTP_POST_VARS);
+				if(isset($_POST['details'])){
+					$OUTPUT = details($_POST);
 				}else{
-					$OUTPUT = details2($HTTP_POST_VARS);
+					$OUTPUT = details2($_POST);
 				}
 			}
 			break;
 		case "import":
-			$OUTPUT = import_csv_file($HTTP_POST_VARS);
+			$OUTPUT = import_csv_file($_POST);
 			break;
 		default:
-			if (isset($HTTP_GET_VARS['cusnum'])){
-				$OUTPUT = slctacc ($HTTP_GET_VARS);
+			if (isset($_GET['cusnum'])){
+				$OUTPUT = slctacc ($_GET);
 			} else {
 				$OUTPUT = "<li> - Invalid use of module.</li>";
 			}
 	}
 } else {
-	$OUTPUT = slctacc ($HTTP_GET_VARS);
+	$OUTPUT = slctacc ($_GET);
 }
 
 # Get templete
@@ -77,10 +77,10 @@ require("template.php");
 
 
 # Select Accounts
-function slctacc($HTTP_GET_VARS, $err="")
+function slctacc($_GET, $err="")
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if (!isset($refnu))
 		$refnum = getrefnum();
@@ -337,10 +337,10 @@ function slctacc($HTTP_GET_VARS, $err="")
 
 
 
-function add_to_batch ($HTTP_POST_VARS)
+function add_to_batch ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -369,7 +369,7 @@ function add_to_batch ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return slctacc($HTTP_POST_VARS,"$confirm<br>");
+		return slctacc($_POST,"$confirm<br>");
 	}
 
 
@@ -390,13 +390,13 @@ function add_to_batch ($HTTP_POST_VARS)
 }
 
 
-function remove_batch_entries ($HTTP_POST_VARS)
+function remove_batch_entries ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset ($rem_trans) OR !is_array ($rem_trans)) {
-		return slctacc($HTTP_POST_VARS, "<li class='err'>Please Select Transaction(s) To Remove</li><br>");
+		return slctacc($_POST, "<li class='err'>Please Select Transaction(s) To Remove</li><br>");
 	}
 
 
@@ -409,7 +409,7 @@ function remove_batch_entries ($HTTP_POST_VARS)
 
 	}
 
-	return slctacc ($HTTP_POST_VARS,"<li class='yay'>Selected Transaction(s) Have Been Removed.</li><br>");
+	return slctacc ($_POST,"<li class='yay'>Selected Transaction(s) Have Been Removed.</li><br>");
 
 }
 
@@ -419,14 +419,14 @@ function remove_batch_entries ($HTTP_POST_VARS)
 
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset ($proc_trans) OR !is_array ($proc_trans)) 
-		return slctacc($HTTP_POST_VARS, "<li class='err'>Please Select Transaction(s) To Process</li>");
+		return slctacc($_POST, "<li class='err'>Please Select Transaction(s) To Process</li>");
 
 	db_connect ();
 
@@ -439,7 +439,7 @@ function write($HTTP_POST_VARS)
 		$get_trans = "SELECT * FROM cust_trans_batch WHERE id = '$procid' LIMIT 1";
 		$run_trans = db_exec ($get_trans) or errDie ("Unable to get transaction information.");
 		if (pg_numrows ($run_trans) < 1){
-			return slctacc ($HTTP_POST_VARS,"<li class='err'>Transaction Not Found: (ID:$procid)</li>");
+			return slctacc ($_POST,"<li class='err'>Transaction Not Found: (ID:$procid)</li>");
 		}
 
 		$parr = pg_fetch_array ($run_trans);
@@ -481,7 +481,7 @@ function write($HTTP_POST_VARS)
 		$get_trans = "SELECT * FROM cust_trans_batch WHERE id = '$procid' LIMIT 1";
 		$run_trans = db_exec ($get_trans) or errDie ("Unable to get transaction information.");
 		if (pg_numrows ($run_trans) < 1){
-			return slctacc ($HTTP_POST_VARS,"<li class='err'>Transaction Not Found: (ID:$procid)</li>");
+			return slctacc ($_POST,"<li class='err'>Transaction Not Found: (ID:$procid)</li>");
 		}
 
 		$parr = pg_fetch_array ($run_trans);
@@ -544,7 +544,7 @@ function write($HTTP_POST_VARS)
 		$sql = "SELECT * FROM customers WHERE cusnum = '$cusnum' AND div = '".USER_DIV."'";
 		$custRslt = db_exec($sql) or errDie("Unable to access databse.", SELF);
 		if(pg_numrows($custRslt) < 1){
-			return slctacc($HTTP_POST_VARS,"<li class='err'>Invalid customer ID, or customer has been blocked.</li>");
+			return slctacc($_POST,"<li class='err'>Invalid customer ID, or customer has been blocked.</li>");
 		}else{
 			$cust = pg_fetch_array($custRslt);
 		}
@@ -555,7 +555,7 @@ function write($HTTP_POST_VARS)
 		$sql = "SELECT * FROM departments WHERE deptid = '$cust[deptid]' AND div = '".USER_DIV."'";
 		$deptRslt = db_exec($sql);
 		if(pg_numrows($deptRslt) < 1){
-			return slctacc($HTTP_POST_VARS, "<i class='err'>Department Not Found</i>");
+			return slctacc($_POST, "<i class='err'>Department Not Found</i>");
 		}else{
 			$dept = pg_fetch_array($deptRslt);
 		}
@@ -640,7 +640,7 @@ function write($HTTP_POST_VARS)
 		pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.",SELF);
 
 	}
-	return slctacc($HTTP_POST_VARS,"<li class='yay'>Transaction(s) Have Been Processed.</li><br>");
+	return slctacc($_POST,"<li class='yay'>Transaction(s) Have Been Processed.</li><br>");
 
 }
 
@@ -744,10 +744,10 @@ function recordDT($amount, $cusnum,$odate)
 
 
 
-function import_csv_file ($HTTP_POST_VARS)
+function import_csv_file ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$file = file ($_FILES['import_file']['tmp_name']);
 

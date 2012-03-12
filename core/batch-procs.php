@@ -33,30 +33,30 @@ require("core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "writerem":
-			$OUTPUT = writerem($HTTP_POST_VARS);
+			$OUTPUT = writerem($_POST);
 			break;
 		default:
-			if(isset($HTTP_POST_VARS['proc'])){
+			if(isset($_POST['proc'])){
 				# Process
-				$OUTPUT = confirm($HTTP_POST_VARS);
-			}elseif(isset($HTTP_POST_VARS["rem"])){
+				$OUTPUT = confirm($_POST);
+			}elseif(isset($_POST["rem"])){
 				# Remove
-				$OUTPUT = confirmrem($HTTP_POST_VARS);
+				$OUTPUT = confirmrem($_POST);
 			}
 	}
 } else {
-	if(isset($HTTP_POST_VARS["proc"])){
+	if(isset($_POST["proc"])){
 		# Process
-		$OUTPUT = confirm($HTTP_POST_VARS);
-	}elseif(isset($HTTP_POST_VARS["rem"])){
+		$OUTPUT = confirm($_POST);
+	}elseif(isset($_POST["rem"])){
 		# Remove
-		$OUTPUT = confirmrem($HTTP_POST_VARS);
+		$OUTPUT = confirmrem($_POST);
 	}
 }
 
@@ -66,11 +66,11 @@ require("template.php");
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -203,11 +203,11 @@ function confirm($HTTP_POST_VARS)
 
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -416,11 +416,11 @@ function write($HTTP_POST_VARS)
 
 
 # Confirm
-function confirmrem($HTTP_POST_VARS)
+function confirmrem($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
     # validate input
 	require_lib("validate");
@@ -518,11 +518,11 @@ function confirmrem($HTTP_POST_VARS)
 
 
 # Write
-function writerem($HTTP_POST_VARS)
+function writerem($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

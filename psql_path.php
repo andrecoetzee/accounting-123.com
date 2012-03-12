@@ -36,8 +36,8 @@ $OUTPUT = "";
 // CHECK FOR PATH OF psql EXECUTABLE
 
 db_con("cubit");
-if( isset($HTTP_POST_VARS["psql_location"]) && (strlen($HTTP_POST_VARS["psql_location"]) > 0) ) {
-	$psql_exec = $HTTP_POST_VARS['psql_location'];
+if( isset($_POST["psql_location"]) && (strlen($_POST["psql_location"]) > 0) ) {
+	$psql_exec = $_POST['psql_location'];
 
 	if (validpath($psql_exec)) {
 		savepath($psql_exec);

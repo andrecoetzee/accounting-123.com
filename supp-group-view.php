@@ -26,17 +26,17 @@
 require ("settings.php");
 
 // Decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "display":
 			$OUTPUT = display();
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 	}
 } else {
@@ -69,8 +69,8 @@ require ("template.php");
 function display($error="")
 {
 
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 	
 	// Get the group names
 	db_conn("cubit");
@@ -185,10 +185,10 @@ function display($error="")
 
 
 
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	// Validate
 	require_lib("validate");
@@ -352,9 +352,9 @@ function confirm($HTTP_POST_VARS)
 	return $OUTPUT;
 }
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	// Validate
 	require_lib("validate");

@@ -26,10 +26,10 @@ require ("settings.php");
 
 
 
- if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+ if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = view_cons ($HTTP_POST_VARS);
+			$OUTPUT = view_cons ($_POST);
 			break;
 		default:
 			$OUTPUT = get_data ();
@@ -76,11 +76,11 @@ require ("template.php");
         return $get_data;
 }
 
-function view_cons ($HTTP_POST_VARS)
+function view_cons ($_POST)
 {
 
 
-        foreach ($HTTP_POST_VARS as $key => $value) {
+        foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

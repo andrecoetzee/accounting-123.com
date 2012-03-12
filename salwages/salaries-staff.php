@@ -33,19 +33,19 @@ require("payprdmsg.php");
 //print mkDateSelect("a", 2006, 3, 1)."<br />";
 
 ## Decide
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "process":
-			if (isset ($HTTP_POST_VARS["process"])) 
-				$OUTPUT = process($HTTP_POST_VARS);
+			if (isset ($_POST["process"])) 
+				$OUTPUT = process($_POST);
 			else 
 				$OUTPUT = slctEmployee ();
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "pack":
-			$OUTPUT = package($HTTP_POST_VARS);
+			$OUTPUT = package($_POST);
 			break;
 		default:
 			$OUTPUT = slctEmployee ();
@@ -206,11 +206,11 @@ function slctEmployee ($err = "")
 
 
 
-function process ($HTTP_POST_VARS, $err = "")
+function process ($_POST, $err = "")
 {
 
 	global $PRDMON;
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -318,7 +318,7 @@ function process ($HTTP_POST_VARS, $err = "")
 		$out = "<h3>Process Salaries</h3>
 			<form method='POST' action='".SELF."'>";
 
-		foreach ( $HTTP_POST_VARS as $key => $value ) {
+		foreach ( $_POST as $key => $value ) {
 			if ( is_array($value) ) {
 				foreach ( $value as $akey => $avalue ) {
 					$out .= "<input type='hidden' name='$key"."[$akey]' value='$avalue'>";
@@ -1476,12 +1476,12 @@ function process ($HTTP_POST_VARS, $err = "")
 
 
 
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
 	# get vars
-	$HTTP_POST_VARS = var_makesafe($HTTP_POST_VARS);
-	extract ($HTTP_POST_VARS);
+	$_POST = var_makesafe($_POST);
+	extract ($_POST);
 
 
 	if(isset($back)) {
@@ -1579,7 +1579,7 @@ function confirm ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirmCust .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return $confirmCust.process($HTTP_POST_VARS);
+		return $confirmCust.process($_POST);
 	}
 
 	$basic_sal_save = $basic_sal;
@@ -1651,7 +1651,7 @@ function confirm ($HTTP_POST_VARS)
 	}
 
 	if(isset($paid) && ($paid>0)) {
-		return process($HTTP_POST_VARS, "<li class='err'>You have already processed a salary for that period.</li>");
+		return process($_POST, "<li class='err'>You have already processed a salary for that period.</li>");
 	}
 
 	$salconacc = gethook("accnum", "salacc", "name", "salaries control");
@@ -1721,7 +1721,7 @@ function confirm ($HTTP_POST_VARS)
 	if ($hd_year > $MONempyear
 			|| ($hd_year == $MONempyear && $hd_month > $MON)
 			|| ($extra)) {
-		return process($HTTP_POST_VARS, "<li class='err'>Employee was not employed in the period
+		return process($_POST, "<li class='err'>Employee was not employed in the period
 			requested.</li>");
 	}
 
@@ -1906,7 +1906,7 @@ function confirm ($HTTP_POST_VARS)
 		$fin_year = substr(pg_fetch_result($rslt, 0, 0), 1);
 
 		if (!checkdate($bd_month, $bd_day, $bd_year)) {
-			return "<li class='err'>Please <a href='../admin-employee-edit.php?empnum=$myEmp[empnum]'>change</a> employees ID Number to valid ID Number</li>".process($HTTP_POST_VARS);
+			return "<li class='err'>Please <a href='../admin-employee-edit.php?empnum=$myEmp[empnum]'>change</a> employees ID Number to valid ID Number</li>".process($_POST);
 		}
 
 		$sql = "SELECT EXTRACT('year' FROM AGE('$fin_year-02-28', '$bd_year-$bd_month-$bd_day'))";
@@ -2649,16 +2649,16 @@ function confirm ($HTTP_POST_VARS)
 
 
 # Write new data
-function package($HTTP_POST_VARS)
+function package($_POST)
 {
 
-	$HTTP_POST_VARS = var_makesafe($HTTP_POST_VARS);
-	extract($HTTP_POST_VARS);
+	$_POST = var_makesafe($_POST);
+	extract($_POST);
 
 	$week += 0;
 
 	if(isset($back)) {
-		return process($HTTP_POST_VARS);
+		return process($_POST);
 	}
 
 	$annual += 0;

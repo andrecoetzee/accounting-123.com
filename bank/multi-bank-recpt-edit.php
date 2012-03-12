@@ -29,26 +29,26 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "add":
-			$OUTPUT = add($HTTP_GET_VARS);
+			$OUTPUT = add($_GET);
 			break;
 
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 
 		default:
-			$OUTPUT = add($HTTP_GET_VARS);
+			$OUTPUT = add($_GET);
 	}
 } else {
 	# Display default output
-	$OUTPUT = add($HTTP_GET_VARS);
+	$OUTPUT = add($_GET);
 }
 
 # get templete
@@ -56,11 +56,11 @@ require("../template.php");
 
 
 # Insert details
-function add($HTTP_GET_VARS)
+function add($_GET)
 {
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if(!isset($id) OR (strlen($id) < 1)){
 		return "Invalid use of module";
@@ -385,10 +385,10 @@ function add($HTTP_GET_VARS)
 }
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
 		print "
@@ -431,8 +431,8 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		$HTTP_POST_VARS['errata'] = $confirm."</li>";
-		return add($HTTP_POST_VARS);
+		$_POST['errata'] = $confirm."</li>";
+		return add($_POST);
 	}
 
 	# Get bank account name
@@ -491,12 +491,12 @@ function confirm($HTTP_POST_VARS)
 	$diff = sprint($amount - $gamt);
 
 	if($diff > 0){
-		$HTTP_POST_VARS['errata'] = "<li class=err>ERROR : Total transaction amount is more than the amount allocated to accounts by ".CUR." $diff .</lI>";
-		return add($HTTP_POST_VARS);
+		$_POST['errata'] = "<li class=err>ERROR : Total transaction amount is more than the amount allocated to accounts by ".CUR." $diff .</lI>";
+		return add($_POST);
 	}elseif($diff < 0){
 		$diff = sprint($diff * (-1));
-		$HTTP_POST_VARS['errata'] = "<li class=err>ERROR : Total transaction amount is less than the amount allocated to accounts by ".CUR." $diff .</lI>";
-		return add($HTTP_POST_VARS);
+		$_POST['errata'] = "<li class=err>ERROR : Total transaction amount is less than the amount allocated to accounts by ".CUR." $diff .</lI>";
+		return add($_POST);
 	}
 
 	// Layout
@@ -575,17 +575,17 @@ function confirm($HTTP_POST_VARS)
 }
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	# Processes
 	db_connect();
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return add($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return add($_POST);
 	}
 
 	# validate input

@@ -26,13 +26,13 @@
 require("../../settings.php");
 require("../https_urlsettings.php");
 
-if ( isset($HTTP_POST_VARS) && is_array($HTTP_POST_VARS) ) {
-	foreach($HTTP_POST_VARS as $key => $value) {
-		$HTTP_GET_VARS[$key] = $value;
+if ( isset($_POST) && is_array($_POST) ) {
+	foreach($_POST as $key => $value) {
+		$_GET[$key] = $value;
 	}
 }
 
-if ( ! isset($HTTP_GET_VARS["step"]) ) {
+if ( ! isset($_GET["step"]) ) {
 	$OUTPUT = "<li class=err>Invalid use of module</li>";
 	require("../../template.php");
 }
@@ -42,8 +42,8 @@ $OUTPUT = choose_step();
 require("../../template.php");
 
 function choose_step() {
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	require_lib("validate");
 	$v = & new Validate();
@@ -182,8 +182,8 @@ function choose_step() {
 }
 
 function enter($err){
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	if ( ! isset($msg) ) $msg = "";
 	if ( ! isset($custs) || ! is_array($custs) ) $custs = Array();

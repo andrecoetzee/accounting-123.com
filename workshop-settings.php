@@ -25,17 +25,17 @@
 
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "enter":
 			$OUTPUT = enter();
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 	}
 } else {
@@ -45,8 +45,8 @@ require ("template.php");
 
 function enter($errors="")
 {
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	if (!isset($ws_cond)) {
 		// Retrieve the display notice from Cubit
@@ -78,9 +78,9 @@ function enter($errors="")
 	return $OUTPUT;
 }
 
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	// Validate
 	require_lib("validate");
@@ -121,9 +121,9 @@ function confirm($HTTP_POST_VARS)
 	return $OUTPUT;
 }
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	// Make sure the setting exists in Cubit
 	db_conn("cubit");

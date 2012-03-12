@@ -27,16 +27,16 @@ require ("settings.php");
 require ("libs/ext.lib.php");
 
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "select":
-			$OUTPUT = commision_select ($HTTP_POST_VARS);
+			$OUTPUT = commision_select ($_POST);
 			break;
 		case "confirm":
-			if (isset ($HTTP_POST_VARS["savenext"]) OR isset ($HTTP_POST_VARS["save"])){
-				$OUTPUT = commision_write($HTTP_POST_VARS);
+			if (isset ($_POST["savenext"]) OR isset ($_POST["save"])){
+				$OUTPUT = commision_write($_POST);
 			}else {
-				$OUTPUT = commision_select($HTTP_POST_VARS);
+				$OUTPUT = commision_select($_POST);
 			}
 			break;
 		default:
@@ -160,11 +160,11 @@ function slct()
 
 
 
-function commision_select ($HTTP_POST_VARS)
+function commision_select ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	define ("LIMIT", 50);
 
@@ -298,11 +298,11 @@ function commision_select ($HTTP_POST_VARS)
 
 
 
-function commision_write ($HTTP_POST_VARS)
+function commision_write ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -327,7 +327,7 @@ function commision_write ($HTTP_POST_VARS)
 		$Rss = db_exec ($Sl) or errDie ("Unable to retrieve stocks from database.");
 	}
 
-	return commision_select ($HTTP_POST_VARS);
+	return commision_select ($_POST);
 
 }
 

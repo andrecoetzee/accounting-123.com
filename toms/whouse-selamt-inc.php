@@ -27,22 +27,22 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["stkerr"] = '0,0';
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["invid"]) && isset($_GET["cont"])) {
+	$_GET["stkerr"] = '0,0';
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
             case "details":
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 				break;
 
 			case "confirm":
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 				break;
 
 			case "write":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 
             default:
@@ -95,10 +95,10 @@ function view()
 }
 
 # Default view
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -142,10 +142,10 @@ function view_err($HTTP_POST_VARS, $err = "")
 }
 
 # details
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -163,7 +163,7 @@ function confirm($HTTP_POST_VARS)
 			$error .= "<li class=err>".$e["msg"];
 		}
 		# $confirm .= "$error<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
-		return view_err($HTTP_POST_VARS, $error);
+		return view_err($_POST, $error);
 	}
 
 	# get warehouse name
@@ -187,7 +187,7 @@ function confirm($HTTP_POST_VARS)
     $stkRslt = db_exec ($sql) or errDie ("Unable to retrieve stocks from database.");
 	if (pg_numrows ($stkRslt) < 1) {
 		$error = "<li class=err> There are no stock items under the selected warehouse.";
-		return view_err($HTTP_POST_VARS, $error);
+		return view_err($_POST, $error);
 	}
 	while ($stk = pg_fetch_array ($stkRslt)) {
 		# get category account name
@@ -230,10 +230,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -251,7 +251,7 @@ function write($HTTP_POST_VARS)
 			$error .= "<li class=err>".$e["msg"];
 		}
 		# $confirm .= "$error<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
-		return view_err($HTTP_POST_VARS, $error);
+		return view_err($_POST, $error);
 	}
 
 	# get warehouse name
@@ -266,7 +266,7 @@ function write($HTTP_POST_VARS)
     $stkRslt = db_exec ($sql) or errDie ("Unable to retrieve stocks from database.");
 	if (pg_numrows ($stkRslt) < 1) {
 		$error = "<li class=err> There are no stock items in the selected warehouse.";
-		return view_err($HTTP_POST_VARS, $error);
+		return view_err($_POST, $error);
 	}
 
 	# Begin updating

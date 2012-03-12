@@ -2,10 +2,10 @@
 
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["confirm"])){
-	$OUTPUT = write_data_output ($HTTP_POST_VARS);
+if (isset($_POST["confirm"])){
+	$OUTPUT = write_data_output ($_POST);
 }else {
-	$OUTPUT = get_data_output ($HTTP_POST_VARS);
+	$OUTPUT = get_data_output ($_POST);
 }
 
 require ("template.php");
@@ -13,10 +13,10 @@ require ("template.php");
 
 
 
-function get_data_output ($HTTP_POST_VARS)
+function get_data_output ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 
@@ -308,10 +308,10 @@ function get_data_output ($HTTP_POST_VARS)
 
 
 
-function write_data_output ($HTTP_POST_VARS)
+function write_data_output ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	$data_val = "";
 	foreach ($first_val AS $counter => $own){

@@ -26,13 +26,13 @@
 require("settings.php");
 //require_once("libs/ext.lib.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid";
@@ -116,8 +116,8 @@ function enter() {
 
 }
 
-function confirm($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function confirm($_POST) {
+	extract($_POST);
 
 	db_conn('cubit');
 	$Sl="SELECT userid,username FROM users WHERE div='".USER_DIV."' ORDER BY username";
@@ -161,8 +161,8 @@ function confirm($HTTP_POST_VARS) {
 
 }
 
-function write($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function write($_POST) {
+	extract($_POST);
 
 	db_conn('cubit');
 	$Sl="SELECT userid,username FROM users WHERE div='".USER_DIV."' ORDER BY username";

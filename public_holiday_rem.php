@@ -2,35 +2,35 @@
 
 	require ("settings.php");
 
-	if(isset($HTTP_POST_VARS["key"])){
-		switch($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch($_POST["key"]){
 			case "write":
-				$OUTPUT = write_holiday ($HTTP_POST_VARS);
+				$OUTPUT = write_holiday ($_POST);
 				break;
 			default:
-				$OUTPUT = confirm_holiday ($HTTP_POST_VARS);
+				$OUTPUT = confirm_holiday ($_POST);
 		}
 	}else {
-		$OUTPUT = confirm_holiday ($HTTP_GET_VARS);
+		$OUTPUT = confirm_holiday ($_GET);
 	}
 
 	require ("template.php");
 
 
-function confirm_holiday ($HTTP_POST_VARS)
+function confirm_holiday ($_POST)
 {
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	if(!isset($HTTP_GET_VARS["id"]) OR (strlen($HTTP_GET_VARS["id"]) < 1)){
+	if(!isset($_GET["id"]) OR (strlen($_GET["id"]) < 1)){
 		return "Invalid Use Of Module.";
 	}
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 
-	$get_details = "SELECT * FROM public_holidays WHERE id = '$HTTP_GET_VARS[id]' LIMIT 1";
+	$get_details = "SELECT * FROM public_holidays WHERE id = '$_GET[id]' LIMIT 1";
 	$run_details = db_exec($get_details) or errDie("Unable to get public holiday information.");
 	if(pg_numrows($run_details) < 1){
 		return "Invalid Use Of Module. Can't find holiday information.";
@@ -74,10 +74,10 @@ function confirm_holiday ($HTTP_POST_VARS)
 }
 
 
-function write_holiday ($HTTP_POST_VARS)
+function write_holiday ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

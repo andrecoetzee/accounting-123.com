@@ -36,19 +36,19 @@ require ("../libs/ext.lib.php");
 require ("../groupware/gw-common.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = con_data ($HTTP_POST_VARS);
+			$OUTPUT = con_data ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_data ($HTTP_POST_VARS);
+			$OUTPUT = write_data ($_POST);
 			break;
 		default:
-			$OUTPUT = get_data ($HTTP_GET_VARS);
+			$OUTPUT = get_data ($_GET);
 	}
 } else {
-	$OUTPUT = get_data ($HTTP_GET_VARS);
+	$OUTPUT = get_data ($_GET);
 }
 
 # display output
@@ -57,10 +57,10 @@ require ("../template.php");
 
 
 # enter new data
-function get_data ($HTTP_GET_VARS,$errs="")
+function get_data ($_GET,$errs="")
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -426,11 +426,11 @@ function get_data ($HTTP_GET_VARS,$errs="")
 
 
 # confirm new data
-function con_data ($HTTP_POST_VARS)
+function con_data ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -501,7 +501,7 @@ function con_data ($HTTP_POST_VARS)
 			else
 			$err .= "<li class=err>Invalid characters: $e[msg]</li>";
 		}
-		return get_data($HTTP_POST_VARS,$err);
+		return get_data($_POST,$err);
 	}
 
 	db_conn("exten");
@@ -708,11 +708,11 @@ function con_data ($HTTP_POST_VARS)
 
 
 # write new data
-function write_data ($HTTP_POST_VARS)
+function write_data ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -784,7 +784,7 @@ function write_data ($HTTP_POST_VARS)
 			else
 			$err .= "<li class='err'>Invalid characters: $e[msg]</li>";
 		}
-		return get_data($HTTP_POST_VARS,$err);
+		return get_data($_POST,$err);
 	}
 
 

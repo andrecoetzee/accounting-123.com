@@ -28,8 +28,8 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = inc($HTTP_GET_VARS["id"]);
+if (isset($_GET["id"])) {
+	$OUTPUT = inc($_GET["id"]);
 } else {
 	# Display error
 	$OUTPUT = "<li> Error: Invalid Statement Number.";

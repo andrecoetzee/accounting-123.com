@@ -24,22 +24,22 @@
 #
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		default:
 			$OUTPUT = "Invalid";
 	}
-} elseif(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
+} elseif(isset($_GET["id"])) {
+	$OUTPUT = details($_GET);
 } else {
 	$OUTPUT = "Invalid";
 }
 
 require("template.php");
 
-function details($HTTP_GET_VARS) {
+function details($_GET) {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 	$id+=0;
 
 	db_conn('crm');

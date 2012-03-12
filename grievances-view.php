@@ -27,16 +27,16 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = view_grievance ($HTTP_POST_VARS["empnum"]);
+			$OUTPUT = view_grievance ($_POST["empnum"]);
 			break;
 		default:
 			$OUTPUT = "Invalid use.";
 	}
-}elseif(isset($HTTP_GET_VARS["empnum"])){
-	$OUTPUT = view_grievance ($HTTP_GET_VARS["empnum"]);
+}elseif(isset($_GET["empnum"])){
+	$OUTPUT = view_grievance ($_GET["empnum"]);
 } else {
 	$OUTPUT = select_emp_grievance ();
 }
@@ -55,7 +55,7 @@ require ("template.php");
 function select_emp_grievance ()
 {
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	# Connect to db
 	db_connect ();
@@ -82,8 +82,8 @@ function select_emp_grievance ()
 	}
 	$emp_drop .= "</select>";
 
-	if(isset($HTTP_GET_VARS["mode"])){
-		$sendmode = "<input type='hidden' name='mode' value='$HTTP_GET_VARS[mode]'>";
+	if(isset($_GET["mode"])){
+		$sendmode = "<input type='hidden' name='mode' value='$_GET[mode]'>";
 	}else {
 		$sendmode = "";
 	}
@@ -115,7 +115,7 @@ function select_emp_grievance ()
 function view_grievance ($empnum = "")
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
 	# validate input
 	require_lib("validate");
@@ -136,7 +136,7 @@ function view_grievance ($empnum = "")
 
 	db_connect ();
 
-	if(isset($HTTP_POST_VARS["mode"]) AND ($HTTP_POST_VARS["mode"] == "closed")){
+	if(isset($_POST["mode"]) AND ($_POST["mode"] == "closed")){
 		$get_grievs = "SELECT * FROM grievances WHERE empnum = '$empnum' AND closed = 'yes'";
 	}else {
 		$get_grievs = "SELECT * FROM grievances WHERE empnum = '$empnum' AND closed = 'no'";
@@ -190,10 +190,10 @@ function view_grievance ($empnum = "")
 
 
 
-function write_grievance ($HTTP_POST_VARS)
+function write_grievance ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

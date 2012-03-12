@@ -28,37 +28,37 @@ require("../settings.php");
 require("../core-settings.php");
 require("../libs/ext.lib.php");
 
-foreach ($HTTP_GET_VARS as $key=>$value) {
-	$HTTP_POST_VARS[$key] = $value;
+foreach ($_GET as $key=>$value) {
+	$_POST[$key] = $value;
 }
 
-if (isset($HTTP_GET_VARS["invid"])) {
-	$HTTP_POST_VARS["invid"] = $HTTP_GET_VARS["invid"];
+if (isset($_GET["invid"])) {
+	$_POST["invid"] = $_GET["invid"];
 }
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["stkerr"] = '0,0';
-	$HTTP_GET_VARS["done"] = '';
-	$HTTP_GET_VARS["client"] = '';
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["invid"]) && isset($_GET["cont"])) {
+	$_GET["stkerr"] = '0,0';
+	$_GET["done"] = '';
+	$_GET["client"] = '';
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "newpos":
 				$OUTPUT = newPos();
 				break;
 			case "details":
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 				break;
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 			default:
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 		}
 	} else {
-		$OUTPUT = details($HTTP_POST_VARS);
+		$OUTPUT = details($_POST);
 	}
 }
 
@@ -116,10 +116,10 @@ function view()
 
 
 # Default view
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Query server for depts
 	db_conn("exten");
@@ -229,7 +229,7 @@ function create_dummy($deptid)
 
 
 
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 
 	extract($_REQUEST);
@@ -278,7 +278,7 @@ function details($HTTP_POST_VARS, $error="")
 	$subtot = 0;
 
 	if (isset($hirenewBtn)) {
-		newHire($HTTP_POST_VARS);
+		newHire($_POST);
 	}
 
 	// Get us an invoice id
@@ -1188,10 +1188,10 @@ function details($HTTP_POST_VARS, $error="")
 
 
 
-function newHire($HTTP_POST_VARS)
+function newHire($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	// Remove booking if any
 	$sql = "DELETE FROM hire.bookings WHERE id='$bk_id'";
@@ -1232,10 +1232,10 @@ function newHire($HTTP_POST_VARS)
 
 
 
-function update($HTTP_POST_VARS)
+function update($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$collect_ar = array();
 
@@ -1665,10 +1665,10 @@ function update($HTTP_POST_VARS)
 
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$deptid += 0;
 
@@ -1818,15 +1818,15 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>$e[msg]<li>";
 		}
-		return details($HTTP_POST_VARS, $err);
+		return details($_POST, $err);
 	}
 
 	if(strlen($vatnum) < 1) {$vatnum = "";}
-	$HTTP_POST_VARS['client'] = $client;
-	$HTTP_POST_VARS['vatnum'] = $vatnum;
+	$_POST['client'] = $client;
+	$_POST['vatnum'] = $vatnum;
 
-	$HTTP_POST_VARS['telno'] = $telno;
-	$HTTP_POST_VARS['cordno'] = $cordno;
+	$_POST['telno'] = $telno;
+	$_POST['cordno'] = $cordno;
 
 	# Get invoice info
 	db_connect();
@@ -1870,7 +1870,7 @@ function write($HTTP_POST_VARS)
 	db_connect();
 
 	if (isset($upBtn) || isset($hirenewBtn)) {
-		$update_ret = update($HTTP_POST_VARS);
+		$update_ret = update($_POST);
 	} else {
 		$update_ret = false;
 	}
@@ -1966,7 +1966,7 @@ function write($HTTP_POST_VARS)
 	# commit updating
 	pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.",SELF);
 
-	return details($HTTP_POST_VARS, $update_ret);
+	return details($_POST, $update_ret);
 
 	if (strlen($bar) > 0) {
 
@@ -1974,7 +1974,7 @@ function write($HTTP_POST_VARS)
 		$Rs = db_exec ($Sl) or errDie ("Unable to add supplier to the system.", SELF);
 
 		if (pg_numrows ($Rs) < 1) {
-			return details($HTTP_POST_VARS,"Please go set the point of sale settings under the stock settings");
+			return details($_POST,"Please go set the point of sale settings under the stock settings");
 		}
 		$Dets = pg_fetch_array($Rs);
 		if($Dets['opt'] == "No"){
@@ -2011,7 +2011,7 @@ function write($HTTP_POST_VARS)
 					$tab = "ss9";
 					break;
 				default:
-					return details($HTTP_POST_VARS,"The code you selected is invalid");
+					return details($_POST,"The code you selected is invalid");
 			}
 			db_conn('cubit');
 
@@ -2020,7 +2020,7 @@ function write($HTTP_POST_VARS)
 			$stid = barext_dbget($tab,'code',$bar,'stock');
 
 			if(!($stid>0)){
-				return details($HTTP_POST_VARS,"<li class='err'><b>ERROR</b>: The bar code you selected is not in the system or is not available.</li>");}
+				return details($_POST,"<li class='err'><b>ERROR</b>: The bar code you selected is not in the system or is not available.</li>");}
 
 			$Sl = "SELECT * FROM stock WHERE stkid = '$stid' AND div = '".USER_DIV."'";
 			$Rs = db_exec($Sl);
@@ -2047,7 +2047,7 @@ function write($HTTP_POST_VARS)
 
 			$stid = ext_dbget('stock','bar',$bar,'stkid');
 
-			if(!($stid>0)){return details($HTTP_POST_VARS,"<li class='err'><b>ERROR</b>: The bar code you selected is not in the system or is not available.</li>");}
+			if(!($stid>0)){return details($_POST,"<li class='err'><b>ERROR</b>: The bar code you selected is not in the system or is not available.</li>");}
 
 			$Sl = "SELECT * FROM stock WHERE stkid = '$stid' AND div = '".USER_DIV."'";
 			$Rs = db_exec($Sl);
@@ -2074,14 +2074,14 @@ function write($HTTP_POST_VARS)
 		$crslt = db_exec($sql);
 		if(pg_numrows($crslt) < 1){
 			$error = "<li class='err'> Error : Invoice number has no items.</li>";
-			return details($HTTP_POST_VARS, $error);
+			return details($_POST, $error);
 		}
 
 		$TOTAL = sprint($TOTAL-$rounding);
 
 		if(($pcash + $pcheque + $pcc + $pcredit) < $TOTAL) {
 
-			return details($HTTP_POST_VARS, "<li class='err'>The total of all the payments is less than the invoice total</li>");
+			return details($_POST, "<li class='err'>The total of all the payments is less than the invoice total</li>");
 
 		}
 
@@ -2095,7 +2095,7 @@ function write($HTTP_POST_VARS)
 
 		if(sprint($pcash + $pcheque + $pcc + $pcredit) != sprint($TOTAL)) {
 
-			return details($HTTP_POST_VARS, "<li class='err'>The total of all the payments is not equal to the invoice total.<br>
+			return details($_POST, "<li class='err'>The total of all the payments is not equal to the invoice total.<br>
 			(You can only overpay with cash)</li>");
 
 		}
@@ -2136,8 +2136,8 @@ function write($HTTP_POST_VARS)
 			</table>";
 		return $write;
 	}else{
-	if(isset($wtd)){$HTTP_POST_VARS['wtd'] = $wtd;}
-		return details($HTTP_POST_VARS);
+	if(isset($wtd)){$_POST['wtd'] = $wtd;}
+		return details($_POST);
 	}
 
 }

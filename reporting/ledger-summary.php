@@ -26,10 +26,10 @@
 require("../settings.php");
 require("../core-settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "viewtran":
-			$OUTPUT = viewtran($HTTP_POST_VARS);
+			$OUTPUT = viewtran($_POST);
 			break;
 		case "export":
 			$OUTPUT = export();
@@ -172,11 +172,11 @@ function slctacc($err = "")
 
 
 
-function viewtran($HTTP_POST_VARS)
+function viewtran($_POST)
 {
 
 	global $MONPRD, $PRDMON;
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");

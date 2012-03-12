@@ -29,16 +29,16 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["purid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["purid"]) && isset($_GET["cont"])) {
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "details":
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 				break;
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 			default:
 				$OUTPUT = view();
@@ -58,11 +58,11 @@ require("template.php");
 function view()
 {
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	//$HTTP_GET_VARS["noduty"]="y";
+	//$_GET["noduty"]="y";
 
-	if(isset($HTTP_GET_VARS["noduty"])) {
+	if(isset($_GET["noduty"])) {
 		$ex = "<input type='hidden' name='noduty' value='yes'>";
 	} else {
 		$ex = "";
@@ -129,11 +129,11 @@ function view()
 
 
 # Default view
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($noduty)) {
 		$ex = "<input type='hidden' name='noduty' value='yes'>";
@@ -272,11 +272,11 @@ function create_dummy($deptid)
 
 
 # details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($noduty)) {
 		$exd = "<input type='hidden' name='noduty' value='yes'>";
@@ -362,7 +362,7 @@ function details($HTTP_POST_VARS, $error="")
 		$supRslt = db_exec ($sql) or errDie ("Unable to view suppliers");
 		if (pg_numrows ($supRslt) < 1) {
 			$err = "<li class='err'>No Supplier names starting with <b>$letters</b> in database.</li>";
-			return view_err($HTTP_POST_VARS, $err);
+			return view_err($_POST, $err);
 		}else{
 			$suppliers = "<select name='supid' onChange='javascript:document.form.submit();'>";
 			$suppliers .= "<option value='-S' selected>Select Supplier</option>";
@@ -383,7 +383,7 @@ function details($HTTP_POST_VARS, $error="")
 		$supRslt = db_exec ($sql) or errDie ("Unable to view suppliers");
 		if (pg_numrows ($supRslt) < 1) {
 			$err = "<li class='err'>No Supplier names starting with <b>$letters</b> in database.</li>";
-			return view_err($HTTP_POST_VARS, $err);
+			return view_err($_POST, $err);
 		}else{
 			$suppliers = "<select name='supid' onChange='javascript:document.form.submit();'>";
 			$sel = "";
@@ -963,14 +963,14 @@ function details($HTTP_POST_VARS, $error="")
 
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($noduty)) {
-		$HTTP_POST_VARS["noduty"]="yes";
+		$_POST["noduty"]="yes";
 	} else {
 		$exd = "";
 	}
@@ -1048,8 +1048,8 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		$HTTP_POST_VARS['done'] = "";
-		return details($HTTP_POST_VARS, $err);
+		$_POST['done'] = "";
+		return details($_POST, $err);
 	}
 
 
@@ -1222,11 +1222,11 @@ function write($HTTP_POST_VARS)
 				$rslt = db_exec($sql) or errDie("Unable to update stock to Cubit.",SELF);
 			}
 			# Everything is set place done button
-			$HTTP_POST_VARS["done"] = "&nbsp; | &nbsp;<input name='doneBtn' type='submit' value='Done'>
+			$_POST["done"] = "&nbsp; | &nbsp;<input name='doneBtn' type='submit' value='Done'>
 			&nbsp; | &nbsp;<input type='submit' name='donePrnt' value='Done, Print and make another'>";
 		}
 	}else{
-		$HTTP_POST_VARS["done"] = "";
+		$_POST["done"] = "";
 	}
 
 	/* --- Clac --- */
@@ -1284,7 +1284,7 @@ function write($HTTP_POST_VARS)
 	}
 
 	if(!isset($doneBtn)){
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}else{
 		# Insert Order to DB
 		$sql = "UPDATE purch_int SET done = 'y' WHERE purid = '$purid' AND div = '".USER_DIV."'";

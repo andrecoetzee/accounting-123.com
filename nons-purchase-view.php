@@ -28,13 +28,13 @@ require ("settings.php");
 require ("core-settings.php");
 
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
        case "export":
-			$OUTPUT = export ($HTTP_POST_VARS);
+			$OUTPUT = export ($_POST);
 			break;
 		 case "view":
-			$OUTPUT = printPurch ($HTTP_POST_VARS);
+			$OUTPUT = printPurch ($_POST);
 			break;
 
 		default:
@@ -81,11 +81,11 @@ function slct()
 }
 
 # show
-function printPurch ($HTTP_POST_VARS, $pure = false)
+function printPurch ($_POST, $pure = false)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -270,8 +270,8 @@ function printPurch ($HTTP_POST_VARS, $pure = false)
 }
 
 
-function export ($HTTP_POST_VARS) {
-	$OUT = printPurch($HTTP_POST_VARS, true);
+function export ($_POST) {
+	$OUT = printPurch($_POST, true);
 	$OUT = clean_html($OUT);
 
 	require_lib("xls");

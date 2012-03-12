@@ -26,20 +26,20 @@
 require ("../settings.php");
 require ("../core-settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
+if (isset($_POST["key"])) {
 	// Make all the keys lowecase to maintain consistency
-	$HTTP_POST_VARS["key"] = strtolower($HTTP_POST_VARS["key"]);
+	$_POST["key"] = strtolower($_POST["key"]);
 
-	switch ($HTTP_POST_VARS["key"]) {
+	switch ($_POST["key"]) {
 		default:
 		case "display":
 			$OUTPUT = display();
 			break;
 		case "customize":
-			$OUTPUT = customize($HTTP_POST_VARS);
+			$OUTPUT = customize($_POST);
 			break;
 		case "update":
-			$OUTPUT = update($HTTP_POST_VARS);
+			$OUTPUT = update($_POST);
 			break;
 	}
 } else {

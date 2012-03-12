@@ -24,14 +24,14 @@
 #
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "display":
 			$OUTPUT = display();
 			break;
 		case "update":
-			$OUTPUT = update($HTTP_POST_VARS);
+			$OUTPUT = update($_POST);
 			break;
 	}
 } else {
@@ -42,8 +42,8 @@ require ("template.php");
 
 function display()
 {
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 	
 	$fields = array ();
 	$fields["customer"] = "";
@@ -154,9 +154,9 @@ function display()
 	return $OUTPUT;
 }
 
-function update($HTTP_POST_VARS)
+function update($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	switch ($update) {
 		case "return":

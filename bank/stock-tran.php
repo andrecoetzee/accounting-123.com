@@ -30,26 +30,26 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
-			if (isset($HTTP_GET_VARS['stkid'])){
-				$OUTPUT = edit ($HTTP_GET_VARS);
+			if (isset($_GET['stkid'])){
+				$OUTPUT = edit ($_GET);
 			} else {
 				$OUTPUT = "<li> - Invalid use of module";
 			}
 	}
 } else {
-	if (isset($HTTP_GET_VARS['stkid'])){
-		$OUTPUT = edit ($HTTP_GET_VARS);
-	} elseif (isset($HTTP_GET_VARS['account'])){
-		$OUTPUT = edit ($HTTP_GET_VARS);
+	if (isset($_GET['stkid'])){
+		$OUTPUT = edit ($_GET);
+	} elseif (isset($_GET['account'])){
+		$OUTPUT = edit ($_GET);
 	} else {
 		$OUTPUT = "<li> - Invalid use of module";
 	}
@@ -61,11 +61,11 @@ require("../template.php");
 
 
 # confirm
-function edit($HTTP_GET_VARS,$errs="")
+function edit($_GET,$errs="")
 {
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if(!isset($stkid))
 		$stkid = $account;
@@ -260,11 +260,11 @@ function edit($HTTP_GET_VARS,$errs="")
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -288,7 +288,7 @@ function confirm($HTTP_POST_VARS)
 			$confirm .= "<li class='err'>-".$e["msg"]."</li>";
 		}
 //		$confirm .= "<br><input type='button' onClick='javascript:history.back();' value='&laquo Correction'>";
-		return edit($HTTP_POST_VARS,$confirm."<br>");
+		return edit($_POST,$confirm."<br>");
 	}
 
 	$blocked_date_from = getCSetting("BLOCKED_FROM");
@@ -457,14 +457,14 @@ function confirm($HTTP_POST_VARS)
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		return edit($HTTP_POST_VARS);
+		return edit($_POST);
 	}
 
 	# validate input

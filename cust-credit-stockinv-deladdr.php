@@ -29,25 +29,25 @@ require ("settings.php");
 require ("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm_addr ($HTTP_POST_VARS);
+			$OUTPUT = confirm_addr ($_POST);
 			break;
 		default:
 			$OUTPUT = "<li>Invalid use of module</li>";
 	}
 } else {
-	$OUTPUT = edit_addr ($HTTP_GET_VARS);
+	$OUTPUT = edit_addr ($_GET);
 }
 
 # display output
 require ("template.php");
 
-function edit_addr($HTTP_GET_VARS, $err="")
+function edit_addr($_GET, $err="")
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if(!isset($invid) OR (strlen($invid) < 1))
 		invalid_use ();
@@ -85,10 +85,10 @@ function edit_addr($HTTP_GET_VARS, $err="")
 }
 
 
-function confirm_addr ($HTTP_POST_VARS)
+function confirm_addr ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($invid) OR (strlen($invid) < 1))
 		invalid_use ();

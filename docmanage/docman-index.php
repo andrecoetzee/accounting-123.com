@@ -25,10 +25,10 @@
 
 require ("../settings.php");
 require ("../core-settings.php");
-if(isset($HTTP_POST_VARS["key"])){
-	switch($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch($_POST["key"]){
 		case "view":
-			$OUTPUT=printCat($HTTP_POST_VARS);
+			$OUTPUT=printCat($_POST);
 		break;
 	default:
 			$OUTPUT="iNVALID";

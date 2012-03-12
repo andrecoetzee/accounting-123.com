@@ -26,16 +26,16 @@
 # get settings
 require ("../settings.php");
 
-if (isset ($HTTP_POST_VARS["key"])) {
-	if ($HTTP_POST_VARS["key"] == "confirm") {
-		$OUTPUT = confirmEmpFringe ($HTTP_POST_VARS);
-	} elseif ($HTTP_POST_VARS["key"] == "write") {
-		$OUTPUT = writeEmpFringe ($HTTP_POST_VARS);
+if (isset ($_POST["key"])) {
+	if ($_POST["key"] == "confirm") {
+		$OUTPUT = confirmEmpFringe ($_POST);
+	} elseif ($_POST["key"] == "write") {
+		$OUTPUT = writeEmpFringe ($_POST);
 	} else {
 		errDie ("Invalid use of module.");
 	}
-} elseif (isset ($HTTP_GET_VARS["id"]) && isset ($HTTP_GET_VARS["empnum"])) {
-	$OUTPUT = enterEmpFringe ($HTTP_GET_VARS);
+} elseif (isset ($_GET["id"]) && isset ($_GET["empnum"])) {
+	$OUTPUT = enterEmpFringe ($_GET);
 } else {
 	errDie ("Invalid use of module.");
 }
@@ -44,10 +44,10 @@ if (isset ($HTTP_POST_VARS["key"])) {
 require ("../template.php");
 
 # enter new info
-function enterEmpFringe ($HTTP_GET_VARS)
+function enterEmpFringe ($_GET)
 {
 	# get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -107,10 +107,10 @@ function enterEmpFringe ($HTTP_GET_VARS)
 }
 
 # confirm new data
-function confirmEmpFringe ($HTTP_POST_VARS)
+function confirmEmpFringe ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -172,10 +172,10 @@ function confirmEmpFringe ($HTTP_POST_VARS)
 }
 
 # write new data
-function writeEmpFringe ($HTTP_POST_VARS)
+function writeEmpFringe ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

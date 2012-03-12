@@ -102,7 +102,7 @@ class clsDaySchedule {
 
 	// constructor
 	function clsDaySchedule() {
-		global $HTTP_SESSION_VARS,$HTTP_GET_VARS;
+		global $_SESSION,$_GET;
 
 		$this->user_diaries = Array();
 		$this->entry=& new clsDayEntry;
@@ -201,15 +201,15 @@ class clsDaySchedule {
 
 	// generates the table data row by row, and returns this data (without the <table></table> tags)
 	function generateScheduleData() {
-		global $HTTP_GET_VARS;
+		global $_GET;
 
 		if ( ! isset($this->matrix) )
 			return;
 
 		// set the requested date variables
-		$mday = $HTTP_GET_VARS["mday"];
-		$month = $HTTP_GET_VARS["month"];
-		$year = $HTTP_GET_VARS["year"];
+		$mday = $_GET["mday"];
+		$month = $_GET["month"];
+		$year = $_GET["year"];
 
 		$data="";
 

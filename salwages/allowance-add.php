@@ -30,13 +30,13 @@ require ("../libs/ext.lib.php");
 
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmAllow ($HTTP_POST_VARS);
+			$OUTPUT = confirmAllow ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writeAllow ($HTTP_POST_VARS);
+			$OUTPUT = writeAllow ($_POST);
 			break;
 		default:
 			$OUTPUT = enterAllow ();
@@ -125,11 +125,11 @@ function enterAllow ()
 
 
 # confirm new data
-function confirmAllow ($HTTP_POST_VARS)
+function confirmAllow ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -228,11 +228,11 @@ function confirmAllow ($HTTP_POST_VARS)
 
 
 # write new data
-function writeAllow ($HTTP_POST_VARS)
+function writeAllow ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

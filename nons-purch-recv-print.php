@@ -27,8 +27,8 @@ require("settings.php");
 require("core-settings.php");
 require("libs/ext.lib.php");
 
-if (isset($HTTP_GET_VARS["purid"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["purid"])) {
+	$OUTPUT = details($_GET);
 } else {
 	$OUTPUT = "<li class='err'>Invalid use of module.</li>";
 }
@@ -37,13 +37,13 @@ require("template.php");
 
 
 
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 
 	$showvat = TRUE;
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");

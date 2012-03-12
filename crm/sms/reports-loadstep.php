@@ -25,7 +25,7 @@
 require("../../settings.php");
 require("../https_urlsettings.php");
 
-if ( ! isset($HTTP_GET_VARS["step"]) ) {
+if ( ! isset($_GET["step"]) ) {
 	$OUTPUT = "<li class=err>Invalid use of module</li>";
 	require("../../template.php");
 }
@@ -45,8 +45,8 @@ $OUTPUT .= "
 require("../../template.php");
 
 function choose_step() {
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	if ( isset($id) ) {
 		require_lib("validate");

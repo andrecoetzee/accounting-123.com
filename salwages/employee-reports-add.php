@@ -27,20 +27,20 @@
 require ("../settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmReport ($HTTP_POST_VARS);
+			$OUTPUT = confirmReport ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writeReport ($HTTP_POST_VARS);
+			$OUTPUT = writeReport ($_POST);
 			break;
 		default:
 			$OUTPUT = enterReport ();
 	}
-}elseif(isset($HTTP_GET_VARS["err"])){
-        # get vars from HTTP_GET_VARS
-        extract ($HTTP_GET_VARS);
+}elseif(isset($_GET["err"])){
+        # get vars from _GET
+        extract ($_GET);
         $OUTPUT = enterReport ($submitter, $submitter2, $submitter3, $submitter4, $report, $err);
 } else {
 	$OUTPUT = enterReport ();
@@ -146,11 +146,11 @@ function enterReport ($submitter="", $submitter2="", $submitter3="", $submitter4
 
 
 # confirm new data
-function confirmReport ($HTTP_POST_VARS)
+function confirmReport ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -252,11 +252,11 @@ function confirmReport ($HTTP_POST_VARS)
 
 
 # write new data
-function writeReport ($HTTP_POST_VARS)
+function writeReport ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
 		return enterReport ($submitter, $submitter2, $submitter3, $submitter4, $report, "");

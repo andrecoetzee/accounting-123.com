@@ -27,13 +27,13 @@
 require ("../settings.php");
 require("../core-settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS,$HTTP_POST_FILES);
+			$OUTPUT = confirm($_POST,$_FILES);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid";
@@ -61,7 +61,7 @@ require("../template.php");
 function select_file ()
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
 	$qry = new dbQuery(DB_SQL,
 		"SELECT SUM(debit) = 0 AND SUM(credit) = 0 AS res
@@ -101,13 +101,13 @@ function select_file ()
 
 
 
-function confirm($HTTP_POST_VARS,$HTTP_POST_FILES)
+function confirm($_POST,$_FILES)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$importfile = tempnam("/tmp", "cubitimport_");
-	$file = fopen($HTTP_POST_FILES["compfile"]["tmp_name"], "r");
+	$file = fopen($_FILES["compfile"]["tmp_name"], "r");
 
 	if ( $file == false) {
 		return "<li class='err'>Cannot read file.</li>".select_file();
@@ -246,10 +246,10 @@ function confirm($HTTP_POST_VARS,$HTTP_POST_FILES)
 
 
 //comma seperated(Standard Bank)
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	db_conn('cubit');
 

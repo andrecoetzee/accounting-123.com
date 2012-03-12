@@ -2,13 +2,13 @@
 
 require ("../settings.php");
 
-if (isset ($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if (isset ($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = write_cubit_setting($HTTP_POST_VARS);
+			$OUTPUT = write_cubit_setting($_POST);
 			break;
 		default:
-			$OUTPUT = get_cubit_setting($HTTP_POST_VARS);
+			$OUTPUT = get_cubit_setting($_POST);
 	}
 }else {
 	$OUTPUT = get_cubit_setting ();
@@ -64,10 +64,10 @@ function get_cubit_setting ($err="")
 }
 
 
-function write_cubit_setting ($HTTP_POST_VARS)
+function write_cubit_setting ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset ($setting) or strlen ($setting) < 1){
 		$setting = "no";

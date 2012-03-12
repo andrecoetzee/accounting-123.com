@@ -30,21 +30,21 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["done"] = "";
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["invid"]) && isset($_GET["cont"])) {
+	$_GET["done"] = "";
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "details":
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 				break;
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 			case "slct":
-				$HTTP_POST_VARS["done"] = "";
-				$OUTPUT = details($HTTP_POST_VARS);
+				$_POST["done"] = "";
+				$OUTPUT = details($_POST);
 				break;
 			default:
 				$OUTPUT = slct();
@@ -154,10 +154,10 @@ function create_dummy($deptid, $cusnum)
 
 
 
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -489,11 +489,11 @@ function details($HTTP_POST_VARS, $error="")
 
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -546,8 +546,8 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		$HTTP_POST_VARS['done'] = "";
-		return details($HTTP_POST_VARS, $err);
+		$_POST['done'] = "";
+		return details($_POST, $err);
 	}
 
 
@@ -716,13 +716,13 @@ function write($HTTP_POST_VARS)
 				$rslt = db_exec($sql) or errDie("Unable to insert invoice items to Cubit.",SELF);
 			}
 			# everything is set place done button
-			$HTTP_POST_VARS["done"] = " | <input name='doneBtn' type='submit' value='Done'>";
+			$_POST["done"] = " | <input name='doneBtn' type='submit' value='Done'>";
 		}
 	}else{
-		$HTTP_POST_VARS["done"] = "";
+		$_POST["done"] = "";
 	}
 
-	$HTTP_POST_VARS['showvat'] = $showvat;
+	$_POST['showvat'] = $showvat;
 
 
 	/* --- ----------- Clac --------------------- */
@@ -775,7 +775,7 @@ function write($HTTP_POST_VARS)
 	pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.",SELF);
 
 	if( !isset($doneBtn) ){
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	} else {
 		$rslt = db_exec($sql) or errDie("Unable to update invoices status in Cubit.",SELF);
 

@@ -27,19 +27,19 @@ require("../settings.php");
 require("../core-settings.php");
 require("../libs/ext.lib.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT ="Invalid";
 	}
-} elseif(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = enter($HTTP_GET_VARS);
+} elseif(isset($_GET["id"])) {
+	$OUTPUT = enter($_GET);
 } else {
 	$OUTPUT = "Invalid.";
 }

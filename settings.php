@@ -187,16 +187,16 @@ if (!defined("_DEFINEROOT_PHP")) {
 }
 
 #if noroute is set, setup some SESSION VARS manually
-if (isset($HTTP_POST_VARS["noroute"]) AND (isset($HTTP_POST_VARS["login"]))){
-	$HTTP_SESSION_VARS["code"] = $HTTP_POST_VARS["code"];
-	$HTTP_SESSION_VARS["comp"] = $HTTP_POST_VARS["comp"];
+if (isset($_POST["noroute"]) AND (isset($_POST["login"]))){
+	$_SESSION["code"] = $_POST["code"];
+	$_SESSION["comp"] = $_POST["comp"];
 }
 
 // Database settings
 // Define ("COMP_DB", "wool");
-if(isset ($HTTP_SESSION_VARS["code"])){
-	define ("COMP_DB", $HTTP_SESSION_VARS["code"]);
-	define ("COMP_NNAME", $HTTP_SESSION_VARS["comp"]);
+if(isset ($_SESSION["code"])){
+	define ("COMP_DB", $_SESSION["code"]);
+	define ("COMP_NNAME", $_SESSION["comp"]);
 }else{
 	if (is_file("./complogin.php")) header("Location: complogin.php");
 	else if (is_file("../complogin.php")) header("Location: ../complogin.php");
@@ -485,17 +485,17 @@ $login = true;
 
 if ($login) {
 	# login logic
-	if (isset($HTTP_POST_VARS["login_user"]) && isset($HTTP_POST_VARS["login_pass"]) && isset($HTTP_POST_VARS["login"])) {
-		if(isset($HTTP_POST_VARS["noroute"])){
-			checkLogin($HTTP_POST_VARS["login_user"], $HTTP_POST_VARS["login_pass"], $HTTP_POST_VARS["div"], isset($HTTP_POST_VARS["noroute"]));
+	if (isset($_POST["login_user"]) && isset($_POST["login_pass"]) && isset($_POST["login"])) {
+		if(isset($_POST["noroute"])){
+			checkLogin($_POST["login_user"], $_POST["login_pass"], $_POST["div"], isset($_POST["noroute"]));
 		} else {
-			checkLogin($HTTP_POST_VARS["login_user"], md5 ($HTTP_POST_VARS["login_pass"]), $HTTP_POST_VARS["div"], isset($HTTP_POST_VARS["noroute"]));
+			checkLogin($_POST["login_user"], md5 ($_POST["login_pass"]), $_POST["div"], isset($_POST["noroute"]));
 		}
-	} else if (isset ($HTTP_POST_VARS["div"]) && isset ($HTTP_POST_VARS["logindiv"])) {
-		login($HTTP_POST_VARS["div"]);
-	} else if (empty ($HTTP_SESSION_VARS["USER_NAME"]) || empty ($HTTP_SESSION_VARS["USER_ID"])) {
-		if (isset($HTTP_COOKIE_VARS["cubitdiv"])) {
-			login ($HTTP_COOKIE_VARS["cubitdiv"]);
+	} else if (isset ($_POST["div"]) && isset ($_POST["logindiv"])) {
+		login($_POST["div"]);
+	} else if (empty ($_SESSION["USER_NAME"]) || empty ($_SESSION["USER_ID"])) {
+		if (isset($_COOKIES["cubitdiv"])) {
+			login ($_COOKIES["cubitdiv"]);
 		} else {
 			login ("2");
 		}
@@ -504,7 +504,7 @@ if ($login) {
 //		}
 	} else {
 		db_conn("cubit");
-		$sql = "SELECT loginseq FROM users WHERE userid='$HTTP_SESSION_VARS[USER_ID]'";
+		$sql = "SELECT loginseq FROM users WHERE userid='$_SESSION[USER_ID]'";
 		$rslt = db_exec($sql) or errDie("Error reading login sequence for user.");
 
 		if (pg_num_rows($rslt) < 1) {
@@ -512,18 +512,18 @@ if ($login) {
 		}
 
 		# define constants (for inside scripts)
-		define("USER_NAME", $HTTP_SESSION_VARS["USER_NAME"]);
-		define("USER_ID", $HTTP_SESSION_VARS["USER_ID"]);
-		define("USER_DIV", $HTTP_SESSION_VARS["USER_DIV"]);
-		define("BRAN_NAME", $HTTP_SESSION_VARS["BRAN_NAME"]);
-		define("USER_HELP", $HTTP_SESSION_VARS["USER_HELP"]);
-		define("USER_TYPE", $HTTP_SESSION_VARS["USER_TYPE"]);
-		define("LOGIN_SEQ", $HTTP_SESSION_VARS["LOGIN_SEQ"]);
+		define("USER_NAME", $_SESSION["USER_NAME"]);
+		define("USER_ID", $_SESSION["USER_ID"]);
+		define("USER_DIV", $_SESSION["USER_DIV"]);
+		define("BRAN_NAME", $_SESSION["BRAN_NAME"]);
+		define("USER_HELP", $_SESSION["USER_HELP"]);
+		define("USER_TYPE", $_SESSION["USER_TYPE"]);
+		define("LOGIN_SEQ", $_SESSION["LOGIN_SEQ"]);
 
 		/* some constants for common db where expressions */
 		define("W_DIV", "div='".USER_DIV."'");
 
-		if (DEBUG < 1 && pg_fetch_result($rslt, 0, 0) != $HTTP_SESSION_VARS["LOGIN_SEQ"]) {
+		if (DEBUG < 1 && pg_fetch_result($rslt, 0, 0) != $_SESSION["LOGIN_SEQ"]) {
 			if (is_readable("./logout.php")) $LOGOUT_SCRIPT = "logout.php";
 			else if (is_readable("../logout.php")) $LOGOUT_SCRIPT = "../logout.php";
 			else if (is_readable("../../logout.php")) $LOGOUT_SCRIPT = "../../logout.php";
@@ -570,7 +570,7 @@ if ($login) {
 
 	// Company details
 	db_connect();
-	$sql ="SELECT * FROM compinfo WHERE div = '".$HTTP_SESSION_VARS["USER_DIV"]."'";
+	$sql ="SELECT * FROM compinfo WHERE div = '".$_SESSION["USER_DIV"]."'";
 	$Rslt = db_exec($sql);
 	$com = pg_fetch_array($Rslt);
 
@@ -671,7 +671,7 @@ if ($login) {
 	if(!($user_admin || in_array(basename(getenv("SCRIPT_NAME")),$global_scripts) )){
 		# Check permission
 		db_conn("cubit");
-		$chk = "SELECT * FROM userscripts WHERE username = '$HTTP_SESSION_VARS[USER_NAME]' AND script ='".basename (getenv ("SCRIPT_NAME"))."'";
+		$chk = "SELECT * FROM userscripts WHERE username = '$_SESSION[USER_NAME]' AND script ='".basename (getenv ("SCRIPT_NAME"))."'";
 		$chkRslt = db_exec($chk) or errDie("Unable to check user access permissions",SELF);
 		if(pg_numrows($chkRslt) < 1){
 			$OUTPUT = "<li class=err>You <b>don't have sufficient permissions</b> to use this command.".getenv ("SCRIPT_NAME")."<br>
@@ -685,7 +685,7 @@ if ($login) {
 			if(pg_numrows($rs) < 1){
 				$sql = "INSERT INTO perm(script) VALUES('$script')";
 				$rs = db_exec($sql);
-				$sql = "INSERT INTO userscripts (username, script) VALUES ('$HTTP_SESSION_VARS[USER_NAME]', '$script')";
+				$sql = "INSERT INTO userscripts (username, script) VALUES ('$_SESSION[USER_NAME]', '$script')";
 				//$rs = db_exec($sql);
 			}
 			$OUTPUT = "<li class=err>You <b>don't have sufficient permissions</b> to use this command.".getenv ("SCRIPT_NAME")."<br>
@@ -2298,25 +2298,25 @@ function crm_get_leadsrc($srcnum) {
 /**
  * @ignore
  */
-function check_sessionvars($HTTP_POST_VARS)
+function check_sessionvars($_POST)
 {
 
-	global $HTTP_SESSION_VARS;
+	global $_SESSION;
 
-	if (!isset($HTTP_SESSION_VARS['USER_NAME'])){
+	if (!isset($_SESSION['USER_NAME'])){
 		#we've lost the php login .... reload
-		$HTTP_SESSION_VARS["code"] = $code;
-		$HTTP_SESSION_VARS["comp"] = $comp;
-		$HTTP_SESSION_VARS["USER_DIV"] = $USER_DIV;
-		$HTTP_SESSION_VARS["tries"] = $tries;
-		$HTTP_SESSION_VARS["USER_NAME"] = $USER_NAME;
-		$HTTP_SESSION_VARS["USER_PASS"] = $USER_PASS;
-		$HTTP_SESSION_VARS["USER_ID"] = $USER_DIV;
-		$HTTP_SESSION_VARS["USER_HELP"] = $USER_HELP;
-		$HTTP_SESSION_VARS["USER_TYPE"] = $USER_TYPE;
-		$HTTP_SESSION_VARS["LOGIN_SEQ"] = $LOGIN_SEQ;
-		$HTTP_SESSION_VARS["BRAN_NAME"] = $BRAN_NAME;
-		$HTTP_SESSION_VARS["SERVICES_MENU"] = $SERVICES_MENU;
+		$_SESSION["code"] = $code;
+		$_SESSION["comp"] = $comp;
+		$_SESSION["USER_DIV"] = $USER_DIV;
+		$_SESSION["tries"] = $tries;
+		$_SESSION["USER_NAME"] = $USER_NAME;
+		$_SESSION["USER_PASS"] = $USER_PASS;
+		$_SESSION["USER_ID"] = $USER_DIV;
+		$_SESSION["USER_HELP"] = $USER_HELP;
+		$_SESSION["USER_TYPE"] = $USER_TYPE;
+		$_SESSION["LOGIN_SEQ"] = $LOGIN_SEQ;
+		$_SESSION["BRAN_NAME"] = $BRAN_NAME;
+		$_SESSION["SERVICES_MENU"] = $SERVICES_MENU;
 	}
 
 }
@@ -3311,15 +3311,15 @@ function checkLogin ($username, $password, $sdiv, $noroute_set) {
 	$retrRslt = db_exec($sql) or errDie("Unable to verify login retry information.");
 	$retr = pg_fetch_array($retrRslt);
 
-	global $HTTP_SESSION_VARS;
+	global $_SESSION;
 
 	// Block a user after a certain amount of failed logins ------------------
 
 	// User has not been logged in yet, no branch
-	$HTTP_SESSION_VARS["USER_DIV"] = NULL;
+	$_SESSION["USER_DIV"] = NULL;
 
-	if (!isset($HTTP_SESSION_VARS['tries'])) {
-		$HTTP_SESSION_VARS['tries'] = 0;
+	if (!isset($_SESSION['tries'])) {
+		$_SESSION['tries'] = 0;
 	}
 
 	db_conn("cubit");
@@ -3336,7 +3336,7 @@ function checkLogin ($username, $password, $sdiv, $noroute_set) {
 		$s = ($retr['minutes'] > 1) ? "s" : "";
 
 		// Reset the tries, so they don't keep adding up
-		$HTTP_SESSION_VARS["tries"] = 0;
+		$_SESSION["tries"] = 0;
 		$err = "<li class='err'>Your account has been suspended for <b>$retr[minutes]</b> minute$s, due to too many failed login attempts.</li>";
 
 		return login($sdiv, $err);
@@ -3349,20 +3349,20 @@ function checkLogin ($username, $password, $sdiv, $noroute_set) {
 	}
 
 	// Block the account
-	if (($HTTP_SESSION_VARS['tries']+1) == $retr['tries']) {
+	if (($_SESSION['tries']+1) == $retr['tries']) {
 		db_conn('cubit');
 		$sql = "UPDATE users SET blocktime='".time()."' WHERE username='$username'";
 		db_exec($sql) or errDie("Unable to verify login information.");
 
-		$HTTP_SESSION_VARS['tries'] = 0;
+		$_SESSION['tries'] = 0;
 	}
 
 	// Display an error
 	$err = "";
 	if (pg_numrows ($usrRslt) < 1 && empty($block["blocktime"])) {
-		++$HTTP_SESSION_VARS["tries"];
+		++$_SESSION["tries"];
 
-		if (($HTTP_SESSION_VARS["tries"]+1) == $retr["tries"]) {
+		if (($_SESSION["tries"]+1) == $retr["tries"]) {
 			$s = ($retr['minutes'] > 1) ? "s" : "";
 			$err = "<li class='err'>Your account has been suspended for <b>$retr[minutes]</b> minute$s, due to too many failed login attempts.</li>";
 			return login($sdiv, $err);
@@ -3386,22 +3386,22 @@ function checkLogin ($username, $password, $sdiv, $noroute_set) {
 	# session_start ();
 	$next_loginseq = $myUsr["loginseq"] + 1;
 
-	$HTTP_SESSION_VARS["USER_NAME"] = $username;
-	$HTTP_SESSION_VARS["USER_PASS"] = $password;
-	$HTTP_SESSION_VARS["USER_ID"] = $myUsr["userid"];
-	$HTTP_SESSION_VARS["USER_DIV"] = $myUsr["div"];
-	$HTTP_SESSION_VARS["USER_HELP"] = $myUsr["help"];
-	$HTTP_SESSION_VARS["USER_TYPE"] = $myUsr["usertype"];
-	$HTTP_SESSION_VARS["LOGIN_SEQ"] = $next_loginseq;
-	$HTTP_SESSION_VARS["RET2STEP_SEQ"] = 1;
+	$_SESSION["USER_NAME"] = $username;
+	$_SESSION["USER_PASS"] = $password;
+	$_SESSION["USER_ID"] = $myUsr["userid"];
+	$_SESSION["USER_DIV"] = $myUsr["div"];
+	$_SESSION["USER_HELP"] = $myUsr["help"];
+	$_SESSION["USER_TYPE"] = $myUsr["usertype"];
+	$_SESSION["LOGIN_SEQ"] = $next_loginseq;
+	$_SESSION["RET2STEP_SEQ"] = 1;
 
 	# define constants (for inside scripts)
-	define("USER_NAME", $HTTP_SESSION_VARS["USER_NAME"]);
-	define("USER_ID", $HTTP_SESSION_VARS["USER_ID"]);
-	define("USER_DIV", $HTTP_SESSION_VARS["USER_DIV"]);
-	define("USER_HELP", $HTTP_SESSION_VARS["USER_HELP"]);
-	define("USER_TYPE", $HTTP_SESSION_VARS["USER_TYPE"]);
-	define("LOGIN_SEQ", $HTTP_SESSION_VARS["LOGIN_SEQ"]);
+	define("USER_NAME", $_SESSION["USER_NAME"]);
+	define("USER_ID", $_SESSION["USER_ID"]);
+	define("USER_DIV", $_SESSION["USER_DIV"]);
+	define("USER_HELP", $_SESSION["USER_HELP"]);
+	define("USER_TYPE", $_SESSION["USER_TYPE"]);
+	define("LOGIN_SEQ", $_SESSION["LOGIN_SEQ"]);
 
 	setcookie("cubitdiv", $myUsr["div"], time() + 60000000);
 
@@ -3418,7 +3418,7 @@ function checkLogin ($username, $password, $sdiv, $noroute_set) {
 	}else{
 		$bran = pg_fetch_array($branRslt);
 	}
-	$HTTP_SESSION_VARS["BRAN_NAME"] = $bran['branname'];
+	$_SESSION["BRAN_NAME"] = $bran['branname'];
 
 	if ( ! defined("LOGIN_SUCCESSFUL") ) define("LOGIN_SUCCESSFUL", true);
 	if ( $noroute_set ) define("LOGIN_SUCCESSFUL_NOROUTE", true);
@@ -3432,24 +3432,24 @@ function checkLogin ($username, $password, $sdiv, $noroute_set) {
  *
  */
 function checkPreferences() {
-	global $HTTP_SESSION_VARS;
+	global $_SESSION;
 	global $user_admin;
 	global $dept_count;
 	global $user_dept;
 	global $services_menu_left, $mail_sender;
 
-	$user_name=$HTTP_SESSION_VARS['USER_NAME'];
+	$user_name=$_SESSION['USER_NAME'];
 
         db_conn("cubit");
-	$rslt = db_exec("SELECT services_menu FROM users WHERE userid = '$HTTP_SESSION_VARS[USER_ID]'");
+	$rslt = db_exec("SELECT services_menu FROM users WHERE userid = '$_SESSION[USER_ID]'");
 	if ( pg_num_rows($rslt) > 0 ) {
-		$HTTP_SESSION_VARS["SERVICES_MENU"] = pg_fetch_result($rslt, 0, 0);
+		$_SESSION["SERVICES_MENU"] = pg_fetch_result($rslt, 0, 0);
 	} else {
-		$HTTP_SESSION_VARS["SERVICES_MENU"] = 'L';
+		$_SESSION["SERVICES_MENU"] = 'L';
 	}
 
 	// where should the menu be showed
-	if ($HTTP_SESSION_VARS["SERVICES_MENU"] == 'T')
+	if ($_SESSION["SERVICES_MENU"] == 'T')
 		$services_menu_left = false;
 	else
 		$services_menu_left = true;
@@ -3534,8 +3534,8 @@ function insert_trialbal ($accid, $topacc, $accnum, $accname, $acctype, $vat, $d
 function checkVatReminder() {
 	return;
 	global $user_admin;
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	if ( isset($reminder) ) {
 		$sql = "DELETE FROM vatreminder WHERE username='".USER_NAME."' AND opt<>'none'";

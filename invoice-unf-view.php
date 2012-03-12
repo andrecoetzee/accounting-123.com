@@ -31,19 +31,19 @@ if (isset($_REQUEST["button"])) {
 
 	switch ($button) {
 		case "selall":
-			$OUTPUT = printInv($HTTP_POST_VARS);
+			$OUTPUT = printInv($_POST);
 			break;
 	}
-} elseif (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+} elseif (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
         case "view":
-			$OUTPUT = printInv($HTTP_POST_VARS);
+			$OUTPUT = printInv($_POST);
 			break;
         case "remove":
-        	$OUTPUT = removeInv($HTTP_POST_VARS);
+        	$OUTPUT = removeInv($_POST);
         	break;
         case "write":
-        	$OUTPUT = writeRemove ($HTTP_POST_VARS);
+        	$OUTPUT = writeRemove ($_POST);
         	break;
 		default:
 			$OUTPUT = slct();
@@ -106,11 +106,11 @@ function slct()
 
 
 # show invoices
-function printInv ($HTTP_POST_VARS)
+function printInv ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (isset($button)) {
 		list($button) = array_keys($button);
@@ -269,11 +269,11 @@ function printInv ($HTTP_POST_VARS)
 
 
 
-function removeInv ($HTTP_POST_VARS)
+function removeInv ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 //print "<pre>";
 //var_dump($remids);
@@ -396,10 +396,10 @@ function removeInv ($HTTP_POST_VARS)
 
 
 
-function writeRemove($HTTP_POST_VARS)
+function writeRemove($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

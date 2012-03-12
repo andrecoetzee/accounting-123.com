@@ -27,14 +27,14 @@
 
 require ("settings.php");
 
-if ($HTTP_POST_VARS) {
-	if ($HTTP_POST_VARS["key"] == "write") {
+if ($_POST) {
+	if ($_POST["key"] == "write") {
 		# remove paye
-		$OUTPUT = remPaye ($HTTP_POST_VARS);
+		$OUTPUT = remPaye ($_POST);
 	}
 } else {
 	# confirm removal
-	$OUTPUT = confirmPaye ($HTTP_GET_VARS);
+	$OUTPUT = confirmPaye ($_GET);
 }
 
 
@@ -45,9 +45,9 @@ require ("template.php");
 ##
 
 # confirm removal
-function confirmPaye ($HTTP_GET_VARS)
+function confirmPaye ($_GET)
 {
-	$id = preg_replace ("/[^\d]/", "", substr ($HTTP_GET_VARS["id"], 0, 9));
+	$id = preg_replace ("/[^\d]/", "", substr ($_GET["id"], 0, 9));
 
 	# connect to db
 	db_connect ();
@@ -81,10 +81,10 @@ function confirmPaye ($HTTP_GET_VARS)
 }
 
 # remove entry
-function remPaye ($HTTP_POST_VARS)
+function remPaye ($_POST)
 {
 	# clean vars
-	$id = preg_replace ("/[^\d]/", "", substr ($HTTP_POST_VARS["id"], 0, 9));
+	$id = preg_replace ("/[^\d]/", "", substr ($_POST["id"], 0, 9));
 
 	# connect to db
 	db_connect ();

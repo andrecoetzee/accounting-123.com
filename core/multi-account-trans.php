@@ -28,29 +28,29 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
 			if (!isset ($_POST["confirm"]))
-				$OUTPUT = slctacc($HTTP_POST_VARS);
+				$OUTPUT = slctacc($_POST);
 			else 
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "details":
-			$OUTPUT = details($HTTP_POST_VARS);
+			$OUTPUT = details($_POST);
 			break;
 		case "details2":
-			$OUTPUT = details2($HTTP_POST_VARS);
+			$OUTPUT = details2($_POST);
 			break;
 		default:
-			$OUTPUT = slctacc($HTTP_POST_VARS);
+			$OUTPUT = slctacc($_POST);
 	}
 } else {
     # Display default output
-    $OUTPUT = slctacc($HTTP_POST_VARS);
+    $OUTPUT = slctacc($_POST);
 }
 
 # get templete
@@ -60,10 +60,10 @@ require("template.php");
 
 
 # Select Accounts
-function slctacc($HTTP_POST_VARS, $err="")
+function slctacc($_POST, $err="")
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$translist = "";
 
@@ -195,11 +195,11 @@ function slctacc($HTTP_POST_VARS, $err="")
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
     # Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -329,7 +329,7 @@ function confirm($HTTP_POST_VARS)
 	}
 
 	if(strlen($trans) < 5){
-		return slctacc($HTTP_POST_VARS,"<li class='err'>Please enter full transaction details</li><br>");
+		return slctacc($_POST,"<li class='err'>Please enter full transaction details</li><br>");
 	}
 
 	$confirm .= "
@@ -363,14 +363,14 @@ function confirm($HTTP_POST_VARS)
 
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		return slctacc($HTTP_POST_VARS);
+		return slctacc($_POST);
 	}
 
 

@@ -2,10 +2,10 @@
 
 require ("../settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "remove":
-			$OUTPUT = remove_trans ($HTTP_POST_VARS);
+			$OUTPUT = remove_trans ($_POST);
 			break;
 		default:
 	}
@@ -48,10 +48,10 @@ function get_confirm ()
 
 
 
-function remove_trans ($HTTP_POST_VARS)
+function remove_trans ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_conn("exten");
 

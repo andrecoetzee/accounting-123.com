@@ -25,13 +25,13 @@
 
 require ("../settings.php");
 
-if ($HTTP_POST_VARS) {
-	switch ($HTTP_POST_VARS["key"]) {
+if ($_POST) {
+	switch ($_POST["key"]) {
 		case  "confirm":
-			$OUTPUT = confirmSettings ($HTTP_POST_VARS);
+			$OUTPUT = confirmSettings ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writeSettings ($HTTP_POST_VARS);
+			$OUTPUT = writeSettings ($_POST);
 			break;
 		default:
 			$OUTPUT = editSettings ();
@@ -165,9 +165,9 @@ $settings
 }
 
 # Confirm entered info
-function confirmSettings ($HTTP_POST_VARS)
+function confirmSettings ($_POST)
 {
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -255,9 +255,9 @@ function confirmSettings ($HTTP_POST_VARS)
 }
 
 # Confirm entered info
-function writeSettings ($HTTP_POST_VARS)
+function writeSettings ($_POST)
 {
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

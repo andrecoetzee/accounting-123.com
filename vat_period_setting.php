@@ -2,13 +2,13 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = confirm_settings ($HTTP_POST_VARS);
+			$OUTPUT = confirm_settings ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_settings ($HTTP_POST_VARS);
+			$OUTPUT = write_settings ($_POST);
 			break;
 		default:
 			$OUTPUT = get_setting ();
@@ -75,10 +75,10 @@ function get_setting ()
 }
 
 
-function confirm_settings ($HTTP_POST_VARS)
+function confirm_settings ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($period) OR (strlen($period) < 1)){
 		return "Invalid Period Selected.";
@@ -127,10 +127,10 @@ function confirm_settings ($HTTP_POST_VARS)
 }
 
 
-function write_settings ($HTTP_POST_VARS)
+function write_settings ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

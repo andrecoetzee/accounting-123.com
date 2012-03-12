@@ -28,8 +28,8 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = bal($HTTP_GET_VARS["id"]);
+if (isset($_GET["id"])) {
+	$OUTPUT = bal($_GET["id"]);
 } else {
 	# Display error
 	$OUTPUT = "<li> Error: Invalid Balance Sheet Number.";

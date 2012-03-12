@@ -27,10 +27,10 @@ require ("settings.php");
 header("Location: company-import.php");
 exit;
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "backup":
-			$OUTPUT = backup ($HTTP_POST_VARS);
+			$OUTPUT = backup ($_POST);
 			break;
 		default:
 			$OUTPUT = comfirm ();

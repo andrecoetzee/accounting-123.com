@@ -2,16 +2,16 @@
 
 	require ("settings.php");
 
-	$OUTPUT = show_image ($HTTP_GET_VARS);
+	$OUTPUT = show_image ($_GET);
 
 	require ("template.php");
 
 
 
-function show_image ($HTTP_POST_VARS)
+function show_image ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($picid)){
 		return "";

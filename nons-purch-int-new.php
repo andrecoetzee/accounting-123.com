@@ -29,17 +29,17 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["purid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["done"] = "";
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["purid"]) && isset($_GET["cont"])) {
+	$_GET["done"] = "";
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "details":
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 				break;
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 			default:
 				$OUTPUT = slct();
@@ -166,11 +166,11 @@ function create_dummy($deptid, $supid)
 
 
 
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -228,7 +228,7 @@ function details($HTTP_POST_VARS, $error="")
 		$supRslt = db_exec ($sql) or errDie ("Unable to view suppliers");
 		if (pg_numrows ($supRslt) < 1) {
 			$err = "<li class='err'>No Supplier found in database.</li>";
-			return view_err($HTTP_POST_VARS, $err);
+			return view_err($_POST, $err);
 		}else{
 			$suppliers = "<select name='supid' onChange='javascript:document.form.submit();'>";
 			$suppliers .= "<option value='-S' selected>Select Supplier</option>";
@@ -249,7 +249,7 @@ function details($HTTP_POST_VARS, $error="")
 		$supRslt = db_exec ($sql) or errDie ("Unable to view suppliers");
 		if (pg_numrows ($supRslt) < 1) {
 			$err = "<li class='err'>No Supplier found in database.</li>";
-			return view_err($HTTP_POST_VARS, $err);
+			return view_err($_POST, $err);
 		}else{
 			$supid=$pur['supid'];
 			$suppliers = "<select name='supid' onChange='javascript:document.form.submit();'>";
@@ -593,11 +593,11 @@ function details($HTTP_POST_VARS, $error="")
 
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -659,8 +659,8 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		$HTTP_POST_VARS['done'] = "";
-		return details($HTTP_POST_VARS, $err);
+		$_POST['done'] = "";
+		return details($_POST, $err);
 	}
 
 	# Get Order info
@@ -787,12 +787,12 @@ function write($HTTP_POST_VARS)
 				$rslt = db_exec($sql) or errDie("Unable to insert Order items to Cubit.",SELF);
 			}
 			# everything is set place done button
-			$HTTP_POST_VARS["done"] = "&nbsp; | &nbsp;<input name='doneBtn' type='submit' value='Done'>
+			$_POST["done"] = "&nbsp; | &nbsp;<input name='doneBtn' type='submit' value='Done'>
 			&nbsp; | &nbsp;<input name='recv' type='submit' value='Receive'>
 			&nbsp; | &nbsp;<input type='submit' name='donePrnt' value='Done, Print and make another'>";
 		}
 	}else{
-		$HTTP_POST_VARS["done"] = "";
+		$_POST["done"] = "";
 	}
 
 	/* --- Clac --- */
@@ -854,7 +854,7 @@ function write($HTTP_POST_VARS)
 		header("Location: nons-purch-int-recv.php?purid=$purid");
 		exit;
 	}elseif(!isset($doneBtn)){
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}else{
 		# insert Order to DB
 		$sql = "UPDATE nons_purch_int SET done = 'y' WHERE purid = '$purid' AND div = '".USER_DIV."'";

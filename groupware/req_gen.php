@@ -25,22 +25,22 @@
 require ("../settings.php");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "write":
-			$OUTPUT = write_req ($HTTP_POST_VARS);
+			$OUTPUT = write_req ($_POST);
 			break;
 		default:
 			$OUTPUT = get_req ();
@@ -124,15 +124,15 @@ function get_req ()
 
 
 # write new data
-function write_req ($HTTP_POST_VARS)
+function write_req ($_POST)
 {
 
-	global $HTTP_SESSION_VARS;
+	global $_SESSION;
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
-	$user = $HTTP_SESSION_VARS["USER_NAME"];
+	$user = $_SESSION["USER_NAME"];
 
 	# validate input
 	require_lib("validate");

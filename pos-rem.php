@@ -30,37 +30,37 @@ require("libs/ext.lib.php");
 
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
                 default:
-			$OUTPUT = order($HTTP_POST_VARS);
+			$OUTPUT = order($_POST);
 	}
-} elseif (isset($HTTP_GET_VARS["id"])) {
+} elseif (isset($_GET["id"])) {
         # Display default output
-	$HTTP_POST_VARS["id"]=$HTTP_GET_VARS["id"];
-	$HTTP_POST_VARS["rid"]=$HTTP_GET_VARS["rid"];
+	$_POST["id"]=$_GET["id"];
+	$_POST["rid"]=$_GET["rid"];
 
-	$OUTPUT = order($HTTP_POST_VARS);
+	$OUTPUT = order($_POST);
 	}
 
 else {
         # Display default output
 
-	$OUTPUT = order($HTTP_POST_VARS);
+	$OUTPUT = order($_POST);
 
 }
 
 # get templete
 require("template.php");
 
-function order($HTTP_POST_VARS,$errors="")
+function order($_POST,$errors="")
 {
 	$Out="";
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -159,11 +159,11 @@ function order($HTTP_POST_VARS,$errors="")
 }
 
 # Write Barecode Info
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	$Out="";
 	#get & send vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 
 		$$key = $value;
 		$Out .="<input type=hidden name=$$key value='$value'>";
@@ -185,7 +185,7 @@ function write($HTTP_POST_VARS)
 			$errors .= "<li class=err>".$e["msg"];
 		}
 		$errors .= "<input type=hidden name=errors value='$errors'>";
-		return order($HTTP_POST_VARS,$errors);
+		return order($_POST,$errors);
 	}
 
 	db_conn("cubit");

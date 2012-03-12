@@ -27,21 +27,21 @@
 require ("../settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "write":
-			$OUTPUT = writeLeave ($HTTP_POST_VARS);
+			$OUTPUT = writeLeave ($_POST);
 			break;
 		default:
-			if(isset($HTTP_GET_VARS['id'])){
-				$OUTPUT = confirmLeave ($HTTP_GET_VARS);
+			if(isset($_GET['id'])){
+				$OUTPUT = confirmLeave ($_GET);
 			}else{
 				$OUTPUT = "<li class=err>Invalid Use of module.";
 			}
 	}
 } else {
-	if(isset($HTTP_GET_VARS['id'])){
-		$OUTPUT = confirmLeave ($HTTP_GET_VARS);
+	if(isset($_GET['id'])){
+		$OUTPUT = confirmLeave ($_GET);
 	}else{
 		$OUTPUT = "<li class=err>Invalid Use of module.";
 	}
@@ -95,10 +95,10 @@ function typedef($type)
 }
 
 # confirm new data
-function confirmLeave ($HTTP_POST_VARS)
+function confirmLeave ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -182,10 +182,10 @@ function confirmLeave ($HTTP_POST_VARS)
 }
 
 # write new data
-function writeLeave ($HTTP_POST_VARS)
+function writeLeave ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

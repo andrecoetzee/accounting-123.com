@@ -31,10 +31,10 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 			case "print":
-				$OUTPUT = bal_sheet($HTTP_POST_VARS);
+				$OUTPUT = bal_sheet($_POST);
 				break;
 
 			case "printsave":
@@ -114,10 +114,10 @@ function ret($OUTPUT){
 }
 
 # Balance Sheet
-function bal_sheet($HTTP_POST_VARS)
+function bal_sheet($_POST)
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 

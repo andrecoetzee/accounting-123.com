@@ -2,16 +2,16 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = show_notes ($HTTP_POST_VARS);
+			$OUTPUT = show_notes ($_POST);
 			break;
 		default:
-			$OUTPUT = get_filter ($HTTP_POST_VARS);
+			$OUTPUT = get_filter ($_POST);
 	}
 }else {
-	$OUTPUT = get_filter ($HTTP_POST_VARS);
+	$OUTPUT = get_filter ($_POST);
 }
 
 $OUTPUT .= "<br>" . 
@@ -26,10 +26,10 @@ require ("template.php");
 
 
 
-function get_filter ($HTTP_POST_VARS,$err="")
+function get_filter ($_POST,$err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$display = "
 		<h2>View Credit Notes</h2>
@@ -56,10 +56,10 @@ function get_filter ($HTTP_POST_VARS,$err="")
 
 
 
-function show_notes ($HTTP_POST_VARS)
+function show_notes ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -84,7 +84,7 @@ function show_notes ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return get_filter($HTTP_POST_VARS, $err);
+		return get_filter($_POST, $err);
 	}
 
 

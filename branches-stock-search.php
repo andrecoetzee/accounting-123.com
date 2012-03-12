@@ -2,10 +2,10 @@
 
 	require ("settings.php");
 
-	if (isset($HTTP_POST_VARS["key"])){
-		switch ($HTTP_POST_VARS["key"]){
+	if (isset($_POST["key"])){
+		switch ($_POST["key"]){
 			case "search":
-				$OUTPUT = search_branches ($HTTP_POST_VARS);
+				$OUTPUT = search_branches ($_POST);
 				break;
 			default:
 				$OUTPUT = get_search_details ();
@@ -46,10 +46,10 @@ function get_search_details ($err="")
 
 
 
-function search_branches ($HTTP_POST_VARS)
+function search_branches ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($search_term) OR (strlen($search_term) < 1))
 		return get_search_details("<li class='err'>Invalid Search Term</li>");

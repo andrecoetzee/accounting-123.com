@@ -27,12 +27,12 @@ require("settings.php");
 require_lib("mail.smtp");
 require ("pdf-settings.php");
 
-if(isset($HTTP_POST_VARS["key"])&&$HTTP_POST_VARS["key"]=="confirm") {
-	$OUTPUT = confirm($HTTP_POST_VARS);
-} elseif(isset($HTTP_POST_VARS["key"])&&$HTTP_POST_VARS["key"]=="send") {
-	$OUTPUT = send($HTTP_POST_VARS);
-} elseif(isset($HTTP_GET_VARS["cids"])) {
-	$OUTPUT = enter($HTTP_GET_VARS);
+if(isset($_POST["key"])&&$_POST["key"]=="confirm") {
+	$OUTPUT = confirm($_POST);
+} elseif(isset($_POST["key"])&&$_POST["key"]=="send") {
+	$OUTPUT = send($_POST);
+} elseif(isset($_GET["cids"])) {
+	$OUTPUT = enter($_GET);
 } else {
 	$OUTPUT ="Please select at least one customer.";
 }
@@ -49,12 +49,12 @@ if(isset($HTTP_POST_VARS["key"])&&$HTTP_POST_VARS["key"]=="confirm") {
 require("template.php");
 
 
-function enter($HTTP_GET_VARS)
+function enter($_GET)
 {
 
 	$es = qryEmailSettings();
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	$types = "
 			<select name='type'>
@@ -135,10 +135,10 @@ function enter($HTTP_GET_VARS)
 }
 
 
-function confirm($HTTP_GET_VARS)
+function confirm($_GET)
 {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -237,13 +237,13 @@ function confirm($HTTP_GET_VARS)
 }
 
 
-function send($HTTP_POST_VARS)
+function send($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(isset($back))
-		return enter ($HTTP_POST_VARS);
+		return enter ($_POST);
 
 	# validate input
 	require_lib("validate");

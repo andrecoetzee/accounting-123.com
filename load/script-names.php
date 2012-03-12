@@ -28,7 +28,7 @@
 require("settings.php");
 
 # Display default output
-$OUTPUT = edit($HTTP_GET_VARS['file']);
+$OUTPUT = edit($_GET['file']);
 
 # get templete
 require("template.php");

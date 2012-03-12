@@ -28,9 +28,9 @@ require ("settings.php");
 require ("libs/ext.lib.php");
 require_lib("validate");
 
-if (isset($HTTP_POST_VARS["email"])) {
+if (isset($_POST["email"])) {
 	# show current stock
-	$OUTPUT = email_custs($HTTP_POST_VARS);
+	$OUTPUT = email_custs($_POST);
 }else {
 	# show current stock
 	$OUTPUT = printCust();

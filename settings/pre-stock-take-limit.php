@@ -2,13 +2,13 @@
 
 require ("../settings.php");
 
-if (isset ($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if (isset ($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = write_limit_setting($HTTP_POST_VARS);
+			$OUTPUT = write_limit_setting($_POST);
 			break;
 		default:
-			$OUTPUT = get_limit_setting($HTTP_POST_VARS);
+			$OUTPUT = get_limit_setting($_POST);
 	}
 }else {
 	$OUTPUT = get_limit_setting ();
@@ -55,10 +55,10 @@ function get_limit_setting ($err="")
 }
 
 
-function write_limit_setting ($HTTP_POST_VARS)
+function write_limit_setting ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$setting += 0;
 

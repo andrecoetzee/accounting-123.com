@@ -28,10 +28,10 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "viewtrans":
-			$OUTPUT = viewtrans($HTTP_POST_VARS);
+			$OUTPUT = viewtrans($_POST);
 			break;
 		default:
 			$OUTPUT = view();
@@ -177,11 +177,11 @@ function view()
 
 
 # View Categories
-function viewtrans($HTTP_POST_VARS)
+function viewtrans($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

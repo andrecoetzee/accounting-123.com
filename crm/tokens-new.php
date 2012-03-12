@@ -25,34 +25,34 @@
 
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "listr":
-			$OUTPUT = listr($HTTP_POST_VARS);
+			$OUTPUT = listr($_POST);
 			break;
 		case "drop":
-			$OUTPUT = drop($HTTP_POST_VARS);
+			$OUTPUT = drop($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid";
 	}
-} elseif(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = enter($HTTP_GET_VARS);
+} elseif(isset($_GET["id"])) {
+	$OUTPUT = enter($_GET);
 } else {
-	$OUTPUT = select($HTTP_POST_VARS);
+	$OUTPUT = select($_POST);
 }
 
 require("template.php");
 
-function select($HTTP_POST_VARS,$errors="") {
+function select($_POST,$errors="") {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
-	global $HTTP_GET_VARS;
-        extract($HTTP_GET_VARS);
+	global $_GET;
+        extract($_GET);
 
 	if(!(isset($value))) {
 		$value='';
@@ -143,8 +143,8 @@ function select($HTTP_POST_VARS,$errors="") {
 	return $out;
 }
 
-function listr ($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function listr ($_POST) {
+	extract($_POST);
 	$flag=remval($flag);
 	$value=remval($value);
 
@@ -167,7 +167,7 @@ function listr ($HTTP_POST_VARS) {
 		$Sl="SELECT * FROM cons WHERE  lower($flag) LIKE lower('%$value%') AND div='".USER_DIV."' $wh ORDER BY surname";
 		$Ry=db_exec($Sl) or errDie("Unable to get data.");
 		if(pg_num_rows($Ry)<1) {
-			return "No contacts were found for the criteria you selected.".select($HTTP_POST_VARS);
+			return "No contacts were found for the criteria you selected.".select($_POST);
 		}
 
 		if(pg_num_rows($Ry)>0) {
@@ -242,7 +242,7 @@ function listr ($HTTP_POST_VARS) {
 		$Ry=db_exec($Sl) or errDie("Unable to get data.");
 		if(pg_num_rows($Ry)<1) {
 			return "No contacts were found for the criteria you selected."
-				.select($HTTP_POST_VARS);
+				.select($_POST);
 		}
 
 		$out="<h3>Select Person/Company making enquiry </h3>
@@ -290,8 +290,8 @@ function listr ($HTTP_POST_VARS) {
 
 }
 
-function drop($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function drop($_POST) {
+	extract($_POST);
 
 	$poken+=0;
 
@@ -309,9 +309,9 @@ function drop($HTTP_POST_VARS) {
 }
 
 
-function enter($HTTP_POST_VARS,$errors="") {
+function enter($_POST,$errors="") {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
         if(!isset($poken)) {
 		$poken=0;
 	}
@@ -467,9 +467,9 @@ function enter($HTTP_POST_VARS,$errors="") {
 	return $out;
 }
 
-function write($HTTP_POST_VARS) {
+function write($_POST) {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
         $team+=0;
 	$contact+=0;
@@ -496,7 +496,7 @@ function write($HTTP_POST_VARS) {
 	}
 
 	if($echeck!=1) {
-		return enter($HTTP_POST_VARS,"<li class=err>Please select a customer OR a supplier OR a contact</li>");
+		return enter($_POST,"<li class=err>Please select a customer OR a supplier OR a contact</li>");
 	}
 
 	if($customer>0) {
@@ -515,7 +515,7 @@ function write($HTTP_POST_VARS) {
 		$wh="id";
 		$csc=$contact;
 	} else {
-		return enter($HTTP_POST_VARS,"<li class=err>Please select a customer OR a supplier OR a contact</li>");
+		return enter($_POST,"<li class=err>Please select a customer OR a supplier OR a contact</li>");
 	}
 
 	db_conn('crm');
@@ -523,7 +523,7 @@ function write($HTTP_POST_VARS) {
 	$Ry=db_exec($Sl) or errDie("Unable to get crm data.");
 
 	if(pg_numrows($Ry)<1) {
-		return enter($HTTP_POST_VARS);
+		return enter($_POST);
 	}
 
 	$crmdata=pg_fetch_array($Ry);
@@ -533,7 +533,7 @@ function write($HTTP_POST_VARS) {
 	$Ry=db_exec($Sl) or errDie("Unable to get $csct details.");
 
 	if(pg_numrows($Ry)<1) {
-		return enter($HTTP_POST_VARS,"Invalid $csct");
+		return enter($_POST,"Invalid $csct");
 	}
 
 	$cscdata=pg_fetch_array($Ry);
@@ -576,7 +576,7 @@ function write($HTTP_POST_VARS) {
 			break;
 
 		default:
-			return enter($HTTP_POST_VARS);
+			return enter($_POST);
 	}
 	db_conn('cubit');
 

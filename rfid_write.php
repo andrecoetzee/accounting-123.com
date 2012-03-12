@@ -28,55 +28,55 @@ require("settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "write_bars":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "get_bars":
-			$HTTP_POST_VARS["setfocus"] = "barcodes";
-			$OUTPUT = read_bars ($HTTP_POST_VARS);
+			$_POST["setfocus"] = "barcodes";
+			$OUTPUT = read_bars ($_POST);
 			break;
                 case "rfid":
-			$OUTPUT = rfid_write($HTTP_POST_VARS);
+			$OUTPUT = rfid_write($_POST);
 			break;
                 default:
-			$HTTP_POST_VARS["setfocus"] = "clength";
-			$OUTPUT = get_length($HTTP_POST_VARS);
+			$_POST["setfocus"] = "clength";
+			$OUTPUT = get_length($_POST);
 	}
-} elseif (isset($HTTP_GET_VARS["id"])) {
+} elseif (isset($_GET["id"])) {
         # Display default output
-	$HTTP_POST_VARS["id"]=$HTTP_GET_VARS["id"];
+	$_POST["id"]=$_GET["id"];
 
 	//Sends the trip id to edit trip
-	if (isset($HTTP_GET_VARS["tripid"])) {$HTTP_POST_VARS["tripid"]=$HTTP_GET_VARS["tripid"];}
+	if (isset($_GET["tripid"])) {$_POST["tripid"]=$_GET["tripid"];}
 
 	//Sends the product id to edit product
-	if (isset($HTTP_GET_VARS["proid"])) {$HTTP_POST_VARS["proid"]=$HTTP_GET_VARS["proid"];}
+	if (isset($_GET["proid"])) {$_POST["proid"]=$_GET["proid"];}
 
 	//Just a way to ensure that the product is loaded only once for editing
-	if (isset($HTTP_GET_VARS["proid"])) {$HTTP_POST_VARS["busy"]="No";}
-	$HTTP_POST_VARS["setfocus"] = "clength";
-	$OUTPUT = get_length($HTTP_POST_VARS);
+	if (isset($_GET["proid"])) {$_POST["busy"]="No";}
+	$_POST["setfocus"] = "clength";
+	$OUTPUT = get_length($_POST);
 	}
 
 else {
         # Display default output
-	$HTTP_POST_VARS["setfocus"] = "clength";
-	$OUTPUT = get_length($HTTP_POST_VARS);
+	$_POST["setfocus"] = "clength";
+	$OUTPUT = get_length($_POST);
 
 }
 
 # get templete
 require("template.php");
 
-function get_length ($HTTP_POST_VARS)
+function get_length ($_POST)
 {
 
 	$Out="";
 
         # get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -160,10 +160,10 @@ function get_length ($HTTP_POST_VARS)
 }
 
 
-function read_bars ($HTTP_POST_VARS,$errs = "")
+function read_bars ($_POST,$errs = "")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$display = "
 			<table ".TMPL_tblDflts.">
@@ -198,13 +198,13 @@ function read_bars ($HTTP_POST_VARS,$errs = "")
 
 
 # Write Barecode Info
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	$Out="";
 
 	#get & send vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 		$Out .= "<input type=hidden name=$$key value='$value'>";
 	}
@@ -234,7 +234,7 @@ function write($HTTP_POST_VARS)
 			$errors .= "<li class=err>".$e["msg"]."</li>";
 		}
 		$errors .= "<input type=hidden name=errors value='$errors'>";
-		return read_bars($HTTP_POST_VARS,$errors);
+		return read_bars($_POST,$errors);
 	}
 
 	#we can only add as many barcodes as there is stock, so find the max and reduce the array if it exceeds the max
@@ -339,11 +339,11 @@ function write($HTTP_POST_VARS)
 					$tab="ss9";
 					break;
 				default:
-					return order($HTTP_POST_VARS,"The code you selected is invalid");
+					return order($_POST,"The code you selected is invalid");
 			}
 
 		if (barext_ex($tab,'code',$each)or(strlen($each)==0)) {
-			return read_bars($HTTP_POST_VARS,"<li class='err'>The code you selected already exits in the system.</li>");
+			return read_bars($_POST,"<li class='err'>The code you selected already exits in the system.</li>");
 		}else {
 			$getcheck = "SELECT * FROM ".$tab." WHERE code = '$me' AND active = 'no'";
 			$runcheck = db_exec($getcheck) or errDie("Unable to get serial number check");
@@ -368,10 +368,10 @@ function write($HTTP_POST_VARS)
 
 }
 
-function rfid_write ($HTTP_POST_VARS)
+function rfid_write ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($id))
 		return "Invalid ID.";

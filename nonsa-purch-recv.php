@@ -29,17 +29,17 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["purid"])) {
-	$OUTPUT = slct($HTTP_GET_VARS);
+if (isset($_GET["purid"])) {
+	$OUTPUT = slct($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
             case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 
 			case "slct":
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 				break;
 
             default:
@@ -54,11 +54,11 @@ if (isset($HTTP_GET_VARS["purid"])) {
 require("template.php");
 
 # Details
-function slct($HTTP_GET_VARS, $err = "")
+function slct($_GET, $err = "")
 {
 
 	# Get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -129,10 +129,10 @@ function slct($HTTP_GET_VARS, $err = "")
 }
 
 # Details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -152,7 +152,7 @@ function details($HTTP_POST_VARS, $error="")
 		foreach ($errors as $e) {
 			$error .= "<li class=err>".$e["msg"];
 		}
-		return slct($HTTP_POST_VARS, $error);
+		return slct($_POST, $error);
 		$confirm = "$error<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirm;
 	}
@@ -352,11 +352,11 @@ function details($HTTP_POST_VARS, $error="")
 }
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -400,7 +400,7 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class=err>".$e["msg"];
 		}
-		return details($HTTP_POST_VARS, $err);
+		return details($_POST, $err);
 	}
 
 	# Get Order info

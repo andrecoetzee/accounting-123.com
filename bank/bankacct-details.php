@@ -25,7 +25,7 @@
 require ("../settings.php");          // Get global variables & functions
 
 // show current stock
-editAccnt($HTTP_GET_VARS['accname']);
+editAccnt($_GET['accname']);
 
 /*
  * Functions

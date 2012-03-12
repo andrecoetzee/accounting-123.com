@@ -2,8 +2,8 @@
 
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["key"])){
-	$OUTPUT = import_file ($HTTP_POST_VARS);
+if (isset($_POST["key"])){
+	$OUTPUT = import_file ($_POST);
 }else {
 	$OUTPUT = get_file();
 }
@@ -59,14 +59,14 @@ function get_file ($err="")
 
 
 
-function import_file ($HTTP_POST_VARS)
+function import_file ($_POST)
 {
 
 	$errorlist = "";
 	$counter = 0;
 	$newarr = array ();
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	#check if we have a queue name ...
 	if (!isset($upload_name) OR strlen($upload_name) < 1)

@@ -2,10 +2,10 @@
 
 require("settings.php");
 
-if (isset ($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if (isset ($_POST["key"])){
+	switch ($_POST["key"]){
 		case "write":
-			$OUTPUT = write_union ($HTTP_POST_VARS);
+			$OUTPUT = write_union ($_POST);
 			break;
 		default:
 			$OUTPUT = get_union ();
@@ -49,10 +49,10 @@ function get_union ()
 }
 
 
-function write_union ($HTTP_POST_VARS)
+function write_union ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

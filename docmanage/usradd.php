@@ -3,13 +3,13 @@ require("../settings.php");
 
 #decide what to do
 
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = con_data ($HTTP_POST_VARS);
+			$OUTPUT = con_data ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_data ($HTTP_POST_VARS);
+			$OUTPUT = write_data ($_POST);
 			break;
 		default:
 			$OUTPUT = get_data ();
@@ -23,8 +23,8 @@ require("../template.php");
 #enter new data
 function get_data ()
 {
-        global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+        global $_POST;
+	extract($_POST);
 
 	if(!(isset($username))) {
 		$username="";
@@ -94,10 +94,10 @@ $get_data="
 	return $get_data;
 }
 //get errors	
-function enter_err($HTTP_POST_VARS,$err=""){
+function enter_err($_POST,$err=""){
 
-        global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+        global $_POST;
+	extract($_POST);
 
 	if(!(isset($username))) {
 		$username="";
@@ -165,10 +165,10 @@ $get_data="
 }
 
 #confirm new data	
-function con_data ($HTTP_POST_VARS)
+function con_data ($_POST)
 {
 # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	
@@ -193,7 +193,7 @@ function con_data ($HTTP_POST_VARS)
 			$theseErrors .= "<li class=err>".$e["msg"]."</li>";
 		}
 		//get errors
-		return enter_err($HTTP_POST_VARS, $theseErrors);
+		return enter_err($_POST, $theseErrors);
 		exit;
 		
 		$theseErrors .= "<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
@@ -227,11 +227,11 @@ function con_data ($HTTP_POST_VARS)
 }
 
 # write new data
-function write_data ($HTTP_POST_VARS)
+function write_data ($_POST)
 {
 	//$date=date("Y-m-d");
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	

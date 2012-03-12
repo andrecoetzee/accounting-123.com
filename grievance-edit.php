@@ -27,16 +27,16 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "update":
 			$OUTPUT = update_grievance ();
 			break;
 		case "confirm":
-			$OUTPUT = confirm_grievance($HTTP_POST_VARS);
+			$OUTPUT = confirm_grievance($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_grievance($HTTP_POST_VARS);
+			$OUTPUT = write_grievance($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid use.";
@@ -53,9 +53,9 @@ require ("template.php");
 function get_grievance ($err = "")
 {
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	if(!isset($HTTP_GET_VARS["grievnum"])){
+	if(!isset($_GET["grievnum"])){
 		return "Grievance not found";
 	}
 
@@ -63,7 +63,7 @@ function get_grievance ($err = "")
 	db_connect ();
 
 	#get the grievance
-	$get_griev = "SELECT * FROM grievances WHERE grievnum = '$HTTP_GET_VARS[grievnum]' LIMIT 1";
+	$get_griev = "SELECT * FROM grievances WHERE grievnum = '$_GET[grievnum]' LIMIT 1";
 	$run_griev = db_exec($get_griev);
 	if(pg_numrows($run_griev) < 1){
 		return "Could not find grievance information";
@@ -310,8 +310,8 @@ function get_grievance ($err = "")
 function update_grievance ()
 {
 
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 
 	$first_rec_date = $first_rec_month."-".$first_rec_day."-".$first_rec_year;
 	$company_date = $company_month."-".$company_day."-".$company_year;
@@ -465,10 +465,10 @@ function update_grievance ()
 
 
 
-function confirm_grievance ($HTTP_POST_VARS)
+function confirm_grievance ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$first_rec_date = $first_rec_month."-".$first_rec_day."-".$first_rec_year;
 	$company_date = $company_month."-".$company_day."-".$company_year;
@@ -650,10 +650,10 @@ function confirm_grievance ($HTTP_POST_VARS)
 
 
 
-function write_grievance ($HTTP_POST_VARS)
+function write_grievance ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

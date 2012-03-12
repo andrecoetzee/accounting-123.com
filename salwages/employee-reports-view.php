@@ -25,14 +25,14 @@
 
 require ("../settings.php");
 
-if (isset ($HTTP_POST_VARS["key"])) {
-	if ($HTTP_POST_VARS["key"] == "show") {
-		$OUTPUT = showReports ($HTTP_POST_VARS);
+if (isset ($_POST["key"])) {
+	if ($_POST["key"] == "show") {
+		$OUTPUT = showReports ($_POST);
 	} else {
 		errDie ("Invalid use of module.");
 	}
-} elseif (isset ($HTTP_GET_VARS["key"])) {
-	$OUTPUT = printReport ($HTTP_GET_VARS);
+} elseif (isset ($_GET["key"])) {
+	$OUTPUT = printReport ($_GET);
 } else {
 	$OUTPUT = slctReports ();
 }
@@ -111,11 +111,11 @@ function slctReports ($err="")
 
 
 
-function showReports ($HTTP_POST_VARS)
+function showReports ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -227,11 +227,11 @@ function showReports ($HTTP_POST_VARS)
 
 
 
-function printReport ($HTTP_GET_VARS)
+function printReport ($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");

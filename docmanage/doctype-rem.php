@@ -29,21 +29,21 @@ require ("../settings.php");
 require ("../core-settings.php");
 
 # Decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		default:
-			if(isset($HTTP_GET_VARS['typeid'])){
-				$OUTPUT = confirm ($HTTP_GET_VARS);
+			if(isset($_GET['typeid'])){
+				$OUTPUT = confirm ($_GET);
 			}else{
 				$OUTPUT = "<li> - Invalid use of module";
 			}
 	}
 } else {
-	if(isset($HTTP_GET_VARS['typeid'])){
-		$OUTPUT = confirm ($HTTP_GET_VARS);
+	if(isset($_GET['typeid'])){
+		$OUTPUT = confirm ($_GET);
 	}else{
 		$OUTPUT = "<li> - Invalid use of module";
 	}
@@ -99,10 +99,10 @@ function confirm($VARS)
 }
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# Validate input

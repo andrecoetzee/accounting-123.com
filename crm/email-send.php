@@ -29,19 +29,19 @@ require ("settings.php");
 require_lib("validate");
 require_lib("mail.smtp");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch ( $HTTP_POST_VARS["key"] ) {
+if(isset($_POST["key"])) {
+	switch ( $_POST["key"] ) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "send":
-			$OUTPUT = send($HTTP_POST_VARS);
+			$OUTPUT = send($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid use of script.";
 	}
-} elseif(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = enter($HTTP_GET_VARS);
+} elseif(isset($_GET["id"])) {
+	$OUTPUT = enter($_GET);
 } else {
 	$OUTPUT = "Invalid.";
 }
@@ -49,8 +49,8 @@ if(isset($HTTP_POST_VARS["key"])) {
 require ("template.php");
 
 // creates the form of the new message
-function enter($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function enter($_POST) {
+	extract($_POST);
 
 	db_conn('crm');
 	$Sl="SELECT * FROM tokens WHERE id='$id'";
@@ -105,8 +105,8 @@ function enter($HTTP_POST_VARS) {
 	return $OUTPUT;
 }
 
-function errors($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function errors($_POST) {
+	extract($_POST);
 
 	$sql = "SELECT account_id,account_name,smtp_from
 			 FROM mail_accounts WHERE ( username='".USER_NAME."' OR \"public\"='1' ) AND enable_smtp = '1'
@@ -151,9 +151,9 @@ function errors($HTTP_POST_VARS) {
 	return $OUTPUT;
 }
 
-function confirm($HTTP_POST_VARS) {
+function confirm($_POST) {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 	extract($_FILES);
 
 	$Sl = "SELECT * FROM mail_accounts WHERE (username='".USER_NAME."' OR \"public\"='1') AND enable_smtp = '1'
@@ -189,9 +189,9 @@ function confirm($HTTP_POST_VARS) {
 }
 
 // verifies the message and sends it, the store it in database under sent items
-function send($HTTP_POST_VARS) {
+function send($_POST) {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 	extract($_FILES);
 
 	$tid+=0;
@@ -199,9 +199,9 @@ function send($HTTP_POST_VARS) {
 	$v = & new validate;
 
 	// check if account is valid
-	if ( isset($HTTP_POST_VARS["aid"]) ) {
+	if ( isset($_POST["aid"]) ) {
 		// make sure aid is ONLY a number, (sql injection)
-		if ( ! $v->isOk( $HTTP_POST_VARS["aid"], "num", 0, 9, "" ) )
+		if ( ! $v->isOk( $_POST["aid"], "num", 0, 9, "" ) )
 			return "Invalid account number specified";
 
 		// check if you may send mail from here
@@ -233,7 +233,7 @@ function send($HTTP_POST_VARS) {
 	// $v->isOK($send_cc, "email", 0, 255, "Invalid cc recipient.");
 	// $v->isOK($send_bcc, "email", 0, 255, "Invalid bcc recipient.");
 	if ( ! $v->isOK($body, "string", 1, 255, "Invalid text in body.") ) {
-		$HTTP_GET_VARS["body"] = htmlspecialchars($body); // makes sure we dont get cross site scripting
+		$_GET["body"] = htmlspecialchars($body); // makes sure we dont get cross site scripting
 	}
 
 	// ok now print errors if any
@@ -244,7 +244,7 @@ function send($HTTP_POST_VARS) {
 			$OUTPUT .= "$errval[msg]<br>";
 		}
 
-		$OUTPUT .= errors($HTTP_POST_VARS);
+		$OUTPUT .= errors($_POST);
 
 		return $OUTPUT;
 	}

@@ -27,16 +27,16 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "next":
 			$OUTPUT = get_training ();
 			break;
 		case "confirm":
-			$OUTPUT = confirm_grievance($HTTP_POST_VARS);
+			$OUTPUT = confirm_grievance($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_grievance($HTTP_POST_VARS);
+			$OUTPUT = write_grievance($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid use.";
@@ -98,8 +98,8 @@ function get_employee ()
 function get_training ($err = "")
 {
 
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	# Connect to db
 	db_connect ();
@@ -175,11 +175,11 @@ function get_training ($err = "")
 }
 
 
-function get_training_err ($HTTP_POST_VARS,$err = "")
+function get_training_err ($_POST,$err = "")
 {
 
-	//global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	//global $_POST;
+	extract($_POST);
 
 	if(!isset($date_year))
 		$date_year = "";
@@ -305,10 +305,10 @@ function get_training_err ($HTTP_POST_VARS,$err = "")
 }
 
 
-function confirm_grievance ($HTTP_POST_VARS)
+function confirm_grievance ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$date_date = $date_month."-".$date_day."-".$date_year;
 	$commence_date = $commence_month."-".$commence_day."-".$commence_year;
@@ -382,7 +382,7 @@ function confirm_grievance ($HTTP_POST_VARS)
 			$confirmCust .= "<li class=err>$e[msg]</li>";
 		}
 
-		return get_training_err($HTTP_POST_VARS,$confirmCust);
+		return get_training_err($_POST,$confirmCust);
 	}
 
 
@@ -443,10 +443,10 @@ function confirm_grievance ($HTTP_POST_VARS)
 }
 
 
-function write_grievance ($HTTP_POST_VARS)
+function write_grievance ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

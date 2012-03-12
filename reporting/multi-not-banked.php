@@ -27,10 +27,10 @@
 require ("../settings.php");          // Get global variables & functions
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
             case "out":
-				$OUTPUT = cashbook($HTTP_POST_VARS['bankid']);
+				$OUTPUT = cashbook($_POST['bankid']);
 				break;
 
 			default:

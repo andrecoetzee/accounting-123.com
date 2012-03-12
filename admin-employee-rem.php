@@ -27,19 +27,19 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm_rem":
-			$OUTPUT = confirm_rem($HTTP_POST_VARS);
+			$OUTPUT = confirm_rem($_POST);
 			break;
 		case "remove":
-			$OUTPUT = remove($HTTP_POST_VARS);
+			$OUTPUT = remove($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid use.";
 	}
-} elseif(isset($HTTP_GET_VARS["empnum"])) {
-	$OUTPUT = confirm_emp($HTTP_GET_VARS);
+} elseif(isset($_GET["empnum"])) {
+	$OUTPUT = confirm_emp($_GET);
 } else {
 	$OUTPUT = "Invalid.";
 }
@@ -54,10 +54,10 @@ require ("template.php");
 ##
 
 # confirm removal
-function confirm_emp ($HTTP_GET_VARS,$err="")
+function confirm_emp ($_GET,$err="")
 {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	$empnum += 0;
 
@@ -331,10 +331,10 @@ function confirm_emp ($HTTP_GET_VARS,$err="")
 
 
 # confirm removal
-function confirm_rem ($HTTP_POST_VARS)
+function confirm_rem ($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
     $v = new validate ();
@@ -357,7 +357,7 @@ function confirm_rem ($HTTP_POST_VARS)
             foreach ($errors as $e) {
                 $confirmCust .= "<li class='err'>".$e["msg"]."</li>";
             }
-		return confirm_emp($HTTP_POST_VARS,$confirmCust."<br>");
+		return confirm_emp($_POST,$confirmCust."<br>");
 	}
 
 	if (empty($description)) {
@@ -592,10 +592,10 @@ function confirm_rem ($HTTP_POST_VARS)
 
 
 # Remove employee
-function remove ($HTTP_POST_VARS)
+function remove ($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new validate ();

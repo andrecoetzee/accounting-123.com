@@ -28,46 +28,46 @@ require("settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "write_bars":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "get_bars":
-			$HTTP_POST_VARS["setfocus"] = "barcodes";
-			$OUTPUT = read_bars ($HTTP_POST_VARS);
+			$_POST["setfocus"] = "barcodes";
+			$OUTPUT = read_bars ($_POST);
 			break;
                 case "rfid":
-			$OUTPUT = rfid_write($HTTP_POST_VARS);
+			$OUTPUT = rfid_write($_POST);
 			break;
                 default:
-			$HTTP_POST_VARS["setfocus"] = "clength";
-			$OUTPUT = get_length($HTTP_POST_VARS);
+			$_POST["setfocus"] = "clength";
+			$OUTPUT = get_length($_POST);
 	}
-} elseif (isset($HTTP_GET_VARS["invid"])) {
+} elseif (isset($_GET["invid"])) {
         # Display default output
-	$HTTP_POST_VARS["invid"]=$HTTP_GET_VARS["invid"];
-	$HTTP_POST_VARS["setfocus"] = "clength";
-	$OUTPUT = get_length($HTTP_POST_VARS);
+	$_POST["invid"]=$_GET["invid"];
+	$_POST["setfocus"] = "clength";
+	$OUTPUT = get_length($_POST);
 	}
 
 else {
         # Display default output
-	$HTTP_POST_VARS["setfocus"] = "clength";
-	$OUTPUT = get_length($HTTP_POST_VARS);
+	$_POST["setfocus"] = "clength";
+	$OUTPUT = get_length($_POST);
 
 }
 
 # get templete
 require("template.php");
 
-function get_length ($HTTP_POST_VARS)
+function get_length ($_POST)
 {
 
 	$Out="";
 
         # get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -133,12 +133,12 @@ function get_length ($HTTP_POST_VARS)
 }
 
 
-function read_bars ($HTTP_POST_VARS,$errs = "")
+function read_bars ($_POST,$errs = "")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
-//	$HTTP_POST_VARS["setfocus"] = "barcodes";
+//	$_POST["setfocus"] = "barcodes";
 
 	$display = "
 			<table ".TMPL_tblDflts.">
@@ -173,13 +173,13 @@ function read_bars ($HTTP_POST_VARS,$errs = "")
 
 
 # Write Barecode Info
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	$Out="";
 
 	#get & send vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 		$Out .= "<input type=hidden name=$$key value='$value'>";
 	}
@@ -209,7 +209,7 @@ function write($HTTP_POST_VARS)
 			$errors .= "<li class=err>".$e["msg"]."</li>";
 		}
 		$errors .= "<input type=hidden name=errors value='$errors'>";
-		return read_bars($HTTP_POST_VARS,$errors);
+		return read_bars($_POST,$errors);
 	}
 
 	#we can only add as many barcodes as there is stock, so find the max and reduce the array if it exceeds the max
@@ -289,7 +289,7 @@ function write($HTTP_POST_VARS)
 
 			if (pg_numrows ($Rs) < 1)
 			{
-				return read_bars($HTTP_POST_VARS,"<li class='err'>Please go set the point of sale settings under the stock settings</li>");
+				return read_bars($_POST,"<li class='err'>Please go set the point of sale settings under the stock settings</li>");
 			}
 			$Dets = pg_fetch_array($Rs);
 			if($Dets['opt']=="No"){
@@ -326,7 +326,7 @@ function write($HTTP_POST_VARS)
 							$tab="ss9";
 							break;
 						default:
-							return read_bars($HTTP_POST_VARS,"<li class='err'>The code you selected is invalid.</li>");
+							return read_bars($_POST,"<li class='err'>The code you selected is invalid.</li>");
 
 					}
 
@@ -336,7 +336,7 @@ function write($HTTP_POST_VARS)
 
 				$stid=barext_dbget($tab,'code',$each,'stock');
 
-				if(!($stid>0)){return read_bars($HTTP_POST_VARS,"<li class='err'>The bar code you selected is not in the system or is not available.</li>");}
+				if(!($stid>0)){return read_bars($_POST,"<li class='err'>The bar code you selected is not in the system or is not available.</li>");}
 
 				$Sl = "SELECT * FROM stock WHERE stkid = '$stid' AND div = '".USER_DIV."'";
 				$Rs = db_exec($Sl);
@@ -361,7 +361,7 @@ function write($HTTP_POST_VARS)
 
 				$stid=ext_dbget('stock','bar',$each,'stkid');
 
-				if(!($stid>0)){return read_bars($HTTP_POST_VARS,"<li class='err'>The bar code you selected is not in the system or is not available.</li>");}
+				if(!($stid>0)){return read_bars($_POST,"<li class='err'>The bar code you selected is not in the system or is not available.</li>");}
 
 				$Sl = "SELECT * FROM stock WHERE stkid = '$stid' AND div = '".USER_DIV."'";
 				$Rs = db_exec($Sl);

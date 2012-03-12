@@ -32,35 +32,35 @@ require("settings.php");
 
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "account_info":
-			$OUTPUT = account_info($HTTP_POST_VARS);
+			$OUTPUT = account_info($_POST);
 			break;
                 default:
-			$OUTPUT = order($HTTP_POST_VARS);
+			$OUTPUT = order($_POST);
 	}
-} elseif (isset($HTTP_GET_VARS["month"])) {
-        if (isset($HTTP_GET_VARS["month"])) {$HTTP_POST_VARS["month"]=$HTTP_GET_VARS["month"];} else {exit;}
-	if (isset($HTTP_GET_VARS["year"])) {$HTTP_POST_VARS["year"]=$HTTP_GET_VARS["year"];} else {exit;}
-	$OUTPUT = order($HTTP_POST_VARS);
+} elseif (isset($_GET["month"])) {
+        if (isset($_GET["month"])) {$_POST["month"]=$_GET["month"];} else {exit;}
+	if (isset($_GET["year"])) {$_POST["year"]=$_GET["year"];} else {exit;}
+	$OUTPUT = order($_POST);
 	}
 
 else {
         # Display default output
 
-	$OUTPUT = order($HTTP_POST_VARS);
+	$OUTPUT = order($_POST);
 
 }
 
 # get templete
 require("template.php");
 
-function order($HTTP_POST_VARS,$errors="")
+function order($_POST,$errors="")
 {
 	$Out="";
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

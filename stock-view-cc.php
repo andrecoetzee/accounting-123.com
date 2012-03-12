@@ -26,10 +26,10 @@
 require ("settings.php");
 
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
         case "view":
-			$OUTPUT = printStk($HTTP_POST_VARS);
+			$OUTPUT = printStk($_POST);
 			break;
 
 		default:
@@ -122,10 +122,10 @@ function slct()
 }
 
 # show stock
-function printStk ($HTTP_POST_VARS)
+function printStk ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

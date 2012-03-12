@@ -28,47 +28,47 @@
 # get settings
 require("../settings.php");
 
-foreach ($HTTP_GET_VARS as $key=>$value) {
-	$HTTP_POST_VARS[$key] = $value;
+foreach ($_GET as $key=>$value) {
+	$_POST[$key] = $value;
 }
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
         case "account_info":
-			$OUTPUT = account_info($HTTP_POST_VARS);
+			$OUTPUT = account_info($_POST);
 			break;
 		case "archive":
 			$OUTPUT = archive();
 			break;
         default:
         case "order":
-			$OUTPUT = order($HTTP_POST_VARS);
+			$OUTPUT = order($_POST);
 	}
-} elseif (isset($HTTP_GET_VARS["id"])) {
+} elseif (isset($_GET["id"])) {
         # Display default output
-	$HTTP_POST_VARS["id"]=$HTTP_GET_VARS["id"];
-	if (isset($HTTP_GET_VARS["tripid"])) {$HTTP_POST_VARS["tripid"]=$HTTP_GET_VARS["tripid"];}
-	if (isset($HTTP_GET_VARS["proid"])) {$HTTP_POST_VARS["proid"]=$HTTP_GET_VARS["proid"];}
-	if (isset($HTTP_GET_VARS["proid"])) {$HTTP_POST_VARS["busy"]="No";}
-	$OUTPUT = order($HTTP_POST_VARS);
+	$_POST["id"]=$_GET["id"];
+	if (isset($_GET["tripid"])) {$_POST["tripid"]=$_GET["tripid"];}
+	if (isset($_GET["proid"])) {$_POST["proid"]=$_GET["proid"];}
+	if (isset($_GET["proid"])) {$_POST["busy"]="No";}
+	$OUTPUT = order($_POST);
 	}
 
 else {
         # Display default output
 
-	$OUTPUT = order($HTTP_POST_VARS);
+	$OUTPUT = order($_POST);
 
 }
 
 # get templete
 require("gw-tmpl.php");
 
-function order($HTTP_POST_VARS,$errors="")
+function order($_POST,$errors="")
 {
 	$Out="";
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -139,11 +139,11 @@ function order($HTTP_POST_VARS,$errors="")
 }
 
 # Write Account Info
-function account_info($HTTP_POST_VARS)
+function account_info($_POST)
 {
 	$Out="";
 	#get & send vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 
 		$$key = remval($value);
 		$Out .="<input type=hidden name=$$key value='$value'>";
@@ -161,7 +161,7 @@ function account_info($HTTP_POST_VARS)
 			$errors .= "<li class=err>".$e["msg"];
 		}
 		$errors .= "<input type=hidden name=errors value='$errors'>";
-		return order($HTTP_POST_VARS,$errors);
+		return order($_POST,$errors);
 	}
 
 	if (isset($cc)){$com="Yes";} else {$com="No";}
@@ -186,7 +186,7 @@ function account_info($HTTP_POST_VARS)
 		}
 	}
 
-	return order($HTTP_POST_VARS);
+	return order($_POST);
 
 }
 

@@ -28,20 +28,20 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["stkid"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
-}elseif (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_GET["stkid"])) {
+	$OUTPUT = details($_GET);
+}elseif (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "details":
-			$OUTPUT = details($HTTP_POST_VARS);
+			$OUTPUT = details($_POST);
 			break;
 
                 case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
                 case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
 			break;
 
                 default:
@@ -94,10 +94,10 @@ function slctStk()
         return $slct;
 }
 
-function details($HTTP_POST_VARS)
+function details($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -167,10 +167,10 @@ function details($HTTP_POST_VARS)
 }
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -263,13 +263,13 @@ function confirm($HTTP_POST_VARS)
 }
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 		//processes
 		db_connect();
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 		# validate input

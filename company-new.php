@@ -87,10 +87,10 @@ function recover()
 function newcomp ($err = "", $name="", $code="")
 {
 
-	global $HTTP_SESSION_VARS;
+	global $_SESSION;
 
 	$newcomp = "";
-	if ( ! isset($HTTP_SESSION_VARS["USER_NAME"]) ) {
+	if ( ! isset($_SESSION["USER_NAME"]) ) {
 		$newcomp .= "
 			<h3>Browser Notice</h3>
 			<b>You need Firefox v1.5 or higher to use Cubit. Click
@@ -147,11 +147,11 @@ function newcomp ($err = "", $name="", $code="")
 
 
 // Confirm
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new  validate ();
@@ -261,11 +261,11 @@ function confirm ($HTTP_POST_VARS)
 
 
 # Create the company
-function create ($HTTP_POST_VARS)
+function create ($_POST)
 {
 
-	if(isset($HTTP_POST_VARS['back'])) {
-		return newcomp("",$HTTP_POST_VARS['name'] , "");
+	if(isset($_POST['back'])) {
+		return newcomp("",$_POST['name'] , "");
 	}
 
 	/**
@@ -277,7 +277,7 @@ function create ($HTTP_POST_VARS)
 	require_lib("progress");
 	displayProgress("newtemplate.php");
 
-	return creation($HTTP_POST_VARS);
+	return creation($_POST);
 
 }
 
@@ -285,11 +285,11 @@ function create ($HTTP_POST_VARS)
 
 
 # Create the company
-function creation ($HTTP_GET_VARS)
+function creation ($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	require_lib("validate");
 	$v = new  validate ();
@@ -343,8 +343,8 @@ function creation ($HTTP_GET_VARS)
 	//$branch = branch("HO", "Head Office", "Head Office", $code);
 	//$user = user($branch, $code);
 
-	global $HTTP_SESSION_VARS;
-	if ( isset($HTTP_SESSION_VARS["USER_NAME"]) ) {
+	global $_SESSION;
+	if ( isset($_SESSION["USER_NAME"]) ) {
 		$create = "
 			<h3>New Company has been created.</h3>
 			<p>

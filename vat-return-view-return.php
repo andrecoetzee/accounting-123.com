@@ -2,10 +2,10 @@
 
 	require ("settings.php");
 
-	if (!isset($HTTP_GET_VARS["vatid"])){
+	if (!isset($_GET["vatid"])){
 		$OUTPUT = "<li class='err'>Invalid Use Of Module. Invalid VAT Return ID.</li>";
 	}else {
-		$OUTPUT = generate_recommended ($HTTP_GET_VARS);
+		$OUTPUT = generate_recommended ($_GET);
 	}
 
 
@@ -15,10 +15,10 @@
 
 
 
-function generate_recommended ($HTTP_POST_VARS)
+function generate_recommended ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($vatid) OR (strlen($vatid) < 1)){
 		return "Invalid Use Of Module. Invalid VAT Return ID.";

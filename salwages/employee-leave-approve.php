@@ -27,24 +27,24 @@
 require ("../settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmLeave ($HTTP_POST_VARS);
+			$OUTPUT = confirmLeave ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writeLeave ($HTTP_POST_VARS);
+			$OUTPUT = writeLeave ($_POST);
 			break;
 		default:
-			if(isset($HTTP_GET_VARS['id'])){
-				$OUTPUT = enterLeave ($HTTP_GET_VARS);
+			if(isset($_GET['id'])){
+				$OUTPUT = enterLeave ($_GET);
 			}else{
 				$OUTPUT = "<li class='err'>Invalid Use of module.</li>";
 			}
 	}
 } else {
-	if(isset($HTTP_GET_VARS['id'])){
-		$OUTPUT = enterLeave ($HTTP_GET_VARS);
+	if(isset($_GET['id'])){
+		$OUTPUT = enterLeave ($_GET);
 	}else{
 		$OUTPUT = "<li class='err'>Invalid Use of module.</li>";
 	}
@@ -85,11 +85,11 @@ function getMonth ($monthNo)
 
 
 # enter new data
-function enterLeave ($HTTP_GET_VARS)
+function enterLeave ($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -219,11 +219,11 @@ function typedef($type)
 
 
 # confirm new data
-function confirmLeave ($HTTP_POST_VARS)
+function confirmLeave ($_POST)
 {
 
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -421,11 +421,11 @@ function checkLeave ($empnum, $type, $workingdays)
 
 
 # write new data
-function writeLeave ($HTTP_POST_VARS)
+function writeLeave ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

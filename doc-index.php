@@ -41,7 +41,7 @@ require ("browser_detection.php");
 
 
 
-if (isset($HTTP_SESSION_VARS["USER_ID"])) {
+if (isset($_SESSION["USER_ID"])) {
 		#we cant use this with a print from the browser check...
         //header("Location: index.xul.php");
         
@@ -54,8 +54,8 @@ if (isset($HTTP_SESSION_VARS["USER_ID"])) {
 }
 
 // check to see if we should dock or undock the menu first, do so, and move on
-if ( isset($HTTP_GET_VARS["action"]) ) {
-	switch ( $HTTP_GET_VARS["action"] ) {
+if ( isset($_GET["action"]) ) {
+	switch ( $_GET["action"] ) {
 		case "dock":
 			db_conn("cubit");
 			$rslt = db_exec("UPDATE users SET services_menu='T' ");
@@ -75,8 +75,8 @@ if ( isset($HTTP_GET_VARS["action"]) ) {
 require ("menus/top_menu.php");
 
 // was a section specified? then load the section's body
-if ( isset($HTTP_GET_VARS["section"]) ) {
-	switch ($HTTP_GET_VARS["section"]) {
+if ( isset($_GET["section"]) ) {
+	switch ($_GET["section"]) {
 		case "accounting":
 			$section_file = "index-accounts.php";
 			break;
@@ -126,7 +126,7 @@ if ( $services_menu_left == true ) {
 $OUTPUT = "
 <html>
 <head>
-<title>".TMPL_title." [ $HTTP_SESSION_VARS[comp] - $HTTP_SESSION_VARS[BRAN_NAME] - $HTTP_SESSION_VARS[USER_NAME] ]</title>
+<title>".TMPL_title." [ $_SESSION[comp] - $_SESSION[BRAN_NAME] - $_SESSION[USER_NAME] ]</title>
 
 <link rel=\"stylesheet\" href=\"menus/lefttheme.css\" type=\"text/css\">
 <link rel=\"stylesheet\" href=\"menus/toptheme.css\" type=\"text/css\">

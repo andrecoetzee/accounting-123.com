@@ -26,30 +26,30 @@
 
 require ("settings.php");
 
-if ($HTTP_POST_VARS) {
-	switch ($HTTP_POST_VARS["key"]) {
+if ($_POST) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm ($HTTP_POST_VARS);
+			$OUTPUT = confirm ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		default : 
-			$OUTPUT = enter ($HTTP_GET_VARS);
+			$OUTPUT = enter ($_GET);
         }
 }else {
-	$OUTPUT = enter ($HTTP_GET_VARS);
+	$OUTPUT = enter ($_GET);
 }
 
 require ("template.php");
 
 
 
-function enter ($HTTP_GET_VARS)
+function enter ($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if(!isset($terms)){
 		db_connect ();
@@ -95,10 +95,10 @@ function enter ($HTTP_GET_VARS)
 
 
 
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$terms = remval($terms);
 
@@ -137,11 +137,11 @@ function confirm ($HTTP_POST_VARS)
 
 
 
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$terms = remval($terms);
 

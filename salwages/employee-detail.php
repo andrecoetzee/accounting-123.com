@@ -24,9 +24,9 @@
 #
 require ("../settings.php");
 
-if ($HTTP_GET_VARS) {
+if ($_GET) {
 	# confirm removal
-	$OUTPUT = viewEmp ($HTTP_GET_VARS['empnum']);
+	$OUTPUT = viewEmp ($_GET['empnum']);
 } else {
 	$OUTPUT = "Invalid option.";
 }

@@ -28,16 +28,16 @@ require ("settings.php");
 if (isset($_POST["key"])) {
 	switch ($_POST["key"]) {
 		case "view":
-			$OUTPUT = printStk($HTTP_POST_VARS);
+			$OUTPUT = printStk($_POST);
 			break;
 		case "export":
 			$OUTPUT = export();
 			break;
 		case "remove":
-			$OUTPUT = remove ($HTTP_POST_VARS);
+			$OUTPUT = remove ($_POST);
 			break;
 		case "confirmremove":
-			$OUTPUT = confirmremove ($HTTP_POST_VARS);
+			$OUTPUT = confirmremove ($_POST);
 			break;
 		default:
 			$OUTPUT = slct();
@@ -194,7 +194,7 @@ function slct()
 
 
 
-function printStk ($HTTP_POST_VARS,$errs="")
+function printStk ($_POST,$errs="")
 {
 
 	extract($_POST);
@@ -668,13 +668,13 @@ function printStk ($HTTP_POST_VARS,$errs="")
 
 
 
-function remove ($HTTP_POST_VARS)
+function remove ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($remids) OR !is_array($remids)){
-		return printStk ($HTTP_POST_VARS,"<li class='err'>Please Select At Least 1 Item To Remove.</li>");
+		return printStk ($_POST,"<li class='err'>Please Select At Least 1 Item To Remove.</li>");
 	}
 
 	db_connect ();
@@ -734,13 +734,13 @@ function remove ($HTTP_POST_VARS)
 
 
 
-function confirmremove ($HTTP_POST_VARS)
+function confirmremove ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($remids) OR !is_array($remids)){
-		return printStk ($HTTP_POST_VARS,"<li class='err'>Please Select At Least 1 Item To Remove.</li>");
+		return printStk ($_POST,"<li class='err'>Please Select At Least 1 Item To Remove.</li>");
 	}
 
 	db_connect ();
@@ -770,9 +770,9 @@ function confirmremove ($HTTP_POST_VARS)
 function export ()
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
-	$OUT = printStk($HTTP_POST_VARS);
+	$OUT = printStk($_POST);
 	$OUT = clean_html($OUT);
 
 	require_lib("xls");

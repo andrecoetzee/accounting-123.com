@@ -29,31 +29,31 @@ require("settings.php");
 require("core-settings.php");
 require("libs/ext.lib.php");
 
-if ( isset($HTTP_GET_VARS) && isset($HTTP_POST_VARS) ) {
-	array_merge($HTTP_POST_VARS, $HTTP_GET_VARS);
+if ( isset($_GET) && isset($_POST) ) {
+	array_merge($_POST, $_GET);
 }
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "cconfirm":
-			$OUTPUT = cconfirm($HTTP_POST_VARS);
+			$OUTPUT = cconfirm($_POST);
 			break;
 		case "cprewrite":
 			$OUTPUT = cprewrite();
 			break;
 		case "cwrite":
-			$OUTPUT = cwrite($HTTP_POST_VARS);
+			$OUTPUT = cwrite($_POST);
 			break;
 		default:
-			if (isset($HTTP_GET_VARS["invid"])) {
-				$OUTPUT = cdetails($HTTP_GET_VARS);
+			if (isset($_GET["invid"])) {
+				$OUTPUT = cdetails($_GET);
 			} else {
 				$OUTPUT = "<li class=err>Invalid use of module.";
 			}
 	}
 }else{
-	if (isset($HTTP_GET_VARS["invid"])) {
-		$OUTPUT = cdetails($HTTP_GET_VARS);
+	if (isset($_GET["invid"])) {
+		$OUTPUT = cdetails($_GET);
 	} else {
 		$OUTPUT = "<li class=err>Invalid use of module.";
 	}
@@ -67,11 +67,11 @@ require("template.php");
 
 
 # Customer details
-function cdetails($HTTP_GET_VARS)
+function cdetails($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -287,11 +287,11 @@ function cdetails($HTTP_GET_VARS)
 
 
 # Customer Confirm
-function cconfirm($HTTP_POST_VARS)
+function cconfirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -500,11 +500,11 @@ function cconfirm($HTTP_POST_VARS)
 
 
 # Customer write
-function cwrite($HTTP_GET_VARS)
+function cwrite($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");

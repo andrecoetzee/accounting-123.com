@@ -27,18 +27,18 @@ require ("settings.php");          // Get global variables & functions
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 			case "Submit":
-				$OUTPUT = printacc($HTTP_POST_VARS);
+				$OUTPUT = printacc($_POST);
 				break;
 
 			case "confirm":
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 				break;
 
 			case "write":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 
 			default:
@@ -115,10 +115,10 @@ function sub()
 }
 
 # print accounts
-function printacc($HTTP_POST_VARS)
+function printacc($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -271,10 +271,10 @@ function printacc($HTTP_POST_VARS)
 	return $OUTPUT;
 }
 
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -384,10 +384,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 # Write configuration
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

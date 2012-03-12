@@ -29,13 +29,13 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
             case "details":
-				if(isset($HTTP_POST_VARS["doneBtn"])){
-					$OUTPUT = write($HTTP_POST_VARS);
+				if(isset($_POST["doneBtn"])){
+					$OUTPUT = write($_POST);
 				}else{
-					$OUTPUT = details($HTTP_POST_VARS);
+					$OUTPUT = details($_POST);
 				}
 				break;
 
@@ -92,10 +92,10 @@ function view()
 }
 
 # Default view
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -144,11 +144,11 @@ function view_err($HTTP_POST_VARS, $err = "")
 }
 
 # details
-function details($HTTP_POST_VARS)
+function details($_POST)
 {
 
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -227,7 +227,7 @@ function details($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 				$err .= "<li class=err>".$e["msg"];
 			}
-			return view_err($HTTP_POST_VARS, $err);
+			return view_err($_POST, $err);
 		}
 	}
 
@@ -250,7 +250,7 @@ function details($HTTP_POST_VARS)
 		$custRslt = db_exec ($sql) or errDie ("Unable to view customers");
 		if (pg_numrows ($custRslt) < 1) {
 			$err = "<li class=err>No customer names starting with <b>$letters</b> in database.";
-			return view_err($HTTP_POST_VARS, $err);
+			return view_err($_POST, $err);
 		}else{
 			$customers = "<select name='cusnum' onChange='javascript:document.form.submit();'>";
 			$customers .= "<option value='-S' disabled selected>Select Customer</option>";
@@ -287,7 +287,7 @@ function details($HTTP_POST_VARS)
 		$custRslt = db_exec ($sql) or errDie ("Unable to view customers");
 		if (pg_numrows ($custRslt) < 1) {
 			$err = "<li class=err>No customer names starting with <b>$letters</b> in database.";
-			return view_err($HTTP_POST_VARS, $err);
+			return view_err($_POST, $err);
 		}else{
 			$customers = "<select name='cusnum' onChange='javascript:document.form.submit();'>";
 			$customers .= "<option value='-S' disabled selected>Select Customer</option>";
@@ -699,11 +699,11 @@ function details($HTTP_POST_VARS)
 }
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -780,7 +780,7 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class=err>".$e["msg"];
 		}
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}
 
 	# fix those nasty zeros
@@ -792,7 +792,7 @@ function write($HTTP_POST_VARS)
 	$sql = "SELECT * FROM customers WHERE cusnum = '$cusnum'";
 	$custRslt = db_exec ($sql) or errDie ("Unable to get customer information");
 	if (pg_numrows ($custRslt) < 1) {
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}
 	$cust = pg_fetch_array($custRslt);
 
@@ -801,7 +801,7 @@ function write($HTTP_POST_VARS)
 	$sql = "SELECT * FROM departments WHERE deptid = '$deptid'";
 	$deptRslt = db_exec($sql);
 	if(pg_numrows($deptRslt) < 1){
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}else{
 		$dept = pg_fetch_array($deptRslt);
 	}

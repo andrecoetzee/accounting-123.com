@@ -27,13 +27,13 @@
 require("../settings.php");
 require("../core-settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "slctacc":
-			$OUTPUT = slctacc($HTTP_POST_VARS);
+			$OUTPUT = slctacc($_POST);
 			break;
 		case "viewtran":
-			$OUTPUT = viewtran($HTTP_POST_VARS);
+			$OUTPUT = viewtran($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid";
@@ -98,10 +98,10 @@ function select_year()
 
 
 
-function slctacc($HTTP_POST_VARS)
+function slctacc($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -188,10 +188,10 @@ function slctacc($HTTP_POST_VARS)
 
 
 # View all transaction for the ledger
-function viewtran($HTTP_POST_VARS)
+function viewtran($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

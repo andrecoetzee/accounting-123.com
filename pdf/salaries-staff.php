@@ -28,16 +28,16 @@ require ("../core-settings.php");
 require ("../libs/ext.lib.php");
 
 ## Decide
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "process":
-			$OUTPUT = process($HTTP_POST_VARS);
+			$OUTPUT = process($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "pack":
-			$OUTPUT = package($HTTP_POST_VARS);
+			$OUTPUT = package($_POST);
 			break;
 		default:
 			$OUTPUT = slctEmployee ();
@@ -143,10 +143,10 @@ function slctEmployee ()
 
 
 
-function process ($HTTP_POST_VARS)
+function process ($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -865,12 +865,12 @@ function process ($HTTP_POST_VARS)
 
 
 # Confirm data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
 	# get vars
-	$HTTP_POST_VARS = var_makesafe($HTTP_POST_VARS);
-	extract ($HTTP_POST_VARS);
+	$_POST = var_makesafe($_POST);
+	extract ($_POST);
 
 	if(isset($back)) {
 		return slctEmployee();
@@ -963,7 +963,7 @@ function confirm ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirmCust .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return $confirmCust.process($HTTP_POST_VARS);
+		return $confirmCust.process($_POST);
 	}
 
 	db_conn('cubit');
@@ -1032,7 +1032,7 @@ function confirm ($HTTP_POST_VARS)
 	}
 
 	if(isset($paid) && ($paid > 0)) {
-		return "<li class='err'>You have already processed a salary for that period</li>".process($HTTP_POST_VARS);
+		return "<li class='err'>You have already processed a salary for that period</li>".process($_POST);
 	}
 	
 	$salconacc = gethook("accnum", "salacc", "name", "salaries control");
@@ -1780,16 +1780,16 @@ function confirm ($HTTP_POST_VARS)
 
 
 # Write new data
-function package($HTTP_POST_VARS)
+function package($_POST)
 {
 
-	$HTTP_POST_VARS = var_makesafe($HTTP_POST_VARS);
-    extract($HTTP_POST_VARS);
+	$_POST = var_makesafe($_POST);
+    extract($_POST);
 
 	$week += 0;
 
 	if(isset($back)) {
-		return process($HTTP_POST_VARS);
+		return process($_POST);
 	}
 
 	$annual += 0;

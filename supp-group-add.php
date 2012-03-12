@@ -26,20 +26,20 @@
 require ('settings.php');
 require ('libs/validate.lib.php');
 
-if (isset($HTTP_POST_VARS['key'])) {
-	switch ($HTTP_POST_VARS['key']) {
+if (isset($_POST['key'])) {
+	switch ($_POST['key']) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 		case "enter":
-			$OUTPUT = enter($HTTP_POST_VARS);
+			$OUTPUT = enter($_POST);
 	}
 } else {
-	$OUTPUT = enter($HTTP_POST_VARS);
+	$OUTPUT = enter($_POST);
 }
 
 // Append quick links to each page
@@ -60,10 +60,10 @@ require ('template.php');
 
 
 
-function enter($HTTP_POST_VARS,$errors="")
+function enter($_POST,$errors="")
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	// Initialize variables
 	if (!isset($groupname)) $groupname = "";
@@ -78,7 +78,7 @@ function enter($HTTP_POST_VARS,$errors="")
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>$e[msg]</li>";
 		}
-		return enter($HTTP_POST_VARS, $confirm);
+		return enter($_POST, $confirm);
 	}
 
 	$OUTPUT = "
@@ -106,10 +106,10 @@ function enter($HTTP_POST_VARS,$errors="")
 
 
 
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	$v = new validate;
 	$v->isOk($groupname, "string", 1, 255, "Invalid supplier group name");
@@ -120,7 +120,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>$e[msg]</li>";
 		}
-		return enter($HTTP_POST_VARS, $confirm);
+		return enter($_POST, $confirm);
 	}
 
 	$OUTPUT = "
@@ -150,10 +150,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$v = new validate;
 	$v->isOk($groupname, "string", 1, 255, "Invalid supplier group name");
@@ -165,14 +165,14 @@ function write($HTTP_POST_VARS)
 			$confirm .= "<li>$e[msg]</li>";
 		}
 		$confirm .= "<li class='err'>$e[msg]</li>";
-		return enter($HTTP_POST_VARS, $confirm);
+		return enter($_POST, $confirm);
 	}
 
 	$sql = "INSERT INTO supp_groups (groupname) VALUES ('$groupname')";
 	db_exec($sql) or errDie("Unable to insert group into Cubit.");
 
-	$HTTP_POST_VARS = array ();
-	return enter ($HTTP_POST_VARS, "<li class='yay'>Successfully added the suppliers group <b>$groupname</b> to Cubit.</li><br>");
+	$_POST = array ();
+	return enter ($_POST, "<li class='yay'>Successfully added the suppliers group <b>$groupname</b> to Cubit.</li><br>");
 
 }	
 

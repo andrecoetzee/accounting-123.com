@@ -28,8 +28,8 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["key"])) {
-	switch ($HTTP_GET_VARS["key"]) {
+if (isset($_GET["key"])) {
+	switch ($_GET["key"]) {
         case "confirm":
 			$OUTPUT = confirm();
 			break;
@@ -55,8 +55,8 @@ require("../template.php");
 function slctAcc($err="")
 {
 
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -238,8 +238,8 @@ function slctAcc($err="")
 function confirm()
 {
 
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -410,8 +410,8 @@ function confirm()
 function write()
 {
 
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	# validate input
 	require_lib("validate");

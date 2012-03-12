@@ -29,32 +29,32 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "process":
-			$OUTPUT = process($HTTP_POST_VARS);
+			$OUTPUT = process($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "update_prices":
-			$OUTPUT = update_prices ($HTTP_POST_VARS);
+			$OUTPUT = update_prices ($_POST);
 			break;
 		default:
 			# decide what to do
-			if (isset($HTTP_GET_VARS["invids"])) {
-				$OUTPUT = details($HTTP_GET_VARS);
+			if (isset($_GET["invids"])) {
+				$OUTPUT = details($_GET);
 			} else {
 				$OUTPUT = "<li class='err'>Invalid use of module.</li>";
 			}
 		}
 } else {
 	# decide what to do
-	if (isset($HTTP_GET_VARS["invids"])) {
-		if (isset($HTTP_GET_VARS["edit"]))
-			$OUTPUT = edit_items ($HTTP_GET_VARS);
+	if (isset($_GET["invids"])) {
+		if (isset($_GET["edit"]))
+			$OUTPUT = edit_items ($_GET);
 		else 
-			$OUTPUT = details($HTTP_GET_VARS);
+			$OUTPUT = details($_GET);
 	} else {
 		$OUTPUT = "<li class='err'>Please select at least one invoice</li><br><input type='button' onClick=\"document.location='rec-nons-invoice-view.php';\" value='Back'>";
 	}
@@ -67,11 +67,11 @@ require("template.php");
 
 
 # details
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -171,10 +171,10 @@ function details($HTTP_GET_VARS)
 
 
 # Create the company
-function process ($HTTP_POST_VARS)
+function process ($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -242,13 +242,13 @@ function process ($HTTP_POST_VARS)
 
 
 # Details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Set mas execution time to 12 hours
 	ini_set("max_execution_time", 43200);
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -371,10 +371,10 @@ function write($HTTP_POST_VARS)
 
 }
 
-function edit_items ($HTTP_POST_VARS,$err="")
+function edit_items ($_POST,$err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 
@@ -447,13 +447,13 @@ function edit_items ($HTTP_POST_VARS,$err="")
 }
 
 
-function update_prices ($HTTP_POST_VARS)
+function update_prices ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($description) OR !is_array ($description))
-		return edit_items($HTTP_POST_VARS,"<li class='err'>No Items To Update.</li><br>");
+		return edit_items($_POST,"<li class='err'>No Items To Update.</li><br>");
 
 	$search_arr = array ();
 	foreach ($invids AS $each){

@@ -25,19 +25,19 @@
 
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid use of script";
 	}
-} elseif(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT=enter($HTTP_GET_VARS);
+} elseif(isset($_GET["id"])) {
+	$OUTPUT=enter($_GET);
 } else {
 	$OUTPUT = "Invalid use of script.";
 }
@@ -54,9 +54,9 @@ $OUTPUT.="<p>
 
 require("template.php");
 
-function enter($HTTP_GET_VARS) {
+function enter($_GET) {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 	$id+=0;
 
 	db_conn('crm');
@@ -84,9 +84,9 @@ function enter($HTTP_GET_VARS) {
 	return $out;
 }
 
-function entererr($HTTP_POST_VARS,$errors="") {
+function entererr($_POST,$errors="") {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$out="<h3>Edit Query Category</h3>
 	$errors
@@ -104,9 +104,9 @@ function entererr($HTTP_POST_VARS,$errors="") {
 	return $out;
 }
 
-function confirm($HTTP_POST_VARS,$errors="") {
+function confirm($_POST,$errors="") {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new  validate ();
@@ -120,7 +120,7 @@ function confirm($HTTP_POST_VARS,$errors="") {
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return entererr($HTTP_POST_VARS, $confirm."</li>");
+		return entererr($_POST, $confirm."</li>");
 	}
 
 	$out="<h3>Edit Query Category</h3>
@@ -138,9 +138,9 @@ function confirm($HTTP_POST_VARS,$errors="") {
 	return $out;
 }
 
-function write($HTTP_POST_VARS) {
+function write($_POST) {
 	
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new  validate ();
@@ -154,7 +154,7 @@ function write($HTTP_POST_VARS) {
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return entererr($HTTP_POST_VARS, $confirm."</li>");
+		return entererr($_POST, $confirm."</li>");
 	}
 	
 	$id+=0;

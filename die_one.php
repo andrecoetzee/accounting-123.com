@@ -25,13 +25,13 @@
 require ("settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = con_die ($HTTP_POST_VARS);
+			$OUTPUT = con_die ($_POST);
 			break;
 		case "write":
-			$OUTPUT = wri_die ($HTTP_POST_VARS);
+			$OUTPUT = wri_die ($_POST);
 			break;
 		default:
 			$OUTPUT = get_die ();
@@ -357,10 +357,10 @@ function get_die ()
 }
 
 # confirm new data
-function con_die ($HTTP_POST_VARS)
+function con_die ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -470,10 +470,10 @@ $c
         return $con_die;
 }
 # write new data
-function wri_die ($HTTP_POST_VARS)
+function wri_die ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

@@ -26,16 +26,16 @@
 
 require("../settings.php");
 
-$OUTPUT=report($HTTP_POST_VARS);
+$OUTPUT=report($_POST);
 
 require("../template.php");
 
 
 
-function report($HTTP_POST_VARS)
+function report($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$date = $year."-".$mon."-".$day;
 	$tdate = $tyear."-".$tmon."-".$tday;

@@ -26,13 +26,13 @@
 require ("settings.php");
 require ("libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
         case "view":
-			$OUTPUT = printStk($HTTP_POST_VARS);
+			$OUTPUT = printStk($_POST);
 			break;
 		case "export":
-			$OUTPUT = export($HTTP_POST_VARS);
+			$OUTPUT = export($_POST);
 			break;
 		default:
 			$OUTPUT = slct();

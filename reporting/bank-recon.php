@@ -28,20 +28,20 @@ require ("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "out":
-			if(isset($HTTP_POST_VARS["upBtn"])){
-				$OUTPUT = confirm($HTTP_POST_VARS);
+			if(isset($_POST["upBtn"])){
+				$OUTPUT = confirm($_POST);
 			}else{
-				$OUTPUT = cashbook($HTTP_POST_VARS);
+				$OUTPUT = cashbook($_POST);
 			}
 			break;
 		case "confirmed":
-			$OUTPUT = update($HTTP_POST_VARS);
+			$OUTPUT = update($_POST);
 			break;
 		case "save":
-			$OUTPUT = save($HTTP_POST_VARS);
+			$OUTPUT = save($_POST);
 			break;
 		default:
 			# Display default output
@@ -107,11 +107,11 @@ function view()
 
 
 
-function cashbook($HTTP_POST_VARS, $err="")
+function cashbook($_POST, $err="")
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# keep selected items : banked[]
 	if(isset($banked)){
@@ -441,15 +441,15 @@ function cashbook($HTTP_POST_VARS, $err="")
 
 
 
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# check if anything is selected
 	if(!isset($banked)){
         $err = "<li class='err'> Please Select at least one entry to update.";
-		return cashbook($HTTP_POST_VARS, $err);
+		return cashbook($_POST, $err);
 	}
 
 	/* - Start Hooks - */
@@ -662,16 +662,16 @@ function confirm($HTTP_POST_VARS)
 
 
 
-function update($HTTP_POST_VARS)
+function update($_POST)
 {
 
     # Get Vars ( banked[] )
-    extract ($HTTP_POST_VARS);
+    extract ($_POST);
 
     # check if anything is selected
 	if(!isset($banked)){
 		$err = "<li class='err'> Please Select at least one entry to update.";
-		return cashbook($HTTP_POST_VARS, $err);
+		return cashbook($_POST, $err);
 	}
 
 	/* - Start Hooks - */
@@ -884,11 +884,11 @@ function multi($cash, $chrgvat, $vatacc, $banklnk, $refnum){
 
 
 
-function save($HTTP_POST_VARS)
+function save($_POST)
 {
 
 	# Get Vars ( banked[] )
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	core_connect();
 

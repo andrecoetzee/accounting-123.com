@@ -1814,16 +1814,16 @@ function cwrite()
 
 
 # Customer details
-function cdetails($HTTP_GET_VARS)
+function cdetails($_GET)
 {
 
 	$showvat = TRUE;
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if(!isset($button)&&(isset($starting))) {
-		return slct($HTTP_GET_VARS);
+		return slct($_GET);
 	}
 
 	# validate input
@@ -1851,7 +1851,7 @@ function cdetails($HTTP_GET_VARS)
 
 
 	if($ctyp == "ac") {
-		return acdetails($HTTP_GET_VARS);
+		return acdetails($_GET);
 	}
 
 	# Get Invoice info

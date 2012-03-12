@@ -3,19 +3,19 @@
 require ("../settings.php");
 require("../core-settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = confirm_list ($HTTP_POST_VARS);
+			$OUTPUT = confirm_list ($_POST);
 			break;
 		default:
-			$OUTPUT = get_list($HTTP_POST_VARS);
+			$OUTPUT = get_list($_POST);
 	}	
 }else {
-	$OUTPUT = get_list ($HTTP_POST_VARS);
+	$OUTPUT = get_list ($_POST);
 }
 
-if(isset($HTTP_POST_VARS["print"]) OR isset($HTTP_POST_VARS["management"])){
+if(isset($_POST["print"]) OR isset($_POST["management"])){
 	require ("../tmpl-print.php");
 }else {
 	require ("../template.php");
@@ -23,13 +23,13 @@ if(isset($HTTP_POST_VARS["print"]) OR isset($HTTP_POST_VARS["management"])){
 
 
 
-function get_list ($HTTP_POST_VARS,$err="")
+function get_list ($_POST,$err="")
 {
 
 
 	db_conn ('contract');
 
-	if(isset($HTTP_POST_VARS["print"]) OR isset($HTTP_POST_VARS["management"])){
+	if(isset($_POST["print"]) OR isset($_POST["management"])){
 		$buttons = "";
 	}else {
 		$buttons = "
@@ -44,10 +44,10 @@ function get_list ($HTTP_POST_VARS,$err="")
 
 	$listing = "";
 
-	if(isset($HTTP_POST_VARS["print"]) OR isset($HTTP_POST_VARS["management"])){
+	if(isset($_POST["print"]) OR isset($_POST["management"])){
 		$filter = "";
-		if(isset($HTTP_POST_VARS['search'])){
-			switch ($HTTP_POST_VARS['search']){
+		if(isset($_POST['search'])){
+			switch ($_POST['search']){
 				case "name":
 					$search_string = "proc_date";
 					break;
@@ -67,8 +67,8 @@ function get_list ($HTTP_POST_VARS,$err="")
 		$sal1 = "";
 		$sal2 = "";
 		$sal3 = "";
-		if(isset($HTTP_POST_VARS['search'])){
-			switch ($HTTP_POST_VARS['search']){
+		if(isset($_POST['search'])){
+			switch ($_POST['search']){
 				case "name":
 					$sal1 = "selected";
 					$search_string = "proc_date";
@@ -110,7 +110,7 @@ function get_list ($HTTP_POST_VARS,$err="")
 	$get_list = "SELECT * FROM supp_creditor_run_cheques WHERE handed_over = 'no' ORDER BY $search_string";
 	$run_list = db_exec($get_list) or errDie("Unable to get cheque information.");
 	if(pg_numrows($run_list) < 1){
-		if(isset($HTTP_POST_VARS["print"]) OR isset($HTTP_POST_VARS["management"])){
+		if(isset($_POST["print"]) OR isset($_POST["management"])){
 			$listing .= "<tr>";
 		}else {
 			$listing .= "<tr bgcolor='".bgcolorg()."'>";
@@ -127,7 +127,7 @@ function get_list ($HTTP_POST_VARS,$err="")
 		$total = 0;
 		while ($larr = pg_fetch_array($run_list)){
 
-			if(isset($HTTP_POST_VARS["print"]) OR isset($HTTP_POST_VARS["management"])){
+			if(isset($_POST["print"]) OR isset($_POST["management"])){
 				$listing .= "<tr>";
 			}else {
 				$listing .= "<tr bgcolor='".bgcolorg()."'>";
@@ -173,7 +173,7 @@ function get_list ($HTTP_POST_VARS,$err="")
 								<td>$larr[proc_date]</td>
 								<td nowrap>".CUR." $larr[amount]</td>
 						";
-			if(isset($HTTP_POST_VARS["print"]) OR isset($HTTP_POST_VARS["management"])){
+			if(isset($_POST["print"]) OR isset($_POST["management"])){
 				$listing .= "</tr>";
 			}else {
 				$listing .= "
@@ -195,8 +195,8 @@ function get_list ($HTTP_POST_VARS,$err="")
 					";
 	}
 
-	if(isset($HTTP_POST_VARS['search']) AND (strlen($HTTP_POST_VARS['search']) > 0)){
-		$send_search = "<input type='hidden' name='search' value='$HTTP_POST_VARS[search]'>";
+	if(isset($_POST['search']) AND (strlen($_POST['search']) > 0)){
+		$send_search = "<input type='hidden' name='search' value='$_POST[search]'>";
 	}else {
 		$send_search = "";
 	}
@@ -218,7 +218,7 @@ function get_list ($HTTP_POST_VARS,$err="")
 							<th>Process Date</th>
 							<th>Amount</th>
 				";
-	if(isset($HTTP_POST_VARS["print"]) OR isset($HTTP_POST_VARS["management"])){
+	if(isset($_POST["print"]) OR isset($_POST["management"])){
 		$display .= "
 						</tr>
 						$listing
@@ -248,17 +248,17 @@ function get_list ($HTTP_POST_VARS,$err="")
 
 
 
-function confirm_list ($HTTP_POST_VARS)
+function confirm_list ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($ids) OR !is_array($ids) OR count($ids) < 1){
-		return get_list($HTTP_POST_VARS);
+		return get_list($_POST);
 	}
 
 //print "<pre>";
-//var_dump ($HTTP_POST_VARS);
+//var_dump ($_POST);
 //print "</pre>";
 
 	foreach ($ids AS $id){
@@ -438,7 +438,7 @@ function confirm_list ($HTTP_POST_VARS)
 //		$run_upd = db_exec($upd_sql) or errDie("Unable to update contract remittance.");
 //	}
 
-	return get_list ($HTTP_POST_VARS,"<li class='err'>Cheques Have been recorded.</li>");
+	return get_list ($_POST,"<li class='err'>Cheques Have been recorded.</li>");
 
 }
 

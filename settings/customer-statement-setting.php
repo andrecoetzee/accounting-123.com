@@ -2,10 +2,10 @@
 
 	require ("../settings.php");
 	
-	if(isset($HTTP_POST_VARS["key"])){
-		switch ($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch ($_POST["key"]){
 			case "confirm":
-				$OUTPUT = save_setting_val ($HTTP_POST_VARS);
+				$OUTPUT = save_setting_val ($_POST);
 				break;
 			default:
 				$OUTPUT = get_setting_val ();
@@ -62,10 +62,10 @@ function get_setting_val ($err="")
 
 
 
-function save_setting_val ($HTTP_POST_VARS)
+function save_setting_val ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

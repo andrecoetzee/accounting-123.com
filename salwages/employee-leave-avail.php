@@ -26,8 +26,8 @@
 require ("../settings.php");
 require ("../libs/ext.lib.php");
 
-if (isset($HTTP_GET_VARS['empnum'])){
-	$OUTPUT = Emplea ($HTTP_GET_VARS);
+if (isset($_GET['empnum'])){
+	$OUTPUT = Emplea ($_GET);
 } else {
 	$OUTPUT = "<li class='err'> Invalid use of module.</li>";
 }
@@ -38,11 +38,11 @@ require ("../template.php");
 
 
 # View leave
-function Emplea ($HTTP_GET_VARS)
+function Emplea ($_GET)
 {
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");

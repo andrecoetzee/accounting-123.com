@@ -26,16 +26,16 @@
 # get settings
 require ("../settings.php");
 
-if (isset ($HTTP_POST_VARS["key"])) {
-	if ($HTTP_POST_VARS["key"] == "confirm") {
-		$OUTPUT = confirmEmpAllow ($HTTP_POST_VARS);
-	} elseif ($HTTP_POST_VARS["key"] == "write") {
-		$OUTPUT = writeEmpAllow ($HTTP_POST_VARS);
+if (isset ($_POST["key"])) {
+	if ($_POST["key"] == "confirm") {
+		$OUTPUT = confirmEmpAllow ($_POST);
+	} elseif ($_POST["key"] == "write") {
+		$OUTPUT = writeEmpAllow ($_POST);
 	} else {
 		errDie ("Invalid use of module.");
 	}
-} elseif (isset ($HTTP_GET_VARS["id"]) && isset ($HTTP_GET_VARS["empnum"])) {
-	$OUTPUT = enterEmpAllow ($HTTP_GET_VARS);
+} elseif (isset ($_GET["id"]) && isset ($_GET["empnum"])) {
+	$OUTPUT = enterEmpAllow ($_GET);
 } else {
 	errDie ("Invalid use of module.");
 }
@@ -45,10 +45,10 @@ if (isset ($HTTP_POST_VARS["key"])) {
 require ("../template.php");
 
 # enter new info
-function enterEmpAllow ($HTTP_GET_VARS)
+function enterEmpAllow ($_GET)
 {
 	# get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -108,10 +108,10 @@ function enterEmpAllow ($HTTP_GET_VARS)
 }
 
 # confirm new data
-function confirmEmpAllow ($HTTP_POST_VARS)
+function confirmEmpAllow ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -173,10 +173,10 @@ function confirmEmpAllow ($HTTP_POST_VARS)
 }
 
 # write new data
-function writeEmpAllow ($HTTP_POST_VARS)
+function writeEmpAllow ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

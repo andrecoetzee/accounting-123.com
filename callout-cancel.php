@@ -28,23 +28,23 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			# decide what to do
-			if (isset($HTTP_GET_VARS["calloutid"])) {
-				$OUTPUT = details($HTTP_GET_VARS);
+			if (isset($_GET["calloutid"])) {
+				$OUTPUT = details($_GET);
 			} else {
 				$OUTPUT = "<li class=err>Invalid use of module.";
 			}
 	}
 } else {
 	# decide what to do
-	if (isset($HTTP_GET_VARS["calloutid"])) {
-		$OUTPUT = details($HTTP_GET_VARS);
+	if (isset($_GET["calloutid"])) {
+		$OUTPUT = details($_GET);
 	} else {
 		$OUTPUT = "<li class=err>Invalid use of module.";
 	}
@@ -54,11 +54,11 @@ if (isset($HTTP_POST_VARS["key"])) {
 require("template.php");
 
 # details
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -171,11 +171,11 @@ function details($HTTP_GET_VARS)
 }
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

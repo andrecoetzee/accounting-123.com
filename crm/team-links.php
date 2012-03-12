@@ -25,16 +25,16 @@
 
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "update":
-			$OUTPUT = update($HTTP_POST_VARS);
+			$OUTPUT = update($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid.";
 	}
-} elseif(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = allocate($HTTP_GET_VARS);
+} elseif(isset($_GET["id"])) {
+	$OUTPUT = allocate($_GET);
 } else {
 	$OUTPUT = "Invalid.";
 }
@@ -51,8 +51,8 @@ $OUTPUT.="<p>
 
 require("template.php");
 
-function allocate($HTTP_POST_VARS){
-	extract($HTTP_POST_VARS);
+function allocate($_POST){
+	extract($_POST);
 	$id+=0;
 
 	db_conn('crm');
@@ -156,8 +156,8 @@ function allocate($HTTP_POST_VARS){
 
 }
 
-function update($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function update($_POST) {
+	extract($_POST);
 
 	$id+=0;
 
@@ -179,7 +179,7 @@ function update($HTTP_POST_VARS) {
 	$Ry=db_exec($Sl) or errDie("Unable to get links from system.");
 
 	if(pg_numrows($Ry)<1) {
-		return allocate($HTTP_POST_VARS);
+		return allocate($_POST);
 	}
 
 	$i=1;

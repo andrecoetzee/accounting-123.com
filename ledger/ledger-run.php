@@ -28,24 +28,24 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
-			if(isset($HTTP_GET_VARS['ledgid'])){
-				$OUTPUT = run($HTTP_GET_VARS);
+			if(isset($_GET['ledgid'])){
+				$OUTPUT = run($_GET);
 			}else{
 				$OUTPUT = "<li class='err'> Invalid use of module.</li>";
 			}
 	}
 } else {
-	if(isset($HTTP_GET_VARS['ledgid'])){
-		$OUTPUT = run($HTTP_GET_VARS);
+	if(isset($_GET['ledgid'])){
+		$OUTPUT = run($_GET);
 	}else{
 		$OUTPUT = "<li class='err'> Invalid use of module.</li>";
 	}
@@ -57,11 +57,11 @@ require("../template.php");
 
 
 # Select Accounts
-function run($HTTP_GET_VARS)
+function run($_GET)
 {
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -234,11 +234,11 @@ function run($HTTP_GET_VARS)
 
 
 # Error
-function error($HTTP_POST_VARS, $error)
+function error($_POST, $error)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -415,11 +415,11 @@ function error($HTTP_POST_VARS, $error)
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# CHECK IF THIS DATE IS IN THE BLOCKED RANGE
 	$blocked_date_from = getCSetting("BLOCKED_FROM");
@@ -458,7 +458,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return error($HTTP_POST_VARS, $confirm);
+		return error($_POST, $confirm);
 		# $confirm .= "<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		# return $confirm;
 	}
@@ -509,7 +509,7 @@ function confirm($HTTP_POST_VARS)
 	# if there are no trans
 	if(strlen($trans) < 5){
 		$confirm = "<li class='err'> Please enter full transaction details. </li>";
-		return error($HTTP_POST_VARS, $confirm);
+		return error($_POST, $confirm);
 	}
 
 	// Confirm Details
@@ -571,11 +571,11 @@ function confirm($HTTP_POST_VARS)
 }
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

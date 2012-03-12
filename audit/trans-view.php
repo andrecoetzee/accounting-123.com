@@ -28,10 +28,10 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "viewtrans":
-			$OUTPUT = viewtrans($HTTP_POST_VARS);
+			$OUTPUT = viewtrans($_POST);
 			break;
 
                 default:
@@ -184,10 +184,10 @@ function ret($OUTPUT){
 }
 
 # View Categories
-function viewtrans($HTTP_POST_VARS)
+function viewtrans($_POST)
 {
         # get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 

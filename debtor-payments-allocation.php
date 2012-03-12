@@ -2,23 +2,23 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = show_allocate_entries ($HTTP_POST_VARS);
+			$OUTPUT = show_allocate_entries ($_POST);
 			break;
 		case "allocate":
-			if (isset ($HTTP_POST_VARS["switchnow"])){
-				$OUTPUT = show_allocate_entries ($HTTP_POST_VARS);
+			if (isset ($_POST["switchnow"])){
+				$OUTPUT = show_allocate_entries ($_POST);
 			}else {
-				$OUTPUT = allocate_entries ($HTTP_POST_VARS);
+				$OUTPUT = allocate_entries ($_POST);
 			}
 			break;
 		default:
 			$OUTPUT = get_data_filter ();
 	}
-}elseif ($HTTP_GET_VARS["reallocate"]) {
-	$OUTPUT = reallocate ($HTTP_GET_VARS);
+}elseif ($_GET["reallocate"]) {
+	$OUTPUT = reallocate ($_GET);
 }else {
 	$OUTPUT = get_data_filter ();
 }
@@ -82,10 +82,10 @@ function get_data_filter ()
 
 
 
-function show_allocate_entries ($HTTP_POST_VARS,$err=TBL_BR)
+function show_allocate_entries ($_POST,$err=TBL_BR)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# get header information
 	$get_cust = "SELECT surname FROM customers WHERE cusnum = '$customer' LIMIT 1";
@@ -428,15 +428,15 @@ function show_allocate_entries ($HTTP_POST_VARS,$err=TBL_BR)
 
 
 
-function allocate_entries ($HTTP_POST_VARS)
+function allocate_entries ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if ((isset($allocate) AND strlen($allocate) > 0) AND (isset($entries) AND is_array ($entries))){
 		#all vars set
 	}else {
-		return show_allocate_entries($HTTP_POST_VARS,"<li class='err'>Please Select At Least 1 Receipt And Payment.</li>");
+		return show_allocate_entries($_POST,"<li class='err'>Please Select At Least 1 Receipt And Payment.</li>");
 	}
 
 
@@ -461,17 +461,17 @@ function allocate_entries ($HTTP_POST_VARS)
 
 	pglib_transaction ("COMMIT") or errDie ("Unable to complete transaction.");
 
-	return show_allocate_entries ($HTTP_POST_VARS,"<li class='err'>Allocation Complete.</li>");
+	return show_allocate_entries ($_POST,"<li class='err'>Allocation Complete.</li>");
 
 }
 
 
-function reallocate ($HTTP_GET_VARS)
+function reallocate ($_GET)
 {
 
-	$allocate = $HTTP_GET_VARS["reallocate"];
-	$from_date = $HTTP_GET_VARS["from_date"];
-	$to_date = $HTTP_GET_VARS["to_date"];
+	$allocate = $_GET["reallocate"];
+	$from_date = $_GET["from_date"];
+	$to_date = $_GET["to_date"];
 
 	$from_date_arr = explode ("-", $from_date);
 	$to_date_arr = explode ("-", $to_date);

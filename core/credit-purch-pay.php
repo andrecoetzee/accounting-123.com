@@ -27,19 +27,19 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "pay":
-                        $OUTPUT = pay($HTTP_POST_VARS);
+                        $OUTPUT = pay($_POST);
 			break;
 
                 default:
-			$OUTPUT = confirm($HTTP_GET_VARS["purchid"]);
+			$OUTPUT = confirm($_GET["purchid"]);
 	}
 } else {
         # Display default output
-        if(isset($HTTP_GET_VARS["purchid"])){
-                $OUTPUT = confirm($HTTP_GET_VARS["purchid"]);
+        if(isset($_GET["purchid"])){
+                $OUTPUT = confirm($_GET["purchid"]);
         }else{
                 $OUTPUT = confirm('none');
         }
@@ -121,13 +121,13 @@ function confirm($purchid)
 
 
 # write
-function pay($HTTP_POST_VARS)
+function pay($_POST)
 {
         //processes
         db_connect();
 
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

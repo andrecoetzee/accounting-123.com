@@ -26,10 +26,10 @@
 require ("../settings.php");
 
 # decide what to do
-if (isset ($HTTP_GET_VARS["empnum"])) {
-	//$OUTPUT = confirmLoan ($HTTP_GET_VARS["empnum"]);
-} elseif (isset ($HTTP_POST_VARS["key"])) {
-	//$OUTPUT = ($HTTP_POST_VARS["key"] == "rem") ? remLoan ($HTTP_POST_VARS["empnum"]) : "Invalid use of module.";
+if (isset ($_GET["empnum"])) {
+	//$OUTPUT = confirmLoan ($_GET["empnum"]);
+} elseif (isset ($_POST["key"])) {
+	//$OUTPUT = ($_POST["key"] == "rem") ? remLoan ($_POST["empnum"]) : "Invalid use of module.";
 } else {
 	//$OUTPUT = "Invalid use of module.";
 }

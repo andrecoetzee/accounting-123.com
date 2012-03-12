@@ -2,8 +2,8 @@
 
 	require ("../settings.php");
 
-	if (isset($HTTP_POST_VARS["key"])){
-		$OUTPUT = write_tmpl_settings ($HTTP_POST_VARS);
+	if (isset($_POST["key"])){
+		$OUTPUT = write_tmpl_settings ($_POST);
 	}else {
 		$OUTPUT = get_tmpl_settings ();
 	}
@@ -219,10 +219,10 @@ function get_tmpl_settings ($err="",$reload=FALSE)
 
 
 
-function write_tmpl_settings ($HTTP_POST_VARS)
+function write_tmpl_settings ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

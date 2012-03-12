@@ -2,10 +2,10 @@
 
 require ("../settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "search":
-			$OUTPUT = show_runs ($HTTP_POST_VARS);
+			$OUTPUT = show_runs ($_POST);
 			break;
 		default:
 			$OUTPUT = get_runs ();
@@ -45,10 +45,10 @@ function get_runs ()
 }
 
 
-function show_runs ($HTTP_POST_VARS)
+function show_runs ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$from_date = "$from_year-$from_month-$from_day";
 	$to_date = "$to_year-$to_month-$to_day";

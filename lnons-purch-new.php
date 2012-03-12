@@ -29,18 +29,18 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["purid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["done"] = "";
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["purid"]) && isset($_GET["cont"])) {
+	$_GET["done"] = "";
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
             case "search":
-				$OUTPUT = search($HTTP_POST_VARS);
+				$OUTPUT = search($_POST);
 				break;
 
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 
             default:
@@ -57,11 +57,11 @@ require("template.php");
 
 
 # Default view
-function slct($HTTP_GET_VARS = array(), $err = "")
+function slct($_GET = array(), $err = "")
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	$purnum = (isset($purnum)? $purnum : "");
 
@@ -131,11 +131,11 @@ function create_dummy($deptid, $purs, $spurnum, $spurtype, $spurprd)
 
 
 
-function search($HTTP_POST_VARS)
+function search($_POST)
 {
 
 	# get vars
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -149,7 +149,7 @@ function search($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$error .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return slct($HTTP_POST_VARS, $error);
+		return slct($_POST, $error);
 	}
 
 
@@ -183,7 +183,7 @@ function search($HTTP_POST_VARS)
 
 	
 		if($found!=1) {
-			return slct($HTTP_POST_VARS, "<li class='err'> - Purchase No. $pur not found.</li>");
+			return slct($_POST, "<li class='err'> - Purchase No. $pur not found.</li>");
 		}
 
 	}
@@ -214,17 +214,17 @@ function search($HTTP_POST_VARS)
 		$send['purid'] = $purid;
 		return details($send);
 	}
-	return slct($HTTP_POST_VARS, "<li class='err'> - Purchase No. $purnum not found.</li>");
+	return slct($_POST, "<li class='err'> - Purchase No. $purnum not found.</li>");
 
 }
 
 
 # details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -246,7 +246,7 @@ function details($HTTP_POST_VARS, $error="")
 	$sql = "SELECT * FROM nons_purchases WHERE purid = '$purid' AND div = '".USER_DIV."'";
 	$purRslt = db_exec ($sql) or errDie ("Unable to get purchase information");
 	if (pg_numrows ($purRslt) < 1) {
-		return slct ($HTTP_POST_VARS,"<li class='err'>No Non Stock Purchase Found</li>");
+		return slct ($_POST,"<li class='err'>No Non Stock Purchase Found</li>");
 	}
 	$pur = pg_fetch_array($purRslt);
 
@@ -568,11 +568,11 @@ function details($HTTP_POST_VARS, $error="")
 }
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -632,8 +632,8 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		$HTTP_POST_VARS['done'] = "";
-		return details($HTTP_POST_VARS, $err);
+		$_POST['done'] = "";
+		return details($_POST, $err);
 	}
 
 	
@@ -715,7 +715,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					$Ri=db_exec($Sl);
 
 					if(pg_num_rows($Ri)<1) {
-						return details($HTTP_POST_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+						return details($_POST, "<li class='err'>Please select the vatcode for all your items.</li>");
 					}
 
 					$vd=pg_fetch_array($Ri);
@@ -766,10 +766,10 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					$rslt = db_exec($sql) or errDie("Unable to insert Order items to Cubit.",SELF);
 				}
 				# everything is set place done button
-				$HTTP_POST_VARS["done"] = " | <input name='doneBtn' type='submit' value='Done'> | <input name='print'  type='submit' value='Receive'>";
+				$_POST["done"] = " | <input name='doneBtn' type='submit' value='Done'> | <input name='print'  type='submit' value='Receive'>";
 			}
 		}else{
-			$HTTP_POST_VARS["done"] = "";
+			$_POST["done"] = "";
 		}
 
 		/* --- Clac --- */
@@ -788,7 +788,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 			$svat = sprint(($shipchrg/($VATP+100)) * $VATP);
 		}
 
-		$HTTP_POST_VARS['showvat'] = $showvat;
+		$_POST['showvat'] = $showvat;
 
 		# Total
 		$TOTAL = ($SUBTOT + $shipchrg);
@@ -832,7 +832,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 		exit;
 
 	}elseif(!isset($doneBtn)){
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}else{
 		# insert purchase to DB
 		$sql = "UPDATE nons_purchases SET done = 'y' WHERE purid = '$purid' AND div = '".USER_DIV."'";

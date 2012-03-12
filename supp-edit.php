@@ -28,27 +28,27 @@
 require ("settings.php");
 
 # Decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "doc_save":
 			$OUTPUT = doc_save();
 			break;
 		default:
-			if (isset($HTTP_GET_VARS['supid'])){
-				$OUTPUT = edit ($HTTP_GET_VARS['supid']);
+			if (isset($_GET['supid'])){
+				$OUTPUT = edit ($_GET['supid']);
 			} else {
 				$OUTPUT = "<li> - Invalid use of module</li>";
 			}
 	}
 } else {
-	if (isset($HTTP_GET_VARS['supid'])){
-		$OUTPUT = edit ($HTTP_GET_VARS['supid']);
+	if (isset($_GET['supid'])){
+		$OUTPUT = edit ($_GET['supid']);
 	} else {
 		$OUTPUT = "<li> - Invalid use of module.</li>";
 	}
@@ -417,11 +417,11 @@ function edit($supid, $err="")
 
 
 # error func
-function edit_err ($HTTP_POST_VARS, $err="")
+function edit_err ($_POST, $err="")
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Departments
 	db_conn("exten");
@@ -709,11 +709,11 @@ function edit_err ($HTTP_POST_VARS, $err="")
 
 
 # confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -757,7 +757,7 @@ function confirm ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return edit_err($HTTP_POST_VARS, $confirm);
+		return edit_err($_POST, $confirm);
 		exit;
 		$confirm .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirm;
@@ -770,7 +770,7 @@ function confirm ($HTTP_POST_VARS)
 	$Ri = db_exec($Sl) or errDie("Unable to get data.");
 
 	if(pg_num_rows($Ri)>0) {
-		return edit_err($HTTP_POST_VARS, "<li class='err'>There is already a supplier with that number.</lI>");
+		return edit_err($_POST, "<li class='err'>There is already a supplier with that number.</lI>");
 	}
 
 	# get department
@@ -1156,14 +1156,14 @@ function doc_save()
 
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		return edit_err($HTTP_POST_VARS);
+		return edit_err($_POST);
 	}
 
 	# validate input
@@ -1220,7 +1220,7 @@ function write ($HTTP_POST_VARS)
 	$Ri = db_exec($Sl) or errDie("Unable to get data.");
 
 	if(pg_num_rows($Ri)>0) {
-		return edit_err($HTTP_POST_VARS, "<li class='err'>There is already a supplier with that number.</li>");
+		return edit_err($_POST, "<li class='err'>There is already a supplier with that number.</li>");
 	}
 
 	# connect to db

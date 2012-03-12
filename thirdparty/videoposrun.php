@@ -403,11 +403,11 @@ function run()
 	return enter();
 }
 # Customer write
-function cwrite($HTTP_GET_VARS)
+function cwrite($_GET)
 {
 	$showvat = TRUE;
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	# validate input
 	require_lib("validate");

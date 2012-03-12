@@ -31,39 +31,39 @@ require ("template.php");
 die;
 
 // Merge get vars and post vars
-foreach ($HTTP_GET_VARS as $key=>$value) {
-	$HTTP_POST_VARS[$key] = $value;
+foreach ($_GET as $key=>$value) {
+	$_POST[$key] = $value;
 }
 
-if (!isset($HTTP_POST_VARS["empnum"])) {
+if (!isset($_POST["empnum"])) {
 	$OUTPUT = "<li class='err'>Invalid use of module.</li>";
 	require ("template.php");
 }
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "slct":
 			$OUTPUT = slct();
 			break;
 		case "update":
-			$OUTPUT = update($HTTP_POST_VARS);
+			$OUTPUT = update($_POST);
 			break;
 		case "export":
-			export($HTTP_POST_VARS);
+			export($_POST);
 			break;
 	}
 } else {
 	$OUTPUT = slct();
 }
 
-if (!isset($HTTP_POST_VARS["key"]) || $HTTP_POST_VARS["key"] != "export") {
+if (!isset($_POST["key"]) || $_POST["key"] != "export") {
 	require ("template.php");
 }
 
 function slct($errors="")
 {
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 
 	$fields["fdate_year"] = date("Y")-1;
 	$fields["fdate_month"] = "03";
@@ -229,9 +229,9 @@ function slct($errors="")
 }
 
 
-function update($HTTP_POST_VARS)
+function update($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -289,15 +289,15 @@ function update($HTTP_POST_VARS)
 
  	// Where to go from here?
 	if (isset($display)) {
-		export($HTTP_POST_VARS);
+		export($_POST);
 	} else {
 		return slct();
 	}
 }
 
-function export($HTTP_POST_VARS)
+function export($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	require_lib("validate");
 	$v = new validate;

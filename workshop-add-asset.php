@@ -25,31 +25,31 @@
 require ("settings.php");
 
 // Merge post vars and get vars
-foreach ($HTTP_GET_VARS as $key => $val) {
-	$HTTP_POST_VARS[$key] = $val;
+foreach ($_GET as $key => $val) {
+	$_POST[$key] = $val;
 }
 error_reporting(E_ALL);
 // Decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "enter":
 			$OUTPUT = enter();
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "receipt":
-			$OUTPUT = receipt($HTTP_POST_VARS);
+			$OUTPUT = receipt($_POST);
 			break;
 		case "receipt-print":
-			receipt-print($HTTP_POST_VARS);
+			receipt-print($_POST);
 			break;
 		case "workshop-report":
-			$OUTPUT = workshop-report($HTTP_POST_VARS);
+			$OUTPUT = workshop-report($_POST);
 			break;
 	}
 } else {
@@ -70,8 +70,8 @@ require ("template.php");
 
 function enter($errors="")
 {
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -183,9 +183,9 @@ function enter($errors="")
 	return $OUTPUT;
 }
 
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -278,9 +278,9 @@ function confirm($HTTP_POST_VARS)
 	return $OUTPUT;
 }
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -330,8 +330,8 @@ function write($HTTP_POST_VARS)
 	}
 }
 
-function receipt($HTTP_POST_VARS) {
-	extract ($HTTP_POST_VARS);
+function receipt($_POST) {
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;

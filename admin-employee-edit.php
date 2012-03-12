@@ -31,26 +31,26 @@ require ("settings.php");
 require ("libs/ext.lib.php");
 require ("salwages/emp-functions.php");
 
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $k => $v ) {
-		$HTTP_POST_VARS[$k] = $v;
+if ( isset($_GET) ) {
+	foreach ( $_GET as $k => $v ) {
+		$_POST[$k] = $v;
 	}
 }
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "salary":
 			$OUTPUT = salary();
 			break;
 		case  "confirm":
-			if (!isset ($HTTP_POST_VARS["confirmed"])){
+			if (!isset ($_POST["confirmed"])){
 				$OUTPUT = editEmp ();
 			}else {
-				$OUTPUT = confirmEmp ($HTTP_POST_VARS);
+				$OUTPUT = confirmEmp ($_POST);
 			}
 			break;
 		case "write":
-			$OUTPUT = writeEmp ($HTTP_POST_VARS);
+			$OUTPUT = writeEmp ($_POST);
 			break;
 		default:
 			$OUTPUT = editEmp ();
@@ -69,8 +69,8 @@ require ("template.php");
 function editEmp ($err="")
 {
 
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -862,11 +862,11 @@ function editEmp ($err="")
 
 
 # Confirm entered info
-function confirmEmp ($HTTP_POST_VARS)
+function confirmEmp ($_POST)
 {
 	
-	$HTTP_POST_VARS = var_makesafe($HTTP_POST_VARS);
-	extract ($HTTP_POST_VARS);
+	$_POST = var_makesafe($_POST);
+	extract ($_POST);
 
 //	$hiredate = $month."-".$day."-".$year;
 	$hiredate = $year."-".$month."-".$day;
@@ -1756,12 +1756,12 @@ function confirmEmp ($HTTP_POST_VARS)
 
 
 # write to database
-function writeEmp ($HTTP_POST_VARS)
+function writeEmp ($_POST)
 {
 
-	$HTTP_POST_VARS = var_makesafe($HTTP_POST_VARS);
-	global $HTTP_POST_FILES;
-	extract ($HTTP_POST_VARS);
+	$_POST = var_makesafe($_POST);
+	global $_FILES;
+	extract ($_POST);
 
 	if ( isset($back) ) return editEmp();
 //------------------------------------ Jean -----------------------------------
@@ -1898,17 +1898,17 @@ function writeEmp ($HTTP_POST_VARS)
 
 	# deal with logo image
         if ($changelogo == "yes") {
-		if (empty ($HTTP_POST_FILES["logo"])) {
+		if (empty ($_FILES["logo"])) {
 			return "<li class='err'> Please select an image to upload from your hard drive.</li>";
 		}
-		if (is_uploaded_file ($HTTP_POST_FILES["logo"]["tmp_name"])) {
+		if (is_uploaded_file ($_FILES["logo"]["tmp_name"])) {
 			# Check file ext
-			if (preg_match ("/(image\/jpeg|image\/png|image\/gif)/", $HTTP_POST_FILES["logo"]["type"], $extension)) {
-				$type = $HTTP_POST_FILES["logo"]["type"];
+			if (preg_match ("/(image\/jpeg|image\/png|image\/gif)/", $_FILES["logo"]["type"], $extension)) {
+				$type = $_FILES["logo"]["type"];
 
 				// open file in "read, binary" mode
 				$img = "";
-				$file = fopen ($HTTP_POST_FILES['logo']['tmp_name'], "rb");
+				$file = fopen ($_FILES['logo']['tmp_name'], "rb");
 				while (!feof ($file)) {
 					// fread is binary safe
 					$img .= fread ($file, 1024);

@@ -35,29 +35,29 @@
 require ("../settings.php");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
 // store the post vars in get vars, so that both vars can be accessed at once
 // it is done this was around, so post vars get's higher priority and overwrites duplicated in get vars
-if ( isset($HTTP_POST_VARS) ) {
-	foreach( $HTTP_POST_VARS as $arr => $arrval ) {
-		$HTTP_GET_VARS[$arr] = str_replace("'","",$arrval);
+if ( isset($_POST) ) {
+	foreach( $_POST as $arr => $arrval ) {
+		$_GET[$arr] = str_replace("'","",$arrval);
 	}
 }
 
 // see what to do
 define("CONTACT_DISPLAY_AMOUNT", 25);
-if (isset ($HTTP_GET_VARS["key"])) {
-	switch ($HTTP_GET_VARS["key"]) {
+if (isset ($_GET["key"])) {
+	switch ($_GET["key"]) {
 		default:
 			$OUTPUT = listLeads();
 	}
@@ -73,9 +73,9 @@ require ("../template.php");
 function listLeads()
 {
 
-	global $HTTP_GET_VARS, $HTTP_SESSION_VARS;
+	global $_GET, $_SESSION;
 	global $mail_sender;
-	extract ( $HTTP_GET_VARS );
+	extract ( $_GET );
 
 	$OUTPUT = "";
 
@@ -145,7 +145,7 @@ function listLeads()
 		WHERE $pgref
 			AND $sql_filters
 			AND ( (
-				assigned_to = '$HTTP_SESSION_VARS[USER_NAME]'
+				assigned_to = '$_SESSION[USER_NAME]'
 				AND con = 'Yes'
 			) OR (
 				con = 'No'
@@ -161,7 +161,7 @@ function listLeads()
 		WHERE $pgref
 			AND $sql_filters
 			AND ( (
-				assigned_to = '$HTTP_SESSION_VARS[USER_NAME]'
+				assigned_to = '$_SESSION[USER_NAME]'
 				AND con = 'Yes'
 			) OR (
 				con = 'No'

@@ -2,8 +2,8 @@
 
 	require ("../settings.php");
 	
-	if (isset($HTTP_POST_VARS["key"])){
-		$OUTPUT = write_setting ($HTTP_POST_VARS);
+	if (isset($_POST["key"])){
+		$OUTPUT = write_setting ($_POST);
 	}else {
 		$OUTPUT = get_show_setting ();
 	}
@@ -52,10 +52,10 @@ function get_show_setting ($err="")
 
 
 
-function write_setting ($HTTP_POST_VARS)
+function write_setting ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($setting) OR strlen($setting) < 1)
 		$setting = "";

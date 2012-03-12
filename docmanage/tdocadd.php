@@ -30,18 +30,18 @@ require ("../core-settings.php");
 require_lib("docman");
 
 # Decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
+if (isset ($_POST["key"])) {
 
-	switch ($HTTP_POST_VARS["key"]) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			if(!isset($HTTP_POST_VARS["conf"])){
-				$OUTPUT = enter ($HTTP_POST_VARS);
+			if(!isset($_POST["conf"])){
+				$OUTPUT = enter ($_POST);
 			}else{
-				$OUTPUT = confirm ($HTTP_POST_VARS);
+				$OUTPUT = confirm ($_POST);
 			}
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		default:
 			$OUTPUT = enter ();
@@ -141,11 +141,11 @@ function enter ($VARS = array(), $errors = "")
 }
 
 # Confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 	# Get vars
-	global $HTTP_POST_FILES, $DOCLIB_DOCTYPES;
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	global $_FILES, $DOCLIB_DOCTYPES;
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# Validate input
@@ -172,7 +172,7 @@ function confirm ($HTTP_POST_VARS)
 			$confirm .= "<li class=err>".$e["msg"];
 		}
 		// $confirm .= "<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
-		return enter($HTTP_POST_VARS, $confirm);
+		return enter($_POST, $confirm);
 	}
 
 	if(!isset($xin)){
@@ -186,16 +186,16 @@ function confirm ($HTTP_POST_VARS)
 	}
 
 	# Deal with uploaded file
-	if (empty ($HTTP_POST_FILES["doc"])) {
-		return enter($HTTP_POST_VARS, "<li class=err> Please select a document to upload from your hard drive.");
+	if (empty ($_FILES["doc"])) {
+		return enter($_POST, "<li class=err> Please select a document to upload from your hard drive.");
 	}
-	if (is_uploaded_file ($HTTP_POST_FILES["doc"]["tmp_name"])) {
-		$doctyp = $HTTP_POST_FILES["doc"]["type"];
-		$filename = $HTTP_POST_FILES["doc"]["name"];
+	if (is_uploaded_file ($_FILES["doc"]["tmp_name"])) {
+		$doctyp = $_FILES["doc"]["type"];
+		$filename = $_FILES["doc"]["name"];
 
 		# Open file in "read, binary" mode
 		$docu = "";
-		$file = fopen ($HTTP_POST_FILES['doc']['tmp_name'], "rb");
+		$file = fopen ($_FILES['doc']['tmp_name'], "rb");
 		while (!feof ($file)) {
 			# fread is binary safe
 			$docu .= fread ($file, 1024);
@@ -205,7 +205,7 @@ function confirm ($HTTP_POST_VARS)
 		# Compress and encode the file
 		$docu = doclib_encode($docu, 9);
 	} else {
-		return enter($HTTP_POST_VARS, "<li class=err> Unable to upload file, Please check file permissions.");
+		return enter($_POST, "<li class=err> Unable to upload file, Please check file permissions.");
 	}
 
 	$confirm =
@@ -245,11 +245,11 @@ function confirm ($HTTP_POST_VARS)
 }
 
 # Write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 	# Get vars
 	global $DOCLIB_DOCTYPES;
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# Validate input

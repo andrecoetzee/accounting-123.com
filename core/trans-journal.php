@@ -26,10 +26,10 @@ require ('settings.php');
 require ('core-settings.php');
 
 // Decide what to do
-if (isset($HTTP_POST_VARS['key'])) {
-	switch ($HTTP_POST_VARS['key']) {
+if (isset($_POST['key'])) {
+	switch ($_POST['key']) {
 		case 'write':
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 		case 'enter':
@@ -229,9 +229,9 @@ function enter($args="")
 	return $OUTPUT;
 }
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	// Remove
 	if (isset($remove)) {

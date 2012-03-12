@@ -24,13 +24,13 @@
 #
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
         case "view":
-			$OUTPUT = printStk($HTTP_POST_VARS);
+			$OUTPUT = printStk($_POST);
 			break;
 		 case "export":
-			$OUTPUT = export($HTTP_POST_VARS);
+			$OUTPUT = export($_POST);
 			break;
 		default:
 			$OUTPUT = slct();
@@ -167,11 +167,11 @@ function slct()
 
 
 # show stock
-function printStk ($HTTP_POST_VARS)
+function printStk ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($min)) {
 		$wh = "AND (units-alloc)<minlvl AND minlvl!=0";
@@ -325,11 +325,11 @@ function printStk ($HTTP_POST_VARS)
 
 
 
-function export ($HTTP_POST_VARS)
+function export ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($min)) {
 		$wh = "AND (units-alloc)<minlvl AND minlvl!=0";

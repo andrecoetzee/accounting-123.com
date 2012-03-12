@@ -297,9 +297,9 @@ function details ($err="")
 
 /* --- End Some calculations --- */
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	if(isset($HTTP_GET_VARS['invoice']) OR isset($HTTP_POST_VARS['invoice'])) {
+	if(isset($_GET['invoice']) OR isset($_POST['invoice'])) {
 		$fex = "<input type='hidden' name='invoice' value='invoice'>";
 	} else {
 		$fex = "";
@@ -515,7 +515,7 @@ function confirm()
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return details($HTTP_POST_VARS, $err);
+		return details($_POST, $err);
 	}
 
 
@@ -1022,7 +1022,7 @@ function write()
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return details($HTTP_POST_VARS, $err);
+		return details($_POST, $err);
 	}
 
 

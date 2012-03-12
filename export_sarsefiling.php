@@ -8,25 +8,25 @@ if (isset($_REQUEST["key"])){
 			$OUTPUT = export_file ();
 			break;
 		default:
-			$OUTPUT = get_employer ($HTTP_POST_VARS);
+			$OUTPUT = get_employer ($_POST);
 	}
 }else {
-	$OUTPUT = get_employer ($HTTP_POST_VARS);
+	$OUTPUT = get_employer ($_POST);
 }
 
 require ("template.php");
 
 
 
-function get_employer ($HTTP_POST_VARS,$err="")
+function get_employer ($_POST,$err="")
 {
 
-	global $HTTP_SESSION_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_SESSION;
+	extract ($_POST);
 
 	db_connect();
 
-	$sql ="SELECT * FROM compinfo WHERE div = '".$HTTP_SESSION_VARS["USER_DIV"]."'";
+	$sql ="SELECT * FROM compinfo WHERE div = '".$_SESSION["USER_DIV"]."'";
 	$Rslt = db_exec($sql);
 	$com = pg_fetch_array($Rslt);
 
@@ -173,7 +173,7 @@ function export_file ()
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>$e[msg]</li>";
 		}
-		return get_employer($HTTP_POST_VARS,$confirm);
+		return get_employer($_POST,$confirm);
 	}
 
 	$gendate = date ("Ymd");

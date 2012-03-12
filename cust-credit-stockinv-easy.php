@@ -31,26 +31,26 @@ require("libs/ext.lib.php");
 require_lib("stock");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["stkerr"] = '0,0';
-	$OUTPUT = details($HTTP_GET_VARS);
-} else if (isset($HTTP_GET_VARS["invid"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["invid"]) && isset($_GET["cont"])) {
+	$_GET["stkerr"] = '0,0';
+	$OUTPUT = details($_GET);
+} else if (isset($_GET["invid"])) {
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 			case "details":
 			default:
-				if(isset($HTTP_GET_VARS["ctyp"]) && $HTTP_GET_VARS["ctyp"] == 'int')
-					header("Location: intinvoice-new.php?deptid=$HTTP_POST_VARS[deptid]&letters=$HTTP_POST_VARS[letters]");
-				$OUTPUT = details($HTTP_POST_VARS);
+				if(isset($_GET["ctyp"]) && $_GET["ctyp"] == 'int')
+					header("Location: intinvoice-new.php?deptid=$_POST[deptid]&letters=$_POST[letters]");
+				$OUTPUT = details($_POST);
 				break;
 		}
 	} else {
-		$OUTPUT = details($HTTP_POST_VARS);
+		$OUTPUT = details($_POST);
 	}
 }
 
@@ -130,11 +130,11 @@ function view()
 
 
 # Default view
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Query server for depts
 	db_conn("exten");
@@ -251,11 +251,11 @@ function create_dummy($deptid){
 }
 
 # Details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 
 	# Get vars
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -281,7 +281,7 @@ function details($HTTP_POST_VARS, $error="")
 		foreach ($errors as $e) {
 			$error .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return $error.view_err($HTTP_POST_VARS);
+		return $error.view_err($_POST);
 	}
 
 	if(isset($deptid) && isset($letters)){
@@ -291,7 +291,7 @@ function details($HTTP_POST_VARS, $error="")
 		$custRslt = db_exec ($sql) or errDie ("Unable to view customers");
 		if (pg_numrows ($custRslt) < 1) {
 			$ajax_err = "<li class='err'>No customer names starting with <b>$letters</b> in database.</li>";
-			//return view_err($HTTP_POST_VARS, $err);
+			//return view_err($_POST, $err);
 		}
 	}
 
@@ -365,7 +365,7 @@ function details($HTTP_POST_VARS, $error="")
 			$custRslt = db_exec ($sql) or errDie ("Unable to view customers");
 			if (pg_numrows ($custRslt) < 1) {
 				$ajax_err = "<li class='err'>No customer names starting with <b>$letters</b> in database.</li>";
-				//return view_err($HTTP_POST_VARS, $err);
+				//return view_err($_POST, $err);
 			}else{
 				$customers = "<select name='cusnum' onChange='javascript:document.form.submit();'>";
 				if (pg_numrows($custRslt) == 1){
@@ -1691,14 +1691,14 @@ function details($HTTP_POST_VARS, $error="")
 
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($cusnum)) {
-		return details($HTTP_POST_VARS, "<li class='err'>Please select customer/department first.</li>");
+		return details($_POST, "<li class='err'>Please select customer/department first.</li>");
 	}
 
 	$delvat += 0;
@@ -1852,7 +1852,7 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return details($HTTP_POST_VARS, $err);
+		return details($_POST, $err);
 	}
 
 
@@ -1881,7 +1881,7 @@ function write($HTTP_POST_VARS)
 			$run_cadd = db_exec($get_cadd) or errDie("Unable to get customer delivery address");
 			if(pg_numrows($run_cadd) < 1){
 				#no customer ??
-				return details ($HTTP_POST_VARS,"<li class='err'>Invalid customer selected.</li>");
+				return details ($_POST,"<li class='err'>Invalid customer selected.</li>");
 			}else {
 				$carr = pg_fetch_array($run_cadd);
 				$update_addr = "UPDATE invoices SET del_addr  = '$carr[del_addr1]' WHERE invid = '$invid' AND div = '".USER_DIV."'";
@@ -2007,7 +2007,7 @@ function write($HTTP_POST_VARS)
 					$Ri = db_exec($Sl);
 
 					if(pg_num_rows($Ri)<1) {
-						return details($HTTP_POST_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+						return details($_POST, "<li class='err'>Please select the vatcode for all your items.</li>");
 					}
 
 					$vd = pg_fetch_array($Ri);
@@ -2079,7 +2079,7 @@ function write($HTTP_POST_VARS)
 					$Ri = db_exec($Sl);
 
 					if(pg_num_rows($Ri)<1) {
-						return details($HTTP_POST_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+						return details($_POST, "<li class='err'>Please select the vatcode for all your items.</li>");
 					}
 					$vd = pg_fetch_array($Ri);
 
@@ -2133,16 +2133,16 @@ function write($HTTP_POST_VARS)
 				}
 
 				# everything is set place done button
-				$HTTP_POST_VARS["done"] = "
+				$_POST["done"] = "
 					| <input name='doneBtn' type='submit' value='Process'>";
 
 				//if ($cust["email"] != "") {
-					$HTTP_POST_VARS["done"] .= "
+					$_POST["done"] .= "
 					| <input name='emailBtn' type='submit' value='Process and Email to Customer'>";
 				//}
 			}
 		}else{
-			$HTTP_POST_VARS["done"] = "";
+			$_POST["done"] = "";
 		}
 
 		//$newvat+=vatcalc($delchrg,$chrgvat,"no",$traddisc);
@@ -2168,7 +2168,7 @@ function write($HTTP_POST_VARS)
 			$showvat = FALSE;
 		}
 
-		$HTTP_POST_VARS['showvat'] = $showvat;
+		$_POST['showvat'] = $showvat;
 
 		$vr = vatcalc($delchrg,$inv['chrgvat'],$excluding,$inv['traddisc'],$vd['vat_amount']);
 		$vrs = explode("|",$vr);
@@ -2342,7 +2342,7 @@ function write($HTTP_POST_VARS)
 
 			/* invalid barcode */
 			if (!is_numeric($chr)) {
-				return details($HTTP_POST_VARS,"The code you selected is invalid");
+				return details($_POST,"The code you selected is invalid");
 			}
 
 			/* which barcode table to scan for stock id */
@@ -2355,11 +2355,11 @@ function write($HTTP_POST_VARS)
 			/* non-existing barcode, check for serial number */
 			if ($stid <= 0) {
 				if ($sstid <= 0) {
-					return details($HTTP_POST_VARS,"<li class='err'>The serial number/bar code you selected is not in the system or is not available.</li>");
+					return details($_POST,"<li class='err'>The serial number/bar code you selected is not in the system or is not available.</li>");
 				}
 
 				if (serext_dbnum($stab, 'serno', $bar, 'stkid') > 1) {
-					return details($HTTP_POST_VARS,"<li class='err'>Duplicate serial numbers found, please scan barcode or select stock item.</li>");
+					return details($_POST,"<li class='err'>Duplicate serial numbers found, please scan barcode or select stock item.</li>");
 				}
 
 				/* mark barcoded item as unavailable */
@@ -2371,7 +2371,7 @@ function write($HTTP_POST_VARS)
 				$stid = $sstid;
 			} else {
 				if ($sstid > 0) {
-					return details($HTTP_POST_VARS,"<li class='err'>A serial and barcode with same value, please scan other value or select product manually.</li>");
+					return details($_POST,"<li class='err'>A serial and barcode with same value, please scan other value or select product manually.</li>");
 				}
 
 				/* mark barcoded item as unavailable */
@@ -2412,7 +2412,7 @@ function write($HTTP_POST_VARS)
 		$crslt = db_exec($sql);
 		if(pg_numrows($crslt) < 1){
 			$error = "<li class='err'> Error : Invoice number has no items.";
-			return details($HTTP_POST_VARS, $error);
+			return details($_POST, $error);
 		}
 
 		# Insert quote to DB
@@ -2478,9 +2478,9 @@ function write($HTTP_POST_VARS)
 		</table>";
 		return $write;
 	}else{
-		if(isset($wtd)){$HTTP_POST_VARS['wtd'] = $wtd;}
-		if(strlen($ria) > 0){$HTTP_POST_VARS['ria'] = $ria;}
-		return details($HTTP_POST_VARS);
+		if(isset($wtd)){$_POST['wtd'] = $wtd;}
+		if(strlen($ria) > 0){$_POST['ria'] = $ria;}
+		return details($_POST);
 	}
 /* --- End button Listeners --- */
 }

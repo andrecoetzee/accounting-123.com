@@ -2,16 +2,16 @@
 
 require ("settings.php");
 
-$OUTPUT = get_filters ($HTTP_POST_VARS);
+$OUTPUT = get_filters ($_POST);
 
 require ("template.php");
 
 
 
-function get_filters ($HTTP_POST_VARS)
+function get_filters ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (isset ($search) AND strlen ($search) > 0){
 

@@ -90,10 +90,10 @@ require("template.php");
 
 
 
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	require_lib("validate");
 	$v = new  validate ();
@@ -187,10 +187,10 @@ function details($HTTP_GET_VARS)
 
 
 # Create the company
-function process ($HTTP_POST_VARS)
+function process ($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -256,14 +256,14 @@ function process ($HTTP_POST_VARS)
 
 
 # Details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Set max execution time to 12 hours
 	ini_set("max_execution_time", 43200);
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -683,9 +683,9 @@ function write($HTTP_POST_VARS)
 	$template = pg_fetch_result($tsRslt, 0);
 
 	if ($template == "invoice-print.php") {
-		pdf($HTTP_POST_VARS);
+		pdf($_POST);
 	} else {
-		templatePdf($HTTP_POST_VARS);
+		templatePdf($_POST);
 	}
 
 	// Final Laytout
@@ -716,7 +716,7 @@ function write($HTTP_POST_VARS)
 
 
 # long pdf file
-function pdf($HTTP_GET_VARS)
+function pdf($_GET)
 {
 
 	$showvat = TRUE;
@@ -725,7 +725,7 @@ function pdf($HTTP_GET_VARS)
 	global $set_pgXCenter, $set_maxTblOpt, $set_pgWidth;
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -977,10 +977,10 @@ function pdf($HTTP_GET_VARS)
 
 
 
-function templatePdf($HTTP_POST_VARS)
+function templatePdf($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	global $set_mainFont;
 
 	$pdf = &new Cezpdf;

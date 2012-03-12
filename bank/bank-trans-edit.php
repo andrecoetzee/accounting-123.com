@@ -28,22 +28,22 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 
 		default:
-			$OUTPUT = add($HTTP_POST_VARS);
+			$OUTPUT = add($_POST);
 	}
 } else {
 	# Display default output
-	$OUTPUT = add($HTTP_POST_VARS);
+	$OUTPUT = add($_POST);
 }
 
 # get templete
@@ -52,14 +52,14 @@ require("../template.php");
 
 
 # Insert details
-function add($HTTP_POST_VARS)
+function add($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	$id+=0;
 
@@ -197,11 +197,11 @@ function add($HTTP_POST_VARS)
 
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -229,7 +229,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return $confirm.add($HTTP_POST_VARS);
+		return $confirm.add($_POST);
 	}
 
 
@@ -312,14 +312,14 @@ function confirm($HTTP_POST_VARS)
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		return add($HTTP_POST_VARS);
+		return add($_POST);
 	}
 
 	# Validate input

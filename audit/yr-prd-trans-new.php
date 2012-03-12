@@ -33,26 +33,26 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 			case "slct":
-				$OUTPUT = slctacc($HTTP_POST_VARS);
+				$OUTPUT = slctacc($_POST);
 				break;
 
 
 			case "confirm":
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 				break;
 
 			case "write":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 
 			case "details":
-				if(isset($HTTP_POST_VARS['details'])){
-						$OUTPUT = details($HTTP_POST_VARS);
+				if(isset($_POST['details'])){
+						$OUTPUT = details($_POST);
 				}else{
-						$OUTPUT = details2($HTTP_POST_VARS);
+						$OUTPUT = details2($_POST);
 				}
 				break;
 
@@ -129,11 +129,11 @@ function view(){
 }
 
 # Select Accounts
-function slctacc($HTTP_POST_VARS)
+function slctacc($_POST)
 {
 	// Sanity Checking
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -265,11 +265,11 @@ function ret($OUTPUT){
 }
 
 # Enter Details of Transaction
-function details($HTTP_POST_VARS)
+function details($_POST)
 {
 	// Sanity Checking
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -349,11 +349,11 @@ function details($HTTP_POST_VARS)
 }
 
 # Enter Details of Transaction
-function details2($HTTP_POST_VARS)
+function details2($_POST)
 {
         // Sanity Checking
         # Get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 		# validate input
@@ -466,11 +466,11 @@ function details2($HTTP_POST_VARS)
 }
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 		// Sanity Checking
 			# Get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 		# validate input
@@ -569,11 +569,11 @@ function confirm($HTTP_POST_VARS)
 }
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 		// Sanity Checking and get vars(Respectively)
 			# Get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 		# validate input

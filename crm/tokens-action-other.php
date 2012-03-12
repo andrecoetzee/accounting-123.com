@@ -25,27 +25,27 @@
 
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid";
 	}
-} elseif(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = enter($HTTP_GET_VARS);
+} elseif(isset($_GET["id"])) {
+	$OUTPUT = enter($_GET);
 } else {
 	$OUTPUT = "Invalid";
 }
 
 require("template.php");
 
-function enter($HTTP_GET_VARS) {
-	extract($HTTP_GET_VARS);
+function enter($_GET) {
+	extract($_GET);
 
 	$id+=0;
 	db_conn('crm');
@@ -72,8 +72,8 @@ function enter($HTTP_GET_VARS) {
 	return $out;
 }
 
-function error($HTTP_POST_VARS,$errors="") {
-	extract($HTTP_POST_VARS);
+function error($_POST,$errors="") {
+	extract($_POST);
 
 	$id+=0;
 	db_conn('crm');
@@ -101,8 +101,8 @@ function error($HTTP_POST_VARS,$errors="") {
 	return $out;
 }
 
-function confirm($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function confirm($_POST) {
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -117,7 +117,7 @@ function confirm($HTTP_POST_VARS) {
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return error($HTTP_POST_VARS, $confirm."</li>");
+		return error($_POST, $confirm."</li>");
 	}
 
 	db_conn('crm');
@@ -143,8 +143,8 @@ function confirm($HTTP_POST_VARS) {
 	return $out;
 }
 
-function write($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function write($_POST) {
+	extract($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -159,7 +159,7 @@ function write($HTTP_POST_VARS) {
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return error($HTTP_POST_VARS, $confirm."</li>");
+		return error($_POST, $confirm."</li>");
 	}
 
 	db_conn('crm');

@@ -25,24 +25,24 @@
 
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "rem":
-			$OUTPUT = rem($HTTP_POST_VARS);
+			$OUTPUT = rem($_POST);
 			break;
 		default:
 			$OUTPUT ="Invalid";
 	}
-} elseif(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = enter($HTTP_GET_VARS);
+} elseif(isset($_GET["id"])) {
+	$OUTPUT = enter($_GET);
 } else {
 	$OUTPUT =  "Invalid .";
 }
 
 require("template.php");
 
-function enter($HTTP_GET_VARS) {
-	extract($HTTP_GET_VARS);
+function enter($_GET) {
+	extract($_GET);
 
 	$id+=0;
 
@@ -99,8 +99,8 @@ function enter($HTTP_GET_VARS) {
         return $out;
 }
 
-function rem($HTTP_POST_VARS) {
-	extract($HTTP_POST_VARS);
+function rem($_POST) {
+	extract($_POST);
 
 	$id+=0;
 

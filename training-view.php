@@ -27,16 +27,16 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm":
 			$OUTPUT = show_training();
 			break;
 		default:
 			$OUTPUT = "Invalid use.";
 	}
-} elseif(isset($HTTP_GET_VARS["empnum"])){
-	$OUTPUT = show_training ($HTTP_GET_VARS["empnum"]);
+} elseif(isset($_GET["empnum"])){
+	$OUTPUT = show_training ($_GET["empnum"]);
 } else {
 	$OUTPUT = get_employee ();
 }
@@ -100,9 +100,9 @@ function get_employee ()
 function show_training ($empnum = "")
 {
 
-	global $HTTP_GET_VARS,$HTTP_POST_VARS;
-	extract ($HTTP_GET_VARS);
-	extract ($HTTP_POST_VARS);
+	global $_GET,$_POST;
+	extract ($_GET);
+	extract ($_POST);
 
 	if(!isset($empnum)){
 		return "Employee not found";

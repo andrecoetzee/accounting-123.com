@@ -30,8 +30,8 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["invid"])) {
+	$OUTPUT = details($_GET);
 } else {
 	$OUTPUT = "<li class=err>Invalid use of module.</li>";
 }
@@ -40,13 +40,13 @@ if (isset($HTTP_GET_VARS["invid"])) {
 require("template.php");
 
 # details
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 
 	$showvat = TRUE;
 
 	# get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

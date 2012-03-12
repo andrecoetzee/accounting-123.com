@@ -24,8 +24,8 @@
 #
 require("../../settings.php");
 
-if ( isset($HTTP_GET_VARS["type"]) ) {
-	$funccall = "type_$HTTP_GET_VARS[type]";
+if ( isset($_GET["type"]) ) {
+	$funccall = "type_$_GET[type]";
 
 	$OUTPUT = $funccall();
 } else {
@@ -36,8 +36,8 @@ if ( isset($HTTP_GET_VARS["type"]) ) {
 print $OUTPUT;
 
 function type_general() {
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	$OUTPUT = "
 	<html>
@@ -61,8 +61,8 @@ function type_general() {
 }
 
 function type_bulk() {
-	global $HTTP_GET_VARS;
-	extract($HTTP_GET_VARS);
+	global $_GET;
+	extract($_GET);
 
 	$OUTPUT = "
 	<html>

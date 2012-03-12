@@ -2,7 +2,7 @@
 
 require ("settings.php");
 
-	$OUTPUT = display($HTTP_POST_VARS);
+	$OUTPUT = display($_POST);
 
 	$OUTPUT .= "<p>".
 				mkQuickLinks(
@@ -13,7 +13,7 @@ require ("settings.php");
 
 require ("template.php");
 
-function display($HTTP_POST_VARS)
+function display($_POST)
 {
 
 	db_connect ();

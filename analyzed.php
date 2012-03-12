@@ -27,7 +27,7 @@
 require("settings.php");
 require("core-settings.php");
 
-$OUTPUT = analyze("../accstruct/".$HTTP_GET_VARS["file"]);
+$OUTPUT = analyze("../accstruct/".$_GET["file"]);
 
 # get templete
 require("template.php");

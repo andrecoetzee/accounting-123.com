@@ -25,24 +25,24 @@
 require ("settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
-			if (isset($HTTP_GET_VARS['fcid'])){
-				$OUTPUT = edit ($HTTP_GET_VARS['fcid']);
+			if (isset($_GET['fcid'])){
+				$OUTPUT = edit ($_GET['fcid']);
 			} else {
 				$OUTPUT = "<li> - Invalid use of module";
 			}
 	}
 } else {
-	if (isset($HTTP_GET_VARS['fcid'])){
-		$OUTPUT = edit ($HTTP_GET_VARS['fcid']);
+	if (isset($_GET['fcid'])){
+		$OUTPUT = edit ($_GET['fcid']);
 	} else {
 		$OUTPUT = "<li> - Invalid use of module.</li>";
 	}
@@ -186,10 +186,10 @@ function edit($fcid)
 
 
 # confirm entered info
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -310,10 +310,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 # write to db
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

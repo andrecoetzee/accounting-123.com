@@ -31,41 +31,41 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 
                 case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
         		break;
                 case "confirm":
-                        $OUTPUT = confirm($HTTP_POST_VARS);
+                        $OUTPUT = confirm($_POST);
         		break;
                 case "writebat":
-                        $OUTPUT = writebat($HTTP_POST_VARS);
+                        $OUTPUT = writebat($_POST);
         		break;
                 case "confirmbat":
-                        $OUTPUT = confirmbat($HTTP_POST_VARS);
+                        $OUTPUT = confirmbat($_POST);
         		break;
                 default:
 			if(isset($proc)){
                                 # Process
-                                $OUTPUT = det($HTTP_POST_VARS);
+                                $OUTPUT = det($_POST);
                         }elseif(isset($bat)){
                                 # Remove
-                                $OUTPUT = detbat($HTTP_POST_VARS);
+                                $OUTPUT = detbat($_POST);
                         }else{
                                $OUTPUT = "<li class=err> Invalid use of module.";
                         }
 	}
 } else {
-        if(isset($HTTP_POST_VARS['proc'])){
+        if(isset($_POST['proc'])){
                 # Process
-                $OUTPUT = det($HTTP_POST_VARS);
-        }elseif(isset($HTTP_POST_VARS['bat'])){
+                $OUTPUT = det($_POST);
+        }elseif(isset($_POST['bat'])){
                 # Remove
-                $OUTPUT = detbat($HTTP_POST_VARS);
+                $OUTPUT = detbat($_POST);
         }else{
-                $OUTPUT = "<li class=err> Invalid use of module. $HTTP_POST_VARS['bat'] - $HTTP_POST_VARS['proc']";
+                $OUTPUT = "<li class=err> Invalid use of module. $_POST['bat'] - $_POST['proc']";
         }
 }
 
@@ -73,10 +73,10 @@ if (isset($HTTP_POST_VARS["key"])) {
 require("template.php");
 
 # Confirm
-function det($HTTP_POST_VARS)
+function det($_POST)
 {
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -179,10 +179,10 @@ function det($HTTP_POST_VARS)
 }
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -281,10 +281,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -433,10 +433,10 @@ function writetrans($dtacc, $ctacc, $date, $refnum, $amount, $details)
 }
 
 # Confirm
-function detbat($HTTP_POST_VARS)
+function detbat($_POST)
 {
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -540,10 +540,10 @@ function detbat($HTTP_POST_VARS)
 }
 
 # Confirm
-function confirmbat($HTTP_POST_VARS)
+function confirmbat($_POST)
 {
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -642,10 +642,10 @@ function confirmbat($HTTP_POST_VARS)
 }
 
 # Write
-function writebat($HTTP_POST_VARS)
+function writebat($_POST)
 {
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

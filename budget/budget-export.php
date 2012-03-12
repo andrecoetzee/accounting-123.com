@@ -29,8 +29,8 @@ require ("../settings.php");
 require ("../core-settings.php");
 require("../libs/ext.lib.php");
 
-if (isset($HTTP_GET_VARS["budid"])){
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["budid"])){
+	$OUTPUT = details($_GET);
 } else {
 	# Display default output
 	$OUTPUT = "<li class=err> - Invalid use of module.";
@@ -40,10 +40,10 @@ if (isset($HTTP_GET_VARS["budid"])){
 require("../template.php");
 
 # Default view
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 	# Get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 

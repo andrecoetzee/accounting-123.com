@@ -30,8 +30,8 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["supid"])) {
-	$OUTPUT = printStmnt($HTTP_POST_VARS);
+if (isset($_POST["supid"])) {
+	$OUTPUT = printStmnt($_POST);
 } else {
 	$OUTPUT = "<li class=err>Invalid use of module.";
 }
@@ -39,10 +39,10 @@ if (isset($HTTP_POST_VARS["supid"])) {
 require("../template.php");
 
 # show invoices
-function printStmnt ($HTTP_POST_VARS)
+function printStmnt ($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

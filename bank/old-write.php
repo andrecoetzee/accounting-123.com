@@ -1,14 +1,14 @@
 <?
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return alloc($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return alloc($_POST);
 	}
 
 	# validate input
@@ -48,7 +48,7 @@ function write($HTTP_POST_VARS)
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
 	//	$confirm .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
-		return alloc ($HTTP_POST_VARS,$confirm);
+		return alloc ($_POST,$confirm);
 	}
 
 

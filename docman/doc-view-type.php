@@ -28,9 +28,9 @@ require ("../core-settings.php");
 require_lib("docman");
 
 
-if(isset($HTTP_GET_VARS['type']) && isset($HTTP_GET_VARS['xin'])){
+if(isset($_GET['type']) && isset($_GET['xin'])){
 	# show current stock
-	$OUTPUT = printDocs ($HTTP_GET_VARS);
+	$OUTPUT = printDocs ($_GET);
 }else{
 	$OUTPUT = "<li class=err> - Invalid use of module.";
 }
@@ -38,9 +38,9 @@ if(isset($HTTP_GET_VARS['type']) && isset($HTTP_GET_VARS['xin'])){
 require ("../template.php");
 
 # show stock
-function printDocs ($HTTP_GET_VARS)
+function printDocs ($_GET)
 {
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	# Set up table to display in
 	$printDocs = "<center><h3>Documents</h3>

@@ -27,10 +27,10 @@ require ("../settings.php");
 require ("../core-settings.php");
 require_lib("docman");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "view":
-			$OUTPUT = printCat($HTTP_POST_VARS);
+			$OUTPUT = printCat($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid";
@@ -135,9 +135,9 @@ function select() {
 }
 
 # show stock
-function printCat ($HTTP_POST_VARS)
+function printCat ($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$typeid=remval($typeid);;
 	# Set up table to display in

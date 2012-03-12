@@ -2,16 +2,16 @@
 
 require ("settings.php");
 
-$OUTPUT = get_report_parms ($HTTP_POST_VARS);
+$OUTPUT = get_report_parms ($_POST);
 
 require ("template.php");
 
 
 
-function get_report_parms ($HTTP_POST_VARS, $err="")
+function get_report_parms ($_POST, $err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 
@@ -19,8 +19,8 @@ function get_report_parms ($HTTP_POST_VARS, $err="")
 
 	if (isset ($search) AND strlen ($search) > 0){
 		if (!isset ($medical_aid) OR !is_array ($medical_aid)){
-			unset ($HTTP_POST_VARS["search"]);
-			return get_report_parms($HTTP_POST_VARS,"<li class='err'>Please Select At Least One Medical Aid.</li>");
+			unset ($_POST["search"]);
+			return get_report_parms($_POST,"<li class='err'>Please Select At Least One Medical Aid.</li>");
 		}
 
 		foreach ($medical_aid AS $mid){

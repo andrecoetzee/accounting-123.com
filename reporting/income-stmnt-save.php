@@ -27,10 +27,10 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 			case "print":
-				$OUTPUT = inc($HTTP_POST_VARS);
+				$OUTPUT = inc($_POST);
 				break;
 
 			default:
@@ -74,10 +74,10 @@ function view()
 	return $view;
 }
 
-function inc($HTTP_POST_VARS)
+function inc($_POST)
 {
 		# get vars
-		foreach ($HTTP_POST_VARS as $key => $value) {
+		foreach ($_POST as $key => $value) {
 			$$key = $value;
 		}
 

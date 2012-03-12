@@ -28,29 +28,29 @@
 require("settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			if(isset($HTTP_POST_VARS["done"])){
-				$OUTPUT = confirm($HTTP_POST_VARS);
+			if(isset($_POST["done"])){
+				$OUTPUT = confirm($_POST);
 			}else {
-				$OUTPUT = edit($HTTP_POST_VARS);
+				$OUTPUT = edit($_POST);
 			}
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
-			if (isset($HTTP_GET_VARS["ccid"])){
-				$OUTPUT = edit($HTTP_GET_VARS);
+			if (isset($_GET["ccid"])){
+				$OUTPUT = edit($_GET);
 			} else {
 				# Display default output
 				$OUTPUT = "<li class=err>Invalid use of module.</li>";
 			}
 	}
 } else {
-	if (isset($HTTP_GET_VARS["ccid"])){
-		$OUTPUT = edit($HTTP_GET_VARS);
+	if (isset($_GET["ccid"])){
+		$OUTPUT = edit($_GET);
 	} else {
 		# Display default output
 		$OUTPUT = "<li class='err'>Invalid use of module.</li>";
@@ -63,11 +63,11 @@ require("template.php");
 
 
 # Default view
-function edit($HTTP_GET_VARS)
+function edit($_GET)
 {
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# Query server
     db_connect();
@@ -208,11 +208,11 @@ function edit($HTTP_GET_VARS)
 
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -316,11 +316,11 @@ function confirm($HTTP_POST_VARS)
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

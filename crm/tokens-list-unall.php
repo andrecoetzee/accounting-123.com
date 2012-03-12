@@ -38,8 +38,8 @@ $OUTPUT.="<p>
 require("template.php");
 
 function list_tokens(){
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
         $i=0;
 

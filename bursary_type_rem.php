@@ -2,34 +2,34 @@
 
 	require ("settings.php");
 
-	if(isset($HTTP_POST_VARS["key"])){
-		switch ($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch ($_POST["key"]){
 			case "write":
-				$OUTPUT = write_burs ($HTTP_POST_VARS);
+				$OUTPUT = write_burs ($_POST);
 				break;
 			default:
-				$OUTPUT = confirm_burs ($HTTP_POST_VARS);
+				$OUTPUT = confirm_burs ($_POST);
 		}
 	}else {
-		$OUTPUT = confirm_burs ($HTTP_POST_VARS);
+		$OUTPUT = confirm_burs ($_POST);
 	}
 
 	require ("template.php");
 
 
-function confirm_burs ($HTTP_POST_VARS)
+function confirm_burs ($_POST)
 {
 
-	global $HTTP_GET_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_GET;
+	extract ($_POST);
 
-	if(!isset ($HTTP_GET_VARS["id"]) OR (strlen($HTTP_GET_VARS["id"]) < 1)){
+	if(!isset ($_GET["id"]) OR (strlen($_GET["id"]) < 1)){
 		return "Invalid Use Of Module. Invalid ID.";
 	}
 
 	db_connect ();
 
-	$get_burs = "SELECT * FROM bursaries WHERE id = '$HTTP_GET_VARS[id]' LIMIT 1";
+	$get_burs = "SELECT * FROM bursaries WHERE id = '$_GET[id]' LIMIT 1";
 	$run_burs = db_exec($get_burs) or errDie("Unable to get bursaries information.");
 	if(pg_numrows($run_burs) < 1){
 		return "Invalid use of module. Invalid bursary.";
@@ -44,7 +44,7 @@ function confirm_burs ($HTTP_POST_VARS)
 			<table ".TMPL_tblDflts.">
 			<form action='".SELF."' method='POST'>
 				<input type='hidden' name='key' value='write'>
-				<input type='hidden' name='id' value='$HTTP_GET_VARS[id]'>
+				<input type='hidden' name='id' value='$_GET[id]'>
 				<input type='hidden' name='bursary_name' value='$bursary_name'>
 				<input type='hidden' name='bursary_details' value='$bursary_details'>
 				<tr>
@@ -73,10 +73,10 @@ function confirm_burs ($HTTP_POST_VARS)
 }
 
 
-function write_burs ($HTTP_POST_VARS)
+function write_burs ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

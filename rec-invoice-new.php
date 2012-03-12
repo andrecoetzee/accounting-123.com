@@ -30,24 +30,24 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["stkerr"] = '0,0';
-	$OUTPUT = details($HTTP_GET_VARS);
-} else if (isset($HTTP_GET_VARS["invid"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["invid"]) && isset($_GET["cont"])) {
+	$_GET["stkerr"] = '0,0';
+	$OUTPUT = details($_GET);
+} else if (isset($_GET["invid"])) {
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 			default:
 			case "details":
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 				break;
 		}
 	} else {
-		$OUTPUT = details($HTTP_POST_VARS);
+		$OUTPUT = details($_POST);
 	}
 }
 
@@ -113,11 +113,11 @@ function view()
 
 
 # Default view
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Query server for depts
 	db_conn("exten");
@@ -237,11 +237,11 @@ function create_dummy($deptid)
 
 
 # Details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -335,7 +335,7 @@ function details($HTTP_POST_VARS, $error="")
 			$custRslt = db_exec ($sql) or errDie ("Unable to view customers");
 			if (pg_numrows ($custRslt) < 1) {
 				$ajax_err = "<li class='err'>No customer names starting with <b>$letters</b> in database.</li>";
-				//return view_err($HTTP_POST_VARS, $err);
+				//return view_err($_POST, $err);
 			}else{
 				$customers = "<select name='cusnum' onChange='javascript:document.form.submit();'>";
 				$customers .= "<option value='-S' selected>Select Customer</option>";
@@ -1454,14 +1454,14 @@ function details($HTTP_POST_VARS, $error="")
 
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($cusnum)) {
-		return details($HTTP_POST_VARS, "<li class='err'>Please select a customer.</li>");
+		return details($_POST, "<li class='err'>Please select a customer.</li>");
 	}
 
 	# validate input
@@ -1551,7 +1551,7 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return details($HTTP_POST_VARS, $err);
+		return details($_POST, $err);
 	}
 
 	
@@ -1650,7 +1650,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					$Ri = db_exec($Sl);
 
 					if(pg_num_rows($Ri) < 1) {
-						return details($HTTP_POST_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+						return details($_POST, "<li class='err'>Please select the vatcode for all your items.</li>");
 					}
 
 					$vd = pg_fetch_array($Ri);
@@ -1720,7 +1720,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					$Ri = db_exec($Sl);
 
 					if(pg_num_rows($Ri) < 1) {
-						return details($HTTP_POST_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+						return details($_POST, "<li class='err'>Please select the vatcode for all your items.</li>");
 					}
 					$vd = pg_fetch_array($Ri);
 
@@ -1767,10 +1767,10 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					$rslt = db_exec($sql) or errDie("Unable to insert invoice items to Cubit.",SELF);
 				}
 				# everything is set place done button
-				$HTTP_POST_VARS["done"] = " | <input name='doneBtn' type='submit' value='Done'>";
+				$_POST["done"] = " | <input name='doneBtn' type='submit' value='Done'>";
 			}
 		}else{
-			$HTTP_POST_VARS["done"] = "";
+			$_POST["done"] = "";
 		}
 
 		db_conn('cubit');
@@ -1794,7 +1794,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 			$showvat = FALSE;
 		}
 
-		$HTTP_POST_VARS['showvat'] = $showvat;
+		$_POST['showvat'] = $showvat;
 
 		$vr = vatcalc($delchrg,$inv['chrgvat'],$excluding,$inv['traddisc'],$vd['vat_amount']);
 
@@ -1951,7 +1951,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 		$Rs = db_exec ($Sl) or errDie ("Unable to add supplier to the system.", SELF);
 
 		if (pg_numrows ($Rs) < 1) {
-			return details($HTTP_POST_VARS,"<a href='pos-set.php'>Please set the point of sale setting by clicking here.</a>");
+			return details($_POST,"<a href='pos-set.php'>Please set the point of sale setting by clicking here.</a>");
 		}
 		$Dets = pg_fetch_array($Rs);
 		if($Dets['opt'] == "No") {
@@ -1988,7 +1988,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 					$tab = "ss9";
 					break;
 				default:
-					return details($HTTP_POST_VARS,"The code you selected is invalid");
+					return details($_POST,"The code you selected is invalid");
 			}
 			db_conn('cubit');
 
@@ -1997,7 +1997,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 			$stid = barext_dbget($tab,'code',$bar,'stock');
 
 			if(!($stid > 0)){
-				return details($HTTP_POST_VARS,"The bar code you selected is not in the system or is not available.");
+				return details($_POST,"The bar code you selected is not in the system or is not available.");
 			}
 
 			$Sl = "SELECT * FROM stock WHERE stkid = '$stid' AND div = '".USER_DIV."'";
@@ -2028,7 +2028,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 
 			$stid = ext_dbget('stock','bar',$bar,'stkid');
 
-			if(!($stid > 0)){return details($HTTP_POST_VARS,"The bar code you selected is not in the system or is not available.");}
+			if(!($stid > 0)){return details($_POST,"The bar code you selected is not in the system or is not available.");}
 
 			$Sl = "SELECT * FROM stock WHERE stkid = '$stid' AND div = '".USER_DIV."'";
 			$Rs = db_exec($Sl);
@@ -2071,9 +2071,9 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 			);
 		return $write;
 	}else{
-		if(isset($wtd)){$HTTP_POST_VARS['wtd'] = $wtd;}
-		if(strlen($ria) > 0){$HTTP_POST_VARS['ria'] = $ria;}
-		return details($HTTP_POST_VARS);
+		if(isset($wtd)){$_POST['wtd'] = $wtd;}
+		if(strlen($ria) > 0){$_POST['ria'] = $ria;}
+		return details($_POST);
 	}
 /* --- End button Listeners --- */
 

@@ -29,26 +29,26 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			# decide what to do
-			if (isset($HTTP_GET_VARS["quoid"])) {
-				$OUTPUT = confirm($HTTP_GET_VARS);
+			if (isset($_GET["quoid"])) {
+				$OUTPUT = confirm($_GET);
 			} else {
 				$OUTPUT = "<li class=err>Invalid use of module.";
 			}
 	}
 } else {
 	# decide what to do
-	if (isset($HTTP_GET_VARS["quoid"])) {
-		$OUTPUT = confirm($HTTP_GET_VARS);
+	if (isset($_GET["quoid"])) {
+		$OUTPUT = confirm($_GET);
 	} else {
 		$OUTPUT = "<li class=err>Invalid use of module.";
 	}
@@ -59,11 +59,11 @@ require("template.php");
 
 
 # details
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -320,11 +320,11 @@ function confirm($HTTP_POST_VARS)
 
 
 # Details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

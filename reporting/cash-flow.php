@@ -44,21 +44,21 @@ account.</li>";
 
 require("../template.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
+if (isset($_POST["key"])) {
 	// Convert the key to lowercase to maintain consistency
-	$HTTP_POST_VARS["key"] = strtolower($HTTP_POST_VARS["key"]);
-	switch ($HTTP_POST_VARS["key"]) {
+	$_POST["key"] = strtolower($_POST["key"]);
+	switch ($_POST["key"]) {
 		case "add":
 		case "select account":
 		case "remove selected":
 		case "update":
-			$OUTPUT = update($HTTP_POST_VARS);
+			$OUTPUT = update($_POST);
 			break;
 		case "save":
 		case "print":
 		case "export to spreadsheet":
 		case "display":
-			$OUTPUT = display($HTTP_POST_VARS);
+			$OUTPUT = display($_POST);
 			break;
 		default:
 		case "slct":
@@ -72,8 +72,8 @@ if (isset($HTTP_POST_VARS["key"])) {
 require ("../template.php");
 
 function slct($errors = "") {
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	$fields = array ();
 	$fields["category"] = 0;
@@ -135,8 +135,8 @@ function slct($errors = "") {
 		}
 	} else {
 		// Create default accounts
-		$HTTP_POST_VARS["key"] = "default";
-		return update($HTTP_POST_VARS);
+		$_POST["key"] = "default";
+		return update($_POST);
 	}
 
 	// Output the headings and accounts
@@ -239,9 +239,9 @@ function slct($errors = "") {
 	return $OUTPUT;
 }
 
-function update($HTTP_POST_VARS)
+function update($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	// Validate
 	require_lib("validate");
@@ -329,9 +329,9 @@ function update($HTTP_POST_VARS)
 	return slct();
 }
 
-function display($HTTP_POST_VARS)
+function display($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$prev_yr_schema = substr(YR_DB, 0, 2) . (substr(YR_DB, 2)-1);
 	if ($prev_yr_schema < 0) {

@@ -4,16 +4,16 @@ require ("../settings.php");
 require ("../core-settings.php");
 require ("../libs/ext.lib.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = confirm_setting_info ($HTTP_POST_VARS);
+			$OUTPUT = confirm_setting_info ($_POST);
 			break;
 		default:
-			$OUTPUT = get_setting_info ($HTTP_POST_VARS);
+			$OUTPUT = get_setting_info ($_POST);
 	}
 }else {
-	$OUTPUT = get_setting_info ($HTTP_POST_VARS);
+	$OUTPUT = get_setting_info ($_POST);
 }
 
 require ("../template.php");
@@ -21,10 +21,10 @@ require ("../template.php");
 
 
 
-function get_setting_info ($HTTP_POST_VARS,$err="")
+function get_setting_info ($_POST,$err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 
@@ -147,13 +147,13 @@ function get_setting_info ($HTTP_POST_VARS,$err="")
 
 
 
-function confirm_setting_info ($HTTP_POST_VARS)
+function confirm_setting_info ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($show_account) OR !is_array ($show_account))
-		return get_setting_info($HTTP_POST_VARS,"<li class='err'>Please Select At Least 1 Account To Display.</li><br>");
+		return get_setting_info($_POST,"<li class='err'>Please Select At Least 1 Account To Display.</li><br>");
 
 	if(!isset($vatacc))
 		$vatacc = 0;
@@ -189,7 +189,7 @@ function confirm_setting_info ($HTTP_POST_VARS)
 		$run_upd = db_exec($upd_sql) or errDie ("Unable to update vat account setting.");
 	}
 
-//	return get_setting_info($HTTP_POST_VARS, "<li class='err'>Account Settings Updated.</li><br>");
+//	return get_setting_info($_POST, "<li class='err'>Account Settings Updated.</li><br>");
 	header ("Location: ../general-creditnote.php");
 
 }

@@ -28,7 +28,7 @@ require ("../core-settings.php");
 //require_lib("docman");
 require("../docmanage/docman.lib.php");
 # Show current stock
-$OUTPUT = printDload($HTTP_GET_VARS['docid']);
+$OUTPUT = printDload($_GET['docid']);
 
 require ("../template.php");
 

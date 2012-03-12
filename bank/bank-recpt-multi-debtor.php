@@ -27,8 +27,8 @@
 require("../settings.php");
 require("../core-settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "selectcus":
 			$OUTPUT = selectcus();
 			break;
@@ -98,7 +98,7 @@ function method($err = "")
 		}
 	}
 
-	if (isset($HTTP_GET_VARS["e"])) {
+	if (isset($_GET["e"])) {
 		$ex = "<input type='hidden' name='e' value='y'>";
 	} else {
 		$ex = "";
@@ -138,7 +138,7 @@ function method($err = "")
 		$OUT .= "<option value='$acc[bankid]'>$acc[accname] - $acc[bankname] ($acc[acctype])</option>";
 	}
 
-	if(isset($HTTP_GET_VARS['cash'])) {
+	if(isset($_GET['cash'])) {
 		$OUT .= "<option value='0'>Receive Cash</option>";
 	}
 

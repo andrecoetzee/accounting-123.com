@@ -28,40 +28,40 @@ require ("../settings.php");
 require("../core-settings.php");
 require ("../libs/ext.lib.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "write1":
-			$OUTPUT = write1($HTTP_POST_VARS,$HTTP_POST_FILES);
+			$OUTPUT = write1($_POST,$_FILES);
 			break;
 		case "write2":
-			$OUTPUT = write2($HTTP_POST_VARS,$HTTP_POST_FILES);
+			$OUTPUT = write2($_POST,$_FILES);
 			break;
 		case "write3":
-			$OUTPUT = write3($HTTP_POST_VARS,$HTTP_POST_FILES);
+			$OUTPUT = write3($_POST,$_FILES);
 			break;
 		case "write4":
-			$OUTPUT = write4($HTTP_POST_VARS,$HTTP_POST_FILES);
+			$OUTPUT = write4($_POST,$_FILES);
 			break;
 		case "write5":
-			$OUTPUT = write5($HTTP_POST_VARS,$HTTP_POST_FILES);
+			$OUTPUT = write5($_POST,$_FILES);
 			break;
 		case "enter_actions":
-			$OUTPUT = enter_actions($HTTP_POST_VARS);
+			$OUTPUT = enter_actions($_POST);
 			break;
 		case "confirm_actions":
-			$OUTPUT = confirm_actions($HTTP_POST_VARS);
+			$OUTPUT = confirm_actions($_POST);
 			break;
 		case "confirm_actions2":
-			$OUTPUT = confirm_actions2($HTTP_POST_VARS);
+			$OUTPUT = confirm_actions2($_POST);
 			break;
 		case "write_actions":
-			$OUTPUT = write_actions($HTTP_POST_VARS);
+			$OUTPUT = write_actions($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid";
 	}
-} elseif(isset($HTTP_GET_VARS["enter"])) {
-	$OUTPUT = enter_actions($HTTP_POST_VARS);
+} elseif(isset($_GET["enter"])) {
+	$OUTPUT = enter_actions($_POST);
 } else {
 	$OUTPUT = select_file();
 }
@@ -86,7 +86,7 @@ require("../template.php");
 function select_file ()
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
 	$banks = "
 		<select name='key'>
@@ -155,15 +155,15 @@ function select_file ()
 
 
 //comma seperated(Standard Bank)
-function write1($HTTP_POST_VARS,$HTTP_POST_FILES)
+function write1($_POST,$_FILES)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$bankid += 0;
 
 	$importfile = tempnam("/tmp", "cubitimport_");
-	$file = fopen($HTTP_POST_FILES["compfile"]["tmp_name"], "r");
+	$file = fopen($_FILES["compfile"]["tmp_name"], "r");
 
 	if ( $file == false) {
 		return "<li class='err'>Cannot read file.</li>".select_file();
@@ -224,22 +224,22 @@ function write1($HTTP_POST_VARS,$HTTP_POST_FILES)
 	}
 
 	fclose($file);
-	return enter_actions($HTTP_POST_VARS);
+	return enter_actions($_POST);
 
 }
 
 
 
 //comma seperated(nedbank Bank)
-function write2($HTTP_POST_VARS,$HTTP_POST_FILES)
+function write2($_POST,$_FILES)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$bankid += 0;
 
 	$importfile = tempnam("/tmp", "cubitimport_");
-	$file = fopen($HTTP_POST_FILES["compfile"]["tmp_name"], "r");
+	$file = fopen($_FILES["compfile"]["tmp_name"], "r");
 //	$file = fopen($importfile, "r");
 	
 	if ( $file == false) {
@@ -319,22 +319,22 @@ function write2($HTTP_POST_VARS,$HTTP_POST_FILES)
 	fclose($file);
 
 	//return $out."</table>";
-	return enter_actions($HTTP_POST_VARS);
+	return enter_actions($_POST);
 
 }
 
 
 
 //comma seperated(FNB)
-function write3($HTTP_POST_VARS,$HTTP_POST_FILES)
+function write3($_POST,$_FILES)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$bankid += 0;
 
 	$importfile = tempnam("/tmp", "cubitimport_");
-	$file = fopen($HTTP_POST_FILES["compfile"]["tmp_name"], "r");
+	$file = fopen($_FILES["compfile"]["tmp_name"], "r");
 
 	if ($file == false) {
 		return "<li class='err'>Cannot read file.</li>".select_file();
@@ -390,22 +390,22 @@ function write3($HTTP_POST_VARS,$HTTP_POST_FILES)
 	}
 
 	fclose($file);
-	return enter_actions($HTTP_POST_VARS);
+	return enter_actions($_POST);
 
 }
 
 
 
 //* seperated(Absa Bank)
-function write4($HTTP_POST_VARS,$HTTP_POST_FILES)
+function write4($_POST,$_FILES)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$bankid += 0;
 
 	$importfile = tempnam("/tmp", "cubitimport_");
-	$file = fopen($HTTP_POST_FILES["compfile"]["tmp_name"], "r");
+	$file = fopen($_FILES["compfile"]["tmp_name"], "r");
 
 	if ( $file == false) {
 		return "<li class='err'>Cannot read file.</li>".select_file();
@@ -462,15 +462,15 @@ function write4($HTTP_POST_VARS,$HTTP_POST_FILES)
 	}
 
 	fclose($file);
-	return enter_actions($HTTP_POST_VARS);
+	return enter_actions($_POST);
 
 }
 
 
-function write5($HTTP_POST_VARS,$HTTP_POST_FILES)
+function write5($_POST,$_FILES)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# CHECK IF THIS DATE IS IN THE BLOCKED RANGE
 	$blocked_date_from = getCSetting("BLOCKED_FROM");
@@ -479,7 +479,7 @@ function write5($HTTP_POST_VARS,$HTTP_POST_FILES)
 	$bankid += 0;
 
 	$importfile = tempnam("/tmp", "cubitimport_");
-	$file = fopen($HTTP_POST_FILES["compfile"]["tmp_name"], "r");
+	$file = fopen($_FILES["compfile"]["tmp_name"], "r");
 
 	if ( $file == false) {
 		return "<li class='err'>Cannot read file.</li>".select_file();
@@ -548,15 +548,15 @@ function write5($HTTP_POST_VARS,$HTTP_POST_FILES)
 	}
 
 	fclose($file);
-	return enter_actions($HTTP_POST_VARS);
+	return enter_actions($_POST);
 
 }
 
 
-function enter_actions($HTTP_POST_VARS,$err="")
+function enter_actions($_POST,$err="")
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# CHECK IF THIS DATE IS IN THE BLOCKED RANGE
 	$blocked_date_from = getCSetting("BLOCKED_FROM");
@@ -749,17 +749,17 @@ function enter_actions($HTTP_POST_VARS,$err="")
 
 
 
-function confirm_actions($HTTP_POST_VARS)
+function confirm_actions($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(!isset($bankid)) {
-		return enter_actions($HTTP_POST_VARS);
+		return enter_actions($_POST);
 	}
 
 	if(!isset($next)) {
-		return enter_actions($HTTP_POST_VARS);
+		return enter_actions($_POST);
 	}
 
 	$bankid += 0;
@@ -770,7 +770,7 @@ function confirm_actions($HTTP_POST_VARS)
 	$Ri = db_exec($Sl) or errDie("unable to get data.");
 
 	if(pg_num_rows($Ri) < 1) {
-		return enter_actions($HTTP_POST_VARS);
+		return enter_actions($_POST);
 	}
 
 	$bd = pg_fetch_array($Ri);
@@ -866,7 +866,7 @@ function confirm_actions($HTTP_POST_VARS)
 		$action = $actions[$id];
 
 		if($action == "0")
-			return enter_actions ($HTTP_POST_VARS,"<li class='err'>Please Select An Option For All Accounts</li>");
+			return enter_actions ($_POST,"<li class='err'>Please Select An Option For All Accounts</li>");
 
 		if($action == "c" || $action == "cr") {
 
@@ -1158,17 +1158,17 @@ function confirm_actions($HTTP_POST_VARS)
 
 
 
-function confirm_actions2($HTTP_POST_VARS)
+function confirm_actions2($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(!isset($bankid)) {
-		return enter_actions($HTTP_POST_VARS);
+		return enter_actions($_POST);
 	}
 
 	if(!isset($next)) {
-		return enter_actions($HTTP_POST_VARS);
+		return enter_actions($_POST);
 	}
 
 	$bankid += 0;
@@ -1179,7 +1179,7 @@ function confirm_actions2($HTTP_POST_VARS)
 	$Ri = db_exec($Sl) or errDie("unable to get data.");
 
 	if(pg_num_rows($Ri) < 1) {
-		return enter_actions($HTTP_POST_VARS);
+		return enter_actions($_POST);
 	}
 
 	$bd = pg_fetch_array($Ri);
@@ -1235,7 +1235,7 @@ function confirm_actions2($HTTP_POST_VARS)
 			$Sl = "SELECT * FROM accounts WHERE accid='$accounts[$id]'";
 			$Rl = db_exec($Sl) or errDie("Unable to get account data.");
 			if(pg_numrows($Rl) < 1){
-				return "<li class='err'>Please select all the contra accounts</li>".confirm_actions($HTTP_POST_VARS);
+				return "<li class='err'>Please select all the contra accounts</li>".confirm_actions($_POST);
 			}
 
 			$data = pg_fetch_array($Rl);
@@ -1280,7 +1280,7 @@ function confirm_actions2($HTTP_POST_VARS)
 		} elseif($action == "cp") {
 
 			if(isset($vats[$id])) {
-				return "<li class='err'>You cannot select vat for a client payment.</li>".confirm_actions($HTTP_POST_VARS);
+				return "<li class='err'>You cannot select vat for a client payment.</li>".confirm_actions($_POST);
 			}
 
 			db_conn('cubit');
@@ -1293,7 +1293,7 @@ function confirm_actions2($HTTP_POST_VARS)
 			$Rl = db_exec($Sl) or errDie("Unable to get customer info.");
 
 			if(pg_numrows($Rl) < 1){
-				return "<li class='err'>Please select all the contra accounts(Client Accounts)</li>".confirm_actions($HTTP_POST_VARS);
+				return "<li class='err'>Please select all the contra accounts(Client Accounts)</li>".confirm_actions($_POST);
 			}
 
 			$cd = pg_fetch_array($Rl);
@@ -1303,7 +1303,7 @@ function confirm_actions2($HTTP_POST_VARS)
 		} elseif($action == "sp") {
 
 			if(isset($vats[$id])) {
-				return "<li class='err'>You cannot select vat for a supplier payment.</li>".confirm_actions($HTTP_POST_VARS);
+				return "<li class='err'>You cannot select vat for a supplier payment.</li>".confirm_actions($_POST);
 			}
 
 			db_conn('cubit');
@@ -1316,7 +1316,7 @@ function confirm_actions2($HTTP_POST_VARS)
 			$Rl = db_exec($Sl) or errDie("Unable to get customer info.");
 
 			if(pg_numrows($Rl) < 1){
-				return "<li class='err'>Please select all the contra accounts(Supplier Accounts)</lI>".confirm_actions($HTTP_POST_VARS);
+				return "<li class='err'>Please select all the contra accounts(Supplier Accounts)</lI>".confirm_actions($_POST);
 			}
 
 			$cd = pg_fetch_array($Rl);
@@ -1346,7 +1346,7 @@ function confirm_actions2($HTTP_POST_VARS)
 			$testd = "$year[$id]-$mon[$id]-$day[$id]";
 
 			if(!(gd($testd))) {
-				return "<li class='err'>Invalid date $testd.</li>".confirm_actions($HTTP_POST_VARS);
+				return "<li class='err'>Invalid date $testd.</li>".confirm_actions($_POST);
 			}
 		}
 
@@ -1435,23 +1435,23 @@ function confirm_actions2($HTTP_POST_VARS)
 
 
 
-function write_actions($HTTP_POST_VARS)
+function write_actions($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		$HTTP_POST_VARS["next"] = "";
-		return confirm_actions($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		$_POST["next"] = "";
+		return confirm_actions($_POST);
 	}
 
 	if(!isset($bankid)) {
-		return enter_actions($HTTP_POST_VARS);
+		return enter_actions($_POST);
 	}
 
 	if(!isset($next)) {
-		return enter_actions($HTTP_POST_VARS);
+		return enter_actions($_POST);
 	}
 
 	$bankid += 0;
@@ -1465,7 +1465,7 @@ function write_actions($HTTP_POST_VARS)
 	$Ri = db_exec($Sl) or errDie("unable to get data.");
 
 	if(pg_num_rows($Ri) < 1) {
-		return enter_actions($HTTP_POST_VARS);
+		return enter_actions($_POST);
 	}
 
 	$bd = pg_fetch_array($Ri);
@@ -1542,7 +1542,7 @@ function write_actions($HTTP_POST_VARS)
 		}
 
 		if(!gd($date)) {
-			return "<li class='err'>Invalid date $testd.</li>".confirm_actions($HTTP_POST_VARS);
+			return "<li class='err'>Invalid date $testd.</li>".confirm_actions($_POST);
 		}
 
 		if($action == "c" || $action == "cr") {

@@ -27,13 +27,13 @@
 require ("settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmPaye ($HTTP_POST_VARS);
+			$OUTPUT = confirmPaye ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writePaye ($HTTP_POST_VARS);
+			$OUTPUT = writePaye ($_POST);
 			break;
 		default:
 			$OUTPUT = enterPaye ();
@@ -70,10 +70,10 @@ function enterPaye ()
 }
 
 # confirm new paye bracket details
-function confirmPaye ($HTTP_POST_VARS)
+function confirmPaye ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -116,10 +116,10 @@ function confirmPaye ($HTTP_POST_VARS)
 }
 
 # write new paye bracket
-function writePaye ($HTTP_POST_VARS)
+function writePaye ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

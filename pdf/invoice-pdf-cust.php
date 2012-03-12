@@ -29,20 +29,20 @@ require("../settings.php");
 require("../libs/ext.lib.php");
 
 # Decide what to do
-if (isset($HTTP_GET_VARS["cusnum"])) {
-	$OUTPUT =enter($HTTP_GET_VARS);
+if (isset($_GET["cusnum"])) {
+	$OUTPUT =enter($_GET);
 
 	require("../template.php");
-} elseif (isset($HTTP_POST_VARS["cusnum"])) {
-	details($HTTP_POST_VARS);
+} elseif (isset($_POST["cusnum"])) {
+	details($_POST);
 } else {
 	$OUTPUT = "<li class=err>Invalid use of module.";
 	require("../template.php");
 }
 
-function enter($HTTP_GET_VARS) {
+function enter($_GET) {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	$cusnum+=0;
 
@@ -85,11 +85,11 @@ function enter($HTTP_GET_VARS) {
 	
 
 # Details
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");

@@ -11,15 +11,15 @@
 function show_report ()
 {
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	if (!isset($HTTP_GET_VARS["id"]) OR (strlen($HTTP_GET_VARS["id"]) < 1)){
+	if (!isset($_GET["id"]) OR (strlen($_GET["id"]) < 1)){
 		return "<li class='err'>Invalid Use Of Module. Invalid Loan.</li>";
 	}
 
 	db_connect ();
 
-	$get_loan = "SELECT * FROM emp_loanarchive WHERE id = '$HTTP_GET_VARS[id]' LIMIT 1";
+	$get_loan = "SELECT * FROM emp_loanarchive WHERE id = '$_GET[id]' LIMIT 1";
 	$run_loan = db_exec($get_loan) or errDie("Unable to get loan information.");
 	if(pg_numrows($run_loan) < 1){
 		return "<li class='err'>Could Not Get Loan Information.</li>";

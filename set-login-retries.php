@@ -25,14 +25,14 @@
 
 require ('settings.php');
 
-if (isset($HTTP_POST_VARS['key'])) {
-	switch ($HTTP_POST_VARS['key']) {
+if (isset($_POST['key'])) {
+	switch ($_POST['key']) {
 		case "enter":
 			$OUTPUT = enter();
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 	}
 } else {
 	$OUTPUT = enter();
@@ -89,9 +89,9 @@ function enter($error="")
 	</form>";
 	require ('template.php');
 }
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -140,9 +140,9 @@ function confirm($HTTP_POST_VARS)
 	</form>";
 	require ('template.php');
 }
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_conn('cubit');
 	$sql = "UPDATE cubit.login_retries SET tries='$retrtries', minutes='$retrminutes'";

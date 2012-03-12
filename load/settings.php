@@ -183,25 +183,25 @@ session_name ("CUBIT_SESSION");
 session_start ();
 
 # login logic
-if (isset ($HTTP_POST_VARS["login_user"]) && isset ($HTTP_POST_VARS["login_pass"]) && isset ($HTTP_POST_VARS["login"])) {
-	checkLogin ($HTTP_POST_VARS["login_user"], md5 ($HTTP_POST_VARS["login_pass"]));
-} elseif (empty ($HTTP_SESSION_VARS["USER_NAME"]) || empty ($HTTP_SESSION_VARS["USER_ID"])) {
+if (isset ($_POST["login_user"]) && isset ($_POST["login_pass"]) && isset ($_POST["login"])) {
+	checkLogin ($_POST["login_user"], md5 ($_POST["login_pass"]));
+} elseif (empty ($_SESSION["USER_NAME"]) || empty ($_SESSION["USER_ID"])) {
 	login ();
 } else {
 	# define constants (for inside scripts)
-	define ("USER_NAME", $HTTP_SESSION_VARS["USER_NAME"]);
-	define ("USER_ID", $HTTP_SESSION_VARS["USER_ID"]);
+	define ("USER_NAME", $_SESSION["USER_NAME"]);
+	define ("USER_ID", $_SESSION["USER_ID"]);
 }
 
 # connect to db
 db_connect ();
 
-if(!($HTTP_SESSION_VARS["USER_NAME"] == 'Root' || $HTTP_SESSION_VARS["USER_NAME"] == 'Admin' || $HTTP_SESSION_VARS["USER_NAME"] == 'admin' || basename (getenv ("SCRIPT_NAME")) == "main.php" || basename (getenv ("SCRIPT_NAME")) == "index.php" ||basename (getenv ("SCRIPT_NAME")) == "bottom_menu.php")){
+if(!($_SESSION["USER_NAME"] == 'Root' || $_SESSION["USER_NAME"] == 'Admin' || $_SESSION["USER_NAME"] == 'admin' || basename (getenv ("SCRIPT_NAME")) == "main.php" || basename (getenv ("SCRIPT_NAME")) == "index.php" ||basename (getenv ("SCRIPT_NAME")) == "bottom_menu.php")){
         # check permission
-        $chk = "SELECT * FROM userscripts WHERE username = '$HTTP_SESSION_VARS[USER_NAME]' AND script ='".basename (getenv ("SCRIPT_NAME"))."'";
+        $chk = "SELECT * FROM userscripts WHERE username = '$_SESSION[USER_NAME]' AND script ='".basename (getenv ("SCRIPT_NAME"))."'";
         $chkRslt = db_exec($chk) or errDie("Unable to check user access permissions",SELF);
         if(pg_numrows($chkRslt) < 1){
-                $OUTPUT = "<li class=err>You <b>don't have sufficient permissions</b> to use this command.$HTTP_SESSION_VARS[USER_NAME] => ".getenv ("SCRIPT_NAME");
+                $OUTPUT = "<li class=err>You <b>don't have sufficient permissions</b> to use this command.$_SESSION[USER_NAME] => ".getenv ("SCRIPT_NAME");
                 require("template.php");
         }
 }
@@ -277,9 +277,9 @@ function checkLogin ($username, $password)
 	# register session vars
 	session_name ("CUBIT_SESSION");
 	session_start ();
-	global $HTTP_SESSION_VARS;
-	$HTTP_SESSION_VARS["USER_NAME"] = $username;
-	$HTTP_SESSION_VARS["USER_PASS"] = $password;
-	$HTTP_SESSION_VARS["USER_ID"] = $myUsr["userid"];
+	global $_SESSION;
+	$_SESSION["USER_NAME"] = $username;
+	$_SESSION["USER_PASS"] = $password;
+	$_SESSION["USER_ID"] = $myUsr["userid"];
 }
 ?>

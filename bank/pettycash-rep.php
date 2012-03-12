@@ -29,10 +29,10 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "viewrep":
-			$OUTPUT = viewrep($HTTP_POST_VARS);
+			$OUTPUT = viewrep($_POST);
 			break;
 		default:
 			$OUTPUT = view();
@@ -97,11 +97,11 @@ function view()
 
 
 # view cash book
-function viewrep($HTTP_POST_VARS)
+function viewrep($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

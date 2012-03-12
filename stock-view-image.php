@@ -25,11 +25,11 @@
 // Settings for db, etc
 require ("settings.php");
 
-if(!isset($HTTP_GET_VARS["id"])) {
+if(!isset($_GET["id"])) {
 	exit;
 }
 
-$id=$HTTP_GET_VARS["id"];
+$id=$_GET["id"];
 $id+=0;
 
 // Get image binary from db

@@ -31,22 +31,22 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
                 case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
 			break;
 
                 case "details":
-                        $OUTPUT = details($HTTP_POST_VARS);
+                        $OUTPUT = details($_POST);
 			break;
 
                 case "details2":
-                        $OUTPUT = details2($HTTP_POST_VARS);
+                        $OUTPUT = details2($_POST);
 			break;
 
                 default:
@@ -122,11 +122,11 @@ function slctacc()
 }
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 // Sanity Checking
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -219,10 +219,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
         # Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

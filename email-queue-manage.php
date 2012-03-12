@@ -5,27 +5,27 @@ require_lib("ext");
 require_lib("mail.smtp");
 
 #read get vars into post vars
-foreach ($HTTP_GET_VARS AS $each => $own){
-	$HTTP_POST_VARS[$each] = $own;
+foreach ($_GET AS $each => $own){
+	$_POST[$each] = $own;
 }
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = send_email_groups ($HTTP_POST_VARS);
+			$OUTPUT = send_email_groups ($_POST);
 			break;
 		case "remove":
-			$OUTPUT = remove_group ($HTTP_POST_VARS);
+			$OUTPUT = remove_group ($_POST);
 			break;
 		case "confirm_remove":
-			$OUTPUT = confirm_remove ($HTTP_POST_VARS);
+			$OUTPUT = confirm_remove ($_POST);
 			break;
 		default:
 			$OUTPUT = show_email_groups ();
 	}
 }else {
-	if(isset($HTTP_GET_VARS["send"])){
-		$OUTPUT = send_email_groups ($HTTP_GET_VARS);
+	if(isset($_GET["send"])){
+		$OUTPUT = send_email_groups ($_GET);
 	}else {
 		$OUTPUT = show_email_groups ();
 	}
@@ -162,10 +162,10 @@ function show_email_groups ($err = "")
 
 
 
-function send_email_groups ($HTTP_POST_VARS)
+function send_email_groups ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($sendgroups) OR !is_array ($sendgroups)){
 		return show_email_groups("<li class='err'>Please Select At Least 1 Email Batch To Send.</li><br>");
@@ -400,10 +400,10 @@ If you would like to stop receiving these emails, please leave the following lin
 
 
 
-function remove_group ($HTTP_POST_VARS)
+function remove_group ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($id) OR strlen($id) < 1){
 		return "Invalid Use Of Module.";
@@ -442,10 +442,10 @@ function remove_group ($HTTP_POST_VARS)
 }
 
 
-function confirm_remove ($HTTP_POST_VARS)
+function confirm_remove ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($id) OR strlen($id) < 1){
 		return "Invalid Use Of Module.";

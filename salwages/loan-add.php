@@ -28,16 +28,16 @@ require ("../settings.php");
 require ("../core-settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "input":
 			$OUTPUT = enterLoan ();
 			break;
 		case "confirm":
-			$OUTPUT = confirmLoan ($HTTP_POST_VARS);
+			$OUTPUT = confirmLoan ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writeLoan ($HTTP_POST_VARS);
+			$OUTPUT = writeLoan ($_POST);
 			break;
 		default:
 			$OUTPUT = slctEmployee ();
@@ -90,9 +90,9 @@ function slctEmployee ()
 # enter loan details (or immediately reject)
 function enterLoan ($err="")
 {
-	global $HTTP_POST_VARS;
+	global $_POST;
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -267,10 +267,10 @@ function enterLoan ($err="")
 }
 
 # confirm new data
-function confirmLoan ($HTTP_POST_VARS)
+function confirmLoan ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -402,10 +402,10 @@ function confirmLoan ($HTTP_POST_VARS)
 }
 
 # write new data
-function writeLoan ($HTTP_POST_VARS)
+function writeLoan ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

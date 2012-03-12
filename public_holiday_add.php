@@ -2,13 +2,13 @@
 
 	require ("settings.php");
 
-	if(isset($HTTP_POST_VARS["key"])){
-		switch($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch($_POST["key"]){
 			case "confirm":
-				$OUTPUT = confirm_holiday ($HTTP_POST_VARS);
+				$OUTPUT = confirm_holiday ($_POST);
 				break;
 			case "write":
-				$OUTPUT = write_holiday ($HTTP_POST_VARS);
+				$OUTPUT = write_holiday ($_POST);
 				break;
 			default:
 				$OUTPUT = get_holiday ();
@@ -74,10 +74,10 @@ function get_holiday ()
 }
 
 
-function confirm_holiday ($HTTP_POST_VARS)
+function confirm_holiday ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$display = "
 			<h2>Confirm New Public Holiday</h2>
@@ -121,10 +121,10 @@ function confirm_holiday ($HTTP_POST_VARS)
 }
 
 
-function write_holiday ($HTTP_POST_VARS)
+function write_holiday ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$holiday_date = "$holiday_year-$holiday_month-$holiday_day";
 

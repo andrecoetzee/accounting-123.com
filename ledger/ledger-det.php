@@ -33,8 +33,8 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if(isset($HTTP_GET_VARS['ledgid'])){
-	$OUTPUT = det($HTTP_GET_VARS);
+if(isset($_GET['ledgid'])){
+	$OUTPUT = det($_GET);
 }else{
 	$OUTPUT = "<li class='err'> Invalid use of module.</li>";
 }
@@ -46,11 +46,11 @@ require("../template.php");
 
 
 # Remove
-function det($HTTP_GET_VARS)
+function det($_GET)
 {
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");

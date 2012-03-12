@@ -26,8 +26,8 @@
 # get settings
 require("settings.php");
 
-if (isset($HTTP_GET_VARS['catid'])){
-	$OUTPUT = confirm ($HTTP_GET_VARS['catid']);
+if (isset($_GET['catid'])){
+	$OUTPUT = confirm ($_GET['catid']);
 } else {
 	$OUTPUT = "<li> - Invalid use of module";
 }

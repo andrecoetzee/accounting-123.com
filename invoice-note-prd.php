@@ -30,19 +30,19 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
-			$OUTPUT = details($HTTP_POST_VARS);
+			$OUTPUT = details($_POST);
 		}
 } else {
-	$OUTPUT = details($HTTP_GET_VARS);
+	$OUTPUT = details($_GET);
 }
 
 # Get templete
@@ -51,13 +51,13 @@ require("template.php");
 
 
 # Details
-function details($HTTP_GET_VARS,$err="")
+function details($_GET,$err="")
 {
 
 	$showvat = TRUE;
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -159,7 +159,7 @@ function details($HTTP_GET_VARS,$err="")
 		$Ri = db_exec($Sl);
 
 		if(pg_numrows($Ri)<1) {
-	//		return details($HTTP_GET_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+	//		return details($_GET, "<li class='err'>Please select the vatcode for all your items.</li>");
 		}
 
 		$vd = pg_fetch_array($Ri);
@@ -361,13 +361,13 @@ function details($HTTP_GET_VARS,$err="")
 
 
 # Error
-function error($HTTP_GET_VARS, $err = "")
+function error($_GET, $err = "")
 {
 
 	$showvat = TRUE;
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# Validate input
 	require_lib("validate");
@@ -451,7 +451,7 @@ function error($HTTP_GET_VARS, $err = "")
 			$Ri = db_exec($Sl);
 
 			if(pg_num_rows($Ri) < 1) {
-		//		return details($HTTP_POST_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+		//		return details($_POST, "<li class='err'>Please select the vatcode for all your items.</li>");
 			}
 
 			$vd = pg_fetch_array($Ri);
@@ -662,13 +662,13 @@ function error($HTTP_GET_VARS, $err = "")
 
 
 # details
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	$showvat = TRUE;
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -724,7 +724,7 @@ function confirm($HTTP_POST_VARS)
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
 		# $confirm .= "<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
-		return error($HTTP_POST_VARS, $err);
+		return error($_POST, $err);
 	}
 
 
@@ -940,7 +940,7 @@ function confirm($HTTP_POST_VARS)
 
 	if($c < 1){
 		$err = "<li class='err'>Please enter quantity.</li>";
-		return error($HTTP_POST_VARS, $err);
+		return error($_POST, $err);
 	}
 
 		/* --- ----------- Clac --------------------- */
@@ -1196,13 +1196,13 @@ function confirm($HTTP_POST_VARS)
 
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	$showvat = TRUE;
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -1255,7 +1255,7 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return error($HTTP_POST_VARS, $err);
+		return error($_POST, $err);
 	}
 
 /* -------------------------------- */

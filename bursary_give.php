@@ -2,28 +2,28 @@
 
 	require ("settings.php");
 
-	if(isset($HTTP_POST_VARS["key"])){
-		switch ($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch ($_POST["key"]){
 			case "confirm":
-				$OUTPUT = confirm_details ($HTTP_POST_VARS);
+				$OUTPUT = confirm_details ($_POST);
 				break;
 			case "write":
-				$OUTPUT = write_details ($HTTP_POST_VARS);
+				$OUTPUT = write_details ($_POST);
 				break;
 			default:
-				$OUTPUT = get_details ($HTTP_POST_VARS);
+				$OUTPUT = get_details ($_POST);
 		}
 	}else {
-		$OUTPUT = get_details ($HTTP_POST_VARS);
+		$OUTPUT = get_details ($_POST);
 	}
 
 	require ("template.php");
 
 
-function get_details ($HTTP_POST_VARS,$err = "")
+function get_details ($_POST,$err = "")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	#handle the vars
 	if(!isset($bursary))
@@ -146,17 +146,17 @@ function get_details ($HTTP_POST_VARS,$err = "")
 }
 
 
-function confirm_details ($HTTP_POST_VARS)
+function confirm_details ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if($bursary == "0")
-		return get_details ($HTTP_POST_VARS,"<li class='err'>Please Select a Bursary To grant</li>");
+		return get_details ($_POST,"<li class='err'>Please Select a Bursary To grant</li>");
 	if((strlen($from_year) < 4) OR (strlen($from_month) < 2) OR (strlen($from_day) < 2))
-		return get_details ($HTTP_POST_VARS,"<li class='err'>Please Select a Valid From Date</li>");
+		return get_details ($_POST,"<li class='err'>Please Select a Valid From Date</li>");
 	if((strlen($to_year) < 4) OR (strlen($to_month) < 2) OR (strlen($to_day) < 2))
-		return get_details ($HTTP_POST_VARS,"<li class='err'>Please Select a Valid To Date</li>");
+		return get_details ($_POST,"<li class='err'>Please Select a Valid To Date</li>");
 
 	db_connect ();
 
@@ -251,10 +251,10 @@ function confirm_details ($HTTP_POST_VARS)
 }
 
 
-function write_details ($HTTP_POST_VARS)
+function write_details ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$from_date = "$from_year-$from_month-$from_day";
 	$to_date = "$to_year-$to_month-$to_day";

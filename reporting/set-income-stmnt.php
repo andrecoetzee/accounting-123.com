@@ -29,10 +29,10 @@ require("../settings.php");
 require("../core-settings.php");
 require("../libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "update":
-			$OUTPUT = update($HTTP_POST_VARS);
+			$OUTPUT = update($_POST);
 			break;
 
 		default:
@@ -46,10 +46,10 @@ if (isset($HTTP_POST_VARS["key"])) {
 require("../template.php");
 
 # details
-function edit($HTTP_POST_VARS = array(), $error="")
+function edit($_POST = array(), $error="")
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -215,11 +215,11 @@ function edit($HTTP_POST_VARS = array(), $error="")
 }
 
 # details
-function update($HTTP_POST_VARS)
+function update($_POST)
 {
 
 	#get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -267,7 +267,7 @@ function update($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li cleass=err>".$e["msg"];
 		}
-		return edit($HTTP_POST_VARS, $err);
+		return edit($_POST, $err);
 	}
 
 	core_connect();
@@ -346,7 +346,7 @@ function update($HTTP_POST_VARS)
 	pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.",SELF);
 
 	if( !isset($doneBtn) ){
-		return edit($HTTP_POST_VARS);
+		return edit($_POST);
 	} else {
 		// Final Laytout
 		$write = "

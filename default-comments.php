@@ -25,17 +25,17 @@
 
 require ("settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "enter":
 			$OUTPUT = enter();
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 	}
 } else {
@@ -71,9 +71,9 @@ function enter($error="")
 	return $OUTPUT;
 }
 
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$OUTPUT = "<h3>Default Comments for Invoices</h3>
 	<form method=post action='".SELF."'>
@@ -99,9 +99,9 @@ function confirm($HTTP_POST_VARS)
 	return $OUTPUT;
 }
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$sql = "UPDATE settings SET value='".base64_encode($comments)."' WHERE constant='DEFAULT_COMMENTS'";
 	$rslt = db_exec($sql) or errDie("Unable to update default comments");

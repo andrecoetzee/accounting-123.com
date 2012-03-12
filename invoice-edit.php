@@ -27,26 +27,26 @@ require("settings.php");
 require("core-settings.php");
 require("libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "update":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 
 		default:
-			if (isset($HTTP_GET_VARS["invid"])) {
-				$HTTP_GET_VARS["done"] = "";
-				$HTTP_GET_VARS["stkerr"] = '0,0';
-				$OUTPUT = details($HTTP_GET_VARS);
+			if (isset($_GET["invid"])) {
+				$_GET["done"] = "";
+				$_GET["stkerr"] = '0,0';
+				$OUTPUT = details($_GET);
 			}else{
 				$OUTPUT = "<li class=err> Invalid use of module";
 			}
 	}
 }else{
-	if (isset($HTTP_GET_VARS["invid"])) {
-		$HTTP_GET_VARS["done"] = "";
-		$HTTP_GET_VARS["stkerr"] = '0,0';
-		$OUTPUT = details($HTTP_GET_VARS);
+	if (isset($_GET["invid"])) {
+		$_GET["done"] = "";
+		$_GET["stkerr"] = '0,0';
+		$OUTPUT = details($_GET);
 	}else{
 		$OUTPUT = "<li class=err> Invalid use of module";
 	}
@@ -58,10 +58,10 @@ require("template.php");
 
 
 # details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -474,11 +474,11 @@ function details($HTTP_POST_VARS, $error="")
 }
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -555,8 +555,8 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class=err>".$e["msg"];
 		}
-		$HTTP_POST_VARS["done"] = "";
-		return details($HTTP_POST_VARS, $err);
+		$_POST["done"] = "";
+		return details($_POST, $err);
 	}
 
 	# Get invoice info
@@ -697,10 +697,10 @@ function write($HTTP_POST_VARS)
 					$rslt = db_exec($sql) or errDie("Unable to update stock to Cubit.",SELF);
 				}
 				# everything is set place done button
-				$HTTP_POST_VARS["done"] = " | <input name=doneBtn type=submit value='Done'>";
+				$_POST["done"] = " | <input name=doneBtn type=submit value='Done'>";
 			}
 		}else{
-			$HTTP_POST_VARS["done"] = "";
+			$_POST["done"] = "";
 		}
 
 		/* --- Clac --- */
@@ -789,7 +789,7 @@ function write($HTTP_POST_VARS)
 		$crslt = db_exec($sql);
 		if(pg_numrows($crslt) < 1){
 			$error = "<li class=err> Error : Invoice number has no items.";
-			return details($HTTP_POST_VARS, $error);
+			return details($_POST, $error);
 		}
 
 		# insert quote to DB
@@ -814,7 +814,7 @@ function write($HTTP_POST_VARS)
 		</table>";
 		return $write;
 	}else{
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}
 /* --- End button Listeners --- */
 }

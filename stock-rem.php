@@ -26,21 +26,21 @@
 # Get settings
 require("settings.php");
 
-if (isset($HTTP_POST_VARS['key'])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST['key'])) {
+	switch ($_POST["key"]) {
 		case "rem":
-			$OUTPUT = rem ($HTTP_POST_VARS);
+			$OUTPUT = rem ($_POST);
 			break;
 		default:
-			if (isset($HTTP_GET_VARS['stkid'])){
-					$OUTPUT = confirm ($HTTP_GET_VARS['stkid']);
+			if (isset($_GET['stkid'])){
+					$OUTPUT = confirm ($_GET['stkid']);
 			} else {
 					$OUTPUT = "<li> - Invalid use of module";
 			}
 	}
 } else {
-        if (isset($HTTP_GET_VARS['stkid'])){
-                $OUTPUT = confirm ($HTTP_GET_VARS['stkid']);
+        if (isset($_GET['stkid'])){
+                $OUTPUT = confirm ($_GET['stkid']);
         } else {
                 $OUTPUT = "<li> - Invalid use of module";
         }
@@ -126,11 +126,11 @@ function confirm($stkid)
 }
 
 # Write
-function rem($HTTP_POST_VARS)
+function rem($_POST)
 {
 
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

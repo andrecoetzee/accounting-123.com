@@ -37,23 +37,23 @@ require ("../settings.php");
 require_lib ("ajax");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
 // validate the key
-if ( isset($HTTP_GET_VARS["key"]) ) {
-	switch ( $HTTP_GET_VARS["key"] ) {
+if ( isset($_GET["key"]) ) {
+	switch ( $_GET["key"] ) {
 		case "view":
 		case "msgalter":
-			$key = $HTTP_GET_VARS["key"];
+			$key = $_GET["key"];
 			break;
 		default:
 			$key = "view";
@@ -63,8 +63,8 @@ if ( isset($HTTP_GET_VARS["key"]) ) {
 }
 
 // view the selected folder
-if ( isset($HTTP_GET_VARS["fid"]) ) {
-	$fid = $HTTP_GET_VARS["fid"];
+if ( isset($_GET["fid"]) ) {
+	$fid = $_GET["fid"];
 } else {
 	// now folder was selected, let's show the inbox folder of the first account on the list, if any
 	$rslt = db_exec("SELECT fid_inbox FROM mail_accounts,mail_account_settings
@@ -80,9 +80,9 @@ if ( isset($HTTP_GET_VARS["fid"]) ) {
 
 // delete / move selected messages if we should
 if ( $key == "msgalter" ) {
-	if ( isset($HTTP_GET_VARS["msgselect"]) && is_array($HTTP_GET_VARS["msgselect"])) {
+	if ( isset($_GET["msgselect"]) && is_array($_GET["msgselect"])) {
 		// go through each selected msg
-		foreach ( $HTTP_GET_VARS["msgselect"] as $msel_num => $msg_id ) {
+		foreach ( $_GET["msgselect"] as $msel_num => $msg_id ) {
 			// check if msg may be deleted (owner of folder, account, or privileged, NOT public folders)
 			$sql = "SELECT msgbody_id FROM mail_messages, mail_folders
 					WHERE message_id='$msg_id' AND mail_folders.folder_id=mail_messages.folder_id
@@ -113,12 +113,12 @@ if ( $key == "msgalter" ) {
 				db_conn("cubit");
                                 pglib_transaction("BEGIN");
 
-				if ( isset($HTTP_GET_VARS["btn_delete"]) ) {
+				if ( isset($_GET["btn_delete"]) ) {
 					db_exec("DELETE FROM mail_messages WHERE message_id='$msg_id'");
 					db_exec("DELETE FROM mail_msgbodies WHERE msgbody_id='$msgbody_id'");
-				} else if ( isset($HTTP_GET_VARS["btn_move"]) ) {
-					$HTTP_GET_VARS["move_folderid"] += 0;
-					db_exec("UPDATE mail_messages SET folder_id='$HTTP_GET_VARS[move_folderid]'
+				} else if ( isset($_GET["btn_move"]) ) {
+					$_GET["move_folderid"] += 0;
+					db_exec("UPDATE mail_messages SET folder_id='$_GET[move_folderid]'
 						WHERE message_id='$msg_id'");
 				}
 
@@ -158,11 +158,11 @@ if ( $user_admin == 0 && pg_num_rows($rslt) == 0 ) {
 }
 
 // see if any specific (valid) order was specified, else load default
-if ( isset($HTTP_GET_VARS["orderby"]) ) {
+if ( isset($_GET["orderby"]) ) {
 	// check if ASC or DESC was specified, else use DESC
-	if ( isset($HTTP_GET_VARS["sortorder"])
-		&& ($HTTP_GET_VARS["sortorder"] == "ASC" || $HTTP_GET_VARS["sortorder"] == "DESC") ) {
-		$sortorder = $HTTP_GET_VARS["sortorder"];
+	if ( isset($_GET["sortorder"])
+		&& ($_GET["sortorder"] == "ASC" || $_GET["sortorder"] == "DESC") ) {
+		$sortorder = $_GET["sortorder"];
 	} else {
 		$sortorder = "DESC";
 	}
@@ -171,7 +171,7 @@ if ( isset($HTTP_GET_VARS["orderby"]) ) {
 	$sortorder == "ASC" ? $next_sortorder = "DESC" : $next_sortorder = "ASC";
 
 	// check which column was selected, create $orderby var, and the column whose sortorder should be set next
-	switch ($HTTP_GET_VARS["orderby"]) {
+	switch ($_GET["orderby"]) {
 		case "subject":
 			$so_subject = "sortorder=$next_sortorder";
 			$so_sender = "";

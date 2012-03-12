@@ -31,19 +31,19 @@ $OUTPUT = "<h3>Edit PAYE Brackets</h3>
 <li class=err>This feature has been disabled for auditing purposes.</li>";
 require ("../template.php");
 
-if ($HTTP_POST_VARS) {
-	if ($HTTP_POST_VARS["key"] == "confirm") {
+if ($_POST) {
+	if ($_POST["key"] == "confirm") {
 		# confirm entered data
-		$OUTPUT = confirmPaye ($HTTP_POST_VARS);
+		$OUTPUT = confirmPaye ($_POST);
 
-	} elseif ($HTTP_POST_VARS["key"] == "write") {
+	} elseif ($_POST["key"] == "write") {
 		# write to database
-		$OUTPUT = writePaye ($HTTP_POST_VARS);
+		$OUTPUT = writePaye ($_POST);
 	}
 
 } else {
 	# enter info to change
-	$OUTPUT = editPaye ($HTTP_GET_VARS);
+	$OUTPUT = editPaye ($_GET);
 }
 
 require ("../template.php");
@@ -53,9 +53,9 @@ require ("../template.php");
 ##
 
 # enter info to change
-function editPaye ($HTTP_GET_VARS)
+function editPaye ($_GET)
 {
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	$id+=0;
 
@@ -107,10 +107,10 @@ function editPaye ($HTTP_GET_VARS)
 }
 
 # confirm new paye bracket details
-function confirmPaye ($HTTP_POST_VARS)
+function confirmPaye ($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -130,7 +130,7 @@ function confirmPaye ($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirmCust .= "<li class=err>".$e["msg"];
 		}
-		return $confirmCust."</li>".editPaye ($HTTP_POST_VARS);
+		return $confirmCust."</li>".editPaye ($_POST);
 	}
 
 	$confirmPaye =
@@ -164,16 +164,16 @@ function confirmPaye ($HTTP_POST_VARS)
 }
 
 # write paye bracket changes to db
-function writePaye ($HTTP_POST_VARS)
+function writePaye ($_POST)
 {
 
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	
 	if(isset($back)) {
-		return editPaye ($HTTP_POST_VARS);
+		return editPaye ($_POST);
 	}
 	
 	# validate input

@@ -40,9 +40,9 @@ require ("template.php");
 function show_grievance ($err = "")
 {
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	if(!isset($HTTP_GET_VARS["grievnum"])){
+	if(!isset($_GET["grievnum"])){
 		return "Invalid selected grievance.";
 	}
 
@@ -51,7 +51,7 @@ function show_grievance ($err = "")
 	db_connect ();
 
 	#get grievance info
-	$get_griev = "SELECT * FROM grievances WHERE grievnum = '$HTTP_GET_VARS[grievnum]' LIMIT 1";
+	$get_griev = "SELECT * FROM grievances WHERE grievnum = '$_GET[grievnum]' LIMIT 1";
 	$run_griev = db_exec($get_griev);
 	if(pg_numrows($run_griev) < 1){
 		return "gfrievance information not found";

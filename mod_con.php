@@ -35,28 +35,28 @@ require ("settings.php");
 require ("libs/ext.lib.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = con_data ($HTTP_POST_VARS);
+			$OUTPUT = con_data ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_data ($HTTP_POST_VARS);
+			$OUTPUT = write_data ($_POST);
 			break;
 		default:
-			$OUTPUT = get_data ($HTTP_GET_VARS);
+			$OUTPUT = get_data ($_GET);
 	}
 } else {
-	$OUTPUT = get_data ($HTTP_GET_VARS);
+	$OUTPUT = get_data ($_GET);
 }
 
 # display output
 require ("template.php");
 # enter new data
-function get_data ($HTTP_GET_VARS)
+function get_data ($_GET)
 {
 
-foreach ($HTTP_GET_VARS as $key => $value) {
+foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -332,10 +332,10 @@ foreach ($HTTP_GET_VARS as $key => $value) {
 }
 
 # confirm new data
-function con_data ($HTTP_POST_VARS)
+function con_data ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -570,10 +570,10 @@ function con_data ($HTTP_POST_VARS)
         return $con_data;
 }
 # write new data
-function write_data ($HTTP_POST_VARS)
+function write_data ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

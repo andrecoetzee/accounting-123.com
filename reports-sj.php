@@ -26,13 +26,13 @@
 
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "report":
-			$OUTPUT=report($HTTP_POST_VARS);
+			$OUTPUT=report($_POST);
 			break;
 		case "export":
-			$OUTPUT=export($HTTP_POST_VARS);
+			$OUTPUT=export($_POST);
 			break;
 		default:
 			$OUTPUT="Invalid use.";
@@ -102,9 +102,9 @@ function seluse()
 	return $Out;
 }
 
-function report($HTTP_POST_VARS)
+function report($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$date = $year."-".$mon."-".$day;
 	$tdate = $tyear."-".$tmon."-".$tday;
@@ -293,9 +293,9 @@ function report($HTTP_POST_VARS)
 	return $Report;
 }
 
-function export($HTTP_POST_VARS)
+function export($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$date = $year."-".$mon."-".$day;
 	$tdate = $tyear."-".$tmon."-".$tday;

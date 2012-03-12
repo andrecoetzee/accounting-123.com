@@ -31,19 +31,19 @@ require("budget.lib.php");
 
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "details":
-			$OUTPUT = details($HTTP_POST_VARS);
+			$OUTPUT = details($_POST);
 			break;
 
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 	}
 } else {
@@ -115,10 +115,10 @@ function slctOpt()
 }
 
 # Error Handler
-function error($HTTP_POST_VARS, $error)
+function error($_POST, $error)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -167,10 +167,10 @@ function error($HTTP_POST_VARS, $error)
 }
 
 # Enter Details of Transaction
-function details($HTTP_POST_VARS, $errata = "<br>")
+function details($_POST, $errata = "<br>")
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -190,7 +190,7 @@ function details($HTTP_POST_VARS, $errata = "<br>")
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return error($HTTP_POST_VARS, $confirm);
+		return error($_POST, $confirm);
 	}
 
 	global $BUDFOR, $TYPES, $YEARS;
@@ -337,10 +337,10 @@ function details($HTTP_POST_VARS, $errata = "<br>")
 }
 
 # Enter Details of Transaction
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -384,7 +384,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return details($HTTP_POST_VARS, $confirm);
+		return details($_POST, $confirm);
 	}
 
 	$ce = new Validate();
@@ -424,7 +424,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($mm as $e) {
 			$mismatches .= "<li class=err>".$e["msg"]."</li>";
 		}
-		return details($HTTP_POST_VARS, $mismatches);
+		return details($_POST, $mismatches);
 	}
 
 	global $BUDFOR, $TYPES, $YEARS;
@@ -528,10 +528,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	# Get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -575,7 +575,7 @@ function write($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class=err>".$e["msg"];
 		}
-		return details($HTTP_POST_VARS, $confirm);
+		return details($_POST, $confirm);
 	}
 
 	global $BUDFOR, $TYPES, $YEARS;

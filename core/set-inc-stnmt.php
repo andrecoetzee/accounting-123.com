@@ -28,18 +28,18 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "slctExp":
-			$OUTPUT = slctExp($HTTP_POST_VARS);
+			$OUTPUT = slctExp($_POST);
 			break;
 
                 case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
                 case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 
                 default:
@@ -124,10 +124,10 @@ function slctInc()
 }
 
 # Select Expenditure Accounts
-function slctExp($HTTP_POST_VARS)
+function slctExp($_POST)
 {
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -209,10 +209,10 @@ function slctExp($HTTP_POST_VARS)
 }
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
         # get vars (arrays{inc,exp})
-        foreach ($HTTP_POST_VARS as $key => $value) {
+        foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -272,10 +272,10 @@ function confirm($HTTP_POST_VARS)
 }
 
 # write settings
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
         # get vars (arrays{inc,exp})
-        foreach ($HTTP_POST_VARS as $key => $value) {
+        foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

@@ -29,10 +29,10 @@ require ("../core-settings.php");
 require("emp-functions.php");
 
 ## Decide
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "slip":
-			$OUTPUT = slip($HTTP_POST_VARS);
+			$OUTPUT = slip($_POST);
 			break;
 		default:
 			$OUTPUT = slctDate ();
@@ -129,11 +129,11 @@ function slctDate()
 
 
 # confirm new data
-function slip ($HTTP_POST_VARS)
+function slip ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

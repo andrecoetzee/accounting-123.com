@@ -29,24 +29,24 @@
 
 require ("settings.php");          // Get global variables & functions
 
-if (isset($HTTP_POST_VARS['key'])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST['key'])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm ($HTTP_POST_VARS);
+			$OUTPUT = confirm ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		default:
-			if(isset($HTTP_GET_VARS['deptid'])){
-				$OUTPUT = edit ($HTTP_GET_VARS['deptid']);
+			if(isset($_GET['deptid'])){
+				$OUTPUT = edit ($_GET['deptid']);
 			}else{
 				$OUTPUT = "<li> - Invalid use of module";
 			}
 	}
 } else {
-	if(isset($HTTP_GET_VARS['deptid'])){
-		$OUTPUT = edit ($HTTP_GET_VARS['deptid']);
+	if(isset($_GET['deptid'])){
+		$OUTPUT = edit ($_GET['deptid']);
 	}else{
 		$OUTPUT = "<li> - Invalid use of module.</li>";
 	}
@@ -156,11 +156,11 @@ function edit ($deptid)
 
 
 // Confirm that entered info is correct
-function confirm ($HTTP_POST_VARS) // Function args
+function confirm ($_POST) // Function args
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -244,11 +244,11 @@ function confirm ($HTTP_POST_VARS) // Function args
 
 
 # write user to db
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

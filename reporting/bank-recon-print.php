@@ -27,8 +27,8 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = recon($HTTP_GET_VARS["id"]);
+if (isset($_GET["id"])) {
+	$OUTPUT = recon($_GET["id"]);
 } else {
 	# Display error
 	$OUTPUT = "<li> Error : Invalid Bank Recon Number.";

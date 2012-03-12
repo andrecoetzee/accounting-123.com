@@ -31,32 +31,32 @@ require_lib("validate");
 require_lib("customers");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["stkerr"] = '0,0';
-	$HTTP_GET_VARS["done"] = '';
-	$HTTP_GET_VARS["client"] = '';
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["invid"]) && isset($_GET["cont"])) {
+	$_GET["stkerr"] = '0,0';
+	$_GET["done"] = '';
+	$_GET["client"] = '';
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "recvpayment_write":
 				$OUTPUT = recvpayment_write();
 				break;
 			case "details":
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 				break;
 			case "update":
 				if (isset($_POST["recvpay"])) {
 					$OUTPUT = recvpayment();
 				} else {
-					$OUTPUT = write($HTTP_POST_VARS);
+					$OUTPUT = write($_POST);
 				}
 				break;
 			default:
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 		}
 	} else {
-		$OUTPUT = details($HTTP_POST_VARS);
+		$OUTPUT = details($_POST);
 	}
 }
 
@@ -113,11 +113,11 @@ function view()
 
 
 # Default view
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Query server for depts
 	db_conn("exten");
@@ -211,11 +211,11 @@ function create_dummy($deptid){
 }
 
 # Details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$v = new  validate ();
 	if(isset($invid)){
@@ -1600,14 +1600,14 @@ function details($HTTP_POST_VARS, $error="")
 
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (isset($cusnum) && customer_overdue($cusnum)) {
-		return details($HTTP_POST_VARS, "<li class='err'>Customer is overdue, account blocked!</li>");
+		return details($_POST, "<li class='err'>Customer is overdue, account blocked!</li>");
 	}
 
 	$pcredit+=0;
@@ -1762,17 +1762,17 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class=err>".$e["msg"];
 		}
-		return details($HTTP_POST_VARS, $err);
+		return details($_POST, $err);
 	}
 
 
 
 	if(strlen($client)<1) {$client="Cash Sale";}
 	if(strlen($vatnum)<1) {$vatnum="";}
-	$HTTP_POST_VARS['client'] = $client;
-	$HTTP_POST_VARS['vatnum'] = $vatnum;
-	$HTTP_POST_VARS['telno'] = $telno;
-	$HTTP_POST_VARS['cordno'] = $cordno;
+	$_POST['client'] = $client;
+	$_POST['vatnum'] = $vatnum;
+	$_POST['telno'] = $telno;
+	$_POST['cordno'] = $cordno;
 
 	# Get invoice info
 	db_connect();
@@ -1869,7 +1869,7 @@ function write($HTTP_POST_VARS)
 					$Ri=db_exec($Sl);
 
 					if(pg_num_rows($Ri)<1) {
-						return details($HTTP_POST_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+						return details($_POST, "<li class='err'>Please select the vatcode for all your items.</li>");
 					}
 
 					$vd=pg_fetch_array($Ri);
@@ -1936,7 +1936,7 @@ function write($HTTP_POST_VARS)
 					$Ri=db_exec($Sl);
 
 					if(pg_num_rows($Ri)<1) {
-						return details($HTTP_POST_VARS, "<li class=err>Please select the vatcode for all your items.</li>");
+						return details($_POST, "<li class=err>Please select the vatcode for all your items.</li>");
 					}
 					$vd=pg_fetch_array($Ri);
 
@@ -1985,10 +1985,10 @@ function write($HTTP_POST_VARS)
 					$rslt = db_exec($sql) or errDie("Unable to update stock to Cubit.",SELF);
 				}
 				# everything is set place done button
-				$HTTP_POST_VARS["done"] = " | <input name='doneBtn' type='submit' value='Process'>";
+				$_POST["done"] = " | <input name='doneBtn' type='submit' value='Process'>";
 			}
 		}else{
-			$HTTP_POST_VARS["done"] = "";
+			$_POST["done"] = "";
 		}
 
 		db_conn('cubit');
@@ -2011,7 +2011,7 @@ function write($HTTP_POST_VARS)
 			$showvat = FALSE;
 		}
 
-		$HTTP_POST_VARS['showvat'] = $showvat;
+		$_POST['showvat'] = $showvat;
 
 		$vr=vatcalc($delchrg,$inv['chrgvat'],$excluding,$inv['traddisc'],$vd['vat_amount']);
 		$vrs=explode("|",$vr);
@@ -2128,7 +2128,7 @@ function write($HTTP_POST_VARS)
 
 			/* invalid barcode */
 			if (!is_numeric($chr)) {
-				return details($HTTP_POST_VARS,"The code you selected is invalid");
+				return details($_POST,"The code you selected is invalid");
 			}
 
 			/* which barcode table to scan for stock id */
@@ -2141,11 +2141,11 @@ function write($HTTP_POST_VARS)
 			/* non-existing barcode, check for serial number */
 			if ($stid <= 0) {
 				if ($sstid <= 0) {
-					return details($HTTP_POST_VARS,"<li class='err'>The serial number/bar code you selected is not in the system or is not available.</li>");
+					return details($_POST,"<li class='err'>The serial number/bar code you selected is not in the system or is not available.</li>");
 				}
 
 				if (serext_dbnum($stab, 'serno', $bar, 'stkid') > 1) {
-					return details($HTTP_POST_VARS,"<li class='err'>Duplicate serial numbers found, please scan barcode or select stock item.</li>");
+					return details($_POST,"<li class='err'>Duplicate serial numbers found, please scan barcode or select stock item.</li>");
 				}
 
 				/* mark barcoded item as unavailable */
@@ -2157,7 +2157,7 @@ function write($HTTP_POST_VARS)
 				$stid = $sstid;
 			} else {
 				if ($sstid > 0) {
-					return details($HTTP_POST_VARS,"<li class='err'>A serial and barcode with same value, please scan other value or select product manually.</li>");
+					return details($_POST,"<li class='err'>A serial and barcode with same value, please scan other value or select product manually.</li>");
 				}
 
 				/* mark barcoded item as unavailable */
@@ -2198,7 +2198,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 		$crslt = db_exec($sql);
 		if(pg_numrows($crslt) < 1){
 			$error = "<li class='err'> Error : Invoice number has no items.";
-			return details($HTTP_POST_VARS, $error);
+			return details($_POST, $error);
 		}
 
 		$TOTAL=sprint($TOTAL-$rounding);
@@ -2226,19 +2226,19 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 					$sarr = pg_fetch_array($run_check);
 					if($sarr['value'] == "block"){
 						#block account ...
-						return details($HTTP_POST_VARS, "<li class='err'>Warning : Customers Credit limit of <b>".CUR." ".sprint($cust["credlimit"])."</b> has been exceeded.</li>");
+						return details($_POST, "<li class='err'>Warning : Customers Credit limit of <b>".CUR." ".sprint($cust["credlimit"])."</b> has been exceeded.</li>");
 					}
 				}
 				# Check permissions
 				if(!perm("invoice-limit-override.php")){
-					return details($HTTP_POST_VARS, "<li class='err'>Warning : Customers Credit limit of <b>".CUR." ".sprint($cust["credlimit"])."</b> has been exceeded.</li>");
+					return details($_POST, "<li class='err'>Warning : Customers Credit limit of <b>".CUR." ".sprint($cust["credlimit"])."</b> has been exceeded.</li>");
 				}
 			}
 		}
 
 
 		if(($pcash+$pcheque+$pcc+$pcredit)<$TOTAL) {
-			return details($HTTP_POST_VARS, "<li class='err'>The total of all the payments is less than the invoice total</li>");
+			return details($_POST, "<li class='err'>The total of all the payments is less than the invoice total</li>");
 		}
 
 		$change=sprint(sprint($pcash+$pcheque+$pcc+$pcredit)-sprint($TOTAL));
@@ -2251,7 +2251,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 
 		if(sprint($pcash+$pcheque+$pcc+$pcredit)!=sprint($TOTAL)) {
 
-			return details($HTTP_POST_VARS, "<li class='err'>The total of all the payments is not equal to the invoice total.<br>
+			return details($_POST, "<li class='err'>The total of all the payments is not equal to the invoice total.<br>
 			(You can only overpay with cash)</li>");
 
 		}
@@ -2320,8 +2320,8 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 		</table>";
 		return $write;
 	}else{
-	if(isset($wtd)){$HTTP_POST_VARS['wtd']=$wtd;}
-		return details($HTTP_POST_VARS);
+	if(isset($wtd)){$_POST['wtd']=$wtd;}
+		return details($_POST);
 	}
 /* --- End button Listeners --- */
 }

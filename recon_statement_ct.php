@@ -29,8 +29,8 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # Decide what to do
-if (isset($HTTP_GET_VARS["supid"])) {
-	$OUTPUT = printStmnt($HTTP_GET_VARS);
+if (isset($_GET["supid"])) {
+	$OUTPUT = printStmnt($_GET);
 } else {
 	$OUTPUT = select();
 }
@@ -123,11 +123,11 @@ function select($message="")
 
 
 # show invoices
-function printStmnt ($HTTP_GET_VARS)
+function printStmnt ($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	$fields = array();
 	$fields["creditor_balance"] = 0;

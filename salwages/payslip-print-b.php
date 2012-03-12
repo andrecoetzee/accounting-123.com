@@ -28,8 +28,8 @@ require ("../settings.php");
 require ("../core-settings.php");
 require ("../libs/ext.lib.php");
 
-if(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT=printPayslip($HTTP_GET_VARS);
+if(isset($_GET["id"])) {
+	$OUTPUT=printPayslip($_GET);
 } else {
 	$OUTPUT="Invalid use.";
 }
@@ -38,10 +38,10 @@ if(isset($HTTP_GET_VARS["id"])) {
 require ("../tmpl-print.php");
 
 # confirm new data
-function printPayslip ($HTTP_GET_VARS)
+function printPayslip ($_GET)
 {
 	# Get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 	# Validate input

@@ -27,26 +27,26 @@
 require ("../settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
             case "confirm":
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 				break;
 
 			case "write":
-            	$OUTPUT = write($HTTP_POST_VARS);
+            	$OUTPUT = write($_POST);
 				break;
 
 			default:
-				if (isset($HTTP_GET_VARS['deptid'])){
-					$OUTPUT = edit ($HTTP_GET_VARS['deptid']);
+				if (isset($_GET['deptid'])){
+					$OUTPUT = edit ($_GET['deptid']);
 				} else {
 					$OUTPUT = "<li> - Invalid use of module";
 				}
 	}
 } else {
-		if (isset($HTTP_GET_VARS['deptid'])){
-			$OUTPUT = edit ($HTTP_GET_VARS['deptid']);
+		if (isset($_GET['deptid'])){
+			$OUTPUT = edit ($_GET['deptid']);
 		} else {
 			$OUTPUT = "<li> - Invalid use of module";
 		}
@@ -129,10 +129,10 @@ function edit($deptid)
 }
 
 # confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -200,10 +200,10 @@ function confirm ($HTTP_POST_VARS)
 }
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

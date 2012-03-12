@@ -48,9 +48,9 @@ function viewEmp ()
 	# Connect to db
 	db_connect ();
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	if (!isset($err)) $err = "";
 	else $err = "<li class='err'>$err</li>";

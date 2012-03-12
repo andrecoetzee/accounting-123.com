@@ -32,23 +32,23 @@ require ("libs/ext.lib.php");
 if (isset($_REQUEST["key"])) {
 	switch ($_REQUEST["key"]) {
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "details":
-			if(isset($HTTP_POST_VARS['details'])){
-				$OUTPUT = details($HTTP_POST_VARS);
+			if(isset($_POST['details'])){
+				$OUTPUT = details($_POST);
 			}else{
-				$OUTPUT = details2($HTTP_POST_VARS);
+				$OUTPUT = details2($_POST);
 			}
 			break;
 		case "recv_print":
 			$OUTPUT = recv_print();
 			break;
 		default:
-			$OUTPUT = slctacc ($HTTP_POST_VARS);
+			$OUTPUT = slctacc ($_POST);
 	}
 } else {
-	$OUTPUT = slctacc ($HTTP_POST_VARS);
+	$OUTPUT = slctacc ($_POST);
 }
 
 $OUTPUT .= 
@@ -66,10 +66,10 @@ require("template.php");
 
 
 
-function slctacc($HTTP_GET_VARS, $err="")
+function slctacc($_GET, $err="")
 {
 
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if(!isset($accid))
 		$accid = "";
@@ -246,16 +246,16 @@ function slctacc($HTTP_GET_VARS, $err="")
 
 
 # Enter Details of Transaction
-function details($HTTP_POST_VARS,$err="")
+function details($_POST,$err="")
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (isset($back) AND isStock($accid))
-		return get_stock_items($HTTP_POST_VARS);
+		return get_stock_items($_POST);
 	elseif (isset($back))
-		return slctacc($HTTP_POST_VARS);
+		return slctacc($_POST);
 
 	$accid += 0;
 	$amount = $amount + 0;
@@ -289,7 +289,7 @@ function details($HTTP_POST_VARS,$err="")
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return slctacc($HTTP_POST_VARS, $confirm."<br>");
+		return slctacc($_POST, $confirm."<br>");
 	}
 
 	# CHECK IF THIS DATE IS IN THE BLOCKED RANGE
@@ -297,7 +297,7 @@ function details($HTTP_POST_VARS,$err="")
 	$blocked_date_to = getCSetting ("BLOCKED_TO");
 
 	if (strtotime($date) >= strtotime($blocked_date_from) AND strtotime($date) <= strtotime($blocked_date_to) AND !user_is_admin(USER_ID)){
-		return slctacc($HTTP_POST_VARS, "<li class='err'>Period Range Is Blocked. Only an administrator can process entries within this period.</li><br>");
+		return slctacc($_POST, "<li class='err'>Period Range Is Blocked. Only an administrator can process entries within this period.</li><br>");
 	}
 
 	#if stock returned is selected ... override the setting
@@ -320,7 +320,7 @@ function details($HTTP_POST_VARS,$err="")
 	#### handle the stock we selected
 	if((isStock($accid) OR isset($gotstock)) AND !isset($stockcontinue)){
 		#for whatever reason ... we need to get stock ...
-		return get_stock_items($HTTP_POST_VARS);
+		return get_stock_items($_POST);
 	}
 
 	db_connect ();
@@ -676,14 +676,14 @@ function details($HTTP_POST_VARS,$err="")
 
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}
 
 	# validate input
@@ -718,11 +718,11 @@ function write($HTTP_POST_VARS)
 	}
 
 	if ((isset($stock_prof) AND is_array ($stock_prof)) AND sprint (array_sum ($stock_prof)) != $difference){
-		return details ($HTTP_POST_VARS,"<li class='err'>Please ensure differences matches total difference.</li>");
+		return details ($_POST,"<li class='err'>Please ensure differences matches total difference.</li>");
 	}
 
 //print "<pre>";
-//var_dump ($HTTP_POST_VARS);
+//var_dump ($_POST);
 //print "</pre>";
 
 
@@ -1166,10 +1166,10 @@ function recordDT($amount, $cusnum,$odate)
 
 
 
-function get_stock_items($HTTP_POST_VARS)
+function get_stock_items($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($search)){
 		$showsearch = "WHERE lower(stkcod) LIKE lower('%$search%') OR lower(stkdes) LIKE lower('$search%')";

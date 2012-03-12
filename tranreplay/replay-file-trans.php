@@ -4,16 +4,16 @@ require ("../settings.php");
 require ("../core-settings.php");
 require("parsexml.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = get_do_trans ($HTTP_POST_VARS);
+			$OUTPUT = get_do_trans ($_POST);
 			break;
 		case "replay":
-			$OUTPUT = do_trans ($HTTP_POST_VARS);
+			$OUTPUT = do_trans ($_POST);
 			break;
 		default:
-			$OUTPUT = get_file ($HTTP_POST_VARS);
+			$OUTPUT = get_file ($_POST);
 	}
 }else {
 	$OUTPUT = get_file();
@@ -57,19 +57,19 @@ function get_file ($err="")
 
 
 
-function get_do_trans ($HTTP_POST_VARS)
+function get_do_trans ($_POST)
 {
 
-	global $HTTP_POST_FILES,$complete;
+	global $_FILES,$complete;
 
 	#verify the file here ...
-	if (preg_match ("/(application\/xml|text\/xml)/", $HTTP_POST_FILES["filename"]["type"], $extension)) {
+	if (preg_match ("/(application\/xml|text\/xml)/", $_FILES["filename"]["type"], $extension)) {
 		#no probs
 	}else {
 		return get_file ("<li class='err'>Please Ensure The File You Are Importing Is Of Type XML. Invalid File Type Selected.</li>");
 	}
 
-	parseXML($HTTP_POST_FILES['filename']['tmp_name']);
+	parseXML($_FILES['filename']['tmp_name']);
 
 	#set the missing vars here ...
 	$listing = "";
@@ -79,7 +79,7 @@ function get_do_trans ($HTTP_POST_VARS)
 	$creditor_list = "";
 
 	//make a copy of the file for records ...
-	move_uploaded_file($HTTP_POST_FILES["filename"]["tmp_name"],$HTTP_POST_FILES["filename"]["tmp_name"]."1");
+	move_uploaded_file($_FILES["filename"]["tmp_name"],$_FILES["filename"]["tmp_name"]."1");
 
 	if(isset($complete["DEBTOR"]) AND is_array($complete["DEBTOR"]))
 		foreach ($complete["DEBTOR"] as $jobjs) {
@@ -190,8 +190,8 @@ function get_do_trans ($HTTP_POST_VARS)
 				<th>Add Supplier</th>
 			</tr>";
 
-	$filename_path = $HTTP_POST_FILES["filename"]["tmp_name"];
-	$filename_type = $HTTP_POST_FILES["filename"]["type"];
+	$filename_path = $_FILES["filename"]["tmp_name"];
+	$filename_type = $_FILES["filename"]["type"];
 
 
 	$display = "
@@ -232,10 +232,10 @@ function get_do_trans ($HTTP_POST_VARS)
 
 
 
-function do_trans ($HTTP_POST_VARS)
+function do_trans ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	global $complete;
 

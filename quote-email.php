@@ -27,10 +27,10 @@ require ("settings.php");
 require_lib("mail.smtp");
 require ("pdf-settings.php");
 
-if(isset($HTTP_POST_VARS["key"])&&$HTTP_POST_VARS["key"]=="print") {
-	$OUTPUT = send($HTTP_POST_VARS);
-} elseif(isset($HTTP_GET_VARS["evs"])) {
-	$OUTPUT = confirm($HTTP_GET_VARS);
+if(isset($_POST["key"])&&$_POST["key"]=="print") {
+	$OUTPUT = send($_POST);
+} elseif(isset($_GET["evs"])) {
+	$OUTPUT = confirm($_GET);
 } else {
 	$OUTPUT ="Invalid";
 }
@@ -48,9 +48,9 @@ require("template.php");
 
 
 
-function confirm($HTTP_GET_VARS) {
+function confirm($_GET) {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	$quotes=explode(",",$evs);
 
@@ -130,9 +130,9 @@ function confirm($HTTP_GET_VARS) {
 
 
 
-function send($HTTP_POST_VARS) {
+function send($_POST) {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 	
 	$es = qryEmailSettings();
 
@@ -329,8 +329,8 @@ function sendvoice($quoid, $invfunc, $email, $message)
 function genpdf($quoid)
 {
 
-	global $HTTP_GET_VARS;
-	extract ($HTTP_GET_VARS);
+	global $_GET;
+	extract ($_GET);
 	global $set_mainFont;
 
 	$showvat = TRUE;

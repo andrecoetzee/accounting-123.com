@@ -4,28 +4,28 @@ require ("../core-settings.php");
 require_lib("docman");
 # decide what to do
 # Decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			if(!isset($HTTP_POST_VARS["conf"])){
-				$OUTPUT = get_data ($HTTP_POST_VARS);
+			if(!isset($_POST["conf"])){
+				$OUTPUT = get_data ($_POST);
 			}else{
-				$OUTPUT = con_data ($HTTP_POST_VARS);
+				$OUTPUT = con_data ($_POST);
 			}
 			break;
 		case "write":
-			$OUTPUT = write_data ($HTTP_POST_VARS);
+			$OUTPUT = write_data ($_POST);
 			break;
 		default:
-			if(isset($HTTP_GET_VARS['docid'])){
-				$OUTPUT = get_data ($HTTP_GET_VARS);
+			if(isset($_GET['docid'])){
+				$OUTPUT = get_data ($_GET);
 			}else{
 				$OUTPUT = "<li> - Invalid use of module";
 			}
 	}
 } else {
-	if(isset($HTTP_GET_VARS['docid'])){
-		$OUTPUT = get_data ($HTTP_GET_VARS);
+	if(isset($_GET['docid'])){
+		$OUTPUT = get_data ($_GET);
 	}else{
 		$OUTPUT = "<li> - Invalid use of module";
 	}
@@ -134,7 +134,7 @@ function get_data ($VARS = array(), $errors = "")
 }
 
 # Get Data Errors
-function enter_err($HTTP_POST_VARS, $err="")
+function enter_err($_POST, $err="")
 {
   # Get vars
 	global $DOCLIB_DOCTYPES;
@@ -186,11 +186,11 @@ function enter_err($HTTP_POST_VARS, $err="")
         return $get_data;
 }
 # confirm new data
-function con_data ($HTTP_POST_VARS)
+function con_data ($_POST)
 {
 	# Get vars
-	global $HTTP_POST_FILES, $DOCLIB_DOCTYPES;
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	global $_FILES, $DOCLIB_DOCTYPES;
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	
@@ -219,7 +219,7 @@ function con_data ($HTTP_POST_VARS)
 			$confirm .= "<li class=err>".$e["msg"];
 		}
 		// $confirm .= "<p><input type=button onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
-		return get_data($HTTP_POST_VARS, $confirm);
+		return get_data($_POST, $confirm);
 	}
 
 	if(!isset($xin)){
@@ -266,11 +266,11 @@ function con_data ($HTTP_POST_VARS)
         return $con_data;
 }
 # write new data
-function write_data ($HTTP_POST_VARS)
+function write_data ($_POST)
 {
 	# Get vars
 	global $DOCLIB_DOCTYPES;
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# Validate input

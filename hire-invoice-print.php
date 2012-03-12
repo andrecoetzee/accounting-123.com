@@ -30,11 +30,11 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"])) {
-	if (isset($HTTP_GET_VARS["key"])) {
-		switch ($HTTP_GET_VARS["key"]) {
+if (isset($_GET["invid"])) {
+	if (isset($_GET["key"])) {
+		switch ($_GET["key"]) {
 			case "details":
-				$OUTPUT = details($HTTP_GET_VARS);
+				$OUTPUT = details($_GET);
 				break;
 			case "cash_receipt":
 				$OUTPUT = cash_receipt();
@@ -44,7 +44,7 @@ if (isset($HTTP_GET_VARS["invid"])) {
 				break;
 		}
 	} else {
-		$OUTPUT = details($HTTP_GET_VARS);
+		$OUTPUT = details($_GET);
 	}
 } else {
 	$OUTPUT = "<li class=err>Invalid use of module.";
@@ -54,10 +54,10 @@ if (isset($HTTP_GET_VARS["invid"])) {
 require("../template.php");
 
 # details
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -87,7 +87,7 @@ function details($HTTP_GET_VARS)
 	// Cash deposit
 	if ($inv["deposit_type"] == "CSH" && $inv["deposit_amt"] > 0) {
 		$get_ar = array();
-		foreach ($HTTP_GET_VARS as $key=>$value) {
+		foreach ($_GET as $key=>$value) {
 			if ($key != "key") {
 				$get_ar[] = "$key=$value";
 			}

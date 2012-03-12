@@ -419,7 +419,7 @@ function delete_write()
 					$tab = "ss9";
 					break;
 				default:
-					return order($HTTP_POST_VARS,"The code you selected is invalid");
+					return order($_POST,"The code you selected is invalid");
 			}
 
 			$upd = "UPDATE $tab SET active = 'yes' WHERE code = '$parr[ss]' OR code = '$parr[serno]'";
@@ -543,7 +543,7 @@ function cancel()
 						$tab = "ss9";
 						break;
 					default:
-						return order($HTTP_POST_VARS,"The code you selected is invalid");
+						return order($_POST,"The code you selected is invalid");
 					}
 					$upd = "UPDATE $tab SET active = 'yes' WHERE code = '$parr[ss]' OR code = '$parr[serno]'";
 					$run_upd = db_exec($upd) or errDie("Unable to update stock serial numbers");

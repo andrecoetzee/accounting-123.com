@@ -29,20 +29,20 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
-			$OUTPUT = add($HTTP_POST_VARS);
+			$OUTPUT = add($_POST);
 	}
 } else {
 	# Display default output
-	$OUTPUT = add($HTTP_POST_VARS);
+	$OUTPUT = add($_POST);
 }
 
 # get templete
@@ -52,10 +52,10 @@ require("../template.php");
 
 
 # Insert details
-function add($HTTP_POST_VARS)
+function add($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(!isset($supid)) {
 		$supid = 0;
@@ -69,9 +69,9 @@ function add($HTTP_POST_VARS)
 		$amount = "";
 	}
 
-	global $HTTP_GET_VARS;
-	if(isset($HTTP_GET_VARS["account"])) {
-		$supid = $HTTP_GET_VARS["account"];
+	global $_GET;
+	if(isset($_GET["account"])) {
+		$supid = $_GET["account"];
 	}
 
 	# Suppliers Drop down selections
@@ -199,11 +199,11 @@ function add($HTTP_POST_VARS)
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
 		header("Location: cashbook-entry.php");
@@ -237,7 +237,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return $confirm.add($HTTP_POST_VARS);
+		return $confirm.add($_POST);
 	}
 
 
@@ -325,17 +325,17 @@ function confirm($HTTP_POST_VARS)
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Processes
 	db_connect();
 
 	# Get vars
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(isset($back)) {
-		return add($HTTP_POST_VARS);
+		return add($_POST);
 	}
 
 	# validate input

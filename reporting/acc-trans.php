@@ -27,20 +27,20 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if(isset($HTTP_GET_VARS['accid'])){
-	$HTTP_GET_VARS['prd'] = PRD_DB;
-	$HTTP_GET_VARS['details'] = "";
-	$OUTPUT = viewtran($HTTP_GET_VARS);
-}elseif (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if(isset($_GET['accid'])){
+	$_GET['prd'] = PRD_DB;
+	$_GET['details'] = "";
+	$OUTPUT = viewtran($_GET);
+}elseif (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "viewtran":
-			$OUTPUT = viewtran($HTTP_POST_VARS);
+			$OUTPUT = viewtran($_POST);
 			break;
 		default:
-			$OUTPUT = slctAcc($HTTP_POST_VARS);
+			$OUTPUT = slctAcc($_POST);
 	}
 } else {
-	$OUTPUT = slctAcc($HTTP_POST_VARS);
+	$OUTPUT = slctAcc($_POST);
 }
 
 # Get templete
@@ -124,11 +124,11 @@ function slctAcc()
 
 
 # View per account number and cat
-function viewtran($HTTP_POST_VARS)
+function viewtran($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($from_year))
 		$from_year = date ("Y");
@@ -177,15 +177,15 @@ function viewtran($HTTP_POST_VARS)
 
 	if(!checkdate($from_month, $from_day, $from_year)){
 		$v->isOk ($from_date, "num", 1, 1, "Invalid from date.");
-		$HTTP_POST_VARS["from_year"] = date ("Y");
-		$HTTP_POST_VARS["from_month"] = date ("m");
-		$HTTP_POST_VARS["from_day"] = date ("d");
+		$_POST["from_year"] = date ("Y");
+		$_POST["from_month"] = date ("m");
+		$_POST["from_day"] = date ("d");
 	}
 	if(!checkdate($to_month, $to_day, $to_year)){
 		$v->isOk ($to_date, "num", 1, 1, "Invalid to date.");
-		$HTTP_POST_VARS["to_year"] = date ("Y");
-		$HTTP_POST_VARS["to_month"] = date ("m");
-		$HTTP_POST_VARS["to_day"] = date ("d");
+		$_POST["to_year"] = date ("Y");
+		$_POST["to_month"] = date ("m");
+		$_POST["to_day"] = date ("d");
 	}
 
 	# display errors, if any
@@ -195,7 +195,7 @@ function viewtran($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return $confirm.viewtran($HTTP_POST_VARS);
+		return $confirm.viewtran($_POST);
 	}
 
 	if(isset($details)){

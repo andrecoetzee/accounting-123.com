@@ -26,10 +26,10 @@
 require ("newsettings.php");
 
 # Decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "login":
-			$OUTPUT = login ($HTTP_POST_VARS);
+			$OUTPUT = login ($_POST);
 			break;
 		default:
 			$OUTPUT = slctcomp ();
@@ -100,11 +100,11 @@ function slctcomp ($err = "")
 
 
 # Log in to Company
-function login ($HTTP_POST_VARS)
+function login ($_POST)
 {
 
-	global $HTTP_SESSION_VARS;
-	extract($HTTP_POST_VARS);
+	global $_SESSION;
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new  validate ();
@@ -141,8 +141,8 @@ function login ($HTTP_POST_VARS)
 		$comp = pg_fetch_array($compRslt);
 	}
 
-	$HTTP_SESSION_VARS["code"] = $code;
-	$HTTP_SESSION_VARS["comp"] = $comp['name'];
+	$_SESSION["code"] = $code;
+	$_SESSION["comp"] = $comp['name'];
 
 	header("Location: doc-index.php");
 

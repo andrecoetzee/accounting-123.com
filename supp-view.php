@@ -26,13 +26,13 @@
 require ("settings.php");
 require_lib("validate");
 
-if ( isset($HTTP_GET_VARS['addcontact']) ) {
+if ( isset($_GET['addcontact']) ) {
 	$OUTPUT = AddContact();
-	$OUTPUT .= printSupp ($HTTP_GET_VARS);
+	$OUTPUT .= printSupp ($_GET);
 } else {
 	# show current stock
-	if(isset($HTTP_POST_VARS["export"])) {
-		$OUTPUT = export ($HTTP_POST_VARS);
+	if(isset($_POST["export"])) {
+		$OUTPUT = export ($_POST);
 	} else {
 		$OUTPUT = printSupp ();
 	}
@@ -411,11 +411,11 @@ function printSupp ()
 
 
 # show stock
-function export ($HTTP_GET_VARS)
+function export ($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if ( ! isset($action) ) $action = "listsupp";
 
@@ -562,20 +562,20 @@ function export ($HTTP_GET_VARS)
 function AddContact()
 {
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	$v = & new Validate();
-	if ( ! $v->isOk($HTTP_GET_VARS["addcontact"], "num", 1, 9, "") )
+	if ( ! $v->isOk($_GET["addcontact"], "num", 1, 9, "") )
 		return "Invalid Supplier Number";
 
 	// check if supplier can be added to contact list
-	$rslt = db_exec("SELECT * FROM cons WHERE supp_id='$HTTP_GET_VARS[addcontact]'");
+	$rslt = db_exec("SELECT * FROM cons WHERE supp_id='$_GET[addcontact]'");
 	if ( pg_numrows($rslt) >= 1 ) {
 		return "Supplier Already Added as a Contact<br>";
 	}
 
 	// get it from the db
-	$sql = "SELECT * FROM suppliers WHERE supid='$HTTP_GET_VARS[addcontact]'";
+	$sql = "SELECT * FROM suppliers WHERE supid='$_GET[addcontact]'";
 	$rslt = db_exec($sql) or errDie("Unable to add supplier to contact list. (RD)", SELF);
 	if ( pg_numrows($rslt) < 1 )
 		return "Unable to add supplier to contact list. (RD2)";

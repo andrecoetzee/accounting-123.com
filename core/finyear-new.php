@@ -28,14 +28,14 @@
 require("settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "addview":
-			$OUTPUT = addview($HTTP_POST_VARS);
+			$OUTPUT = addview($_POST);
 			break;
 
                 case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
 			break;
 
                 default:
@@ -88,10 +88,10 @@ $view = "
         return $view;
 }
 
-function addview($HTTP_POST_VARS)
+function addview($_POST)
 {
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
         # validate input
@@ -135,7 +135,7 @@ function addview($HTTP_POST_VARS)
 
 #Write to Database
 $yrdb="yr".$finyear;
-write($HTTP_POST_VARS,$yrdb);
+write($_POST,$yrdb);
 
 //layout
 $view = "
@@ -197,10 +197,10 @@ $view .="
 }
 
 # write
-function write($HTTP_POST_VARS,$yrdb)
+function write($_POST,$yrdb)
 {
         # get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 

@@ -2,15 +2,15 @@
 
 require ("../settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = change_setting_confirm ($HTTP_POST_VARS);
+			$OUTPUT = change_setting_confirm ($_POST);
 			break;
 		default:
 			$OUTPUT = do_setting ();
 	}
-}elseif (isset($HTTP_GET_VARS["change"])){
+}elseif (isset($_GET["change"])){
 	$OUTPUT = change_setting ();
 }else {
 	$OUTPUT = do_setting ();
@@ -60,10 +60,10 @@ function change_setting ($err="")
 
 
 
-function change_setting_confirm ($HTTP_POST_VARS)
+function change_setting_confirm ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($setting) OR strlen($setting) < 1){
 		return change_setting("<li class='err'>Please Select A Valid Option.</li>");

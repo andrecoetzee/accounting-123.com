@@ -30,16 +30,16 @@ require ("core-settings.php");
 require("groupware/gw-common.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm ($HTTP_POST_VARS);
+			$OUTPUT = confirm ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		case "":
-			$OUTPUT = confirm ($HTTP_POST_VARS);
+			$OUTPUT = confirm ($_POST);
 			break;
 		default:
 			$OUTPUT = enter ();
@@ -362,11 +362,11 @@ function enter ($errors="")
 
 
 # confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset($qty))
 		$qty = "1";
@@ -675,13 +675,13 @@ function confirm ($HTTP_POST_VARS)
 
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
-	global $HTTP_POST_FILES, $HTTP_POST_VARS;
+	global $_FILES, $_POST;
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
 		return enter();
@@ -832,16 +832,16 @@ function write ($HTTP_POST_VARS)
 	}
 
 	#check if we are uploading a new picture
-	if (is_uploaded_file ($HTTP_POST_FILES["picupload_image"]["tmp_name"])) {
+	if (is_uploaded_file ($_FILES["picupload_image"]["tmp_name"])) {
 		# Check file ext
-		if (preg_match ("/(image\/jpeg|image\/png|image\/gif)/", $HTTP_POST_FILES["picupload_image"]["type"], $extension)) {
+		if (preg_match ("/(image\/jpeg|image\/png|image\/gif)/", $_FILES["picupload_image"]["type"], $extension)) {
 
-			$type = $HTTP_POST_FILES["picupload_image"]["type"];
-			$fname = $HTTP_POST_FILES["picupload_image"]["name"];
+			$type = $_FILES["picupload_image"]["type"];
+			$fname = $_FILES["picupload_image"]["name"];
 
 			// open file in "read, binary" mode
 			$img = "";
-			$file = fopen ($HTTP_POST_FILES['picupload_image']['tmp_name'], "rb");
+			$file = fopen ($_FILES['picupload_image']['tmp_name'], "rb");
 			while (!feof ($file)) {
 				// fread is binary safe
 				$img .= fread ($file, 1024);
@@ -889,7 +889,7 @@ function write ($HTTP_POST_VARS)
 //		</table>";
 //	return $write;
 
-	$HTTP_POST_VARS = array ();
+	$_POST = array ();
 	$_REQUEST = array();
 	return enter ("<li class='yay'>Asset has been added.</li><br>");
 

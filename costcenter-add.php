@@ -28,24 +28,24 @@
 require("settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			if(isset($HTTP_POST_VARS["done"])){
-				$OUTPUT = confirm($HTTP_POST_VARS);
+			if(isset($_POST["done"])){
+				$OUTPUT = confirm($_POST);
 			}else {
-				$OUTPUT = view ($HTTP_POST_VARS);
+				$OUTPUT = view ($_POST);
 			}
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
-			$OUTPUT = view($HTTP_POST_VARS);
+			$OUTPUT = view($_POST);
 	}
 } else {
         # Display default output
-        $OUTPUT = view($HTTP_POST_VARS);
+        $OUTPUT = view($_POST);
 }
 
 	$OUTPUT .= "
@@ -75,10 +75,10 @@ require("template.php");
 
 
 # Default view
-function view($HTTP_POST_VARS,$err="")
+function view($_POST,$err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 	
@@ -241,11 +241,11 @@ function view($HTTP_POST_VARS,$err="")
 
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($project1))
 		$project1 = "";
@@ -270,7 +270,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>$e[msg]</li>";
 		}
-		return view($HTTP_POST_VARS,$confirm);
+		return view($_POST,$confirm);
 	}
 
 	# check stock code
@@ -324,11 +324,11 @@ function confirm($HTTP_POST_VARS)
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

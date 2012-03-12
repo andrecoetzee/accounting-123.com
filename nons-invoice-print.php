@@ -29,24 +29,24 @@ require("settings.php");
 require("core-settings.php");
 require("libs/ext.lib.php");
 
-if ( isset($HTTP_GET_VARS) && isset($HTTP_POST_VARS) ) {
-	array_merge($HTTP_POST_VARS, $HTTP_GET_VARS);
+if ( isset($_GET) && isset($_POST) ) {
+	array_merge($_POST, $_GET);
 }
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"])) {
-	$OUTPUT = slct($HTTP_GET_VARS);
+if (isset($_GET["invid"])) {
+	$OUTPUT = slct($_GET);
 } else {
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "slct":
-				$OUTPUT = cdetails($HTTP_POST_VARS);
+				$OUTPUT = cdetails($_POST);
 				break;
 			case "confirm":
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 				break;
 			case "cconfirm":
-				$OUTPUT = cconfirm($HTTP_POST_VARS);
+				$OUTPUT = cconfirm($_POST);
 				break;
 			case "prewrite":
 				$OUTPUT = prewrite();
@@ -55,13 +55,13 @@ if (isset($HTTP_GET_VARS["invid"])) {
 				$OUTPUT = cprewrite();
 				break;
 			case "write":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 			case "cwrite":
-				$OUTPUT = cwrite($HTTP_POST_VARS);
+				$OUTPUT = cwrite($_POST);
 				break;
 			case "":
-				$OUTPUT = cdetails($HTTP_POST_VARS);
+				$OUTPUT = cdetails($_POST);
 				break;
 			default:
 				$OUTPUT = "<li class='err'> Invalid use of module.</li>";
@@ -78,11 +78,11 @@ require("template.php");
 
 
 # Details
-function slct($HTTP_GET_VARS)
+function slct($_GET)
 {
 
 	# Get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -214,16 +214,16 @@ function slct($HTTP_GET_VARS)
 
 
 # Customer details
-function cdetails($HTTP_GET_VARS)
+function cdetails($_GET)
 {
 
 	$showvat = TRUE;
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	if(!isset($button) && (isset($starting))) {
-		return slct($HTTP_GET_VARS);
+		return slct($_GET);
 	}
 
 	# validate input
@@ -250,7 +250,7 @@ function cdetails($HTTP_GET_VARS)
 	}
 
 	if($ctyp == "ac") {
-		return acdetails($HTTP_GET_VARS);
+		return acdetails($_GET);
 	}
 
 	# Get Invoice info
@@ -574,11 +574,11 @@ function cdetails($HTTP_GET_VARS)
 
 
 # Customer details
-function acdetails($HTTP_GET_VARS)
+function acdetails($_GET)
 {
 
 	# get vars
-	extract ($HTTP_GET_VARS);
+	extract ($_GET);
 
 	# validate input
 	require_lib("validate");
@@ -863,11 +863,11 @@ function acdetails($HTTP_GET_VARS)
 
 
 # Customer Confirm
-function cconfirm($HTTP_POST_VARS)
+function cconfirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -1198,12 +1198,12 @@ function cconfirm($HTTP_POST_VARS)
 
 
 # Customer write
-function cwrite($HTTP_GET_VARS)
+function cwrite($_GET)
 {
 
 	$showvat = TRUE;
 
-	extract($HTTP_GET_VARS);
+	extract($_GET);
 
 	# validate input
 	require_lib("validate");

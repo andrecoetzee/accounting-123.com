@@ -28,8 +28,8 @@
 require("../settings.php");
 require("../libs/ext.lib.php");
 
-	global $HTTP_GET_VARS;
-	extract ($HTTP_GET_VARS);
+	global $_GET;
+	extract ($_GET);
 
 	if(!isset($calloutid) OR (strlen($calloutid) < 1)){
 		return "Invalid use of module";

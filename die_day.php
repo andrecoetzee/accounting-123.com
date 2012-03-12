@@ -29,10 +29,10 @@ exit;
 require ("settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "write":
-			$OUTPUT = wri_die ($HTTP_POST_VARS);
+			$OUTPUT = wri_die ($_POST);
 			break;
 		default:
 			$OUTPUT = con_die ();
@@ -167,10 +167,10 @@ $Tab
         return $con_die;
 }
 # write new data
-function wri_die ($HTTP_POST_VARS)
+function wri_die ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

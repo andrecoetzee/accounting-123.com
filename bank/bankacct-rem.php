@@ -27,18 +27,18 @@
 require("../settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "rem":
-            $OUTPUT = rem($HTTP_POST_VARS);
+            $OUTPUT = rem($_POST);
 			break;
         default:
-			$OUTPUT = confirm($HTTP_GET_VARS['bankid']);
+			$OUTPUT = confirm($_GET['bankid']);
 	}
 } else {
 	# Display default output
-	if(!empty($HTTP_GET_VARS['bankid'])){
-		$OUTPUT = confirm($HTTP_GET_VARS['bankid']);
+	if(!empty($_GET['bankid'])){
+		$OUTPUT = confirm($_GET['bankid']);
 	}else{
 		$OUTPUT = confirm('none');
 	}
@@ -156,14 +156,14 @@ function confirm($bankid)
 
 
 
-function rem($HTTP_POST_VARS)
+function rem($_POST)
 {
 
 	// Processes
 	db_connect();
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

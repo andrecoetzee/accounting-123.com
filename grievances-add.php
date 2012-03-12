@@ -27,13 +27,13 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm_grievance($HTTP_POST_VARS);
+			$OUTPUT = confirm_grievance($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_grievance($HTTP_POST_VARS);
+			$OUTPUT = write_grievance($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid use.";
@@ -151,10 +151,10 @@ function get_grievance ($err = "")
 
 
 
-function confirm_grievance ($HTTP_POST_VARS)
+function confirm_grievance ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 //	$first_rec_date = $first_rec_month."-".$first_rec_day."-".$first_rec_year;
 //	$company_date = $company_month."-".$company_day."-".$company_year;
@@ -352,10 +352,10 @@ function confirm_grievance ($HTTP_POST_VARS)
 
 
 
-function write_grievance ($HTTP_POST_VARS)
+function write_grievance ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

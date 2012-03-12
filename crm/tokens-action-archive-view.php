@@ -25,16 +25,16 @@
 
 require("settings.php");
 
-if(isset($HTTP_GET_VARS["id"])) {
-	$OUTPUT = archive($HTTP_GET_VARS);
+if(isset($_GET["id"])) {
+	$OUTPUT = archive($_GET);
 } else {
 	$OUTPUT = "Invalid.";
 }
 
 require("template.php");
 
-function archive($HTTP_GET_VARS) {
-	extract($HTTP_GET_VARS);
+function archive($_GET) {
+	extract($_GET);
 
 	$id+=0;
 

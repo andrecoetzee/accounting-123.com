@@ -29,37 +29,37 @@ require("../settings.php");
 require("../core-settings.php");
 require ("../libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "method":
-			if(strlen($HTTP_POST_VARS["accnum"])==0) {
+			if(strlen($_POST["accnum"])==0) {
 				# redirect if not local supplier
-				if(!is_local("customers", "cusnum", $HTTP_POST_VARS["cusid"])){
+				if(!is_local("customers", "cusnum", $_POST["cusid"])){
 					// print "SpaceBar";
-					header("Location: bank-recpt-inv-int.php?cusid=$HTTP_POST_VARS[cusid]");
+					header("Location: bank-recpt-inv-int.php?cusid=$_POST[cusid]");
 					exit;
 				}
 			}
-			$OUTPUT = method($HTTP_POST_VARS["cusid"]);
+			$OUTPUT = method($_POST["cusid"]);
 			break;
 		case "alloc":
-			$OUTPUT = alloc($HTTP_POST_VARS);
+			$OUTPUT = alloc($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
-			$OUTPUT = sel_cus($HTTP_POST_VARS);
+			$OUTPUT = sel_cus($_POST);
 	}
-} elseif(isset($HTTP_GET_VARS["cusid"])) {
+} elseif(isset($_GET["cusid"])) {
 	# Display default output
-	$OUTPUT = alloc($HTTP_GET_VARS);
+	$OUTPUT = alloc($_GET);
 } else {
 	# Display default output
-	$OUTPUT = sel_cus($HTTP_POST_VARS);
+	$OUTPUT = sel_cus($_POST);
 }
 
 # get templete
@@ -69,17 +69,17 @@ require("../template.php");
 
 
 // allocation
-function alloc($HTTP_POST_VARS,$err="")
+function alloc($_POST,$err="")
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if (isset($back)) {
 		if(isset($e)) {
 			header("Location: cashbook-entry.php");
 			exit;
 		}
-		return sel_cus($HTTP_POST_VARS);
+		return sel_cus($_POST);
 	}
 
 	if (isset($print_recpt) AND strlen($print_recpt) > 0)
@@ -128,7 +128,7 @@ function alloc($HTTP_POST_VARS,$err="")
 	if ($v->isError()) {
 		$confirm = $v->genErrors();
 		$confirm .= "<br>"."<input type='button' onClick='history.back();' value='&laquo Correction'>";
-		return $confirm;//.alloc($HTTP_POST_VARS);
+		return $confirm;//.alloc($_POST);
 	}
 
 
@@ -393,10 +393,10 @@ function alloc($HTTP_POST_VARS,$err="")
 
 
 /* confirm function */
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if (isset($back)) {
 		header ("Location: bank-recpt-inv.php?cusnum=$cusid&descript=$descript&reference=$reference&amt=$amt");
@@ -453,13 +453,13 @@ function confirm($HTTP_POST_VARS)
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
 
-		$HTTP_POST_VARS['OUT1'] = $out1 + 0;
-		$HTTP_POST_VARS['OUT2'] = $out2 + 0;
-		$HTTP_POST_VARS['OUT3'] = $out3 + 0;
-		$HTTP_POST_VARS['OUT4'] = $out4 + 0;
-		$HTTP_POST_VARS['OUT5'] = $out5 + 0;
+		$_POST['OUT1'] = $out1 + 0;
+		$_POST['OUT2'] = $out2 + 0;
+		$_POST['OUT3'] = $out3 + 0;
+		$_POST['OUT4'] = $out4 + 0;
+		$_POST['OUT5'] = $out5 + 0;
 
-		return $confirm.alloc($HTTP_POST_VARS);
+		return $confirm.alloc($_POST);
 	}
 
 	$out += 0;
@@ -489,14 +489,14 @@ function confirm($HTTP_POST_VARS)
 	$out = sprint($out);
 
 	if (sprint(($tot + $out + $out1 + $out2 + $out3 + $out4 + $out5) - $amt) != sprint(0)) {
-		$HTTP_POST_VARS['OUT1'] = $OUT1;
-		$HTTP_POST_VARS['OUT2'] = $OUT2;
-		$HTTP_POST_VARS['OUT3'] = $OUT3;
-		$HTTP_POST_VARS['OUT4'] = $OUT4;
-		$HTTP_POST_VARS['OUT5'] = $OUT5;
+		$_POST['OUT1'] = $OUT1;
+		$_POST['OUT2'] = $OUT2;
+		$_POST['OUT3'] = $OUT3;
+		$_POST['OUT4'] = $OUT4;
+		$_POST['OUT5'] = $OUT5;
 
 		return "<li class='err'>The total amount for invoices not equal to the amount received.
-			Please check the details.</li>".alloc($HTTP_POST_VARS);
+			Please check the details.</li>".alloc($_POST);
 	}
 
 	if (isset($bout)) {
@@ -803,14 +803,14 @@ function confirm($HTTP_POST_VARS)
 
 
 /* write function */
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if (isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return alloc($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return alloc($_POST);
 	}
 
 	require_lib("validate");
@@ -839,7 +839,7 @@ function write($HTTP_POST_VARS)
 
 	if ($v->isError ()) {
 		$confirm = $v->genErrors();
-		return $confirm.confirm($HTTP_POST_VARS);
+		return $confirm.confirm($_POST);
 	}
 
 

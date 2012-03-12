@@ -29,47 +29,47 @@ require("../settings.php");
 require("../core-settings.php");
 require ("../libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "method":
-			if(strlen($HTTP_POST_VARS["accnum"])==0) {
+			if(strlen($_POST["accnum"])==0) {
 				# redirect if not local supplier
-				if(!is_local("customers", "cusnum", $HTTP_POST_VARS["cusid"])){
+				if(!is_local("customers", "cusnum", $_POST["cusid"])){
 					// print "SpaceBar";
-					header("Location: bank-recpt-inv-int.php?cusid=$HTTP_POST_VARS[cusid]");
+					header("Location: bank-recpt-inv-int.php?cusid=$_POST[cusid]");
 					exit;
 				}
 			}
-			$OUTPUT = method($HTTP_POST_VARS["cusid"]);
+			$OUTPUT = method($_POST["cusid"]);
 			break;
 		case "alloc":
-			$OUTPUT = alloc($HTTP_POST_VARS);
+			$OUTPUT = alloc($_POST);
 			break;
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
-			$OUTPUT = sel_cus($HTTP_POST_VARS);
+			$OUTPUT = sel_cus($_POST);
 	}
-} elseif(isset($HTTP_GET_VARS["cusnum"])) {
+} elseif(isset($_GET["cusnum"])) {
 	# Display default output
-	$OUTPUT = method($HTTP_GET_VARS["cusnum"]);
+	$OUTPUT = method($_GET["cusnum"]);
 } else {
 	# Display default output
-	$OUTPUT = sel_cus($HTTP_POST_VARS);
+	$OUTPUT = sel_cus($_POST);
 }
 
 # get templete
 require("../template.php");
 
 # Insert details
-function sel_cus($HTTP_POST_VARS)
+function sel_cus($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
         // customers Drop down selections
         db_connect();
@@ -175,9 +175,9 @@ function method($cusid)
 		return $confirm;
 	}
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	if(isset($accnum)) {
 		$accnum=remval($accnum);
@@ -188,7 +188,7 @@ function method($cusid)
 			$Ri=db_exec($Sl);
 
 			if(pg_num_rows($Ri)<1) {
-				return "<li class='err'>Invalid account number</li>".sel_cus($HTTP_POST_VARS);
+				return "<li class='err'>Invalid account number</li>".sel_cus($_POST);
 			}
 
 			$cd=pg_fetch_array($Ri);
@@ -374,14 +374,14 @@ function method($cusid)
 
 
 # confirm
-function alloc($HTTP_POST_VARS)
+function alloc($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		return sel_cus($HTTP_POST_VARS);
+		return sel_cus($_POST);
 	}
 
 	# validate input
@@ -772,10 +772,10 @@ function alloc($HTTP_POST_VARS)
 }
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -839,12 +839,12 @@ function confirm($HTTP_POST_VARS)
 		$OUT4=$out4;
 		$OUT5=$out5;
 
-		$HTTP_POST_VARS['OUT1']=$OUT1;
-		$HTTP_POST_VARS['OUT2']=$OUT2;
-		$HTTP_POST_VARS['OUT3']=$OUT3;
-		$HTTP_POST_VARS['OUT4']=$OUT4;
-		$HTTP_POST_VARS['OUT5']=$OUT5;
-		return $confirm."</li>".alloc($HTTP_POST_VARS);
+		$_POST['OUT1']=$OUT1;
+		$_POST['OUT2']=$OUT2;
+		$_POST['OUT3']=$OUT3;
+		$_POST['OUT4']=$OUT4;
+		$_POST['OUT5']=$OUT5;
+		return $confirm."</li>".alloc($_POST);
 	}
 	$out +=0;
 	$out1 +=0;
@@ -881,12 +881,12 @@ function confirm($HTTP_POST_VARS)
 	$amt=sprint($amt);
 		$out=sprint($out);
 		if(sprint(($tot+$out+$out1+$out2+$out3+$out4+$out5) - $amt) != 0){
-				$HTTP_POST_VARS['OUT1']=$OUT1;
-				$HTTP_POST_VARS['OUT2']=$OUT2;
-				$HTTP_POST_VARS['OUT3']=$OUT3;
-				$HTTP_POST_VARS['OUT4']=$OUT4;
-				$HTTP_POST_VARS['OUT5']=$OUT5;
-				return "<li class=err>The total amount for Invoices not equal to the amount received. Please check the details.</li>".alloc($HTTP_POST_VARS);
+				$_POST['OUT1']=$OUT1;
+				$_POST['OUT2']=$OUT2;
+				$_POST['OUT3']=$OUT3;
+				$_POST['OUT4']=$OUT4;
+				$_POST['OUT5']=$OUT5;
+				return "<li class=err>The total amount for Invoices not equal to the amount received. Please check the details.</li>".alloc($_POST);
 		}
 
 
@@ -1129,13 +1129,13 @@ function confirm($HTTP_POST_VARS)
 		{
 			if($out2>$age30){
 
-				$HTTP_POST_VARS['OUT1']=$OUT1;
-				$HTTP_POST_VARS['OUT2']=$OUT2;
-				$HTTP_POST_VARS['OUT3']=$OUT3;
-				$HTTP_POST_VARS['OUT4']=$OUT4;
-				$HTTP_POST_VARS['OUT5']=$OUT5;
+				$_POST['OUT1']=$OUT1;
+				$_POST['OUT2']=$OUT2;
+				$_POST['OUT3']=$OUT3;
+				$_POST['OUT4']=$OUT4;
+				$_POST['OUT5']=$OUT5;
 
-				return "<li class=err>You cannot allocate ".CUR." $out2 to 30 days, the client's 30 days balance is only ".CUR." $age30</li>".alloc($HTTP_POST_VARS);
+				return "<li class=err>You cannot allocate ".CUR." $out2 to 30 days, the client's 30 days balance is only ".CUR." $age30</li>".alloc($_POST);
 			}
 
 			# Connect to database
@@ -1198,13 +1198,13 @@ function confirm($HTTP_POST_VARS)
 		{
 			if($out3>$age60) {
 
-				$HTTP_POST_VARS['OUT1']=$OUT1;
-				$HTTP_POST_VARS['OUT2']=$OUT2;
-				$HTTP_POST_VARS['OUT3']=$OUT3;
-				$HTTP_POST_VARS['OUT4']=$OUT4;
-				$HTTP_POST_VARS['OUT5']=$OUT5;
+				$_POST['OUT1']=$OUT1;
+				$_POST['OUT2']=$OUT2;
+				$_POST['OUT3']=$OUT3;
+				$_POST['OUT4']=$OUT4;
+				$_POST['OUT5']=$OUT5;
 
-				return "<li class=err>You cannot allocate ".CUR." $out3 to 60 days, the client only owe you ".CUR." $age60 </li>".alloc($HTTP_POST_VARS);
+				return "<li class=err>You cannot allocate ".CUR." $out3 to 60 days, the client only owe you ".CUR." $age60 </li>".alloc($_POST);
 
 			}
 			# Connect to database
@@ -1264,13 +1264,13 @@ function confirm($HTTP_POST_VARS)
 		if($out4>0)
 		{
 			if($out4>$age90) {
-				$HTTP_POST_VARS['OUT1']=$OUT1;
-				$HTTP_POST_VARS['OUT2']=$OUT2;
-				$HTTP_POST_VARS['OUT3']=$OUT3;
-				$HTTP_POST_VARS['OUT4']=$OUT4;
-				$HTTP_POST_VARS['OUT5']=$OUT5;
+				$_POST['OUT1']=$OUT1;
+				$_POST['OUT2']=$OUT2;
+				$_POST['OUT3']=$OUT3;
+				$_POST['OUT4']=$OUT4;
+				$_POST['OUT5']=$OUT5;
 
-				return "<li class=err>You cannot allocate ".CUR." $out4 to 90 days, the client only owe you ".CUR." $age90</li>".alloc($HTTP_POST_VARS);
+				return "<li class=err>You cannot allocate ".CUR." $out4 to 90 days, the client only owe you ".CUR." $age90</li>".alloc($_POST);
 			}
 
 			# Connect to database
@@ -1332,13 +1332,13 @@ function confirm($HTTP_POST_VARS)
 		if($out5>0)
 		{
 			if($out5>$age120) {
-				$HTTP_POST_VARS['OUT1']=$OUT1;
-				$HTTP_POST_VARS['OUT2']=$OUT2;
-				$HTTP_POST_VARS['OUT3']=$OUT3;
-				$HTTP_POST_VARS['OUT4']=$OUT4;
-				$HTTP_POST_VARS['OUT5']=$OUT5;
+				$_POST['OUT1']=$OUT1;
+				$_POST['OUT2']=$OUT2;
+				$_POST['OUT3']=$OUT3;
+				$_POST['OUT4']=$OUT4;
+				$_POST['OUT5']=$OUT5;
 
-				return "<lI class=err>You cannot allocate ".CUR." $out5 to 120 days, the client only owe you ".CUR." $age120</li>".alloc($HTTP_POST_VARS);
+				return "<lI class=err>You cannot allocate ".CUR." $out5 to 120 days, the client only owe you ".CUR." $age120</li>".alloc($_POST);
 
 			}
 			# Connect to database
@@ -1502,16 +1502,16 @@ function confirm($HTTP_POST_VARS)
 }
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return alloc($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return alloc($_POST);
 	}
 
 	# validate input

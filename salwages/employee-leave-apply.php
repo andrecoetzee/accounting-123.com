@@ -26,13 +26,13 @@
 require ("../settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmLeave ($HTTP_POST_VARS);
+			$OUTPUT = confirmLeave ($_POST);
 			break;
 		case "write":
-			$OUTPUT = writeLeave ($HTTP_POST_VARS);
+			$OUTPUT = writeLeave ($_POST);
 			break;
 		default:
 			$OUTPUT = enterLeave ();
@@ -199,16 +199,16 @@ function enterLeave ()
 
 
 # confirm new data
-function confirmLeave ($HTTP_POST_VARS)
+function confirmLeave ($_POST)
 {
 
 	# check dates
-// 	$start_day = $HTTP_POST_VARS["days"][0];
-// 	$start_month = $HTTP_POST_VARS["months"][0];
-// 	$start_year = $HTTP_POST_VARS["years"][0];
-// 	$fin_day = $HTTP_POST_VARS["days"][1];
-// 	$fin_month = $HTTP_POST_VARS["months"][1];
-// 	$fin_year = $HTTP_POST_VARS["years"][1];
+// 	$start_day = $_POST["days"][0];
+// 	$start_month = $_POST["months"][0];
+// 	$start_year = $_POST["years"][0];
+// 	$fin_day = $_POST["days"][1];
+// 	$fin_month = $_POST["months"][1];
+// 	$fin_year = $_POST["years"][1];
 
 //	if (!checkdate ($start_month, $start_day, $start_year)) {
 //		return "<li class=err>Invalid start date.";
@@ -218,7 +218,7 @@ function confirmLeave ($HTTP_POST_VARS)
 
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -405,11 +405,11 @@ function checkLeave ($empnum, $type, $workingdays)
 
 
 # write new data
-function writeLeave ($HTTP_POST_VARS)
+function writeLeave ($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

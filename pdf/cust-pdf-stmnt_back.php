@@ -30,8 +30,8 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["cusnum"])) {
-	$OUTPUT = printStmnt($HTTP_GET_VARS);
+if (isset($_GET["cusnum"])) {
+	$OUTPUT = printStmnt($_GET);
 } else {
 	$OUTPUT = "<li class=err>Invalid use of module.";
 }
@@ -39,10 +39,10 @@ if (isset($HTTP_GET_VARS["cusnum"])) {
 require("../template.php");
 
 # show invoices
-function printStmnt ($HTTP_GET_VARS)
+function printStmnt ($_GET)
 {
 	# get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

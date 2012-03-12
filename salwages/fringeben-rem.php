@@ -31,10 +31,10 @@ require("../template.php");
 exit;
 
 # decide what to do
-if (isset ($HTTP_GET_VARS["id"])) {
-	$OUTPUT = confirmFringe ($HTTP_GET_VARS["id"]);
-} elseif (isset ($HTTP_POST_VARS["key"])) {
-	$OUTPUT = ($HTTP_POST_VARS["key"] == "rem") ? remFringe ($HTTP_POST_VARS["id"]) : "Invalid use of module.";
+if (isset ($_GET["id"])) {
+	$OUTPUT = confirmFringe ($_GET["id"]);
+} elseif (isset ($_POST["key"])) {
+	$OUTPUT = ($_POST["key"] == "rem") ? remFringe ($_POST["id"]) : "Invalid use of module.";
 } else {
 	$OUTPUT = "Invalid use of module.";
 }

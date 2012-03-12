@@ -31,19 +31,19 @@ require("core-settings.php");
 require ("set-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
 			break;
 
                 default:
-			$OUTPUT = remacc($HTTP_GET_VARS['accid']);
+			$OUTPUT = remacc($_GET['accid']);
 	}
 } else {
         # Display default output
-        if(!empty($HTTP_GET_VARS['accid'])){
-        $OUTPUT = remacc($HTTP_GET_VARS['accid']);
+        if(!empty($_GET['accid'])){
+        $OUTPUT = remacc($_GET['accid']);
         }else{
         $OUTPUT = "<li> Invalid use of module";
         }
@@ -110,13 +110,13 @@ $rem =
 	return $rem;
 }
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 //processes
 core_connect();
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
         require_lib("validate");

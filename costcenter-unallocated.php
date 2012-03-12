@@ -2,19 +2,19 @@
 
 require ("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if(isset($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = confirm_remove ($HTTP_POST_VARS);
+			$OUTPUT = confirm_remove ($_POST);
 			break;
 		case "remove":
-			$OUTPUT = remove ($HTTP_POST_VARS);
+			$OUTPUT = remove ($_POST);
 			break;
 		default:
-			$OUTPUT = show_centers ($HTTP_POST_VARS);
+			$OUTPUT = show_centers ($_POST);
 	}
 }else {
-	$OUTPUT = show_centers ($HTTP_POST_VARS);
+	$OUTPUT = show_centers ($_POST);
 }
 
 $OUTPUT .= 
@@ -25,10 +25,10 @@ require ("template.php");
 
 
 
-function show_centers ($HTTP_POST_VARS,$err="")
+function show_centers ($_POST,$err="")
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	db_connect ();
 	
@@ -153,14 +153,14 @@ function show_centers ($HTTP_POST_VARS,$err="")
 
 
 
-function confirm_remove ($HTTP_POST_VARS)
+function confirm_remove ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 
 	if((!isset($scremids) OR !is_array($scremids)) AND (!isset($ccremids) OR !is_array($ccremids)) AND (!isset($ncremids) OR !is_array($ncremids))){
-		return show_centers ($HTTP_POST_VARS,"<li class='err'>Please Select Entries To Remove</li>");
+		return show_centers ($_POST,"<li class='err'>Please Select Entries To Remove</li>");
 	}
 
 	$sclisting = "";
@@ -279,13 +279,13 @@ function confirm_remove ($HTTP_POST_VARS)
 
 
 
-function remove ($HTTP_POST_VARS)
+function remove ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if((!isset($scremids) OR !is_array($scremids)) AND (!isset($ccremids) OR !is_array($ccremids)) AND (!isset($ncremids) OR !is_array($ncremids))){
-		return show_centers ($HTTP_POST_VARS,"<li class='err'>Please Select Entries To Remove</li>");
+		return show_centers ($_POST,"<li class='err'>Please Select Entries To Remove</li>");
 	}
 
 	if (isset($scremids) AND is_array($scremids)){

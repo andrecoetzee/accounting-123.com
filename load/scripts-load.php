@@ -28,7 +28,7 @@
 require("settings.php");
 
 # Display default output
-$OUTPUT = load($HTTP_GET_VARS['data']);
+$OUTPUT = load($_GET['data']);
 
 # get templete
 require("template.php");

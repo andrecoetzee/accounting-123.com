@@ -28,41 +28,41 @@ require ("../core-settings.php");
 require("finstatements.php");
 
 // Merge get vars and post vars
-foreach ($HTTP_GET_VARS as $key=>$value) {
-	$HTTP_POST_VARS[$key] = $value;
+foreach ($_GET as $key=>$value) {
+	$_POST[$key] = $value;
 }
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		default:
 		case "display":
 		case "cust_display":
-			$OUTPUT = financialStatements::incomestmnt($HTTP_POST_VARS);
+			$OUTPUT = financialStatements::incomestmnt($_POST);
 			break;
 		case "customize":
-			$OUTPUT = customize($HTTP_POST_VARS);
+			$OUTPUT = customize($_POST);
 			break;
 		case "add":
 		case "remove selected":
 		case "update":
-			$OUTPUT = update($HTTP_POST_VARS);
+			$OUTPUT = update($_POST);
 			break;
 		case ct("Print"):
 		case ct("Save"):
 		case ct("Export to Spreadsheet"):
 		case "print_report":
-			$OUTPUT = print_report($HTTP_POST_VARS);
+			$OUTPUT = print_report($_POST);
 			break;
 		case "note_view":
-			$OUTPUT = note_view($HTTP_POST_VARS);
+			$OUTPUT = note_view($_POST);
 			break;
 		case "note_save":
-			$OUTPUT = note_save($HTTP_POST_VARS);
+			$OUTPUT = note_save($_POST);
 			break;
 	}
 } else {
 	//$OUTPUT = financialStatements::incomestmnt($_POST);
-	$OUTPUT = customize($HTTP_POST_VARS);
+	$OUTPUT = customize($_POST);
 }
 
 require ("../template.php");
@@ -98,9 +98,9 @@ function print_report() {
 	}
 }
 
-function customize($HTTP_POST_VARS)
+function customize($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	$fields = array ();
 	$fields["heading_1"] = COMP_NAME;
@@ -358,9 +358,9 @@ function customize($HTTP_POST_VARS)
 	return $OUTPUT;
 }
 
-function note_view($HTTP_POST_VARS, $msg="")
+function note_view($_POST, $msg="")
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -410,9 +410,9 @@ function note_view($HTTP_POST_VARS, $msg="")
 	return $OUTPUT;
 }
 
-function update($HTTP_POST_VARS)
+function update($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if ($key == "add" && isset($naccount) && $naccount != 0) {
 		// Has this account been added already?
@@ -420,7 +420,7 @@ function update($HTTP_POST_VARS)
 		$sql = "SELECT * FROM saved_is_accounts WHERE accid='$naccount'";
 		$stb_rslt = db_exec($sql) or errDie("Unable to retrieve saved trial balance accounts from Cubit.");
 		if (pg_num_rows($stb_rslt) > 0) {
-			return customize($HTTP_POST_VARS);
+			return customize($_POST);
 		}
 
 		// Retrieve the account info with the accid
@@ -443,12 +443,12 @@ function update($HTTP_POST_VARS)
 		}
 	}
 
-	return customize($HTTP_POST_VARS);
+	return customize($_POST);
 }
 
-function note_save($HTTP_POST_VARS)
+function note_save($_POST)
 {
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	require_lib("validate");
 	$v = new validate;
@@ -484,7 +484,7 @@ function note_save($HTTP_POST_VARS)
 		$sbsacc_rslt = db_exec($sql) or errDie("Unable to insert account information into the accounts list.");
 	}
 
-	return note_view($HTTP_POST_VARS, "<tr bgcolor='".TMPL_tblDataColor1."'><td><li>Note has been updated.</li></td></tr>");
+	return note_view($_POST, "<tr bgcolor='".TMPL_tblDataColor1."'><td><li>Note has been updated.</li></td></tr>");
 }
 
 ?>

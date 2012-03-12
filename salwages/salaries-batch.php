@@ -28,27 +28,27 @@ require ("../core-settings.php");
 require("emp-functions.php");
 require("payprdmsg.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid.";
 	}
-}elseif(isset($HTTP_POST_VARS["all"])) {
-	if (isset($HTTP_POST_VARS['emp_group'])) 
-		header("Location: ../admin-employee-view.php?all=yes&emp_group=$HTTP_POST_VARS[emp_group]");
+}elseif(isset($_POST["all"])) {
+	if (isset($_POST['emp_group'])) 
+		header("Location: ../admin-employee-view.php?all=yes&emp_group=$_POST[emp_group]");
 	else 
 		header("Location: ../admin-employee-view.php?all=yes");
 	exit;
-} elseif(isset($HTTP_POST_VARS["emps"])) {
-	$OUTPUT = enter($HTTP_POST_VARS);
-} elseif(isset($HTTP_POST_VARS['emp_group'])){
-	header ("Location: ../admin-employee-view.php?emp_group=$HTTP_POST_VARS[emp_group]");
+} elseif(isset($_POST["emps"])) {
+	$OUTPUT = enter($_POST);
+} elseif(isset($_POST['emp_group'])){
+	header ("Location: ../admin-employee-view.php?emp_group=$_POST[emp_group]");
 	exit;
 } else {
 	$OUTPUT = "<li class='err'>Please select at least one employee.</li>";
@@ -69,10 +69,10 @@ require ("../template.php");
 
 
 
-function enter ($HTTP_POST_VARS, $err = "")
+function enter ($_POST, $err = "")
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	global $PRDMON, $MONPRD;
 	$salyr = getYearOfEmpMon($month);
@@ -160,7 +160,7 @@ function enter ($HTTP_POST_VARS, $err = "")
 			<h3>Batch Salaries</h3>
 				<form method='POST' action='".SELF."'>";
 
-		foreach ( $HTTP_POST_VARS as $key => $value ) {
+		foreach ( $_POST as $key => $value ) {
 			if ( is_array($value) ) {
 				foreach ( $value as $akey => $avalue ) {
 					$out .= "<input type='hidden' name='$key"."[$akey]' value='$avalue'>";
@@ -1472,11 +1472,11 @@ function enter ($HTTP_POST_VARS, $err = "")
 
 
 
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 
-	$HTTP_POST_VARS = var_makesafe($HTTP_POST_VARS);
-	extract($HTTP_POST_VARS);
+	$_POST = var_makesafe($_POST);
+	extract($_POST);
 
 	if(!isset($date_day)) {
 		exit;
@@ -1601,7 +1601,7 @@ function confirm ($HTTP_POST_VARS)
 				".implode("", $hderrs)."
 			</li>";
 
-		return enter($HTTP_POST_VARS, $hderrs);
+		return enter($_POST, $hderrs);
 	}
 
 	global $eMONPRD;
@@ -2623,16 +2623,16 @@ function confirm ($HTTP_POST_VARS)
 
 
 
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
-	$HTTP_POST_VARS = var_makesafe($HTTP_POST_VARS);
-	extract($HTTP_POST_VARS);
+	$_POST = var_makesafe($_POST);
+	extract($_POST);
 
 	$week += 0;
 
 	if(!isset($button)) {
-		return enter($HTTP_POST_VARS);
+		return enter($_POST);
 	}
 
 	if(!isset($date_day)) {

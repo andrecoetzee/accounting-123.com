@@ -2,13 +2,13 @@
 
 require ("settings.php");
 
-if (isset ($HTTP_POST_VARS["key"])){
-	switch ($HTTP_POST_VARS["key"]){
+if (isset ($_POST["key"])){
+	switch ($_POST["key"]){
 		case "confirm":
-			$OUTPUT = confirm_medical_aid_details ($HTTP_POST_VARS);
+			$OUTPUT = confirm_medical_aid_details ($_POST);
 			break;
 		case "write":
-			$OUTPUT = write_medical_aid_details ($HTTP_POST_VARS);
+			$OUTPUT = write_medical_aid_details ($_POST);
 			break;
 		default:
 			$OUTPUT = get_medical_aid_details ();
@@ -83,10 +83,10 @@ function get_medical_aid_details ($err="")
 
 
 
-function confirm_medical_aid_details ($HTTP_POST_VARS)
+function confirm_medical_aid_details ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$display = "
 		<h4>Confirm Medical Aid Information</h4>
@@ -138,10 +138,10 @@ function confirm_medical_aid_details ($HTTP_POST_VARS)
 
 
 
-function write_medical_aid_details ($HTTP_POST_VARS)
+function write_medical_aid_details ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	db_connect ();
 

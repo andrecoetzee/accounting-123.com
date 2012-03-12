@@ -25,7 +25,7 @@
 
 require ("settings.php");
 
-$OUTPUT = printSord ($HTTP_POST_VARS);
+$OUTPUT = printSord ($_POST);
 
 require ("template.php");
 
@@ -34,10 +34,10 @@ require ("template.php");
 ##
 
 # show Sales Orders
-function printSord ($HTTP_POST_VARS)
+function printSord ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	#nothing to remove ? set var anyway ...
 	if(!isset($cancorderid))

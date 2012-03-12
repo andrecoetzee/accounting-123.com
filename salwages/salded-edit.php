@@ -28,23 +28,23 @@ require ("../settings.php");
 require ("../core-settings.php");
 
 # decide what to do
-if (isset ($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset ($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirmDeduct ($HTTP_POST_VARS);
+			$OUTPUT = confirmDeduct ($_POST);
 			break;
 		case "write":
 			if (isset ($_REQUEST["submit_ded"])){
-				$OUTPUT = writeDeduct ($HTTP_POST_VARS);
+				$OUTPUT = writeDeduct ($_POST);
 			}else {
-				$OUTPUT = confirmDeduct ($HTTP_POST_VARS);
+				$OUTPUT = confirmDeduct ($_POST);
 			}
 			break;
 		default:
-			$OUTPUT = enterDeduct ($HTTP_POST_VARS["refno"]);
+			$OUTPUT = enterDeduct ($_POST["refno"]);
 	}
 } else {
-	$OUTPUT = enterDeduct ($HTTP_GET_VARS["refno"]);
+	$OUTPUT = enterDeduct ($_GET["refno"]);
 }
 
 # display output
@@ -193,10 +193,10 @@ function enterDeduct ($refno)
 
 
 # confirm new data
-function confirmDeduct ($HTTP_POST_VARS)
+function confirmDeduct ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -407,10 +407,10 @@ function confirmDeduct ($HTTP_POST_VARS)
 
 
 # write new data
-function writeDeduct ($HTTP_POST_VARS)
+function writeDeduct ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

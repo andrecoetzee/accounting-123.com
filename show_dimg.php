@@ -25,14 +25,14 @@
         // Settings for db, etc
         require ("settings.php");
 
-        global $HTTP_GET_VARS;
+        global $_GET;
         
-        if (!isset($HTTP_GET_VARS["picid"]))
+        if (!isset($_GET["picid"]))
         	die ("");
         
         // Get image binary from db
         db_connect();
-        $sql = "SELECT image_data,image_type FROM display_images WHERE id = '$HTTP_GET_VARS[picid]' LIMIT 1";
+        $sql = "SELECT image_data,image_type FROM display_images WHERE id = '$_GET[picid]' LIMIT 1";
         $imgRslt = db_exec ($sql) or errDie ("Unable to retrieve image from database",SELF);
         $imgBin = pg_fetch_array ($imgRslt);
 

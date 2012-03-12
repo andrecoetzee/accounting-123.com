@@ -27,16 +27,16 @@
 require("../settings.php");
 require("../core-settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "spreadsheet":
-			$OUTPUT = clean_html(viewtran($HTTP_POST_VARS));
+			$OUTPUT = clean_html(viewtran($_POST));
 			require_lib("xls");
 			StreamXLS("ledgerprd", $OUTPUT);
 			break;
 		case "viewtran":
-			if(isset($HTTP_POST_VARS['continue']))
-				$OUTPUT = viewtran($HTTP_POST_VARS);
+			if(isset($_POST['continue']))
+				$OUTPUT = viewtran($_POST);
 			else 
 				$OUTPUT = slctacc();
 			break;
@@ -56,8 +56,8 @@ require("../template.php");
 function slctacc($err = "")
 {
 
-	global $PRDMON, $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $PRDMON, $_POST;
+	extract($_POST);
 
 	$fprd = finMonList("fprd", $PRDMON[1]);
 	$tprd = finMonList("tprd", PRD_DB);
@@ -173,10 +173,10 @@ function slctacc($err = "")
 }
 
 
-function viewtran($HTTP_POST_VARS)
+function viewtran($_POST)
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	global $MONPRD, $PRDMON;
 

@@ -30,8 +30,8 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if(isset($HTTP_GET_VARS['cashid'])){
-	$OUTPUT = confirm($HTTP_GET_VARS['cashid']);
+if(isset($_GET['cashid'])){
+	$OUTPUT = confirm($_GET['cashid']);
 }else{
 	$OUTPUT = "<li class='err'> Invalid use of mudule.</li>";
 }
@@ -43,7 +43,7 @@ require("../template.php");
 function confirm($cashid)
 {
 
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	# validate input
 	require_lib("validate");
@@ -61,7 +61,7 @@ function confirm($cashid)
 		return $confirm;
 	}
 
-	if(isset($HTTP_GET_VARS["type"]) AND ($HTTP_GET_VARS["type"] == "cash")){
+	if(isset($_GET["type"]) AND ($_GET["type"] == "cash")){
 		$bou = "cashbook";
 	}else {
 		$bou = "batch_cashbook";

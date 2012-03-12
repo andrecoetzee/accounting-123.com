@@ -29,18 +29,18 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["purid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["done"] = "";
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["purid"]) && isset($_GET["cont"])) {
+	$_GET["done"] = "";
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
             case "search":
-				$OUTPUT = search($HTTP_POST_VARS);
+				$OUTPUT = search($_POST);
 				break;
 
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 
             default:
@@ -55,10 +55,10 @@ if (isset($HTTP_GET_VARS["purid"]) && isset($HTTP_GET_VARS["cont"])) {
 require("template.php");
 
 # Default view
-function slct($HTTP_GET_VARS = array(), $err = "")
+function slct($_GET = array(), $err = "")
 {
 	# get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 
@@ -113,10 +113,10 @@ function create_dummy($deptid, $spurnum, $spurtype, $spurprd){
 	return $purid;
 }
 
-function search($HTTP_POST_VARS)
+function search($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -132,7 +132,7 @@ function search($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$error .= "<li class=err>".$e["msg"];
 		}
-		return slct($HTTP_POST_VARS, $error);
+		return slct($_POST, $error);
 	}
 
 	$purs=explode(",",$purnum);
@@ -171,14 +171,14 @@ function search($HTTP_POST_VARS)
 		return details($send);
 	}
 
-	return slct($HTTP_POST_VARS, "<li class=err> - Purchase No. $purnum not found.");
+	return slct($_POST, "<li class=err> - Purchase No. $purnum not found.");
 }
 
 # details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -355,11 +355,11 @@ function details($HTTP_POST_VARS, $error="")
 }
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -421,8 +421,8 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class=err>".$e["msg"];
 		}
-		$HTTP_POST_VARS['done'] = "";
-		return details($HTTP_POST_VARS, $err);
+		$_POST['done'] = "";
+		return details($_POST, $err);
 	}
 
 	# Get purchase info
@@ -512,10 +512,10 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					$rslt = db_exec($sql) or errDie("Unable to insert Order items to Cubit.",SELF);
 				}
 				# everything is set place done button
-				$HTTP_POST_VARS["done"] = " | <input name=doneBtn type=submit value='Done'> | <input name=print  type=submit value='Receive'>";
+				$_POST["done"] = " | <input name=doneBtn type=submit value='Done'> | <input name=print  type=submit value='Receive'>";
 			}
 		}else{
-			$HTTP_POST_VARS["done"] = "";
+			$_POST["done"] = "";
 		}
 
 		/* --- Clac --- */
@@ -576,7 +576,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 		exit;
 
 	}elseif(!isset($doneBtn)){
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}else{
 		# insert purchase to DB
 		$sql = "UPDATE nons_purchases SET done = 'y' WHERE purid = '$purid' AND div = '".USER_DIV."'";

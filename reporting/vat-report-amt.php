@@ -29,10 +29,10 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
             case "view":
-				$OUTPUT = viewRep($HTTP_POST_VARS);
+				$OUTPUT = viewRep($_POST);
 				break;
 
 			default:

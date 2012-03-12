@@ -29,23 +29,23 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "cancel":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			# Display default output
-			if(isset($HTTP_GET_VARS['cashid'])){
-				$OUTPUT = confirm($HTTP_GET_VARS['cashid']);
+			if(isset($_GET['cashid'])){
+				$OUTPUT = confirm($_GET['cashid']);
 			}else{
 				$OUTPUT = "<li class='err'> Invalid use of mudule.</li>";
 			}
 	}
 } else {
 	# Display default output
-	if(isset($HTTP_GET_VARS['cashid'])){
-		$OUTPUT = confirm($HTTP_GET_VARS['cashid']);
+	if(isset($_GET['cashid'])){
+		$OUTPUT = confirm($_GET['cashid']);
 	}else{
 		$OUTPUT = "<li class='err'> Invalid use of mudule.</li>";
 	}
@@ -216,11 +216,11 @@ function confirm($cashid)
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
     # get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$vatcode += 0;
 	

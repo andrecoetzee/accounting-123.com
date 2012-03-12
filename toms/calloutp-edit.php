@@ -26,24 +26,24 @@
 require ("../settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-	            	$OUTPUT = write($HTTP_POST_VARS);
+	            	$OUTPUT = write($_POST);
 			break;
 		default:
-			if (isset($HTTP_GET_VARS['calloutpid'])){
-				$OUTPUT = edit ($HTTP_GET_VARS['calloutpid']);
+			if (isset($_GET['calloutpid'])){
+				$OUTPUT = edit ($_GET['calloutpid']);
 			} else {
 				$OUTPUT = "<li> - Invalid use of module";
 			}
 	}
 } else {
-		if (isset($HTTP_GET_VARS['calloutpid'])){
-			$OUTPUT = edit ($HTTP_GET_VARS['calloutpid']);
+		if (isset($_GET['calloutpid'])){
+			$OUTPUT = edit ($_GET['calloutpid']);
 		} else {
 			$OUTPUT = "<li> - Invalid use of module";
 		}
@@ -101,10 +101,10 @@ function edit($calloutpid)
 }
 
 # confirm new data
-function confirm ($HTTP_POST_VARS)
+function confirm ($_POST)
 {
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -148,10 +148,10 @@ function confirm ($HTTP_POST_VARS)
 }
 
 # write new data
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

@@ -27,14 +27,14 @@
 require ("../settings.php");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
@@ -47,19 +47,19 @@ require("gw-tmpl.php");
 
 function list_messages ()
 {
-	global $HTTP_GET_VARS;
+	global $_GET;
 	$Display="";
 	$PDisplay="";
 
-	if ( isset($HTTP_GET_VARS["key"]) && isset($HTTP_GET_VARS["id"]) ) {
+	if ( isset($_GET["key"]) && isset($_GET["id"]) ) {
 		// if we should read, read
-		if ( $HTTP_GET_VARS["key"] == "view" ) {
+		if ( $_GET["key"] == "view" ) {
 			$rslt = db_exec("
 				SELECT sender, message, EXTRACT(month from timesent) as month, 
 					EXTRACT(day from timesent) as day, EXTRACT(year from timesent) as year, 
 					EXTRACT(hour from timesent) as hour, EXTRACT(minute from timesent) as minute 
 				FROM req 
-				WHERE id='$HTTP_GET_VARS[id]'");
+				WHERE id='$_GET[id]'");
 
 			if ( pg_num_rows($rslt) > 0 ) {
 				$row = pg_fetch_array($rslt);
@@ -85,13 +85,13 @@ function list_messages ()
 					<br>";
 
 				// mark as read
-				db_exec("UPDATE req SET viewed='1' WHERE id='$HTTP_GET_VARS[id]'");
+				db_exec("UPDATE req SET viewed='1' WHERE id='$_GET[id]'");
 			}
 		}
 
 		// if we should delete... delete
-		if ( $HTTP_GET_VARS["key"] == "del" ) {
-			$rslt = db_exec("DELETE FROM req WHERE id='$HTTP_GET_VARS[id]'");
+		if ( $_GET["key"] == "del" ) {
+			$rslt = db_exec("DELETE FROM req WHERE id='$_GET[id]'");
 
 			if ( pg_cmdtuples($rslt) > 0 ) {
 				$PDisplay.="<h3>Output</h3>Message Successfully Deleted.<br><br>";

@@ -29,19 +29,19 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["sordid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["stkerr"] = '0,0';
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["sordid"]) && isset($_GET["cont"])) {
+	$_GET["stkerr"] = '0,0';
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "details":
-				if(isset($HTTP_POST_VARS["ctyp"]) && $HTTP_POST_VARS["ctyp"] == 'int')
-					header("Location: intsorder-new.php?deptid=$HTTP_POST_VARS[deptid]&letters=$HTTP_POST_VARS[letters]");
-				$OUTPUT = details($HTTP_POST_VARS);
+				if(isset($_POST["ctyp"]) && $_POST["ctyp"] == 'int')
+					header("Location: intsorder-new.php?deptid=$_POST[deptid]&letters=$_POST[letters]");
+				$OUTPUT = details($_POST);
 				break;
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 			default:
 				$OUTPUT = view();
@@ -117,11 +117,11 @@ function view()
 
 
 # Default view
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Query server for depts
 	db_conn("exten");
@@ -253,10 +253,10 @@ function create_dummy($deptid)
 
 
 # details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 
-	extract($HTTP_POST_VARS);
+	extract($_POST);
 
 	# validate input
 	include("libs/validate.lib.php");
@@ -346,7 +346,7 @@ function details($HTTP_POST_VARS, $error="")
 		$custRslt = db_exec ($sql) or errDie ("Unable to view customers");
 		if (pg_numrows ($custRslt) < 1) {
 			$err = "<li class='err'>No customer names starting with <b>$letters</b> in database.</li>";
-			return view_err($HTTP_POST_VARS, $err);
+			return view_err($_POST, $err);
 		}else{
 			$customers = "<select name='cusnum' onChange='javascript:document.form.submit();'>";
 			$customers .= "<option value='-S' selected>Select Customer</option>";
@@ -1600,11 +1600,11 @@ function details($HTTP_POST_VARS, $error="")
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($Cancel)) {
 		db_connect();
@@ -1710,7 +1710,7 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class='err'>".$e["msg"]."</li>";
 		}
-		return details($HTTP_POST_VARS, $err);
+		return details($_POST, $err);
 	}
 
 
@@ -1725,7 +1725,7 @@ function write($HTTP_POST_VARS)
 				db_exec($sql) or errDie("Unable to create new required purchases.");
 			}
 		}
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}
 
 	# Get Sales Order info
@@ -1869,7 +1869,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 				$Ri = db_exec($Sl);
 
 				if(pg_num_rows($Ri) < 1) {
-					return details($HTTP_POST_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+					return details($_POST, "<li class='err'>Please select the vatcode for all your items.</li>");
 				}
 
 				$vd = pg_fetch_array($Ri);
@@ -1952,7 +1952,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 				$Ri = db_exec($Sl);
 
 				if(pg_num_rows($Ri) < 1) {
-					return details($HTTP_POST_VARS, "<li class='err'>Please select the vatcode for all your items.</li>");
+					return details($_POST, "<li class='err'>Please select the vatcode for all your items.</li>");
 				}
 				$vd = pg_fetch_array($Ri);
 
@@ -2002,11 +2002,11 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 				$rslt = db_exec($sql) or errDie("Unable to update stock to Cubit.",SELF);
 			}
 			# everything is set place done button
-			$HTTP_POST_VARS["done"] = "&nbsp; | &nbsp;<input name='doneBtn' type='submit' value='Done'>
+			$_POST["done"] = "&nbsp; | &nbsp;<input name='doneBtn' type='submit' value='Done'>
 			&nbsp; | &nbsp;<input type='submit' name='donePrnt' value='Done, Print and make another'>";
 		}
 	}else{
-		$HTTP_POST_VARS["done"] = "";
+		$_POST["done"] = "";
 	}
 
 	db_conn('cubit');
@@ -2030,7 +2030,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 		$showvat = FALSE;
 	}
 
-	$HTTP_POST_VARS['showvat'] = $showvat;
+	$_POST['showvat'] = $showvat;
 
 	$vr = vatcalc($delchrg,$sord['chrgvat'],$excluding,$sord['traddisc'],$vd['vat_amount']);
 
@@ -2249,9 +2249,9 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 			);
 		return $write;
 	}else{
-		if(isset($wtd)){$HTTP_POST_VARS['wtd'] = $wtd;}
-		if(strlen($ria) > 0){$HTTP_POST_VARS['ria'] = $ria;}
-		return details($HTTP_POST_VARS, $msg);
+		if(isset($wtd)){$_POST['wtd'] = $wtd;}
+		if(strlen($ria) > 0){$_POST['ria'] = $ria;}
+		return details($_POST, $msg);
 	}
 /* --- End button Listeners --- */
 }

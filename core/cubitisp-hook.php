@@ -27,32 +27,32 @@
 require("settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
                 case "slctacc":
-			$OUTPUT = slctAcc($HTTP_POST_VARS);
+			$OUTPUT = slctAcc($_POST);
 			break;
 
                 case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 
                 case "write":
-                        $OUTPUT = write($HTTP_POST_VARS);
+                        $OUTPUT = write($_POST);
 			break;
 
                 default:
-                        if(isset($HTTP_GET_VARS["type"]) && isset($HTTP_GET_VARS["payname"])){
+                        if(isset($_GET["type"]) && isset($_GET["payname"])){
                                # Display default output
-                                $OUTPUT = slctCat($HTTP_GET_VARS["type"], $HTTP_GET_VARS["payname"]);
+                                $OUTPUT = slctCat($_GET["type"], $_GET["payname"]);
                         }else{
                                 $OUTPUT = "<li>ERROR : Invalid use of module";
                         }
         }
 } else {
-        if(isset($HTTP_GET_VARS["type"]) && isset($HTTP_GET_VARS["payname"])){
+        if(isset($_GET["type"]) && isset($_GET["payname"])){
                 # Display default output
-                $OUTPUT = slctCat($HTTP_GET_VARS["type"], $HTTP_GET_VARS["payname"]);
+                $OUTPUT = slctCat($_GET["type"], $_GET["payname"]);
         }else{
                 $OUTPUT = "<li>ERROR : Invalid use of module";
         }
@@ -136,10 +136,10 @@ $slctCat .="</select></td></tr>
 }
 
 # Select Account
-function slctAcc($HTTP_POST_VARS)
+function slctAcc($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -200,10 +200,10 @@ $slctAcc .="</select></td></tr>
 }
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -277,13 +277,13 @@ $confirm =
 }
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 //processes
 core_connect();
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

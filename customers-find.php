@@ -27,22 +27,22 @@ require ("settings.php");
 require ("libs/ext.lib.php");
 require_lib("validate");
 
-if ( isset($HTTP_GET_VARS['addcontact']) ) {
-	$OUTPUT = AddContact($HTTP_GET_VARS);
-	$OUTPUT .= printCust($HTTP_GET_VARS);
+if ( isset($_GET['addcontact']) ) {
+	$OUTPUT = AddContact($_GET);
+	$OUTPUT .= printCust($_GET);
 } else {
 	# show current stock
-	$OUTPUT = printCust($HTTP_GET_VARS);
+	$OUTPUT = printCust($_GET);
 }
 
 require ("template.php");
 
 # show stock
-function printCust ($HTTP_GET_VARS)
+function printCust ($_GET)
 {
 
 	# get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 
@@ -176,20 +176,20 @@ function printCust ($HTTP_GET_VARS)
 
 // adds the customer to the contact list
 function AddContact() {
-	global $HTTP_GET_VARS;
+	global $_GET;
 
 	$v = & new Validate();
-	if ( ! $v->isOk($HTTP_GET_VARS["addcontact"], "num", 1, 9, "") )
+	if ( ! $v->isOk($_GET["addcontact"], "num", 1, 9, "") )
 		return "Invalid Customer Number";
 
 	// check if supplier can be added to contact list
-	$rslt = db_exec("SELECT * FROM cons WHERE cust_id='$HTTP_GET_VARS[addcontact]'");
+	$rslt = db_exec("SELECT * FROM cons WHERE cust_id='$_GET[addcontact]'");
 	if ( pg_numrows($rslt) >= 1 ) {
 		return "Customer Already Added as a Contact<br>";
 	}
 
 	// get it from the db
-	$sql = "SELECT * FROM customers WHERE cusnum='$HTTP_GET_VARS[addcontact]'";
+	$sql = "SELECT * FROM customers WHERE cusnum='$_GET[addcontact]'";
 	$rslt = db_exec($sql) or errDie("Unable to add customer to contact list. (RD)", SELF);
 	if ( pg_numrows($rslt) < 1 )
 		return "Unable to add customer to contact list. (RD2)";
@@ -198,7 +198,7 @@ function AddContact() {
 
 	extract($data);
 
-	if ( isset($HTTP_GET_VARS["addcontact_as"]) && $HTTP_GET_VARS["addcontact_as"] == "Company" ) {
+	if ( isset($_GET["addcontact_as"]) && $_GET["addcontact_as"] == "Company" ) {
 		$company = "$surname";
 		$surname = "";
 	} else {

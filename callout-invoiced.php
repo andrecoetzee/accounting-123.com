@@ -29,21 +29,21 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["calloutid"])) {
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["calloutid"])) {
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 
 			default:
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 				break;
 		}
 	} else {
-		$OUTPUT = details($HTTP_POST_VARS);
+		$OUTPUT = details($_POST);
 	}
 }
 
@@ -51,8 +51,8 @@ if (isset($HTTP_GET_VARS["calloutid"])) {
 require("template.php");
 
 # details
-function details($HTTP_POST_VARS, $error="") {
-	extract($HTTP_POST_VARS);
+function details($_POST, $error="") {
+	extract($_POST);
 
 	# validate input
 	include("libs/validate.lib.php");
@@ -134,7 +134,7 @@ function details($HTTP_POST_VARS, $error="") {
 			$custRslt = db_exec ($sql) or errDie ("Unable to view customers");
 			if (pg_numrows ($custRslt) < 1) {
 				$ajax_err = "<li class=err>No customer names starting with <b>$letters</b> in database.</li>";
-				//return view_err($HTTP_POST_VARS, $err);
+				//return view_err($_POST, $err);
 			}else{
 				$customers = "<select name='cusnum' onChange='javascript:document.form.submit();'>";
 				$customers .= "<option value='-S' selected>Select Customer</option>";
@@ -337,10 +337,10 @@ function details($HTTP_POST_VARS, $error="") {
 }
 
 
-function write ($HTTP_POST_VARS)
+function write ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($calloutid))
 		return "Invalid use of module";

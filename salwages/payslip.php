@@ -28,13 +28,13 @@ require ("../settings.php");
 require ("../core-settings.php");
 
 ## Decide
-if (isset($HTTP_POST_VARS["key"])) {
-        switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+        switch ($_POST["key"]) {
                 case "slip":
-	        	$OUTPUT = slip($HTTP_POST_VARS);
+	        	$OUTPUT = slip($_POST);
 		        break;
 		        case "export":
-	        	$OUTPUT = export($HTTP_POST_VARS);
+	        	$OUTPUT = export($_POST);
 		        break;
                 default:
                         $OUTPUT = slctEmployee ();
@@ -100,10 +100,10 @@ function slctEmployee ()
 }
 
 # confirm new data
-function slip ($HTTP_POST_VARS)
+function slip ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input
@@ -231,10 +231,10 @@ function slip ($HTTP_POST_VARS)
         return $slip;
 }
 
-function export ($HTTP_POST_VARS)
+function export ($_POST)
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 	# validate input

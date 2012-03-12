@@ -2,15 +2,15 @@
 
 require ("../settings.php");
 
-$OUTPUT = process_replay ($HTTP_POST_VARS);
+$OUTPUT = process_replay ($_POST);
 
 require ("../template.php");
 
 
-function process_replay ($HTTP_POST_VARS)
+function process_replay ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	
 

@@ -28,21 +28,21 @@ require("settings.php");
 require("core-settings.php");
 require("libs/ext.lib.php");
 
-if (isset($HTTP_POST_VARS['key'])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST['key'])) {
+	switch ($_POST["key"]) {
 		case "write":
-			$OUTPUT = write ($HTTP_POST_VARS);
+			$OUTPUT = write ($_POST);
 			break;
 		default:
-			if (isset($HTTP_GET_VARS['id'])){
-					$OUTPUT = confirm ($HTTP_GET_VARS['id']);
+			if (isset($_GET['id'])){
+					$OUTPUT = confirm ($_GET['id']);
 			} else {
 					$OUTPUT = "<li> - Invalid use of module.</li>";
 			}
 	}
 } else {
-        if (isset($HTTP_GET_VARS['id'])){
-                $OUTPUT = confirm ($HTTP_GET_VARS['id']);
+        if (isset($_GET['id'])){
+                $OUTPUT = confirm ($_GET['id']);
         } else {
                 $OUTPUT = "<li> - Invalid use of module";
         }
@@ -270,11 +270,11 @@ function confirm($id)
 
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# get stock vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");

@@ -2,10 +2,10 @@
 
 	require ("../settings.php");
 
-	if(isset($HTTP_POST_VARS["key"])){
-		switch ($HTTP_POST_VARS["key"]){
+	if(isset($_POST["key"])){
+		switch ($_POST["key"]){
 			case "confirm":
-				$OUTPUT = change_settings ($HTTP_POST_VARS);
+				$OUTPUT = change_settings ($_POST);
 				break;
 			default:
 				$OUTPUT = show_settings ();
@@ -63,10 +63,10 @@ function show_settings ($err = "")
 
 
 
-function change_settings ($HTTP_POST_VARS)
+function change_settings ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	$traddisc_check = getCSetting("SET_INV_TRADDISC");
 

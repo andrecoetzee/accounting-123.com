@@ -29,26 +29,26 @@ require("../settings.php");
 require("../core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "confirm":
-			$OUTPUT = confirm($HTTP_POST_VARS);
+			$OUTPUT = confirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		default:
 			# Display default output
-			if(isset($HTTP_GET_VARS['cashid'])){
-				$OUTPUT = edit($HTTP_GET_VARS['cashid']);
+			if(isset($_GET['cashid'])){
+				$OUTPUT = edit($_GET['cashid']);
 			}else{
 				$OUTPUT = "<li class='err'> Invalid use of module</li>";
 			}
 	}
 } else {
 	# Display default output
-	if(isset($HTTP_GET_VARS['cashid'])){
-		$OUTPUT = edit($HTTP_GET_VARS['cashid']);
+	if(isset($_GET['cashid'])){
+		$OUTPUT = edit($_GET['cashid']);
 	}else{
 		$OUTPUT = "<li class='err'> Invalid use of module</li>";
 	}
@@ -238,11 +238,11 @@ function edit($cashid)
 
 
 # Insert details
-function error($HTTP_POST_VARS, $err = "")
+function error($_POST, $err = "")
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	core_connect();
 	$sql = "SELECT * FROM accounts WHERE div = '".USER_DIV."' ORDER BY accname ASC";
@@ -389,11 +389,11 @@ function error($HTTP_POST_VARS, $err = "")
 
 
 # confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -429,7 +429,7 @@ function confirm($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>$e[msg]</li>";
 		}
-		return error($HTTP_POST_VARS, $confirm);
+		return error($_POST, $confirm);
 
 		$confirm .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirm;
@@ -519,11 +519,11 @@ function confirm($HTTP_POST_VARS)
 
 
 # write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# Validate input
 	require_lib("validate");
@@ -543,7 +543,7 @@ function write($HTTP_POST_VARS)
 		foreach ($errors as $e) {
 			$confirm .= "<li class='err'>$e[msg]</li>";
 		}
-		return error($HTTP_POST_VARS, $confirm);
+		return error($_POST, $confirm);
 		$confirm .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
 		return $confirm;
 	}

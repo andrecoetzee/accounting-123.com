@@ -32,29 +32,29 @@ require("settings.php");
 require("core-settings.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "slct":
-			$OUTPUT = slctacc($HTTP_POST_VARS);
+			$OUTPUT = slctacc($_POST);
 			break;
 		case "confirm":
 			if (isset ($_REQUEST["another"])){
-				$OUTPUT = slctacc($HTTP_POST_VARS);
+				$OUTPUT = slctacc($_POST);
 			}else {
-				$OUTPUT = confirm($HTTP_POST_VARS);
+				$OUTPUT = confirm($_POST);
 			}
 			break;
 		case "cconfirm":
-			$OUTPUT = cconfirm($HTTP_POST_VARS);
+			$OUTPUT = cconfirm($_POST);
 			break;
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "details":
-			$OUTPUT = details($HTTP_POST_VARS);
+			$OUTPUT = details($_POST);
 			break;
 		case "details2":
-			$OUTPUT = details2($HTTP_POST_VARS);
+			$OUTPUT = details2($_POST);
 			break;
 		default:
 			$OUTPUT = number();
@@ -73,8 +73,8 @@ require("template.php");
 function number()
 {
 
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	if(!isset($vby)) {
 		$vby = "";
@@ -128,11 +128,11 @@ function number()
 
 
 # Select Accounts
-function slctacc($HTTP_POST_VARS, $err="")
+function slctacc($_POST, $err="")
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if (!isset ($tnum))
 		$tnum = 1;
@@ -286,14 +286,14 @@ function slctacc($HTTP_POST_VARS, $err="")
 
 
 # Confirm
-function confirm($HTTP_POST_VARS)
+function confirm($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		return number($HTTP_POST_VARS);
+		return number($_POST);
 	}
 
 	$blocked_date_from = getCSetting("BLOCKED_FROM");
@@ -305,9 +305,9 @@ function confirm($HTTP_POST_VARS)
 	foreach($amount as $key => $value){
 		if($amount[$key] > 0){
 			if(isDisabled($ctaccid[$key]))
-				return custconfirm($HTTP_POST_VARS);
+				return custconfirm($_POST);
 			if(isDisabled($dtaccid[$key]))
-				return custconfirm($HTTP_POST_VARS);
+				return custconfirm($_POST);
 
 			$v->isOk ($ctaccid[$key], "num", 1, 50, "Invalid Account to be Credited.[$key]");
 			$v->isOk ($dtaccid[$key], "num", 1, 50, "Invalid Account to be Debited.[$key]");
@@ -320,7 +320,7 @@ function confirm($HTTP_POST_VARS)
 			}
 
 // 			if ($amount[$key] <= 0){
-// 				return slctacc($HTTP_POST_VARS,"<li class='err'>Invalid Amount To Process.</li>");
+// 				return slctacc($_POST,"<li class='err'>Invalid Amount To Process.</li>");
 // 			}
 
 			if (strtotime($date[$key]) >= strtotime($blocked_date_from) AND strtotime($date[$key]) <= strtotime($blocked_date_to) AND !user_is_admin(USER_ID)){
@@ -338,7 +338,7 @@ function confirm($HTTP_POST_VARS)
 			$confirm .= "<li class='err'>".$e["msg"]."</li>";
 		}
 		$confirm .= "<p><input type='button' onClick='JavaScript:history.back();' value='&laquo; Correct submission'>";
-		return slctacc($HTTP_POST_VARS, $confirm);
+		return slctacc($_POST, $confirm);
 	}
 
 
@@ -398,7 +398,7 @@ function confirm($HTTP_POST_VARS)
 		}
 	}
 	if(strlen($trans) < 5){
-		return slctacc ($HTTP_POST_VARS, "<li class='err'>Please enter full transaction details.</li><br>");
+		return slctacc ($_POST, "<li class='err'>Please enter full transaction details.</li><br>");
 	}
 
 	$confirm .= "
@@ -430,11 +430,11 @@ function confirm($HTTP_POST_VARS)
 
 
 # Customer Confirm
-function custconfirm($HTTP_POST_VARS)
+function custconfirm($_POST)
 {
 
     # Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -710,15 +710,15 @@ function custconfirm($HTTP_POST_VARS)
 
 
 # Customer Confirm
-function cconfirm($HTTP_POST_VARS)
+function cconfirm($_POST)
 {
 
     # Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return slctacc($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return slctacc($_POST);
 	}
 
 	# validate input
@@ -923,19 +923,19 @@ function cconfirm($HTTP_POST_VARS)
 
 
 # Write
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	# Get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(isset($back)) {
-		unset($HTTP_POST_VARS["back"]);
-		return slctacc($HTTP_POST_VARS);
+		unset($_POST["back"]);
+		return slctacc($_POST);
 	}
 
 	if(isset($cback)) {
-		return custconfirm($HTTP_POST_VARS);
+		return custconfirm($_POST);
 	}
 
 	# validate input

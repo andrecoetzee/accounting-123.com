@@ -28,30 +28,30 @@ require("settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "write":
-			$OUTPUT = write($HTTP_POST_VARS);
+			$OUTPUT = write($_POST);
 			break;
 		case "rfid":
-			$OUTPUT = rfid_write($HTTP_POST_VARS);
+			$OUTPUT = rfid_write($_POST);
 			break;
 		default:
-			$OUTPUT = order($HTTP_POST_VARS);
+			$OUTPUT = order($_POST);
 	}
-} elseif (isset($HTTP_GET_VARS["id"])) {
+} elseif (isset($_GET["id"])) {
 	# Display default output
-	$HTTP_POST_VARS["id"]=$HTTP_GET_VARS["id"];
+	$_POST["id"]=$_GET["id"];
 	//Sends the trip id to edit trip
-	if (isset($HTTP_GET_VARS["tripid"])) {$HTTP_POST_VARS["tripid"]=$HTTP_GET_VARS["tripid"];}
+	if (isset($_GET["tripid"])) {$_POST["tripid"]=$_GET["tripid"];}
 	//Sends the product id to edit product
-	if (isset($HTTP_GET_VARS["proid"])) {$HTTP_POST_VARS["proid"]=$HTTP_GET_VARS["proid"];}
+	if (isset($_GET["proid"])) {$_POST["proid"]=$_GET["proid"];}
 	//Just a way to ensure that the product is loaded only once for editing
-	if (isset($HTTP_GET_VARS["proid"])) {$HTTP_POST_VARS["busy"]="No";}
-	$OUTPUT = order($HTTP_POST_VARS);
+	if (isset($_GET["proid"])) {$_POST["busy"]="No";}
+	$OUTPUT = order($_POST);
 }else {
 	# Display default output
-	$OUTPUT = order($HTTP_POST_VARS);
+	$OUTPUT = order($_POST);
 }
 
 # get templete
@@ -60,13 +60,13 @@ require("template.php");
 
 
 
-function order($HTTP_POST_VARS,$errors="")
+function order($_POST,$errors="")
 {
 
 	$Out = "";
 
     # get vars
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	# validate input
 	require_lib("validate");
@@ -206,13 +206,13 @@ function order($HTTP_POST_VARS,$errors="")
 
 
 # Write Barecode Info
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	$Out = "";
 
 	#get & send vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 		$Out .= "<input type='hidden' name=$$key value='$value'>";
 	}
@@ -229,7 +229,7 @@ function write($HTTP_POST_VARS)
 
 	# display errors, if any
 	if ($v->isError ()) {
-		return order($HTTP_POST_VARS,$v->genErrors());
+		return order($_POST,$v->genErrors());
 	}
 
 	$cols = grp(
@@ -275,11 +275,11 @@ function write($HTTP_POST_VARS)
 				$tab = "ss9";
 				break;
 			default:
-				return order($HTTP_POST_VARS,"The code you selected is invalid");
+				return order($_POST,"The code you selected is invalid");
 		}
 	
 		if (barext_ex($tab,'code',$me)or(strlen($me) == 0)) {
-				return order($HTTP_POST_VARS,"The code you selected aready exits in the system.");
+				return order($_POST,"The code you selected aready exits in the system.");
 		}else {
 			$getcheck = "SELECT * FROM ".$tab." WHERE code = '$me' AND active = 'no'";
 			$runcheck = db_exec($getcheck) or errDie("Unable to get serial number check");
@@ -294,16 +294,16 @@ function write($HTTP_POST_VARS)
 	
 		}
 	}
-	return order($HTTP_POST_VARS);
+	return order($_POST);
 
 }
 
 
 
-function rfid_write ($HTTP_POST_VARS)
+function rfid_write ($_POST)
 {
 
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 
 	if(!isset($id))
 		return "Invalid ID.";

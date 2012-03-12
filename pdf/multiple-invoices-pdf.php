@@ -30,18 +30,18 @@ require("../core-settings.php");
 require("../libs/ext.lib.php");
 
 # Decide what to do
-if (isset($HTTP_GET_VARS["invids"])) {
-	details($HTTP_GET_VARS);
+if (isset($_GET["invids"])) {
+	details($_GET);
 } else {
 	$OUTPUT = "<li class=err>Invalid use of module.";
 	require("../template.php");
 }
 
 # Details
-function details($HTTP_GET_VARS)
+function details($_GET)
 {
 	# Get vars
-	foreach ($HTTP_GET_VARS as $key => $value) {
+	foreach ($_GET as $key => $value) {
 		$$key = $value;
 	}
 

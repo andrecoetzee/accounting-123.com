@@ -26,13 +26,13 @@
 
 require ("../settings.php");
 
-if (isset($HTTP_POST_VARS["key"])) {
-	switch ($HTTP_POST_VARS["key"]) {
+if (isset($_POST["key"])) {
+	switch ($_POST["key"]) {
 		case "enter":
 			$OUTPUT = enter();
 			break;
 		case "add":
-			$OUTPUT = add($HTTP_POST_VARS);
+			$OUTPUT = add($_POST);
 			break;
 	}
 } else {
@@ -43,8 +43,8 @@ require ("../template.php");
 
 function enter()
 {
-	global $HTTP_POST_VARS;
-	extract ($HTTP_POST_VARS);
+	global $_POST;
+	extract ($_POST);
 	
 	$fields = array();
 	
@@ -127,9 +127,9 @@ function enter()
 	return $OUTPUT;
 }
 
-function add($HTTP_POST_VARS)
+function add($_POST)
 {
-	extract ($HTTP_POST_VARS);
+	extract ($_POST);
 	
 	require_lib("validate");
 	$v = new validate;

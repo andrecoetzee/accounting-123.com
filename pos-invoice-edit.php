@@ -28,19 +28,19 @@ require("core-settings.php");
 require("libs/ext.lib.php");
 
 # decide what to do
-if (isset($HTTP_GET_VARS["invid"]) && isset($HTTP_GET_VARS["cont"])) {
-	$HTTP_GET_VARS["stkerr"] = '0,0';
-	$HTTP_GET_VARS["done"] = '';
-	$OUTPUT = details($HTTP_GET_VARS);
+if (isset($_GET["invid"]) && isset($_GET["cont"])) {
+	$_GET["stkerr"] = '0,0';
+	$_GET["done"] = '';
+	$OUTPUT = details($_GET);
 }else{
-	if (isset($HTTP_POST_VARS["key"])) {
-		switch ($HTTP_POST_VARS["key"]) {
+	if (isset($_POST["key"])) {
+		switch ($_POST["key"]) {
             case "details":
-				$OUTPUT = details($HTTP_POST_VARS);
+				$OUTPUT = details($_POST);
 				break;
 
 			case "update":
-				$OUTPUT = write($HTTP_POST_VARS);
+				$OUTPUT = write($_POST);
 				break;
 
             default:
@@ -94,10 +94,10 @@ function view()
 }
 
 # Default view
-function view_err($HTTP_POST_VARS, $err = "")
+function view_err($_POST, $err = "")
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -173,10 +173,10 @@ function create_dummy($deptid){
 }
 
 # details
-function details($HTTP_POST_VARS, $error="")
+function details($_POST, $error="")
 {
 	# get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -538,11 +538,11 @@ function details($HTTP_POST_VARS, $error="")
 }
 
 # details
-function write($HTTP_POST_VARS)
+function write($_POST)
 {
 
 	#get vars
-	foreach ($HTTP_POST_VARS as $key => $value) {
+	foreach ($_POST as $key => $value) {
 		$$key = $value;
 	}
 
@@ -615,11 +615,11 @@ function write($HTTP_POST_VARS)
 			foreach ($errors as $e) {
 			$err .= "<li class=err>".$e["msg"];
 		}
-		return details($HTTP_POST_VARS, $err);
+		return details($_POST, $err);
 	}
 
 	if(strlen($client)<1) {$client="Cash Sale";}
-	$HTTP_POST_VARS['client']=$client;
+	$_POST['client']=$client;
 	# Get invoice info
 	db_connect();
 	$sql = "SELECT * FROM pinvoices WHERE invid = '$invid' AND div = '".USER_DIV."'";
@@ -742,10 +742,10 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					$rslt = db_exec($sql) or errDie("Unable to update stock to Cubit.",SELF);
 				}
 				# everything is set place done button
-				$HTTP_POST_VARS["done"] = " | <input name=doneBtn type=submit value='Done'>";
+				$_POST["done"] = " | <input name=doneBtn type=submit value='Done'>";
 			}
 		}else{
-			$HTTP_POST_VARS["done"] = "";
+			$_POST["done"] = "";
 		}
 		/* --- Clac --- */
 		# calculate subtot
@@ -825,7 +825,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 
 		if (pg_numrows ($Rs) < 1)
 		{
-			return details($HTTP_POST_VARS,"<a href='pos-set.php'>Please set the point of sale setting by clicking here.</a>");
+			return details($_POST,"<a href='pos-set.php'>Please set the point of sale setting by clicking here.</a>");
 		}
 		$Dets = pg_fetch_array($Rs);
 		if($Dets['opt']=="No")
@@ -863,7 +863,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 						$tab="ss9";
 						break;
 					default:
-						return details($HTTP_POST_VARS,"The code you selected is invalid");
+						return details($_POST,"The code you selected is invalid");
 
 				}
 			db_conn('cubit');
@@ -872,7 +872,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 
 			$stid=barext_dbget($tab,'code',$bar,'stock');
 
-			if(!($stid>0)){return details($HTTP_POST_VARS,"The bar code you selected is not in the system or is not available.");}
+			if(!($stid>0)){return details($_POST,"The bar code you selected is not in the system or is not available.");}
 
 			$Sl = "SELECT * FROM stock WHERE stkid = '$stid' AND div = '".USER_DIV."'";
 			$Rs = db_exec($Sl);
@@ -899,7 +899,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 
 			$stid=ext_dbget('stock','bar',$bar,'stkid');
 
-			if(!($stid>0)){return details($HTTP_POST_VARS,"The bar code you selected is not in the system or is not available.");}
+			if(!($stid>0)){return details($_POST,"The bar code you selected is not in the system or is not available.");}
 
 			$Sl = "SELECT * FROM stock WHERE stkid = '$stid' AND div = '".USER_DIV."'";
 			$Rs = db_exec($Sl);
@@ -930,7 +930,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 		$crslt = db_exec($sql);
 		if(pg_numrows($crslt) < 1){
 			$error = "<li class=err> Error : Invoice number has no items.";
-			return details($HTTP_POST_VARS, $error);
+			return details($_POST, $error);
 		}
 
 		# insert quote to DB
@@ -956,7 +956,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 		</table>";
 		return $write;
 	}else{
-		return details($HTTP_POST_VARS);
+		return details($_POST);
 	}
 /* --- End button Listeners --- */
 }

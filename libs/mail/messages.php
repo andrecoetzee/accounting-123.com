@@ -36,19 +36,19 @@
 require ("../settings.php");
 
 // remove all '
-if ( isset($HTTP_POST_VARS) ) {
-	foreach ( $HTTP_POST_VARS as $key => $value ) {
-		$HTTP_POST_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_POST) ) {
+	foreach ( $_POST as $key => $value ) {
+		$_POST[$key] = str_replace("'", "", $value);
 	}
 }
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ( $HTTP_GET_VARS as $key => $value ) {
-		$HTTP_GET_VARS[$key] = str_replace("'", "", $value);
+if ( isset($_GET) ) {
+	foreach ( $_GET as $key => $value ) {
+		$_GET[$key] = str_replace("'", "", $value);
 	}
 }
 
-if ( isset($HTTP_GET_VARS["fid"]) ) {
-	$fid = $HTTP_GET_VARS["fid"];
+if ( isset($_GET["fid"]) ) {
+	$fid = $_GET["fid"];
 } else {
 	// now folder was selected, let's show the inbox folder of the first account on the list, if any
 	$rslt = db_exec("SELECT fid_inbox FROM mail_accounts,mail_account_settings

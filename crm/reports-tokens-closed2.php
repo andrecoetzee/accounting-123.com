@@ -25,10 +25,10 @@
 
 require("settings.php");
 
-if(isset($HTTP_POST_VARS["key"])) {
-	switch($HTTP_POST_VARS["key"]) {
+if(isset($_POST["key"])) {
+	switch($_POST["key"]) {
 		case "report":
-			$OUTPUT = report($HTTP_POST_VARS);
+			$OUTPUT = report($_POST);
 			break;
 		default:
 			$OUTPUT = "Invalid.";
@@ -73,8 +73,8 @@ function select_dates() {
 }
 
 
-function report($HTTP_POST_VARS){
-	extract($HTTP_POST_VARS);
+function report($_POST){
+	extract($_POST);
 
 	$ofdate = $ofrom_year."-".$ofrom_month."-".$ofrom_day;
 	$otdate = $oto_year."-".$oto_month."-".$oto_day;

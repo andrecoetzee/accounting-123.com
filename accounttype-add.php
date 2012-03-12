@@ -26,14 +26,14 @@ require ("settings.php");
 require_lib("validate");
 
 // puts get vars into post vars for easier access
-if ( isset($HTTP_GET_VARS) ) {
-	foreach ($HTTP_GET_VARS as $arrname => $arrval) {
-		$HTTP_POST_VARS[$arrname] = $arrval;
+if ( isset($_GET) ) {
+	foreach ($_GET as $arrname => $arrval) {
+		$_POST[$arrname] = $arrval;
 	}
 }
 
-if ( isset($HTTP_POST_VARS["key"]) ) {
-	switch ($HTTP_POST_VARS["key"]) {
+if ( isset($_POST["key"]) ) {
+	switch ($_POST["key"]) {
 		case "write":
 			$OUTPUT = write();
 			break;
@@ -107,7 +107,7 @@ function viewAccountTypes()
 function enter()
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
 	$OUTPUT = "
  		<h3>Add New Bank Account Type</h3>
@@ -128,8 +128,8 @@ function enter()
 function edit()
 {
 
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	$v = & new Validate();
 	$OUTPUT = "";
@@ -183,14 +183,14 @@ function edit()
 function write()
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
 	$v = & new Validate();
 	$OUTPUT = "";
 
     // set it to blank
-	if ( isset($HTTP_POST_VARS["accname"]) )
-		$v->isOk($HTTP_POST_VARS["accname"], "string", 1, 100, "Invalid Account Type Name");
+	if ( isset($_POST["accname"]) )
+		$v->isOk($_POST["accname"], "string", 1, 100, "Invalid Account Type Name");
 	else
 		$v->addError("", "No Account Type Name specified");
 
@@ -205,7 +205,7 @@ function write()
 
 	db_connect();
 
-	$sql = "INSERT INTO bankacctypes (accname) VALUES('$HTTP_POST_VARS[accname]')";
+	$sql = "INSERT INTO bankacctypes (accname) VALUES('$_POST[accname]')";
 	$rslt = db_exec($sql) or errDie("Error inserting account type into database. (QR)", SELF);
 
 	if ( pg_cmdtuples($rslt) < 1 )
@@ -222,19 +222,19 @@ function write()
 function write_edit()
 {
 
-	global $HTTP_POST_VARS;
+	global $_POST;
 
 	$v = & new Validate();
 	$OUTPUT = "";
 
     // set it to blank
-	if ( isset($HTTP_POST_VARS["accname"]) )
-		$v->isOk($HTTP_POST_VARS["accname"], "string", 1, 100, "Invalid Account Type Name");
+	if ( isset($_POST["accname"]) )
+		$v->isOk($_POST["accname"], "string", 1, 100, "Invalid Account Type Name");
 	else
 		$v->addError("", "No Account Type Name specified");
 
-	if ( isset($HTTP_POST_VARS["acctype_id"]) )
-		$v->isOk($HTTP_POST_VARS["acctype_id"], "num", 1, 9, "Invalid Account Type Specified");
+	if ( isset($_POST["acctype_id"]) )
+		$v->isOk($_POST["acctype_id"], "num", 1, 9, "Invalid Account Type Specified");
 	else
 		$v->addError("", "No Account Type specified");
 
@@ -249,7 +249,7 @@ function write_edit()
 
 	db_connect();
 
-	$sql = "UPDATE bankacctypes SET accname='$HTTP_POST_VARS[accname]' WHERE acctype_id='$HTTP_POST_VARS[acctype_id]'";
+	$sql = "UPDATE bankacctypes SET accname='$_POST[accname]' WHERE acctype_id='$_POST[acctype_id]'";
 	$rslt = db_exec($sql) or errDie("Error updating account type in database. (QR)", SELF);
 
 	if ( pg_cmdtuples($rslt) < 1 ) 
@@ -265,8 +265,8 @@ function write_edit()
 function delete_ask()
 {
 
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	$v = & new Validate();
 	$OUTPUT = "";
@@ -316,8 +316,8 @@ function delete_ask()
 function delete_confirm()
 {
 
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	$v = & new Validate();
 	$OUTPUT = "";

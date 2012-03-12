@@ -26,11 +26,11 @@
 # get settings
 require("settings.php");
 
-if ( ! isset($HTTP_POST_VARS["key"]) ) {
-	$HTTP_POST_VARS["key"] = "vatreg";
+if ( ! isset($_POST["key"]) ) {
+	$_POST["key"] = "vatreg";
 }
 
-switch ( $HTTP_POST_VARS["key"] ) {
+switch ( $_POST["key"] ) {
 case "confirm":
 	$OUTPUT = confirm();
 	break;
@@ -49,8 +49,8 @@ default:
 require("template.php");
 
 function vatreg($err="") {
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 	
 	db_conn("cubit");
 	$sql = "SELECT value AS vatreg FROM settings WHERE constant='VAT_REG'";
@@ -89,8 +89,8 @@ function vatreg($err="") {
 }
 
 function select($err="") {
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 	
 	if ( $vatreg == "no" ) {
 		return confirm();
@@ -182,8 +182,8 @@ function select($err="") {
 }
 
 function confirm() {
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 
 	if ( $vatreg == "yes" ) {
 		switch ( $prdcat ) {
@@ -267,8 +267,8 @@ function confirm() {
 }
 
 function write() {
-	global $HTTP_POST_VARS;
-	extract($HTTP_POST_VARS);
+	global $_POST;
+	extract($_POST);
 	
 	if ( $vatreg == "yes" ) {
 		switch ( $prdcat ) {
