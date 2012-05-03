@@ -115,16 +115,16 @@ function view($cusnum)
 		<input type=hidden name=key value=details>
 		<input type=hidden name=cusnum value='$cusnum'>
 		<tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer Name</td><td valign=center>$cusname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td rowspan=3 valign=top>Customer Address</td><td valign=center>$addr1</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><!-- rowspan --><td>$addr2</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td>$addr3</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Telephone No.</td><td valign=center>$tel</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Fax No.</td><td valign=center>$fax</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>E-mail Address</td><td valign=center>$email</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Order Date</td><td valign=center><input type=text size=2 name=oday maxlength=2>-<input type=text size=2 name=omon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=oyear maxlength=4 value='".date("Y")."'> DD-MM-YYYY</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Invoice date</td><td valign=center><input type=text size=2 name=invday maxlength=2 value='".date("d")."'>-<input type=text size=2 name=invmon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=invyear maxlength=4 value='".date("Y")."'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Account paid</td><td valign=center>$paid</td></tr>
+		<tr class='bg-odd'><td>Customer Name</td><td valign=center>$cusname</td></tr>
+		<tr class='bg-even'><td rowspan=3 valign=top>Customer Address</td><td valign=center>$addr1</td></tr>
+		<tr class='bg-odd'><!-- rowspan --><td>$addr2</td></tr>
+		<tr class='bg-even'><!-- rowspan --><td>$addr3</td></tr>
+		<tr class='bg-odd'><td>Telephone No.</td><td valign=center>$tel</td></tr>
+		<tr class='bg-even'><td>Fax No.</td><td valign=center>$fax</td></tr>
+		<tr class='bg-odd'><td>E-mail Address</td><td valign=center>$email</td></tr>
+		<tr class='bg-even'><td>Order Date</td><td valign=center><input type=text size=2 name=oday maxlength=2>-<input type=text size=2 name=omon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=oyear maxlength=4 value='".date("Y")."'> DD-MM-YYYY</td></tr>
+		<tr class='bg-odd'><td>Invoice date</td><td valign=center><input type=text size=2 name=invday maxlength=2 value='".date("d")."'>-<input type=text size=2 name=invmon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=invyear maxlength=4 value='".date("Y")."'></td></tr>
+		<tr class='bg-even'><td>Account paid</td><td valign=center>$paid</td></tr>
 		<tr><td><input type=button value='< Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Add >'></td></tr>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
 		<tr><th>Quick Links</th></tr>
@@ -206,7 +206,7 @@ function details($_POST)
         <input type=hidden name=accpaid value='$accpaid'>
         <table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width='25%' border=0>
 	        <tr><th class=h4>CUSTOMER ADDRESS</th></tr>
-	        <tr bgcolor='".TMPL_tblDataColor1."'><td>
+	        <tr class='bg-odd'><td>
                         <b>$cusname</b>
                         <p>$addr1<br>$addr2<br>$addr3
                         <p>Tel : $tel<br>Fax : $fax<br>$email<br>
@@ -225,7 +225,7 @@ function details($_POST)
 			return "<li>There are no stock in Cubit.";
 		}
 		while ($stk = pg_fetch_array ($stkRslt)) {
-				$view .= "<tr bgcolor='".TMPL_tblDataColor2."'><td align=center><input type=checkbox name=sel[$i] value='$stk[stkid]'></td><td>$stk[stkdes]</td>
+				$view .= "<tr class='bg-even'><td align=center><input type=checkbox name=sel[$i] value='$stk[stkid]'></td><td>$stk[stkdes]</td>
                 <td align=center><input type=text name='qty[]' size=5> x $stk[suom]</td><td align=center>".CUR." <input type=text name='cost[]' size=10></td>
                 <td align=center>".CUR." <input type=text name=unitcost[] value='$stk[selamt]' size=10></td></td></tr>";
 				$i++;
@@ -311,14 +311,14 @@ function confirm($_POST)
 		<input type=hidden name=invdate value='$invdate'>
 		<input type=hidden name=accpaid value='$accpaid'>
 		<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td width=70%>Customer Name</td><td valign=center>$cusname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Customer Address</td><td valign=center>$addr1<br>$addr2<br>$addr3</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Telephone No.</td><td valign=center>$tel</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Fax No.</td><td valign=center>$fax</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>E-mail Address</td><td valign=center>$email</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Order Date</td><td valign=center>$orddate</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>invdate</td><td valign=center>$invdate</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Account paid to</td><td valign=center>$pacc[accname]</td></tr>
+		<tr class='bg-odd'><td width=70%>Customer Name</td><td valign=center>$cusname</td></tr>
+		<tr class='bg-even'><td valign=top>Customer Address</td><td valign=center>$addr1<br>$addr2<br>$addr3</td></tr>
+		<tr class='bg-odd'><td>Telephone No.</td><td valign=center>$tel</td></tr>
+		<tr class='bg-even'><td>Fax No.</td><td valign=center>$fax</td></tr>
+		<tr class='bg-odd'><td>E-mail Address</td><td valign=center>$email</td></tr>
+		<tr class='bg-even'><td>Order Date</td><td valign=center>$orddate</td></tr>
+		<tr class='bg-odd'><td>invdate</td><td valign=center>$invdate</td></tr>
+		<tr class='bg-even'><td>Account paid to</td><td valign=center>$pacc[accname]</td></tr>
 		</table><br>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=70%>
 		<tr><th width=40%>Description</th><th width=20%>Quantity</th><th width=20%>Unit Cost Price</th><th width=20%>Unit Selling Price</th></tr>";
@@ -330,7 +330,7 @@ function confirm($_POST)
 						$stkRslt = db_exec ($sql) or errDie ("Unable to retrieve stocks from database.");
 						$stk = pg_fetch_array($stkRslt);
 
-						$confirm .= "<tr bgcolor='".TMPL_tblDataColor2."'><td align=center><input type=hidden name=accid[] value='$stk[accid]'><input type=hidden name=sel[] value='$value'>
+						$confirm .= "<tr class='bg-even'><td align=center><input type=hidden name=accid[] value='$stk[accid]'><input type=hidden name=sel[] value='$value'>
 						<input type=hidden name=descript[] value='$stk[stkdes]'>$stk[stkdes]</td><td align=center><input type=hidden name=qty[] value='$qty[$key]'>$qty[$key] x $stk[suom]</td>
 						<td align=center><input type=hidden name=cost[] value='$cost[$key]'>".CUR." ".sprintf("%01.2f",$cost[$key])."</td>
 						<td align=center><input type=hidden name=unitcost[] value='$unitcost[$key]'>".CUR." ".sprintf("%01.2f",$unitcost[$key])."</td></tr>";

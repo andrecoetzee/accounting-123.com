@@ -70,14 +70,14 @@ function select()
 			<tr>
 				<th colspan='2'>Store</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>$stores_sel</td>
 			</tr>
 			<tr><td>&nbsp;</td></tr>
 			<tr>
 				<th colspan='2'>By Category</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$categories_sel</td>
 				<td><input type='submit' name='button[category]' value='View' /></td>
 			</tr>
@@ -85,7 +85,7 @@ function select()
 			<tr>
 				<th colspan='2'>By Classification</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$classifications_sel</td>
 				<td><input type='submit' name='button[classification]' value='View' /></td>
 			</tr>
@@ -93,7 +93,7 @@ function select()
 			<tr>
 				<th colspan='2'>All Categories and Classifications</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='submit' value='View All' style='width: 100%' /></td>
 			</tr>
 		</table>";
@@ -371,7 +371,7 @@ function display()
 		}
 	
 		$stockrec_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stockrec_data[edate]</td>
 				<td>$stockrec_data[whname]</td>
 				<td>$stockrec_data[stkcod]</td>
@@ -396,7 +396,7 @@ function display()
 	
 	if (empty($stockrec_out)) {
 		$stockrec_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='14'><li>No results found.</li></td>
 			</tr>";
 	}
@@ -436,10 +436,10 @@ function display()
 				<tr>
 					<td>
 						<table ".TMPL_tblDflts." width='100%'>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<th colspan='4'>Date Range</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>".mkDateSelect("frm", $frm_year, $frm_month, $frm_day)."</td>
 								<td>&nbsp; <b>To</b> &nbsp;</td>
 								<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -454,7 +454,7 @@ function display()
 								<th width='50%'>Category</th>
 								<th width='50%'>Classification</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$categories_sel</td>
 								<td>$classifications_sel</td>
 							</tr>
@@ -477,7 +477,7 @@ function display()
 							<tr>
 								<th colspan='2'>Sorting</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='2' align='center'>
 									<input type='radio' name='sort_order' value='date' $sortcheck2> Date 
 									<input type='radio' name='sort_order' value='stkcod' $sortcheck3> Stock Code 
@@ -495,7 +495,7 @@ function display()
 							<tr>
 								<th colspan='2'>Display Stock GP</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='radio' name='sel_perc' value='below' $checked[below] /></td>
 								<td>
 									Below
@@ -503,7 +503,7 @@ function display()
 									size='3' style='text-align: center' /><b>%</b>
 								</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='radio' name='sel_perc' value='above' $checked[above] /></td>
 								<td>
 									Above
@@ -511,7 +511,7 @@ function display()
 									size='3' style='text-align: center' /><b>%</b>
 								</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='radio' name='sel_perc'  value='between' $checked[between] /></td>
 								<td>
 									Between
@@ -553,7 +553,7 @@ function display()
 				<th>Gross Profit %</th>
 			</tr>
 			$stockrec_out
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='9'>Total</td>
 				<td align='right'>".sprint($stock_total)."</td>
 				<td align='right'>".sprint($cost_total)."</td>
@@ -561,12 +561,12 @@ function display()
 				<td align='right'>".sprint($profit_total)."</td>
 				<td>&nbsp;</td>
 			</tr>
-			<!--<tr bgcolor='".bgcolorg()."'>
+			<!--<tr class='".bg_class()."'>
 				<td colspan='12'>Total VAT</td>
 				<td align='right'>$vat_total</td>
 				<td>&nbsp;</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='12'><strong>GRAND TOTAL</strong></td>
 				<td align='right'><b>".sprint($profit_total - $vat_total)."</b></td>
 				<td>&nbsp;</td>

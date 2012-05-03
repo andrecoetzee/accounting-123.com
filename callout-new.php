@@ -85,10 +85,10 @@ function view()
 			<tr>
 				<th colspan='2'>New Workshop Callout Document</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Select Department</td>
 				<td valign='center'>$depts</td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>First Letters of customer</td>
 				<td valign='center'><input type='text' size='5' name='letters' maxlength='5'></td></tr>
 			<tr><td><br></td></tr>
@@ -103,10 +103,10 @@ function view()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='callout-view.php'>View Callout Documents</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='customers-new.php'>New Customer</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -157,11 +157,11 @@ function view_err($_POST, $err = "")
 			<tr>
 				<td colspan='2'>$err</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Department</td>
 				<td valign=center>$depts</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>First Letters of customer</td>
 				<td valign=center><input type='text' size='5' name='letters' value='$letters' maxlength=5></td>
 			</tr>
@@ -177,10 +177,10 @@ function view_err($_POST, $err = "")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='callout-view.php'>View Callout Documents</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='customers-new.php'>New Customer</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -287,10 +287,10 @@ function details($_POST, $error="")
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='toms/calloutp-add.php'>Add Call Out Person</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";
@@ -498,7 +498,7 @@ function details($_POST, $error="")
 				<input type='hidden' name='whids[]' value='$stkd[whid]'>
 				<input type='hidden' name='stkids[]' value='$stkd[stkid]'>
 				<input type='hidden' name='SCROLL' value='yes'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'>$Accounts</td>
 					<td><input type='text' size='20' name='descriptions[]' value='$stkd[description]'> $sernos</td>
 					<td>$qtyin</td>
@@ -532,7 +532,7 @@ function details($_POST, $error="")
 				<input type='hidden' name='stkids[]' value='$stkd[stkid]'>
 				<input type='hidden' name='whids[]' value='$stkd[whid]'>
 				<input type='hidden' name='SCROLL' value='yes'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$wh[whname]</td>
 					<td><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td>
 					<td>".extlib_rstr($stk['stkdes'], 30)."</td>
@@ -607,7 +607,7 @@ function details($_POST, $error="")
 				$products .= "
 					<input type='hidden' name='accounts[]' value='0'>
 					<input type='hidden' name='descriptions[]' value=''>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' name='whids[]' value='$whid'>$wh[whname]</td>
 						<td><input type='hidden' name='stkids[]' value='$stk[stkid]'><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td>
 						<td>".extlib_rstr($stk['stkdes'], 30)."</td>
@@ -643,7 +643,7 @@ function details($_POST, $error="")
 	 				<input type='hidden' name='stkids[]' value='0'>
 	 				<input type='hidden' name='disc[]' value='0'>
 	 				<input type='hidden' name='discp[]' value='0'>
-	 				<tr bgcolor='".bgcolorg()."'>
+	 				<tr class='".bg_class()."'>
 	 					<td colspan='2'>$ad[accname]</td>
 	 					<td><input type='text' size='20' name='descriptions[]' value='$descriptionss[$key]'></td>
 	 					<td>$qtyin</td>
@@ -703,7 +703,7 @@ function details($_POST, $error="")
 						$products .= "
 							<input type='hidden' name='accountss[]' value='0'>
 							<input type='hidden' name='descriptionss[]' value=''>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' name='whidss[]' value='$whid'>$wh[whname]</td>
 								<td>$cods</td>
 								<td>$descs</td>
@@ -752,7 +752,7 @@ function details($_POST, $error="")
 				$products .= "
 					<input type='hidden' name='descriptionss[]' value=''>
 					<input type='hidden' name='accountss[]' value='0'>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' name='whidss[]' value='$whid'>$wh[whname]</td>
 						<td>$stks</td>
 						<td></td>
@@ -762,7 +762,7 @@ function details($_POST, $error="")
 					</tr>";
 			}else{
 				$products .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$whs</td>
 						<td></td>
 						<td> </td>
@@ -791,7 +791,7 @@ function details($_POST, $error="")
 
 			$products .= "
 				<input type='hidden' name='whidss[]' value='$FIRST_WH'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'>$Accounts</td>
 					<td><input type='text' size='20' name='descriptionss[]'></td>
 					<td><input type='text' size='3' name='qtyss[]' value='1'></td>
@@ -805,7 +805,7 @@ function details($_POST, $error="")
 
 	if(isset($diffwhBtn)){
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$whs</td>
 				<td></td>
 				<td></td>
@@ -883,24 +883,24 @@ function details($_POST, $error="")
 				<tr>
 					<th colspan='2'> Customer Details </th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Department</td>
 					<td valign='center'>$dept[deptname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Customer</td>
 					<td valign='center'>$customers</td>
 					$custedit
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>Customer Address</td>
 					<td valign='center'>".nl2br($cust['addr1'])."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Customer VAT Number</td>
 					<td>$cust[vatnum]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Using</td>
 					<td>Stock Code<input type='radio' name='sel_frm' value='stkcod' onChange='javascript:document.form.submit();' $sel_frm_cod><br>Stock Description<input type='radio' name='sel_frm' value='stkdes' onChange='javascript:document.form.submit();' $sel_frm_des></td>
 				</tr>
@@ -936,11 +936,11 @@ function details($_POST, $error="")
 				<tr>
 					<th colspan='2'>New Callout Document</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".REQ."Select Department</td>
 					<td valign='center'>$depts</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>First Letters of customer</td>
 					<td valign='center'><input type='text' size='5' id='letters' maxlength='5'></td>
 				</tr>
@@ -971,23 +971,23 @@ function details($_POST, $error="")
 					<tr>
 						<th colspan='2'>Callout Document Details</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Job Number</td>
 						<td valign='center'>$doc[calloutid]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Call Out Person</td>
 						<td valign='center'>$calloutps</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Date Service Required</td>
 						<td valign='center'>".mkDateSelect("call",$call_year,$call_month,$call_day)."</td>
 					</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 						<td>Call Out Rate</td>
 						<td valign='center' nowrap>".CUR." <input type='text' name='def_travel' value='$doc[def_travel]'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Labour Rate/Hour</td>
 						<td valign='center' nowrap>".CUR." <input type='text' name='def_labour' value='$doc[def_labour]'></td>
 					</tr>
@@ -1014,11 +1014,11 @@ function details($_POST, $error="")
 					<td rowspan='5' valign='top' width='50%'>$error</td>
 				</tr>
 				<tr>
-					<td bgcolor='".bgcolorg()."'><a href='callout-new.php'>New Callout Document</a></td>
-					<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'><textarea name='calloutdescrip' rows='4' cols='20'>$doc[calloutdescrip]</textarea></td>
-					<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'><textarea name='comm' rows='4' cols='20'>$doc[comm]</textarea></td>
+					<td class='".bg_class()."'><a href='callout-new.php'>New Callout Document</a></td>
+					<td class='".bg_class()."' rowspan='4' align='center' valign='top'><textarea name='calloutdescrip' rows='4' cols='20'>$doc[calloutdescrip]</textarea></td>
+					<td class='".bg_class()."' rowspan='4' align='center' valign='top'><textarea name='comm' rows='4' cols='20'>$doc[comm]</textarea></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='callout-view.php'>View Callout Documents</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -1323,7 +1323,7 @@ function write($_POST)
 				<tr>
 					<th colspan='2'>New Callout Document</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Callout Document for client <b>$cust[cusname] $cust[surname]</b> has been recorded.</td>
 					<td><a target='_blank' href='callout-print.php?calloutid=$calloutid'>Print Callout Document</a></td>
 				</tr>
@@ -1345,7 +1345,7 @@ function write($_POST)
 				<tr>
 					<th>New Callout Document Saved</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Callout Document for client <b>$cust[cusname] $cust[surname]</b> has been saved.</td>
 				</tr>
 			</table>
@@ -1354,7 +1354,7 @@ function write($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='callout-view.php'>View Callout Documents</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>

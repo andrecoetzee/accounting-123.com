@@ -80,19 +80,19 @@ function slctacc()
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Customers</td>
 							<td><input type='radio' name='accnt' value='slct' checked='yes'>Selected Accounts | <input type='radio' name='accnt' value='all'>All Accounts</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Select Customer(s)</td>
 							<td>$custs</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Select period</td>
 							<td>$fprds to $tprds</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Order By</td>
 							<td>Transaction Date<input type='radio' name='t' checked value='t'>System Date<input type='radio' name='t' value='s'></td>
 						</tr>
@@ -268,14 +268,14 @@ function viewtran($_POST, $pure = false)
 			$balance=sprint($bal['dbalance']-$bal['cbalance']);
 	
 			$trans .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='8'><b>$cus[accno] - $cus[cusname] $cus[surname]</b></td>
 							</tr>";
 	
 			$bbf_date = date("t-M-Y", mktime(0, 0, 0, $prd - 1, 1, getYearOfFinMon($prd)));
 	
 			$trans .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='2' align='right'>$bbf_date</td>
 							<td>Br/Forwd</td>
 							<td>Brought Forward</td>
@@ -321,7 +321,7 @@ function viewtran($_POST, $pure = false)
 				$tran['sdate'] = $tran['sdate'][2]."-".$tran['sdate'][1]."-".$tran['sdate'][0];
 	
 				$trans .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>&nbsp;</td>
 					<td>$tran[sdate]</td>
 					<td>$tran[eref]</td>
@@ -346,7 +346,7 @@ function viewtran($_POST, $pure = false)
 			}
 	
 			$trans .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>&nbsp;</td>
 				<td>A/C Total</td>
 				<td>Total for period $prdname to Date :</td>

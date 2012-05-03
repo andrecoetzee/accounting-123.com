@@ -101,13 +101,13 @@ function slct($_GET)
 				<th>Supplier</th>
 			</tr>
 			<tr>
-				<td bgcolor='".bgcolorg()."'>$supp[supname]</td>
+				<td class='".bg_class()."'>$supp[supname]</td>
 			</tr>
 			<tr><td><br></td></tr>
 			<tr>
 				<th>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;

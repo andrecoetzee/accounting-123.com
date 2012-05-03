@@ -93,7 +93,7 @@ function printInv ()
 				$quo['odate'] = $quo['odate'][2]."-".$quo['odate'][1]."-".$quo['odate'][0];
 
 				$printQuo .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>$quo[deptname]</td>
 									<td>$quo[salespn]</td>
 									<td>$quo[quoid]</td>

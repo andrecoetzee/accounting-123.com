@@ -68,11 +68,11 @@ function selectFile ()
 			<tr>
 				<th colspan='2'>Options</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Name of Company:</td>
 				<td><input type='text' name='compname' value='$_POST[compname]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Company File:</td>
 				<td><input type='file' name='compfile'></td>
 			</tr>

@@ -20,7 +20,7 @@ function show_listing ()
 		$listing = "";
 		while ($barr = pg_fetch_array($run_burs)){
 			$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$barr[bursary_name]</td>
 						<td>".nl2br($barr['bursary_details'])."</td>
 						<td><a href='bursary_type_rem.php?id=$barr[id]'>Remove</a></td>

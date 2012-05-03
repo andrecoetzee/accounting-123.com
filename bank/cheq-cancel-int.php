@@ -106,35 +106,35 @@ function confirm($cashid)
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Name</td>
 							<td>$bank[bankname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account Number</td>
 							<td>$bank[accnum]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Transaction Type</td>
 							<td>$accnt[trantype]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date of Transaction</td>
 							<td>$accnt[date]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Paid to/Received from</td>
 							<td>$accnt[name]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Description</td>
 							<td>$accnt[descript]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td>".CUR." $accnt[amount] | $accnt[currency] $accnt[famount]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Transaction Contra Account</td>
 							<td>$accinv[accname]</td>
 						</tr>
@@ -483,7 +483,7 @@ function bank($_POST)
 			<tr>
 				<th>Cash Book</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cash Book Entry was successfully canceled .</td>
 			</tr>
 		</table>";
@@ -499,16 +499,16 @@ function bank($_POST)
 								<tr>
 									<th>Quick Navigation</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td align='center'><a href='cashbook-view.php'>View Cash Book</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td align='center'><a href='../reporting/not-banked.php'>View Outstanding Cash Book Entries</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td align='center'><a href='bank-pay-add.php'>Add bank Payment</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td align='center'><a href='bank-recpt-add.php'>Add Bank Receipt</td>
 								</tr>
 							</table>

@@ -81,7 +81,7 @@ function edit()
 
 	while ($row = $subinfo->fetch_array()) {
 		$OUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$row[name]</td>
 				<td>".ucfirst($row["in_republic"])."</td>
 				<td>".ucfirst($row["meals"])."</td>

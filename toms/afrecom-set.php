@@ -85,7 +85,7 @@ function enter()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=confirm>
 		<tr><th>Select Default Warehouse</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>$whs</td></tr>
+		<tr class='bg-odd'><td>$whs</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td align=right><input type=submit value='Continue &raquo'></td></tr>
 	</form>
@@ -138,7 +138,7 @@ function confirm($_POST)
 	<input type=hidden name=key value=write>
 	<input type=hidden name=whid value='$whid'>
 	<tr><th colspan>Default Warehouse</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>($wh[whno])&nbsp;&nbsp;&nbsp;$wh[whname]</td></tr>
+	<tr class='bg-odd'><td>($wh[whno])&nbsp;&nbsp;&nbsp;$wh[whname]</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=right colspan=2><input type=button value='&laquo Back' onClick='javascript:history.back()'> | <input type=submit value='Confirm &raquo'></td></tr>
 	</form>

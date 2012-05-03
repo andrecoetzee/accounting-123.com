@@ -73,15 +73,15 @@ function view()
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bank Account</td>
 					<td valign=center>$banksel</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>From :</td>
 					<td align='center'>".mkDateSelect("from")."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>To :</td>
 					<td align='center'>".mkDateSelect("to")."</td>
 				</tr>
@@ -96,13 +96,13 @@ function view()
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='index-reports.php'>Financials</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='index-reports-banking.php'>Banking Reports</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='../main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -224,7 +224,7 @@ function viewcash($_POST)
 				$accnt['amount'] = sprint ($accnt['amount']);
 
 				$OUTPUT .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$accnt[date]</td>
 							<td>$bname[accname]</td>
 							<td align='center'>$accnt[cheqnum]</td>
@@ -237,7 +237,7 @@ function viewcash($_POST)
 
 			# print the total
 			$OUTPUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='6'><b>Total Receipts</b></td>
 						<td><b>".CUR." ".sprintf("%01.2f",$rtotal)."</b></td>
 					</tr>";
@@ -317,7 +317,7 @@ function viewcash($_POST)
 				$accnt['amount'] = sprint ($accnt['amount']);
 
 				$OUTPUT .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$accnt[date]</td>
 							<td>$bname[accname]</td>
 							<td align='center'>$accnt[cheqnum]</td>
@@ -329,7 +329,7 @@ function viewcash($_POST)
 			}
 			# print the total
 			$OUTPUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='6'><b>Total Payments</b></td>
 						<td><b>".CUR." ".sprintf("%01.2f",$ptotal)."</b></td>
 					</tr>";
@@ -360,13 +360,13 @@ function viewcash($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='index-reports.php'>Financials</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='index-reports-banking.php'>Banking Reports</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='../main.php'>Main Menu</a></td>
 				</tr>
 			</table>";

@@ -30,8 +30,8 @@ require("settings.php");
 $OUTPUT.="<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td align=center><a href='index.php'>My Business</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-even'><td align=center><a href='index.php'>My Business</a></td></tr>
+	<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 require("template.php");
@@ -51,10 +51,10 @@ function list_tokens(){
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
+		<tr class='bg-odd'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 		</table>";
 	}
 
@@ -66,10 +66,10 @@ function list_tokens(){
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
+		<tr class='bg-odd'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 		</table>";
 	}
 

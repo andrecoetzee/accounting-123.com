@@ -94,19 +94,19 @@ function enterLoan ($_GET)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$myEmp[sname], $myEmp[fnames] ($myEmp[enum])</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan amount</td>
 				<td align='center'>".CUR."<br><input type='text' size='10' name='loanamt' value='$myEmp[loanamt]' class=right></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Interest on loan</td>
 				<td align='center'><input type='text' size='10' name='loanint' value='$myEmp[loanint]'><br>%</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Payback period (months)</td>
 				<td align='center'><input type='text' size='10' name='loanperiod' value='$myEmp[loanperiod]'></td>
 			</tr>
@@ -187,23 +187,23 @@ function confirmLoan ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$myEmp[sname], $myEmp[fnames] ($myEmp[enum])</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan amount</td>
 				<td align='center'>".CUR." $loanamt</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Interest on loan</td>
 				<td align='center'>$loanint %</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Payback period</td>
 				<td align='center'>$loanperiod months</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Monthly installment amount</td>
 				<td align='center'>".CUR." $loaninstall</td>
 			</tr>

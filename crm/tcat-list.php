@@ -31,10 +31,10 @@ require("libs/crm.lib.php");
 	$OUTPUT.="<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tcat-add.php'>Add Query Category</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tcat-list.php'>View Query Categories</a></td></tr>
+	<tr class='bg-odd'><td><a href='tcat-add.php'>Add Query Category</a></td></tr>
+	<tr class='bg-odd'><td><a href='tcat-list.php'>View Query Categories</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+	<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
 	</table>";
 
 require("template.php");

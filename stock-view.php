@@ -134,34 +134,34 @@ function slct()
 						<tr>
 							<th>Store</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>$whs</td>
 						</tr>
 						".TBL_BR."
 						<tr>
 							<th>By Category</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>$cats</td>
 						</tr>
 						".TBL_BR."
 						<tr>
 							<th>By Classification</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>$class</td>
 						</tr>
 						".TBL_BR."
 						<tr>
 							<th>Sort By</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='radio' name='sortby' value='normal' checked='yes'> Normal</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='radio' name='sortby' value='cat'> Category</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='radio' name='sortby' value='class'> Classification</td>
 						</tr>
 						<tr><td><br></td></tr>
@@ -178,10 +178,10 @@ function slct()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-add.php'>Add Stock</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>
@@ -293,7 +293,7 @@ function printStk ($_POST,$errs="")
 				<tr>
 					<th>Sort By:</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>
 						<input type='radio' name='sortby' $sel1 value='normal' onChange='javascript:document.form1.submit();'> Normal
 						<input type='radio' name='sortby' $sel2 value='cat' onChange='javascript:document.form1.submit();'> Category
@@ -304,7 +304,7 @@ function printStk ($_POST,$errs="")
 				<tr>
 					<th>Search</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>
 						<input type='text' size='25' name='search_val' value='$search_val'> 
 						<input type='submit' value='Search'>
@@ -403,13 +403,13 @@ function printStk ($_POST,$errs="")
 //			<table ".TMPL_tblDflts." width='15%'>
 //				".TBL_BR."
 //				<tr><th>Quick Links</th></tr>
-//				<tr bgcolor='".bgcolorg()."'>
+//				<tr class='".bg_class()."'>
 //					<td><a href='stock-view.php'>Back</a></td>
 //				</tr>
-//				<tr bgcolor='".bgcolorg()."'>
+//				<tr class='".bg_class()."'>
 //					<td><a href='stock-add.php'>Add Stock</a></td>
 //				</tr>
-//				<tr bgcolor='".bgcolorg()."'>
+//				<tr class='".bg_class()."'>
 //					<td><a href='main.php'>Main Menu</a></td>
 //				</tr>
 //			</table>";
@@ -504,7 +504,7 @@ function printStk ($_POST,$errs="")
 
 			$OUT .= $showheading;
 			$OUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$whname</td>
 					<td>$stk[stkcod]</td>
 					<td>$stk[stkdes]</td>
@@ -584,7 +584,7 @@ function printStk ($_POST,$errs="")
 	}
 	
 	$OUT .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'>Totals: (Only Positive Amounts)</td>
 			<td nowrap align='right'>".sprint3($tot_unit)."</td>
 			<td nowrap align='right'>".CUR." ".sprint ($tot_amt)."</td>
@@ -647,10 +647,10 @@ function printStk ($_POST,$errs="")
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='stock-add.php'>Add Stock</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>
@@ -694,7 +694,7 @@ function remove ($_POST)
 			$sarr = pg_fetch_array($run_stock);
 			$sarr['selamt'] = sprint ($sarr['selamt']);
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$sarr[stkcod]</td>
 					<td>$sarr[stkdes]</td>
 					<td>".CUR." $sarr[selamt]</td>

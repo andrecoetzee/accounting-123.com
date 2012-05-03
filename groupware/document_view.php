@@ -83,7 +83,7 @@ function display()
 		}
 
 		$doc_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$doc_data[title]</td>
 				<td>$doc_data[location]</td>
 				<td><a href='document_det.php?id=$doc_data[docid]'>Details</a></td>
@@ -97,7 +97,7 @@ function display()
 
 	if (empty($doc_out)) {
 		$doc_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='10'><li>No results found</li></td>
 			</tr>";
 	}
@@ -120,7 +120,7 @@ function display()
 		}
 
 		$cdoc_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$cd_data[filename] ($cd_data[real_filename])</td>
 				<td>$cust_data[surname]</td>
 				<td><a href='../cust_doc_get.php?id=$cd_data[id]&tmp=1&table=customer_docs'>View</a></td>
@@ -132,7 +132,7 @@ function display()
 
 	if (empty($cdoc_out)) {
 		$cdoc_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='7'><li>No results found</li></td>
 			</tr>";
 	}
@@ -165,7 +165,7 @@ function display()
 		}
 
 		$sdoc_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$showdoc ($sd_data[real_filename])</td>
 				<td>$supp_data[supname]</td>
 				<td><a href='../supp_doc_get.php?id=$sd_data[id]'>View</a></td>
@@ -177,7 +177,7 @@ function display()
 
 	if (empty($sdoc_out)) {
 		$sdoc_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='7'><li>No results found</li></td>
 			</tr>";
 	}
@@ -202,11 +202,11 @@ function display()
 			<tr>
 				<th colspan='2'>Search</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' name='search' value='$search' /></td>
 				<td><input type='submit' value='Search' /></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>
 					<input type='checkbox' name='disp_inactive' value='checked'
 					$disp_inactive onchange='javascript:document.form.submit()'>
@@ -222,7 +222,7 @@ function display()
 				<th colspan='5'>Options</th>
 			</tr>
 			$doc_out
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'>$prev</td>
 				<td colspan='4' align='right'>$next</td>
 			</tr>
@@ -235,7 +235,7 @@ function display()
 				<th colspan='5'>Options</th>
 			</tr>
 			$cdoc_out
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'>$prev</td>
 				<td colspan='4' align='right'>$next</td>
 			</tr>
@@ -248,7 +248,7 @@ function display()
 				<th colspan='5'>Options</th>
 			</tr>
 			$sdoc_out
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'>$prev</td>
 				<td colspan='4' align='right'>$next</td>
 			</tr>

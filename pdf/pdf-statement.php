@@ -85,7 +85,7 @@ function statement_settings()
 		<input type='hidden' name='key' value='$key' />
 		<input type='hidden' name='cusnum' value='$cusnum' />
 		<table ".TMPL_tblDflts.">
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='3' align='center'>
 					<input type='radio' name='stmnt_type' value='detailed' $detailed_sel>
 					Detailed
@@ -93,12 +93,12 @@ function statement_settings()
 					Open Item
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				<td>&nbsp; <b>To</b> &nbsp;</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='3' align='center'>
 					<input type='submit' value='Display PDF' style='font-weight: bold' />
 				</td>
@@ -561,21 +561,21 @@ function getcusDetailsAll ()
 		<form action='".SELF."' method='GET'>
 			<input type='hidden' name='key' value='cusdetailsall'>
 			<tr><th colspan='2'>Date Range</th></td>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Statement Type</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='stmnt_type' value='detailed' checked />Detailed</td>
 				<td><input type='radio' name='stmnt_type' value='open' />Open Item</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Select</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='report_type' value='all' checked='yes'> All Customers</td>
 				<td><input type='radio' name='report_type' value='bal'> Only Customers With Balances</td>
 			</tr>
@@ -587,7 +587,7 @@ function getcusDetailsAll ()
 				<th>Select Class</th>
 				<th>Select Category</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$class_drop</td>
 				<td>$cat_drop</td>
 			</tr>

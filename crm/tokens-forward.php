@@ -77,7 +77,7 @@ function enter($_GET) {
 	<input type=hidden name=key value='confirm'>
 	<input type=hidden name=id value='$id'>
 	<tr><th colspan=2>Select date</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td>
+	<tr class='bg-odd'><td>Date</td>
 	<td>
 		<table border=0 cellpadding=0 cellspacing=0>
 		<tr><td><input type=text size=2 name=day value='$day'>-</td>
@@ -121,7 +121,7 @@ function confirm($_POST) {
 	<input type=hidden name=month value='$month'>
 	<input type=hidden name=year value='$year'>
 	<tr><th colspan=2>Confirm date</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$date</td></tr>
+	<tr class='bg-odd'><td>Date</td><td>$date</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -167,7 +167,7 @@ function write($_POST) {
 
 	$out="<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Query forwarded</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Query forwarded to $nextdate by $user</td></tr>
+	<tr class='bg-odd'><td>Query forwarded to $nextdate by $user</td></tr>
 	</table>";
 
 	return $out;

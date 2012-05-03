@@ -64,7 +64,7 @@ function slct()
 					<tr>
 						<th colspan='2'>Stock Sales Report</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center' colspan='2'>
 							".mkDateSelect("from",date("Y"),date("m"),"01")."
 							&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -72,7 +72,7 @@ function slct()
 						</td>
 					</tr>
 					<tr><td><br></td></tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center' colspan='2'><input type='submit' value='View'></td>
 					</tr>
 				</table>
@@ -82,10 +82,10 @@ function slct()
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='sales-reports.php'>Sales Reports</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";
@@ -168,7 +168,7 @@ function printStk ($_POST)
 		$totexc += $excvat;
 
 		$report .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$rec[invnum]</td>
 							<td>$rec[edate]</td>
 							<td>".CUR." $rec[vat]</td>
@@ -183,7 +183,7 @@ function printStk ($_POST)
 	$totexc = sprint($totexc);
 
 	$report .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'><b>Total Sales</b></td>
 						<td>".CUR." $totvat</td>
 						<td>".CUR." $totexc</td>
@@ -221,7 +221,7 @@ function printStk ($_POST)
 		$ntotexc += $excvat;
 
 		$report .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$rec[invnum]</td>
 							<td>$rec[edate]</td>
 							<td>".CUR." $rec[vat]</td>
@@ -240,7 +240,7 @@ function printStk ($_POST)
 	$atotexc = sprint($totexc - $ntotexc);
 
 	$report .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'><b>Total Credit Notes</b></td>
 						<td>".CUR." $ntotvat</td>
 						<td>".CUR." $ntotexc</td>
@@ -256,7 +256,7 @@ function printStk ($_POST)
 									<th>SubTotal</th>
 									<th>Total</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td><b>Total Sales after Credit Notes</td>
 									<td><b>".CUR." $atotvat</td>
 									<td><b>".CUR." $atotexc</td>
@@ -284,10 +284,10 @@ function printStk ($_POST)
 			        <tr>
 			        	<th>Quick Links</th>
 			        </tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='sales-reports.php'>Sales Reports</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";

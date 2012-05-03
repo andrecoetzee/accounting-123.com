@@ -77,7 +77,7 @@ function slct()
 		<tr>
 			<th colspan=2>By Date Range</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td align=center colspan=2>
 				".mkDateSelect("from",date("Y"),date("m"),"01")."
 				&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
@@ -93,14 +93,14 @@ function slct()
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td><a href='purchase-new.php'>New Purchase</a></td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td><a href='purchase-view.php'>View Purchases</a></td>
 		</tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 		</tr>
 	</table>";
 
@@ -179,14 +179,14 @@ function printPurch ($_POST)
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td><a href='purchase-new.php'>New Purchase</a></td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td><a href='purchase-view.php'>View Purchases</a></td>
 		</tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 		</tr>
 		</table>";
 	}
@@ -243,10 +243,10 @@ function printPurch ($_POST)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purch-int-new.php'>New International Order</a></td></tr>
+		<tr class='bg-odd'><td><a href='purch-int-new.php'>New International Order</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-report.php'>Stock Control Reports</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='stock-view.php'>View Stock</a></td></tr>
+		<tr class='bg-odd'><td><a href='stock-report.php'>Stock Control Reports</a></td></tr>
+		<tr class='bg-even'><td><a href='stock-view.php'>View Stock</a></td></tr>
 	</table>";
 
 	return $printOrd;
@@ -307,8 +307,8 @@ function export ($_POST)
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purchase-new.php'>New Purchase</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purchase-view.php'>View Purchases</a></td></tr>
+		<tr class='bg-odd'><td><a href='purchase-new.php'>New Purchase</a></td></tr>
+		<tr class='bg-odd'><td><a href='purchase-view.php'>View Purchases</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 	}

@@ -60,7 +60,7 @@ function printUsers ()
 		$bran = qryBranch($row["div"]);
 
 		$OUTPUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$row[username]</td>
 				<td>$employee</td>
 				<td>$bran[branname]</td>

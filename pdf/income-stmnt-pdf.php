@@ -60,7 +60,7 @@ function view()
 	if(pg_numrows($Rs) > 0){
 		$sum = pg_numrows($Rs);
 		$out = pg_fetch_array($Rs);
-		$note = "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2 class=err><li>Note : There are $sum unprocessed batch entries.</td></tr><tr><td><br></td></tr>";
+		$note = "<tr class='bg-even'><td colspan=2 class=err><li>Note : There are $sum unprocessed batch entries.</td></tr><tr><td><br></td></tr>";
 	}else{
 		$note = "";
 	}
@@ -73,7 +73,7 @@ function view()
 	<input type=hidden name=key value=print>
 	$note
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Include Accounts with Zero balances</td><td valign=center>
+	<tr class='bg-odd'><td>Include Accounts with Zero balances</td><td valign=center>
 	<input type=radio name=zero value=yes>Yes | <input type=radio name=zero value=no checked=yes>No</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td><input type=button value='< Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue >'></td></tr>
@@ -143,7 +143,7 @@ function inc($_POST)
 		$DATA[] = array('accname' => "<b>Total</b>", 'tot' => "<b>".CUR." $tlinc</b>");
 
         $income .= "<tr><td colspan=2><br></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><b>Total<b></td><td><b>".CUR." $tlinc</b></td></tr>";
+		<tr class='bg-odd'><td><b>Total<b></td><td><b>".CUR." $tlinc</b></td></tr>";
 
         # get the income statement settings
         $sql = "SELECT accid FROM accounts WHERE acctype='E' AND div = '".USER_DIV."'";
@@ -189,11 +189,11 @@ function inc($_POST)
 		$DATA2[] = array('accname' => "  ", 'tot' => "  ");
 		$DATA2[] = array('accname' => "<b>Net Profit</b>", 'tot' => "<b>".CUR." ".sprint($tlinc-$tlexp)."</b>");
         $income .= "<tr><td colspan=2><br></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><b>Total<b></td><td><b>".CUR." $tlexp</b></td></tr>
+		<tr class='bg-odd'><td><b>Total<b></td><td><b>".CUR." $tlexp</b></td></tr>
 		<tr><td colspan=2><br></td></tr>";
 
         # Calculate Profit/Loss
-        $income .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><b>Nett Profit Carried Forward<b></td><td><b>".CUR." ".sprint($tlinc-$tlexp)."</b></td></tr>";
+        $income .= "<tr class='bg-even'><td><b>Nett Profit Carried Forward<b></td><td><b>".CUR." ".sprint($tlinc-$tlexp)."</b></td></tr>";
 
 		# Send the stream
 		include("temp.pdf.php");
@@ -246,7 +246,7 @@ function save_inc($_POST)
         }
 
         # write totals for income
-        $income .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><b>Total<b></td><td align=center><b>".CUR." $tlinc</b></td></tr>";
+        $income .= "<tr class='bg-odd'><td><b>Total<b></td><td align=center><b>".CUR." $tlinc</b></td></tr>";
 
         # get the income statement settings
         $sql = "SELECT accid FROM accounts WHERE acctype='E' AND div = '".USER_DIV."'";
@@ -282,11 +282,11 @@ function save_inc($_POST)
                 $income .= "<tr bgcolor='$bgColor'><td>$bal[accname]</td><td align=center>".CUR." $total</td></tr>";
                 $i++;
         }
-        $income .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><b>Total<b></td><td align=center><b>".CUR." $tlexp</b></td></tr>
+        $income .= "<tr class='bg-odd'><td><b>Total<b></td><td align=center><b>".CUR." $tlexp</b></td></tr>
                      <tr><td colspan=3><br></td></tr>";
 
         # Calculate Profit/Loss
-        $income .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><b>Nett Profit Carried Forward<b></td><td align=center colspan=2><b>".CUR." ".($tlinc-$tlexp)."</b></td></tr>
+        $income .= "<tr class='bg-even'><td><b>Nett Profit Carried Forward<b></td><td align=center colspan=2><b>".CUR." ".($tlinc-$tlexp)."</b></td></tr>
 		<tr><td><br></td></tr>
 		</table>";
 

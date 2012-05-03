@@ -67,15 +67,15 @@ function enter() {
 		<th>Field</th>
 		<th>Value</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Number</td>
 		<td><input type='text' size='10' name='salespno' value='$salespno'></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Sales Person</td>
 		<td><input type='text' size='20' name='salesp' values='$salesp'></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Commission(input zero or leave blank to use stock settings commission)</td>
 		<td><input type='text' size='4' name='com' value='$com'></td>
 	</tr>
@@ -120,15 +120,15 @@ function confirm() {
 		<th>Field</th>
 		<th>Value</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Number</td>
 		<td>$salespno</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Sales Person</td>
 		<td>$salesp</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Commission</td>
 		<td>$com_disp</td>
 	</tr>

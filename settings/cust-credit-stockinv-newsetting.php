@@ -43,7 +43,7 @@ function change_setting ($err="")
 			<tr>
 				<th colspan='2'>Change Setting</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='setting' value='yes' $sel1>Automatically Create New Invoice After Processing One.</td>
 				<td><input type='radio' name='setting' value='no' $sel2>Go To Complete Screen. (Less Incomplete Invoices)</td>
 			</tr>
@@ -88,7 +88,7 @@ function change_setting_confirm ($_POST)
 			<tr>
 				<th>Setting Updated</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoice Setting Has Been Updated.</td>
 			</tr>
 			".TBL_BR."

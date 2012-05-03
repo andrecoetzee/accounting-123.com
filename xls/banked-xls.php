@@ -70,9 +70,9 @@ function view()
         <form action='".SELF."' method=post name=form>
         <input type=hidden name=key value=viewcash>
         <tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Bank Account</td><td valign=center>$banksel</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>From :</td><td align=center><input type=text size=2 name=fday maxlength=2 value='1'>-<input type=text size=2 name=fmonth maxlength=2  value='".date("m")."'>-<input type=text size=4 name=fyear maxlength=4 value='".date("Y")."'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>To :</td><td align=center><input type=text size=2 name=lday maxlength=2 value='".date("d")."'>-<input type=text size=2 name=lmonth maxlength=2 value='".date("m")."'>-<input type=text size=4 name=lyear maxlength=4 value='".date("Y")."'></td></tr>
+		<tr class='bg-odd'><td>Bank Account</td><td valign=center>$banksel</td></tr>
+        <tr class='bg-even'><td>From :</td><td align=center><input type=text size=2 name=fday maxlength=2 value='1'>-<input type=text size=2 name=fmonth maxlength=2  value='".date("m")."'>-<input type=text size=4 name=fyear maxlength=4 value='".date("Y")."'></td></tr>
+        <tr class='bg-odd'><td>To :</td><td align=center><input type=text size=2 name=lday maxlength=2 value='".date("d")."'>-<input type=text size=2 name=lmonth maxlength=2 value='".date("m")."'>-<input type=text size=4 name=lyear maxlength=4 value='".date("Y")."'></td></tr>
         <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='View &raquo'></td></tr>
 		</table>
  		<p>

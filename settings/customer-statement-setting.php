@@ -43,10 +43,10 @@ function get_setting_val ($err="")
 						<tr>
 							<th>Change Setting</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='radio' name='state_setting' value='statement' $sel1>Age From Statement Date</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='radio' name='state_setting' value='invoice' $sel2>Age From Invoice Date</td>
 						</tr>
 						".TBL_BR."

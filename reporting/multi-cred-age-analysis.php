@@ -84,7 +84,7 @@ function printSupp ()
 	}
 
 	$printSupp .= "<tr><td><br></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>Totals</b></td><td><b>".CUR." $totcurr</b></td><td><b>".CUR." $tot30</b></td><td><b>".CUR." $tot60</b></td><td><b>".CUR." $tot90</b></td><td><b>".CUR." $tot120</b></td><td><b>".CUR." $alltot</b></td></tr>
+	<tr class='bg-even'><td colspan=2><b>Totals</b></td><td><b>".CUR." $totcurr</b></td><td><b>".CUR." $tot30</b></td><td><b>".CUR." $tot60</b></td><td><b>".CUR." $tot90</b></td><td><b>".CUR." $tot120</b></td><td><b>".CUR." $alltot</b></td></tr>
 	<tr><td><br></td></tr>
 
 	<!--
@@ -100,8 +100,8 @@ function printSupp ()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../supp-new.php'>Add Supplier</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../supp-view.php'>View Suppliers</a></td></tr>
+		<tr class='bg-odd'><td><a href='../supp-new.php'>Add Supplier</a></td></tr>
+		<tr class='bg-odd'><td><a href='../supp-view.php'>View Suppliers</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

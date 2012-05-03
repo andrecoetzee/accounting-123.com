@@ -84,7 +84,7 @@ function view()
 						<tr>
 							<th colspan='2'>By Date Range</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td width='80%' align='center'>
 								<table>
 									<tr>
@@ -95,7 +95,7 @@ function view()
 								</table>
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Select Period  $prds</td>
 						</tr>
 						<tr>
@@ -119,13 +119,13 @@ function view()
 						<tr>
 							<th colspan='2'>By Journal number</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td width='80%' align='center'>
 								From <input type='text' size='5' name='fromnum'> to <input type='text' size='5' name='tonum'>
 							</td>
 							<td rowspan='2' valign='bottom'><input type='submit' value='View All &raquo;'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Select Period $prds</td>
 						</tr>
 					</form>
@@ -141,7 +141,7 @@ function view()
 						<tr>
 							<th colspan='2'>View All</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Select Period $prds</td>
 	
 							<td rowspan='2' valign='bottom'><input type='submit' value='View All &raquo;'></td>
@@ -157,16 +157,16 @@ function view()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a target=_blank href='../core/acc-new2.php'>Add account (New Window)</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='index-reports.php'>Financials</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='index-reports-journal.php'>Current Year Details General Ledger Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";
@@ -302,16 +302,16 @@ function viewtrans($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a target=_blank href='../core/acc-new2.php'>Add account (New Window)</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='index-reports.php'>Financials</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='index-reports-journal.php'>Current Year Details General Ledger Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";
@@ -347,7 +347,7 @@ function viewtrans($_POST)
 		$amount = sprint($amount);
 
 		$OUTPUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$date</td>
 				<td>$sdate</td>
 				<td>$dtopacc/$daccnum&nbsp;&nbsp;&nbsp;$daccname</td>
@@ -378,16 +378,16 @@ function viewtrans($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a target=_blank href='../core/acc-new2.php'>Add account (New Window)</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='index-reports.php'>Financials</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='index-reports-journal.php'>Current Year Details General Ledger Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";

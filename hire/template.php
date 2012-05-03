@@ -143,7 +143,7 @@ else {
 				$AppTime=substr($Tp['time'],0,2).":".substr($Tp['time'],2,2);
 				$AppDate=$Tp['datefor'];
 				$Appointment=$Tp['des'];
-				$Out .="<tr bgcolor='".TMPL_tblDataColor1."'><td>$AppDate</td><td>$AppTime</td><td>$Appointment</td><td></td></tr>";
+				$Out .="<tr class='bg-odd'><td>$AppDate</td><td>$AppTime</td><td>$Appointment</td><td></td></tr>";
 				$Sl = "UPDATE die SET rem=rem+1 WHERE id='$Tp[id]'";
 				$Rss = db_exec($Sl) or $OUTPUT ="Unable to access database.";
 			}

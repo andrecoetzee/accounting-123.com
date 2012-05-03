@@ -95,27 +95,27 @@ function add($id)
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Account</td>
 							<td valign='center'>$bank</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Paid to/Received From</td>
 							<td valign='center'>$name</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Description</td>
 							<td>$descript</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cheque Number</td>
 							<td valign='center'>$cheqnum</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td valign='center'>".CUR." $amount</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Contra Account</td>
 							<td>$glacc</td>
 						</tr>
@@ -208,13 +208,13 @@ function remove($_POST)
 							<tr>
 								<th>Quick Links</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='bank-pay-add.php'>Add Bank Payment</a></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='bank-recpt-add.php'>Add Bank Receipt</a></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='cashbook-view.php'>View Cash Book</a></td>
 							</tr>
 							<script>document.write(getQuicklinkSpecial());</script>

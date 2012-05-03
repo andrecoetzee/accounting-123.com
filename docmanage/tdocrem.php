@@ -93,26 +93,26 @@ function view ($_GET)
 <input type=hidden name=key value=confirm>
 <input type=hidden name=id value=$docid>
 <tr><th colspan=2>Document details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Typeid</td><td>$Data[typeid]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>TypeName</td><td>$Data[typename]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>xin/td><td>$Data[xin]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>docref</td><td>$Data[docref]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$Data[docdate]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Docname</td><td align=center>$Data[docname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>File</td><td>$Data[filename]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>MimeType</td><td>$Data[mimetype]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td>$Data[descrip]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Doc</td><td>$Data[docu]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Div</td><td>$Data[div]</td></tr> 
+	<tr class='bg-odd'><td>Typeid</td><td>$Data[typeid]</td></tr>
+	<tr class='bg-odd'><td>TypeName</td><td>$Data[typename]</td></tr>
+	<tr class='bg-odd'><td>xin/td><td>$Data[xin]</td></tr>
+	<tr class='bg-odd'><td>docref</td><td>$Data[docref]</td></tr>
+	<tr class='bg-odd'><td>Date</td><td>$Data[docdate]</td></tr>
+	<tr class='bg-even'><td>Docname</td><td align=center>$Data[docname]</td></tr>
+	<tr class='bg-odd'><td>File</td><td>$Data[filename]</td></tr>
+	<tr class='bg-odd'><td>MimeType</td><td>$Data[mimetype]</td></tr>
+	<tr class='bg-even'><td>Description</td><td>$Data[descrip]</td></tr>
+	<tr class='bg-odd'><td>Doc</td><td>$Data[docu]</td></tr>
+	<tr class='bg-odd'><td>Div</td><td>$Data[div]</td></tr> 
 	
 	<tr><td colspan=2 align=right><input type=submit value='Remove &raquo;'></td></tr>
 </table>
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tlist-docview.php'>List Removed Documents</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocadd.php'>Add New Document</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='tlist-docview.php'>List Removed Documents</a></td></tr>
+        <tr class='bg-odd'><td><a href='tdocadd.php'>Add New Document</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>
   ";
   
@@ -164,21 +164,21 @@ function confirm ($VARS)
 	<input type=hidden name=key value=write>
 	<input type=hidden name=docid value='$docid'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Type</td><td>$doc[typename]</td></tr>
+	<tr class='bg-odd'><td>Type</td><td>$doc[typename]</td></tr>
 	$xin
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Ref</td><td>$doc[docref]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Document Name</td><td>$doc[docname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td>$doc[docdate]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Decription</td><td>".nl2br($doc['descrip'])."</td></tr>
+	<tr class='bg-even'><td>Ref</td><td>$doc[docref]</td></tr>
+	<tr class='bg-odd'><td>Document Name</td><td>$doc[docname]</td></tr>
+	<tr class='bg-even'><td>Date</td><td>$doc[docdate]</td></tr>
+	<tr class='bg-odd'><td>Decription</td><td>".nl2br($doc['descrip'])."</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Remove &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocadd.php'>Add Document</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocview.php'>View Documents</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='tdocadd.php'>Add Document</a></td></tr>
+		<tr class='bg-odd'><td><a href='tdocview.php'>View Documents</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -236,9 +236,9 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocadd.php'>Add Document</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocview.php'>View Documents</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='tdocadd.php'>Add Document</a></td></tr>
+		<tr class='bg-odd'><td><a href='tdocview.php'>View Documents</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

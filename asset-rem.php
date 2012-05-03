@@ -90,13 +90,13 @@ function view_data ($_GET)
 	<tr valign=top><td>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th colspan=2>Asset Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Group</td><td>$grp[grpname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Serial Number</td><td>$serial</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Location</td><td>$locat</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td>$des</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Date Bought</td><td>$bdate</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Amount</td><td>$amount</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Date Added</td><td>$date</td></tr>
+		<tr class='bg-odd'><td>Group</td><td>$grp[grpname]</td></tr>
+		<tr class='bg-even'><td>Serial Number</td><td>$serial</td></tr>
+		<tr class='bg-odd'><td>Location</td><td>$locat</td></tr>
+		<tr class='bg-even'><td>Description</td><td>$des</td></tr>
+		<tr class='bg-odd'><td>Date Bought</td><td>$bdate</td></tr>
+		<tr class='bg-even'><td>Amount</td><td>$amount</td></tr>
+		<tr class='bg-odd'><td>Date Added</td><td>$date</td></tr>
 		</table>
 	</td></tr>
 	<tr><td valign=bottom><input type=submit value='Remove &raquo;'></td></tr>
@@ -104,7 +104,7 @@ function view_data ($_GET)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='asset-view.php'>View Assets</a></td></tr>
+	<tr class='bg-odd'><td><a href='asset-view.php'>View Assets</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -196,8 +196,8 @@ function con_data ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='asset-new.php'>New Asset</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='asset-view.php'>View Assets</a></td></tr>
+	<tr class='bg-odd'><td><a href='asset-new.php'>New Asset</a></td></tr>
+	<tr class='bg-odd'><td><a href='asset-view.php'>View Assets</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

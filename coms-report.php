@@ -67,7 +67,7 @@ function report_options()
 			<tr>
 				<th colspan='3'>Select Sales Rep</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sales Rep</td>
 				<td colspan='2'>$salesps</td>
 			</tr>
@@ -75,7 +75,7 @@ function report_options()
 			<tr>
 				<th colspan='3'>Select Report Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from",date("Y"),date("m"),"01")."</td>
 				<td>To</td>
 				<td>".mkDateSelect("to")."</td>
@@ -91,13 +91,13 @@ function report_options()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='toms/salesp-add.php'>Add Sales Person</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='sales-reports.php'>Sales Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -181,7 +181,7 @@ function report_display ($_POST)
 // 		$Tp['amount'] = sprint($Tp['amount']);
 
 		$ComRep .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><b>$SalesReps[salesp]</b></td>
 				<td colspan='2'></td>
 				<td></td>
@@ -194,7 +194,7 @@ function report_display ($_POST)
 		$rep_amount = 0;
 		while ($inv = pg_fetch_array($Rx)) {
 			$ComRep .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[inv]</td>
 					<td>$inv[invdate]</td>
 					<td align='right'>".CUR." $inv[amount]</td>
@@ -205,7 +205,7 @@ function report_display ($_POST)
 		}
 
 		$ComRep .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td></td>
 				<td><b>Total:</b></td>
 				<td align='right'><b>".CUR." ".sprint ($rep_amount)."</b></td>
@@ -220,7 +220,7 @@ function report_display ($_POST)
 	$total = sprint($total);
 
 	$ComRep .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Total Reps: $i</td>
 			<td align='right' colspan='2'><b>".CUR." $total_amount</b></td>
 			<td align='right'><b>".CUR." $total_com</b></td>
@@ -245,13 +245,13 @@ function report_display ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='toms/salesp-add.php'>Add Sales Person</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='sales-reports.php'>Sales Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

@@ -58,7 +58,7 @@ function printDep ()
 	while ($dep = pg_fetch_array ($depRslt)) {
 
 		$printDep .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$dep[department]</td>
 				<td><a href='empdepartment-edit.php?id=$dep[id]'>Edit</a></td>";
 
@@ -80,7 +80,7 @@ function printDep ()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='empdepartment-add.php'>Add Employee Department</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

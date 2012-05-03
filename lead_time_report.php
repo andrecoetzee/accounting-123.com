@@ -46,7 +46,7 @@ function display()
 
 	$lead_out = "";
 	while ($lead_data = pg_fetch_array($lead_rslt)) {
-		$lead_out .= "<tr bgcolor='".bgcolorg()."'>
+		$lead_out .= "<tr class='".bg_class()."'>
 			<td>$lead_data[stkcod]</td>
 			<td>$lead_data[stkdes]</td>
 			<td>$lead_data[supname]</td>
@@ -56,7 +56,7 @@ function display()
 
 	if (empty($lead_out)) {
 		$lead_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'><li>No results found.</li></td>
 			</tr>";
 	}
@@ -69,7 +69,7 @@ function display()
 			<tr>
 				<th colspan='2'>Search</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' name='search' value='$search' /></td>
 				<td><input type='submit' value='Search' /></td>
 			</tr>

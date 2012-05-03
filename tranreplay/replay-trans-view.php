@@ -24,7 +24,7 @@ function show_trans ()
 	$run_trans = db_exec($get_trans) or errDie("Unable to get transaction listing.");
 	if(pg_numrows($run_trans) < 1){
 		$listing = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='8'>No Transactions Found.</td>
 						</tr>
 					";
@@ -107,7 +107,7 @@ function show_trans ()
 				$showiid = "Journal";
 			}
 			$listing .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$showdebit</td>
 								<td>$showcredit</td>
 								<td>$tarr[tdate]</td>

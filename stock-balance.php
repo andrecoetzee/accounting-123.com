@@ -175,39 +175,39 @@ function edit($_GET)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Store</td>
 				<td>$wh[whname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock code</td>
 				<td>$stk[stkcod]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock description</td>
 				<td>".nl2br($stk['stkdes'])."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type</td>
 				<td valign='center'><input type='radio' name='tipo' value='Increase' $tinc>Increase Stock | <input type='radio' name='tipo' value='Decrease' $tdec>Decrease Stock</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Number of Units</td>
 				<td><input type='text' size='5' name='unitnum' value='$unitnum'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Details</td>
 				<td><textarea name='det' rows='3' cols='18'>$det</textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cost Amount per Unit (Stock Increase Only)</td>
 				<td>".CUR." <input type='text' size='10' name='cost' value='$cost'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Contra Account <input align='right' type='button' onClick=\"window.open('core/acc-new2.php?update_parent=yes','accounts','width=700, height=400');\" value='New Account'></td>
 				<td>$caccdrop</td>
 			</tr>
@@ -311,7 +311,7 @@ function confirm($_POST)
 		$sernos .= "</select>";
 
 		for($i = 0; $i < $unitnum; $i++){
-			$serials .= "<tr bgcolor='".bgcolorg()."'><td colspan=2 align=center>$sernos</td></tr>";
+			$serials .= "<tr class='".bg_class()."'><td colspan=2 align=center>$sernos</td></tr>";
 		}
 	}
 
@@ -339,43 +339,43 @@ function confirm($_POST)
 				<th width='40%'>Field</th>
 				<th width='60%'>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Store</td>
 				<td>$wh[whname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock code</td>
 				<td>$stkcod</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock description</td>
 				<td>".nl2br($stkdes)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type</td>
 				<td>$tipo</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Details</td>
 				<td>".nl2br($det)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Number of Units</td>
 				<td>$unitnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cost Amount per Unit</td>
 				<td>".CUR." $cost</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total Cost Amount</td>
 				<td>".CUR." $totcost</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Contra Account</td>
 				<td>$caccd[accname]</td>
 			</tr>

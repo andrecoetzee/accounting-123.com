@@ -93,7 +93,7 @@ function view()
 			<tr>
 				<th colspan='2'>New Point of Sale Invoice(Cash)</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Department</td>
 				<td valign='center'>$depts</td>
 			</tr>
@@ -153,7 +153,7 @@ function view_err($_POST, $err = "")
 			<tr>
 				<td colspan='2'>$err</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Department</td>
 				<td valign='center'>$depts</td>
 			</tr>
@@ -555,7 +555,7 @@ function details($_POST, $error="")
 
 			# Put in product
 			$products .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'>
 						$Accounts
 						<input type='hidden' name='whids[]' value='$stkd[whid]'>
@@ -646,7 +646,7 @@ function details($_POST, $error="")
 			$products .= "
 				<input type='hidden' name='accounts[]' value='0'>
 				<input type='hidden' name='descriptions[]' value=''>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='hidden' name='whids[]' value='$stkd[whid]'>$wh[whname]</td>
 					<td>
 						<input type='hidden' name='stkids[]' value='$stkd[stkid]'>
@@ -772,7 +772,7 @@ function details($_POST, $error="")
 				$products .= "
 					<input type='hidden' name='accounts[]' value='0'>
 					<input type='hidden' name='descriptions[]' value=''>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' name='whids[]' value='$wh[whid]'>$wh[whname]</td>
 						<td>
 							<input type='hidden' name='stkids[]' value='$stk[stkid]'>
@@ -831,7 +831,7 @@ function details($_POST, $error="")
 
 				# Put in selected warehouse and stock
 				$products .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'>
 							$ad[accname]<input type='hidden' name='accounts[]' value='$accountss[$key]'>
 							<input type='hidden' name='whids[]' value='0'>
@@ -938,7 +938,7 @@ function details($_POST, $error="")
 						$products .= "
 							<input type='hidden' name='accountss[]' value='0'>
 							<input type='hidden' name='descriptionss[]' value=''>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' name='whidss[]' value='$filter_store'></td>
 								<td>$cods</td>
 								<td>&nbsp;</td>
@@ -1001,7 +1001,7 @@ function details($_POST, $error="")
 						$Vatcodes .= "</select>";
 
 						$products .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='2'>
 									$Accounts
 									<input type='hidden' name='whidss[]' value='$FIRST_WH'>
@@ -1108,7 +1108,7 @@ function details($_POST, $error="")
 			}
 
 			$products .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<input type='hidden' name='accountss[]' value='0'>
 					<input type='hidden' name='descriptionss[]' value=''>
 					<input type='hidden' name='vatcodess[]' value=''>
@@ -1172,7 +1172,7 @@ function details($_POST, $error="")
 
 //				<input type=hidden name='stkidss[]' value=''>
 			$products .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'>
 						$Accounts
 						<input type='hidden' name='whidss[]' value='$FIRST_WH'>
@@ -1288,11 +1288,11 @@ function details($_POST, $error="")
 	if($inv['rounding'] > 0) {
 		$due = sprint($inv['total'] - $inv['rounding']);
 		$rd = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Rounding</td>
 				<td align='right'>R $inv[rounding]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Amount Due</th>
 				<td align='right'>R $due</td>
 			</tr>";
@@ -1333,26 +1333,26 @@ function details($_POST, $error="")
 
 	if($inv['cusnum'] == 0) {
 		$cd = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td valign='center'><input type='text' size='20' name='client' value='$client'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT Number</td>
 				<td valign='center'><input type='text' size='20' name='vatnum' value='$vatnum'></td>
 			</tr>";
 		$pc = "<input type='hidden' name='pcredit' value='0'>";
 	} else {
 		$cd = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Customer Address</td>
 				<td valign='center'>".nl2br($cust['addr1'])."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer VAT Number</td>
 				<td>$cust[vatnum]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer Balance</td>
 				<td nowrap='t'>
 					".CUR." $cust[balance]
@@ -1360,7 +1360,7 @@ function details($_POST, $error="")
 				</td>
 			</tr>";
 		$pc = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount On Credit</td>
 				<td nowrap='t'>
 					<input size='12' type='text' name='pcredit' id='pcredit' value='$inv[pcredit]' onchange='ptot_update();'>
@@ -1372,7 +1372,7 @@ function details($_POST, $error="")
 			$recvpay = "";
 		} else {
 			$recvpay = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'><input type='submit' name='recvpay' id='recvpay' onclick='return ptot_recvpay();' value='Receive Payment: ".CUR." ".sprint($inv["pcc"] + $inv["pcheque"] + $inv["pcash"])."' /></td>
 			</tr>";
 		}
@@ -1475,11 +1475,11 @@ function details($_POST, $error="")
 		}
 
 		$display_optional_filters = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Category</td>
 				<td>$cat_drop</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Classification</td>
 				<td>$class_drop</td>
 			</tr>";
@@ -1590,27 +1590,27 @@ function details($_POST, $error="")
 					<tr>
 						<th colspan='2'> Customer Details </th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Department</td>
 						<td valign='center'>$depts</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Customer</td>
 						<td valign='center'>$customers</td>
 					</tr>
 					$cd
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Customer Telephone Number</td>
 						<td valign='center'><input type='text' size='20' name='telno' value='$inv[telno]'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Customer Order number</td>
 						<td valign='center'><input type='text' size='10' name='cordno' value='$cordno'></td>
 					</tr>
 					<tr>
 						<th colspan='2'>Point of Sale</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Barcode</td>
 						<td>
 							<input type='text' size='13' name='bar' value=''>
@@ -1620,7 +1620,7 @@ function details($_POST, $error="")
 					<tr>
 						<th colspan='2'>Options</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Select Using</td>
 						<td>Stock Code<input type='radio' name='sel_frm' value='stkcod' onChange='javascript:document.form.submit();' $sel_frm_cod> Stock Description<input type='radio' name='sel_frm' value='stkdes' onChange='javascript:document.form.submit();' $sel_frm_des></td>
 					</tr>
@@ -1628,12 +1628,12 @@ function details($_POST, $error="")
 					<tr>
 						<th colspan='2'>Additional Filters</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Select Store</td>
 						<td>$store_drop</td>
 					</tr>
 					$display_optional_filters
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Stock Filter</td>
 						<td><input type='text' size='13' name='des' value='$des'> <input type='submit' value='Search'> <input type='submit' name='des' value='Show All'></td>
 					</tr>
@@ -1644,56 +1644,56 @@ function details($_POST, $error="")
 					<tr>
 						<th colspan='2'>Invoice Details</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Invoice No.</td>
 						<td valign='center'>$inv[invid]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Sales Order No.</td>
 						<td valign='center'><input type='text' size='5' name='ordno' value='$inv[ordno]'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Invoice Date</td>
 						<td valign='center' nowrap='t'>".mkDateSelect("pinv",$pinv_year,$pinv_month,$pinv_day)."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td nowrap='t'>VAT Inclusive</td>
 						<td valign='center'>Yes <input type='radio' size='7' name='chrgvat' value='inc' $chin> No<input type='radio' size='7' name='chrgvat' value='exc' $chex></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Sales Person</td>
 						$sales
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Trade Discount</td>
 						<td valign='center'><input type='text' size='5' name='traddisc' value='$inv[traddisc]'>%</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Delivery Charge</td>
 						<td valign='center'><input type='text' size='7' name='delchrg' value='$inv[delchrg]'>$Vatcodes</td>
 					</tr>
 					<tr>
 						<th colspan='2'>Payment Details </th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>User</td>
 						<td><input type='hidden' name='user' value='".USER_NAME."'>".USER_NAME."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td nowrap='t'>Amount Paid Cash</td>
 						<td nowrap='t'>
 							<input size='12' type='text' name='pcash' id='pcash' value='$inv[pcash]' onchange='ptot_update();'>
 							<input type='button' value='&laquo Total' onclick='paytotal(\"pcash\");' />
 						</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td nowrap='t'>Amount Paid Cheque</td>
 						<td nowrap='t'>
 							<input size='12' type='text' name='pcheque' id='pcheque' value='$inv[pcheque]' onchange='ptot_update();'>
 							<input type='button' value='&laquo Total' onclick='paytotal(\"pcheque\");' />
 						</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td nowrap='t'>Amount Paid Credit Card</td>
 						<td nowrap='t'>
 							<input size='12' type='text' name='pcc' id='pcc' value='$inv[pcc]' onchange='ptot_update();'>
@@ -1702,7 +1702,7 @@ function details($_POST, $error="")
 					</tr>
 					$recvpay
 					$pc
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td nowrap='t'>Total Covered</td>
 						<td nowrap='t' id='ptot'>".CUR." ".sprint($inv["pcash"] + $inv["pcheque"] + $inv["pcc"] + $inv["pcredit"])."</td>
 					</tr>
@@ -1726,30 +1726,30 @@ function details($_POST, $error="")
 						</td>
 						<th width='30%'>Comments</th>
 						<td rowspan='5' valign='top' width='40%'>$error</td></tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td rowspan='4' align='center' valign='top'><textarea name='comm' rows='4' cols='20'>$inv[comm]</textarea></td>
 					</tr>
 				</table>
 			</td>
 			<td align='right' valign='top' width='30%'>
 				<table ".TMPL_tblDflts." width='100%'>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>SUBTOTAL</td>
 						<td align='right'>".CUR." <input type='hidden' name='SUBTOT' value='$SUBTOT'>$SUBTOT</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Trade Discount</td>
 						<td align='right'>".CUR." $inv[discount]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Delivery Charge</td>
 						<td align='right'>".CUR." $inv[delivery]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><b>VAT $vat14</b></td>
 						<td align='right'>".CUR." $VAT</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<th>GRAND TOTAL</th>
 						<td align='right'>".CUR." $TOTAL</td>
 					</tr>
@@ -2460,7 +2460,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 			<tr>
 				<th>New Point of Sale Invoice Saved</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoice for <b>$client</b> has been saved.</td>
 			</tr>
 		</table>
@@ -2469,10 +2469,10 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pos-invoice-new.php'>New Point of Sale Invoice</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pos-invoice-list.php'>View Point of Sale Invoices</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -2486,7 +2486,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 			<tr>
 				<th>New Point of Sale Invoice Saved</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoice for <b>$client</b> has been saved.</td>
 			</tr>
 		</table>
@@ -2495,10 +2495,10 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pos-invoice-new.php'>New Point of Sale Invoice</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pos-invoice-list.php'>View Point of Sale Invoices</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -2541,23 +2541,23 @@ function recvpayment() {
 			<tr>
 				<th colspan='2'>Payment Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank_acc[topacc]/$bank_acc[accnum] $bank_acc[accname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Received from</td>
 				<td valign='center'>$cus[cusname] $cus[surname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>POS Payment Received</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amt</td>
 			</tr>
@@ -2753,7 +2753,7 @@ function recvpayment() {
 				$open_amount[$oid] = $od['balance'];
 				$open_out = sprint($open_out - $od['balance']);
 				$ox .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='hidden' size='20' name='open[$oid]' value='$oid'>$od[type]</td>
 					<td>".CUR." $od[balance]</td>
 					<td>$od[date]</td>
@@ -2763,7 +2763,7 @@ function recvpayment() {
 				$open_amount[$oid] = $open_out;
 				$open_out = 0;
 				$ox .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='hidden' size='20' name='open[$oid]' value='$od[id]'>$od[type]</td>
 					<td>".CUR." $od[balance]</td>
 					<td>$od[date]</td>
@@ -2793,7 +2793,7 @@ function recvpayment() {
 			$amt = $open_out;
 			if($amt > 0) {
 				$OUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='4'><b>A general transaction will credit the client's account with ".CUR." $amt</b></td>
 				</tr>";
 			}
@@ -2801,7 +2801,7 @@ function recvpayment() {
 			//$amt=$bout;
 		} else {
 			$OUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'><b>A general transaction will credit the client's account with ".CUR." $amt </b></td>
 			</tr>";
 		}
@@ -3070,11 +3070,11 @@ function recvpayment_write()
 						'$sdate', 'Payment Received', 'n', '".USER_DIV."'
 					)";
 				$stmntRslt = db_exec($sql) or errDie("Unable to Insert statement record in Cubit.",SELF);
-				//$confirm .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
+				//$confirm .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
 			}
 
 			$out = $bout;
-		} else  {//$confirm .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
+		} else  {//$confirm .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
 		}
 
 	}

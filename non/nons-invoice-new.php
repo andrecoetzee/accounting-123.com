@@ -157,7 +157,7 @@ function details($_POST, $error="")
 		$stkd['amt'] = round($stkd['amt'], 2);
 
 		# put in product
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .="<tr class='bg-odd'>
 			<td align=center><input type=text size=50 name=des[] value='$stkd[description]'></td>
 			<td align=center><input type=text size=3 name=qtys[] value='$stkd[qty]'></td>
 			<td align=center><input type=text size=8 name=unitcost[] value='$stkd[unitcost]'></td>
@@ -178,7 +178,7 @@ function details($_POST, $error="")
 
 	if ( $i == 0 || isset($diffwhBtn) ) {
 		# add one
-		$products .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .= "<tr class='bg-odd'>
 			<td align=center><input type=text size=50 name=des[] value=''></td>
 			<td align=center><input type=text size=3 name=qtys[] value='1'></td>
 			<td align=center><input type=text size=8 name=unitcost[]></td>
@@ -212,16 +212,16 @@ function details($_POST, $error="")
  	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Supplier Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Supplier</td><td valign=middle><input type=text name=cusname value='$inv[cusname]'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Customer Address</td><td valign=middle><textarea name=cusaddr cols=18 rows=3>$inv[cusaddr]</textarea></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Customer VAT No.</td><td valign=middle><input type=text name=cusvatno value='$inv[cusvatno]'></td></tr>
+			<tr class='bg-odd'><td>Supplier</td><td valign=middle><input type=text name=cusname value='$inv[cusname]'></td></tr>
+			<tr class='bg-even'><td valign=top>Customer Address</td><td valign=middle><textarea name=cusaddr cols=18 rows=3>$inv[cusaddr]</textarea></td></tr>
+			<tr class='bg-odd'><td valign=top>Customer VAT No.</td><td valign=middle><input type=text name=cusvatno value='$inv[cusvatno]'></td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Non-Stock Invoice Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Non-Stock Invoice No.</td><td valign=center>TI $inv[invid]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td valign=center><input type=text size=2 name=sday maxlength=2 value='$sday'>-<input type=text size=2 name=smon maxlength=2 value='$smon'>-<input type=text size=4 name=syear maxlength=4 value='$syear'> DD-MM-YYYY</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Inclusive</td><td valign=center>Yes <input type=radio size=7 name=chrgvat value='yes' $chy> No<input type=radio size=7 name=chrgvat value='no' $chn></td></tr>
+			<tr class='bg-odd'><td>Non-Stock Invoice No.</td><td valign=center>TI $inv[invid]</td></tr>
+			<tr class='bg-even'><td>Date</td><td valign=center><input type=text size=2 name=sday maxlength=2 value='$sday'>-<input type=text size=2 name=smon maxlength=2 value='$smon'>-<input type=text size=4 name=syear maxlength=4 value='$syear'> DD-MM-YYYY</td></tr>
+			<tr class='bg-odd'><td>VAT Inclusive</td><td valign=center>Yes <input type=radio size=7 name=chrgvat value='yes' $chy> No<input type=radio size=7 name=chrgvat value='no' $chn></td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -230,15 +230,15 @@ function details($_POST, $error="")
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th width=25%>Quick Links</th><th width=25%>Remarks</th><td rowspan=5 valign=top width=50%>$error</td></tr>
-			<tr><td bgcolor='".TMPL_tblDataColor1."'><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top><textarea name=remarks rows=4 cols=20>$inv[remarks]</textarea></td></tr>
+			<tr><td class='bg-odd'><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td><td class='bg-odd' rowspan=4 align=center valign=top><textarea name=remarks rows=4 cols=20>$inv[remarks]</textarea></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>".CUR." <input type=hidden name=subtot value='$SUBTOT'>$SUBTOT</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT @ ".TAX_VAT." %</td><td align=right>".CUR." $inv[vat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><th>GRAND TOTAL</th><td align=right>".CUR." <input type=hidden name=total value='$TOTAL'>$TOTAL</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>".CUR." <input type=hidden name=subtot value='$SUBTOT'>$SUBTOT</td></tr>
+			<tr class='bg-odd'><td>VAT @ ".TAX_VAT." %</td><td align=right>".CUR." $inv[vat]</td></tr>
+			<tr class='bg-even'><th>GRAND TOTAL</th><td align=right>".CUR." <input type=hidden name=total value='$TOTAL'>$TOTAL</td></tr>
 		</table>
 	</td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'> | <input name=diffwhBtn type=submit value='Add Item'> |</td><td><input type=submit name='upBtn' value='Update'>$done</td></tr>
@@ -412,14 +412,14 @@ function write($_POST)
 		$write = "
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>New Non-Stock Invoices</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Non-Stock Invoices for Customer <b>$cusname</b> has been recorded.</td></tr>
+			<tr class='bg-even'><td>Non-Stock Invoices for Customer <b>$cusname</b> has been recorded.</td></tr>
 		</table>
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td></tr>
+			<tr class='bg-odd'><td><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>";
 
 		return $write;

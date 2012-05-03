@@ -45,7 +45,7 @@ function slct()
 		<tr>
 			<th>Select Project</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$project_sel</td>
 		</tr>
 	</table>
@@ -68,7 +68,7 @@ function display()
 
 	$task_out .= "";
 	while ($mtask_data = pg_fetch_array($mtask_rslt)) {
-		$task_out .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+		$task_out .= "<tr class='bg-odd'>
 			<td>Main</td>
 			<td>$mtask_data[name]</td>
 			<td>$mtask_data[notes]</td>
@@ -85,7 +85,7 @@ function display()
 		$stask_rslt = db_exec($sql) or errDie("Unable to retrieve sub tasks.");
 
 		while ($stask_data = pg_fetch_array($stask_rslt)) {
-			$task_out .= "<tr bgcolor='".TMPL_tblDataColor2."'>
+			$task_out .= "<tr class='bg-even'>
 				<td>&nbsp; &nbsp; Sub</td>
 				<td>&nbsp; &nbsp; $stask_data[name]</td>
 				<td>&nbsp; &nbsp; $stask_data[notes]</td>

@@ -58,23 +58,23 @@ function enter()
 			<tr>
 				<th colspan='2'>Set Currency Symbol</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' size='20' name='cur' value='rand' checked='yes'></td>
 				<td>(RSA) Rand - R</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' size='20' name='cur' value='dollar'></td>
 				<td>(USA) Dollar - $</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' size='20' name='cur' value='pound'></td>
 				<td>(UK) Pound - &#163</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' size='20' name='cur' value='euro'></td>
 				<td>(EU) Euro - &#8364</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' size='20' name='cur' value='other'></td>
 				<td><input type='text' size='4' name='ocur'></td>
 			</tr>
@@ -152,7 +152,7 @@ function confirm($_POST)
 			<tr>
 				<th colspan>Currency Symbol</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$showcur</td>
 			</tr>
 			<tr><td><br></td></tr>

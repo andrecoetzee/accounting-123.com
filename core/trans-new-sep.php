@@ -107,15 +107,15 @@ function slctacc($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$accs <input type='button' onClick=\"window.open('acc-new2.php?update_parent=yes','accounts','width=700, height=400');\" value='New Account'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type </td>
 				<td><input type='radio' name='tran' value='dt' $c1>Debit &nbsp;&nbsp; <input type='radio' name='tran' value='ct' $c2>Credit</td>
 			</tr>
@@ -130,7 +130,7 @@ function slctacc($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../reporting/index-reports.php'>Financials</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -294,7 +294,7 @@ function details($_POST)
 	}
 
 	$details .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4' align='right'><b>Total:</b></td>
 			<td>".CUR." ".sprint(array_sum ($amount))."</td>
 			<td></td>
@@ -314,10 +314,10 @@ function details($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../reporting/index-reports.php'>Financials</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='trans-new.php'>Journal Transactions</td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -448,10 +448,10 @@ function confirm($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../reporting/index-reports.php'>Financials</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='trans-new.php'>Journal Transactions</td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

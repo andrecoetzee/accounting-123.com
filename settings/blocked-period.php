@@ -64,7 +64,7 @@ function get_range ($err="")
 				<th>From Date</th>
 				<th>To Date</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect ("from",$from_year,$from_month,$from_day)."</td>
 				<td>".mkDateSelect ("to",$to_year,$to_month,$to_day)."</td>
 			</tr>

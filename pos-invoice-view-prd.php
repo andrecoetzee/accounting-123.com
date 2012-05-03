@@ -77,7 +77,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' colspan='2' nowrap='t'>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
@@ -203,7 +203,7 @@ function printInv ($_POST)
 			$total = sprint($inv['total'] - $inv['rounding']);
 
 			$printInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[deptname]</td>
 					<td>$inv[salespn]</td>
 					<td>$inv[invnum]</td>
@@ -233,7 +233,7 @@ function printInv ($_POST)
 	// Layout
 	if($tot1 > 0){
 		$printInv .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'>Totals:$i</td>
 				<td align='right'>".CUR." $tot1</td>
 				<td align='right' colspan='4'></td>

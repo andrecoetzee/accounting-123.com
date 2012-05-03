@@ -102,7 +102,7 @@ function number()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Accounts by</td>
 				<td align='right'><input type='radio' name='vby' value='topacc,accnum' $c1>Account No. | <input type='radio' name='vby' value='accname' $c2>Account Name</td>
 			</tr>
@@ -253,7 +253,7 @@ function slctacc($_POST, $err="")
 	}
 
 	$view .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4' align='right'><b>Total:</b></td>
 			<td>".CUR." ".sprint(array_sum ($amount))."</td>
 			<td></td>

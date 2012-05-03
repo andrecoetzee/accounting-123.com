@@ -89,7 +89,7 @@ function view($cusnum)
 	
 	while($id = pg_fetch_array($Ri)) {
 		$invs .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$id[invnum]</td>
 				<td>$id[odate]</td>
 				<td><a target='_blank' href='delnote-out.php?invid=$id[invid]'>Outstanding</a></td>
@@ -108,7 +108,7 @@ function view($cusnum)
 		
 		while($id = pg_fetch_array($Ri)) {
 			$invs .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$id[invnum]</td>
 					<td>$id[odate]</td>
 					<td><a target='_blank' href='delnote-out.php?invid=$id[invid]&prd=$prd'>Outstanding</a></td>
@@ -129,27 +129,27 @@ function view($cusnum)
 			<tr valign='top'>
 				<td>
 					<table ".TMPL_tblDflts." width='100%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Acc No</td>
 							<td>$accno</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Surname/Company</td>
 							<td>$surname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Title</td>
 							<td>$title</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Initials</td>
 							<td>$init</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Contact Name</td>
 							<td>$contname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Business Tel.</td>
 							<td>$bustel</td>
 						</tr>
@@ -157,15 +157,15 @@ function view($cusnum)
 				</td>
 				<td>
 					<table ".TMPL_tblDflts." width='100%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Home Tel.</td>
 							<td>$tel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cell No.</td>
 							<td>$cellno</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Fax No.</td>
 							<td>$fax</td>
 						</tr>
@@ -180,10 +180,10 @@ function view($cusnum)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='customers-view.php'>View Customers</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

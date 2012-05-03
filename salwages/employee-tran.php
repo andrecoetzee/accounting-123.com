@@ -92,7 +92,7 @@ function enter($HTTP_VARS)
 
 	if($edata['paytype'] == "Cash") {
 
-		$row = "<tr bgcolor='".bgcolorg()."'><td colspan='2'>Paid Cash</td></tr>";
+		$row = "<tr class='".bg_class()."'><td colspan='2'>Paid Cash</td></tr>";
 
 	} elseif($edata['paytype'] == "Ledger Account") {
 
@@ -117,7 +117,7 @@ function enter($HTTP_VARS)
 		$accounts .= "</select>";
 
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Ledger Account</td>
 				<td>$accounts</td>
 			</tr>";
@@ -144,7 +144,7 @@ function enter($HTTP_VARS)
 		$banks .= "</select>";
 
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account</td>
 				<td>$banks</td>
 			</tr>";
@@ -169,24 +169,24 @@ function enter($HTTP_VARS)
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount due to employee</td>
 				<td>".CUR." $edata[balance]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td><input type='text' size='8' name='paidamount' value='$paidamount'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td><input type='text' size='2' name='day' maxlength='2' value='$day'>-<input type='text' size='2' name='mon' maxlength='2' value='$mon'>-<input type='text' size='4' name='year' maxlength='4' value='$year'></td>
 			</tr>
 			$row
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Entry Type</td>
 				<td><input type='radio' name='entry' value='DT' $entd> Debit(Decrease) | <input type='radio' name='entry' value='CT' $entc>Credit(Increase)</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td><input type='text' size='40' name='description' value=''></td>
 			</tr>
@@ -255,7 +255,7 @@ function confirm($HTTP_VARS)
 	if($edata['paytype'] == "Cash") {
 
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>Paid Cash</td>
 			</tr>
 			<input type='hidden' name='bankid' value='0'>";
@@ -270,7 +270,7 @@ function confirm($HTTP_VARS)
 		$bank = pg_fetch_array($bankRslt);
 
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank[accname]</td>
 			</tr>
@@ -286,7 +286,7 @@ function confirm($HTTP_VARS)
 		$bank = pg_fetch_array($bankRslt);
 
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank</td>
 				<td>$bank[accname]</td>
 			</tr>
@@ -311,20 +311,20 @@ function confirm($HTTP_VARS)
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount due to employee</td>
 				<td>".CUR." $edata[balance]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount paid now</td>
 				<td><input type='hidden' name='paidamount' value='$paidamount'>".CUR." $paidamount</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>$date</td>
 			</tr>
 			$row
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td><input type='hidden' name='description' value='$description'>$description</td>
 			</tr>
@@ -476,7 +476,7 @@ function write($HTTP_VARS)
 			<tr>
 				<th>Transaction Done</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Transaction with employee has been recorded</td>
 			</tr>
 		</table>";

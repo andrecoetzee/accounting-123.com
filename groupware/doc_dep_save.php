@@ -59,7 +59,7 @@ function enter()
 		<tr>
 			<th colspan='2'>Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Department Name</td>
 			<td><input type='text' name='dep_name' value='$dep_name' /></td>
 		</tr>
@@ -87,7 +87,7 @@ function confirm()
 		<tr>
 			<th colspan='2'>Confirm</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Department Name</td>
 			<td>$dep_name</td>
 		</tr>
@@ -115,7 +115,7 @@ function write()
 		<tr>
 			<th>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Successfully saved document department</td>
 		</tr>
 	</table>";

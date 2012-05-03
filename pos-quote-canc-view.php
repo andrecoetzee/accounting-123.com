@@ -55,7 +55,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' nowrap>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
@@ -152,7 +152,7 @@ function printQuo ($_POST)
 			$quo['date'] = $quo['date'][2]."-".$quo['date'][1]."-".$quo['date'][0];
 
 			$printQuo .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'>$quo[date]</td>
 					<td>$quo[username]</td>
 					<td>$quo[deptname]</td>

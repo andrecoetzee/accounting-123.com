@@ -153,71 +153,71 @@ function confirm($stkid)
 							<th width='40%'>Field</th>
 							<th width='60%'>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Store</td>
 							<td>$wh[whname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Stock code</td>
 							<td>$stkcod</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Stock description</td>
 							<td>".nl2br($stkdes)."</pre></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Category</td>
 							<td>$catname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Classification</td>
 							<td>$classname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Warranty</td>
 							<td>$warranty</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bought Unit of measure</td>
 							<td>$buom</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Selling Unit of measure</td>
 							<td>$suom</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Selling Units per Bought unit</td>
 							<td>$rate</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Location</td>
 							<td>Shelf : $shelf - Row : $row</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Minimum level</td>
 							<td>$minlvl</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Maximum level</td>
 							<td>$maxlvl</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cost price per selling unit</td>
 							<td>".CUR." $csprice</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Selling price per selling unit</td>
 							<td>".CUR." ".sprint($selamt)." $vat</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier1</td>
 							<td>$supname1</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier2</td>
 							<td>$supname2</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier3</td>
 							<td>$supname3</td>
 						</tr>
@@ -228,7 +228,7 @@ function confirm($stkid)
 						<tr>
 							<th>Image</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$img</td>
 						</tr>
 					</table>

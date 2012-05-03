@@ -97,7 +97,7 @@ function edit($id)
 				<th width='40%'>Field</th>
 				<th width='60%'>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Department</td>
 				<td><input type='text' size='20' name='department' value='$department'></td>
 			</tr>
@@ -173,15 +173,15 @@ function confirm($_POST)
 				<th width='40%'>Field</th>
 				<th width='60%'>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category Code</td>
 				<td>$catcod</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category Name</td>
 				<td>$cat</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Description</td>
 				<td><pre>$descript</pre></td>
 			</tr>
@@ -196,7 +196,7 @@ function confirm($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='empdepartment-view.php'>View Employee Department</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -260,10 +260,10 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='empdepartment-add.php'>Add Employee Department</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='empdepartment-view.php'>View Employee Departments</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

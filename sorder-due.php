@@ -62,7 +62,7 @@ function slct()
 			<tr>
 				<th>Admin: Select User</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$user_sel</td>
 			</tr>
 		</table>
@@ -103,7 +103,7 @@ function display()
 	$sorder_out = "";
 	while ($sorder_data = pg_fetch_array($sorder_rslt)) {
 		$sorder_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$sorder_data[ddate]</td>
 				<td>$sorder_data[odate]</td>
 				<td>$sorder_data[cusname] $sorder_data[surname]</td>
@@ -116,7 +116,7 @@ function display()
 
 	if (empty($sorder_out)) {
 		$sorder_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='7'>No items found</td>
 		</tr>";
 	}

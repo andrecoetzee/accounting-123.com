@@ -99,7 +99,7 @@ function details($_GET)
 
 			# put in product
 			$products .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$stkd[cod]</td>
 								<td>$stkd[des]</td>
 								<td>$stkd[qty]</td>
@@ -150,11 +150,11 @@ function details($_GET)
 								<tr>
 									<th colspan='2'> Supplier Details </th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Supplier</td>
 									<td valign='center'>$pur[supplier]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Account number</td>
 									<td valign='center'><pre>$pur[supaddr]</pre></td>
 								</tr>
@@ -165,35 +165,35 @@ function details($_GET)
 								<tr>
 									<th colspan='2'> Non-Stock Asset Purchase Details </th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Asset</td>
 									<td valign='center'>$asset[des]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Non-Stock Order No.</td>
 									<td valign='center'>$pur[purnum]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Order No.</td>
 									<td valign='center'>$pur[ordernum]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Delivery Ref No.</td>
 									<td valign='center'>$pur[refno]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Terms</td>
 									<td valign='center'>$pur[terms] Days</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Date</td>
 									<td valign='center'>$pday-$pmon-$pyear</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>VAT Inclusive</td>
 									<td valign='center'>$pur[vatinc]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Delivery Charges</td>
 									<td valign='center'>".CUR." $pur[shipchrg]</td>
 								</tr>
@@ -213,10 +213,10 @@ function details($_GET)
 									<td rowspan='5' valign='top' width='15%'><br></td>
 								</tr>
 								<tr>
-									<td bgcolor='".bgcolorg()."'><a href='nons-purchase-new.php'>New Non-Stock Order</a></td>
-									<td bgcolor='".bgcolorg()."' rowspan=4 align=center valign=top>".nl2br($pur['remarks'])."</td>
+									<td class='".bg_class()."'><a href='nons-purchase-new.php'>New Non-Stock Order</a></td>
+									<td class='".bg_class()."' rowspan=4 align=center valign=top>".nl2br($pur['remarks'])."</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td><a href='nons-purchase-view.php'>View Non-Stock Orders</a></td>
 								</tr>
 								<script>document.write(getQuicklinkSpecial());</script>
@@ -224,15 +224,15 @@ function details($_GET)
 						</td>
 						<td align='right'>
 							<table ".TMPL_tblDflts." width='80%'>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>SUBTOTAL</td>
 									<td align='right'>".CUR." $pur[subtot]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>VAT @ ".TAX_VAT." %</td>
 									<td align='right'>".CUR." $pur[vat]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<th>GRAND TOTAL</th>
 									<td align='right'>".CUR." $pur[total]</td>
 								</tr>

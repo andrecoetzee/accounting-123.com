@@ -58,7 +58,7 @@ function slctAcc()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=viewtran>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Name</td><td><select name=accid>";
+	<tr class='bg-even'><td>Account Name</td><td><select name=accid>";
 
 	core_connect();
 	$sql = "SELECT * FROM accounts WHERE accnum = '000' ORDER BY accname ASC";
@@ -73,9 +73,9 @@ function slctAcc()
 	}
 
 	$slctAcc .="</select></td><td><input type=submit name=details value='Enter Details'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=3><br></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Number</td><td><input type=text name=topacc size=3 maxlength=3> / <input type=text name=accnum size=3 maxlength=3></td><td><input type=submit value='Enter Details'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Select Period</td><td valign=center colspan=3>
+	<tr class='bg-odd'><td colspan=3><br></td></tr>
+	<tr class='bg-even'><td>Account Number</td><td><input type=text name=topacc size=3 maxlength=3> / <input type=text name=accnum size=3 maxlength=3></td><td><input type=submit value='Enter Details'></td></tr>
+	<tr class='bg-odd'><td>Select Period</td><td valign=center colspan=3>
 	<select name=prd>";
 
 	db_conn(YR_DB);
@@ -172,7 +172,7 @@ function viewtran($_POST)
 	$sql = "SELECT * FROM transect WHERE debit = '$acc[accid]' OR credit = '$acc[accid]'";
 	$tranRslt = db_exec ($sql) or errDie ("ERROR: Unable to retrieve Transaction details from database.", SELF);
 	if (pg_numrows ($tranRslt) < 1) {
-		$OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=10>No Transactions found</td></tr>";
+		$OUTPUT .= "<tr class='bg-odd'><td colspan=10>No Transactions found</td></tr>";
 	} else {
 		$credtot = 0;
 		$debtot = 0;
@@ -198,7 +198,7 @@ function viewtran($_POST)
 			$cacc = pg_fetch_array($caccRs);
 
 			$OUTPUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$date</td>
 				<td>$refnum</td>
 				<td>$cacc[topacc]/$cacc[accnum] - $cacc[accname]</td>
@@ -221,13 +221,13 @@ function viewtran($_POST)
 	}
 
 	$OUTPUT .= "
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td colspan='4'><b>Total</b></td>
 		<td><b>".CUR." $debtot</b></td>
 		<td><b>".CUR." $credtot</b></td>
 		<td>&nbsp;</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td colspan='4'><b>Balance</b></td>
 		<td colspan='2'><b>".CUR." $accbal</b></td>
 		<td>&nbsp;</td>

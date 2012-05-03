@@ -50,7 +50,7 @@ function win($_POST)
 		$sql = "SELECT * FROM trial_bal WHERE accid = '$gacc[accid]' AND div = '".USER_DIV."'";
 		$accRslt = db_exec ($sql) or errDie ("Unable to view account.");
 		$acc = pg_fetch_array($accRslt);
-		$report .="<tr bgcolor='".TMPL_tblDataColor2."'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>";
+		$report .="<tr class='bg-even'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>";
 		if(true){
 			if($acc['debit'] > $acc['credit']){
 				$acc['debit'] = sprint($acc['debit']-$acc['credit']);

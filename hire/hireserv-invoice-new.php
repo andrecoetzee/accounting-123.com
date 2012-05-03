@@ -117,7 +117,7 @@ function slct($err = "")
 	}
 	$depts .= "</select>";
 
-	//<tr bgcolor='".TMPL_tblDataColor1."' ".ass("Select when the sale of non stock goods is a bank sale")."><td><input type=radio name=ctyp value='cb'>Bank Sale</td><td>$banks</td></tr>
+	//<tr class='bg-odd' ".ass("Select when the sale of non stock goods is a bank sale")."><td><input type=radio name=ctyp value='cb'>Bank Sale</td><td>$banks</td></tr>
 
 
 	$details = "<center>
@@ -129,14 +129,14 @@ function slct($err = "")
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 	<tr><td colspan=2>$err</td></tr>
  	<tr><th colspan=2> Invoice Details </th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."' ".ass("Select when selling non stock goods to your customers")."><td><input type=radio name=ctyp value='s' checked=yes> Select Customer</td><td>$custs</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."' ".ass("Select when the sale of non stock goods is a cash sale")."><td><input type=radio name=ctyp value='c'>Cash Sale</td><td>$depts</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."' ".ass("Select when the sale of non stock goods is not a cash sale")."><td><input type=radio name=ctyp value='ac'>Ledger Accounts Sale</td>
+	<tr class='bg-odd' ".ass("Select when selling non stock goods to your customers")."><td><input type=radio name=ctyp value='s' checked=yes> Select Customer</td><td>$custs</td></tr>
+	<tr class='bg-even' ".ass("Select when the sale of non stock goods is a cash sale")."><td><input type=radio name=ctyp value='c'>Cash Sale</td><td>$depts</td></tr>
+	<tr class='bg-odd' ".ass("Select when the sale of non stock goods is not a cash sale")."><td><input type=radio name=ctyp value='ac'>Ledger Accounts Sale</td>
 		<td class='err'>This selection will debit the amount of the invoice<br /> to a General Ledger account
 			instead of Debtors Control.</td></tr>
 	<tr><td><br></td></tr>
 	<tr><th colspan=2>Search by surname</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td><input type=text size=10 name=letters value='$letters'></td><td><input type=submit value='Search &raquo;'></td></td></tr>
+	<tr class='bg-even'><td><input type=text size=10 name=letters value='$letters'></td><td><input type=submit value='Search &raquo;'></td></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center></td><td align=center><input type=submit name=button value='Continue &raquo;'></td></tr>
  	</form>
@@ -311,7 +311,7 @@ function details($_POST, $error="")
 		}
 
 		# put in product
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .="<tr class='bg-odd'>
 			<td align=center><input type=text size=50 name=des[] value='$stkd[description]'></td>
 			<td align=center><input type=text size=3 name=qtys[] value='$stkd[qty]'></td>
 			<td><input type=hidden name=amt[] value='".sprint($stkd["amt"])."'> ".CUR." ".sprint($stkd["amt"])."</td>
@@ -352,7 +352,7 @@ function details($_POST, $error="")
 
 	if ( $i == 0 || isset($diffwhBtn) ) {
 		# add one
-		$products .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .= "<tr class='bg-odd'>
 			<td align=center><input type=text size=50 name=des[] value=''></td>
 			<td align=center><input type=text size=3 name=qtys[] value='1'></td>
 			<td>".CUR." 0.00</td>
@@ -395,9 +395,9 @@ function details($_POST, $error="")
 		<input type=hidden name=cusname value='$cn'>
 		<input type=hidden name=cusaddr value='$cust[addr1]'>
 		<input type=hidden name=cusvatno value='$cust[vatnum]'>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer</td><td valign=center>$cust[cusname] $cust[surname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Address</td><td valign=center><pre>$cust[addr1]</pre></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer VAT Number</td><td valign=center>$cust[vatnum]</td></tr>";
+		<tr class='bg-odd'><td>Customer</td><td valign=center>$cust[cusname] $cust[surname]</td></tr>
+		<tr class='bg-even'><td>Customer Address</td><td valign=center><pre>$cust[addr1]</pre></td></tr>
+		<tr class='bg-odd'><td>Customer VAT Number</td><td valign=center>$cust[vatnum]</td></tr>";
 	}elseif($inv['ctyp'] == 'c'){
 		db_conn("exten");
 		$sql = "SELECT * FROM departments WHERE deptid = '$inv[tval]'";
@@ -406,15 +406,15 @@ function details($_POST, $error="")
 
 		$details = "
 		<tr><th colspan=2> Customer Details </th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer</td><td valign=middle><input type=text name=cusname value='$inv[cusname]'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Customer Address</td><td valign=middle><textarea name=cusaddr cols=18 rows=3>$inv[cusaddr]</textarea></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Customer VAT No.</td><td valign=middle><input type=text name=cusvatno value='$inv[cusvatno]'></td></tr>";
+		<tr class='bg-odd'><td>Customer</td><td valign=middle><input type=text name=cusname value='$inv[cusname]'></td></tr>
+		<tr class='bg-even'><td valign=top>Customer Address</td><td valign=middle><textarea name=cusaddr cols=18 rows=3>$inv[cusaddr]</textarea></td></tr>
+		<tr class='bg-odd'><td valign=top>Customer VAT No.</td><td valign=middle><input type=text name=cusvatno value='$inv[cusvatno]'></td></tr>";
 	}else{
 		$details = "
 		<tr><th colspan=2> Customer Details </th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer</td><td valign=middle><input type=text name=cusname value='$inv[cusname]'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Customer Address</td><td valign=middle><textarea name=cusaddr cols=18 rows=3>$inv[cusaddr]</textarea></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Customer VAT No.</td><td valign=middle><input type=text name=cusvatno value='$inv[cusvatno]'></td></tr>";
+		<tr class='bg-odd'><td>Customer</td><td valign=middle><input type=text name=cusname value='$inv[cusname]'></td></tr>
+		<tr class='bg-even'><td valign=top>Customer Address</td><td valign=middle><textarea name=cusaddr cols=18 rows=3>$inv[cusaddr]</textarea></td></tr>
+		<tr class='bg-odd'><td valign=top>Customer VAT No.</td><td valign=middle><input type=text name=cusvatno value='$inv[cusvatno]'></td></tr>";
 	}
 
 	db_conn('cubit');
@@ -468,7 +468,7 @@ function details($_POST, $error="")
  	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			$details
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Order number</td><td valign=center><input type=text size=10 name=cordno value='$inv[cordno]'></td></tr>
+			<tr class='bg-even'><td>Customer Order number</td><td valign=center><input type=text size=10 name=cordno value='$inv[cordno]'></td></tr>
 		</table>
 	</td>
 	<td valign=top align=right>
@@ -476,27 +476,27 @@ function details($_POST, $error="")
 	<tr>
 		<th colspan='2'>Non-Stock Invoice Details</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Non-Stock Invoice No.</td>
 		<td valign=center>TI $inv[invid]</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Proforma Invoice No.</td>
 		<td><input type='text' name='docref' value='$inv[docref]'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Date</td>
 		<td valign='center'>".mkDateSelect("ninv",$ninv_year,$ninv_month,$ninv_day)." DD-MM-YYYY</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>VAT Inclusive</td>
 		<td valign='center'>Yes <input type='radio' size='7' name='chrgvat' value='yes' $chy> No<input type=radio size=7 name=chrgvat value='no' $chn></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Terms</td>
 		<td valign='center'>$termssel Days</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Sales Person</td>
 		$sales
 	</tr>
@@ -508,14 +508,14 @@ function details($_POST, $error="")
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th width=25%>Quick Links</th><th width=25%>Remarks</th><td rowspan=5 valign=top width=50%>$error</td></tr>
-			<tr><td bgcolor='".TMPL_tblDataColor1."'><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top><textarea name=remarks rows=4 cols=20>$remarks</textarea></td></tr>
+			<tr><td class='bg-odd'><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td><td class='bg-odd' rowspan=4 align=center valign=top><textarea name=remarks rows=4 cols=20>$remarks</textarea></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>".CUR." <input type=hidden name=subtot value='$SUBTOT'>$SUBTOT</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT $vat14</td><td align=right>".CUR." $inv[vat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><th>GRAND TOTAL</th><td align=right>".CUR." <input type=hidden name=total value='$TOTAL'>$TOTAL</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>".CUR." <input type=hidden name=subtot value='$SUBTOT'>$SUBTOT</td></tr>
+			<tr class='bg-odd'><td>VAT $vat14</td><td align=right>".CUR." $inv[vat]</td></tr>
+			<tr class='bg-even'><th>GRAND TOTAL</th><td align=right>".CUR." <input type=hidden name=total value='$TOTAL'>$TOTAL</td></tr>
 		</table>
 	</td></tr>
 	<tr><td align=right><input name=diffwhBtn type=submit value='Add Item'> |</td><td><input type=submit name='upBtn' value='Update'>$done</td></tr>
@@ -840,12 +840,12 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 		$write = "
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>New Non-Stock Invoices</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Non-Stock Invoices for Customer <b>$cusname</b> has been recorded.</td></tr>
+			<tr class='bg-even'><td>Non-Stock Invoices for Customer <b>$cusname</b> has been recorded.</td></tr>
 		</table>
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td></tr>
+			<tr class='bg-odd'><td><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 

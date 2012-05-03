@@ -100,7 +100,7 @@ function manuOut()
 		}
 
 		$s_stock_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$s_stock_data[stkcod]</td>
 				<td align='center'>".sprint3($qty_item)."</td>
 				<td align='center'>$qty_required</td>
@@ -113,7 +113,7 @@ function manuOut()
 				<tr>
 					<th colspan='4'>Transaction Date</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='4' align='center'>".mkDateSelect("tdate", $tdate_year, $tdate_month, $tdate_day)."</td>
 				</tr>";
 			$manubtn = "<input type='submit' value='Manufacture &raquo' style='font-size: 14pt; font-weight: bold; width: 100%' />";
@@ -122,7 +122,7 @@ function manuOut()
 				<tr>
 					<th colspan='4'>Transaction Date</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='4' align='center'>
 						".mkDateSelect("tdate", $tdate_year, $tdate_month, $tdate_day)."
 					</td>
@@ -159,7 +159,7 @@ function manuOut()
 				<th>Qty</th>
 				<th colspan='2'>&nbsp;</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><b>$m_stock_data[stkcod]</b></td>
 				<td><input type='text' name='qty' value='$qty' size='3' style='text-align: center; width: 100%;' /></td>
 				<td colspan='2'><input type='submit' value='Update &raquo' style='width: 100%;' /></td>
@@ -221,7 +221,7 @@ function unmanuOut($err = "")
 	$stock_sel .= "</select>";
 
 	$ns_stock_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$stock_sel</td>
 			<td><input type='text' name='n_stk_qty' value='0' size='3' style='text-align: center'></td>
 			<td align='right'>".CUR." <input type='text' name='n_stk_val' value='0.00' size='7' style='text-align: right' /></td>
@@ -243,7 +243,7 @@ function unmanuOut($err = "")
 		$s_stock_out .= "
 			<input type='hidden' name='stkval[$sstock_data[stkid]]' value='$ds_data[stk_val]' />
 			<input type='hidden' name='stkqty[$sstock_data[stkid]]' value='$ds_data[stk_qty]' />
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$sstock_data[stkcod]</td>
 				<td align='center'>$ds_data[stk_qty]</td>
 				<td align='right'>".CUR.sprint($ds_data["stk_val"])."</td>
@@ -262,7 +262,7 @@ function unmanuOut($err = "")
 			<tr>
 				<th colspan='5'>Transaction Date</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5' align='center'>
 					".mkDateSelect("tdate", $tdate_year, $tdate_month, $tdate_day)."
 				</td>
@@ -296,7 +296,7 @@ function unmanuOut($err = "")
 				<th>Value for Stock Items</th>
 				<th colspan='2'>&nbsp;</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$m_stock_data[stkcod]</td>
 				<td><input type='text' name='qty' value='$qty' size='3' style='text-align: center; width: 100%;' /></td>
 				<td align='right'>".CUR." ".money($m_stock_data["csprice"] * $qty)."</td>
@@ -432,7 +432,7 @@ function manufacture($m_stock_id, $qty, $tdate)
 			<tr>
 				<th colspan='2'>Manufactured</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Item successfully manufactured.</td>
 				<td><a href='stock-view.php'>View Stock</a></td>
 			</tr>
@@ -497,7 +497,7 @@ function unmanufacture($m_stock_id, $qty, $stkval, $qtys, $tdate)
 			<tr>
 				<th colspan='2'>Disassembled</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Item/s successfully disassembled</td>
 				<td><a href='stock-view.php'>View Stock</a></td>
 			</tr>

@@ -30,13 +30,13 @@ function get_filters ($_POST)
 		$run_emps = db_exec ($get_emps) or errDie ("Unable to get employee number.");
 		if (pg_numrows ($run_emps) < 1){
 			$view_report = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='4'>No Employees Hired Within Selected Dates.</td>
 				</tr>";
 		}else {
 			while ($arr = pg_fetch_array ($run_emps)){
 				$view_report .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$arr[sname], $arr[fnames]</td>
 						<td>$arr[hiredate]</td>
 						<td>$arr[designation]</td>
@@ -59,7 +59,7 @@ function get_filters ($_POST)
 				<th>From</th>
 				<th>To</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from",date("Y"),date("m"),"01")."</td>
 				<td>".mkDateSelect("to",date("Y"),date("m"),date("d"))."</td>
 			</tr>

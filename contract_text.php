@@ -37,7 +37,7 @@ function enter()
 	<input type='hidden' name='key' value='confirm' />
 	<table ".TMPL_tblDflts.">
 		<tr><th>Enter</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>
 			<textarea name='contract' cols='100' rows='30' />$contract</textarea>
 			</td>
@@ -66,7 +66,7 @@ function confirm()
 	<input type='hidden' name='contract' value='$contract' />
 	<table ".TMPL_tblDflts.">
 		<tr><th>Confirm</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".nl2br($contract)."</td>
 		</tr>
 		<tr>
@@ -94,7 +94,7 @@ function write()
 	<h3>Contract Text</h3>
 	<table ".TMPL_tblDflts.">
 		<tr><th>Write</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Successfully saved contract text</li></td>
 		</tr>
 	</table>";

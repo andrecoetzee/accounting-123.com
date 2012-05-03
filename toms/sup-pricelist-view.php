@@ -62,8 +62,8 @@ function printList ()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sup-pricelist-add.php'>Add Supplier Price List</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='sup-pricelist-add.php'>Add Supplier Price List</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $printList;

@@ -71,15 +71,15 @@ function slctacc()
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>Accounts</td>
 					<td><input type='radio' name='accnt' value='slct' checked='yes'>Selected Accounts | <input type='radio' name='accnt' value='all'>All Accounts</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>Select account(s)</td>
 					<td>$accs</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select period</td>
 					<td>$prds</td>
 				</tr>
@@ -179,7 +179,7 @@ function viewtran($_POST)
 				$sum = pg_fetch_array($sumRs);
 
 				$trans .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$sum[edate]</td>
 							<td><b>$acc[topacc]/$acc[accnum] - $acc[accname]</b></td>
 							<td>$dis[eref]</td>
@@ -192,7 +192,7 @@ function viewtran($_POST)
 				$tranRs = db_exec($sql);
 				while($tran = pg_fetch_array($tranRs)){
 					$trans .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><br date></td>
 								<td><br account></td>
 								<td><br ref></td>
@@ -216,7 +216,7 @@ function viewtran($_POST)
 				$sum = pg_fetch_array($sumRs);
 
 				$trans .= "
-						<tr bgcolor='".TMPL_tblDataColor2."'>
+						<tr class='bg-even'>
 							<td>$sum[edate]</td>
 								<td><b>$acc[topacc]/$acc[accnum] - $acc[accname]</b></td>
 								<td>$dis[eref]</td>
@@ -230,7 +230,7 @@ function viewtran($_POST)
 				$tranRs = db_exec($sql);
 				while($tran = pg_fetch_array($tranRs)){
 					$trans .= "
-							<tr bgcolor='".TMPL_tblDataColor1."'>
+							<tr class='bg-odd'>
 								<td><br date></td>
 								<td><br account></td>
 								<td><br ref></td>

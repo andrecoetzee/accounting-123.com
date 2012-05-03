@@ -36,7 +36,7 @@ function debtors($tran, $cacc){
 	<input type=hidden name=cacc value='$cacc'>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Select Customer</td><td>$custs</td></tr>
+	<tr class='bg-odd'><td valign=top>Select Customer</td><td>$custs</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=center><input type=submit value='Continue &raquo;'></td></tr>
 	</table>
@@ -45,7 +45,7 @@ function debtors($tran, $cacc){
 		<tr><td><br></td></tr>
 		<tr><th>Quick Links</th></tr>
 		<tr class=datacell><td align=center><a href='trans-new.php'>Journal Transactions</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../customers-view.php'>View Customers</a></td></tr>
+		<tr class='bg-odd'><td align=center><a href='../customers-view.php'>View Customers</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

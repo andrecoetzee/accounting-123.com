@@ -147,31 +147,31 @@ function enterLeave ($_GET)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$myEmp[sname], $myEmp[fnames] ($myEmp[enum])</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date of approval</td>
 				<td align='center'>$today</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Leave start date</td>
 				<td align='center'>$lea[startdate]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Leave end date</td>
 				<td align='center'>$lea[enddate]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Approved by</td>
 				<td align='center'>".USER_NAME."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type of leave</td>
 				<td align='center'>$typedef</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Non-working days<br>(Excluding weekends)</td>
 				<td align='center'><input type='text' size='5' name='nonworking' value='0'></td>
 			</tr>
@@ -304,39 +304,39 @@ function confirmLeave ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$myEmp[sname], $myEmp[fnames] ($myEmp[enum])</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date of approval</td>
 				<td align='center'>$today</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Leave start date</td>
 				<td align='center'>$lea[startdate]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Leave end date</td>
 				<td align='center'>$lea[enddate]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total days inbetween</td>
 				<td align='center'>$days_between</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total working days inbetween</td>
 				<td align='center'>$lea[workingdays]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Approved by</td>
 				<td align='center'>$approvedby</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type of leave</td>
 				<td align='center'>$typedef</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Non-working days</td>
 				<td align='center'>$nonworking</td>
 			</tr>

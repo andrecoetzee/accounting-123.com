@@ -42,13 +42,13 @@ $OUTPUT = "<center>
 <td valign=top width='33%'><table width='90%'>
 <tr><td align=center><h3>Document Management</h3></td></tr>
 <tr ><th colspan=2>Document Details</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td nowrap><a href ='docadd.php' class=nav><b>Add New Document</b></a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td nowrap><a href ='docview.php' class=nav><b>View Documents</b></a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td nowrap><a href='doctypeadd.php' class=nav><b>Add Document Type</b></a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td nowrap><a href ='doctypeview.php' class=nav><b>View Document Type</b></a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td nowrap><a href='foladd.php' class=nav><b>Add New Folder</b></a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td nowrap><a href='usradd.php' class=nav><b> User Management</b></a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td nowrap><a href='grpadd.php' class=nav><b> Group Management</b></a></td></tr>
+<tr class='bg-odd'><td nowrap><a href ='docadd.php' class=nav><b>Add New Document</b></a></td></tr>
+		<tr class='bg-odd'><td nowrap><a href ='docview.php' class=nav><b>View Documents</b></a></td></tr>
+		<tr class='bg-odd'><td nowrap><a href='doctypeadd.php' class=nav><b>Add Document Type</b></a></td></tr>
+		<tr class='bg-odd'><td nowrap><a href ='doctypeview.php' class=nav><b>View Document Type</b></a></td></tr>
+		<tr class='bg-odd'><td nowrap><a href='foladd.php' class=nav><b>Add New Folder</b></a></td></tr>
+		<tr class='bg-odd'><td nowrap><a href='usradd.php' class=nav><b> User Management</b></a></td></tr>
+		<tr class='bg-odd'><td nowrap><a href='grpadd.php' class=nav><b> Group Management</b></a></td></tr>
 </table></td>";
 
 
@@ -84,10 +84,10 @@ if($typeid!='0') {
 			 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 		<tr><td><br></td></tr>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docadd.php'>Add Document</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docview.php'>View Documents</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docman-index.php'>Back</a></td></tr>
+		<tr class='bg-odd'><td><a href='docadd.php'>Add Document</a></td></tr>
+		<tr class='bg-odd'><td><a href='docview.php'>View Documents</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='docman-index.php'>Back</a></td></tr>
 		</table>";
 		}
 	while($doc = pg_fetch_array ($docRslt)) {
@@ -106,18 +106,18 @@ $OUTPUT.="<td valign=top width='33%'>
 <table width='90%'>
 <tr><td align=center nowrap><h3>Document Action</h3></td></tr>
 <tr><th>Actions</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='view.php'>VIEW</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='email.php'>E-MAIL</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='checkout.php'>CHECKOUT</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='delete.php'>DELETE</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='history.php'>HISTORY</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='move.php'>MOVE</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a  href='subscribe.php'>SUBSCRIBE</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='discussion.php'>DISCUSSION</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='archive.php'>ARCHIVE</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='link.php'>LINK</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='publish.php'>PUBLISH</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='view.php'>VIEW</a></td></tr>
+		<tr class='bg-odd'><td><a href='email.php'>E-MAIL</a></td></tr>
+		<tr class='bg-odd'><td><a href='checkout.php'>CHECKOUT</a></td></tr>
+		<tr class='bg-odd'><td><a href='delete.php'>DELETE</a></td></tr>
+		<tr class='bg-odd'><td><a href='history.php'>HISTORY</a></td></tr>
+		<tr class='bg-odd'><td><a href='move.php'>MOVE</a></td></tr>
+		<tr class='bg-odd'><td><a  href='subscribe.php'>SUBSCRIBE</a></td></tr>
+		<tr class='bg-odd'><td><a href='discussion.php'>DISCUSSION</a></td></tr>
+		<tr class='bg-odd'><td><a href='archive.php'>ARCHIVE</a></td></tr>
+		<tr class='bg-odd'><td><a href='link.php'>LINK</a></td></tr>
+		<tr class='bg-odd'><td><a href='publish.php'>PUBLISH</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 
 </table></td>
 ";

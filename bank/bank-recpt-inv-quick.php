@@ -178,36 +178,36 @@ function alloc($_POST,$err="")
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank[accname] - $bank[bankname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Received from</td>
 				<td valign='center'>$cus[cusname] $cus[surname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>".nl2br($descript)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference</td>
 				<td valign='center'>$reference</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'>$cheqnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amt</td>
 			</tr>
 			".TBL_BR."
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Print Receipt</td>
 				<td>$show_print_recpt</td>
 			</tr>";
@@ -367,7 +367,7 @@ function alloc($_POST,$err="")
 
 		#if there is any amount unallocated, it goes to general transaction
 		$confirm .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='6'><b>A general transaction will credit the client's account with ".CUR." $out </b></td>
 			</tr>";
 
@@ -548,36 +548,36 @@ function confirm($_POST)
 		<th>Field</th>
 		<th>Value</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Account</td>
 		<td>$bank[accname] - $bank[bankname]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Date</td>
 		<td valign='center'>$date</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Received from</td>
 		<td valign='center'>$cus[cusname] $cus[surname]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Description</td>
 		<td valign='center'>$descript</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Reference</td>
 		<td valign='center'>$reference</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Cheque Number</td>
 		<td valign='center'>$cheqnum</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Amount</td>
 		<td valign='center'>".CUR." $amt</td>
 	</tr>
 	".TBL_BR."
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Print Receipt</td>
 		<td>$show_print_recpt</td>
 	</tr>";
@@ -710,7 +710,7 @@ function confirm($_POST)
 					$ox .= "
 						<input type='hidden' size='20' name='open[$oid]' value='$oid'>
 						<input type='hidden' name='open_amount[$oid]' value='$open_amount[$oid]'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$od[type]</td>
 							<td>".CUR." $od[balance]</td>
 							<td>$od[date]</td>
@@ -723,7 +723,7 @@ function confirm($_POST)
 					$ox .= "
 						<input type='hidden' size='20' name='open[$oid]' value='$od[id]'>
 						<input type='hidden' name='open_amount[$oid]' value='$open_amount[$oid]'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$od[type]</td>
 							<td>".CUR." $od[balance]</td>
 							<td>$od[date]</td>
@@ -751,7 +751,7 @@ function confirm($_POST)
 
 				if ($out > 0) {
 					$confirm .="
-					<tr bgcolor='".TMPL_tblDataColor2."'>
+					<tr class='bg-even'>
 						<td colspan='4'><b>A general transaction will credit the
 							client's account with ".CUR." $out </b></td>
 					</tr>";
@@ -760,7 +760,7 @@ function confirm($_POST)
 				$out = $bout;
 			} else {
 				$confirm .= "
-				<tr bgcolor='".TMPL_tblDataColor2."'>
+				<tr class='bg-even'>
 					<td colspan='5'><b>A general transaction will credit the
 						client's account with ".CUR." $out </b></td>
 				</tr>";
@@ -1148,7 +1148,7 @@ function write($_POST)
 					$open_amount[$oid] = $od['balance'];
 					$open_out = sprint($open_out - $od['balance']);
 					$ox.= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' size='20' name='open[$oid]' value='$oid'>$od[type]</td>
 								<td>".CUR." $od[balance]</td>
 								<td>$od[date]</td>
@@ -1162,7 +1162,7 @@ function write($_POST)
 					$open_amount[$oid] = $open_out;
 					$open_out = 0;
 					$ox .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' size='20' name='open[$oid]' value='$od[id]'>$od[type]</td>
 								<td>".CUR." $od[balance]</td>
 								<td>$od[date]</td>
@@ -1181,11 +1181,11 @@ function write($_POST)
 				if($out > 0) {
 					$sql = "INSERT INTO cubit.open_stmnt(cusnum, invid, amount, balance, date, type, st, div) VALUES('$cus[cusnum]', '0', '-$out', '-$out', '$sdate', 'Payment Received', 'n', '".USER_DIV."')";
 					$stmntRslt = db_exec($sql) or errDie("Unable to Insert statement record in Cubit.",SELF);
-					//$confirm .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
+					//$confirm .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
 				}
 
 				$out = $bout;
-			} else  {//$confirm .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
+			} else  {//$confirm .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
 			}
 
 		}
@@ -1343,7 +1343,7 @@ function write($_POST)
 			<tr>
 				<th>Bank Receipt</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Receipt added to cash book.</td>
 			</tr>
 		</table>";

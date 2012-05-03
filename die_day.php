@@ -159,9 +159,9 @@ $Tab
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='die_view'>View another date</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+        <tr class='bg-odd'><td><a href='die_view'>View another date</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+        <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
         return $con_die;
@@ -213,9 +213,9 @@ function wri_die ($_POST)
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Make another appointment</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='".SELF."'>Make another appointment</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+        <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 
 ";

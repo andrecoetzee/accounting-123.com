@@ -27,7 +27,7 @@ function display()
 			continue;
 		}
 
-		$notes_out .= "<tr bgcolor='".bgcolorg()."'>
+		$notes_out .= "<tr class='".bg_class()."'>
 			<td>$hinv_data[odate]</td>
 			<td>H".getHirenum($hinv["invid"], 1)."</td>
 			<td>$hinv_data[surname] $hinv_data[cusname]</td>
@@ -40,7 +40,7 @@ function display()
 	}
 
 	if (empty($notes_out)) {
-		$notes_out = "<tr bgcolor='".bgcolorg()."'>
+		$notes_out = "<tr class='".bg_class()."'>
 			<td colspan='4'><li>No unsigned hire notes found.</li></td>
 		</tr>";
 	}

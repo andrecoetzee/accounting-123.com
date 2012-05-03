@@ -113,16 +113,16 @@ function slct()
 			<form action='".SELF."' method=post name=form>
 			<input type=hidden name=key value=view>
 			<tr><th colspan=2>Store</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center colspan=2>$whs</td></tr>
+			<tr class='bg-odd'><td align=center colspan=2>$whs</td></tr>
 			<tr><td><br></td></tr>
 			<tr><th colspan=2>By Category</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>$cats</td><td valign=bottom><input type=submit name=cat value='View'></td></tr>
+			<tr class='bg-odd'><td align=center>$cats</td><td valign=bottom><input type=submit name=cat value='View'></td></tr>
 			<tr><td><br></td></tr>
 			<tr><th colspan=2>By Classification</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>$class</td><td valign=bottom><input type=submit name=class value='View'></td></tr>
+			<tr class='bg-odd'><td align=center>$class</td><td valign=bottom><input type=submit name=class value='View'></td></tr>
 			<tr><td><br></td></tr>
 			<tr><th colspan=2>All Categories and Classifications</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center colspan=2><input type=submit name=all value='View All'></td></tr>
+			<tr class='bg-odd'><td align=center colspan=2><input type=submit name=all value='View All'></td></tr>
 			</form>
 		</table>
 	</td></tr>
@@ -130,9 +130,9 @@ function slct()
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+		<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $view;
@@ -188,10 +188,10 @@ function printStk ($_POST)
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 			<tr><td><br></td></tr>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='stock-view.php'>Back</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+			<tr class='bg-even'><td><a href='stock-view.php'>Back</a></td></tr>
+			<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>";
 	}
 
@@ -215,9 +215,9 @@ function printStk ($_POST)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+		<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $printStk;
@@ -273,9 +273,9 @@ function details($stkid)
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 			<tr><td><br></td></tr>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+			<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>";
 	}else{
 		while($bran = pg_fetch_array($branRslt)){
@@ -297,18 +297,18 @@ function details($stkid)
 	<input type=hidden name=stkid value='$stkid'>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=350>
 		<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Warehouse</td><td>$wh[whname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Category</td><td>$catname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Serial No.</td><td>$serno</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock code</td><td>$stkcod</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock description</td><td>".nl2br($stkdes)."</pre></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>On Hand</td><td>$units</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Allocated</td><td>$alloc</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Available</td><td>$avstk</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>On Order</td><td>$ordered</td></tr>
+		<tr class='bg-odd'><td>Warehouse</td><td>$wh[whname]</td></tr>
+		<tr class='bg-even'><td>Category</td><td>$catname</td></tr>
+		<tr class='bg-odd'><td>Serial No.</td><td>$serno</td></tr>
+		<tr class='bg-even'><td>Stock code</td><td>$stkcod</td></tr>
+		<tr class='bg-odd'><td>Stock description</td><td>".nl2br($stkdes)."</pre></td></tr>
+		<tr class='bg-even'><td>On Hand</td><td>$units</td></tr>
+		<tr class='bg-odd'><td>Allocated</td><td>$alloc</td></tr>
+		<tr class='bg-even'><td>Available</td><td>$avstk</td></tr>
+		<tr class='bg-odd'><td>On Order</td><td>$ordered</td></tr>
 		<tr><td><br></td></tr>
 		<tr><th colspan=2>Transfer to</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>To Branch</td><td>$brans</td></tr>
+		<tr class='bg-odd'><td>To Branch</td><td>$brans</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue &raquo'></td></tr>
 	</table>
@@ -316,9 +316,9 @@ function details($stkid)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+		<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $details;
@@ -394,9 +394,9 @@ function details2($_POST)
 			<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 				<tr><td><br></td></tr>
 				<tr><th>Quick Links</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+				<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
 				<script>document.write(getQuicklinkSpecial());</script>
-				<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+				<tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 			</table>";
 	}else{
 		while($swh = pg_fetch_array($swhRslt)){
@@ -419,21 +419,21 @@ function details2($_POST)
 	<input type=hidden name=sdiv value='$sdiv'>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=350>
 		<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Branch</td><td>$bran[branname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Warehouse</td><td>$wh[whname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Category</td><td>$stk[catname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Serial No.</td><td>$stk[serno]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock code</td><td>$stk[stkcod]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock description</td><td>".nl2br($stk['stkdes'])."</pre></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>On Hand</td><td>$stk[units]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Allocated</td><td>$stk[alloc]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Available</td><td>$avstk</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>On Order</td><td>$stk[ordered]</td></tr>
+		<tr class='bg-even'><td>Branch</td><td>$bran[branname]</td></tr>
+		<tr class='bg-odd'><td>Warehouse</td><td>$wh[whname]</td></tr>
+		<tr class='bg-even'><td>Category</td><td>$stk[catname]</td></tr>
+		<tr class='bg-odd'><td>Serial No.</td><td>$stk[serno]</td></tr>
+		<tr class='bg-even'><td>Stock code</td><td>$stk[stkcod]</td></tr>
+		<tr class='bg-odd'><td>Stock description</td><td>".nl2br($stk['stkdes'])."</pre></td></tr>
+		<tr class='bg-even'><td>On Hand</td><td>$stk[units]</td></tr>
+		<tr class='bg-odd'><td>Allocated</td><td>$stk[alloc]</td></tr>
+		<tr class='bg-even'><td>Available</td><td>$avstk</td></tr>
+		<tr class='bg-odd'><td>On Order</td><td>$stk[ordered]</td></tr>
 		<tr><td><br></td></tr>
 		<tr><th colspan=2>Transfer to</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>To Branch</td><td>$sbran[branname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>To Store </td><td>$whs</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Number of units</td><td><input type=text size=7 name='tunits' value='1'></td></tr>
+		<tr class='bg-odd'><td>To Branch</td><td>$sbran[branname]</td></tr>
+		<tr class='bg-even'><td>To Store </td><td>$whs</td></tr>
+		<tr class='bg-odd'><td>Number of units</td><td><input type=text size=7 name='tunits' value='1'></td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue &raquo'></td></tr>
 	</table>
@@ -441,9 +441,9 @@ function details2($_POST)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+		<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $details;
@@ -523,9 +523,9 @@ function confirm($_POST)
 	if(pg_numrows($sstkRslt) < 1){
 		$sstk = $stk;
 		$head = "New Stock";
-		$data = "<tr bgcolor='".TMPL_tblDataColor1."'><td>Location</td><td>Shelf <input type=text size=5 name='shelf'> Row <input type=text size=5 name='row'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Level</td><td>Minimum <input type=text size=5 name='minlvl' value='$stk[minlvl]'> Maximum <input type=text size=5 name='maxlvl' value='$stk[maxlvl]'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Selling price per unit</td><td>".CUR." <input type=hidden name='selamt' value='$stk[selamt]'>$stk[selamt]</td></tr>";
+		$data = "<tr class='bg-odd'><td>Location</td><td>Shelf <input type=text size=5 name='shelf'> Row <input type=text size=5 name='row'></td></tr>
+		<tr class='bg-even'><td>Level</td><td>Minimum <input type=text size=5 name='minlvl' value='$stk[minlvl]'> Maximum <input type=text size=5 name='maxlvl' value='$stk[maxlvl]'></td></tr>
+		<tr class='bg-odd'><td>Selling price per unit</td><td>".CUR." <input type=hidden name='selamt' value='$stk[selamt]'>$stk[selamt]</td></tr>";
 	}else{
 		$sstk = pg_fetch_array($sstkRslt);
 		$data = "";
@@ -549,23 +549,23 @@ function confirm($_POST)
 	<input type=hidden name=tunits value='$tunits'>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=350>
 		<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Branch</td><td>$bran[branname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Warehouse</td><td>$wh[whname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Category</td><td>$stk[catname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Serial No.</td><td>$stk[serno]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock code</td><td>$stk[stkcod]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock description</td><td>".nl2br($stk['stkdes'])."</pre></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>On Hand</td><td>$stk[units]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Allocated</td><td>$stk[alloc]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Available</td><td>$avstk</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>On Order</td><td>$stk[ordered]</td></tr>
+		<tr class='bg-even'><td>Branch</td><td>$bran[branname]</td></tr>
+		<tr class='bg-odd'><td>Warehouse</td><td>$wh[whname]</td></tr>
+		<tr class='bg-even'><td>Category</td><td>$stk[catname]</td></tr>
+		<tr class='bg-odd'><td>Serial No.</td><td>$stk[serno]</td></tr>
+		<tr class='bg-even'><td>Stock code</td><td>$stk[stkcod]</td></tr>
+		<tr class='bg-odd'><td>Stock description</td><td>".nl2br($stk['stkdes'])."</pre></td></tr>
+		<tr class='bg-even'><td>On Hand</td><td>$stk[units]</td></tr>
+		<tr class='bg-odd'><td>Allocated</td><td>$stk[alloc]</td></tr>
+		<tr class='bg-even'><td>Available</td><td>$avstk</td></tr>
+		<tr class='bg-odd'><td>On Order</td><td>$stk[ordered]</td></tr>
 		<tr><td><br></td></tr>
 		<tr><th colspan=2>Transfer to $head</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>To Branch</td><td>$sbran[branname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>To Store </td><td>$swh[whname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock code</td><td>$sstk[stkcod]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock description</td><td>".nl2br($sstk['stkdes'])."</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Number of units</td><td>$tunits</td></tr>
+		<tr class='bg-even'><td>To Branch</td><td>$sbran[branname]</td></tr>
+		<tr class='bg-odd'><td>To Store </td><td>$swh[whname]</td></tr>
+		<tr class='bg-even'><td>Stock code</td><td>$sstk[stkcod]</td></tr>
+		<tr class='bg-odd'><td>Stock description</td><td>".nl2br($sstk['stkdes'])."</td></tr>
+		<tr class='bg-even'><td>Number of units</td><td>$tunits</td></tr>
 		$data
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='transfer &raquo'></td></tr>
@@ -574,9 +574,9 @@ function confirm($_POST)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+		<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -629,9 +629,9 @@ function write($_POST)
 	if($stkid == $sstkid){
 		$sstk = $stk;
 		$head = "New Stock";
-		$data = "<tr bgcolor='".TMPL_tblDataColor1."'><td>Location</td><td>Shelf : <input type=hidden name='shelf' value='$shelf'>$shelf - Row : <input type=hidden name='row' value='$row'>$row</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Level</td><td>Minimum : <input type=hidden name='minlvl' value='$minlvl'>$minlvl -  Maximum : <input type=hidden name='maxlvl' value='$maxlvl'>$maxlvl</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Selling price per unit</td><td>".CUR." <input type=hidden name='selamt' value='$stk[selamt]'>$stk[selamt]</td></tr>";
+		$data = "<tr class='bg-odd'><td>Location</td><td>Shelf : <input type=hidden name='shelf' value='$shelf'>$shelf - Row : <input type=hidden name='row' value='$row'>$row</td></tr>
+			<tr class='bg-even'><td>Level</td><td>Minimum : <input type=hidden name='minlvl' value='$minlvl'>$minlvl -  Maximum : <input type=hidden name='maxlvl' value='$maxlvl'>$maxlvl</td></tr>
+			<tr class='bg-odd'><td>Selling price per unit</td><td>".CUR." <input type=hidden name='selamt' value='$stk[selamt]'>$stk[selamt]</td></tr>";
 	}else{
 		$sql = "SELECT * FROM stock WHERE stkid = '$sstkid' AND div = '$sdiv'";
 		$sstkRslt = db_exec($sql) or errDie("Unable to access databse.", SELF);
@@ -727,29 +727,29 @@ function write($_POST)
 	$write = "<h3> Stock has been Transfered </h3>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=350>
 		<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Branch</td><td>$bran[branname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Warehouse</td><td>$wh[whname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Category</td><td>$stk[catname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock code</td><td>$stk[stkcod]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock description</td><td>".nl2br($stk['stkdes'])."</pre></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>On Hand</td><td>$stk[units]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Allocated</td><td>$stk[alloc]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Available</td><td>$avstk</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>On Order</td><td>$stk[ordered]</td></tr>
+		<tr class='bg-even'><td>Branch</td><td>$bran[branname]</td></tr>
+		<tr class='bg-odd'><td>Warehouse</td><td>$wh[whname]</td></tr>
+		<tr class='bg-even'><td>Category</td><td>$stk[catname]</td></tr>
+		<tr class='bg-even'><td>Stock code</td><td>$stk[stkcod]</td></tr>
+		<tr class='bg-odd'><td>Stock description</td><td>".nl2br($stk['stkdes'])."</pre></td></tr>
+		<tr class='bg-even'><td>On Hand</td><td>$stk[units]</td></tr>
+		<tr class='bg-odd'><td>Allocated</td><td>$stk[alloc]</td></tr>
+		<tr class='bg-even'><td>Available</td><td>$avstk</td></tr>
+		<tr class='bg-odd'><td>On Order</td><td>$stk[ordered]</td></tr>
 		<tr><td><br></td></tr>
 		<tr><th colspan=2>Transfered to $head</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>To Branch</td><td>$sbran[branname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>To Store </td><td>$swh[whname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock code</td><td>$sstk[stkcod]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock description</td><td>".nl2br($sstk['stkdes'])."</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Number of units transfered</td><td>$tunits</td></tr>
+		<tr class='bg-even'><td>To Branch</td><td>$sbran[branname]</td></tr>
+		<tr class='bg-odd'><td>To Store </td><td>$swh[whname]</td></tr>
+		<tr class='bg-even'><td>Stock code</td><td>$sstk[stkcod]</td></tr>
+		<tr class='bg-odd'><td>Stock description</td><td>".nl2br($sstk['stkdes'])."</td></tr>
+		<tr class='bg-even'><td>Number of units transfered</td><td>$tunits</td></tr>
 		$data
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><th>Quick Links</th></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

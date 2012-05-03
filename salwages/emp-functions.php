@@ -761,7 +761,7 @@ function salary() {
 		<tr>
 			<th colspan='2'>General Salary and Allowances</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td><b>Remuneration per Annum</b></td>
 			<td>
 				<table><tr>
@@ -771,7 +771,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Salary Calculation</td>
 			<td>$saltyp</td>
 		</tr>
@@ -786,7 +786,7 @@ function salary() {
 			<td>Pay Type</td>
 			<td valign='center'>$paytypes</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Annual Bonus</td>
 			<td>
 				<table><tr>
@@ -796,7 +796,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Bonus - Month</td>
 			<td>$bonus_month</td>
 		</tr>
@@ -816,11 +816,11 @@ function salary() {
 		<tr>
 			<th colspan='2'>Fringe Benefits</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Medical Contribution</td>
 			<td align='right'><div id='div_fringe_medaid'>".CUR."0.00</div></td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Motorcar 1 Determined Value</td>
 			<td>
 				<table><tr>
@@ -830,7 +830,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>- Contributions for Use</td>
 			<td>
 				<table><tr>
@@ -840,7 +840,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>- Pays for own Fuel</td>
 			<td>
 				<table><tr>
@@ -855,7 +855,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>- Pays for Servicing</td>
 			<td>
 				<table><tr>
@@ -875,7 +875,7 @@ function salary() {
 				vehicle is not used for business purposes. In other cases PAYE has to be
 				manually adjusted when processing salary.</li></td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Motorcar 2 Determined Value</td>
 			<td>
 				<table><tr>
@@ -885,7 +885,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>- Contributions for Use</td>
 			<td>
 				<table><tr>
@@ -895,7 +895,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>- Pays for own Fuel</td>
 			<td>
 				<table><tr>
@@ -910,7 +910,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>- Pays for Servicing</td>
 			<td>
 				<table><tr>
@@ -948,7 +948,7 @@ function salary() {
 		<tr>
 			<th colspan='2'>Allowances</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Travel Allowance</td>
 			<td>
 				<table>
@@ -1013,7 +1013,7 @@ function salary() {
 		<tr>
 			<th colspan='2'>Deductions: Company Contributions</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>SDL</td>
 			<td>
 				<table><tr>
@@ -1023,7 +1023,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>UIF</td>
 			<td>
 				<table><tr>
@@ -1033,7 +1033,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Pension Fund</td>
 			<td>
 				<table><tr>
@@ -1043,7 +1043,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Retirement Annuity Fund</td>
 			<td>
 				<table></tr>
@@ -1053,7 +1053,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Medical Contribution</td>
 			<td>
 				<table></tr>
@@ -1063,7 +1063,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Provident Fund</td>
 			<td>
 				<table></tr>
@@ -1094,7 +1094,7 @@ function salary() {
 
 	/*
 	$OUTPUT .= "
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Other</td>
 		<td>
 			<table></tr>
@@ -1113,7 +1113,7 @@ function salary() {
 		<tr>
 			<th colspan='2'>Deductions: Employee Contributions</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>UIF</td>
 			<td>
 				<table><tr>
@@ -1123,7 +1123,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Pension Fund</td>
 			<td>
 				<table><tr>
@@ -1133,7 +1133,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Retirement Annuity Fund</td>
 			<td>
 				<table><tr>
@@ -1143,7 +1143,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Medical Contribution</td>
 			<td>
 				<table><tr>
@@ -1153,7 +1153,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td> - Total Benificiaries<br>(Including Member)</td>
 			<td>
 				<table><tr>
@@ -1163,7 +1163,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Provident Fund</td>
 			<td>
 				<table><tr>
@@ -1173,7 +1173,7 @@ function salary() {
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Use Salary Deduction Scales (If Supplied)</td>
 			<td>
 				<table><tr>
@@ -1209,7 +1209,7 @@ function salary() {
 	}
 
 /*	$OUTPUT .= "
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Other</td>
 		<td>
 			<table><tr>

@@ -127,7 +127,7 @@ function enterUser ($username="", $err="")
 
 /*
 
-        <tr bgcolor='".TMPL_tblDataColor1."'>
+        <tr class='bg-odd'>
 		<td>Branch</td>
 		<td>$brans</td>
 	</tr>
@@ -161,7 +161,7 @@ function enterUser ($username="", $err="")
 				$checked = "checked='yes'";
 
 			$payroll_groups .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".ucfirst($garr['emp_group'])."</td>
 					<td><input type='checkbox' name='payroll_group[$garr[id]]' value='$garr[id]' $checked></td>
 				</tr>";
@@ -183,23 +183,23 @@ function enterUser ($username="", $err="")
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Username</td>
 				<td><input type='text' size='20' name='username' value='$username'> must not contain spaces</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Password</td>
 				<td><input type='password' size='20' name='password'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Confirm password</td>
 				<td><input type='password' size='20' name='password2'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Locale</td>
 				<td>$locale_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Show Tooltips</td>
 				<td>
 					<select name='tool'>
@@ -208,7 +208,7 @@ function enterUser ($username="", $err="")
 					</select>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."POS User</td>
 				<td>
 					<select name='ispos'>
@@ -217,7 +217,7 @@ function enterUser ($username="", $err="")
 					</select>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td>$emp_sel</td>
 			</tr>
@@ -377,27 +377,27 @@ function confirmUser ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Username</td>
 				<td>$username</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Password</td>
 				<td>*</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Locale</td>
 				<td>$language ($country)</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Show Tooltips</td>
 				<td>$tool</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>POS User</td>
 				<td>$ispos</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td>$employee</td>
 			</tr>
@@ -462,7 +462,7 @@ function confirmUser ($_POST)
 				<tr>
 					<th>Select Department</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$department_drop</td>
 				</tr>
 				".TBL_BR."
@@ -484,7 +484,7 @@ function confirmUser ($_POST)
 		$i = 0;
 		while($dep = pg_fetch_array($rslt)) {
 			$confirmUser .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'><input type='submit' name='deps[$dep[deptid]]' value='Add'><input type='submit' name='depsrem[$dep[deptid]]' value='Remove'> $dep[dept]</td>
 				</tr>";
 			$sql = "SELECT * FROM deptscripts WHERE dept='$dep[deptid]' ORDER BY script";
@@ -505,7 +505,7 @@ function confirmUser ($_POST)
 				}
 				$Tp['script'] = strtoupper($Tp['script']);
 				$confirmUser .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'>
 							<table>
 								<tr>
@@ -519,7 +519,7 @@ function confirmUser ($_POST)
 
 
 			}
-			$confirmUser .= "<tr bgcolor='".bgcolorg()."'><td colspan=2><br></td></tr>";
+			$confirmUser .= "<tr class='".bg_class()."'><td colspan=2><br></td></tr>";
 
 			if ($i == "9"){
 				$confirmUser .= "
@@ -749,7 +749,7 @@ function writeUser ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='admin-usradd.php'>Add another user</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

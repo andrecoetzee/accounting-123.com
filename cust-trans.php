@@ -142,13 +142,13 @@ function slctacc($_GET)
 	<input type=hidden name=cusnum value='$cusnum'>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Number</td><td>$cust[accno]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer</td><td>$cust[cusname] $cust[surname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td><input type=text size=2 name=day maxlength=2  value='".date("d")."'>-<input type=text size=2 name=mon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=year maxlength=4 value='".date("Y")."'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Reference Number</td><td><input type=text size=10 name=refnum value='".($refnum++)."'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Entry Type</td><td><input type=radio name=entry value=DT $entd> Debit | <input type=radio name=entry value=CT $entc>Credit</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td rowspan=2>Contra Account</td><td>$accounts <input name=details type=submit value='Enter Details'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><!--        Rowspan      --><td><input type=text name=accnum size=20> <input type=submit value='Enter Details'></td></tr>
+		<tr class='bg-odd'><td>Account Number</td><td>$cust[accno]</td></tr>
+		<tr class='bg-even'><td>Customer</td><td>$cust[cusname] $cust[surname]</td></tr>
+		<tr class='bg-odd'><td>Date</td><td><input type=text size=2 name=day maxlength=2  value='".date("d")."'>-<input type=text size=2 name=mon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=year maxlength=4 value='".date("Y")."'></td></tr>
+		<tr class='bg-even'><td>Reference Number</td><td><input type=text size=10 name=refnum value='".($refnum++)."'></td></tr>
+		<tr class='bg-odd'><td>Entry Type</td><td><input type=radio name=entry value=DT $entd> Debit | <input type=radio name=entry value=CT $entc>Credit</td></tr>
+		<tr class='bg-even'><td rowspan=2>Contra Account</td><td>$accounts <input name=details type=submit value='Enter Details'></td></tr>
+		<tr class='bg-odd'><!--        Rowspan      --><td><input type=text name=accnum size=20> <input type=submit value='Enter Details'></td></tr>
 	</table>"
 	.mkQuickLinks(
 		ql("trans-new.php", "Journal Transactions"),
@@ -206,9 +206,9 @@ function details($_POST)
 
 		# Probe tran type
 		if($entry == "CT"){
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$cust[accno] - $cust[cusname] $cust[surname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$cust[accno] - $cust[cusname] $cust[surname]</td></tr>";
 		}else{
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$cust[accno] - $cust[cusname] $cust[surname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$cust[accno] - $cust[cusname] $cust[surname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
 		}
 
 	if(!isset($amount)) {
@@ -233,11 +233,11 @@ function details($_POST)
 		$tran
 		<tr><td><br></td></tr>
 		<tr><td><br></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$date</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td valign=center>".CUR."<input type=text size=20 name=amount value='$amount'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details>$details</textarea></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
+		<tr class='bg-odd'><td>Date</td><td valign=center>$date</td></tr>
+		<tr class='bg-even'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
+		<tr class='bg-odd'><td>Amount</td><td valign=center>".CUR."<input type=text size=20 name=amount value='$amount'></td></tr>
+		<tr class='bg-even'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details>$details</textarea></td></tr>
+		<tr class='bg-odd'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=submit name=back value='&laquo; Correction'></td><td valign=center align=right><input type=submit value='Confirm &raquo;'></td></tr>
     </table></form>"
@@ -315,9 +315,9 @@ function details2($_POST)
 
 		# probe tran type
 		if($entry == "CT"){
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$cust[accno] - $cust[cusname] $cust[surname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$cust[accno] - $cust[cusname] $cust[surname]</td></tr>";
 		}else{
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$cust[accno] - $cust[cusname] $cust[surname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$cust[accno] - $cust[cusname] $cust[surname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
 		}
 
 	if(!isset($amount)) {
@@ -343,11 +343,11 @@ function details2($_POST)
 			$tran
 			<tr><td><br></td></tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$date</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td valign=center>".CUR."<input type=text size=20 name=amount value='$amount'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details>$details</textarea></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
+			<tr class='bg-odd'><td>Date</td><td valign=center>$date</td></tr>
+			<tr class='bg-even'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
+			<tr class='bg-odd'><td>Amount</td><td valign=center>".CUR."<input type=text size=20 name=amount value='$amount'></td></tr>
+			<tr class='bg-even'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details>$details</textarea></td></tr>
+			<tr class='bg-odd'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
 			<tr><td><br></td></tr>
 			<tr><td><input type=submit name=back value='&laquo; Correction'></td><td valign=center align=right><input type=submit value='Confirm &raquo;'></td></tr>
         </table></form>"
@@ -421,9 +421,9 @@ function confirm($_POST)
 
 		# Probe tran type
 		if($entry == "CT"){
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$cust[accno] - $cust[cusname] $cust[surname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$cust[accno] - $cust[cusname] $cust[surname]</td></tr>";
 		}else{
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$cust[accno] - $cust[cusname] $cust[surname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$cust[accno] - $cust[cusname] $cust[surname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
 		}
 
 	if(!isset($ac)) {
@@ -454,11 +454,11 @@ function confirm($_POST)
 			$tran
 			<tr><td><br></td></tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$date</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Reference number</td><td>$refnum</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td>".CUR." $amount</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Details</td><td>$details</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Authorising Person</td><td>$author</td></tr>
+			<tr class='bg-odd'><td>Date</td><td>$date</td></tr>
+			<tr class='bg-even'><td>Reference number</td><td>$refnum</td></tr>
+			<tr class='bg-odd'><td>Amount</td><td>".CUR." $amount</td></tr>
+			<tr class='bg-even'><td>Details</td><td>$details</td></tr>
+			<tr class='bg-odd'><td>Authorising Person</td><td>$author</td></tr>
 			<tr><td><br></td></tr>
 			<tr><td><input type=submit name=back value='&laquo; Correction'></td><td align=right><input type=submit value='Write &raquo'></td></tr>
 		</table></form>"
@@ -550,14 +550,14 @@ function write($_POST)
 		if($entry == "CT"){
 			# Write transaction  (debit contra account, credit debtors control)
 			writetrans($accid, $dept['debtacc'], $date, $refnum, $amount, $details." - Customer $cust[cusname] $cust[surname]");
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$cust[accno] - $cust[cusname] $cust[surname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$cust[accno] - $cust[cusname] $cust[surname]</td></tr>";
 			$samount = ($amount - ($amount * 2));
 			recordCT($samount, $cust['cusnum'],$date);
 			$type = 'c';
 		}else{
 			# Write transaction  (debit debtors control, credit contra account)
 			writetrans($dept['debtacc'], $accid, $date, $refnum, $amount, $details." - Customer $cust[cusname] $cust[surname]");
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$cust[accno] - $cust[cusname] $cust[surname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$cust[accno] - $cust[cusname] $cust[surname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
 			$samount = $amount;
 			recordDT($samount, $cust['cusnum'],$date);
 			$type = 'd';
@@ -596,7 +596,7 @@ function write($_POST)
         	$tran
         	<tr><td><br></td></tr>
         	<tr colspan=2><td><h4>Amount</h4></td></tr>
-        	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>".CUR." $amount</b></td></tr>
+        	<tr class='bg-even'><td colspan=2><b>".CUR." $amount</b></td></tr>
         </table>"
 	.mkQuickLinks(
 		ql("trans-new.php", "Journal Transactions"),

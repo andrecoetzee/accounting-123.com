@@ -123,7 +123,7 @@ function details($_GET)
 			$stk = pg_fetch_array($stkRslt);
 
 			# put in product
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td>$wh[whname]</td><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>$stkd[qty]</td><td>".CUR." $stkd[funitcost]</td><td align=right>$sord[currency] $stkd[unitcost]</td><td>".CUR." $stkd[disc] &nbsp;&nbsp; OR &nbsp;&nbsp; $stkd[discp]%</td><td>$sord[currency] $stkd[amt]</td></tr>";
+			$products .="<tr class='bg-odd'><td>$wh[whname]</td><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>$stkd[qty]</td><td>".CUR." $stkd[funitcost]</td><td align=right>$sord[currency] $stkd[unitcost]</td><td>".CUR." $stkd[disc] &nbsp;&nbsp; OR &nbsp;&nbsp; $stkd[discp]%</td><td>$sord[currency] $stkd[amt]</td></tr>";
 		}
 	$products .= "</table>";
 
@@ -151,25 +151,25 @@ function details($_GET)
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=40%>
 			<tr><th colspan=2> Customer Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Department</td><td valign=center>$sord[deptname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer</td><td valign=center>$sord[cusname] $sord[surname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Customer Address</td><td valign=center>".nl2br($sord['cusaddr'])."</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Order number</td><td valign=center>$sord[cordno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer Vat Number</td><td>$sord[cusvatno]</td></tr>
+			<tr class='bg-odd'><td>Department</td><td valign=center>$sord[deptname]</td></tr>
+			<tr class='bg-even'><td>Customer</td><td valign=center>$sord[cusname] $sord[surname]</td></tr>
+			<tr class='bg-odd'><td valign=top>Customer Address</td><td valign=center>".nl2br($sord['cusaddr'])."</td></tr>
+			<tr class='bg-even'><td>Customer Order number</td><td valign=center>$sord[cordno]</td></tr>
+			<tr class='bg-odd'><td>Customer Vat Number</td><td>$sord[cusvatno]</td></tr>
 			<tr><th colspan=2 valign=top>Comments</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2 align=center>".nl2br($sord['comm'])."</pre></td></tr>
+			<tr class='bg-even'><td colspan=2 align=center>".nl2br($sord['comm'])."</pre></td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Sales Order Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Sales Order No.</td><td valign=center>$sord[sordid]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Order No.</td><td valign=center>$sord[ordno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>VAT Inclusive</td><td valign=center>$sord[chrgvat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms</td><td valign=center>$sord[terms] Days</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Sales Person</td><td valign=center>$sord[salespn]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Sales Order Date</td><td valign=center>$sord[odate]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Trade Discount</td><td valign=center>$sord[traddisc]%</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Charge</td><td valign=center>$sord[delchrg]</td></tr>
+			<tr class='bg-even'><td>Sales Order No.</td><td valign=center>$sord[sordid]</td></tr>
+			<tr class='bg-odd'><td>Order No.</td><td valign=center>$sord[ordno]</td></tr>
+			<tr class='bg-even'><td>VAT Inclusive</td><td valign=center>$sord[chrgvat]</td></tr>
+			<tr class='bg-odd'><td>Terms</td><td valign=center>$sord[terms] Days</td></tr>
+			<tr class='bg-even'><td>Sales Person</td><td valign=center>$sord[salespn]</td></tr>
+			<tr class='bg-odd'><td>Sales Order Date</td><td valign=center>$sord[odate]</td></tr>
+			<tr class='bg-even'><td>Trade Discount</td><td valign=center>$sord[traddisc]%</td></tr>
+			<tr class='bg-odd'><td>Delivery Charge</td><td valign=center>$sord[delchrg]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -180,17 +180,17 @@ function details($_GET)
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<p>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sorder-new.php'>New Sales Order</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sorder-view.php'>View Sales Orders</a></td></tr>
+			<tr class='bg-odd'><td><a href='sorder-new.php'>New Sales Order</a></td></tr>
+			<tr class='bg-odd'><td><a href='sorder-view.php'>View Sales Orders</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>$sord[currency] $SUBTOT</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Trade Discount</td><td align=right>$sord[currency] $sord[discount]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Charge</td><td align=right>$sord[currency] $sord[delivery]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><b>VAT @ $VATP%</b></td><td align=right>$sord[currency] $VAT</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><th>GRAND TOTAL</th><td align=right>$sord[currency] $TOTAL</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>$sord[currency] $SUBTOT</td></tr>
+			<tr class='bg-even'><td>Trade Discount</td><td align=right>$sord[currency] $sord[discount]</td></tr>
+			<tr class='bg-odd'><td>Delivery Charge</td><td align=right>$sord[currency] $sord[delivery]</td></tr>
+			<tr class='bg-even'><td><b>VAT @ $VATP%</b></td><td align=right>$sord[currency] $VAT</td></tr>
+			<tr class='bg-odd'><th>GRAND TOTAL</th><td align=right>$sord[currency] $TOTAL</td></tr>
 		</table>
 	</td></tr>
 	<tr><td></td></tr>
@@ -307,12 +307,12 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 	$write = "
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>International Sales Order accepted</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Sales Order for customer <b>$sord[cusname] $sord[surname]</b> has been accepted</td></tr>
+		<tr class='bg-even'><td>Sales Order for customer <b>$sord[cusname] $sord[surname]</b> has been accepted</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sorder-view.php'>View Sales Orders</a></td></tr>
+		<tr class='bg-odd'><td><a href='sorder-view.php'>View Sales Orders</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

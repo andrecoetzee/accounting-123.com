@@ -86,7 +86,7 @@ function select_year()
 			<tr>
 				<th>Select Year</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$years</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -158,15 +158,15 @@ function slctacc($_POST)
 			<th>Field</th>
 			<th>Value</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td valign='top'>Accounts</td>
 			<td><input type='radio' name='accnt' value='slct' checked='yes'>Selected Accounts | <input type='radio' name='accnt' value='all'>All Accounts</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td valign='top'>Select account(s)</td>
 			<td>$accs</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Select period</td>
 			<td>$prds</td>
 		</tr>
@@ -292,11 +292,11 @@ function viewtran($_POST)
 
 		$hide .= "<input type='hidden' name='accids[]' value='$acc[accid]'>";
 		$trans .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='8'><b>$acc[topacc]/$acc[accnum] - $acc[accname]</b></td>
 			</tr>";
 		$trans .= "
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td colspan=2>&nbsp;</td>
 				<td>Br/Forwd</td>
 				<td>Brought Forward</td>
@@ -341,7 +341,7 @@ function viewtran($_POST)
 			$tran['credit'] = sprint($tran['credit']);
 
 			$trans .= "
-				<tr bgcolor='".TMPL_tblDataColor1."'>
+				<tr class='bg-odd'>
 					<td><br></td>
 					<td>$tran[edate]</td>
 					<td>$tran[eref]</td>
@@ -366,7 +366,7 @@ function viewtran($_POST)
 		}
 
 		$trans .= "
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td colspan=2><br></td>
 				<td>A/C Total</td>
 				<td>Total for period $prdname to Date :</td>

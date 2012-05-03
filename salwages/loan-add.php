@@ -75,7 +75,7 @@ function slctEmployee ()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=input>
 	<tr><th colspan=2>Employee</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Employee</td><td align=center>$employees</td></tr>
+	<tr class='bg-odd'><td>Employee</td><td align=center>$employees</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Enter loan &raquo;'></td></tr>
 	</form>
 	</table>"
@@ -242,19 +242,19 @@ function enterLoan ($err="")
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=empnum value='$empnum'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Date Granted</td><td>".CUR."$day $month $year</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Loan amount</td><td>".CUR."<input type=text size=10 name=loanamt class=right value='$loanamt'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Interest on loan</td><td><input type=text size=5 name=loanint class=right value='$loanint'>%</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Payback period (months)</td><td><input type=text size=5 name=loanperiod class=right value='$loanperiod'></td></tr>
+	<tr class='bg-even'><td>Date Granted</td><td>".CUR."$day $month $year</td></tr>
+	<tr class='bg-odd'><td>Loan amount</td><td>".CUR."<input type=text size=10 name=loanamt class=right value='$loanamt'></td></tr>
+	<tr class='bg-even'><td>Interest on loan</td><td><input type=text size=5 name=loanint class=right value='$loanint'>%</td></tr>
+	<tr class='bg-odd'><td>Payback period (months)</td><td><input type=text size=5 name=loanperiod class=right value='$loanperiod'></td></tr>
 	<tr><td colspan=2><li class=err>You must FIRST create an employee loan account which must be a sub account of<br>
 									the main account called 'Employee Loans'.</li></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Select Loan Account</td><td align=center>$loan_accounts</td></tr>
+	<tr class='bg-odd'><td>Select Loan Account</td><td align=center>$loan_accounts</td></tr>
 	<tr><td>&nbsp;</td></tr>
 	<tr><td colspan=2><li class=err>Select one of the following. This selection is for the account to be Credited,<br>
 		in other words, where the money comes from.</li></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Select Bank Account</td><td>$banks</td></tr>
+	<tr class='bg-even'><td>Select Bank Account</td><td>$banks</td></tr>
 	<tr><td colspan=2 align=center><b>OR</b></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Select Account</td><td align=center>$accounts</td></tr>
+	<tr class='bg-odd'><td>Select Account</td><td align=center>$accounts</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>"
@@ -339,14 +339,14 @@ function confirmLoan ($_POST)
 		}
 		$acc = pg_fetch_array($accRslt);
 
-		$ac="<tr bgcolor='".TMPL_tblDataColor2."'><td>Account</td><td>$acc[accname]</td></tr>";
+		$ac="<tr class='bg-even'><td>Account</td><td>$acc[accname]</td></tr>";
 	} else {
 		# Get bank account name
 		$sql = "SELECT * FROM bankacct WHERE bankid = '$accid' AND div = '".USER_DIV."'";
 		$bankRslt = db_exec($sql);
 		$bank = pg_fetch_array($bankRslt);
 
-		$ac="<tr bgcolor='".TMPL_tblDataColor2."'><td>Bank Account</td><td>$bank[bankname] - $bank[accname]</td></tr>";
+		$ac="<tr class='bg-even'><td>Bank Account</td><td>$bank[bankname] - $bank[accname]</td></tr>";
 	}
 
 	/* loan acc info */
@@ -358,7 +358,7 @@ function confirmLoan ($_POST)
 	}
 	$acc = pg_fetch_array($accRslt);
 
-	$loanac="<tr bgcolor='".TMPL_tblDataColor2."'><td>Account</td><td>$acc[accname]</td></tr>";
+	$loanac="<tr class='bg-even'><td>Account</td><td>$acc[accname]</td></tr>";
 
 	/* date description */
 	$datedesc = date("j F Y", mktime(0, 0, 0, $lmonth, $lday, $lyear));
@@ -382,13 +382,13 @@ function confirmLoan ($_POST)
 	<input type=hidden name=account value='$account'>
 	<input type=hidden name=loan_account value='$loan_account'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Employee</td><td align=center>$myEmp[sname], $myEmp[fnames] ($myEmp[empnum])</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Loan Date</td><td align=center>$datedesc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Loan amount</td><td align=center>".CUR." $loanamt</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Interest on loan</td><td align=center>$loanint %</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Payback period</td><td align=center>$loanperiod months</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Monthly installment amount</td><td align=center>".CUR." $loaninstall</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Installment amount (at 8% Interest)</td><td align=center>".CUR." $fringeinstall</td></tr>
+	<tr class='bg-odd'><td>Employee</td><td align=center>$myEmp[sname], $myEmp[fnames] ($myEmp[empnum])</td></tr>
+	<tr class='bg-even'><td>Loan Date</td><td align=center>$datedesc</td></tr>
+	<tr class='bg-even'><td>Loan amount</td><td align=center>".CUR." $loanamt</td></tr>
+	<tr class='bg-odd'><td>Interest on loan</td><td align=center>$loanint %</td></tr>
+	<tr class='bg-even'><td>Payback period</td><td align=center>$loanperiod months</td></tr>
+	<tr class='bg-odd'><td>Monthly installment amount</td><td align=center>".CUR." $loaninstall</td></tr>
+	<tr class='bg-even'><td>Installment amount (at 8% Interest)</td><td align=center>".CUR." $fringeinstall</td></tr>
 	$loanac
 	$ac
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td><td valign=left></td></tr>

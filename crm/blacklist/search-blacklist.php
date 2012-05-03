@@ -69,7 +69,7 @@ function enter($err) {
 	<tr>
 		<th colspan=2>Information</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>ID / Passport Number / Registration Number</td>
 		<td><input type=text name=idnum value='$idnum'></td>
 	</tr>
@@ -145,7 +145,7 @@ function search() {
 	<tr>
 		<th>Data Returned</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td valign=top>$site_msg</td>
 	</tr>
 	</table>";

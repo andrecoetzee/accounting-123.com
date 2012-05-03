@@ -49,7 +49,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("frm", $frm_year, $frm_month, $frm_day)."</td>
 			<td><b>&nbsp; To &nbsp;</b></td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -84,7 +84,7 @@ function display()
 		$cust_data = pg_fetch_array($cust_rslt);
 
 		// Create the output
-		$booking_out .= "<tr bgcolor='".bgcolorg()."'>
+		$booking_out .= "<tr class='".bg_class()."'>
 			<td align='center'>$booking_data[id]</td>
 			<td>".date("d-m-Y", $booking_data["e_from"])."</td>
 			<td>".date("d-m-Y", $booking_data["e_to"])."</td>
@@ -114,7 +114,7 @@ function display()
 	}
 
 	if (empty($booking_out)) {
-		$booking_out = "<tr bgcolor='".bgcolorg()."'>
+		$booking_out = "<tr class='".bg_class()."'>
 			<td colspan='7'><li>No bookings found.</li></td>
 		</tr>";
 	}

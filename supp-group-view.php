@@ -50,13 +50,13 @@ $OUTPUT .= "
 				<tr>
 					<th>Quick Links</th>
 				<tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='supp-group-add.php'>Add Supplier Groups</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='supp-new.php'>Add Supplier<a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -135,7 +135,7 @@ function display($error="")
 		// Check if we got any suppliers in the current group
 		if (pg_num_rows($grpownRslt) == 0) {
 			$blocks .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='3'>There are no suppliers in this group.</th>
 						</tr>";
 		}
@@ -161,7 +161,7 @@ function display($error="")
 			}
 				
 			$blocks .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='checkbox' name='remid[$grpownData[supid]:$grpownData[grpid]]' $checked></td>
 								<td colspan='2'>$supname</td>
 							</tr>";
@@ -287,7 +287,7 @@ function confirm($_POST)
 				// suppliers that may have been selected in THAT group.
 				if (!isset($remgrp[$keys[1]])) {
 					$supps .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td align='center'>$supname</td>
 									<td align='center'>$groupname</td>
 								</tr>";
@@ -309,7 +309,7 @@ function confirm($_POST)
 				$groupname = pg_fetch_result($grpRslt, 0);
 
 				$groups .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$groupname</td>
 							</tr>";
 			}

@@ -120,15 +120,15 @@ function select() {
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value='view'>
 	<tr><th colspan=2>View Options</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Document Types</td><td>$typs</td></tr>
+	<tr class='bg-odd'><td>Document Types</td><td>$typs</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='View &raquo;'></td></tr>
 	</form>
 	</table><p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocadd.php'>Add Document</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docman-index.php'>Document Management</a></td></tr>
+	<tr class='bg-odd'><td><a href='tdocadd.php'>Add Document</a></td></tr>
+	<tr class='bg-odd'><td><a href='docman-index.php'>Document Management</a></td></tr>
 	</table>";
 
 	return $out;
@@ -166,9 +166,9 @@ function printCat ($_POST)
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 		<tr><td><br></td></tr>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocadd.php'>Add Document</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocview.php'>View Documents</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docman-index.php'>Document Management</a></td></tr>
+		<tr class='bg-odd'><td><a href='tdocadd.php'>Add Document</a></td></tr>
+		<tr class='bg-odd'><td><a href='tdocview.php'>View Documents</a></td></tr>
+		<tr class='bg-odd'><td><a href='docman-index.php'>Document Management</a></td></tr>
 		</table>";
 	}
 	while($doc = pg_fetch_array ($docRslt)) {
@@ -184,9 +184,9 @@ function printCat ($_POST)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocadd.php'>Add Document</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocview.php'>View Documents</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docman-index.php'>Back</a></td></tr>
+		<tr class='bg-odd'><td><a href='tdocadd.php'>Add Document</a></td></tr>
+		<tr class='bg-odd'><td><a href='tdocview.php'>View Documents</a></td></tr>
+		<tr class='bg-odd'><td><a href='docman-index.php'>Back</a></td></tr>
 	</table>";
 
 	return $printCat;

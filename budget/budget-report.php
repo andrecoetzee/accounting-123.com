@@ -84,7 +84,7 @@ function details($_GET)
 				$ccRs = get("cubit", "*", "costcenters", "ccid", $ccl['id']);
 				$cc  = pg_fetch_array($ccRs);
 			
-				$list .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$cc[centercode] - $cc[centername]</td>";
+				$list .= "<tr class='bg-odd'><td>$cc[centercode] - $cc[centername]</td>";
 
 				db_connect();
 				$lstRs = db_exec("SELECT * FROM buditems WHERE prd = '$bit[prd]' AND id = '$ccl[id]' AND budid  = '$budid'");
@@ -130,7 +130,7 @@ function details($_GET)
 				$ccRs = get("core", "*", "accounts", "accid", $ccl['id']);
 				$cc  = pg_fetch_array($ccRs);
 
-				$list .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$cc[topacc]/$cc[accnum] - $cc[accname]</td>";
+				$list .= "<tr class='bg-odd'><td>$cc[topacc]/$cc[accnum] - $cc[accname]</td>";
 
 				db_connect();
 				$lstRs = db_exec("SELECT * FROM buditems WHERE prd = '$bit[prd]' AND id = '$ccl[id]' AND budid  = '$budid'");
@@ -163,16 +163,16 @@ function details($_GET)
 	}
 
 	// $totamt = sprint($totamt);
-	// $list .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><b>Total Budget Amount</b></td><td align=right><b>".CUR." $totamt</b></td></tr>";
+	// $list .= "<tr class='bg-even'><td><b>Total Budget Amount</b></td><td align=right><b>".CUR." $totamt</b></td></tr>";
 	
 	/* End Toggle Options */
 
 	$details = "<center><h3> Budget Report </h3>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' align=center>
 	<tr><th colspan=2>Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Budget Name</td><td>$bud[budname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Budget Type</td><td>$vbudtype</td>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Budget Period</td><td>$vfromprd to $vtoprd</td>
+	<tr class='bg-odd'><td>Budget Name</td><td>$bud[budname]</td></tr>
+	<tr class='bg-even'><td>Budget Type</td><td>$vbudtype</td>
+	<tr class='bg-odd'><td>Budget Period</td><td>$vfromprd to $vtoprd</td>
 	<tr><td><br></td></tr>
 	</table>
 
@@ -186,9 +186,9 @@ function details($_GET)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='budget-new.php'>New Budget</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</td></tr>
+		<tr class='bg-odd'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
+		<tr class='bg-odd'><td align=center><a href='budget-new.php'>New Budget</td></tr>
+		<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</td></tr>
 	</table>";
 
 	return $details;

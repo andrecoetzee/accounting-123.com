@@ -118,21 +118,21 @@ function confirm($cashid)
 	<input type=hidden name=key value=confirm2>
 	<input type=hidden name=cashid value='$cash[cashid]'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$cash[date]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Paid to</td><td>$cash[name]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Details</td><td><pre>$cash[det]</pre></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Amount</td><td>".CUR." $cash[amount]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Account</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Receipt/Ref No.</td><td><input size=15 name='refno' value='$cash[refno]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Return/Change</td><td>".CUR." <input type=text size=10 name=ret value='0'></td></tr>
+	<tr class='bg-odd'><td>Date</td><td>$cash[date]</td></tr>
+	<tr class='bg-even'><td>Paid to</td><td>$cash[name]</td></tr>
+	<tr class='bg-odd'><td>Details</td><td><pre>$cash[det]</pre></td></tr>
+	<tr class='bg-even'><td>Amount</td><td>".CUR." $cash[amount]</td></tr>
+	<tr class='bg-odd'><td>Account</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>
+	<tr class='bg-even'><td>Receipt/Ref No.</td><td><input size=15 name='refno' value='$cash[refno]'></td></tr>
+	<tr class='bg-odd'><td>Return/Change</td><td>".CUR." <input type=text size=10 name=ret value='0'></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td></td><td align=right><input type=submit value='Confirm &raquo'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -238,24 +238,24 @@ function confirm2()
 	<input type=hidden name=key value=cancel>
 	<input type=hidden name=cashid value='$cash[cashid]'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$cash[date]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Paid to</td><td>$cash[name]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Details</td><td><pre>$cash[det]</pre></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Amount</td><td>".CUR." $cash[amount]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Account</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Receipt/Ref No.</td><td><input type=hidden name='refno' value='$refno'>$refno</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Return/Change</td><td>".CUR." <input type=hidden name=ret value='$ret'>$ret</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>VAT</td><td>".CUR." <input type=text size=20 name=vatret value='$vatret'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Code</td><td>$Vatcodes</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>File</td><td><input type=file size=20 name=doc></td></tr>
+	<tr class='bg-odd'><td>Date</td><td>$cash[date]</td></tr>
+	<tr class='bg-even'><td>Paid to</td><td>$cash[name]</td></tr>
+	<tr class='bg-odd'><td>Details</td><td><pre>$cash[det]</pre></td></tr>
+	<tr class='bg-even'><td>Amount</td><td>".CUR." $cash[amount]</td></tr>
+	<tr class='bg-odd'><td>Account</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>
+	<tr class='bg-even'><td>Receipt/Ref No.</td><td><input type=hidden name='refno' value='$refno'>$refno</td></tr>
+	<tr class='bg-odd'><td>Return/Change</td><td>".CUR." <input type=hidden name=ret value='$ret'>$ret</td></tr>
+	<tr class='bg-even'><td>VAT</td><td>".CUR." <input type=text size=20 name=vatret value='$vatret'></td></tr>
+	<tr class='bg-odd'><td>VAT Code</td><td>$Vatcodes</td></tr>
+	<tr class='bg-even'><td>File</td><td><input type=file size=20 name=doc></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td></td><td align=right><input type=submit value='Write &raquo'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -434,9 +434,9 @@ function write($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='petty-req-add.php'>Add Petty Cash Requisition</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='petty-req-add.php'>Add Petty Cash Requisition</a></td></tr>
+		<tr class='bg-odd'><td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

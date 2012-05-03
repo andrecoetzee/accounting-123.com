@@ -57,7 +57,7 @@ function view()
 	$brans = "";
 	while($bran = pg_fetch_array ($branRslt)){
 		$sp = "&nbsp;&nbsp;&nbsp;";
-		$brans .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><input type=checkbox name=divs[] checked=yes value='$bran[div]'>$sp $bran[branname]</td></tr>";
+		$brans .= "<tr class='bg-odd'><td colspan=2><input type=checkbox name=divs[] checked=yes value='$bran[div]'>$sp $bran[branname]</td></tr>";
 	}
 
 	# Layout
@@ -67,7 +67,7 @@ function view()
 		<form action='".SELF."' method=post name=form>
 		<input type=hidden name=key value=print>
 		<tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Include Accounts with Zero balances</td><td valign=center>
+		<tr class='bg-odd'><td>Include Accounts with Zero balances</td><td valign=center>
 		<input type=radio name=zero value=yes>Yes | <input type=radio name=zero value=no checked=yes>No</td></tr>
 		<tr><td><br></td></tr>
 		<tr><th colspan=2>Select Branch</th></tr>
@@ -208,7 +208,7 @@ function printacc($_POST)
 	}
 
 	# Totals
-	$OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>Total</b></td>";
+	$OUTPUT .= "<tr class='bg-even'><td colspan=2><b>Total</b></td>";
 	foreach($brans as $key => $value){
 		$tldebit[$key] = sprint($tldebit[$key]);
 		$tlcredit[$key] = sprint($tlcredit[$key]);

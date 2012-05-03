@@ -91,9 +91,9 @@ function confirmInt ($_GET)
 	<input type=hidden name=key value=write>
 	<input type=hidden name=id value='$myInt[id]'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Minimum</td><td align=right>".CUR." $myInt[min]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Maximum</td><td align=right>".CUR." $myInt[max]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Percentage</td><td align=right>$myInt[percentage]%</td></tr>
+	<tr class='bg-odd'><td>Minimum</td><td align=right>".CUR." $myInt[min]</td></tr>
+	<tr class='bg-even'><td>Maximum</td><td align=right>".CUR." $myInt[max]</td></tr>
+	<tr class='bg-odd'><td>Percentage</td><td align=right>$myInt[percentage]%</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=2><input type=submit value='Remove bracket &raquo;'></td></tr>
 	</form>

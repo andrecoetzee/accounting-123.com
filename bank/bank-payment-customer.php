@@ -78,7 +78,7 @@ function add()
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Account</td>
 							<td valign='center'>
 								<select name='bankid'>";
@@ -102,23 +102,23 @@ function add()
 							</select>
 			        	</td>
 			        </tr>
-			        <tr bgcolor='".bgcolorg()."'>
+			        <tr class='".bg_class()."'>
 			        	<td>Date</td>
 			        	<td>".mkDateSelect("date")."</td>
 			        </tr>
-			        <tr bgcolor='".bgcolorg()."'>
+			        <tr class='".bg_class()."'>
 			        	<td>Customer paid to</td>
 			        	<td valign='center'>$cust</td>
 			        </tr>
-			        <tr bgcolor='".bgcolorg()."'>
+			        <tr class='".bg_class()."'>
 			        	<td>Description</td>
 			        	<td valign='center'><textarea col='20' rows='5' name='descript'></textarea></td>
 			        </tr>
-			        <tr bgcolor='".bgcolorg()."'>
+			        <tr class='".bg_class()."'>
 			        	<td>Cheque Number</td>
 			        	<td valign='center'><input size='20' name='cheqnum'></td>
 			        </tr>
-			        <tr bgcolor='".bgcolorg()."'>
+			        <tr class='".bg_class()."'>
 			        	<td>Amount</td>
 			        	<td valign='center'>".CUR." <input type='text' size='18' name='amount'></td>
 			        </tr>
@@ -217,27 +217,27 @@ function confirm($_POST)
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account</td>
 							<td>$bank[accname] - $bank[bankname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td valign='center'>$date</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Paid to</td>
 							<td valign='center'>$cus[accno] - $cus[surname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Description</td>
 							<td valign='center'>$descript</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cheque Number</td>
 							<td valign='center'>$cheqnum</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td valign='center'>".CUR." $amount</td>
 						</tr>
@@ -350,7 +350,7 @@ function write($_POST)
 					<tr>
 						<th>Bank Payment</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Bank Payment to customer : $cus[surname] added to cash book.</td>
 					</tr>
 				</table>
@@ -367,13 +367,13 @@ function write($_POST)
 								<tr>
 									<th>Quick Links</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td><a href='bank-pay-add.php'>Add Bank Payment</a></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td><a href='bank-recpt-add.php'>Add Bank Receipt</a></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td><a href='cashbook-view.php'>View Cash Book</a></td>
 								</tr>
 							</table>

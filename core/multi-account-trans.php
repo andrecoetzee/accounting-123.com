@@ -120,7 +120,7 @@ function slctacc($_POST, $err="")
 	}
 
 	$translist .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2' align='right'><b>Total:</b></td>
 			<td>".CUR." ".sprint(array_sum ($dtamount))."</td>
 			<td>".CUR." ".sprint(array_sum ($ctamount))."</td>
@@ -138,19 +138,19 @@ function slctacc($_POST, $err="")
 			<tr>
 				<th>Transaction Date</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>".mkDateSelect ("date", $date_year, $date_month, $date_day)."</td>
 			</tr>
 			<tr>
 				<th>Select Contra Account</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkAccSelect("account", $account)."</td>
 			</tr>
 			<tr>
 				<th>Reference Number</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='5' name='refnum' value='$refnum'></td>
 			</tr>
 			".TBL_BR."
@@ -279,19 +279,19 @@ function confirm($_POST)
 			<tr>
 				<th>Transaction Date</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$date_year-$date_month-$date_day</td>
 			</tr>
 			<tr>
 				<th>Select Contra Account</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$account_info[accname]</td>
 			</tr>
 			<tr>
 				<th>Reference Number</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$refnum</td>
 			</tr>
 			".TBL_BR."

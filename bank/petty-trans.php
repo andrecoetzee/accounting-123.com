@@ -171,35 +171,35 @@ function add($_POST)
 				<th width='40%'>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='frm' value='bnk' $c1>From Bank Account</td>
 				<td>$banksel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='frm' value='gl' $c2>From Account <input align='right' type='button' onClick=\"window.open('../core/acc-new2.php?update_parent=yes','accounts','width=700, height=400');\" value='New Account'></td>
 				<td>$glacc</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>".mkDateSelect("date", $date_year, $date_month, $date_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Paid to</td>
 				<td valign='center'><input size='20' name='name' value='$name'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'><textarea cols='18' rows='2' name='descript'>$descript</textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'><input size='10' name='cheqnum' value='$cheqnum'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." <input type='text' size='10' name='amount' value='$amount'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Petty Cash Account</td>
 				<td><input type='hidden' name='accinv' value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 			</tr>
@@ -295,7 +295,7 @@ function confirm($_POST)
 		$bank = pg_fetch_array($bankRslt);
 		$account = "
 			<input type='hidden' name='bankid' value='$bankid'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>From Bank Account</td>
 				<td>$bank[accname] - $bank[bankname]</td>
 			</tr>";
@@ -305,7 +305,7 @@ function confirm($_POST)
 		$lacc = pg_fetch_array($laccRslt);
 		$account = "
 			<input type='hidden' name='laccid' value='$laccid'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>From Account</td>
 				<td>$lacc[topacc]/$lacc[accnum] - $lacc[accname]</td>
 			</tr>";
@@ -337,27 +337,27 @@ function confirm($_POST)
 				<th>Value</th>
 			</tr>
 			$account
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Paid to</td>
 				<td valign='center'>$name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>$descript</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'>$cheqnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amount</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Petty Cash Account</td>
 				<td valign='center'>$accnt[topacc]/$accnt[accnum] - $accnt[accname]</td>
 			</tr>
@@ -496,7 +496,7 @@ function write($_POST)
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='cashbook-view.php'>View Cash Book</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>

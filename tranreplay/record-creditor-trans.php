@@ -94,7 +94,7 @@ function get_supplier ()
 						<tr>
 							<th>Supplier</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$supplier_drop</td>
 						</tr>
 						".TBL_BR."
@@ -205,23 +205,23 @@ function slctacc($_GET)
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Supplier Number</td>
 					<td>$supp[supno]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Supplier</td>
 					<td>$supp[supname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Reference Number</td>
 					<td><input type='text' size='10' name='refnum' value='$refnum'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Entry Type</td>
 					<td>
 						<li class='err'>This will debit/credit the supplier account selected</li>
@@ -229,15 +229,15 @@ function slctacc($_GET)
 						<input type='radio' name='entry' value='CT' $entc>Credit
 					</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td rowspan='2'>Contra Account</td>
 					<td>$accounts <input name='details' type='submit' value='Enter Details'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<!--       Rowspan      -->
 					<td><input type='text' name='accnum' size='20'> <input type='submit' value='Enter Details'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2' class='err'>This journal entry does not take VAT into consideration.<br />
 						VAT will have to be Journalised as an additional entry.</td>
 				</tr>
@@ -251,7 +251,7 @@ function slctacc($_GET)
 				<tr class='datacell'>
 					<td align='center'><a href='../core/trans-new.php'>Journal Transactions</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='../supp-view.php'>View Suppliers</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -312,13 +312,13 @@ function details($_POST)
 	# Probe tran type
 	if($entry == "CT"){
 		$tran = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 						<td>$supp[supno] - $supp[supname]</td>
 					</tr>";
 	}else{
 		$tran = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$supp[supno] - $supp[supname]</td>
 						<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 					</tr>";
@@ -349,23 +349,23 @@ function details($_POST)
 				$tran
 				<tr><td><br></td></tr>
 				<tr><td><br></td></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td valign='center'>$date</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Reference No.</td>
 					<td valign='center'><input type='text' size='20' name='refnum' value='$refnum'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Amount</td>
 					<td valign='center'>".CUR."<input type='text' size='20' name='amount' value='$amount'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Transaction Details</td>
 					<td valign='center'><textarea cols='20' rows='5' name='details'>$details</textarea></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Person Authorising</td>
 					<td valign='center'><input type='hidden' size='20' name='author' value=".USER_NAME.">".USER_NAME."</td>
 				</tr>
@@ -384,7 +384,7 @@ function details($_POST)
 				<tr class='datacell'>
 					<td align='center'><a href='../core/trans-new.php'>Journal Transactions</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='../supp-view.php'>View Suppliers</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -460,13 +460,13 @@ function details2($_POST)
 		# probe tran type
 		if($entry == "CT"){
 			$tran = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 							<td>$supp[supno] - $supp[supname]</td>
 						</tr>";
 		}else{
 			$tran = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$supp[supno] - $supp[supname]</td>
 							<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 						</tr>";
@@ -492,23 +492,23 @@ function details2($_POST)
 				$tran
 				<tr><td><br></td></tr>
 				<tr><td><br></td></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td valign='center'>$date</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Reference No.</td>
 					<td valign='center'><input type='text' size='20' name='refnum' value='$refnum'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Amount</td>
 					<td valign='center'>".CUR."<input type='text' size='20' name='amount'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Transaction Details</td>
 					<td valign='center'><textarea cols='20' rows='5' name='details'></textarea></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Person Authorising</td>
 					<td valign='center'><input type='hidden' size='20' name='author' value=".USER_NAME.">".USER_NAME."</td>
 				</tr>
@@ -527,7 +527,7 @@ function details2($_POST)
 				<tr class='datacell'>
 					<td align='center'><a href='../core/trans-new.php'>Journal Transactions</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align=center><a href='../supp-view.php'>View Suppliers</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -598,13 +598,13 @@ function confirm($_POST)
 		# Probe tran type
 		if($entry == "CT"){
 			$tran = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 							<td>$supp[supno] - $supp[supname]</td>
 						</tr>";
 		}else{
 			$tran = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$supp[supno] - $supp[supname]</td>
 							<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 						</tr>";
@@ -637,23 +637,23 @@ function confirm($_POST)
 				$tran
 				<tr><td><br></td></tr>
 				<tr><td><br></td></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td>$date</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Referance number</td>
 					<td>$refnum</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Amount</td>
 					<td>".CUR." $amount</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Details</td>
 					<td>$details</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Authorising Person</td>
 					<td>$author</td>
 				</tr>
@@ -672,7 +672,7 @@ function confirm($_POST)
 				<tr class='datacell'>
 					<td align='center'><a href='../core/trans-new.php'>Journal Transactions</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='../supp-view.php'>View Suppliers</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -762,7 +762,7 @@ function write($_POST)
 		//PROCESS THIS WRITETRANS
 		//writetrans($accid, $dept['credacc'], $date, $refnum, $amount, $details." - Supplier $supp[supname]");
 		$tran = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 						<td>$supp[supno] - $supp[supname]</td>
 					</tr>";
@@ -777,7 +777,7 @@ function write($_POST)
 		//PROCESS THIS WRITETRANS
 		//writetrans($dept['credacc'], $accid, $date, $refnum, $amount, $details." - Supplier $supp[supname]");
 		$tran = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$supp[supno] - $supp[supname]</td>
 						<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 					</tr>";
@@ -834,7 +834,7 @@ function write($_POST)
 				<tr colspan='2'>
 					<td><h4>Amount</h4></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'><b>".CUR." $amount</b></td>
 				</tr>
 			</table>
@@ -846,7 +846,7 @@ function write($_POST)
 				<tr class='datacell'>
 					<td align='center'><a href='../core/trans-new.php'>Journal Transactions</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='../supp-view.php'>View Suppliers</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>

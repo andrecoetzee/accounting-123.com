@@ -27,7 +27,7 @@ function display()
 	$how_out = "";
 	while ($how_data = pg_fetch_array($how_rslt)) {
 		$how_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$how_data[name]</td>
 			<td>
 				<input type='checkbox' name='remove[$how_data[id]]'
@@ -43,7 +43,7 @@ function display()
 	<form method='post' action='".SELF."' name='form'>
 	<input type='hidden' name='key' value='write' />
 	<table ".TMPL_tblDflts.">
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>How</td>
 			<td><input type='text' name='how' /></td>
 			<td><input type='submit' value='Add' /></td>

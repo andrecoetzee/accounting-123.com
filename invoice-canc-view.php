@@ -54,7 +54,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;TO&nbsp;
@@ -69,13 +69,13 @@ function slct()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='invoice-canc-view.php'>View Canceled Invoices</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='invoice-unf-view.php'>View Incomplete Invoices</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='cust-credit-stockinv.php'>New Invoice</td>
 			</tr>
 	        <script>document.write(getQuicklinkSpecial());</script>
@@ -152,7 +152,7 @@ function printInv ($_POST)
 			$inv['date'] = $inv['date'][2]."-".$inv['date'][1]."-".$inv['date'][0];
 
 			$printInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'>$inv[date]</td>
 					<td>$inv[username]</td>
 					<td>$inv[deptname]</td>
@@ -171,13 +171,13 @@ function printInv ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='invoice-canc-view.php'>View Canceled Invoices</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='invoice-unf-view.php'>View Incomplete Invoices</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='cust-credit-stockinv.php'>New Invoice</td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

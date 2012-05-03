@@ -26,7 +26,7 @@ function display()
 		list($svdate, $des) = pg_fetch_array($svdate_rslt);
 
 		$service_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".getSerial($asset_data["id"])."</td>
 			<td>$asset_data[des]</td>
 			<td>$svdate</td>
@@ -35,7 +35,7 @@ function display()
 	}
 
 	if (empty($service_out)) {
-		$service_out = "<tr bgcolor='".bgcolorg()."'>
+		$service_out = "<tr class='".bg_class()."'>
 			<td colspan='3'><li>No results found.</li></td>
 		</tr>";
 	}

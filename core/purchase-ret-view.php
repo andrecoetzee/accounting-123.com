@@ -37,7 +37,7 @@ function view()
 {
         $view = "<center><table width=90%>
         <tr><td width=80%><h3>View Returned Purchases</h3></td>
-        <td bgcolor='".TMPL_tblDataColor2."'><a href='purchase-new.php'>Add New Purchase</a><br>
+        <td class='bg-even'><a href='purchase-new.php'>Add New Purchase</a><br>
         <a href='purchase-ret.php'>Return Purchases</a>
         </td></tr>
         </table><br>

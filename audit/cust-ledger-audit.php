@@ -83,7 +83,7 @@ function select_year()
 			<tr>
 				<th>Select Year</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$years</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -156,15 +156,15 @@ function slctacc($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Customers</td>
 				<td><input type='radio' name='accnt' value='slct' checked='yes'>Selected Accounts | <input type='radio' name='accnt' value='all'>All Accounts</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Select Customer(s)</td>
 				<td>$custs</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select period</td>
 				<td>$fprds to $tprds</td>
 			</tr>
@@ -326,11 +326,11 @@ function viewtran($_POST)
 			$balance = sprint($bal['dbalance']-$bal['cbalance']);
 
 			$trans .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan=8><b>$cus[accno] - $cus[cusname] $cus[surname]</b></td>
 				</tr>";
 			$trans .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan=2>&nbsp;</td>
 					<td>Br/Forwd</td>
 					<td>Brought Forward</td>
@@ -359,7 +359,7 @@ function viewtran($_POST)
 				$tran['edate'] = $tran['edate'][2]."-".$tran['edate'][1]."-".$tran['edate'][0];
 	
 				$trans .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><br></td>
 						<td>$tran[edate]</td>
 						<td>$tran[eref]</td>
@@ -384,7 +384,7 @@ function viewtran($_POST)
 			}
 	
 			$trans .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'><br></td>
 					<td>A/C Total</td>
 					<td>Total for period $prdname to Date :</td>

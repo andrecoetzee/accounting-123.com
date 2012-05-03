@@ -59,7 +59,7 @@ function slct()
 				<tr>
 					<th colspan='2'>By Date Range</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center' colspan='2'>
 						".mkDateSelect("from",date("Y"),date("m"),"01")."
 						&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -76,13 +76,13 @@ function slct()
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-purchase-new.php'>New Order</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='stock-view.php'>View Stock</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -167,17 +167,17 @@ function printPurch ($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-purchase-new.php'>New Non-Stock Order</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='stock-report.php'>Stock Control Reports</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='stock-view.php'>View Stock</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -202,7 +202,7 @@ function printPurch ($_POST)
 
 
 		$printOrd .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$stkp[purnum]</td>
 						<td>$date</td>
 						<td>$stkp[supplier]</td>
@@ -222,7 +222,7 @@ function printPurch ($_POST)
 
 
 	$printOrd .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='3'>Totals</td>
 					<td align='right'>".CUR." $tot1</td>
 					<td align='right'>".CUR." $tot2</td>
@@ -248,10 +248,10 @@ function printPurch ($_POST)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='nons-purchase-new.php'>New Non-Stock Order</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";
@@ -333,17 +333,17 @@ function export ($_POST)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='nons-purchase-new.php'>New Non-Stock Order</a></td>
 					</tr>
 					<script>document.write(getQuicklinkSpecial());</script>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='stock-report.php'>Stock Control Reports</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='stock-view.php'>View Stock</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";

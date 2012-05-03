@@ -128,7 +128,7 @@ function show_email_groups ($err = "")
 
 			}
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$groupname</td>
 					<td>$subject</td>
 					<td>$garr2[date_added]</td>
@@ -231,7 +231,7 @@ function send_email_groups ($_POST)
 					$larr['status'] = "Queued";
 				}
 				$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$larr[emailaddress]</td>
 						<td>$larr[subject]</td>
 						<td>$larr[date_added]</td>
@@ -428,7 +428,7 @@ function remove_group ($_POST)
 			<tr>
 				<th>Group name</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$groupname</td>
 			</tr>
 			<tr><td><br></td></tr>

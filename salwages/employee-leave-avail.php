@@ -85,19 +85,19 @@ function Emplea ($_GET)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$emp[sname], $emp[fnames] ($emp[enum])</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Paid Vacation Leave</td>
 				<td align='center'>$lvac[1] days</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Paid Sick Leave</td>
 				<td align='center'>$lsick[1] days</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Paid Study Leave</td>
 				<td align='center'>$lstudy[1] days</td>
 			</tr>

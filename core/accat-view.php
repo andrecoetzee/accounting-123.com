@@ -55,7 +55,7 @@ $view = "
 <form action='".SELF."' method=post name=form>
 <input type=hidden name=key value=viewcat>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Account type</td><td valign=center>
+<tr class='bg-even'><td>Account type</td><td valign=center>
 <select name='type'>
 <option value=I>Income</option>
 <option value=E>Expenditure</option>

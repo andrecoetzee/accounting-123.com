@@ -143,7 +143,7 @@ function details($_GET)
 		list($oyear, $omon, $oday) = explode("-", $inv['odate']);
 
 		$printInv .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='hidden' name='invids[]' value='$inv[invid]'>$inv[deptname]</td>
 				<td>$inv[salespn]</td>
 				<td>T $inv[invid]</td>
@@ -156,7 +156,7 @@ function details($_GET)
 	}
 
 	$printInv .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='6' align='right'>Totals Invoices : $i</td>
 				<td><br></td>
 			</tr>
@@ -171,10 +171,10 @@ function details($_GET)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='rec-invoice-new.php'>New Recurring Invoice</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='rec-invoice-view.php'>View Recurring Invoices</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -694,7 +694,7 @@ function write($_POST)
 		<tr>
 			<th>$i Invoices Proccesed</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Invoices has been successfully printed.</td>
 		</tr>
 	</table>
@@ -703,7 +703,7 @@ function write($_POST)
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='invoice-view.php'>View Invoices</a></td>
 		</tr>
 		<script>document.write(getQuicklinkSpecial());</script>

@@ -97,7 +97,7 @@ function details($_GET)
 		while($stkd = pg_fetch_array($stkdRslt)){
 			# put in product
 			$products .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$stkd[cod]</td>
 								<td>$stkd[des]</td>
 								<td>$stkd[qty]</td>
@@ -141,11 +141,11 @@ function details($_GET)
 									<tr>
 										<th colspan='2'> Supplier Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Supplier</td>
 										<td valign='center'>$pur[supplier]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Supplier Address</td>
 										<td valign='center'><pre>$pur[supaddr]</pre></td>
 									</tr>
@@ -156,35 +156,35 @@ function details($_GET)
 									<tr>
 										<th colspan='2'> Non-Stock Order Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Non-Stock Order No.</td>
 										<td valign='center'>$pur[purnum]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Order No.</td>
 										<td valign='center'>$pur[ordernum]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Terms</td>
 										<td valign='center'>$pur[terms] Days</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Date</td>
 										<td valign='center'>$pday-$pmon-$pyear</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Foreign Currency</td>
 										<td valign='center'>$currsel &nbsp;&nbsp;Exchange rate $pur[curr] $pur[xrate]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Tax</td>
 										<td valign='center'>$pur[curr] $pur[tax]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Shipping Charges</td>
 										<td valign='center'>$pur[curr] $pur[shipchrg]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Date</td>
 										<td valign='center'>$dday-$dmon-$dyear</td>
 									</tr>
@@ -204,10 +204,10 @@ function details($_GET)
 										<td rowspan='5' valign='top' width='15%'><br></td>
 									</tr>
 									<tr>
-										<td bgcolor='".bgcolorg()."'><a href='nons-purch-int-new.php'>New International Non-Stock Order</a></td>
-										<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'>".nl2br($pur['remarks'])."</td>
+										<td class='".bg_class()."'><a href='nons-purch-int-new.php'>New International Non-Stock Order</a></td>
+										<td class='".bg_class()."' rowspan='4' align='center' valign='top'>".nl2br($pur['remarks'])."</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='nons-purch-int-view.php'>View International Non-Stock Orders</a></td>
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
@@ -215,19 +215,19 @@ function details($_GET)
 							</td>
 							<td align='right'>
 								<table ".TMPL_tblDflts." width='80%'>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>SUBTOTAL</td>
 										<td align='right'>$pur[curr] $pur[subtot]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Charges</td>
 										<td align='right'>$pur[curr] $pur[shipping]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Tax </td>
 										<td align='right'>$pur[curr] $pur[tax]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<th>GRAND TOTAL</th>
 										<td align='right'>$pur[curr] $pur[total]</td>
 									</tr>

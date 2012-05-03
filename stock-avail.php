@@ -78,7 +78,7 @@ function printStk ()
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -99,7 +99,7 @@ function printStk ()
 		$stk['selamt'] = sprint ($stk['selamt']);
 
 		$printStk .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$wh[whname]</td>
 				<td>$stk[catname]</td>
 				<td>$stk[stkcod]</td>
@@ -123,7 +123,7 @@ function printStk ()
 	}
 
 	$printStk .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'>Totals:</td>
 			<td align='right'>".sprint3($tot_avail)."</td>
 			<td align='right'>".CUR." ".sprint ($tot_cost)."</td>
@@ -144,7 +144,7 @@ function printStk ()
    		 	<tr>
    		 		<th>Quick Links</th>
    		 	</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -196,7 +196,7 @@ function export ()
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";

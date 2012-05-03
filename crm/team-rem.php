@@ -45,14 +45,14 @@ $OUTPUT .= "
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='team-add.php'>Add Cubit Team</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='team-list.php'>View Cubit Teams</a></td>
 					</tr>
 					<script>document.write(getQuicklinkSpecial());</script>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='index.php'>My Business</a></td>
 					</tr>
 				</table>";
@@ -109,11 +109,11 @@ function confirm($_GET)
 					<tr>
 						<th colspan='2'>Team Details</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Team Name</td>
 						<td>$teamdata[name]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Description</td>
 						<td>$teamdata[des]</td>
 					</tr>

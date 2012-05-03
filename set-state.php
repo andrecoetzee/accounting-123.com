@@ -68,7 +68,7 @@ function enter()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=confirm>
 		<tr><th colspan=2>Statement Type</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=radio size=20 name=typ value='sys' $chs>Use Open Item Statement</td>
+		<tr class='bg-odd'><td><input type=radio size=20 name=typ value='sys' $chs>Use Open Item Statement</td>
 		<td><input type=radio size=20 name=typ value='mon' $chc>Use Running Balance Statement</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td align=right colspan=2><input type=submit value='Continue &raquo'></td></tr>
@@ -115,7 +115,7 @@ function confirm($_POST)
 	<input type=hidden name=key value=write>
 	<input type=hidden name=typ value='$typ'>
 	<tr><th colspan>Debtors Age Analysis Period</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>";
+	<tr class='bg-odd'>";
 
 	if($typ == "sys"){
 		$confirm .= "<td>Use open statement</td>";

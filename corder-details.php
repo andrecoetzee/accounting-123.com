@@ -113,7 +113,7 @@ function details($_GET)
 			}
 
 			# put in product
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td>$wh[whname]</td><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>$stkd[qty]</td><td>$stkd[unitcost]</td><td>".CUR." $stkd[disc] &nbsp;&nbsp; OR &nbsp;&nbsp; $stkd[discp]%</td><td>".CUR." $stkd[amt]</td></tr>";
+			$products .="<tr class='bg-odd'><td>$wh[whname]</td><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>$stkd[qty]</td><td>$stkd[unitcost]</td><td>".CUR." $stkd[disc] &nbsp;&nbsp; OR &nbsp;&nbsp; $stkd[discp]%</td><td>".CUR." $stkd[amt]</td></tr>";
 	}
 	$products .= "</table>";
 
@@ -137,25 +137,25 @@ function details($_GET)
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=40%>
 			<tr><th colspan=2> Customer Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Department</td><td valign=center>$sord[deptname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer</td><td valign=center>$sord[cusname] $sord[surname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Customer Address</td><td valign=center>".nl2br($sord['cusaddr'])."</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Order number</td><td valign=center>$sord[cordno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer VAT Number</td><td>$sord[cusvatno]</td></tr>
+			<tr class='bg-odd'><td>Department</td><td valign=center>$sord[deptname]</td></tr>
+			<tr class='bg-even'><td>Customer</td><td valign=center>$sord[cusname] $sord[surname]</td></tr>
+			<tr class='bg-odd'><td valign=top>Customer Address</td><td valign=center>".nl2br($sord['cusaddr'])."</td></tr>
+			<tr class='bg-even'><td>Customer Order number</td><td valign=center>$sord[cordno]</td></tr>
+			<tr class='bg-odd'><td>Customer VAT Number</td><td>$sord[cusvatno]</td></tr>
 			<tr><th colspan=2 valign=top>Comments</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2 align=center>".nl2br($sord['comm'])."</pre></td></tr>
+			<tr class='bg-even'><td colspan=2 align=center>".nl2br($sord['comm'])."</pre></td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Consignment Order Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Consignment Order No.</td><td valign=center>$sord[sordid]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Order No.</td><td valign=center>$sord[ordno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>VAT Inclusive</td><td>$sord[chrgvat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms</td><td valign=center>$sord[terms] Days</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Sales Person</td><td valign=center>$sord[salespn]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Consignment Order Date</td><td valign=center>$sord[odate]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Trade Discount</td><td valign=center>$sord[traddisc]%</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Charge</td><td valign=center>$sord[delchrg]</td></tr>
+			<tr class='bg-even'><td>Consignment Order No.</td><td valign=center>$sord[sordid]</td></tr>
+			<tr class='bg-odd'><td>Order No.</td><td valign=center>$sord[ordno]</td></tr>
+			<tr class='bg-even'><td>VAT Inclusive</td><td>$sord[chrgvat]</td></tr>
+			<tr class='bg-odd'><td>Terms</td><td valign=center>$sord[terms] Days</td></tr>
+			<tr class='bg-even'><td>Sales Person</td><td valign=center>$sord[salespn]</td></tr>
+			<tr class='bg-odd'><td>Consignment Order Date</td><td valign=center>$sord[odate]</td></tr>
+			<tr class='bg-even'><td>Trade Discount</td><td valign=center>$sord[traddisc]%</td></tr>
+			<tr class='bg-odd'><td>Delivery Charge</td><td valign=center>$sord[delchrg]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -166,17 +166,17 @@ function details($_GET)
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<p>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='corder-new.php'>New Consignment Order</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='corder-view.php'>View Consignment Orders</a></td></tr>
+			<tr class='bg-odd'><td><a href='corder-new.php'>New Consignment Order</a></td></tr>
+			<tr class='bg-odd'><td><a href='corder-view.php'>View Consignment Orders</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>".CUR." $SUBTOT</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Trade Discount</td><td align=right>".CUR." $sord[discount]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Charge</td><td align=right>".CUR." $sord[delivery]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><b>VAT @ $VATP%</b></td><td align=right>".CUR." $VAT</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><th>GRAND TOTAL</th><td align=right>".CUR." $TOTAL</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>".CUR." $SUBTOT</td></tr>
+			<tr class='bg-even'><td>Trade Discount</td><td align=right>".CUR." $sord[discount]</td></tr>
+			<tr class='bg-odd'><td>Delivery Charge</td><td align=right>".CUR." $sord[delivery]</td></tr>
+			<tr class='bg-even'><td><b>VAT @ $VATP%</b></td><td align=right>".CUR." $VAT</td></tr>
+			<tr class='bg-odd'><th>GRAND TOTAL</th><td align=right>".CUR." $TOTAL</td></tr>
 		</table>
 	</td></tr>
 	</table></form>

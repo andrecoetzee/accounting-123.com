@@ -111,21 +111,21 @@ function enter ($VARS = array(), $errors = "")
 	<input type=hidden name=key value=confirm>
 	<tr><td colspan=2>$errors</td></tr>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Type</td><td>$typs</td></tr>
+	<tr class='bg-odd'><td>Type</td><td>$typs</td></tr>
 	$xin
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Document Name</td><td><input type=text size=20 name=docname value='$docname'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Ref</td><td><input type=text size=10 name=docref value='$docref'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td><input type=text size=2 name=day maxlength=2  value='$day'>-<input type=text size=2 name=mon maxlength=2  value='$mon'>-<input type=text size=4 name=year maxlength=4 value='$year'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>File</td><td><input type=file size=20 name=doc></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Decription</td><td><textarea name=descrip rows=4 cols=18>$descrip</textarea></td></tr>
+	<tr class='bg-even'><td>Document Name</td><td><input type=text size=20 name=docname value='$docname'></td></tr>
+	<tr class='bg-odd'><td>Ref</td><td><input type=text size=10 name=docref value='$docref'></td></tr>
+	<tr class='bg-even'><td>Date</td><td><input type=text size=2 name=day maxlength=2  value='$day'>-<input type=text size=2 name=mon maxlength=2  value='$mon'>-<input type=text size=4 name=year maxlength=4 value='$year'></td></tr>
+	<tr class='bg-odd'><td>File</td><td><input type=file size=20 name=doc></td></tr>
+	<tr class='bg-even'><td>Decription</td><td><textarea name=descrip rows=4 cols=18>$descrip</textarea></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=2 align=right><input type=submit name=conf value='Confirm &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docview.php'>View Documents</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docman-index.php'>Document Management</a></td></tr>
+		<tr class='bg-odd'><td><a href='docview.php'>View Documents</a></td></tr>
+		<tr class='bg-odd'><td><a href='docman-index.php'>Document Management</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -215,21 +215,21 @@ function confirm ($_POST)
 	<input type=hidden name=filename value='$filename'>
 	<input type=hidden name=doctyp value='$doctyp'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Type</td><td>$typename</td></tr>
+	<tr class='bg-odd'><td>Type</td><td>$typename</td></tr>
 	$xinc
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Document Name</td><td>$docname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Ref</td><td>$docref</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td align=center>$date</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>File</td><td>$filename</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td>$descrip</td></tr>
+	<tr class='bg-even'><td>Document Name</td><td>$docname</td></tr>
+	<tr class='bg-odd'><td>Ref</td><td>$docref</td></tr>
+	<tr class='bg-even'><td>Date</td><td align=center>$date</td></tr>
+	<tr class='bg-odd'><td>File</td><td>$filename</td></tr>
+	<tr class='bg-even'><td>Description</td><td>$descrip</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=right></td><td valign=left><input type=submit value='Write &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docview.php'>View Documents</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docman-index.php'>Document Management</a></td></tr>
+		<tr class='bg-odd'><td><a href='docview.php'>View Documents</a></td></tr>
+		<tr class='bg-odd'><td><a href='docman-index.php'>Document Management</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -297,8 +297,8 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docview.php'>View Documents</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docman-index.php'>Document Management</a></td></tr>
+		<tr class='bg-odd'><td><a href='docview.php'>View Documents</a></td></tr>
+		<tr class='bg-odd'><td><a href='docman-index.php'>Document Management</a></td></tr>
 	</table>";
 
 	return $write;

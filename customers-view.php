@@ -175,12 +175,12 @@ function printCust ()
 					<th>.: Filter :.</th>
 					<th colspan='2'>.: Search :.</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$filtersel</td>
 					<td><input type='text' size='20' name='fval' value='$fval'></td>
 					<td align='center'><input type='submit' value='Search' /></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><input type='submit' name='button[all]' value='View All' /></td>
 					<td><input type='checkbox' name='nozerobal' value='yes' $zerosel> No Zero Balances</td>
 				</tr>
@@ -283,7 +283,7 @@ function printCust ()
 					<th>Category</th>
 					<th>Class</th>
 					<th colspan='2'>Balance</th>
-					".($pure?"":"<th colspan='12'>Options</th>")."
+					".($pure?"":"<th colspan='15'>Options</th>")."
 				</tr>";
 
 	//		<th>Overdue</th>
@@ -299,7 +299,7 @@ function printCust ()
 
 		if ($custRslt->num_rows() < 1) {
 			$ajaxCust .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='20'>
 						<li>There are no Customers matching the criteria entered.</li>
 						<li>Please redefine your search.</li>

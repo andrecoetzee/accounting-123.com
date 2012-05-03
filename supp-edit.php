@@ -255,47 +255,47 @@ function edit($supid, $err="")
 						<tr>
 							<th colspan='2'>Supplier Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Department</td>
 							<td>$depts</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Supplier No</td>
 							<td><input type='text' size='10' name='supno' value='$supno'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Supplier/Name</td>
 							<td><input type='text' size='20' name='supname' value='$supname'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Registration/ID</td>
 							<td><input type='text' size='20' name='registration' value='$registration'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch</td>
 							<td><input type='text' size='20' name='branch' value='$branch'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Type</td>
 							<td>$locsel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Currency</td>
 							<td>$currsel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ." VAT Number</td>
 							<td><input type='text' size='21' name='vatnum' value='$vatnum'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ." Address</td>
 							<td><textarea name='supaddr' rows='5' cols='18'>$supaddr</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Postal Address</td>
 							<td><textarea name='suppostaddr' rows='5' cols='18'>$suppostaddr</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Contact Name</td>
 							<td>
 								<input type='text' size='20' name='contname' value='$contname'>
@@ -303,39 +303,39 @@ function edit($supid, $err="")
 								<input type='button' onClick=\"popupSized('conper-add.php?type=supp&id=$supid','Add Additional Contact','880','580')\" value='Add Additional Contact'>
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Tel No.</td>
 							<td><input type='text' size='20' name='tel' value='$tel'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Fax No.</td>
 							<td><input type='text' size='20' name='fax' value='$fax'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cell No.</td>
 							<td><input type='text' size='20' name='cell' value='$cell'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>E-mail</td>
 							<td><input type='text' size='20' name='email' value='$email'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Web Address</td>
 							<td>http://<input type='text' size='30' name='url' value='$url'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Price List</td>
 							<td>$pricelists</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier Group</td>
 							<td>$supp_grpdrop</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Status BEE</td>
 							<td>Yes <input type='radio' name='bee_status' value='yes' $sel1> No <input type='radio' name='bee_status' value='no' $sel2></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Team Permissions</td>
 							<td>$team_sel</td>
 						</tr>
@@ -343,46 +343,46 @@ function edit($supid, $err="")
 				</td>
 				<td>
 					<table ".TMPL_tblDflts.">
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th colspan='2'> Bank Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank </td>
 							<td><input type='text' size='20' name='bankname' value='$bankname'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch</td>
 							<td><input type='text' size='20' name='branname' value='$branname'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch Code</td>
 							<td><input type='text' size='20' name='brancode' value='$brancode'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account Name</td>
 							<td><input type='text' size='20' name='bankaccname' value='$bankaccname'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account Type</td>
 							<td><input type='text' size='20' name='bankacctype' value='$bankacctype'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account Number</td>
 							<td><input type='text' size='20' name='bankaccno' value='$bankaccno'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Reference</td>
 							<td><input type='text' size='20' name='reference' value='$reference'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Settlement Discount %</td>
 							<td><input type='text' name='setdisc' value='$setdisc'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Statement Day</td>
 							<td>$setdays_drop</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Comments</td>
 							<td><textarea name='comments' rows='5' cols='18'>$comments</textarea></td>
 						</tr>
@@ -396,10 +396,10 @@ function edit($supid, $err="")
 									<tr>
 										<th>Quick Links</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='supp-view.php'>View Suppliers</a></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='main.php'>Main Menu</a></td>
 									</tr>
 								</table>
@@ -550,83 +550,83 @@ function edit_err ($_POST, $err="")
 						<tr>
 							<th colspan='2'>Supplier Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Department</td>
 							<td>$depts</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Supplier No</td>
 							<td><input type='text' size='10' name='supno' value='$supno'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Supplier/Name</td>
 							<td><input type='text' size='20' name='supname' value='$supname'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Registration/ID</td>
 							<td><input type='text' size='20' name='registration' value='$registration'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch</td>
 							<td><input type='text' size='20' name='branch' value='$branch'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Type</td>
 							<td>$locsel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Currency</td>
 							<td>$currsel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."VAT Number</td>
 							<td><input type='text' size='21' name='vatnum' value='$vatnum'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Address</td>
 							<td><textarea name='supaddr' rows='5' cols='18'>$supaddr</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Postal Address</td>
 							<td><textarea name='suppostaddr' rows='5' cols='18'>$suppostaddr</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Contact Name</td>
 							<td><input type='text' size='20' name='contname' value='$contname'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Tel No.</td>
 							<td><input type='text' size='20' name='tel' value='$tel'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Fax No.</td>
 							<td><input type='text' size='20' name='fax' value='$fax'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cell No.</td>
 							<td><input type='text' size='20' name='cell' value='$cell'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>E-mail</td>
 							<td><input type='text' size='20' name='email' value='$email'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Web Address</td>
 							<td>http://<input type='text' size='30' name='url' value='$url'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Price List</td>
 							<td>$pricelists</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier Group</td>
 							<td>$supp_grpdrop</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Status BEE</td>
 							<td>Yes <input type='radio' name='bee_status' value='yes' $sel1> No <input type='radio' name='bee_status' value='no' $sel2></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Team Permissions</td>
 							<td>$team_sel</td>
 						</tr>
@@ -634,46 +634,46 @@ function edit_err ($_POST, $err="")
 				</td>
 				<td>
 					<table ".TMPL_tblDflts.">
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th colspan='2'> Bank Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank </td>
 							<td><input type='text' size='20' name='bankname' value='$bankname'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch</td>
 							<td><input type='text' size='20' name='branname' value='$branname'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch Code</td>
 							<td><input type='text' size='20' name='brancode' value='$brancode'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account Name</td>
 							<td><input type='text' size='20' name='bankaccname' value='$bankaccname'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account Type</td>
 							<td><input type='text' size='20' name='bankacctype' value='$bankacctype'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account Number</td>
 							<td><input type='text' size='20' name='bankaccno' value='$bankaccno'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Reference</td>
 							<td><input type='text' size='20' name='reference' value='$reference'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Settlement Discount %</td>
 							<td><input type='text' name='setdisc' value='$setdisc'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Statement Day</td>
 							<td>$setdays_drop</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Comments</td>
 							<td><textarea name='comments' rows='5' cols='18'>$comments</textarea></td>
 						</tr>
@@ -688,10 +688,10 @@ function edit_err ($_POST, $err="")
 									<tr>
 										<th>Quick Links</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='supp-view.php'>View Suppliers</a></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='main.php'>Main Menu</a></td>
 									</tr>
 								</table>
@@ -866,87 +866,87 @@ function confirm ($_POST)
 						<tr>
 						<th colspan='2'>Supplier Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Department</td>
 							<td>$deptname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier No</td>
 							<td>$supno</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier/Name </td>
 							<td>$supname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Registration/ID </td>
 							<td>$registration</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch</td>
 							<td>$branch</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Type</td>
 							<td>$locs[$loc]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Currency</td>
 							<td>$curr[symbol] - $curr[name]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Number</td>
 							<td>$vatnum</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Address</td>
 							<td><pre>$supaddr</pre></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Postal Address</td>
 							<td><pre>$suppostaddr</pre></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Contact Name</td>
 							<td>$contname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Tel No.</td>
 							<td>$tel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Fax No.</td>
 							<td>$fax</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cell No.</td>
 							<td>$cell</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>E-mail</td>
 							<td>$email</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Web Address</td>
 							<td>http://$url</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Price List</td>
 							<td>$plist</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier Group</td>
 							<td>$showsupp_grp</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Status BEE</td>
 							<td>$bee_status</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Team Permissions</td>
 							<td>$team_sel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Comments</td>
 							<td>".nl2br($comments)."</td>
 						</tr>
@@ -957,42 +957,42 @@ function confirm ($_POST)
 				</td>
 			<td>
 				<table ".TMPL_tblDflts.">
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<th colspan='2'> Bank Details</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Bank </td>
 						<td>$bankname</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Branch</td>
 						<td>$branname</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Branch Code</td>
 						<td>$brancode</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Account Name</td>
 						<td>$bankaccname</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Account Type</td>
 						<td>$bankacctype</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Account Number</td>
 						<td>$bankaccno</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Reference</td>
 						<td>$reference</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Settlement Discount %</td>
 						<td>$setdisc %</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Statement Day</td>
 						<td>$setdays</td>
 					</tr>
@@ -1028,14 +1028,14 @@ function confirm ($_POST)
 
 		if ($sdoc_data['table'] == "supplier_docs"){
 			$sdoc_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='supp_doc_get.php?id=$sdoc_data[id]&tmp=1'>$showdoc</a></td>
 					<td>".getFileSize($sdoc_data["size"])."</td>
 					<td><input type='checkbox' name='oldrem[$sdoc_data[id]]' value='$sdoc_data[id]' /></td>
 				</tr>";
 		}else {
 			$sdoc_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='supp_doc_get.php?id=$sdoc_data[id]&tmp=1'>$showdoc</a></td>
 					<td>".getFileSize($sdoc_data["size"])."</td>
 					<td><input type='checkbox' name='rem[$sdoc_data[id]]' value='$sdoc_data[id]' /></td>
@@ -1044,7 +1044,7 @@ function confirm ($_POST)
 	}
 
 	if (empty($sdoc_out)) {
-		$sdoc_out .= "<tr bgcolor='".bgcolorg()."'><td colspan='3'><li>No documents added</li></td></tr>";
+		$sdoc_out .= "<tr class='".bg_class()."'><td colspan='3'><li>No documents added</li></td></tr>";
 	}
 
 		$confirm .= "
@@ -1061,7 +1061,7 @@ function confirm ($_POST)
 										<th>Upload</th>
 										<th>&nbsp;</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><input type='text' name='doc_filename'></td>
 										<td><input type='file' name='doc_file'></td>
 										<td colspan='2' align='center'>
@@ -1083,10 +1083,10 @@ function confirm ($_POST)
 									<tr>
 										<th>Quick Links</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='supp-view.php'>View Suppliers</a></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='main.php'>Main Menu</a></td>
 									</tr>
 								</table>
@@ -1302,10 +1302,10 @@ function write ($_POST)
 //			<tr>
 //				<th>Quick Links</th>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td><a href='supp-view.php'>View Suppliers</a></td>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td><a href='main.php'>Main Menu</a></td>
 //			</tr>
 //		</table>";

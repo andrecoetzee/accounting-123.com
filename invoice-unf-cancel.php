@@ -133,23 +133,23 @@ function details($_GET)
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoice Number</td>
 				<td>TI $invid</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Department</td>
 				<td valign='center'>$dept[deptname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sales Person</td>
 				<td>$inv[salespn]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td valign='center'>$cust[cusname] $cust[surname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sub Total</td>
 				<td>".CUR." $inv[subtot]</td>
 			</tr>
@@ -246,7 +246,7 @@ function write($_POST)
 			<tr>
 				<th> Incomplete Invoice Cancelled </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoice No. <b>$invid</b> has been cancelled.</td>
 			</tr>
 		</table>
@@ -255,13 +255,13 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='invoice-unf-view.php'>View Incomplete Invoices</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='cust-credit-stockinv.php'>New Invoice</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='invoice-view.php'>View Invoices</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

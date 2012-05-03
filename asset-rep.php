@@ -91,7 +91,7 @@ function view_data ($_GET)
 		$tran['netval'] = sprint($tran['netval']);
 
 		$trans .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$tran[date]</td>
 						<td align='right'>".CUR." $tran[depamt]</td>
 						<td align='right'>".CUR." $tran[netval]</td>
@@ -107,19 +107,19 @@ function view_data ($_GET)
 								<tr>
 									<th colspan='2'>Asset Details</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Group</td>
 									<td>$grp[grpname]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Description</td>
 									<td>$set[des]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Date Bought</td>
 									<td>$set[bdate]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Cost Amount</td>
 									<td>$set[amount]</td>
 								</tr>
@@ -141,7 +141,7 @@ function view_data ($_GET)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='asset-view.php'>View Assets</a></td>
 					</tr>
 					<script>document.write(getQuicklinkSpecial());</script>
@@ -192,10 +192,10 @@ function con_data ($_POST)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='asset-new.php'>New Asset</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='asset-view.php'>View Assets</a></td>
 					</tr>
 					<script>document.write(getQuicklinkSpecial());</script>

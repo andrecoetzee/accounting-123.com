@@ -71,11 +71,11 @@ function get_data_filter ()
 			<tr>
 				<th colspan='2'>Statement Criteria</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td>$cust_drop</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date Range</td>
 				<td>
 					".mkDateSelect("from",date("Y"),date("m"),"01")." 
@@ -129,7 +129,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 	$run_entries = db_exec($get_entries) or errDie ("Unable to get customer information.");
 	if (pg_numrows($run_entries) < 1){
 		$current_listing = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'>No Entries Found.</td>
 			</tr>";
 	}else {
@@ -223,7 +223,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			}
 
 			$current_listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>
 						<table ".TMPL_tblDflts." width='100%'>
 							<tr>
@@ -284,7 +284,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 	$run_entries = db_exec($get_entries) or errDie ("Unable to get customer information.");
 	if (pg_numrows($run_entries) < 1){
 		$listing = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'>No Entries Found.</td>
 			</tr>";
 	}else {
@@ -299,7 +299,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			}
 	
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$showradio</td>
 					<td>$showcheck</td>
 					<td>$earr[invid]</td>
@@ -336,19 +336,19 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			<input type='hidden' name='to_day' value='$to_day'>
 		<table ".TMPL_tblDflts.">
 			$err
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Customer</th>
 				<td>$customer_name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Date Range</th>
 				<td>$from_date to $to_date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Total Outstanding Balance</th>
 				<td>".CUR." $balance</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>View Completed Entries</th>
 				<td><input type='checkbox' name='viewall' value='yes' $checkviewall> <input type='submit' name='view' value='View'></td>
 			</tr>

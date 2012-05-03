@@ -47,7 +47,7 @@ function get_cubit_setting ($err="")
 			<tr>
 				<th>Display Filters</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<input type='radio' name='setting' value='yes' $yes_setting> Yes
 					<input type='radio' name='setting' value='no' $no_setting> No

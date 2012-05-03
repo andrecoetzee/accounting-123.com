@@ -99,7 +99,7 @@ function confirm($cashid)
 		$accinv = pg_fetch_array($AccRslt);
 		$amt = sprint($amt);
 		$confirm .= "
-						<tr bgcolor='".bgcolorg() ."'>
+						<tr class='".bg_class()."''>
 							<td>$accinv[topacc]/$accinv[accnum] - $accinv[accname]</td>
 							<td nowrap>".CUR." $amt</td>
 							<td nowrap>".CUR." $vats[$key]</td>

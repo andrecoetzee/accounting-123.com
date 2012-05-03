@@ -159,31 +159,31 @@ function alloc($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank[accname] - $bank[bankname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Paid To</td>
 				<td valign='center'>($sup[supno]) $sup[supname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>".nl2br($descript)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference</td>
 				<td valign='center'>$reference</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'>$cheqnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amt</td>
 			</tr>";
@@ -248,7 +248,7 @@ function alloc($_POST)
 				$sinv = "";
 			}
 			$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 					<td>$sinv</td>
 					<td>".CUR." $inv[balance]</td>
@@ -270,7 +270,7 @@ function alloc($_POST)
 		// 0.01 because of high precisions like 0.0000000001234 still matching
 		if ($out >= 0.01) {
 			$confirm .="
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><b>A general transaction will debit the supplier's account
 					with ".CUR." ".sprint($out)." </b>
 				</td>
@@ -317,7 +317,7 @@ function alloc($_POST)
 
 		# Alternate bgcolor
 		$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".CUR." $curr</td>
 						<td>".CUR." $age30</td>
 						<td>".CUR." $age60</td>
@@ -326,7 +326,7 @@ function alloc($_POST)
 						<td>".CUR." $supttot</td>
 					</tr>";
 		$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='text' size='7' name='out1' value='$OUT1'></td>
 					<td><input type='text' size='7' name='out2' value='$OUT2'></td>
 					<td><input type='text' size='7' name='out3' value='$OUT3'></td>
@@ -389,7 +389,7 @@ function alloc($_POST)
 			}
 
 			$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 						<td>$sinv</td>
 						<td>".CUR." $inv[balance]</td>
@@ -402,7 +402,7 @@ function alloc($_POST)
 		// 0.01 because of high precisions like 0.0000000001234 still matching
 		if ($out >= 0.01) {
 			$confirm .="
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><b>A general transaction will debit the supplier's account
 					with ".CUR." ".sprint($out)." </b>
 				</td>
@@ -426,7 +426,7 @@ function alloc($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -561,31 +561,31 @@ function confirm($_POST)
 			<tr>
 				<th colspan='2'>Payment Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank[accname] - $bank[bankname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Paid To</td>
 				<td valign='center'>($sup[supno]) $sup[supname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>$descript</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference</td>
 				<td valign='center'>$reference</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'>$cheqnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amt</td>
 			</tr>";
@@ -633,7 +633,7 @@ function confirm($_POST)
 				$invid = $inv['invid'];
 
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>
@@ -647,7 +647,7 @@ function confirm($_POST)
 		// 0.01 because of high precisions like 0.0000000001234 still matching
 		if ($out >= 0.01) {
 			$confirm .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><b>A general transaction will debit the supplier's account
 					with ".CUR." ".sprint($out)." </b>
 				</td>
@@ -690,7 +690,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>";
@@ -711,7 +711,7 @@ function confirm($_POST)
 			// 0.01 because of high precisions like 0.0000000001234 still matching
 			if ($out1 >= 0.01) {
 				$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account
 						with ".CUR." ".sprint($out)." </b>
 					</td>
@@ -756,7 +756,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>";
@@ -777,7 +777,7 @@ function confirm($_POST)
 			// 0.01 because of high precisions like 0.0000000001234 still matching
 			if ($out2 >= 0.01) {
 				$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account
 						with ".CUR." ".sprint($out)." </b>
 					</td>
@@ -822,7 +822,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>";
@@ -843,7 +843,7 @@ function confirm($_POST)
 			// 0.01 because of high precisions like 0.0000000001234 still matching
 			if ($out3 >= 0.01) {
 				$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account
 						with ".CUR." ".sprint($out)." </b>
 					</td>
@@ -888,7 +888,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>";
@@ -909,7 +909,7 @@ function confirm($_POST)
 			// 0.01 because of high precisions like 0.0000000001234 still matching
 			if ($out4 >= 0.01) {
 				$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account
 						with ".CUR." ".sprint($out)." </b>
 					</td>
@@ -954,7 +954,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>";
@@ -975,7 +975,7 @@ function confirm($_POST)
 			// 0.01 because of high precisions like 0.0000000001234 still matching
 			if ($out5 >= 0.01) {
 				$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account
 						with ".CUR." ".sprint($out)." </b>
 					</td>
@@ -1027,7 +1027,7 @@ function confirm($_POST)
 				$invid = $inv['invid'];
 
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>
@@ -1041,7 +1041,7 @@ function confirm($_POST)
 		// 0.01 because of high precisions like 0.0000000001234 still matching
 		if ($out >= 0.01) {
 			$confirm .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><b>A general transaction will debit the supplier's account
 					with ".CUR." ".sprint($out)." </b>
 				</td>
@@ -1085,7 +1085,7 @@ function confirm($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -1450,16 +1450,16 @@ function write($_POST)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='bank-pay-add.php'>Add Bank Payment</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='bank-recpt-add.php'>Add Bank Receipt</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='cashbook-view.php'>View Cash Book</a></td>
 					</tr>
 				</table>

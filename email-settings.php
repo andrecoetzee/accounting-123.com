@@ -110,22 +110,22 @@ function settings() {
 	<tr>
 		<th colspan='2'>Settings</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td align='center' colspan='2'><b>An asterisk (".REQ.") symbol marks required fields.</b></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Signature</td>
 		<td><input type='text' size='25' name='sig' value='$sd[sig]'></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>".REQ." From E-mail Address</td>
 		<td><input type='text' size='25' name='from' value='$sd[fromname]'></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Reply To E-mail Address</td>
 		<td><input type='text' size='25' name='reply' value='$sd[reply]'></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>".REQ." SMTP Server</td>
 		<td><input type='text' size='25' name='host' value='$sd[smtp_host]'></td>
 	</tr>
@@ -137,7 +137,7 @@ function settings() {
 	<p>
 	<table boder=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $out;

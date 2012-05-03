@@ -58,7 +58,7 @@ function slct()
 					<tr>
 						<th colspan='2'>Find Invoice Number(input temp num)</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='text' size='8' name='temp' value=''></td>
 						<td><input type='submit' value='Find'></td>
 					</tr>
@@ -68,7 +68,7 @@ function slct()
 					<tr>
 						<th colspan='2'>Find Temp Number(input inv num)</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='text' size='8' name='invnum' value=''></td>
 						<td><input type='submit' value='Find'></td>
 					</tr>
@@ -79,7 +79,7 @@ function slct()
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>
@@ -135,7 +135,7 @@ function printInv ($_POST)
 			while ($inv = pg_fetch_array ($invRslt)) {
 				# alternate bgcolor
 				$printInv .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>$inv[oldnum]</td>
 									<td>$inv[newnum]</td>
 								</tr>";
@@ -205,7 +205,7 @@ function printtemp ($_POST)
 	}else{
 		while ($inv = pg_fetch_array ($invRslt)) {
 			$printInv .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$inv[oldnum]</td>
 								<td>$inv[newnum]</td>
 							</tr>

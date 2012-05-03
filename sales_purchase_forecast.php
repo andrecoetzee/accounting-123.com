@@ -76,7 +76,7 @@ function display()
 		}
 
 		$forecast_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td nowrap>($stock_data[stkcod]) $stock_data[stkdes]</td>
 			<td align='center'>$stock_data[units]</td>
 			<td align='center'>".amtOnOrder($stock_data["stkid"])."</td>
@@ -88,7 +88,7 @@ function display()
 
 	if (empty($forecast_out)) {
 		$forecast_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='10'><li>No results found</li></td>
 		</tr>";
 	}
@@ -129,19 +129,19 @@ function display()
 	<h3>Purchases: Sales Forecasting</h3>
 	<form method='post' action='".SELF."' name='form'>
 	<table ".TMPL_tblDflts.">
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Stock Category</td>
 			<td>$cat_sel</td>
 			<td>Stock Days On Hand</td>
 			<td><input type='text' name='days' value='$days' /></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>From Month</td>
 			<td>$frm_month_sel</td>
 			<td>To Month</td>
 			<td>$to_month_sel</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Order for <i>n</i> days</th>
 			<td>$order_sel</td>
 			<td colspan='2'>
@@ -150,7 +150,7 @@ function display()
 				Only display items to be ordered
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4' align='center'>
 				<input type='submit' value='Show' style='font-weight: bold' />
 			</td>

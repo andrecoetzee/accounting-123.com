@@ -65,16 +65,16 @@ function confirm()
         <input type=hidden name=key value=write>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300>
 			<tr><th>Before you continue please note the following</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><li> Make sure that the folder /<path tp cubit>/backup/ is owned by or can be written into by the user running you postgres(eg. wwwrun)</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><li> Make sure that you have enough space left on the hard drive (+-100 MB recommanded)</td></tr>
+			<tr class='bg-odd'><td><li> Make sure that the folder /<path tp cubit>/backup/ is owned by or can be written into by the user running you postgres(eg. wwwrun)</td></tr>
+			<tr class='bg-odd'><td><li> Make sure that you have enough space left on the hard drive (+-100 MB recommanded)</td></tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Currently available space is : $fspace MB</td></tr>
+			<tr class='bg-odd'><td>Currently available space is : $fspace MB</td></tr>
 			<tr><td><input type=submit value='Confirm &raquo'></td></tr>
 		</table>
 		<br><br>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
         	<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
          </form>
         </table>";
 
@@ -124,7 +124,7 @@ function write()
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>";
 
 		return $write;

@@ -93,7 +93,7 @@ function enter ($_POST)
 
 		$data  = "";
 		$data .= "<tr><td><br></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>$stk[stkcod]</td><td align=center>$stk[stkcod] $stk[stkdes]</td></tr>
+		<tr class='bg-even'><td>$stk[stkcod]</td><td align=center>$stk[stkcod] $stk[stkdes]</td></tr>
 		<tr><th colspan=2>Serial Numbers</th></tr>";
 		for($i = 0; $i < $qtys[$key]; $i++){
 			# alternate bgcolor
@@ -116,7 +116,7 @@ function enter ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -168,7 +168,7 @@ function confirm ($_POST)
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<input type=hidden name=key value=write>
 		<input type=hidden name=stkid value='$stkid'>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock</td><td align=center>$stk[stkcod] $stk[stkdes]</td></tr>
+		<tr class='bg-even'><td>Stock</td><td align=center>$stk[stkcod] $stk[stkdes]</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td align=right><input type=button value='Back' onclick='javascript:history.back();'></td><td valign=left><input type=submit value='Write &raquo;'></td></tr>
 		<tr><th colspan=2>Serial Numbers</th></tr>";
@@ -186,8 +186,8 @@ function confirm ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='pricelist-view.php'>View Price Lists</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='pricelist-view.php'>View Price Lists</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -244,7 +244,7 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

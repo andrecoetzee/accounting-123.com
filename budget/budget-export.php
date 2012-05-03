@@ -139,7 +139,7 @@ function details($_GET)
 	</tr>";
 
 	// $totamt = sprint($totamt);
-	// $list .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><b>Total Budget Amount</b></td><td align=right><b>".CUR." $totamt</b></td></tr>";
+	// $list .= "<tr class='bg-even'><td><b>Total Budget Amount</b></td><td align=right><b>".CUR." $totamt</b></td></tr>";
 
 	/* End Toggle Options */
 

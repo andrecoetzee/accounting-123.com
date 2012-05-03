@@ -59,7 +59,7 @@ function display ()
 		$section_data = pg_fetch_array($section_rslt);
 
 		$tmp_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$datetime</td>
 				<td><a href='javascript:popupOpen(\"$section_data[link]\")'>$section_data[name]</a></td>
 				<td><a href='javascript:popupOpen(\"$today_data[link]\")'>$today_data[title]</a></td>
@@ -79,13 +79,13 @@ function display ()
 
 	if (empty($today_out)) {
 		$today_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><li>No items found for today</li></td>
 			</tr>";
 	}
 	if (empty($prev_out)) {
 		$prev_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><li>No previous items found</li></td>
 			</tr>";
 	}
@@ -157,7 +157,7 @@ function future()
 		$section_data = pg_fetch_array($section_rslt);
 
 		$future_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$datetime</td>
 				<td><a href='javascript:popupOpen(\"$section_data[link]\")'>$section_data[name]</a></td>
 				<td><a href='javascript:popupOpen(\"$today_data[link]\")'>$today_data[title]</a></td>
@@ -171,7 +171,7 @@ function future()
 
 	if (empty($future_out)) {
 		$future_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><li>No items found for today</li></td>
 			</tr>";
 	}
@@ -278,10 +278,10 @@ function whereis_block()
 			<tr>
 				<th>Where is</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$user_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><b>$location</b></td>
 			</tr>
 		</table>

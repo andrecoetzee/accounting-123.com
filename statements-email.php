@@ -70,7 +70,7 @@ function enter($_GET)
 				<tr>
 					<th colspan='3'>Date Range</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center' colspan='3'>
 						".mkDateSelect("from",date("Y"),date("m"),"01")."
 						&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -81,7 +81,7 @@ function enter($_GET)
 				<tr>
 					<td class='err' colspan='3'>IMPORTANT: Please Select Correct Type</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Type</td>
 					<td colspan='2'>$types</td>
 				</tr>
@@ -108,7 +108,7 @@ function enter($_GET)
 		$cd=pg_fetch_array($Ri);
 
 		$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cd[accno]</td>
 					<td>$cd[surname]</td>
 					<td><input type='text' name='email[$id]' value='$cd[email]' size='30'></td>
@@ -122,7 +122,7 @@ function enter($_GET)
 			<tr>
 				<th colspan='3'>Message That Will Display In The Email</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='3'><textarea name='body' cols='40' rows='5'>Statement attached in pdf format.</textarea></td>
 			</tr>
 			<tr>
@@ -208,7 +208,7 @@ function confirm($_GET)
 		$cd=pg_fetch_array($Ri);
 
 		$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cd[accno]</td>
 					<td>$cd[surname]</td>
 					<td>${email[$id]}</td>
@@ -223,7 +223,7 @@ function confirm($_GET)
 			<tr>
 				<th colspan='3'>Message That Will Display In The Email</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='3'>".nl2br($body)."</td>
 			</tr>
 			<tr>
@@ -303,7 +303,7 @@ function send($_POST)
 		$cd=pg_fetch_array($Ri);
 
 		$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cd[accno]</td>
 					<td>$cd[surname]</td>
 					<td>${email[$id]}</td>

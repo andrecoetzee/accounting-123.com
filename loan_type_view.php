@@ -16,7 +16,7 @@ function show_listing ()
 	$run_loans = db_exec($get_loans) or errDie("Unable to get loan types information");
 	if(pg_numrows($run_loans) < 1){
 		$listing = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'>No Entries Were Found.</td>
 				</tr>
 			";
@@ -24,7 +24,7 @@ function show_listing ()
 		$listing = "";
 		while ($larr = pg_fetch_array($run_loans)){
 			$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$larr[loan_type]</td>
 						<td><a href='loan_type_rem.php?id=$larr[id]'>Remove</a></td>
 					</tr>

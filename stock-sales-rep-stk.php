@@ -80,14 +80,14 @@ function slct($err = "")
 								<tr>
 									<th colspan='2'>Store</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td align=center colspan=2>$whs</td>
 								</tr>
 								".TBL_BR."
 								<tr>
 									<th colspan='2'>By Category</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td align='center'>$cats</td>
 									<td valign='bottom'><input type=submit name=cat value='View'></td>
 								</tr>
@@ -95,7 +95,7 @@ function slct($err = "")
 								<tr>
 									<th colspan='2'>By Classification</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td align='center'>$class</td>
 									<td valign='bottom'><input type='submit' name='class' value='View'></td>
 								</tr>
@@ -103,7 +103,7 @@ function slct($err = "")
 								<tr>
 									<th colspan='2'>All Categories and Classifications</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td align='center' colspan='2'><input type='submit' name='all' value='View All'></td>
 								</tr>
 								</form>
@@ -116,10 +116,10 @@ function slct($err = "")
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='stock-add.php'>Add Stock</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";
@@ -176,13 +176,13 @@ function printStk($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-view.php'>Back</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-add.php'>Add Stock</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -212,9 +212,9 @@ function printStk($_POST)
 							<th colspan='2'>Select Stock Item</th>
 						</tr>
 						<tr>
-							<td colspan='2' bgcolor='".bgcolorg()."' align='center'>$stock</td>
+							<td colspan='2' class='".bg_class()."' align='center'>$stock</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center' colspan='2'>
 								".mkDateSelect("from",date("Y"),date("m"),"01")."
 								&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -234,10 +234,10 @@ function printStk($_POST)
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='stock-add.php'>Add Stock</a></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='main.php'>Main Menu</a></td>
 						</tr>
 					</table>";
@@ -330,7 +330,7 @@ function report($_POST)
 			$totprice += $rec['csprice'];
 
 			$records .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$rec[edate]</td>
 				<td>$rec[details]</td>
 				<td>".sprint3($rec['qty'])."</td>
@@ -348,23 +348,23 @@ function report($_POST)
 							<tr>
 								<th colspan='2'>Details</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Warehouse</td>
 								<td>$wh[whname]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Stock code</td>
 								<td>$stk[stkcod]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Stock description</td>
 								<td>".nl2br($stk['stkdes'])."</pre></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Category</td>
 								<td>$stk[catname]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Category</td>
 								<td>$stk[classname]</td>
 							</tr>
@@ -379,7 +379,7 @@ function report($_POST)
 								<th>Gross Profit</th>
 							</tr>
 							$records
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='2'><b>Totals</b></td>
 								<td>$totqty</td>
 								<td>".CUR." $totprice</td>

@@ -51,7 +51,7 @@ function get_current_setting ()
 			<tr>
 				<th>Transaction Date Setting</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<input type='radio' name='use_date_setting' value='no' $checked1> Use System Date 
 					<input type='radio' name='use_date_setting' value='yes' $checked2> Use This Date 
@@ -61,7 +61,7 @@ function get_current_setting ()
 			<tr>
 				<th>Transaction Date To Use</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("transaction", "$date_arr[0]", "$date_arr[1]", "$date_arr[2]")."</td>
 			</tr>
 			<tr><td><br></td></tr>

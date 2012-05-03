@@ -55,14 +55,14 @@ function view()
 		<input type=hidden name=key value=viewtrans>
 		<input type=hidden name=search value=date>
 		<tr><th colspan=2>By Date Range</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td align=center>
 				".mkDateSelect("from",date("Y"),date("m"),"01")."
 				&nbsp;&nbsp; TO &nbsp;&nbsp;
 				".mkDateSelect("to")."
 			</td>
 			<td rowspan=2 valign=bottom><input type=submit value='Search'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Select Period  <select name=prd>";
+		<tr class='bg-even'><td>Select Period  <select name=prd>";
 		db_conn(YR_DB);
 		$sql = "SELECT * FROM info WHERE prdname !=''";
 		$prdRslt = db_exec($sql);
@@ -89,10 +89,10 @@ function view()
 		<input type=hidden name=key value=viewtrans>
 		<input type=hidden name=search value=refnum>
 		<tr><th colspan=2>By Journal number</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td width=80% align=center>
+		<tr class='bg-odd'><td width=80% align=center>
 		From <input type=text size=5 name=fromnum> to <input type=text size=5 name=tonum>
 		</td><td rowspan=2 valign=bottom><input type=submit value='Search'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Select Period <select name=prd>";
+		<tr class='bg-even'><td>Select Period <select name=prd>";
 		db_conn(YR_DB);
 		$sql = "SELECT * FROM info WHERE prdname !=''";
 		$prdRslt = db_exec($sql);
@@ -121,7 +121,7 @@ function view()
 		<input type=hidden name=key value=viewtrans>
 		<input type=hidden name=search value=all>
 		<tr><th colspan=2>View All</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Select Period <select name=prd>";
+		<tr class='bg-even'><td>Select Period <select name=prd>";
 		db_conn(YR_DB);
 		$sql = "SELECT * FROM info WHERE prdname !=''";
 		$prdRslt = db_exec($sql);
@@ -260,7 +260,7 @@ function viewtrans($_POST)
 			$dtbranname = branname($debacc['div']);
 			$ctbranname = branname($ctacc['div']);
 
-			$OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$date</td><td>$debacc[topacc]/$debacc[accnum]&nbsp;&nbsp;&nbsp;$debacc[accname] - $dtbranname</td><td>$ctacc[topacc]/$ctacc[accnum]&nbsp;&nbsp;&nbsp;$ctacc[accname] - $ctbranname</td><td>$refnum</td><td>".CUR." $amount</td><td>$details</td><td>$author</td></tr>";
+			$OUTPUT .= "<tr class='bg-odd'><td>$date</td><td>$debacc[topacc]/$debacc[accnum]&nbsp;&nbsp;&nbsp;$debacc[accname] - $dtbranname</td><td>$ctacc[topacc]/$ctacc[accnum]&nbsp;&nbsp;&nbsp;$ctacc[accname] - $ctbranname</td><td>$refnum</td><td>".CUR." $amount</td><td>$details</td><td>$author</td></tr>";
 		}
 
         $OUTPUT .= "

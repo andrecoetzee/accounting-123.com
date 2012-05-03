@@ -68,7 +68,7 @@ function slctDep()
 				<tr>
 					<th>Note : </th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Please select \"User selected account numbers\" on admin settings for default accounts to be created.<b></td>
 				</tr>
 				".TBL_BR."
@@ -95,7 +95,7 @@ function slctDep()
 			<tr>
 				<th>Note : </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Please Set account  creation to \"User selected account numbers\" on admin settings.<b></td>
 			</tr>
 			".TBL_BR."
@@ -125,7 +125,7 @@ function slctDep()
 			<tr>
 				<th>Note : </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Default Accounts Have already been set to: <b>$set[value]<b></td>
 			</tr>
 			".TBL_BR."
@@ -157,7 +157,7 @@ function slctDep()
 			<tr>
 				<th>Note : </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Default Accounts can only be set on a new cubit installation or a new branch.</td>
 			</tr>
 			".TBL_BR."
@@ -195,7 +195,7 @@ function slctDep()
 	if (pg_numrows ($depRslt) < 1) {
 		return "<li>There are default company types in Cubit.</li>";
 	}
-	$printDep .= "<tr bgcolor='".bgcolorg()."'><td><select name='depid' size='5'>";
+	$printDep .= "<tr class='".bg_class()."'><td><select name='depid' size='5'>";
 
 	while ($dep = pg_fetch_array ($depRslt)) {
 		# get number of accounts
@@ -289,7 +289,7 @@ function confirm ($_POST)
 		while ($acc = pg_fetch_array ($accRslt)) {
 
 			$confirm .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$acc[topacc]/$acc[accnum]</td>
 								<td>$acc[accname]</td>
 							</tr>";
@@ -319,7 +319,7 @@ function confirm ($_POST)
 		while ($acc = pg_fetch_array ($accRslt)) {
 
 			$confirm .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$acc[topacc]/$acc[accnum]</td>
 								<td>$acc[accname]</td>
 							</tr>";
@@ -349,7 +349,7 @@ function confirm ($_POST)
 		while ($acc = pg_fetch_array ($accRslt)) {
 
 			$confirm .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$acc[topacc]/$acc[accnum]</td>
 								<td>$acc[accname]</td>
 							</tr>";
@@ -510,7 +510,7 @@ function write ($_POST)
 	<center>
 	<h3>Company Type Default Accounts</h3>
 	<table ".TMPL_tblDflts.">
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'><li>All accounts have been created</td>
 		</tr>
 	</table>

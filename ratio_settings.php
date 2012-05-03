@@ -104,7 +104,7 @@ function display()
 	}
 
 	if (empty($ratios_out)) {
-		$ratios_out = "<tr bgcolor='".bgcolorg()."'>
+		$ratios_out = "<tr class='".bg_class()."'>
 			<td colspan='3'><li>No results found.</li></td>
 		</tr>";
 	}

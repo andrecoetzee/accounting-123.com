@@ -65,7 +65,7 @@ function display()
 	$recon_out = "";
 	while ($recon_data = pg_fetch_array($recon_rslt)) {
 		$recon_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$recon_data[date]</td>
 			<td>$recon_data[supno]</td>
 			<td>$recon_data[supname]</td>
@@ -78,7 +78,7 @@ function display()
 	
 	if (empty($recon_out)) {
 		$recon_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'><li>No results found</li></td>
 		</tr>";
 	}
@@ -93,7 +93,7 @@ function display()
 			<th>Reason</th>
 			<th>&nbsp;</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -111,7 +111,7 @@ function display()
 			<th>Amount</th>
 		</tr>
 		$recon_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'>Total</td>
 			<td>".sprint($total)."</td>
 		</tr>

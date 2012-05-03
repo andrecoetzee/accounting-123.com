@@ -80,7 +80,7 @@ function slct($err = "")
 			<tr>
 				<th colspan='2'> Supplier Details </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Supplier</td>
 				<td>$supps</td>
 			</tr>
@@ -95,7 +95,7 @@ function slct($err = "")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='nons-purch-int-view.php'>View International Non-Stock Orders</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -352,7 +352,7 @@ function details($_POST, $error="")
 
 		# put in product
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='10' name='cod[]' value='$stkd[cod]'></td>
 				<td align='center'><input type='text' size='20' name='des[]' value='$stkd[des]'></td>
 				<td align='center'><input type='text' size='3' name='qtys[]' value='$stkd[qty]'></td>
@@ -379,7 +379,7 @@ function details($_POST, $error="")
 		list($year, $mon, $day) = explode("-", date("Y-m-d"));
 		# add one
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='10' name='cod[]' value=''></td>
 				<td align='center'><input type='text' size='20' name='des[]' value=''></td>
 				<td align='center'><input type='text' size='3' name='qtys[]' value='1'></td>
@@ -398,7 +398,7 @@ function details($_POST, $error="")
 	if(isset($diffwhBtn)){
 		list($year, $mon, $day) = explode("-", date("Y-m-d"));
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='10' name='cod[]' value=''></td>
 				<td align='center'><input type='text' size='20' name='des[]' value=''></td>
 				<td align='center'><input type='text' size='3' name='qtys[]' value='1'></td>
@@ -484,15 +484,15 @@ function details($_POST, $error="")
 						<tr>
 							<th colspan='2'> Supplier Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier</td>
 							<td valign='center'>$suppliers</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier</td>
 							<td valign='center'>$accno</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Supplier Address</td>
 							<td valign='center'>".nl2br($supaddr)."</td>
 						</tr>
@@ -503,35 +503,35 @@ function details($_POST, $error="")
 						<tr>
 							<th colspan='2'> Non-Stock Order Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Non-Stock Order No.</td>
 							<td valign='center'>$pur[purnum]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Order No.</td>
 							<td valign='center'><input type='text' size='10' name='ordernum' value='$ordernum'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Terms</td>
 							<td valign='center'>$termssel Days</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td valign='center' nowrap='t'>".mkDateSelect("npuri",$npuri_year,$npuri_month,$npuri_day)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Foreign Currency</td>
 							<td valign='center'>$currsel &nbsp;&nbsp;Exchange rate ".CUR." <input type='text' size='7' name='xrate' value='$pur[xrate]'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Tax</td>
 							<td valign='center'>$pur[curr] <input type='text' size='7' name='tax' value='$pur[tax]'>$Vatcodes</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Shipping Charges</td>
 							<td valign='center'>$pur[curr] <input type='text' size='7' name='shipchrg' value='$pur[fshipchrg]'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Delivery Date</td>
 							<td valign='center'>".mkDateSelect("del",$del_year,$del_month,$del_day)."</td>
 						</tr>
@@ -552,27 +552,27 @@ function details($_POST, $error="")
 							<td rowspan='5' valign='top' width='50%'>$error</td>
 						</tr>
 						<tr>
-							<td bgcolor='".bgcolorg()."'><a href='nons-purch-int-view.php'>View International Non-Stock Orders</a></td>
-							<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$pur[remarks]</textarea></td>
+							<td class='".bg_class()."'><a href='nons-purch-int-view.php'>View International Non-Stock Orders</a></td>
+							<td class='".bg_class()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$pur[remarks]</textarea></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>
 					</table>
 				</td>
 				<td align=right>
 					<table ".TMPL_tblDflts." width='80%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>SUBTOTAL</td>
 							<td align='right'>$pur[curr] <input type='hidden' name='subtot' value='$SUBTOT'>$SUBTOT</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Shipping Charges</td>
 							<td align='right'>$pur[curr] $pur[shipchrg]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Tax </td>
 							<td align='right'>$pur[curr] $pur[tax]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th>GRAND TOTAL</th>
 							<td align='right'>$pur[curr] <input type='hidden' name='total' value='$TOTAL'>$TOTAL</td>
 						</tr>
@@ -866,7 +866,7 @@ function write($_POST)
 				<tr>
 					<th colspan='2'>New International Non-Stock Order</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>International Non-Stock Order from Supplier <b>$sup[supname]</b> has been recorded.</td>
 					<td><a href='nons-purch-int-print.php?purid=$lastid'>Print Order</td>
 				</tr>
@@ -876,7 +876,7 @@ function write($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-purch-int-view.php'>View International Non-Stock Orders</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>

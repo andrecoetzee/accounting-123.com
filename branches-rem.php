@@ -48,19 +48,19 @@ function confirm_rem ($_POST)
 						<tr>
 							<th>Branch Name</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$barr[branch_name]</td>
 						</tr>
 						<tr>
 							<th>Branch Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".nl2br($barr['branch_desc'])."</td>
 						</tr>
 						<tr>
 							<th>Branch Contact</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$barr[branch_contact]</td>
 						</tr>
 						<tr><td><br></td></tr>

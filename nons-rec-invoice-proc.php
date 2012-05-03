@@ -116,7 +116,7 @@ function details($_GET)
 
 		$invs .= "
 			<input type='hidden' name='invids[$i]' value='$inv[invid]' />
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>RI $inv[invid]</td>
 				<td valign='center' nowrap='t'>
 					".mkDateSelectA("o",$i)."
@@ -151,7 +151,7 @@ function details($_GET)
 				<th>Grand Total</th>
 			</tr>
 			$invs
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='6' align='right'>Totals Invoices : $i</td>
 			</tr>
 			".TBL_BR."
@@ -353,7 +353,7 @@ function write($_POST)
 			<tr>
 				<th>Recurring Non-stock Invoices Processed</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>New non-stock Invoices have been created from Recurring Invoices</td>
 			</tr>
 		</table>
@@ -362,7 +362,7 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='rec-invoice-view.php'>View Recurring Invoices</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -410,7 +410,7 @@ function edit_items ($_POST,$err="")
 
 			#compile a list of the items ...
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td width='50%'>$stock_desc <input type='hidden' size='10' name='description[]' value='$iarr[description]'></td>
 					<td>$qty</td>
 					<td>".CUR." $unitcost</td>

@@ -122,7 +122,7 @@ function method($err = "")
 			<tr>
 				<th colspan='2'>Receipt Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account / Cash</td>
 				<td valign='center'>
 					<select name='bankid'>";
@@ -172,7 +172,7 @@ function method($err = "")
 //		<option value='2' $as3>Allocate To Each invoice</option>
 //	</select>";
 //
-//	<tr bgcolor='".bgcolorg()."'>
+//	<tr class='".bg_class()."'>
 //		<td>Allocation</td>
 //		<td>$alls</td>
 //	</tr>
@@ -181,23 +181,23 @@ function method($err = "")
 					</select>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>".mkDateSelect("date", $date_year, $date_month, $date_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'><textarea col='18' rows='3' name='descript'>$descript</textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference</td>
 				<td valign='center'><input size='25' name='reference' value='$reference'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'><input size='20' name='cheqnum' value='$cheqnum'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." <input type='text' size='13' name='amt' value='$amt'></td>
 			</tr>
@@ -339,35 +339,35 @@ function selectcus($err = "")
 			<tr>
 				<th colspan='2'>Receipt Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank[accname] - $bank[bankname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>".nl2br($descript)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference</td>
 				<td valign='center'>$reference</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'>$cheqnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Allocation</td>
 				<td valign='center'>$all_desc</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amt</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount Unallocated</td>
 				<td valign='center'>".CUR." ".sprint($amt-array_sum($amts))."</td>
 			</tr>
@@ -386,7 +386,7 @@ function selectcus($err = "")
 				<th>Amount</th>
 				<th>Remove</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$sel_cust</td>
 				<td><input type='text' size='6' name='new_amt' value='$new_amt' />
 				<td><input type='submit' name='btn_new' value='Add &raquo;' /></td>
@@ -397,7 +397,7 @@ function selectcus($err = "")
 
 		$OUT .= "
 			<input type='hidden' name='cusids[$k]' value='$cusid' />
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$ci[surname], $ci[cusname]</td>
 				<td><input type='text' size='6' name='amts[$k]' value='$amts[$k]' />
 				<td><input type='checkbox' name='rem[$k]' /></td>
@@ -503,27 +503,27 @@ function confirm($err="")
 			<tr>
 				<th colspan='2'>Receipt Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank[accname] - $bank[bankname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>".nl2br($descript)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference</td>
 				<td valign='center'>$reference</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'>$cheqnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amt</td>
 			</tr>
@@ -548,7 +548,7 @@ function confirm($err="")
 		$OUT .= "
 			<input type='hidden' name='cusids[$k]' value='$cusid' />
 			<input type='hidden' name='amts[$k]' value='$amts[$k]' />
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$ci[surname], $ci[cusname]</td>
 				<td>".CUR." $amts[$k]</td>
 			</tr>";
@@ -665,27 +665,27 @@ function alloc($err = "")
 			<tr>
 				<th colspan='2'>Receipt Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank[accname] - $bank[bankname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>".nl2br($descript)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference</td>
 				<td valign='center'>$reference</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'>$cheqnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amt</td>
 			</tr>
@@ -939,7 +939,7 @@ function cusalloc($all, $k, $cusid, $totamt, &$cust_arr)
 					$open_out = sprint($open_out - $od['balance']);
 
 					$ox .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='open[$k][$oid]' value='$oid'>$od[type]</td>
 							<td>".CUR." $od[balance]</td>
 							<td>$od[date]</td>
@@ -950,7 +950,7 @@ function cusalloc($all, $k, $cusid, $totamt, &$cust_arr)
 					$open_out = 0;
 
 					$ox .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' name='open[$k][$oid]' value='$od[id]'>$od[type]</td>
 							<td>".CUR." $od[balance]</td>
 							<td>$od[date]</td>
@@ -978,7 +978,7 @@ function cusalloc($all, $k, $cusid, $totamt, &$cust_arr)
 				$amt = $open_out;
 				if(sprint($amt) > 0) {
 					$OUT .="
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='4'><b>A general transaction will credit the client's
 								account with ".CUR." ".sprint($amt)."</b>
 							</td>
@@ -987,7 +987,7 @@ function cusalloc($all, $k, $cusid, $totamt, &$cust_arr)
 			} else {
 				$amt = sprint ($amt);
 				$OUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='4'><b>A general transaction will credit the client's
 							account with ".CUR." $amt</b>
 						</td>
@@ -1089,27 +1089,27 @@ function confirm_alloc()
 			<tr>
 				<th colspan='2'>Receipt Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank[accname] - $bank[bankname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>".nl2br($descript)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference</td>
 				<td valign='center'>$reference</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'>$cheqnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amt</td>
 			</tr>
@@ -1359,7 +1359,7 @@ function confirm_cusalloc($all, $k, $cusid, $totamt)
 				$ox .= "
 					<input type='hidden' name='open_amount[$k][$oid]' value='$val'>
 					<input type='hidden' name='open[$k][$oid]' value='$oid'>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$od[type]</td>
 						<td>".CUR." $od[balance]</td>
 						<td>$od[date]</td>
@@ -1387,14 +1387,14 @@ function confirm_cusalloc($all, $k, $cusid, $totamt)
 				if (sprint($amt) > 0) {
 					$amt = sprint ($amt);
 					$OUT .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='5'><b>A general transaction will credit the client's account with ".CUR." $amt</b></td>
 						</tr>";
 				}
 			} else {
 				$amt = sprint ($amt);
 				$OUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='5'><b>A general transaction will credit the client's account with ".CUR." $amt</b></td>
 					</tr>";
 			}
@@ -1585,7 +1585,7 @@ function write()
 		    <tr>
 		    	<th>Bank Receipt</th>
 		    </tr>
-		    <tr bgcolor='".bgcolorg()."'>
+		    <tr class='".bg_class()."'>
 		    	<td>Bank Receipt added to cash book.</td>
 		    </tr>
 	    </table>
@@ -1809,7 +1809,7 @@ function write_cus($vars)
 					$open_amount[$oid] = $od['balance'];
 					$open_out = sprint($open_out-$od['balance']);
 					$ox .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='open[$oid]' value='$oid'>$od[type]</td>
 							<td>".CUR." $od[balance]</td>
 							<td>$od[date]</td>
@@ -1823,7 +1823,7 @@ function write_cus($vars)
 					$open_amount[$oid] = $open_out;
 					$open_out = 0;
 					$ox .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='open[$oid]' value='$od[id]'>$od[type]</td>
 							<td>".CUR." $od[balance]</td>
 							<td>$od[date]</td>
@@ -1847,11 +1847,11 @@ function write_cus($vars)
 							'$cus[cusnum]', '0', '-$out', '-$out', '$sdate', 'Payment Received', 'n', '".USER_DIV."'
 						)";
 					$stmntRslt = db_exec($sql) or errDie("Unable to Insert statement record in Cubit.",SELF);
-					//$OUT .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
+					//$OUT .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
 				}
 
 				$out = $bout;
-			} else  {//$OUT .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
+			} else  {//$OUT .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
 			}
 
 		}

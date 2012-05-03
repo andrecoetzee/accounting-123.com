@@ -103,7 +103,7 @@ function order($_POST,$errors="")
 		while($Tp = pg_fetch_array($Rs)) {
 			$i++;
 			$bars .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$Tp[code]</td>
 					<td><a href='pos-rem.php?id=$Tp[code]&rid=$id'>Remove</a></td>
 				</tr>";
@@ -118,7 +118,7 @@ function order($_POST,$errors="")
 			<tr>
 				<th colspan=2>Barcodes</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bar Code</td>
 				<td><input type='text' size='20' name='me' value=''></td>
 			</tr>";
@@ -148,23 +148,23 @@ function order($_POST,$errors="")
 		<tr>
 			<th colspan='2'>Stock Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Code</td>
 			<td> $St[stkcod]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Description</td>
 			<td> $St[stkdes]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Available</td>
 			<td> $Av</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>With Barcode</td>
 			<td> $i</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Without Barcode</td>
 			<td> $Wob</td>
 		</tr>
@@ -176,7 +176,7 @@ function order($_POST,$errors="")
 			<tr>
 				<th colspan='2'>All Items of \"$St[stkcod]\" Share One Barcode</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap='t'>Items this Barcode:</td>
 				<td><input type='text' name='sharecode' value='$St[bar]' /></td>
 				<td class='err'>This setting will cause the barcodes listed below to be ignored.</td>
@@ -194,7 +194,7 @@ function order($_POST,$errors="")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-view.php'>View Stock</td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

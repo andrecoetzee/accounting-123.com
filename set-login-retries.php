@@ -71,11 +71,11 @@ function enter($error="")
 	<table border=0 cellspacing='".TMPL_tblCellSpacing."' cellpadding='".TMPL_tblCellPadding."'>
 		<th>Setting</th>
 		<th>Value</th>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Login retries:</td>
 			<td>$sel_retrtries Tries</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Blocked Time:</td>
 			<td>$sel_retrmins Minutes</td>
 		</tr>
@@ -122,11 +122,11 @@ function confirm($_POST)
 	<table border=0 cellspacing='".TMPL_tblCellSpacing."' cellpadding='".TMPL_tblCellPadding."'>
 		<th>Setting</th>
 		<th>Value</th>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Login retries:</td>
 			<td>$retrtries</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Blocked Time:</td>
 			<td>$retrmins</td>
 		</tr>

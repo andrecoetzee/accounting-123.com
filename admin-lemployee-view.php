@@ -53,7 +53,7 @@ function viewEmp ()
 	}
 	while ($myEmp = pg_fetch_array ($empRslt)) {
 		$employees .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$myEmp[empnum]</td>
 				<td>$myEmp[fnames]</td>
 				<td>$myEmp[sname]</td>
@@ -79,7 +79,7 @@ function viewEmp ()
 				<th colspan='3'>Options</th>
 			</tr>
 			$employees
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='8'>Total: $i</td>
 			</tr>
 		</table>"

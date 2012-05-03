@@ -90,13 +90,13 @@ function enter()
 			<tr>
 				<th colspan='3'>Interest Calculation</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' size='20' name='typ' value='perc' checked='yes'>Use Percentage <input type='text' name='perc' value='0' size='4'> %</td>
 				<td><input type='radio' size='20' name='typ' value='brac'>Use Interest Brackets</td>
 				<td><input type='radio' size='20' name='typ' value='rate'>Use Customer Specific rate | Default rate <input type='text' name='dperc' value='0' size='4'>%</td>
 			</tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Interest Received Account</td>
 				<td>$slctAcc</td>
 				<td><br></td>
@@ -169,7 +169,7 @@ function confirm($_POST)
 			<tr>
 				<th colspan='2'>Interest Calculation</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>";
+			<tr class='".bg_class()."'>";
 
 	if($typ == "perc"){
 		$confirm .= "<td colspan='2'>Use Interest Percentage $perc %</td>";
@@ -185,7 +185,7 @@ function confirm($_POST)
 			<tr>
 				<th colspan='2'>Interest Received Account</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -323,7 +323,7 @@ function printSet ()
 		$set = pg_fetch_array ($rslt);
 
 		$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$set[type]</td>
 					<td>$set[descript]</td>
 				</tr>

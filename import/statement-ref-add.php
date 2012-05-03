@@ -50,10 +50,10 @@ $OUTPUT .= "
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='import-settings.php'>Statement Import Settings</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='../main.php'>Main Menu</a></td>
 		</tr>
 	</table>";
@@ -137,19 +137,19 @@ function enter($_POST)
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td><input type='text' size='20' name='description' value='$description'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>+/-</td>
 				<td>$pns</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type</td>
 				<td>$types</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Action</td>
 				<td>$actions</td>
 			</tr>
@@ -249,23 +249,23 @@ function enter2($_POST)
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td>$description</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>+/-</td>
 				<td>$pn</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type</td>
 				<td>$type</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Action</td>
 				<td>$action</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Action Details</td>
 				<td>$details</td>
 			</tr>
@@ -348,23 +348,23 @@ function confirm($_POST)
 			<tr>
 				<th colspan='2'>Details</th>
 			<tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td>$description</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>+/-</td>
 				<td>$pn</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type</td>
 				<td>$type</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Action</td>
 				<td>$action</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Action Details</td>
 				<td>$details</td>
 			</tr>
@@ -425,7 +425,7 @@ function write($_POST)
 			<tr>
 				<th>Description added</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description added to system.</td>
 			</tr>
 		</table>";

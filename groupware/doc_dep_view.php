@@ -22,7 +22,7 @@ function display()
 
 	$dd_out = "";
 	while ($dd_data = pg_fetch_array($dd_rslt)) {
-		$dd_out .= "<tr bgcolor='".bgcolorg()."'>
+		$dd_out .= "<tr class='".bg_class()."'>
 			<td>$dd_data[dep_name]</td>
 			<td><a href='doc_dep_save.php?id=$dd_data[id]&mode=edit'>Edit</a></td>
 			<td><a href='doc_dep_remove.php?id=$dd_data[id]'>Remove</a></td>
@@ -30,7 +30,7 @@ function display()
 	}
 
 	if (empty($dd_out)) {
-		$dd_out = "<tr bgcolor='".bgcolorg()."'>
+		$dd_out = "<tr class='".bg_class()."'>
 			<td colspan='20'><li>No results found</li></td>
 		</tr>";
 	}

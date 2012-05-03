@@ -105,11 +105,11 @@ function slctDate()
 			<tr>
 				<th>Employee</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>".extlib_cpsel("empnum", $employees, $empnum)."</td>
 			</tr>
 			<tr><th colspan='2'>Date Range</th></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'  colspan='2'>
 					".mkDateSelect("from",$from_year, $from_month, $from_day)."
 					&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
@@ -273,7 +273,7 @@ function slip ($_POST)
 
 
 			$slip .= "
-                <tr bgcolor='".bgcolorg()."'>
+                <tr class='".bg_class()."'>
                 	<td>$emp[fnames] $emp[sname] $showstat</td>
                 	<td nowrap>".CUR." ".sprint("$gross")."</td>
                 	<td nowrap>".CUR." ".sprint("$pay[comm]")."</td>
@@ -304,7 +304,7 @@ function slip ($_POST)
 		$totsal = sprint($totsal);
 
 		$slip .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><b>Total</b></td>
 					<td nowrap><b>".CUR." $totgross</b></td>
 					<td nowrap><b>".CUR." $totcomm</b></td>

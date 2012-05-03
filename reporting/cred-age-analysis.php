@@ -96,7 +96,7 @@ function printSupp ()
 		}
 
 		$printSupp .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$supp[supno]</td>
 				<td>$supp[supname]</td>
 				<td>".CUR." $curr</td>
@@ -128,7 +128,7 @@ function printSupp ()
 
 	$printSupp .= "
 		<tr><td><br></td></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'><b>Totals</b></td>
 			<td><b>".CUR." $totcurr</b></td>
 			<td><b>".CUR." $tot30</b></td>
@@ -152,19 +152,19 @@ function printSupp ()
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='index-reports.php'>Financials</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='index-reports-debtcred.php'>Debtors & Creditors Reports</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='../supp-new.php'>Add Supplier</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='../supp-view.php'>View Suppliers</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='../main.php'>Main Menu</a></td>
 		</tr>
 	</table>";

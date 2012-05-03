@@ -43,21 +43,21 @@ function get_holiday ()
 				<tr>
 					<th>Holiday Name</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='text' name='holiday_name'></td>
 				</tr>
 				<tr><td><br></td></tr>
 				<tr>
 					<th>Holiday Type</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$holiday_type_drop</td>
 				</tr>
 				<tr><td><br></td></tr>
 				<tr>
 					<th>Holiday Date</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".mkDateSelect("holiday")."</td>
 				</tr>
 				<tr><td><br></td></tr>
@@ -92,19 +92,19 @@ function confirm_holiday ($_POST)
 				<tr>
 					<th>Holiday Name</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$holiday_name</td>
 				</tr>
 				<tr>
 					<th>Holiday Type</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$holiday_type</td>
 				</tr>
 				<tr>
 					<th>Holiday Date</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$holiday_year-$holiday_month-$holiday_day</td>
 				</tr>
 				<tr><td><br></td></tr>
@@ -138,7 +138,7 @@ function write_holiday ($_POST)
 				<tr>
 					<th>Information Saved</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Public Holiday Has Been Added</td>
 				</tr>
 			</table><br>"

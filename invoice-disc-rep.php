@@ -78,11 +78,11 @@ function view()
 				<tr>
 					<th colspan='2'>Invoice Discounts</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Department</td>
 					<td valign='center'>$depts</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>First Letters of customer</td>
 					<td valign='center'><input type='text' size='5' name='letters' maxlength='5'></td>
 				</tr>
@@ -98,10 +98,10 @@ function view()
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='sales-reports.php'>Sales Reports</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -147,11 +147,11 @@ function view_err($_POST, $err = "")
 				<tr>
 					<td colspan='2'>$err</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Department</td>
 					<td valign='center'>$depts</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>First Letters of customer</td>
 					<td valign='center'><input type='text' size='5' name='letters' value='$letters' maxlength='5'></td>
 				</tr>
@@ -167,10 +167,10 @@ function view_err($_POST, $err = "")
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='sales-reports.php'>Sales Reports</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -305,7 +305,7 @@ function slctCust($_POST)
 		<th>% Trade Discount</tr>
 	$discs
 	".TBL_BR."
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td colspan='2'><b>Total</b></td>
 		<td>".CUR." $gtottrad</td>
 		<td>".CUR." $gtotitems</td>

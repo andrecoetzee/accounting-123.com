@@ -77,7 +77,7 @@ function view()
 					<tr>
 						<th colspan='2'>Transactions By Date Range</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center' colspan='2'>
 							".mkDateSelect("from",date("Y"),date("m"),"01")."
 							&nbsp;TO&nbsp;
@@ -88,7 +88,7 @@ function view()
 					<tr>
 						<th colspan='2'>Vat Balance</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'><input type='submit' name='amt' value='View Amount'></td>
 						<td align='center'><input type='submit' name='srch' value='Search by Date'></td>
 					</tr>
@@ -96,7 +96,7 @@ function view()
 					<tr>
 						<th colspan='2'>VAT Input</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'><input type='submit' name='inp' value='View Amount'></td>
 						<td align='center'><input type='submit' name='srchin' value='Search by Date'></td>
 					</tr>
@@ -104,7 +104,7 @@ function view()
 					<tr>
 						<th colspan='2'>VAT Output</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'><input type='submit' name='out' value='View Amount'></td>
 						<td align='center'><input type='submit' name='srchout' value='Search by Date'></td>
 					</tr>
@@ -182,7 +182,7 @@ function viewRep($_POST)
 	if (pg_numrows ($vatRslt) < 1) {
 		$vattot = 0;
 		$printRep .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='10'><li>No previous vat Transactions.</li></td>
 						</tr>
 					";
@@ -202,7 +202,7 @@ function viewRep($_POST)
 
 			$vat['amount'] = sprint($vat['amount']);
 			$printRep .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$vat[edate]</td>
 								<td>$vat[ref]</td>
 								<td>".CUR." $vat[amount]</td>
@@ -216,7 +216,7 @@ function viewRep($_POST)
 
 	// Layout
 	$printRep .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'><b>Total vat balance</b></td>
 						<td colspan='2' align='right'><b>".CUR." $vattot</b></td>
 					</tr>
@@ -313,16 +313,16 @@ function viewRepAmt($_POST)
 						<tr>
 							<th colspan='2'>Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Total Input Vat</td>
 							<td>".CUR." $pvat[sum]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Total Output Vat</td>
 							<td>".CUR." $rvat[sum]</td>
 						</tr>
 						".TBL_BR."
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><b>Total Vat Balance</b></td>
 							<td><b>".CUR." $totbal</b></td>
 						</tr>
@@ -416,7 +416,7 @@ function viewIn($_POST)
 	if (pg_numrows ($vatRslt) < 1) {
 		$vattot = 0;
 		$printRep .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='10'><li>No previous vat Transactions.</li></td>
 						</tr>
 					";
@@ -437,7 +437,7 @@ function viewIn($_POST)
 
 			$vat['amount'] = sprint($vat['amount']);
 			$printRep .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$vat[edate]</td>
 								<td>$vat[ref]</td>
 								<td>".CUR." $vat[amount]</td>
@@ -452,7 +452,7 @@ function viewIn($_POST)
 
 	// Layout
 	$printRep .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='2'><b>Total vat Input</b></td>
 							<td colspan='2' align='right'><b>".CUR." $vattot</b></td>
 						</tr>
@@ -529,7 +529,7 @@ function viewRepIn($_POST)
 						<tr>
 							<th colspan='2'>Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Total VAT Input</td>
 							<td>".CUR." $pvat[sum]</td>
 						</tr>
@@ -610,7 +610,7 @@ function viewOut($_POST)
 	if (pg_numrows ($vatRslt) < 1) {
 		$vattot = 0;
 		$printRep .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='10'><li>No previous vat Transactions.</li></td>
 						</tr>
 					";
@@ -630,7 +630,7 @@ function viewOut($_POST)
 
 			$vat['amount'] = sprint($vat['amount']);
 			$printRep .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$vat[edate]</td>
 								<td>$vat[ref]</td>
 								<td>".CUR." $vat[amount]</td>
@@ -645,7 +645,7 @@ function viewOut($_POST)
 
 	// Layout
 	$printRep .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='2'><b>Total vat Output</b></td>
 							<td colspan='2' align='right'><b>".CUR." $vattot</b></td>
 						</tr>
@@ -721,7 +721,7 @@ function viewRepOut($_POST)
 						<tr>
 							<th colspan='2'>Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Total VAT Output</td>
 							<td>".CUR." $rvat[sum]</td>
 						</tr>

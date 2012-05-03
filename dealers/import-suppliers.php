@@ -48,7 +48,7 @@ if(isset($_POST["key"])) {
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='index.php'>Dealer Section</a></td>
 				</tr>
 			</table>";
@@ -85,7 +85,7 @@ function select_file ()
 				<tr>
 					<th colspan='2'>File details</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Please select supplier csv</td>
 					<td><input type='file' name='compfile'></td>
 				</tr>
@@ -176,7 +176,7 @@ function confirm($_POST,$_FILES)
 				<tr>
 					<th colspan='2'>Select Supplier Departments</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'>$deptdrop</td>
 				</tr>
 				<tr>
@@ -200,7 +200,7 @@ function confirm($_POST,$_FILES)
 	while($fd = pg_fetch_array($Ri)) {
 
 		$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$fd[des1]</td>
 					<td>$fd[des2]</td>
 					<td>$fd[des3]</td>

@@ -63,7 +63,7 @@ function slctAcc()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Name</td>
 				<td>
 					<select name='accid'>";
@@ -86,13 +86,13 @@ function slctAcc()
 				</td>
 				<td><input type='submit' name='details' value='View Transactions'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'><td colspan='3'><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'><td colspan='3'><br></td></tr>
+			<tr class='".bg_class()."'>
 				<td>Account Number</td>
 				<td><input type='text' name='topacc' size='4' maxlength='4'> / <input type='text' name='accnum' size='3' maxlength='3'></td>
 				<td><input type='submit' value='View Transactions'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Period</td>
 				<td valign='center' colspan='3'>".finMonList("prd", PRD_DB)."</td>
 			</tr>
@@ -235,7 +235,7 @@ function viewtran($_POST)
 							<th>From Date:</th>
 							<th>To Date:</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td nowrap>".mkDateSelect ("from",$from_year,$from_month,$from_day)."</td>
 							<td nowrap>".mkDateSelect ("to",$to_year,$to_month,$to_day)."</td>
 							<td><input type='submit' value='View'></td>
@@ -277,7 +277,7 @@ function viewtran($_POST)
 	$tranRslt = db_exec ($sql) or errDie ("ERROR: Unable to retrieve Transaction details from database.", SELF);
 	if (pg_numrows ($tranRslt) < 1) {
 		$OUTPUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='10'>No Transactions found</td>
 			</tr>";
 		# counts
@@ -322,7 +322,7 @@ function viewtran($_POST)
 			*/
 
 			$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$date</td>
 					<td>$custom_refnum</td>
 					<td>$cacc[topacc]/$cacc[accnum] - $cacc[accname]</td>
@@ -338,7 +338,7 @@ function viewtran($_POST)
 	$credtot = sprint($credtot);
 
 	$OUTPUT .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'><b>Total</b></td>
 			<td nowrap><b>".CUR." $debtot</b></td>
 			<td nowrap><b>".CUR." $credtot</b></td>

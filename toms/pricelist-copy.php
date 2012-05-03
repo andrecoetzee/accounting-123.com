@@ -97,11 +97,11 @@ function edit($listid)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>From Price list</td>
 				<td align='center'>$list[listname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>To Price list</td>
 				<td align='center'><input type='text' size='20' name='listname' value='Copy of $list[listname]'></td>
 			</tr>
@@ -138,7 +138,7 @@ function edit($listid)
 			$stk = pg_fetch_array ($stkRslt);
 			$stkp['price'] = sprint ($stkp['price']);
 			$enter .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='hidden' name='stkids[]' value='$stk[stkid]'>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td>
 					<td align='right'>".CUR." <input type='text' name='prices[]' size='8' value='$stkp[price]'> $vattype</td>
 				</tr>";
@@ -157,10 +157,10 @@ function edit($listid)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pricelist-view.php'>View Price Lists</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -227,11 +227,11 @@ function confirm ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>From Price list</td>
 				<td align='center'>$list[listname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>To Price list</td>
 				<td align='center'>$listname</td>
 			</tr>
@@ -256,7 +256,7 @@ function confirm ($_POST)
 		$stk = pg_fetch_array ($stkRslt);
 		$prices[$key] = sprint ($prices[$key]);
 		$confirm .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='hidden' name='stkids[]' value='$stk[stkid]'>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td>
 				<td>".CUR." <input type='hidden' name='prices[]' size='8' value='$prices[$key]'>$prices[$key] $vattype</td>
 			</tr>";
@@ -275,10 +275,10 @@ function confirm ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pricelist-view.php'>View Price Lists</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -377,10 +377,10 @@ function write ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pricelist-view.php'>View Price Lists</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

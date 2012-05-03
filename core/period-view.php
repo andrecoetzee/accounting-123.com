@@ -54,13 +54,13 @@ function printyr()
 		require ("template.php");
 	}
         $act = pg_fetch_array ($Rslt);
-        $OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>$act[yrname]</td><td align=center>$act[prdname]</td></tr>
+        $OUTPUT .= "<tr class='bg-odd'><td align=center>$act[yrname]</td><td align=center>$act[prdname]</td></tr>
 		</table>
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../reporting/index-reports.php'>Financials</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../reporting/index-reports-other.php'>Other Reports</a></td></tr>
+		<tr class='bg-odd'><td><a href='../reporting/index-reports.php'>Financials</a></td></tr>
+		<tr class='bg-odd'><td><a href='../reporting/index-reports-other.php'>Other Reports</a></td></tr>
 		<tr bgcolor='#88BBFF'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 

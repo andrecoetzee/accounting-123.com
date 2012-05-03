@@ -77,9 +77,9 @@ function slctacc()
         <input type=hidden name=key value=details>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' align=center>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td><input type=text size=2 name=day maxlength=2  value='".date("d")."'>-<input type=text size=2 name=mon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=year maxlength=4 value='".date("Y")."'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Reference Number</td><td><input type=text size=10 name=refnum value='".($refnum++)."'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Select Period </td><td><select name=prd>";
+        <tr class='bg-odd'><td>Date</td><td><input type=text size=2 name=day maxlength=2  value='".date("d")."'>-<input type=text size=2 name=mon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=year maxlength=4 value='".date("Y")."'></td></tr>
+        <tr class='bg-odd'><td>Reference Number</td><td><input type=text size=10 name=refnum value='".($refnum++)."'></td></tr>
+		<tr class='bg-even'><td>Select Period </td><td><select name=prd>";
                 db_conn(YR_DB);
                 $sql = "SELECT * FROM info WHERE prdname !=''";
                 $prdRslt = db_exec($sql);
@@ -102,7 +102,7 @@ function slctacc()
                 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
                 <tr><td><h4>Debit</h4></td></tr>
                 <tr><th>Select Account</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor2."'>
+                <tr class='bg-even'>
                 <td valign=center>
                 <select name='dtaccid'>";
                 core_connect();
@@ -121,7 +121,7 @@ function slctacc()
                 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
                 <tr><td><h4>Credit</h4></td></tr>
                 <tr><th>Select Account</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor2."'>
+                <tr class='bg-even'>
                 <td valign=center>
                 <select name=ctaccid>";
                 $sql = "SELECT * FROM accounts ORDER BY accname ASC";
@@ -142,14 +142,14 @@ function slctacc()
                 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
                         <tr><td><h4>Debit</h4></td></tr>
                         <tr><th>Account number</th></tr>
-                        <tr bgcolor='".TMPL_tblDataColor2."'><td valign=center><input type=text name=dtaccnum size=20></td></tr>
+                        <tr class='bg-even'><td valign=center><input type=text name=dtaccnum size=20></td></tr>
                 </table>
         </td>
         <td align=center>
                 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
                         <tr><td><h4>Credit</h4></td></tr>
                         <tr><th>Account number</th></tr>
-                        <tr bgcolor='".TMPL_tblDataColor2."'>
+                        <tr class='bg-even'>
                 <td valign=center><input type=text name=ctaccnum size=20></td><td><input type=submit value='Enter Details >'></td></tr></table>
         </td></tr>
         </table>
@@ -216,14 +216,14 @@ function details($_POST)
         <input type=hidden name='dtaccid' value='$dtaccid'>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=500>
         <tr><td width=50%><h3>Debit</h3></td><td width=50%><h3>Credit</h3></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
+        <tr class='bg-odd'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
         <tr><td><br></td></tr>
         <tr><td><br></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$date</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td valign=center>".CUR."<input type=text size=20 name=amount></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details></textarea></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
+        <tr class='bg-odd'><td>Date</td><td valign=center>$date</td></tr>
+        <tr class='bg-even'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
+        <tr class='bg-odd'><td>Amount</td><td valign=center>".CUR."<input type=text size=20 name=amount></td></tr>
+        <tr class='bg-even'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details></textarea></td></tr>
+        <tr class='bg-odd'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
         <tr><td><input type=button value=Back OnClick='javascript:history.back()'></td><td valign=center><input type=submit value='Record Transaction'></td></tr>
         </form>
         </table>
@@ -318,14 +318,14 @@ function details2($_POST)
         <input type=hidden name='dtaccid' value='$dtacc[accid]'>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=500>
         <tr><td width=50%><h3>Debit</h3></td><td width=50%><h3>Credit</h3></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
+        <tr class='bg-odd'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
         <tr><td><br></td></tr>
         <tr><td><br></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$date</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td valign=center>".CUR."<input type=text size=20 name=amount></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details></textarea></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
+        <tr class='bg-odd'><td>Date</td><td valign=center>$date</td></tr>
+        <tr class='bg-even'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
+        <tr class='bg-odd'><td>Amount</td><td valign=center>".CUR."<input type=text size=20 name=amount></td></tr>
+        <tr class='bg-even'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details></textarea></td></tr>
+        <tr class='bg-odd'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
         <tr><td><input type=button value=Back OnClick='javascript:history.back()'></td><td valign=center><input type=submit value='Record Transaction'></td></tr>
         </form>
         </table>
@@ -407,14 +407,14 @@ function confirm($_POST)
         <input type=hidden name=author value='$author'>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=500>
         <tr><td width=50%><h3>Debit</h3></td><td width=50%><h3>Credit</h3></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
+        <tr class='bg-even'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
         <tr><td><br></td></tr>
         <tr><td><br></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$date</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Reference number</td><td>$refnum</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td>".CUR." $amount</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Details</td><td>$details</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Authorising Person</td><td>$author</td></tr>
+        <tr class='bg-odd'><td>Date</td><td>$date</td></tr>
+        <tr class='bg-even'><td>Reference number</td><td>$refnum</td></tr>
+        <tr class='bg-odd'><td>Amount</td><td>".CUR." $amount</td></tr>
+        <tr class='bg-even'><td>Details</td><td>$details</td></tr>
+        <tr class='bg-odd'><td>Authorising Person</td><td>$author</td></tr>
         <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Confirm Transaction &raquo'></td></tr>
         </form></table>
         <table border=0 cellpadding='2' cellspacing='1' width=15%>
@@ -475,10 +475,10 @@ function write($_POST)
         <h3>Journal transaction has been recorded</h3>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=500>
         <tr><td width=50%><h3>Debit</h3></td><td width=50%><h3>Credit</h3></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
+        <tr class='bg-even'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
         <tr><td><br></td></tr>
         <tr colspan=2><td><h4>Amount</h4></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>".CUR." $amount</b></td></tr>
+        <tr class='bg-even'><td colspan=2><b>".CUR." $amount</b></td></tr>
         </table>
         <br>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=25%>

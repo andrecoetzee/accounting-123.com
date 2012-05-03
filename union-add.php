@@ -30,11 +30,11 @@ function get_union ()
 			<tr>
 				<th colspan='2'>Union Information</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Union Name</td>
 				<td><input type='text' size='20' name='union_name' value='$union_name'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Union Rate</td>
 				<td><input type='text' size='10' name='union_rate' value='$union_rate'></td>
 			</tr>

@@ -97,8 +97,8 @@ function get_length ($_POST)
 			<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=30%>
 				<tr><td><br><br></tr>
 				<tr><th>Quick Links</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-view.php'>View Stock</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='pos-set.php'>Set Point Of Sale Setting</td></tr>
+				<tr class='bg-odd'><td><a href='stock-view.php'>View Stock</td></tr>
+				<tr class='bg-odd'><td><a href='pos-set.php'>Set Point Of Sale Setting</td></tr>
 				<script>document.write(getQuicklinkSpecial());</script></tr>
 			</table>";
 	}
@@ -120,7 +120,7 @@ function get_length ($_POST)
 					<th>RFID Tag Character Length</th>
 				</tr>
 				<tr>
-					<td bgcolor='".TMPL_tblDataColor1."'><input type='text' size='6' name='clength'></td>
+					<td class='bg-odd'><input type='text' size='6' name='clength'></td>
 				</tr>
 				<tr><td><br></td></tr>
 				<tr>
@@ -151,7 +151,7 @@ function read_bars ($_POST,$errs = "")
 					<th>RFID Tag Character Length</th>
 				</tr>
 				<tr>
-					<td bgcolor='".TMPL_tblDataColor1."'>$clength</td>
+					<td class='bg-odd'>$clength</td>
 				</tr>
 				<tr>
 					<th>Barcodes In Single Line (Will be split based on specified Width)</th>

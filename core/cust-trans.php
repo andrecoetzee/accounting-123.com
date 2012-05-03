@@ -174,37 +174,37 @@ function slctacc($_GET)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Number</td>
 				<td>$cust[accno]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td>$cust[cusname] $cust[surname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>".mkDateSelect("ct",$ct_year,$ct_month,$ct_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference Number</td>
 				<td><input type='text' size='10' name='refnum' value='".($refnum++)."'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Entry Type</td>
 				<td>
 					<li class='err'>This will debit/credit the customer account selected</li>
 					<input type='radio' name='entry' value='DT' $entd> Debit | <input type='radio' name='entry' value='CT' $entc>Credit</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='2'>Contra Account <br><input align='right' type='button' onClick=\"window.open('acc-new2.php?update_parent=yes','accounts','width=700, height=400');\" value='New Account'></td>
 				<td>$accounts <input name='details' type='submit' value='Enter Details'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!--        Rowspan      -->
 				<td><input type='text' name='accnum' size='20'> <input type='submit' value='Enter Details'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Charge VAT</td>
 				<td><input type='radio' name='chrgvat' value='yes'> Yes <input type='radio' name='chrgvat' value='no' checked='yes'> No</td>
 			</tr>
@@ -274,13 +274,13 @@ function details($_POST)
 	# Probe tran type
 	if($entry == "CT"){
 		$tran = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 				<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 			</tr>";
 	}else{
 		$tran = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 				<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 			</tr>";
@@ -312,7 +312,7 @@ function details($_POST)
 
 	if($chrgvat == "yes"){
 		$showvat = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT</td>
 				<td>
 					$vatcode_drop <br>
@@ -350,24 +350,24 @@ function details($_POST)
 			$tran
 			".TBL_BR."
 			".TBL_BR."
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference No.</td>
 				<td valign='center'><input type='text' size='20' name='refnum' value='$refnum'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR."<input type='text' size='20' name='amount' value='$amount'></td>
 			</tr>
 			$showvat
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Transaction Details</td>
 				<td valign='center'><textarea cols='20' rows='5' name='details'>$details</textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Person Authorising</td>
 				<td valign='center'><input type='hidden' size='20' name='author' value=".USER_NAME.">".USER_NAME."</td>
 			</tr>
@@ -458,13 +458,13 @@ function details2($_POST)
 	# probe tran type
 	if($entry == "CT"){
 		$tran = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 				<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 			</tr>";
 	}else{
 		$tran = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 				<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 			</tr>";
@@ -497,23 +497,23 @@ function details2($_POST)
 			$tran
 			".TBL_BR."
 			".TBL_BR."
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference No.</td>
 				<td valign='center'><input type='text' size='20' name='refnum' value='$refnum'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR."<input type='text' size='20' name='amount' value='$amount'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Transaction Details</td>
 				<td valign='center'><textarea cols='20' rows='5' name='details'>$details</textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Person Authorising</td>
 				<td valign='center'><input type='hidden' size='20' name='author' value=".USER_NAME.">".USER_NAME."</td>
 			</tr>
@@ -602,13 +602,13 @@ function confirm($_POST)
 	# Probe tran type
 	if($entry == "CT"){
 		$tran = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 				<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 			</tr>";
 	}else{
 		$tran = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 				<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 			</tr>";
@@ -678,27 +678,27 @@ function confirm($_POST)
 			$tran
 			".TBL_BR."
 			".TBL_BR."
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference number</td>
 				<td>$refnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td>".CUR." $showamount</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT</td>
 				<td>".CUR." $showvat</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Details</td>
 				<td>$details</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Authorising Person</td>
 				<td>$author</td>
 			</tr>
@@ -845,7 +845,7 @@ function write($_POST)
 		# Write transaction  (debit contra account, credit debtors control)
 		writetrans($accid, $dept['debtacc'], $date, $refnum, $amount, $details." - Customer $cust[cusname] $cust[surname]");
 		$tran = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 				<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 			</tr>";
@@ -862,7 +862,7 @@ function write($_POST)
 		# Write transaction  (debit debtors control, credit contra account)
 		writetrans($dept['debtacc'], $accid, $date, $refnum, $amount, $details." - Customer $cust[cusname] $cust[surname]");
 		$tran = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 				<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 			</tr>";
@@ -921,7 +921,7 @@ function write($_POST)
         	<tr colspan='2'>
         		<td><h4>Amount</h4></td>
         	</tr>
-        	<tr bgcolor='".bgcolorg()."'>
+        	<tr class='".bg_class()."'>
         		<td colspan='2'><b>".CUR." $amount</b></td>
         	</tr>
         </table>"

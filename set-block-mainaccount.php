@@ -55,7 +55,7 @@ function enter()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=confirm>
 		<tr><th colspan=2>Block Main accounts</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=radio size=20 name=typ value='use' checked=yes>Block</td>
+		<tr class='bg-odd'><td><input type=radio size=20 name=typ value='use' checked=yes>Block</td>
 		<td><input type=radio size=20 name=typ value='nuse'>Don't Block</td></td></tr>
 		<tr><td><br></td></tr>
 		<tr><td align=right colspan=2><input type=submit value='Continue &raquo'></td></tr>
@@ -102,7 +102,7 @@ function confirm($_POST)
 	<input type=hidden name=key value=write>
 	<input type=hidden name=typ value='$typ'>
 	<tr><th colspan=2>Block main accounts</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>";
+	<tr class='bg-odd'>";
 
 	if($typ == "use"){
 		$confirm .= "<td colspan=2>Block</td>";

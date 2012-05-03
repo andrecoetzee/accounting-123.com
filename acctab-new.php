@@ -74,7 +74,7 @@ function enter ()
 	}
 	$perm = "";
 	while($scr = pg_fetch_array($rs)){
-		$perm .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=scripts[] value='$scr[script]'>$scr[script]</td><td>$depts</td><td><input type=text size=30 name=names[]></td></tr>";
+		$perm .= "<tr class='bg-odd'><td><input type=hidden name=scripts[] value='$scr[script]'>$scr[script]</td><td>$depts</td><td><input type=text size=30 name=names[]></td></tr>";
 	}
 
 
@@ -93,7 +93,7 @@ function enter ()
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -131,7 +131,7 @@ function confirm ($_POST)
 	foreach($scripts as $key => $script){
 		$names[$key] = strtoupper($names[$key]);
 		$script = rtrim($script);
-		$perm .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=scripts[] value='$script'>$script</td><td><input type=hidden name=deptid[] value='$deptid[$key]'>$deptid[$key]</td><td><input type=hidden name=names[] value='$names[$key]'>$names[$key]</td></tr>";
+		$perm .= "<tr class='bg-odd'><td><input type=hidden name=scripts[] value='$script'>$script</td><td><input type=hidden name=deptid[] value='$deptid[$key]'>$deptid[$key]</td><td><input type=hidden name=names[] value='$names[$key]'>$names[$key]</td></tr>";
 	}
 
 	
@@ -177,7 +177,7 @@ function confirm ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -237,8 +237,8 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Again</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='".SELF."'>Again</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

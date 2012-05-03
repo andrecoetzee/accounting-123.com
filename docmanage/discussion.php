@@ -8,7 +8,7 @@ $OUTPUT = "
 		<form action='".SELF."' method=post name=form>
 		<input type=hidden name=key value=confirm>
 		<tr ><th colspan=2>Document Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td nowrap><a href ='docman-index.php' class=nav><b>Add New Document</b></a></td></tr>
+		<tr class='bg-odd'><td nowrap><a href ='docman-index.php' class=nav><b>Add New Document</b></a></td></tr>
 		
 	</td>
 	</tr>

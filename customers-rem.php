@@ -98,16 +98,16 @@ function confirm($cusnum)
         <input type=hidden name=key value=rem>
         <input type=hidden name=cusnum value='$cusnum'>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Customer Name</td><td valign=center>$cusname</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td rowspan=3 valign=top>Customer Address</td><td valign=center>$addr1</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><!-- rowspan --><td>$addr2</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td>$addr3</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td rowspan=3 valign=top>Customer Postal Address</td><td valign=center>$paddr1</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td>$paddr2</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><!-- rowspan --><td>$paddr3</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Telephone No.</td><td valign=center>$tel</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Fax No.</td><td valign=center>$fax</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>E-mail Address</td><td valign=center>$email</td></tr>
+        <tr class='bg-odd'><td>Customer Name</td><td valign=center>$cusname</td></tr>
+        <tr class='bg-even'><td rowspan=3 valign=top>Customer Address</td><td valign=center>$addr1</td></tr>
+        <tr class='bg-odd'><!-- rowspan --><td>$addr2</td></tr>
+        <tr class='bg-even'><!-- rowspan --><td>$addr3</td></tr>
+        <tr class='bg-odd'><td rowspan=3 valign=top>Customer Postal Address</td><td valign=center>$paddr1</td></tr>
+        <tr class='bg-even'><!-- rowspan --><td>$paddr2</td></tr>
+        <tr class='bg-odd'><!-- rowspan --><td>$paddr3</td></tr>
+        <tr class='bg-even'><td>Telephone No.</td><td valign=center>$tel</td></tr>
+        <tr class='bg-odd'><td>Fax No.</td><td valign=center>$fax</td></tr>
+        <tr class='bg-even'><td>E-mail Address</td><td valign=center>$email</td></tr>
         <tr><td><input type=button value='< Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Remove >'></td></tr>
         </form>
         </table>

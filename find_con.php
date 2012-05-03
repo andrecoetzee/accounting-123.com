@@ -63,14 +63,14 @@ require ("template.php");
 <input type=hidden name=key value=confirm>
 <tr><th colspan=2>Search for</th></tr>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>$Sorts</td><td align=center><input type=text size=27 name=flag></td></tr>
+<tr class='bg-odd'><td align=center>$Sorts</td><td align=center><input type=text size=27 name=flag></td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 </form>
 </table>
 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
         return $get_data;
@@ -113,9 +113,9 @@ function view_cons ($_POST)
 	if ($numrows < 1) {
 		$OutPut = "Contact not found.<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='find_con.php'>Find other</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+        <tr class='bg-odd'><td><a href='find_con.php'>Find other</a></td></tr>
+	<tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	} else {
@@ -144,9 +144,9 @@ function view_cons ($_POST)
                 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='find_con.php'>Find other</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+        <tr class='bg-odd'><td><a href='find_con.php'>Find other</a></td></tr>
+	<tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 	}
 

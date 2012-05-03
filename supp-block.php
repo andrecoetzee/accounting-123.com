@@ -114,43 +114,43 @@ function blocke($supid)
 						<tr>
 							<th colspan='2'>Supplier Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Department</td>
 							<td>$deptname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier No</td>
 							<td>$supno</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Name </td>
 							<td>$supname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Number</td>
 							<td>$vatnum</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Address</td>
 							<td>$supaddr</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Contact Name</td>
 							<td>$contname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Tel No.</td>
 							<td>$tel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Fax No.</td>
 							<td>$fax</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>E-mail</td>
 							<td>$email</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Web Address</td>
 							<td>http://$url</td>
 						</tr>
@@ -158,22 +158,22 @@ function blocke($supid)
 				</td>
 				<td>
 					<table ".TMPL_tblDflts.">
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th colspan='2'> Bank Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank </td>
 							<td>$bankname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch</td>
 							<td>$branname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch Code</td>
 							<td>$brancode</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account Number</td>
 							<td>$bankaccno</td>
 						</tr>
@@ -187,10 +187,10 @@ function blocke($supid)
 									<tr>
 										<th>Quick Links</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='supp-view.php'>View Suppliers</a></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='main.php'>Main Menu</a></td>
 									</tr>
 								</table>
@@ -271,10 +271,10 @@ function write ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='supp-view.php'>View Suppliers</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

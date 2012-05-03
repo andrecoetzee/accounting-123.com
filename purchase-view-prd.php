@@ -77,7 +77,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' colspan='2' nowrap>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -87,7 +87,7 @@ function slct()
 			<tr>
 				<th>Supplier(s)</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$supplier_drop</td>
 			</tr>
 			<tr>
@@ -204,7 +204,7 @@ function printPurch($_POST, $pure = false)
 		$docs .= "&nbsp;<a href='#' onClick=\"printer('purch-recv.php?key=recv_print&purid=$stkp[purid]');\">GRN</a>";
 
 		$OUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stkp[purnum]</td>
 				<td>$stkp[ordernum]</td>
 				<td>$stkp[supinv]</td>
@@ -237,7 +237,7 @@ function printPurch($_POST, $pure = false)
 	}
 
 	$OUT .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='6'>Totals</td>
 			<td align='right' nowrap>".CUR." $tot1</td>
 			<td align='right' nowrap>".CUR." $tot2</td>

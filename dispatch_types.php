@@ -56,10 +56,10 @@ function display()
 		<tr>
 			<th colspan='2'>Dispatch Types</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>$types_sel</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='type_name' /></td>
 			<td>
 				<input type='submit' name='button[add_type]' value='Add' />

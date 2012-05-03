@@ -84,7 +84,7 @@ function select_year()
 			<tr>
 				<th>Select Year</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$years</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -166,9 +166,9 @@ function slctacc($_POST)
 	<input type=hidden name=key value=viewtran>
 	<input type=hidden name=year value='$year'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>suppliers</td><td><input type=radio name=accnt value=slct checked=yes>Selected Accounts | <input type=radio name=accnt value=all>All Accounts</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Select Customer(s)</td><td>$supts</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Select period</td><td>$prds</td></tr>
+	<tr class='bg-even'><td valign=top>suppliers</td><td><input type=radio name=accnt value=slct checked=yes>Selected Accounts | <input type=radio name=accnt value=all>All Accounts</td></tr>
+	<tr class='bg-odd'><td valign=top>Select Customer(s)</td><td>$supts</td></tr>
+	<tr class='bg-even'><td>Select period</td><td>$prds</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td></td><td align=right><input type=submit value='Continue &raquo;'></td></tr>
 	</table>";

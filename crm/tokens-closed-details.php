@@ -140,23 +140,23 @@ function details($_GET) {
 		<tr><td><br></td></tr>
 		<tr><th>Quick Links</th></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='index.php'>My Business</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td align=center><a href='index.php'>My Business</a></td></tr>
+		<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</a></td></tr>
 		</table>
 		</td>
 		<td>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
-		<tr bgcolor='".TMPL_tblDataColor1."'><th>Query Category</th><td>$tokendata[cat]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><th>SUBJECT/SUMMARY:</th><td>$tokendata[sub]</td></tr>
+		<tr class='bg-odd'><th>Query Category</th><td>$tokendata[cat]</td></tr>
+		<tr class='bg-odd'><th>SUBJECT/SUMMARY:</th><td>$tokendata[sub]</td></tr>
 		<tr><th colspan=2>Query Notes</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><pre>$tokendata[notes]</pre></td></tr>
+		<tr class='bg-even'><td colspan=2><pre>$tokendata[notes]</pre></td></tr>
 		</table>
 		</td>
 		<td colspan=2 valign=top>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width='100%'>
 		<tr><th colspan=2>Query Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Team & User</td><td>$teamdata[name], $tokendata[username]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Created</td><td>$tokendata[opendate] By: $tokendata[openby]</td></tr>
+		<tr class='bg-odd'><td>Team & User</td><td>$teamdata[name], $tokendata[username]</td></tr>
+		<tr class='bg-even'><td>Created</td><td>$tokendata[opendate] By: $tokendata[openby]</td></tr>
 		$ex1
 		$ex2
 		</table>
@@ -177,15 +177,15 @@ function details($_GET) {
 		<td align=right>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width='100%'>
 		<tr><th colspan=2>$tokendata[csct] Information</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Acc Num</td><td>$accnum</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Name</td><td>$tokendata[name]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Contact</td><td>$tokendata[con]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Tel</td><td>$tokendata[tel]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Cell</td><td>$tokendata[cell]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Fax</td><td>$tokendata[fax]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Email</td><td>$tokendata[email]</td></tr>
+		<tr class='bg-odd'><td>Acc Num</td><td>$accnum</td></tr>
+		<tr class='bg-even'><td>Name</td><td>$tokendata[name]</td></tr>
+		<tr class='bg-odd'><td>Contact</td><td>$tokendata[con]</td></tr>
+		<tr class='bg-even'><td>Tel</td><td>$tokendata[tel]</td></tr>
+		<tr class='bg-odd'><td>Cell</td><td>$tokendata[cell]</td></tr>
+		<tr class='bg-even'><td>Fax</td><td>$tokendata[fax]</td></tr>
+		<tr class='bg-odd'><td>Email</td><td>$tokendata[email]</td></tr>
 		<tr><th colspan=2>Address</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2 align=center><pre>$tokendata[address]</pre></td></tr>
+		<tr class='bg-odd'><td colspan=2 align=center><pre>$tokendata[address]</pre></td></tr>
 		</table>
 		</td>
 	</tr>

@@ -145,58 +145,58 @@ function view($VARS = array(), $err="")
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Bank Name</td>
 				<td><input type='text' size='20' name='bankname' value='$bankname'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Type</td>
 				<td>$locsel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Currency</td>
 				<td>$currsel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Branch Name</td>
 				<td><input type='text' size='20' name='branchname' value='$branchname'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Branch Code</td>
 				<td><input type='text' size='20' name='branchcode' value='$branchcode'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Account Name</td>
 				<td><input type='text' size='20' name='accname' maxlength='50' value='$accname'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Account Number</td>
 				<td><input type='text' size='20' name='accnum' value='$accnum'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Ledger Account</td>
 				<td>$accs</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Card Number</td>
 				<td><input type='text' size='25' name='cardnum' maxlength='16' value='$cardnum'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Expiry Date</td>
 				<td>
 					<input type='text' size='2' name='mon' maxlength='2' value='$mon'>-
 					<input type='text' size='4' name='year' maxlength='4' value='$year'>MM-YYYY
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Last 3 Digits at back of Card</td>
 				<td><input type='text' size='3' maxlength='3' name='lastdigits' value='$lastdigits'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Card Type</td>
 				<td><input type='radio' name='cardtyp' value='Visa' $chv>Visa &nbsp;&nbsp; <input type='radio' name='cardtyp' value='Mastercard' $chm> Mastercard &nbsp;&nbsp;&nbsp;<input type='radio' name='cardtyp' value='other' $cho>Other: <input type='text' name='cardname' value='$cardname'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Details</td>
 				<td><textarea cols='20' rows='3' name='details'>$details</textarea></td>
 			</tr>
@@ -212,10 +212,10 @@ function view($VARS = array(), $err="")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../core/acc-new2.php'>Add Ledger Account</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -303,55 +303,55 @@ function confirm($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Name</td>
 				<td>$bankname</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type</td>
 				<td>$locs[$loc]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Currency</td>
 				<td>$curr[symbol] - $curr[name]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Branch Name</td>
 				<td>$branchname</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Branch Code</td>
 				<td>$branchcode</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Name</td>
 				<td>$accname</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Number</td>
 				<td>$accnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Ledger Account</td>
 				<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Card Number</td>
 				<td>$cardnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Expiry Date</td>
 				<td>$mon-$year</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Last 3 Digits at back of Card</td>
 				<td>$lastdigits</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Card Type</td>
 				<td>$cardtyp</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Details</td>
 				<td>$details</td>
 			</tr>
@@ -367,10 +367,10 @@ function confirm($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../core/acc-new2.php'>Add Ledger Account</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -456,10 +456,10 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='bankacct-view.php'>View Bank Accounts</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

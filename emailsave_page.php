@@ -148,11 +148,11 @@ function get_recip()
 				<th>.: Filter :.</th>
 				<th>.: Value :.</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$filtersel</td>
 				<td><input type='text' size='20' id='fval' value='$fval' onKeyUp='applyFilter();'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='button' name='all' value='View All' onClick='viewAll();'></td>
 				<td align='center'><input type='button' value='Apply Filter' onClick='applyFilter();'></td>
 			</tr>
@@ -162,7 +162,7 @@ function get_recip()
 			<tr>
 				<th>Send To This Address</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' size='35' name='custom_address' value='$custom_address'></td>
 			</tr>
 			".TBL_BR."
@@ -171,7 +171,7 @@ function get_recip()
 			<tr>
 				<th>Send Email Member Of This Group</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='show' onClick='applyFilter();'> Send To Customer</td>
 			</tr>
 		</table>
@@ -296,7 +296,7 @@ function get_recip()
 
 	if ($customers->num_rows() < 1) {
 		$ajaxCust .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='20'><li>There are no Customers matching the criteria entered.</li></td>
 		</tr>";
 	}else{
@@ -376,7 +376,7 @@ function get_recip()
 			$ocurr = CUR;
 
 
-			$ajaxCust .= "<tr bgcolor='".bgcolorg()."'>";
+			$ajaxCust .= "<tr class='".bg_class()."'>";
 
 			if ( $action == "contact_acc" ) {
 				$updatelink = "javascript: updateAccountInfo(\"$cust[cusnum]\", \"$cust[accno]\");";
@@ -429,7 +429,7 @@ function get_recip()
 		$tot = sprint($tot);
 		$totoverd = sprint($totoverd);
 		$ajaxCust .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'>Total Amount Outstanding, from $i client$s </td>
 				<td align='right' nowrap>".CUR." $tot</td>
 				<td></td>
@@ -466,7 +466,7 @@ function get_recip()
 	        <tr>
 	        	<th>Quick Links</th>
 	        </tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='customers-new.php'>Add Customer</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -516,7 +516,7 @@ function gather_emails()
 
 	if(isset($custom_address) AND (strlen($custom_address) > 0)){
 		$OUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='text' size='30' name='surnames[custom_address]' value=''></td>
 						<td><input type='text' size='30' name='emailcust[custom_address]' value='$custom_address'></td>
 					</tr>
@@ -528,7 +528,7 @@ function gather_emails()
 			$surname = $surnames[$cusnum];
 			$OUT .= "
 			<input type='hidden' name='surnames[$cusnum]' value='$surname'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$surname</td>
 				<td><input type='text' name='emailcust[$cusnum]' value='$email'></td>
 			</tr>";
@@ -695,7 +695,7 @@ function send_mails()
 				</td>";
 
 		$OUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$surnames[$cusnum]</td>
 				<td>$ret</td>
 				$redir

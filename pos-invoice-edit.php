@@ -78,15 +78,15 @@ function view()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=400>
 		<input type=hidden name=key value=details>
 		<tr><th colspan=2>New Point of Sale Invoice(Cash)</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Select Department</td><td valign=center>$depts</td></tr>
+		<tr class='bg-odd'><td>Select Department</td><td valign=center>$depts</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue &raquo'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='pos-invoice-list.php'>View Point of Sale Invoices</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='customers-new.php'>New Customer</a></td></tr>
+		<tr class='bg-odd'><td><a href='pos-invoice-list.php'>View Point of Sale Invoices</a></td></tr>
+		<tr class='bg-odd'><td><a href='customers-new.php'>New Customer</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -126,15 +126,15 @@ function view_err($_POST, $err = "")
 		<input type=hidden name=key value=details>
 		<tr><th colspan=2>New Invoice</th></tr>
 		<tr><td colspan=2>$err</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Select Department</td><td valign=center>$depts</td></tr>
+		<tr class='bg-odd'><td>Select Department</td><td valign=center>$depts</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue &raquo'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='customers-new.php'>New Customer</a></td></tr>
+		<tr class='bg-odd'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
+		<tr class='bg-odd'><td><a href='customers-new.php'>New Customer</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -316,7 +316,7 @@ function details($_POST, $error="")
 		$stk = pg_fetch_array($stkRslt);
 
 		# put in product
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=whids[] value='$stkd[whid]'>$wh[whname]</td><td><input type=hidden name=stkids[] value='$stkd[stkid]'><a href='#bottom' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>".extlib_rstr($stk['stkdes'], 30)."</td><td><input type=text size=3 name=qtys[] value='$stkd[qty]'></td><td><input type=hidden size=8 name=unitcost[] value='$stkd[unitcost]'>$stkd[unitcost]</td><td><input type=text size=4 name=disc[] value='$stkd[disc]'> OR <input type=text size=4 name=discp[] value='$stkd[discp]' maxlength=5>%</td><td><input type=hidden name=amt[] value='$stkd[amt]'> ".CUR." $stkd[amt]</td><td><input type=checkbox name=remprod[] value='$key'><input type=hidden name=SCROLL value=yes></td></tr>";
+		$products .="<tr class='bg-odd'><td><input type=hidden name=whids[] value='$stkd[whid]'>$wh[whname]</td><td><input type=hidden name=stkids[] value='$stkd[stkid]'><a href='#bottom' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>".extlib_rstr($stk['stkdes'], 30)."</td><td><input type=text size=3 name=qtys[] value='$stkd[qty]'></td><td><input type=hidden size=8 name=unitcost[] value='$stkd[unitcost]'>$stkd[unitcost]</td><td><input type=text size=4 name=disc[] value='$stkd[disc]'> OR <input type=text size=4 name=discp[] value='$stkd[discp]' maxlength=5>%</td><td><input type=hidden name=amt[] value='$stkd[amt]'> ".CUR." $stkd[amt]</td><td><input type=checkbox name=remprod[] value='$key'><input type=hidden name=SCROLL value=yes></td></tr>";
 		$key++;
 	}
 
@@ -376,7 +376,7 @@ function details($_POST, $error="")
 				$amt[$key] = ($qtyss[$key] * ($stk['selamt'] - $discs[$key]));
 
 				# put in selected warehouse and stock
-				$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=whids[] value='$whid'>$wh[whname]</td><td><input type=hidden name=stkids[] value='$stk[stkid]'><a href='#bottom' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>".extlib_rstr($stk['stkdes'], 30)."</td><td><input type=text size=3 name=qtys[] value='$qtyss[$key]'></td><td><input type=hidden size=8 name='unitcost[]'  value='$stk[selamt]'>$stk[selamt]</td><td><input type=text size=4 name=disc[] value='$discs[$key]'> OR <input type=text size=4 name=discp[] value='$discps[$key]' maxlength=5>%</td><td><input type=hidden name=amt[] value='$amt[$key]'> ".CUR." $amt[$key]</td><td><input type=checkbox name=remprod[] value='$keyy'></td></tr>";
+				$products .="<tr class='bg-odd'><td><input type=hidden name=whids[] value='$whid'>$wh[whname]</td><td><input type=hidden name=stkids[] value='$stk[stkid]'><a href='#bottom' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>".extlib_rstr($stk['stkdes'], 30)."</td><td><input type=text size=3 name=qtys[] value='$qtyss[$key]'></td><td><input type=hidden size=8 name='unitcost[]'  value='$stk[selamt]'>$stk[selamt]</td><td><input type=text size=4 name=disc[] value='$discs[$key]'> OR <input type=text size=4 name=discp[] value='$discps[$key]' maxlength=5>%</td><td><input type=hidden name=amt[] value='$amt[$key]'> ".CUR." $amt[$key]</td><td><input type=checkbox name=remprod[] value='$keyy'></td></tr>";
 				$keyy++;
 			}else{
 				if(!isset($diffwhBtn)){
@@ -408,7 +408,7 @@ function details($_POST, $error="")
 					$stks .= "</select> ";
 
 					# put in drop down and warehouse
-					$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=whidss[] value='$whid'>$wh[whname]</td><td>$stks</td><td> </td><td><input type=text size=3 name='qtyss[]'  value='1'></td><td> </td><td><input type=text size=4 name=discs[] value='0'> OR <input type=text size=4 name=discps[] value='0' maxlength=5>%</td><td><input type=hidden name=amts[] value='0.00'>".CUR." 0.00</td><td></td></tr>";
+					$products .="<tr class='bg-odd'><td><input type=hidden name=whidss[] value='$whid'>$wh[whname]</td><td>$stks</td><td> </td><td><input type=text size=3 name='qtyss[]'  value='1'></td><td> </td><td><input type=text size=4 name=discs[] value='0'> OR <input type=text size=4 name=discps[] value='0' maxlength=5>%</td><td><input type=hidden name=amts[] value='0.00'>".CUR." 0.00</td><td></td></tr>";
 				}
 			}
 		}
@@ -443,9 +443,9 @@ function details($_POST, $error="")
 					$stks .= "<option value='$stk[stkid]'>$stk[stkcod] (".($stk['units'] - $stk['alloc']).")</option>";
 				}
 				$stks .= "</select> ";
-				$products .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=whidss[] value='$whid'>$wh[whname]</td><td>$stks</td><td> </td><td><input type=text size=3 name=qtyss[] value='1'></td><td> </td><td><input type=text size=4 name=discs[] value='0'> OR <input type=text size=4 name=discps[] value='0' maxlength=5>%</td><td>".CUR." 0.00</td><td></td></tr>";
+				$products .= "<tr class='bg-odd'><td><input type=hidden name=whidss[] value='$whid'>$wh[whname]</td><td>$stks</td><td> </td><td><input type=text size=3 name=qtyss[] value='1'></td><td> </td><td><input type=text size=4 name=discs[] value='0'> OR <input type=text size=4 name=discps[] value='0' maxlength=5>%</td><td>".CUR." 0.00</td><td></td></tr>";
 			}else{
-				$products .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$whs</td><td></td><td> </td><td> </td><td> </td><td><input type=text size=4 name=discs[] value='0'> OR <input type=text size=4 name=discps[] value='0' maxlength=5>%</td><td>".CUR." 0.00</td><td></td></tr>";
+				$products .= "<tr class='bg-odd'><td>$whs</td><td></td><td> </td><td> </td><td> </td><td><input type=text size=4 name=discs[] value='0'> OR <input type=text size=4 name=discps[] value='0' maxlength=5>%</td><td>".CUR." 0.00</td><td></td></tr>";
 			}
 		}
 	}
@@ -453,7 +453,7 @@ function details($_POST, $error="")
 	/* -- start Listeners -- */
 
 	if(isset($diffwhBtn)){
-		$products .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$whs</td><td></td><td> </td><td> </td><td> </td><td><input type=text size=4 name=discs[] value='0'> OR <input type=text size=4 name=discps[] value='0' maxlength=5>%</td><td>".CUR." 0.00</td><td></td></tr>";
+		$products .= "<tr class='bg-odd'><td>$whs</td><td></td><td> </td><td> </td><td> </td><td><input type=text size=4 name=discs[] value='0'> OR <input type=text size=4 name=discps[] value='0' maxlength=5>%</td><td>".CUR." 0.00</td><td></td></tr>";
 	}
 
 	/* -- End Listeners -- */
@@ -494,22 +494,22 @@ function details($_POST, $error="")
  	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Customer Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Department</td><td valign=center>$dept[deptname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer</td><td valign=center><input type=text size=20 name=client value='$client'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer Order number</td><td valign=center><input type=text size=10 name=cordno value='$inv[cordno]'></td></tr>
+			<tr class='bg-odd'><td>Department</td><td valign=center>$dept[deptname]</td></tr>
+			<tr class='bg-even'><td>Customer</td><td valign=center><input type=text size=20 name=client value='$client'></td></tr>
+			<tr class='bg-odd'><td>Customer Order number</td><td valign=center><input type=text size=10 name=cordno value='$inv[cordno]'></td></tr>
 			<tr><th colspan=2>Point of Sale</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Barcode</td><td><input type=text size=13 name=bar value=''></td></tr>
+			<tr class='bg-even'><td>Barcode</td><td><input type=text size=13 name=bar value=''></td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Invoice Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Invoice No.</td><td valign=center>$inv[invid]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Sales Order No.</td><td valign=center><input type=text size=5 name=ordno value='$inv[ordno]'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Charge VAT</td><td valign=center><table><tr><td>Yes</td><td><input type=radio size=7 name=chrgvat value='yes' $chy></td><td>No</td><td><input type=radio size=7 name=chrgvat value='no' $chn></td></tr></table></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Sales Person</td><td valign=center>$salesps</td></tr>
+			<tr class='bg-even'><td>Invoice No.</td><td valign=center>$inv[invid]</td></tr>
+			<tr class='bg-odd'><td>Sales Order No.</td><td valign=center><input type=text size=5 name=ordno value='$inv[ordno]'></td></tr>
+			<tr class='bg-even'><td>Charge VAT</td><td valign=center><table><tr><td>Yes</td><td><input type=radio size=7 name=chrgvat value='yes' $chy></td><td>No</td><td><input type=radio size=7 name=chrgvat value='no' $chn></td></tr></table></td></tr>
+			<tr class='bg-odd'><td>Sales Person</td><td valign=center>$salesps</td></tr>
 			<input type=hidden name=oday value='$oday'><input type=hidden name=omon value='$omon'><input type=hidden name=oyear value='$oyear'>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Trade Discount</td><td valign=center><input type=text size=5 name=traddisc value='$inv[traddisc]'>%</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Charge</td><td valign=center><input type=text size=7 name=delchrg value='$inv[delchrg]'></td></tr>
+			<tr class='bg-even'><td>Trade Discount</td><td valign=center><input type=text size=5 name=traddisc value='$inv[traddisc]'>%</td></tr>
+			<tr class='bg-odd'><td>Delivery Charge</td><td valign=center><input type=text size=7 name=delchrg value='$inv[delchrg]'></td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -517,17 +517,17 @@ function details($_POST, $error="")
 	<tr><td width='70%' valign=top>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100%>
 			<tr><th width=30%>Quick Links</th><th width=30%>Comments</th><td rowspan=5 valign=top width=40%>$error</td></tr>
-			<tr><td bgcolor='".TMPL_tblDataColor1."'><a href='pos-invoice-new.php'>New POS Invoice</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top><textarea name=comm rows=4 cols=20>$inv[comm]</textarea></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='pos-invoice-list.php'>View POS Invoices</a></td></tr>
+			<tr><td class='bg-odd'><a href='pos-invoice-new.php'>New POS Invoice</a></td><td class='bg-odd' rowspan=4 align=center valign=top><textarea name=comm rows=4 cols=20>$inv[comm]</textarea></td></tr>
+			<tr class='bg-odd'><td><a href='pos-invoice-list.php'>View POS Invoices</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right valign=top width='30%'>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=100%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>".CUR." <input type=hidden name=SUBTOT value='$SUBTOT'>$SUBTOT</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Trade Discount</td><td align=right>".CUR." $traddiscm</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Charge</td><td align=right>".CUR." $inv[delchrg]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><b>VAT @ $VATP%</b></td><td align=right>".CUR." $VAT</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><th>GRAND TOTAL</th><td align=right>".CUR." $TOTAL</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>".CUR." <input type=hidden name=SUBTOT value='$SUBTOT'>$SUBTOT</td></tr>
+			<tr class='bg-even'><td>Trade Discount</td><td align=right>".CUR." $traddiscm</td></tr>
+			<tr class='bg-odd'><td>Delivery Charge</td><td align=right>".CUR." $inv[delchrg]</td></tr>
+			<tr class='bg-even'><td><b>VAT @ $VATP%</b></td><td align=right>".CUR." $VAT</td></tr>
+			<tr class='bg-odd'><th>GRAND TOTAL</th><td align=right>".CUR." $TOTAL</td></tr>
 		</table>
 	</td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'> | <input name=diffwhBtn type=submit value='Different Store'> | <input name=addprodBtn type=submit value='Add Product'> | <input type=submit name='saveBtn' value='Save'> </td><td>| <input type=submit name='upBtn' value='Update'>$done</td></tr>
@@ -945,13 +945,13 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 		$write = "
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>New Invoice Saved</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Invoice for customer <b>$client</b> has been saved.</td></tr>
+			<tr class='bg-even'><td>Invoice for customer <b>$client</b> has been saved.</td></tr>
 		</table>
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='pos-invoice-new.php'>New Point of Sale Invoice</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='pos-invoice-edit.php'>View Point of Sale Invoices</a></td></tr>
+			<tr class='bg-odd'><td><a href='pos-invoice-new.php'>New Point of Sale Invoice</a></td></tr>
+			<tr class='bg-odd'><td><a href='pos-invoice-edit.php'>View Point of Sale Invoices</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 		return $write;

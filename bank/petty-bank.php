@@ -88,7 +88,7 @@ function add()
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='petty-trans.php'>Transfer funds to petty cash account</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -105,7 +105,7 @@ function add()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account</td>
 				<td valign='center'>
 					<select name='bankid'>";
@@ -141,27 +141,27 @@ function add()
 					</select>
 				</td>
 			</tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Date</td>
 	        	<td>".mkDateSelect("date", $date_year, $date_month, $date_day)."</td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Received from</td>
 	        	<td valign='center'><input size='20' name='name' value='Petty Cash'></td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Description</td>
 	        	<td valign='center'><textarea cols='18' rows='2' name='descript'></textarea></td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Cheque Number</td>
 	        	<td valign='center'><input size='10' name='cheqnum'></td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Amount</td>
 	        	<td valign='center'>".CUR." <input type='text' size='10' name='amount'>&nbsp;&nbsp;Max : ".CUR." $accb[bal]<input type='hidden' name='max' value='$accb[bal]'></td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Petty Cash Account</td>
 	        	<td><input type='hidden' name='accinv' value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 	        </tr>
@@ -269,31 +269,31 @@ function confirm($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account</td>
 				<td>$bank[accname] - $bank[bankname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Received from</td>
 				<td valign='center'>$name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>$descript</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'>$cheqnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amount</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Petty Cash Account</td>
 				<td valign='center'>$accnt[topacc]/$accnt[accnum] - $accnt[accname]</td>
 			</tr>
@@ -419,7 +419,7 @@ function write($_POST)
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='cashbook-view.php'>View Cash Book</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>

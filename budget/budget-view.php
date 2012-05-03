@@ -71,13 +71,13 @@ function printBudget ()
 				        <tr>
 				        	<th>Quick Links</th>
 				        </tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='budget-new.php'>New Monthly Budget</a></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='budget-yr-new.php'>New Yearly Budget</a></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='main.php'>Main Menu</a></td>
 						</tr>
 					</table>
@@ -109,7 +109,7 @@ function printBudget ()
 
 
 		$printBudget .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$budg[budname]</td>
 								<td>$budg[edate]</td>
 								<td>$vbudtype</td>
@@ -133,13 +133,13 @@ function printBudget ()
 					        <tr>
 					        	<th>Quick Links</th>
 					        </tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='budget-new.php'>New Monthly Budget</a></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='budget-yr-new.php'>New Yearly Budget</a></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='main.php'>Main Menu</a></td>
 							</tr>
 						</table>";

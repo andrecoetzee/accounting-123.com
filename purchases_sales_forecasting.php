@@ -113,7 +113,7 @@ function display()
 		}
 		
 		$sales_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$stock_data[stkcod] - $stock_data[stkdes]</td>
 			<td>$total_days</td>
 			<td>$total_sold</td>
@@ -127,7 +127,7 @@ function display()
 	<h3>Purchases: Sales Forecasting</h3>
 	<form method='post' action='".SELF."'>
 	<table ".TMPL_tblDflts.">
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$cat_sel</td>
 			<td><input type='text' name='days' value='$days' size='2' /></td>
 			<td><input type='submit' value='Select' /></td>

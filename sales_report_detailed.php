@@ -21,14 +21,14 @@ function display()
 		<tr>
 			<th>Filter</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='search' value='$search' /></td>
 			<td rowspan='2'>
 				<input type='submit' value='Search'
 				style='height: 100%; font-weight: bold;' />
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'>
 				Stock<input type='checkbox' name='f_stock' value='checked' $f_stock />
 				Customers<input type='checkbox' name='f_cust' value='checked' $f_cust />

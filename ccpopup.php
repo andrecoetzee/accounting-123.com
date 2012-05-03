@@ -140,7 +140,7 @@ function enter ($_GET,$err="")
 	$project = "";
 	$showproject = "<tr>";
 	if(!isset($project1) OR (strlen($project1) < 1) OR (isset($changeproject))){
-		$showproject .= "<td><br></td></tr><tr><th colspan='3'>Select Project</th></tr><tr bgcolor='".bgcolorg()."'><td colspan='3'>";
+		$showproject .= "<td><br></td></tr><tr><th colspan='3'>Select Project</th></tr><tr class='".bg_class()."'><td colspan='3'>";
 		$showproject .= "<select name='project1' onChange='javascript:document.form1.submit();'>";
 		$showproject .= "<option value='' disabled selected>Select Project</option>";
 		$get_pros = "SELECT * FROM projects WHERE id != '1'";
@@ -164,7 +164,7 @@ function enter ($_GET,$err="")
 								<tr>
 									<th colspan='3'>Cost Centers For Project : $parr[project_name]</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<input type='hidden' name='project1' value='$project1'>
 									<td colspan='2'>$parr[project_name]</td>
 									<td><input type='submit' name='changeproject' value='Change'></td>
@@ -248,7 +248,7 @@ function enter ($_GET,$err="")
 			$cc_list .= "
 							<input type='hidden' name='ccids[$each]' value='$own'>
 							<input type='hidden' name='ccidpro[$each]' value='$ccidpro[$each]'>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>($ccode) $cname</td>
 								<td><input type='text' name='ccperc[$each]' size='8' value='$ccperc[$each]'></td>
 								<td><input type='checkbox' name='remids[$each]' value='yes' onClick='javascript:document.form1.submit();'></td>
@@ -278,19 +278,19 @@ function enter ($_GET,$err="")
 					<th>Field</th>
 					<th colspan='2'>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Type</td>
 					<td colspan='2'>$typename</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td colspan='2' nowrap>$edate</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Total Amount</td>
 					<td colspan='2'>$amount</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Description</td>
 					<td colspan='2'>$descrip</td>
 				</tr>
@@ -302,7 +302,7 @@ function enter ($_GET,$err="")
 					<th>Remove</th>
 				</tr>
 				$cc_list
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='3'>$cc_drop</td>
 				</tr>
 				<tr><td><br></td></tr>
@@ -383,7 +383,7 @@ function confirm ($_POST)
 
 		$ccenters .= "
 				<input type='hidden' name='ccidpro[]' value='$ccidpro[$key]'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='hidden' name='ccids[]' value='$cc[id]'>$cname ($ccode) </td>
 					<td align='right'><input type='hidden' name='ccperc[]' size='8' value='$ccperc[$key]'>$ccperc[$key] %</td>
 					<td align='right'>".CUR." $ccamts[$key]</td>
@@ -406,19 +406,19 @@ function confirm ($_POST)
 				<input type='hidden' name='writeid' value='$writeid'>
 			<table ".TMPL_tblDflts." width='300'>
 				<tr><th>Field</th><th>Value</th></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Type</td>
 					<td>$typename</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td>$edate</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Total Amount</td>
 					<td>$amount</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Description</td>
 					<td>$descrip</td>
 				</tr>
@@ -536,7 +536,7 @@ function write ($_POST)
 	$write = "
 		<center>
 		<table ".TMPL_tblDflts." width='300'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><b>( i )</b> Amount has been allocated to Cost Centers. <b>( i )</b></td>
 			</tr>
 		</table>

@@ -39,13 +39,13 @@ $OUTPUT .= "
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='reporting/index-reports.php'>Financials</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='reporting/index-reports-other.php'>Other Reports</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='main.php'>Main Menu</a></td>
 		</tr>
 	</table>";
@@ -65,14 +65,14 @@ function sel()
 			<tr>
 				<th colspan='2'>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' colspan='2'>
 					".mkDateSelect("from")."
 					&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
 					".mkDateSelect("to")."
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='submit' name='sum' value='Summary'></td>
 				<td align='right'><input type='submit' name='all' value='All Pos Sales'></td>
 			</tr>
@@ -147,7 +147,7 @@ function sum($_POST)
 		$sd = pg_fetch_array($Rd);
 
 		$out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$pd[cust]</td>
 				<td align='right'>".CUR." $sd[amount]</td>
 			</tr>";
@@ -161,7 +161,7 @@ function sum($_POST)
 	$tot = sprint($tot);
 
 	$out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total</td>
 				<td align='right'>".CUR." $tot</td>
 			</tr>
@@ -241,7 +241,7 @@ function all($_POST)
 	while($pd = pg_fetch_array($Ri)) {
 
 		$out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$pd[cust]</td>
 				<td>$pd[pdate]</td>
 				<td>$pd[inv]</td>
@@ -255,7 +255,7 @@ function all($_POST)
 	$tot = sprint($tot);
 
 	$out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total</td>
 				<td></td>
 				<td></td>

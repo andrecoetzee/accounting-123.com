@@ -62,7 +62,7 @@ function printCurr ()
 	while ($cur = pg_fetch_array ($curRslt)) {
 
 		$printCurr .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$cur[descrip]</td>
 				<td align='center'>$cur[curcode]</td>
 				<td align='center'>$cur[symbol]</td>
@@ -80,10 +80,10 @@ function printCurr ()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='currency-add.php'>Add Currency</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

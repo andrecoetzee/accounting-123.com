@@ -140,7 +140,7 @@ function view ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type</td>
 				<td valign='center'>
 					<select name='type' onChange='document.form1.submit();'>
@@ -150,7 +150,7 @@ function view ($_POST)
 					</select>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category</td>
 				<td nowrap>$cat_drop <input type='submit' name='view' value='View Accounts &raquo'></td>
 			</tr>
@@ -198,7 +198,7 @@ function view ($_POST)
 
 
 		$display .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$catid</td>
 				<td>$topacc/$accnum</td>
 				<td>$accname</td>

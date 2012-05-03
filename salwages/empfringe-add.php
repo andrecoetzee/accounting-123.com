@@ -96,9 +96,9 @@ function enterEmpFringe ($_GET)
 <input type=hidden name=empnum value='$empnum'>
 <input type=hidden name=id value='$id'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Employee</td><td align=center>$myEmp[sname], $myEmp[fnames] ($myEmp[empnum])</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Fringe benefit</td><td align=center>$myFringe[fringeben]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td align=center>".CUR."<br><input type=text size=10 name=amount></td></tr>
+<tr class='bg-odd'><td>Employee</td><td align=center>$myEmp[sname], $myEmp[fnames] ($myEmp[empnum])</td></tr>
+<tr class='bg-even'><td>Fringe benefit</td><td align=center>$myFringe[fringeben]</td></tr>
+<tr class='bg-odd'><td>Amount</td><td align=center>".CUR."<br><input type=text size=10 name=amount></td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 </form>
 </table>
@@ -161,9 +161,9 @@ function confirmEmpFringe ($_POST)
 <input type=hidden name=id value='$id'>
 <input type=hidden name=amount value='$amount'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Employee</td><td align=center>$myEmp[sname], $myEmp[fnames] ($myEmp[empnum])</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Fringe benefit</td><td align=center>$myFringe[fringeben]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td align=center>".CUR." $amount</td></tr>
+<tr class='bg-odd'><td>Employee</td><td align=center>$myEmp[sname], $myEmp[fnames] ($myEmp[empnum])</td></tr>
+<tr class='bg-even'><td>Fringe benefit</td><td align=center>$myFringe[fringeben]</td></tr>
+<tr class='bg-odd'><td>Amount</td><td align=center>".CUR." $amount</td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 </form>
 </table>

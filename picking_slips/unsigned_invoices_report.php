@@ -39,7 +39,7 @@ function display()
 	$inv_out = "";
 	while ($inv_data = pg_fetch_array($inv_rslt)) {
 		$inv_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$inv_data[timestamp]</td>
 				<td>$inv_data[invnum]</td>
 				<td>$inv_data[cusname]</td>
@@ -49,7 +49,7 @@ function display()
 
 	if (empty($inv_out)) {
 		$inv_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'><li>No results found</li></td>
 			</tr>";
 	}
@@ -62,7 +62,7 @@ function display()
 			<tr>
 				<th colspan='4'>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				<td>&nbsp; <b>To</b> &nbsp;</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

@@ -117,27 +117,27 @@ function add()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Petty Cash Account</td>
 				<td valign='center'>$acc[topacc]/$acc[accnum] $acc[accname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Available Funds</td>
 				<td>".CUR." $accb[bal]<input type='hidden' name='max' value='$accb[bal]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>".mkDateSelect("date", $date_year, $date_month, $date_day)." DD-MM-YYYY</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Supplier Received from</td>
 				<td valign='center'>$supp</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'><textarea col='20' rows='5' name='descript'></textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." <input type='text' size='10' name='amount'></td>
 			</tr>
@@ -257,27 +257,27 @@ function confirm($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Petty Cash Account</td>
 				<td>$acc[topacc]/$acc[accnum] $acc[accname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Available Funds</td>
 				<td>".CUR." $accb[bal]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Paid from</td>
 				<td valign='center'>$sup[supno] - $sup[supname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>$descript</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amount</td>
 			</tr>
@@ -399,13 +399,13 @@ function write($_POST)
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='bank-pay-add.php'>Add Petty Cash Payment</a></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='bank-recpt-add.php'>Add Petty Cash Receipt</a></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='cashbook-view.php'>View Cash Book</a></td>
 						</tr>
 					</table>

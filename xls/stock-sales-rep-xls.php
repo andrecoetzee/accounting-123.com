@@ -59,18 +59,18 @@ function slct()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<input type=hidden name=key value=view>
 		<tr><th colspan=2>Stock Sales Report</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center colspan=2>
+		<tr class='bg-odd'><td align=center colspan=2>
 		<input type=text size=2 name=fday maxlength=2 value='1'>-<input type=text size=2 name=fmon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=fyear maxlength=4 value='".date("Y")."'>
 		&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
 		<input type=text size=2 name=today maxlength=2 value='".date("d")."'>-<input type=text size=2 name=tomon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=toyear maxlength=4 value='".date("Y")."'></td></tr>
 		<tr><td><br></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center colspan=2><input type=submit value='View'></td></tr>
+		<tr class='bg-odd'><td align=center colspan=2><input type=submit value='View'></td></tr>
 	</table>
 	</form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sales-reports.php'>Sales Reports</a></td></tr>
+		<tr class='bg-odd'><td><a href='sales-reports.php'>Sales Reports</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

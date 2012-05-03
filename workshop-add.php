@@ -164,33 +164,33 @@ function enter($errors="")
 						<tr>
 							<th colspan=2>Add</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Customer</td>
 							<td>
 								<center><input type='button' value='Search' onClick='popupSized(\"customers-view.php?action=select&".frmupdate_make("text", "frm_ws", "cusnum", "cusnum_only")."\", \"workshop_custsearch\", 800, 400);'></center><br>
 								$cusdn
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Stock Code/Name</td>
 							<td>
 								$stkdn<br>
 								<input type='text' name='stkname' value='$stkname' style='width:180px'>
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Serial number</td>
 							<td><input type='text' name='serno' value='$serno' style='width:180px'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Description</td>
 							<td><input type='text' name='description' value='$description' style='width:180px'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Workshop Conditions</td>
 							<td><textarea name='conditions' rows='5' style='width:180px'>$conditions</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Notes</td>
 							<td><textarea name='notes' rows='5' style='width:180px'>$notes</textarea></td>
 						</tr>
@@ -278,27 +278,27 @@ function confirm($_POST)
 						<tr>
 							<th colspan='2'>Confirm</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Customer</td>
 							<td>$customer</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Stock Code/Name</td>
 							<td>$stock</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Serial number</td>
 							<td>$serno</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Description</td>
 							<td>$description</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Workshop Conditions</td>
 							<td>$conditions</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Notes</td>
 							<td>".nl2br($notes)."</td>
 						</tr>

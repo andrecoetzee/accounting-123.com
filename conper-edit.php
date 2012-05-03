@@ -103,25 +103,25 @@ function enter($_GET) {
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=id value='$id'>
 	<tr><th colspan=2>Personal details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Main Contact</td><td>$mainname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Name</td><td align=center><input type=text size=27 name=name value='$name'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Position</td><td align=center><input type=text size=27 name=pos value='$pos'></td></tr>
+	<tr class='bg-odd'><td>Main Contact</td><td>$mainname</td></tr>
+	<tr class='bg-even'><td>Name</td><td align=center><input type=text size=27 name=name value='$name'></td></tr>
+	<tr class='bg-odd'><td>Position</td><td align=center><input type=text size=27 name=pos value='$pos'></td></tr>
 	<tr><th colspan=2>Contact details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Telephone</td><td align=center><input type=text size=27 name=tell value='$tell'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Cellphone</td><td align=center><input type=text size=27 name=cell value='$cell'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Facsimile</td><td align=center><input type=text size=27 name=fax value='$fax'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Email</td><td align=center><input type=text size=27 name=email value='$email'></td></tr>
+	<tr class='bg-even'><td>Telephone</td><td align=center><input type=text size=27 name=tell value='$tell'></td></tr>
+	<tr class='bg-odd'><td>Cellphone</td><td align=center><input type=text size=27 name=cell value='$cell'></td></tr>
+	<tr class='bg-even'><td>Facsimile</td><td align=center><input type=text size=27 name=fax value='$fax'></td></tr>
+	<tr class='bg-odd'><td>Email</td><td align=center><input type=text size=27 name=email value='$email'></td></tr>
 	<tr><th colspan=2>Notes</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><TEXTAREA name=notes rows=4 cols=35>$notes</TEXTAREA></td></td></tr>
+	<tr class='bg-even'><td colspan=2><TEXTAREA name=notes rows=4 cols=35>$notes</TEXTAREA></td></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_cons.php'>List contacts</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_cons.php'>List contacts</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
         return $out;
@@ -161,24 +161,24 @@ function confirm($_POST) {
 	<input type=hidden name=key value=write>
 	<input type=hidden name=id value='$id'>
 	<tr><th colspan=2>Personal details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Name</td><td align=center><input type=hidden name=name value='$name'>$name</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Position</td><td align=center><input type=hidden name=pos value='$pos'>$pos</td></tr>
+	<tr class='bg-even'><td>Name</td><td align=center><input type=hidden name=name value='$name'>$name</td></tr>
+	<tr class='bg-odd'><td>Position</td><td align=center><input type=hidden name=pos value='$pos'>$pos</td></tr>
 	<tr><th colspan=2>Contact details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Telephone</td><td align=center><input type=hidden name=tell value='$tell'>$tell</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Cellphone</td><td align=center><input type=hidden name=cell value='$cell'>$cell</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Facsimile</td><td align=center><input type=hidden name=fax value='$fax'>$fax</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Email</td><td align=center><input type=hidden name=email value='$email'>$email</td></tr>
+	<tr class='bg-even'><td>Telephone</td><td align=center><input type=hidden name=tell value='$tell'>$tell</td></tr>
+	<tr class='bg-odd'><td>Cellphone</td><td align=center><input type=hidden name=cell value='$cell'>$cell</td></tr>
+	<tr class='bg-even'><td>Facsimile</td><td align=center><input type=hidden name=fax value='$fax'>$fax</td></tr>
+	<tr class='bg-odd'><td>Email</td><td align=center><input type=hidden name=email value='$email'>$email</td></tr>
 	<tr><th colspan=2>Notes</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><input type=hidden name=notes value='$notes'><pre>$notes</pre></td></tr>
+	<tr class='bg-even'><td colspan=2><input type=hidden name=notes value='$notes'><pre>$notes</pre></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_cons.php'>List contacts</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_cons.php'>List contacts</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
         return $out;
@@ -224,8 +224,8 @@ function write($_POST) {
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $out;

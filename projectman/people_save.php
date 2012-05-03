@@ -81,11 +81,11 @@ function enter($errors="")
 		<tr>
 			<th colspan='2'>Person Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Cubit User</td>
 			<td>$user_sel</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Person Description</td>
 			<td><input type='text' name='description' value='$description' /></td>
 		</tr>
@@ -128,11 +128,11 @@ function confirm()
 		<tr>
 			<th colspan='2'>Confirm</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Cubit User</td>
 			<td>$username</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Description</td>
 			<td>$description</td>
 		</tr>
@@ -176,7 +176,7 @@ function write()
 		<tr>
 			<th colspan='2'>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Successfully saved the person to cubit.</li></td>
 		</tr>
 	</table>";

@@ -66,7 +66,7 @@ function display()
 
 	$doc_out = "";
 	while ($doc_data = pg_fetch_array($doc_rslt)) {
-		$doc_out .= "<tr bgcolor='".bgcolorg()."'>
+		$doc_out .= "<tr class='".bg_class()."'>
 			<td>$doc_data[id]</td>
 			<td>$doc_data[project]</td>
 			<td>$doc_data[area]</td>
@@ -99,7 +99,7 @@ function display()
 	}
 
 	if (empty($doc_out)) {
-		$doc_out = "<tr bgcolor='".bgcolorg()."'>
+		$doc_out = "<tr class='".bg_class()."'>
 			<td colspan='10'><li>No results found</li></td>
 		</tr>";
 	}
@@ -111,11 +111,11 @@ function display()
 		<tr>
 			<th colspan='2'>Search</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='search' value='$search' /></td>
 			<td><input type='submit' value='Search' /></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>
 				<input type='checkbox' name='disp_inactive' value='checked'
 				$disp_inactive onchange='javascript:document.form.submit()'>
@@ -131,7 +131,7 @@ function display()
 			<th colspan='6'>Options</th>
 		</tr>
 		$doc_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='7'>$prev</td>
 			<td colspan='7' align='right'>$next</td>
 		</tr>

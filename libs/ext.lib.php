@@ -279,8 +279,8 @@ if (!defined("EXT_LIB")) {
 
 		return ($BGCOLOR_COUNTER++ % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 	}
-
-	/**
+        
+        /**
 	 * uses supplied variable to determine background color
 	 *
 	 * @param int $BGCOLOR_COUNTER counter supplied from outside

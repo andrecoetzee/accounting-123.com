@@ -60,7 +60,7 @@ function enter ()
         <tr><th>File name</th><th>Function</th></tr>";
 
         for($i = 0; $i <= 10; $i++){
-                $enter .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=text size=30 name=file[]></td><td><input type=text size=50 name=name[]></td></tr>";
+                $enter .= "<tr class='bg-odd'><td><input type=text size=30 name=file[]></td><td><input type=text size=50 name=name[]></td></tr>";
         }
 
         $enter .= "<tr><td><br></td></tr>
@@ -111,7 +111,7 @@ function confirm ($_POST)
 	$ssql = "";
 	foreach($file as $key => $value){
 			if(strlen($file[$key]) > 0){
-				$confirm .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=file[] value='$file[$key]'>$file[$key]</td><td><input type=hidden name=name[] value='$name[$key]'>$name[$key]</td></tr>";
+				$confirm .= "<tr class='bg-odd'><td><input type=hidden name=file[] value='$file[$key]'>$file[$key]</td><td><input type=hidden name=name[] value='$name[$key]'>$name[$key]</td></tr>";
 				$ssql .= "INSERT INTO scripts (name, script) VALUES ('".rtrim($file[$key])."', '".strtoupper(rtrim($name[$key]))."')<br>";
 			}
 	}

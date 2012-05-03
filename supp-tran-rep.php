@@ -70,7 +70,7 @@ function print_supp ($errors="")
 						<tr>
 							<th colspan='5'>Date Range</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><b>From </b></td>
 							<td>
 								".mkDateSelect("fdate",$fdate_year,$fdate_month,$fdate_day)."
@@ -100,7 +100,7 @@ function print_supp ($errors="")
 						<tr>
 							<th>".ct("Quick Links")."</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='supp-view.php'>".ct("View Suppliers")."</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>
@@ -133,7 +133,7 @@ function print_supp ($errors="")
 
 
 		$printSupp .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='10'>$supp[supno] - $supp[supname]  <b>$cur $supp[$bal]</b></td>
 						</tr>";
 
@@ -147,7 +147,7 @@ function print_supp ($errors="")
 		$stRslt = db_exec ($sql) or errDie ("Unable to retrieve invoices statement from database.");
 		if (pg_numrows ($stRslt) < 1) {
 			$stmnt .= "
-						<tr  bgcolor='".bgcolorg()."'>
+						<tr  class='".bg_class()."'>
 							<td colspan='10'>".ct("No transactions found for the current date range.")."</td>
 						</tr>";
 		}else{
@@ -173,7 +173,7 @@ function print_supp ($errors="")
 	
 					$st['amount'] = sprint($st['amount']);
 					$stmnt .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td align='center'>$st[edate]</td>
 									<td>$st[ref]</td>
 									<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
@@ -205,7 +205,7 @@ function print_supp ($errors="")
 							<tr>
 								<th>".ct("Quick Links")."</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='supp-view.php'>".ct("View Suppliers")."</a></td>
 							</tr>
 							<script>document.write(getQuicklinkSpecial());</script>

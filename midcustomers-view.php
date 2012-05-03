@@ -126,12 +126,12 @@ function printCust ()
 			<th>.: Filter :.</th>
 			<th colspan='2'>.: Search :.</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$filtersel</td>
 			<td><input type='text' size='20' id='fval' value='$fval'></td>
 			<td align='center'><input type='button' value='Search' onClick='applyFilter();' /></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'><input type='button' name='all' value='View All' onClick='viewAll();' /></td>
 		</tr>
 		</table>
@@ -264,7 +264,7 @@ if (!isset($findcust)) {
 
 	if ($custRslt->num_rows() < 1) {
 		$ajaxCust .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='20'><li>There are no Customers matching the criteria entered.</li></td>
 		</tr>";
 	}else{

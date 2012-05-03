@@ -40,13 +40,13 @@ $OUTPUT = "<center>
 <td valign=top width='33%'><table width='90%'>
 <tr><td align=center><h3>Document Management</h3></td></tr>
 <tr ><th colspan=2>Document Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td nowrap><a href ='tdocadd.php' class=nav><b> Add Document</b></a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td nowrap><a href ='tdocview.php' class=nav><b> View Documents</b></a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td nowrap><a href='doctypeadd.php' class=nav><b>Add Document Type</b></a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td nowrap><a href ='doctypeview.php' class=nav><b>View Document Type</b></a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td nowrap><a href='foladd.php' class=nav><b>Add New Folder</b></a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td nowrap><a href='usradd.php' class=nav><b> User Management</b></a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td nowrap><a href='grpadd.php' class=nav><b> Group Management</b></a></td></tr>
+		<tr class='bg-even'><td nowrap><a href ='tdocadd.php' class=nav><b> Add Document</b></a></td></tr>
+		<tr class='bg-even'><td nowrap><a href ='tdocview.php' class=nav><b> View Documents</b></a></td></tr>
+		<tr class='bg-even'><td nowrap><a href='doctypeadd.php' class=nav><b>Add Document Type</b></a></td></tr>
+		<tr class='bg-even'><td nowrap><a href ='doctypeview.php' class=nav><b>View Document Type</b></a></td></tr>
+		<tr class='bg-even'><td nowrap><a href='foladd.php' class=nav><b>Add New Folder</b></a></td></tr>
+		<tr class='bg-even'><td nowrap><a href='usradd.php' class=nav><b> User Management</b></a></td></tr>
+		<tr class='bg-even'><td nowrap><a href='grpadd.php' class=nav><b> Group Management</b></a></td></tr>
 </table></td>
 
 <td valign=top width='33%'>
@@ -60,18 +60,18 @@ $OUTPUT = "<center>
 <table width='50%'>
 <tr><td align=center nowrap><h3>Document Action</h3></td></tr>
 <tr><th>Actions</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='view.php'>VIEW</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='email.php'>E-MAIL</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='checkout.php'>CHECKOUT</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tlist-docview.php'>DELETE</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='history.php'>HISTORY</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='move.php'>MOVE</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a  href='subscribe.php'>SUBSCRIBE</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='discussion.php'>DISCUSSION</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='archive.php'>ARCHIVE</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='link.php'>LINK</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='publish.php'>PUBLISH</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='view.php'>VIEW</a></td></tr>
+		<tr class='bg-odd'><td><a href='email.php'>E-MAIL</a></td></tr>
+		<tr class='bg-odd'><td><a href='checkout.php'>CHECKOUT</a></td></tr>
+		<tr class='bg-odd'><td><a href='tlist-docview.php'>DELETE</a></td></tr>
+		<tr class='bg-odd'><td><a href='history.php'>HISTORY</a></td></tr>
+		<tr class='bg-odd'><td><a href='move.php'>MOVE</a></td></tr>
+		<tr class='bg-odd'><td><a  href='subscribe.php'>SUBSCRIBE</a></td></tr>
+		<tr class='bg-odd'><td><a href='discussion.php'>DISCUSSION</a></td></tr>
+		<tr class='bg-odd'><td><a href='archive.php'>ARCHIVE</a></td></tr>
+		<tr class='bg-odd'><td><a href='link.php'>LINK</a></td></tr>
+		<tr class='bg-odd'><td><a href='publish.php'>PUBLISH</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 
 </table></td>
 ";

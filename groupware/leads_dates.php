@@ -44,7 +44,7 @@ function display()
 		<tr>
 			<th colspan='2'>Lead</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Lead Name</td>
 			<td>$lead_data[surname] $lead_data[name]</td>
 		</tr>
@@ -66,7 +66,7 @@ function display()
 		<form method='post' action='".SELF."'>
 		<input type='hidden' name='id' value='$ld_data[id]' />
 		<input type='hidden' name='lead_id' value='$lead_id' />
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$date_day-$date_month-$date_year</td>
 			<td>$ld_data[notes]</td>
 			<td><input type='submit' name='key' value='Remove' /></td>
@@ -83,7 +83,7 @@ function display()
 		</tr>
 		<form method='post' action='".SELF."'>
 		<input type='hidden' name='lead_id' value='$lead_id' />
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("new_date")."</td>
 			<td><input type='text' name='new_note' /></td>
 			<td>

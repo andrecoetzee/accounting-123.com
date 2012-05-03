@@ -125,24 +125,24 @@ function printInv ()
 			<tr>
 				<th colspan='2'>View Options</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Begin Date:</td>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>End Date:</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Follow On Date From:</td>
 				<td>".mkDateSelect("ncdate_from", $ncdate_from_year, $ncdate_from_month, $ncdate_from_day)."
 				Check Followon <input type='checkbox' name='check_followon' value='yes' $checkfollowonbox></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Follow On Date To:</td>
 				<td>".mkDateSelect("ncdate_to", $ncdate_to_year, $ncdate_to_month, $ncdate_to_day)."</td>
 			</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Type:</td>
 			<td>
 				<input type='radio' name='type' $sel_accepted value='accepted' /> Accepted
@@ -150,15 +150,15 @@ function printInv ()
 				<input type='radio' name='type' $sel_all value='all' /> All
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Customer:</td>
 			<td><input type='text' size='20' name='cust' value='$cust'></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Quote No:</td>
 			<td><input type='text' size='6' name='ordnosearch' value='$ordnosearch'></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>View Other Quotes</td>
 			<td>
 				<input type='button' value='POS (Non Customers) Quotes' onClick=\"document.location='pos-quote-view.php'\">
@@ -245,7 +245,7 @@ function printInv ()
 			$quo['odate'] = $quo['odate'][2]."-".$quo['odate'][1]."-".$quo['odate'][0];
 
 			$printQuo .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$quo[deptname]</td>
 					<td>$quo[salespn]</td>
 					<td>$quo[quoid]</td>

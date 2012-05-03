@@ -48,11 +48,11 @@ function get_data ()
 	$cons = "
 		<h3>Folder Details</h3>
 		<td align=center>
-		<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300 bgcolor='".TMPL_tblDataColor1."' >
+		<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300 class='bg-odd' >
 		<tr><th>Folder Name</th><th colspan=2>Options</th></tr>";
 
 	while($data=pg_fetch_array($Ri)) {
-		$cons.="<tr><td bgcolor='".TMPL_tblDataColor1."'>$data[folname]</td><td><a
+		$cons.="<tr><td class='bg-odd'>$data[folname]</td><td><a
 		 href='foledit.php?id=$data[id]'>Edit</a></td><td><a 
 	         href='folrem.php?id=$data[id]'>Remove</td></tr>";
 	}//end while
@@ -63,8 +63,8 @@ $get_data="
 	 <form action='".SELF."' method='post'>
 	 <input type=hidden name=key value=confirm>
 	 <tr><th colspan=2>Folder Details</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Folder Name</td><td align=center><input type=text size=27 name=folname value='$data[folname]'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."' ><td >Document Type</td><td align=center>
+	 <tr class='bg-odd'><td>Folder Name</td><td align=center><input type=text size=27 name=folname value='$data[folname]'></td></tr>
+	 <tr class='bg-even' ><td >Document Type</td><td align=center>
 		<select name=doctype  value='$doctype' size='5' multiple='1'>
 		<option value='def' selected>Default</option>
 		<option value='inv' >Invoice</option>
@@ -104,11 +104,11 @@ function enter_err($_POST,$err=""){
 	$cons = "
 		<h3>Folder Details</h3>
 		<td align=center>
-		<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300 bgcolor='".TMPL_tblDataColor1."' >
+		<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300 class='bg-odd' >
 		<tr><th>Folder Name</th><th colspan=2>Options</th></tr>";
 
 	while($data=pg_fetch_array($Ri)) {
-		$cons.="<tr><td bgcolor='".TMPL_tblDataColor1."'>$data[folname]</td><td><a
+		$cons.="<tr><td class='bg-odd'>$data[folname]</td><td><a
 		 href='foledit.php?id=$data[id]'>Edit</a></td><td><a 
 	         href='folrem.php?id=$data[id]'>Remove</td></tr>";
 		 
@@ -121,8 +121,8 @@ $get_data="
 	 <tr><td>$err<br></td></tr>
 	 <input type=hidden name=key value='confirm'>
 	 <tr><th colspan=2>Folder details</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Folder Name</td><td align=center><input type=text size=27 name=folname value='$folname'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."' ><td >Document Type</td><td align=center>
+	 <tr class='bg-odd'><td>Folder Name</td><td align=center><input type=text size=27 name=folname value='$folname'></td></tr>
+	 <tr class='bg-even' ><td >Document Type</td><td align=center>
 		<select name=doctype  value='$doctype' size='5' multiple='1'>
 		<option value='def' selected>Default</option>
 		<option value='inv' selected>Invoice</option>
@@ -176,8 +176,8 @@ function con_data ($_POST)
 		<input type=hidden name=doctype value='$doctype'>
 		
 		<tr><th colspan=2>Folder Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Folder Name</td><td align=center>$folname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Document type</td><td align=center>$doctype</td></tr>
+		<tr class='bg-odd'><td>Folder Name</td><td align=center>$folname</td></tr>
+		<tr class='bg-odd'><td>Document type</td><td align=center>$doctype</td></tr>
 		<tr><td colspan=2 align=left><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -205,7 +205,7 @@ $write_data="<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Document Management</a></td></tr>
+	<tr class='bg-odd'><td><a href='".SELF."'>Document Management</a></td></tr>
         
 	</table>";
 

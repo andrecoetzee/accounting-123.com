@@ -120,25 +120,25 @@ function slctacc($_POST)
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Stock Items</td>
 							<td>
 								<input type='radio' name='accnt' value='slct' $ssel1>Selected Items | 
 								<input type='radio' name='accnt' value='all' $ssel2>All Items
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Sort Method</td>
 							<td>
 								<input type='radio' name='sortby' value='store_desc' $sel1 onChange='javascript:document.form1.submit()'>Store - Description |
 								<input type='radio' name='sortby' value='desc_store' $sel2 onChange='javascript:document.form1.submit()'>Description - Store
 							</td> 
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Select Stock Item(s)</td>
 							<td>$stks</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Select period</td>
 							<td>$fprds to $tprds</td>
 						</tr>
@@ -280,10 +280,10 @@ function viewtran($_POST, $pure = false)
 			$balance = sprint($bal['balance']);
 	
 			$trans .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='5'><b>($stk[stkcod]) $stk[stkdes]</b></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>&nbsp;</td>
 								<td>Balance Brought Forward</td>
 								<td align='right'>".sprint3($bal['bqty'])."</td>
@@ -313,7 +313,7 @@ function viewtran($_POST, $pure = false)
 				$balance += $tran["csamt"];
 	
 				$trans .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>$tran[edate]</td>
 									<td>$tran[details]</td>
 									<td align='right'>".sprint3($tran['qty'])."</td>
@@ -324,7 +324,7 @@ function viewtran($_POST, $pure = false)
 			$dbal['balance'] = sprint($dbal['balance']);
 	//$qtytotal was $dbal[bqty]
 			$trans .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>&nbsp;</td>
 								<td>Total for period $prdname to Date :</td>
 								<td align='right'>".sprint3($qtytotal)."</td>

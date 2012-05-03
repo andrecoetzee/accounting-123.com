@@ -442,15 +442,15 @@ function enter ($_POST, $err = "")
 			<tr>
 				<td colspan='6' valign='top' rowspan='2'>
 					<table ".TMPL_tblDflts.">
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						$weeks
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<th>Processing Date:</th>
 						<td nowrap>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 						<td colspan='2' class='err'>Date used by Cubit for the ledgers.</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<th nowrap='t'>Print Salary Advice</th
 						<td>
 						<select name='printslip'>
@@ -888,7 +888,7 @@ function enter ($_POST, $err = "")
 		$rslt = db_exec ($sql) or errDie ("Unable to select fringe benefits from database.");
 		if ( pg_num_rows ($rslt) < 1 ) {
 			$fringes = "<table ".TMPL_tblDflts.">";
-			$fringes .= "<tr><td bgcolor='".bgcolorg()."' colspan='2' align='center'>None found in database.</td></tr>";
+			$fringes .= "<tr><td class='".bg_class()."' colspan='2' align='center'>None found in database.</td></tr>";
 			$fringes .= "</table>";
 		} else {
 			$fringes = "<table ".TMPL_tblDflts.">";
@@ -1310,8 +1310,8 @@ function enter ($_POST, $err = "")
 			<input type='hidden' name='subs_exch' value='1'>
 			<li class='err'>Please calculate the rand amount prior to completing the amount above.</li>";
 
-// 			<tr bgcolor='".bgcolorg()."'>
-// 				<th bgcolor='".bgcolorg()."'>Exchange (ZAR-USD):</th>
+// 			<tr class='".bg_class()."'>
+// 				<th class='".bg_class()."'>Exchange (ZAR-USD):</th>
 // 				<td><input type='text' name='subs_exch' value='".xrate_get("USD")."'></td>
 // 			</tr>";
 
@@ -1620,11 +1620,11 @@ function confirm ($_POST)
 						<tr>
 							<td colspan='2'><h3>Processing Batch Salaries</h3></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th>Salary Period:</th>
 							<td>".getMonthName($month). " " .getYearOfEmpMon($month)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th>Processing Date:</th>
 							<td nowrap>
 								<input type='hidden' name='date_day' value='$date_day'> $date_day -

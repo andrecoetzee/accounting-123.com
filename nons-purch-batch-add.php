@@ -155,7 +155,7 @@ function get_items ($_POST,$err="")
 
 			$old_entries .= "
 				<input type='hidden' name='ids[$i]' value='$earr[id]'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$showsupplier</td>
 					<td>$showaccount</td>
 					<td nowrap>$dates_year-$dates_month-$dates_day</td>
@@ -179,7 +179,7 @@ function get_items ($_POST,$err="")
 		}
 		$total = sprint ($total);
 		$old_entries .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'></td>
 				<th colspan='2'>Total</th>
 				<th align='left'>".CUR." $total</th>
@@ -329,7 +329,7 @@ function get_items ($_POST,$err="")
 		}else {
 			while ($parr = pg_fetch_array ($run_newpros)){
 				$costs .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'>
 							<input type='text' size='15' name='old_project[$parr[id]]' value='$parr[project]'>
 							<input type='text' size='15' name='old_costcenter[$parr[id]]' value='$parr[costcenter]'>
@@ -367,7 +367,7 @@ function get_items ($_POST,$err="")
 			<tr>
 				<th colspan='2'>Cost Center</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' nowrap>
 					<input type='text' size='15' name='newproject' $showproject>
 					<input type='text' size='15' name='newcostcenter' $showcostcenter>
@@ -385,7 +385,7 @@ function get_items ($_POST,$err="")
 				<th colspan='3'>Item Account <input align='right' type='button' onClick=\"window.open('core/acc-new2.php?update_parent=yes','accounts','width=700, height=400');\" value='New Account'></th>
 				<th>Date</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$supplier_drop</td>
 				<td colspan='3'>$accounts_drop</td>
 				<td nowrap>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
@@ -397,7 +397,7 @@ function get_items ($_POST,$err="")
 				<th>Unit Price (Incl. VAT)</th>
 				<th>VAT Code</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' size='5' name='supinv' value='$supinv'></td>
 				<td><input type='text' size='25' name='description' value='$description'></td>
 				<td><input type='text' size='5' name='qty' value='$qty'></td>
@@ -1137,7 +1137,7 @@ pglib_transaction("COMMIT") or errDie("Unable to complete transaction.");
 			<tr>
 				<th>Processing Completed</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>All Selected Transactions Completed</td>
 			</tr>
 		</table>

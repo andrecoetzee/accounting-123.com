@@ -82,7 +82,7 @@ function viewDeducts ()
 		}
 
 		$viewDeducts .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$mySal[refno]</td>
 				<td>$mySal[deduction]</td>
 				<td>$mySal[creditor]</td>

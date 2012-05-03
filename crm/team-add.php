@@ -46,14 +46,14 @@ $OUTPUT .= "
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='team-add.php'>Add Cubit Team</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='team-list.php'>View Cubit Teams</a></td>
 					</tr>
 					<script>document.write(getQuicklinkSpecial());</script>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='index.php'>My Business</a></td>
 					</tr>
 				</table>";
@@ -99,15 +99,15 @@ function enter()
 					<tr>
 						<th colspan='2'>Team Details</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Team Name</td>
 						<td><input type='text' size='20' name='name' value=''></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Description</td>
 						<td><input type='text' size='20' name='des' value=''></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Email Account</td>
 						<td>$select_accounts</td>
 					</tr>
@@ -160,15 +160,15 @@ function entererr($_POST,$errors="")
 					<tr>
 						<th colspan='2'>Team Details</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>".REQ."Team Name</td>
 						<td><input type='text' size='20' name='name' value='$name'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Description</td>
 						<td><input type='text' size='20' name='des' value='$des'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Email Account</td>
 						<td>$select_accounts</td>
 					</tr>
@@ -232,15 +232,15 @@ function confirm($_POST,$errors="")
 					<tr>
 						<th colspan='2'>Team Details</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Team Name</td>
 						<td><input type='hidden' name='name' value='$name'>$name</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Description</td>
 						<td><input type='hidden' name='des' value='$des'>$des</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Account:</td>
 						<td>$accdata[smtp_from]</td>
 					</tr>

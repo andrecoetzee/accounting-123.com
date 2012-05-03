@@ -207,7 +207,7 @@ function details($_POST, $error="")
 
 		# put in product
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='50' name='des[]' value='$stkd[description]'></td>
 				<td align='center'><input type='text' size='3' name='qtys[]' value='$stkd[qty]'></td>
 				<td align='center'><input type='text' size='8' name='unitcost[]' value='$stkd[unitcost]'></td>
@@ -230,7 +230,7 @@ function details($_POST, $error="")
 	if ( $i == 0 || isset($diffwhBtn) ) {
 		# add one
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='50' name='des[]' value=''></td>
 				<td align='center'><input type='text' size='3' name='qtys[]' value='1'></td>
 				<td align='center'><input type='text' size='8' name='unitcost[]'></td>
@@ -319,23 +319,23 @@ function details($_POST, $error="")
 						<tr>
 							<th colspan='2'> Customer Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Select Customer</td>
 							<td>$cust_drop</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Customer</td>
 							<td valign='middle'><input type='text' name='cusname' value='$inv[cusname]'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Customer Address</td>
 							<td valign='middle'><textarea name='cusaddr' cols='18' rows='3'>$inv[cusaddr]</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Customer VAT No.</td>
 							<td valign='middle'><input type='text' name='cusvatno' value='$inv[cusvatno]'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Customer Order No.</td>
 							<td valign='middle'><input type='text' name='cusordno' value='$inv[cusordno]'></td>
 						</tr>
@@ -346,15 +346,15 @@ function details($_POST, $error="")
 						<tr>
 							<th colspan='2'> Non-Stock Sales Order Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Non-Stock Sales Order No.</td>
 							<td valign='center'>TI $inv[invid]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td valign='center' nowrap>".mkDateSelect("sord",$sord_year,$sord_month,$sord_day)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Inclusive</td>
 							<td valign='center'>Yes <input type='radio' size='7' name='chrgvat' value='yes' $chy> No<input type='radio' size='7' name='chrgvat' value='no' $chn></td>
 						</tr>
@@ -379,21 +379,21 @@ function details($_POST, $error="")
 							<td rowspan='5' valign='top' width='50%'>$error</td>
 						</tr>
 						<tr>
-							<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols=20>$inv[remarks]</textarea></td>
+							<td class='".bg_class()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols=20>$inv[remarks]</textarea></td>
 						</tr>
 					</table>
 				</td>
 				<td align='right'>
 					<table ".TMPL_tblDflts." width='80%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>SUBTOTAL</td>
 							<td align='right'>".CUR." <input type='hidden' name='subtot' value='$SUBTOT'>$SUBTOT</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT $vat14</td>
 							<td align='right'>".CUR." $inv[vat]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th>GRAND TOTAL</th>
 							<td align='right'>".CUR." <input type='hidden' name='total' value='$TOTAL'>$TOTAL</td>
 						</tr>
@@ -672,7 +672,7 @@ function write($_POST)
 				<tr>
 					<th colspan='2'>New Non-Stock Sales Orders</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Non-Stock Sales Orders for Customer <b>$cusname</b> has been recorded.</td>
 					<td><a target='_blank' href='nons-sorder-print.php?invid=$invid'>Print Order</a></td>
 				</tr>
@@ -682,7 +682,7 @@ function write($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-sorder-view.php'>View Non-Stock Sales Orders</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>

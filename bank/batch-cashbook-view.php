@@ -66,7 +66,7 @@ function view()
 						<th>Field</th>
 						<th>Value</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Bank Account</td>
 						<td valign='center'>
 							<select name='bankid'>";
@@ -89,11 +89,11 @@ function view()
 				</select>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>From :</td>
 			<td valign='center'>".mkDateSelect("from",date("Y"),date("m"),"01")."</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>To :</td>
 			<td valign='center'>".mkDateSelect("to")."</td>
 		</tr>
@@ -197,7 +197,7 @@ function viewcash($_POST)
 		<tr>
 			<th>Order By</th>
 		</tr>
-		<tr bgcolor='".bgcolorg() ."'>
+		<tr class='".bg_class()."''>
 			<td>
 				<select name='order' onChange='javascript:document.form.submit();'>
 					<option value='' disabled $s1 >Select</option>
@@ -303,7 +303,7 @@ function viewcash($_POST)
 			}
 
 			$OUTPUT .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$accnt[date]</td>
 							<td align='center'>$bname[accname]</td>
 							<td align='center'>$accnt[cheqnum]</td>
@@ -344,7 +344,7 @@ function viewcash($_POST)
 		}
 		# print the total
 		$OUTPUT .= "
-						<tr bgcolor='".bgcolorg() ."'>
+						<tr class='".bg_class()."''>
 							<td colspan='6'><b>Total Receipts</b></td>
 							<td><b>".CUR." ".sprintf("%01.2f",$rtotal)."</b></td>
 						</tr>";
@@ -444,7 +444,7 @@ function viewcash($_POST)
 			}
 
 			$OUTPUT .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$accnt[date]</td>
 							<td align='center'>$bname[accname]</td>
 							<td align='center'>$accnt[cheqnum]</td>
@@ -486,7 +486,7 @@ function viewcash($_POST)
 		}
 		# print the total
 		$OUTPUT .= "
-				<tr bgcolor='".bgcolorg() ."'>
+				<tr class='".bg_class()."''>
 					<td colspan='6'><b>Total Payments</b></td><td><b>".CUR." ".sprintf("%01.2f",$ptotal)."</b></td>
 				</tr>";
 	}
@@ -660,7 +660,7 @@ function confirm($_POST)
 			}
 
 			$OUTPUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$accnt[date]</td>
 						<td align='center'>$bname[accname]</td>
 						<td align='center'>$accnt[cheqnum]</td>
@@ -677,7 +677,7 @@ function confirm($_POST)
 		}
 		# print the total
 		$OUTPUT .= "
-				<tr bgcolor='".bgcolorg() ."'>
+				<tr class='".bg_class()."''>
 					<td colspan='6'><b>Total Receipts</b></td>
 					<td><b>".CUR." ".sprintf("%01.2f",$rtotal)."</b></td>
 				</tr>";
@@ -752,7 +752,7 @@ function confirm($_POST)
 			}
 
 			$OUTPUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$accnt[date]</td>
 						<td align='center'>$bname[accname]</td>
 						<td align='center'>$accnt[cheqnum]</td>
@@ -770,7 +770,7 @@ function confirm($_POST)
 		}
 		# print the total
 		$OUTPUT .= "
-			<tr bgcolor='".bgcolorg() ."'>
+			<tr class='".bg_class()."''>
 				<td colspan='6'><b>Total Payments</b></td>
 				<td><b>".CUR." ".sprintf("%01.2f",$ptotal)."</b></td>
 			</tr>";
@@ -1058,7 +1058,7 @@ function write($_POST)
 					}
 
 					$OUTPUT .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$accnt[date]</td>
 								<td align='center'>$bname[accname]</td>
 								<td align='center'>$accnt[cheqnum]</td>
@@ -1076,7 +1076,7 @@ function write($_POST)
 		}
 		# print the total
 		$OUTPUT .= "
-			<tr bgcolor='".bgcolorg() ."'>
+			<tr class='".bg_class()."''>
 				<td colspan='6'><b>Total Receipts</b></td>
 				<td><b>".CUR." ".sprintf("%01.2f",$rtotal)."</b></td>
 			</tr>";
@@ -1255,7 +1255,7 @@ function write($_POST)
 				}
 
 				$OUTPUT .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$accnt[date]</td>
 							<td align='center'>$bname[accname]</td>
 							<td align='center'>$accnt[cheqnum]</td>
@@ -1427,7 +1427,7 @@ function write($_POST)
 				}
 
 				$OUTPUT .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$accnt[date]</td>
 							<td align='center'>$bname[accname]</td>
 							<td align='center'>$accnt[cheqnum]</td>
@@ -1446,7 +1446,7 @@ function write($_POST)
 		}
 		# print the total
 		$OUTPUT .= "
-			<tr bgcolor='".bgcolorg() ."'>
+			<tr class='".bg_class()."''>
 				<td colspan='6'><b>Total Payments</b></td>
 				<td><b>".CUR." ".sprintf("%01.2f",$ptotal)."</b></td>
 			</tr>";

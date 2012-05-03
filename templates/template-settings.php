@@ -135,7 +135,7 @@ function enter($errors="")
 				<th>Layout</th>
 				<th>Preview</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoices / Credit Notes</td>
 				<td valign='top'>$invoices</td>
 				<td valign='middle'>
@@ -143,7 +143,7 @@ function enter($errors="")
 					<a href='html-tax-invoice-prev.png' target='blank'>Preview HTML Tax Invoice</a>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Statements</th>
 				<td valign='top'>$statements</td>
 				<td valign='middle'>
@@ -151,7 +151,7 @@ function enter($errors="")
 					<a href='default-statement-prev.png' target='blank'>Preview Default PDF Statement</a>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoice PDF Reprints</td>
 				<td valign='top'>$reprints</td>
 				<td>&nbsp</td>
@@ -213,15 +213,15 @@ function confirm($_POST)
 				<th>Option</th>
 				<th>Layout</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoices / Credit Notes</td>
 				<td>$invoices_h</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Statements</td>
 				<td>$statements_h</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>PDF Reprints</td>
 				<td>$reprints_h</td>
 			<tr>

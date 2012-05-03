@@ -80,8 +80,8 @@ function view()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=400>
 		<input type=hidden name=key value=confirm>
 		<tr><th colspan=2>Increase Selling Price</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Select Store</td><td valign=center>$whs</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Increase Percentage</td><td valign=center><input type=text size=5 name=incp maxlength=5>%</td></tr>
+		<tr class='bg-odd'><td>Select Store</td><td valign=center>$whs</td></tr>
+		<tr class='bg-even'><td>Increase Percentage</td><td valign=center><input type=text size=5 name=incp maxlength=5>%</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue &raquo'></td></tr>
 	</table></form>
@@ -127,8 +127,8 @@ function view_err($_POST, $err = "")
 		<input type=hidden name=key value=confirm>
 		<tr><th colspan=2>Increase Selling Price</th></tr>
 		<tr><td colspan=2>$err</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Select Stores</td><td valign=center>$whs</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Increase Percentage</td><td valign=center><input type=text size=5 name=incp value='$incp' maxlength=5>%</td></tr>
+		<tr class='bg-odd'><td>Select Stores</td><td valign=center>$whs</td></tr>
+		<tr class='bg-even'><td>Increase Percentage</td><td valign=center><input type=text size=5 name=incp value='$incp' maxlength=5>%</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue &raquo'></td></tr>
 	</table></form>
@@ -214,8 +214,8 @@ function confirm($_POST)
 		<input type=hidden name=whid value='$whid'>
 		<input type=hidden name=incp value='$incp'>
 		<tr><th colspan=2>Increase Selling Price</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Store</td><td valign=center>$wh[whname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Increase Percentage</td><td valign=center>$incp %</td></tr>
+		<tr class='bg-odd'><td>Store</td><td valign=center>$wh[whname]</td></tr>
+		<tr class='bg-even'><td>Increase Percentage</td><td valign=center>$incp %</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue &raquo'></td></tr>
 	</table></form>
@@ -287,7 +287,7 @@ function write($_POST)
 	$write = "
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=50%>
 		<tr><th>Selling Price Increased</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Selling Price for All Items in Store <b>$wh[whno] - $wh[whname]</b> have been increase by <b>$incp%</b>.</td></tr>
+		<tr class='bg-even'><td>Selling Price for All Items in Store <b>$wh[whno] - $wh[whname]</b> have been increase by <b>$incp%</b>.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>

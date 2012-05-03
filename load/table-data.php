@@ -47,8 +47,8 @@ function enter ()
         <form action='".SELF."' method=post>
         <input type=hidden name=key value=confirm>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
-                <tr bgcolor='".TMPL_tblDataColor2."'><td>Sql</td><td><input type=text size=40 name=sql></td></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td>Database</td><td><input type=text size=20 name=db></td></tr>
+                <tr class='bg-even'><td>Sql</td><td><input type=text size=40 name=sql></td></tr>
+                <tr class='bg-odd'><td>Database</td><td><input type=text size=20 name=db></td></tr>
                 <tr><td align=right colspan=2><input type=submit value='Exec &raquo'></td></tr>
         </table>
         </form>";
@@ -143,8 +143,8 @@ function confirm ($_POST)
         <a name='down'>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
                 <tr><td colspan=2><hr></td></tr>
-                <tr bgcolor='".TMPL_tblDataColor2."'><td>SQL</td><td><input type=text size=60 name=sql value='$sql'></td></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td>Database</td><td><input type=text size=20 name=db value='$db'></td></tr>
+                <tr class='bg-even'><td>SQL</td><td><input type=text size=60 name=sql value='$sql'></td></tr>
+                <tr class='bg-odd'><td>Database</td><td><input type=text size=20 name=db value='$db'></td></tr>
                 <tr><td align=right colspan=2><input type=submit value='Exec &raquo'></td></tr>
                 <tr><td colspan=2><hr></td></tr>
         </table>

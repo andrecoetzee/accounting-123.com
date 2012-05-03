@@ -90,16 +90,16 @@ function rem($salespid)
 	<input type=hidden name=salespid value='$salesp[salespid]'>
 	<input type=hidden name=salesp value='$salesp[salesp]'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Number</td><td>$salesp[salespno]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Sales Person</td><td>$salesp[salesp]</td></tr>
+	<tr class='bg-odd'><td>Number</td><td>$salesp[salespno]</td></tr>
+	<tr class='bg-even'><td>Sales Person</td><td>$salesp[salesp]</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Remove &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='salesp-view.php'>View Sales Person</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='salesp-view.php'>View Sales Person</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -146,8 +146,8 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='salesp-view.php'>View Sales Persons</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='salesp-view.php'>View Sales Persons</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

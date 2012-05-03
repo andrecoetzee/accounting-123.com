@@ -59,9 +59,9 @@ function enterPaye ()
 <form action='".SELF."' method=post>
 <input type=hidden name=key value=confirm>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Minimum gross</td><td align=center>".CUR." <input type=text size=20 name=min class=right></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Maximum gross</td><td align=center>".CUR." <input type=text size=20 name=max class=right></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Percentage to deduct</td><td align=center><input type=text size=20 name=percentage class=right>%</td></tr>
+<tr class='bg-odd'><td>Minimum gross</td><td align=center>".CUR." <input type=text size=20 name=min class=right></td></tr>
+<tr class='bg-even'><td>Maximum gross</td><td align=center>".CUR." <input type=text size=20 name=max class=right></td></tr>
+<tr class='bg-odd'><td>Percentage to deduct</td><td align=center><input type=text size=20 name=percentage class=right>%</td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 </form>
 </table>
@@ -105,9 +105,9 @@ function confirmPaye ($_POST)
 <input type=hidden name=max value='$max'>
 <input type=hidden name=percentage value='$percentage'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Minimum gross</td><td align=right>".CUR." $min</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Maximum gross</td><td align=right>".CUR." $max</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Percentage to deduct</td><td align=right>$percentage %</td></tr>
+<tr class='bg-odd'><td>Minimum gross</td><td align=right>".CUR." $min</td></tr>
+<tr class='bg-even'><td>Maximum gross</td><td align=right>".CUR." $max</td></tr>
+<tr class='bg-odd'><td>Percentage to deduct</td><td align=right>$percentage %</td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Add new PAYE &raquo;'></td></tr>
 </form>
 </table>

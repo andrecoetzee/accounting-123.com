@@ -93,7 +93,7 @@ function slctAcc()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=viewtran>
 	<tr><th colspan=2>Period Range</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>From : $fprd</td><td>To : $tprd</td></tr>
+	<tr class='bg-odd'><td>From : $fprd</td><td>To : $tprd</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td><input type=submit value='View All'></td></tr>
 	</form>
@@ -174,7 +174,7 @@ function viewtran($_POST)
                 $ctacc = pg_fetch_array($ct);
 				$dtbranname = branname($debacc['div']);
 				$ctbranname = branname($ctacc['div']);
-                $OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$date</td><td>$debacc[topacc]/$debacc[accnum] - $debacc[accname] - $dtbranname</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname] - $ctbranname</td><td>$refnum</td><td>".CUR." $amount</td><td>$details</td><td>$author</td></tr>";
+                $OUTPUT .= "<tr class='bg-odd'><td>$date</td><td>$debacc[topacc]/$debacc[accnum] - $debacc[accname] - $dtbranname</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname] - $ctbranname</td><td>$refnum</td><td>".CUR." $amount</td><td>$details</td><td>$author</td></tr>";
 			}
 		}
 	}

@@ -107,14 +107,14 @@ function view()
 			<form action='".SELF."' method=post name=form>
 			<input type=hidden name=key value=details>
 			<tr><th colspan=2>Options</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Pricelist</td><td>$pricelists</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Increase Type</td><td><input type=radio name='inctype' value=per checked=yes>Percentage <input type=text name=perc size=4 maxlength=4> % <br> <input type=radio name='inctype' value='man'>Manual</td></tr>
+			<tr class='bg-odd'><td>Pricelist</td><td>$pricelists</td></tr>
+			<tr class='bg-even'><td valign=top>Increase Type</td><td><input type=radio name='inctype' value=per checked=yes>Percentage <input type=text name=perc size=4 maxlength=4> % <br> <input type=radio name='inctype' value='man'>Manual</td></tr>
 			<tr><td><br></td></tr>
 			<tr><th colspan=2>By Category</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>$cats</td><td valign=bottom><input type=submit name=cat value='Increase'></td></tr>
+			<tr class='bg-odd'><td align=center>$cats</td><td valign=bottom><input type=submit name=cat value='Increase'></td></tr>
 			<tr><td><br></td></tr>
 			<tr><th colspan=2>By Classification</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>$class</td><td valign=bottom><input type=submit name=class value='Increase'></td></tr>
+			<tr class='bg-odd'><td align=center>$class</td><td valign=bottom><input type=submit name=class value='Increase'></td></tr>
 			<tr><td><br></td></tr>
 			</form>
 		</table>
@@ -123,7 +123,7 @@ function view()
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='toms/pricelist-view.php'>View Price Lists</a></td></tr>
+		<tr class='bg-odd'><td><a href='toms/pricelist-view.php'>View Price Lists</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -184,7 +184,7 @@ function details($_POST)
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=listid value='$list[listid]'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Price list</td><td align=center>$list[listname]</td></tr>
+	<tr class='bg-odd'><td>Price list</td><td align=center>$list[listname]</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Continue &raquo;'></td></tr>
 	<tr><td colspan=2><h3>Prices</h3><td><tr>
@@ -215,7 +215,7 @@ function details($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='toms/pricelist-view.php'>View Price Lists</a></td></tr>
+	<tr class='bg-odd'><td><a href='toms/pricelist-view.php'>View Price Lists</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -323,7 +323,7 @@ function confirm ($_POST)
 	<input type=hidden name=key value=write>
 	<input type=hidden name=listid value='$listid'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Price list</td><td align=center>$list[listname]</td></tr>
+	<tr class='bg-odd'><td>Price list</td><td align=center>$list[listname]</td></tr>
 	<tr><td colspan=2><br><td><tr>
 	<tr><td align=right><input type=button value='Back' onclick='javascript:history.back();'></td><td valign=left><input type=submit value='Write &raquo;'></td></tr>
 	<tr><td colspan=2><h3>Prices</h3><td><tr>
@@ -356,7 +356,7 @@ function confirm ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='toms/pricelist-view.php'>View Price Lists</a></td></tr>
+	<tr class='bg-odd'><td><a href='toms/pricelist-view.php'>View Price Lists</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -426,7 +426,7 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='toms/pricelist-view.php'>View Price Lists</a></td></tr>
+	<tr class='bg-odd'><td><a href='toms/pricelist-view.php'>View Price Lists</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

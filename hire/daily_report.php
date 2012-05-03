@@ -40,7 +40,7 @@ function display()
 	while ($hire_data = pg_fetch_array($hire_rslt)) {
 		$time = date("d-m-Y G:i:s", $hire_data["e_from"]);
 
-		$hire_out .= "<tr bgcolor='".bgcolorg()."'>
+		$hire_out .= "<tr class='".bg_class()."'>
 			<td>$time</td>
 			<td>$hire_data[inv_id]</td>
 			<td>$hire_data[username]</td>
@@ -53,13 +53,13 @@ function display()
 	}
 
 	if (empty($hire_out)) {
-		$hire_out = "<tr bgcolor='".bgcolorg()."'>
+		$hire_out = "<tr class='".bg_class()."'>
 			<td colspan='4'><li>No items found for this date range</li></td>
 		</tr>";
 	}
 
 	if (empty($invoice_out)) {
-		$invoice_out = "<tr bgcolor='".bgcolorg()."'>
+		$invoice_out = "<tr class='".bg_class()."'>
 			<td colspan='4'><li>No items found for this date range</li></td>
 		</tr>";
 	}
@@ -71,7 +71,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td><b> To </b></td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

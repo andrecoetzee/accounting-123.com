@@ -183,7 +183,7 @@ function slct($errors = "") {
 		<tr>
 			<th colspan='3'>Note</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td colspan='3'>
 				Default accounts will be added if no accounts have
 				been selected, or if ALL accounts have been removed.
@@ -192,7 +192,7 @@ function slct($errors = "") {
 		<tr>
 			<th colspan='3'>Range</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td colspan='3' align='center'>$month_frm_sel <b>TO</b> $month_to_sel</td>
 		</tr>
 		<tr>
@@ -203,7 +203,7 @@ function slct($errors = "") {
 			<th>Account Name</th>
 			<th colspan='2'>Cash Flow Statement Section to Display Under</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td align='center'>$acc_sel</td>
 			<td align='center'>$cat_sel</td>
 			<td align='center'><input type='submit' name='key' value='Select Account'></td>
@@ -470,7 +470,7 @@ function display($_POST)
 	$acc_out = "";
 
 	if (!pg_num_rows($cfacc_rslt)) {
-		$acc_out .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan='5'>No accounts selected.</td></tr>";
+		$acc_out .= "<tr class='bg-odd'><td colspan='5'>No accounts selected.</td></tr>";
 	}
 
 	$i = 0;
@@ -541,7 +541,7 @@ function display($_POST)
 							$increase = "(Increase)";
 						}
 
-						$acc_out .= "<tr bgcolor='".TMPL_tblDataColor2."'>
+						$acc_out .= "<tr class='bg-even'>
 							<td>$increase $decrease in $acc_data[accname]</td>
 							<td align='right'><b>".sprint($current)."</b></td>
 							<td align='right'>".sprint($prior)."</td>
@@ -552,7 +552,7 @@ function display($_POST)
 					case "nciis":
 					case "cffuif":
 					case "cffuii":
-						$acc_out .= "<tr bgcolor='".TMPL_tblDataColor2."'>
+						$acc_out .= "<tr class='bg-even'>
 							<td>$acc_data[accname]</td>
 							<td align='right'><b>".sprint($current)."</b></td>
 							<td align='right'>".sprint($prior)."</td>
@@ -578,7 +578,7 @@ function display($_POST)
 			}
 
 			if ($key == "ciaal") {
-				$acc_out .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+				$acc_out .= "<tr class='bg-odd'>
 					<td>Total adjustments</td>
 					<td align='right'><b>".sprint(${$key}["curr_total"])."</b></td>
 					<td align='right'>".sprint(${$key}["prev_total"])."</td>
@@ -598,7 +598,7 @@ function display($_POST)
 				}
 
 				// Totals output
-				$acc_out .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+				$acc_out .= "<tr class='bg-odd'>
 					<td>$cat_total[$key]</td>
 					<td align='right'><b>".sprint(${$key}["curr_total"])."</b></td>
 					<td align='right'>".sprint(${$key}["prev_total"])."</td>
@@ -607,7 +607,7 @@ function display($_POST)
 				</tr>";
 			} else {
 				// Totals output
-				$acc_out .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+				$acc_out .= "<tr class='bg-odd'>
 					<td>&nbsp</td>
 					<td align='right'><b>".sprint(${$key}["curr_total"])."</b></td>
 					<td align='right'>".sprint(${$key}["prev_total"])."</td>
@@ -696,21 +696,21 @@ function display($_POST)
 			<th width='10%' class='thkborder thkborder_right'>%Var</th>
 		</tr>
 		$acc_out
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Net cash $cash_equiv[inc_dec] in cash and cash equivalents</td>
 			<td align='right'><b>".sprint($cash_equiv["curr_total"])."</b></td>
 			<td align='right'>".sprint($cash_equiv["prev_total"])."</td>
 			<td align='right'>".sprint($cash_equiv["var_total"])."</td>
 			<td align='right'><b>".sprint($cash_equiv["percvar_total"])."</b></td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Net cash equivalents beginning of period</td>
 			<td align='right'><b>".sprint($cash_equiv_bop["curr_total"])."</b></td>
 			<td align='right'>".sprint($cash_equiv_bop["prev_total"])."</td>
 			<td align='right'>".sprint($cash_equiv_bop["var_total"])."</td>
 			<td align='right'>".sprint($cash_equiv_bop["percvar_total"])."</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Net cash equivalents end of period</td>
 			<td align='right'><b>".sprint($cash_equiv_eop["curr_total"])."</b></td>
 			<td align='right'>".sprint($cash_equiv_eop["prev_total"])."</td>

@@ -81,7 +81,7 @@ function slctEmployee ()
 			<tr>
 				<th colspan='2'>Employee</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$employees</td>
 			</tr>
@@ -268,23 +268,23 @@ function enterLoan ($err="")
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date Granted</td>
 				<td>$day $month</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan Type</td>
 				<td>$loan_type_drop</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan amount</td>
 				<td>".CUR."<input type='text' size='10' name='loanamt' class='right' value='$loanamt'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Interest on loan</td>
 				<td><input type='text' size='5' name='loanint' class='right' value='$loanint'>%</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Payback period (months)</td>
 				<td><input type='text' size='5' name='loanperiod' class='right' value='$loanperiod'></td>
 			</tr>
@@ -294,7 +294,7 @@ function enterLoan ($err="")
 						the main account called 'Employee Loans'.</li>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Loan Account</td>
 				<td align='center'>$loan_accounts</td>
 			</tr>
@@ -305,14 +305,14 @@ function enterLoan ($err="")
 					in other words, where the money comes from.</li>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Bank Account</td>
 				<td>$banks</td>
 			</tr>
 			<tr>
 				<td colspan='2' align='center'><b>OR</b></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Account</td>
 				<td align='center'>$accounts</td>
 			</tr>
@@ -422,7 +422,7 @@ function confirmLoan ($_POST)
 		$acc = pg_fetch_array($accRslt);
 
 		$ac = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$acc[accname]</td>
 			</tr>";
@@ -433,7 +433,7 @@ function confirmLoan ($_POST)
 		$bank = pg_fetch_array($bankRslt);
 
 		$ac = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account</td>
 				<td>$bank[bankname] - $bank[accname]</td>
 			</tr>";
@@ -450,7 +450,7 @@ function confirmLoan ($_POST)
 	$acc = pg_fetch_array($accRslt);
 
 	$loanac = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Account</td>
 			<td>$acc[accname]</td>
 		</tr>";
@@ -492,35 +492,35 @@ function confirmLoan ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$myEmp[sname], $myEmp[fnames] ($myEmp[enum])</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan Date</td>
 				<td align='center'>$datedesc</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan Type</td>
 				<td align='center'>$showloantype</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan amount</td>
 				<td align='center'>".CUR." $loanamt</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Interest on loan</td>
 				<td align='center'>$loanint %</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Payback period</td>
 				<td align='center'>$loanperiod months</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Monthly installment amount</td>
 				<td align='center'>".CUR." $loaninstall</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Installment amount (at 11% Interest)</td>
 				<td align='center'>".CUR." $fringeinstall</td>
 			</tr>

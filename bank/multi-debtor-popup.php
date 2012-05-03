@@ -91,7 +91,7 @@ function confirm($cashid)
 		$ci = qryCustomer($accids[$key]);
 		$amt = sprint($amt);
 		$confirm .= "
-		<tr bgcolor='".TMPL_tblDataColor2 ."'>
+		<tr class='bg-even''>
 			<td>$ci[surname], $ci[cusname]</td>
 			<td>".CUR." $amt</td>
 		</tr>";

@@ -56,7 +56,7 @@ function slct()
 						<tr>
 							<th colspan='2'>By Date Range</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center' nowrap>
 								".mkDateSelect("from",date("Y"),date("m"),"01")."
 								&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
@@ -71,13 +71,13 @@ function slct()
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='corder-unf-view.php'>View Incomplete Consignment Orders</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='corder-view.php'>View Consignment Orders</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='main.php'>Main Menu</td>
 						</tr>
 					</table>";
@@ -154,7 +154,7 @@ function printCord ($_POST)
 			$sord['date'] = $sord['date'][2]."-".$sord['date'][1]."-".$sord['date'][0];
 
 			$printSord .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td align='center'>$sord[date]</td>
 								<td>$sord[username]</td>
 								<td>$sord[deptname]</td>
@@ -174,13 +174,13 @@ function printCord ($_POST)
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='corder-unf-view.php'>View Incomplete Consignment Orders</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='corder-view.php'>View Consignment Orders</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='main.php'>Main Menu</td>
 						</tr>
 					</table>";

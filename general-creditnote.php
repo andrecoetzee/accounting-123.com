@@ -206,30 +206,30 @@ function slctacc($_GET, $err="")
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td>$cust</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>".mkDateSelect("ct", $ct_year, $ct_month, $ct_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference Number</td>
 				<td><input type='text' size='10' name='refnum' value='".($refnum++)."'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." <input type='text' size='16' name='amount' value='".sprint ($amount)."'> Amount Includes VAT<input type='radio' name='vatinc' value='yes' $vatsel1> Amount Excludes VAT<input type='radio' name='vatinc' value='no' $vatsel2> Transaction Has No VAT<input type='radio' name='vatinc' value='novat' $vatsel3></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='3'>Contra Account</td>
 				<td>$accounts <a href='settings/credit-note-accounts.php'>Set Accounts For Use On General Credit Note</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='checkbox' name='gotstock' value='yes' checked='yes'> Were any stock items returned?</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><li class='err'>Stock Can Only Be Returned By Selecting Inventory Account, and unselecting the above checkbox</li></td>
 			</tr>
 			".TBL_BR."
@@ -408,7 +408,7 @@ function details($_POST,$err="")
 					$stock_prof[$each] = sprint ($stock_unit_avg_cost * $own);
 
 				$show_stock .= "
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td colspan='2'>$stock_name</td>
 										<td>$own</td>
 										<td nowrap>".CUR." ".sprint ($stock_cost[$each])."</td>
@@ -439,7 +439,7 @@ function details($_POST,$err="")
 		}
 
 		$get_gds_note = "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Print Goods Received Note</td>
 								<td><input type='checkbox' name='gds_note' value='yes' $gds_note_sel></td>
 							</tr>
@@ -467,7 +467,7 @@ function details($_POST,$err="")
 							<th>Cost Of Sale Account</th>
 						</tr>
 						$show_stock
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='4' align='right'><b>Total:</b></td>
 							<td nowrap>".CUR." ".sprint($stock_total)."</td>
 							<td colspan='2' nowrap><li class='err'>Difference ($amount - ".sprint ($stock_total)."): ".CUR." ".sprint ($amount - $stock_total)."</li></td>
@@ -481,13 +481,13 @@ function details($_POST,$err="")
 	# Probe tran type
 	if($entry == "CT"){
 		$tran = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='3'>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 						<td colspan='2'>$cust[accno] - $cust[cusname] $cust[surname]</td>
 					</tr>";
 	}else{
 		$tran = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='3'>$cust[accno] - $cust[cusname] $cust[surname]</td>
 						<td colspan='2'>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 					</tr>";
@@ -565,7 +565,7 @@ function details($_POST,$err="")
 			$showgetvatacc = "<input type='hidden' name='vatdedacc' value='dt'>";
 		}else {
 			$showgetvatacc = "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td colspan='2'valign='top'>VAT Deductable Account</td>
 									<td colspan='2'>
 										<input type='radio' name='vatdedacc' value='dt' $dsel1 />$acc[topacc]/$acc[accnum] - $acc[accname]<br />
@@ -584,14 +584,14 @@ function details($_POST,$err="")
 		}else {
 			$vatacc_id = pg_fetch_result ($run_vatacc,0,0);
 			$showvatacc = "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='2'>VAT Account</td>
 								<td colspan='3'>$vatacc_id <a target='_blank' href='settings/credit-note-accounts.php'>Change Account</a></td>
 							</tr>
 						";
 		}
 
-//		<tr bgcolor='".bgcolorg()."'>
+//		<tr class='".bg_class()."'>
 //			<td colspan='2'>VAT Account</td>
 //			<td colspan='3'>$vatacc</td>
 //		</tr>
@@ -603,7 +603,7 @@ function details($_POST,$err="")
 						</tr>
 						$showgetvatacc
 						$showvatacc
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='2'>VAT Code</td>
 							<td colspan='3'>$vatcode_drop</td>
 						</tr>
@@ -653,12 +653,12 @@ function details($_POST,$err="")
     					<tr>
     						<th colspan='2'>Transaction Details</th>
     					</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Transaction Details</td>
 							<td valign='center'><textarea cols='30' rows='5' name='details'>$details</textarea></td>
 						</tr>
 						$get_gds_note
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Person Authorising</td>
 							<td valign='center'><input type='hidden' size='20' name='author' value=".USER_NAME.">".USER_NAME."</td>
 						</tr>
@@ -946,7 +946,7 @@ function write($_POST)
 
 
 		$tran = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 						<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 					</tr>";
@@ -1054,7 +1054,7 @@ function write($_POST)
 		        	<tr colspan='2'>
 		        		<td><h4>Amount</h4></td>
 		        	</tr>
-		        	<tr bgcolor='".bgcolorg()."'>
+		        	<tr class='".bg_class()."'>
 		        		<td colspan='2'><b>".CUR." $amount</b></td>
 		        	</tr>
 		        	".TBL_BR."
@@ -1183,7 +1183,7 @@ function get_stock_items($_POST)
 	$run_stock = db_exec($get_stock) or errDie ("Unable to get stock information.");
 	if(pg_numrows($run_stock) < 1){
 		$stks = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='4'>No Stock Found.</td>
 					</tr>
 				";
@@ -1200,7 +1200,7 @@ function get_stock_items($_POST)
 			$recom = sprint ($sarr['csprice']);
 
 			$stks .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td nowrap>$sarr[stkcod] $sarr[stkdes]</td>
 							<td><input type='text' size='6' name='stock_items[$sarr[stkid]]' value='$val1'></td>
 							<td><input type='hidden' name='stock_cost[$sarr[stkid]]' value='$recom'>".CUR." $recom</td>
@@ -1251,7 +1251,7 @@ function get_stock_items($_POST)
 					<tr>
 						<th colspan='3'>Stock Filter</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td nowrap colspan='3'><input type='text' size='35' name='search' value='$search'> <input type='submit' value='Filter'></td>
 					</tr>
 					".TBL_BR."

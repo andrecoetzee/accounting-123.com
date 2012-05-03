@@ -91,7 +91,7 @@ function enter()
 			<tr>
 				<th>Select Default Warehouse</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$whs</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -156,7 +156,7 @@ function confirm($_POST)
 			<tr>
 				<th colspan>Default Warehouse</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>($wh[whno])&nbsp;&nbsp;&nbsp;$wh[whname]</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -234,7 +234,7 @@ function write ($_POST)
 			<tr>
 				<th>Cubit Settings</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Setting has been successfully added to Cubit.</td>
 			</tr>
 		</table>
@@ -278,7 +278,7 @@ function printSet ()
         	// display all settings
         for ($i = 0; $set =pg_fetch_array ($rslt); $i++) {
 			$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$set[type]</td>
 					<td>$set[descript]</td>
 				</tr>";

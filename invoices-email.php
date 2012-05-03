@@ -74,7 +74,7 @@ function confirm($_GET)
 		<table ".TMPL_tblDflts.">
 			<tr>
 				<th>Message:</th>
-				<td bgcolor='".bgcolorg()."'><textarea name='message' cols='40' rows='4'>$message</textarea></td>
+				<td class='".bg_class()."'><textarea name='message' cols='40' rows='4'>$message</textarea></td>
 			</tr>
 		</table>
 		<br />
@@ -111,7 +111,7 @@ function confirm($_GET)
 		$cd = pg_fetch_array($Ri);
 
 		$out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$idd[invnum]</td>
 				<td>$cd[surname]</td>
 				<td><input type='text' name='email[$idd[cusnum]]' value='$cd[email]' size='30'></td>
@@ -173,7 +173,7 @@ function send($_POST)
 
 		if(!isset($t)) {
 			$out .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$idd[invnum]</td>
 						<td>$cd[surname]</td>
 						<td>".$email[$idd["cusnum"]]."</td>
@@ -181,7 +181,7 @@ function send($_POST)
 					</tr>";
 		} else {
 			$out .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$idd[invnum]</td>
 						<td>$cd[surname]</td>
 						<td>".$email[$idd["cusnum"]]."</td>

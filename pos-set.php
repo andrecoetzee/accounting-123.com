@@ -70,7 +70,7 @@ function enter ()
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<input type=hidden name=key value=confirm>
 		<tr><th colspan=2>Setting</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Each Stock Code has a Bar Code</td><td>$Ops</td></tr>
+		<tr class='bg-even'><td>Each Stock Code has a Bar Code</td><td>$Ops</td></tr>
 		</table>
 	</td></tr>
 	<tr><td valign=bottom><input type=submit value='Confirm &raquo;'></td></tr>
@@ -80,7 +80,7 @@ function enter ()
 	<tr><th>Quick Links</th></tr>
 	<tr class=datacell><td align=center><a href='stock-settings.php'>Stock Settings</td></tr>
 	<tr class=datacell><td align=center><a href='settings-index.php'>Settings</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -117,7 +117,7 @@ function confirm ($_POST)
 	<tr valign=top><td>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th colspan=2>Setting</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock items have barcode.</td><td><input type=hidden name=op value='$op'>$op</td></tr>
+		<tr class='bg-even'><td>Stock items have barcode.</td><td><input type=hidden name=op value='$op'>$op</td></tr>
 		</table>
 	</td></tr>
 	<tr><td valign=bottom><input type=submit value='Write &raquo;'></td></tr>
@@ -127,7 +127,7 @@ function confirm ($_POST)
 	<tr><th>Quick Links</th></tr>
 	<tr class=datacell><td align=center><a href='stock-settings.php'>Stock Settings</td></tr>
 	<tr class=datacell><td align=center><a href='settings-index.php'>Settings</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -174,7 +174,7 @@ function write ($_POST)
 	<tr><th>Quick Links</th></tr>
 	<tr class=datacell><td align=center><a href='stock-settings.php'>Stock Settings</td></tr>
 	<tr class=datacell><td align=center><a href='settings-index.php'>Settings</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

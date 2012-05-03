@@ -93,11 +93,11 @@ function enter($_GET) {
 	<input type=hidden name=key value='confirm'>
 	<input type=hidden name=id value='$id'>
 	<tr><th colspan=2>Select new user</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Users</td><td>$crms</td></tr>
+	<tr class='bg-odd'><td>Users</td><td>$crms</td></tr>
         <tr><th colspan=2 align=center>OR</th></tr>
 	<tr><th colspan=2>Select new team</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Teams</td><td>$teams</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Archive Actions</td><td><input type=checkbox name=archive></td></tr>
+	<tr class='bg-even'><td>Teams</td><td>$teams</td></tr>
+	<tr class='bg-odd'><td>Archive Actions</td><td><input type=checkbox name=archive></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -157,8 +157,8 @@ function confirm($_POST) {
 	<input type=hidden name=crm value='$crm'>
 	<input type=hidden name=team value='$team'>
 	<tr><th colspan=2>Confirm new user</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Send to</td><td>$data[name]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Archive</td><td>$archive</td></tr>
+	<tr class='bg-odd'><td>Send to</td><td>$data[name]</td></tr>
+	<tr class='bg-even'><td>Archive</td><td>$archive</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -245,7 +245,7 @@ function write($_POST) {
 
 	$out="<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Query passed</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Query passed from $tokendata[username] to $crmdata[name] by $user</td></tr>
+	<tr class='bg-odd'><td>Query passed from $tokendata[username] to $crmdata[name] by $user</td></tr>
 	</table>";
 
 	return $out;

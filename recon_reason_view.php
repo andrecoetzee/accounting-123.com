@@ -29,7 +29,7 @@ function display()
 	while (list($id, $reason) = pg_fetch_array($reason_rslt)) {
 
 		$reason_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$reason</td>
 			<td align='center'>
 				<input type='checkbox' name='remove[$id]' value='$id'
@@ -40,7 +40,7 @@ function display()
 	
 	if (empty($reason_out)) {
 		$reason_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'><li>No reasons found.</li></td>
 		</tr>";
 	}
@@ -53,7 +53,7 @@ function display()
 		<tr>
 			<th colspan='2'>Add</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='reason' /></td>
 			<td><input type='submit' value='Add' /></td>
 		</tr>

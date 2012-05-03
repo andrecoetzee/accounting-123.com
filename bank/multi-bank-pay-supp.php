@@ -85,7 +85,7 @@ function sel_sup()
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>
@@ -105,7 +105,7 @@ function sel_sup()
 				<tr>
 					<th>Select Amount Of Payments</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><input type='text' name='rec_amount' size='3'></td>
 				</tr>
 				".TBL_BR."
@@ -201,7 +201,7 @@ function method($_POST)
 				<tr>
 					<th colspan='2'>Allocation</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2' align='center'>$alls</td>
 				</tr>
 				".TBL_BR."
@@ -230,7 +230,7 @@ function method($_POST)
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>
@@ -279,7 +279,7 @@ function method($_POST)
 	
 	
 		$add .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='center'>$supdrop</td>
 					<td valign='center'>$bankacc</td>
 					<td>".mkDateSelecta("date",$t,$date_year[$t],$date_month[$t],$date_day[$t])."</td>
@@ -305,7 +305,7 @@ function method($_POST)
 			<p>
 			<table ".TMPL_tblDflts.">
 				<tr><th>Quick Links</th></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -437,7 +437,7 @@ function alloc($_POST)
 					<th>Cheque Number</th>
 					<th>Amount</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$bank1 - $bank2</td>
 					<td valign='center'>$date[$t]</td>
 					<td valign='center'>($sup[supno]) $sup[supname]</td>
@@ -513,7 +513,7 @@ function alloc($_POST)
 					$sinv = "";
 				}
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[$t][]' value='$inv[invid]'>$inv[invid]</td>
 							<td>$sinv</td>
 							<td>".CUR." $inv[balance]</td>
@@ -535,7 +535,7 @@ function alloc($_POST)
 			// 0.01 because of high precisions like 0.0000000001234 still matching
 			if ($out[$t] >= 0.01) {
 				$confirm .="
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account
 						with ".CUR." ".sprint($out[$t])." </b>
 					</td>
@@ -585,7 +585,7 @@ function alloc($_POST)
 
 			# Alternate bgcolor
 			$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>".CUR." $curr[$t]</td>
 							<td>".CUR." $age30[$t]</td>
 							<td>".CUR." $age60[$t]</td>
@@ -594,7 +594,7 @@ function alloc($_POST)
 							<td>".CUR." $supttot[$t]</td>
 						</tr>";
 			$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='text' size='7' name='out1[$t]' value='$out1[$t]'></td>
 						<td><input type='text' size='7' name='out2[$t]' value='$out2[$t]'></td>
 						<td><input type='text' size='7' name='out3[$t]' value='$out3[$t]'></td>
@@ -667,7 +667,7 @@ function alloc($_POST)
 				}
 	
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[$t][]' value='$inv[invid]'>$inv[invid]</td>
 							<td>$sinv</td>
 							<td>".CUR." $inv[balance]</td>
@@ -682,7 +682,7 @@ function alloc($_POST)
 			// 0.01 because of high precisions like 0.0000000001234 still matching
 			if ($out[$t] >= 0.01) {
 				$confirm .="
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account
 						with ".CUR." ".sprint($out[$t])." </b>
 					</td>
@@ -710,7 +710,7 @@ function alloc($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -879,7 +879,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 				<th>Cheque Number</th>
 				<th>Amount</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='center'>($sup[supno]) $sup[supname]</td>
 				<td>$bank1 - $bank2</td>
 				<td valign='center'>$date[$t]</td>
@@ -932,7 +932,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 				$invid = $inv['invid'];
 
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[$t][]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>
@@ -946,7 +946,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 		// 0.01 because of high precisions like 0.0000000001234 still matching
 		if ($out[$t] >= 0.01) {
 			$confirm .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><b>A general transaction will debit the supplier's account
 					with ".CUR." ".sprint($out[$t])." </b>
 				</td>
@@ -993,7 +993,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[$t][]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>";
@@ -1014,7 +1014,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 			// 0.01 because of high precisions like 0.0000000001234 still matching
 			if ($out1[$t] >= 0.01) {
 				$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account
 						with ".CUR." ".sprint($out[$t])." </b>
 					</td>
@@ -1063,7 +1063,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[$t][]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>";
@@ -1084,7 +1084,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 			// 0.01 because of high precisions like 0.0000000001234 still matching
 			if ($out2[$t] >= 0.01) {
 				$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account
 						with ".CUR." ".sprint($out[$t])." </b>
 					</td>
@@ -1132,7 +1132,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[$t][]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>";
@@ -1153,7 +1153,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 			// 0.01 because of high precisions like 0.0000000001234 still matching
 			if ($out3[$t] >= 0.01) {
 				$confirm .="
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account
 						with ".CUR." ".sprint($out)." </b>
 					</td>
@@ -1200,7 +1200,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[$t][]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>";
@@ -1221,7 +1221,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 			// 0.01 because of high precisions like 0.0000000001234 still matching
 			if ($out4[$t] >= 0.01) {
 				$confirm .="
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account
 						with ".CUR." ".sprint($out)." </b>
 					</td>
@@ -1268,7 +1268,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[$t][]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>";
@@ -1289,7 +1289,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 			// 0.01 because of high precisions like 0.0000000001234 still matching
 			if ($out5[$t] >= 0.01) {
 				$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account
 						with ".CUR." ".sprint($out)." </b>
 					</td>
@@ -1347,7 +1347,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 
 				$ppp = $paidamt[$t][$invid];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[$t][]' value='$inv[invid]'>$inv[invid]</td>
 							<td>".CUR." $inv[balance]</td>
 							<td>$inv[odate]</td>";
@@ -1362,7 +1362,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 		// 0.01 because of high precisions like 0.0000000001234 still matching
 		if ($out[$t] >= 0.01) {
 			$confirm .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><b>A general transaction will debit the supplier's account
 					with ".CUR." ".sprint($out)." </b>
 				</td>
@@ -1413,7 +1413,7 @@ for ($t = 0;$t < $rec_amount;$t++){
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -1810,16 +1810,16 @@ for ($t = 0;$t < $rec_amount;$t++){
 					<td align='center'>
 						<table ".TMPL_tblDflts." width='80%'>
 							<tr><th>Quick Links</th></tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='bank-pay-add.php'>Add Bank Payment</a></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='bank-recpt-add.php'>Add Bank Receipt</a></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='cashbook-view.php'>View Cash Book</a></td>
 							</tr>
 						</table>

@@ -84,15 +84,15 @@ function confirm($VARS)
 	<input type=hidden name=key value=write>
 	<input type=hidden name=typeid value=$typeid>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Ref</td><td>$doct[typeref]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Document type</td><td>$doct[typename]</td></tr>
+	<tr class='bg-odd'><td>Ref</td><td>$doct[typeref]</td></tr>
+	<tr class='bg-even'><td>Document type</td><td>$doct[typename]</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Remove &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='doctype-view.php'>View Document types</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='doctype-view.php'>View Document types</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -137,8 +137,8 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='doctype-view.php'>View Document types</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='doctype-view.php'>View Document types</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

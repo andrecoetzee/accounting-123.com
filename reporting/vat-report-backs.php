@@ -72,19 +72,19 @@ function view()
 	<form action='".SELF."' method=post name=form>
 	<input type=hidden name=key value=view>
 		<tr><th colspan=2>Transactions By Date Range</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center colspan=2>
+		<tr class='bg-odd'><td align=center colspan=2>
 		<input type=text size=2 name=fday maxlength=2 value='1'>-<input type=text size=2 name=fmon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=fyear maxlength=4 value='".date("Y")."'>
 		&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
 		<input type=text size=2 name=today maxlength=2 value='".date("d")."'>-<input type=text size=2 name=tomon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=toyear maxlength=4 value='".date("Y")."'></td></tr>
 		<tr><td><br></td></tr>
 		<tr><th colspan=2>Vat Balance</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><input type=submit name=amt value='View Amount'></td><td align=center><input type=submit name=srch value='Search by Date'></td></tr>
+		<tr class='bg-odd'><td align=center><input type=submit name=amt value='View Amount'></td><td align=center><input type=submit name=srch value='Search by Date'></td></tr>
 		<tr><td><br></td></tr>
 		<tr><th colspan=2>VAT Input</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><input type=submit name=inp value='View Amount'></td><td align=center><input type=submit name=srchin value='Search by Date'></td></tr>
+		<tr class='bg-odd'><td align=center><input type=submit name=inp value='View Amount'></td><td align=center><input type=submit name=srchin value='Search by Date'></td></tr>
 		<tr><td><br></td></tr>
 		<tr><th colspan=2>VAT Output</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><input type=submit name=out value='View Amount'></td><td align=center><input type=submit name=srchout value='Search by Date'></td></tr>
+		<tr class='bg-odd'><td align=center><input type=submit name=out value='View Amount'></td><td align=center><input type=submit name=srchout value='Search by Date'></td></tr>
 		<tr><td><br></td></tr>
 	</form>
 	</table>
@@ -149,7 +149,7 @@ function viewRep($_POST)
 	$vatRslt = db_exec ($sql) or errDie ("Unable to retrieve vat records from database.");
 	if (pg_numrows ($vatRslt) < 1) {
 		$vattot = 0;
-		$printRep .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=10><li>No previous vat Transactions.</li></td></tr>";
+		$printRep .= "<tr class='bg-even'><td colspan=10><li>No previous vat Transactions.</li></td></tr>";
 	}else{
 		# connect to database
 		db_connect ();
@@ -175,7 +175,7 @@ function viewRep($_POST)
 	$vattot = sprint($vattot);
 
 	// Layout
-	$printRep .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><b>Total vat balance</b></td><td colspan=2 align=right><b>".CUR." $vattot</b></td></tr>
+	$printRep .= "<tr class='bg-odd'><td colspan=2><b>Total vat balance</b></td><td colspan=2 align=right><b>".CUR." $vattot</b></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center colspan=10>
 			<form action='../xls/vat-report-xls.php' method=post name=form>
@@ -228,10 +228,10 @@ function viewRepAmt()
 	<h3>Vat Report</h3>
     <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300>
     <tr><th colspan=2>Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Total Vat Paid</td><td>".CUR." $pvat[sum]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Total Vat Received</td><td>".CUR." $rvat[sum]</td></tr>
+	<tr class='bg-odd'><td>Total Vat Paid</td><td>".CUR." $pvat[sum]</td></tr>
+	<tr class='bg-even'><td>Total Vat Received</td><td>".CUR." $rvat[sum]</td></tr>
 	<tr><td><br></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><b>Total Vat Balance</b></td><td><b>".CUR." $totbal</b></td></tr>
+	<tr class='bg-odd'><td><b>Total Vat Balance</b></td><td><b>".CUR." $totbal</b></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center colspan=10>
 			<form action='../xls/vat-report-xls.php' method=post name=form>
@@ -303,7 +303,7 @@ function viewIn($_POST)
 	$vatRslt = db_exec ($sql) or errDie ("Unable to retrieve vat records from database.");
 	if (pg_numrows ($vatRslt) < 1) {
 		$vattot = 0;
-		$printRep .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=10><li>No previous vat Transactions.</li></td></tr>";
+		$printRep .= "<tr class='bg-even'><td colspan=10><li>No previous vat Transactions.</li></td></tr>";
 	}else{
 		# connect to database
 		db_connect ();
@@ -329,7 +329,7 @@ function viewIn($_POST)
 	$vattot = sprint($vattot);
 
 	// Layout
-	$printRep .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><b>Total vat balance</b></td><td colspan=2 align=right><b>".CUR." $vattot</b></td></tr>
+	$printRep .= "<tr class='bg-odd'><td colspan=2><b>Total vat balance</b></td><td colspan=2 align=right><b>".CUR." $vattot</b></td></tr>
 	<tr><td><br></td></tr>
 	</table>
 	<p>
@@ -364,7 +364,7 @@ function viewRepIn()
 	<h3>Vat Report</h3>
     <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300>
     <tr><th colspan=2>Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Total VAT Input</td><td>".CUR." $pvat[sum]</td></tr>
+	<tr class='bg-odd'><td>Total VAT Input</td><td>".CUR." $pvat[sum]</td></tr>
 	<tr><td><br></td></tr>
 	</table>
 	<p>
@@ -429,7 +429,7 @@ function viewOut($_POST)
 	$vatRslt = db_exec ($sql) or errDie ("Unable to retrieve vat records from database.");
 	if (pg_numrows ($vatRslt) < 1) {
 		$vattot = 0;
-		$printRep .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=10><li>No previous vat Transactions.</li></td></tr>";
+		$printRep .= "<tr class='bg-even'><td colspan=10><li>No previous vat Transactions.</li></td></tr>";
 	}else{
 		# connect to database
 		db_connect ();
@@ -455,7 +455,7 @@ function viewOut($_POST)
 	$vattot = sprint($vattot);
 
 	// Layout
-	$printRep .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><b>Total vat balance</b></td><td colspan=2 align=right><b>".CUR." $vattot</b></td></tr>
+	$printRep .= "<tr class='bg-odd'><td colspan=2><b>Total vat balance</b></td><td colspan=2 align=right><b>".CUR." $vattot</b></td></tr>
 	<tr><td><br></td></tr>
 	</table>
 	<p>
@@ -490,7 +490,7 @@ function viewRepOut()
 	<h3>Vat Report</h3>
     <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300>
     <tr><th colspan=2>Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Total VAT Output</td><td>".CUR." $rvat[sum]</td></tr>
+	<tr class='bg-even'><td>Total VAT Output</td><td>".CUR." $rvat[sum]</td></tr>
 	<tr><td><br></td></tr>
 	</table>
 	<p>

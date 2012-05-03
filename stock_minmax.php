@@ -52,7 +52,7 @@ function display()
 		$suggested_max -= ($tmp_max / 100) * $decrease;
 
 		$stock_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stock_data[stkcod]</td>
 				<td>$stock_data[stkdes]</td>
 				<td align='center'><b>$stock_data[minlvl]</b></td>
@@ -71,7 +71,7 @@ function display()
 	}
 
 	$stock_out .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='6'><b>Total: (Positive amounts only)</b></td>
 						<td align='center'><b>".sprint3($tot_avail)."</b></td>
 					</tr>
@@ -99,7 +99,7 @@ function display()
 			<tr>
 				<th colspan='4'>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				<td>&nbsp; <b> To </b> &nbsp;</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -107,10 +107,10 @@ function display()
 					<input type='submit' value='Calculate' style='height: 100%; font-weight: bold' />
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='3' align='center'>$prd_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4' align='center'>
 					<table ".TMPL_tblDflts." width='100%'>
 						<tr>

@@ -410,8 +410,8 @@ $OUTPUT =
 	<td valign='top'>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th colspan=2>Please login</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>User name</td><td>$users</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Password</td><td><input type=password size=20 name=login_pass></td></tr>
+		<tr class='bg-odd'><td>User name</td><td>$users</td></tr>
+		<tr class='bg-even'><td>Password</td><td><input type=password size=20 name=login_pass></td></tr>
 		<tr><td colspan=2 align=right><input type=submit value='Log in &raquo;'></td></tr>
 		</table>
 	</td>
@@ -423,7 +423,7 @@ $OUTPUT =
 		<tr>
 			<th>Splash Message</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td><pre>$splashmess</pre></td>
 		</tr>
 		</table>

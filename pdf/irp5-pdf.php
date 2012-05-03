@@ -94,7 +94,7 @@ function slctemp()
 			<tr>
 				<th colspan='5'>Select Employee</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$employees
 				<td><input type='submit' value='Configure IRP5 for Printing' /></td>
 			</tr>
@@ -148,7 +148,7 @@ function slct($errors="")
 //	$nincome_codes_sel .= "</select>";
 //
 //	$income_sources_out = "
-//	<tr bgcolor='".bgcolorg()."'>
+//	<tr class='".bg_class()."'>
 //		<td>$nincome_codes_sel</td>
 //		<td align='center'><input type='text' name='nincome_description' size='100%'></td>
 //		<td align='center'>
@@ -229,7 +229,7 @@ function slct($errors="")
 //	$ndeductions_sel .= "</select>";
 //
 //	$deductions_out = "
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td>$ndeductions_sel</td>
 //				<td align='center'><input type='text' name='ndeduction_description' size='100%'></td>
 //				<td align='center'><input type='text' name='ndeduction_clearance_no' size='10%'></td>
@@ -279,7 +279,7 @@ function slct($errors="")
 	$empinfo = pg_fetch_array($rslt);
 
 /*
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td><b>From</b></td>
 		<td>".mkDateSelect("fdate",$fdate_year,$fdate_month,$fdate_day)."</td>
 		<td><b>To</b></td>
@@ -357,7 +357,7 @@ function slct($errors="")
 			<tr>
 				<th colspan='5'>Select Period</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$year_drop</td>
 			</tr>
 		</table>
@@ -366,22 +366,22 @@ function slct($errors="")
 			<tr>
 				<th colspan='2'>Values</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>IRP 5 Number</td>
 				<td><input type='text' name='irp5_number' value='$irp5_number'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Directive Number</td>
 				<td><input type='text' name='directive_number' value='$directive_number'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Voluntary over-deduction</td>
 				<td><input type='text' name='over_deduction' value='$over_deduction'></td>
 			</tr>
 			<tr>
 				<th colspan='2'>Note</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>
 					Cubit will automatically add all income sources	and<br>
 					deductions processed by the system. For any additional<br>

@@ -49,8 +49,8 @@ function get_mail()
 		<tr>
 			<th colspan=2>Message Details</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>To</td><td><input type=text size=27 name=email value=$email></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-odd'><td>To</td><td><input type=text size=27 name=email value=$email></td></tr>
+		<tr class='bg-even'>
 			<td>Message</td>
 			<td><textarea cols=25 rows=6 name=msg value=$msg></textarea></td>
 		</tr>
@@ -61,7 +61,7 @@ function get_mail()
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a 		href='tdocview.php'>View a list of the 		document</a></td></tr>
+		<tr class='bg-odd'><td><a 		href='tdocview.php'>View a list of the 		document</a></td></tr>
 
 		</table>
 		</form>";
@@ -99,8 +99,8 @@ function enter_err($_POST, $err="")
 		<tr>
 			<th colspan=2>Message Details</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>To</td><td><input type=text size=27 name=email value=$email></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-odd'><td>To</td><td><input type=text size=27 name=email value=$email></td></tr>
+		<tr class='bg-even'>
 			<td>Message</td>
 			<td><textarea cols=25 rows=6 name=msg value=$msg></textarea></td>
 		</tr>
@@ -111,7 +111,7 @@ function enter_err($_POST, $err="")
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a 		href='tdocview.php'>View a list of the 		document</a></td></tr>
+		<tr class='bg-odd'><td><a 		href='tdocview.php'>View a list of the 		document</a></td></tr>
 
 		</table>
 		</form>";
@@ -151,8 +151,8 @@ function con_mail($_POST)
 	<input type=hidden name=email value='$email'>
 	<input type=hidden name=msg value='$msg'>
 	<tr><th colspan=2>Document Details</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Name</td><td align=center>$email</td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Surname</td><td align=center>$msg</td></tr>
+	 <tr class='bg-odd'><td>Name</td><td align=center>$email</td></tr>
+	 <tr class='bg-odd'><td>Surname</td><td align=center>$msg</td></tr>
 	  
 	<tr><td colspan=2 align=right><input type=submit value='Email &raquo;'></td></tr>
 		
@@ -198,7 +198,7 @@ $write_mail = "<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing
 	</table>
 	 <p><table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocview.php'>View a list of the document</a></td></tr>
+	<tr class='bg-odd'><td><a href='tdocview.php'>View a list of the document</a></td></tr>
 	</table>";
 return $write_mail;
 ;

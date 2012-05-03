@@ -175,8 +175,8 @@ class financialStatements {
 			}
 
 			if ($i) {
-				$tb_out.= "<tr bgcolor='".TMPL_tblDataColor1."'>";
-				$tb_out .= "<tr bgcolor='".TMPL_tblDataColor1."'>";
+				$tb_out.= "<tr class='bg-odd'>";
+				$tb_out .= "<tr class='bg-odd'>";
 				if (!empty($budget)) $tb_out .= "<td align='right'><!--%%NETPROFIT_BUDGET%%--></td>";
 				if ($last_year) $tb_out .= "<td>&nbsp;</td>";
 				$tb_out .= "
@@ -205,7 +205,7 @@ class financialStatements {
 				$tmp_out = "";
 
 				if (pg_num_rows($tb_rslt)) {
-					$tmp_out .= "<tr bgcolor='".TMPL_tblDataColor2."'>";
+					$tmp_out .= "<tr class='bg-even'>";
 
 					// Previous year
 					if ($last_year) {
@@ -299,7 +299,7 @@ class financialStatements {
 					$dr_total += $dr_net_income;
 				}
 
-				$tb_out .= "<tr bgcolor='".TMPL_tblDataColor1."'>";
+				$tb_out .= "<tr class='bg-odd'>";
 				if (!empty($budget)) $tb_out .= "<td align='right'><!--%%NETPROFIT_BUDGET%%--></td>";
 				if ($last_year) $tb_out .= "<td>&nbsp;</td>";
 				$tb_out .= "
@@ -311,7 +311,7 @@ class financialStatements {
 					</tr>";
 
 			}
-			$tb_out .= "<tr bgcolor='".TMPL_tblDataColor1."'>";
+			$tb_out .= "<tr class='bg-odd'>";
 			if ($last_year) {
 				$tb_out .= "<td align='right'>".fsmoney($last_year_total)."</td>";
 			}
@@ -462,16 +462,16 @@ class financialStatements {
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'><a target=_blank href='../core/acc-new2.php'>Add account (New Window)</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'><a href='index-reports.php'>Financials</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'><a href='index-reports-stmnt.php'>Current Year Financial Statements</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'><a href='../main.php'>Main Menu</td>
 					</tr>
 				</table>
@@ -900,7 +900,7 @@ class financialStatements {
 
 					// Table layout
 					$tmp_out .= "
-						<tr bgcolor='".TMPL_tblDataColor1."'>
+						<tr class='bg-odd'>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;<a onClick=\"window.open('drill-view-trans.php?accid=$accid&month_to=$month_to','window$accid','width=900, height=380, scrollbars=yes');\" href='#'>$tb_data[accname]</a></td>
 							<td align='right' width='10%'>
 								<a href='#' onClick=\"window.open('../core/drill-trans-new.php?dtaccid=$accid&ctaccid=$accid','window$accid','height=420, width=900, scrollbars=yes');\">".fsmoney($tb_data["credit"] - $tb_data["debit"])."</a>
@@ -920,7 +920,7 @@ class financialStatements {
 							<th colspan='10' style='text-align: left;'>".strtoupper($incomes_vals[$toptype])."</th>
 						</tr>
 						$tmp_out
-						<tr bgcolor='".TMPL_tblDataColor2."'>
+						<tr class='bg-even'>
 							<td><b>Totals</b></td>
 							<td align='right'>".fsmoney($totals["curr"])."</td>";
 
@@ -1129,7 +1129,7 @@ class financialStatements {
 
 					// Table layout
 					$tmp_out .= "
-						<tr bgcolor='".TMPL_tblDataColor1."'>
+						<tr class='bg-odd'>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;<a onClick=\"window.open('drill-view-trans.php?accid=$accid&month_to=$month_to','window$accid','width=900, height=380, scrollbars=yes');\" href='#'>$tb_data[accname]</a></td>
 							<td align='right' width='10%'>
 								<a href='#' onClick=\"window.open('../core/drill-trans-new.php?dtaccid=$accid&ctaccid=$accid','window$accid','height=420, width=900, scrollbars=yes');\">".fsmoney($tb_data["debit"] - $tb_data["credit"])."</a>
@@ -1149,7 +1149,7 @@ class financialStatements {
 							<th colspan='10' style='text-align: left;'>".strtoupper($expenses_vals[$toptype])."</th>
 						</tr>
 						$tmp_out
-						<tr bgcolor='".TMPL_tblDataColor2."'>
+						<tr class='bg-even'>
 							<td><b>Totals</b></td>
 							<td align='right'>".fsmoney($totals["curr"])."</td>";
 
@@ -1175,7 +1175,7 @@ class financialStatements {
 			}
 		}
 		$expenses_out["etotals"] .= "
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td><b>Grand Totals</b></td>
 				<td align='right'>".fsmoney($grand_totals["expenses"]["curr"])."</td>";
 
@@ -1198,7 +1198,7 @@ class financialStatements {
 		$net_prof["lyytd"] = $grand_totals["incomes"]["lyytd"] - $grand_totals["expenses"]["lyytd"];
 
 		$expenses_out["etotals"] .= "
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td>Net Profit / Loss</td>
 				<td align='right'>".fsmoney($net_prof["curr"])."</td>";
 
@@ -1225,7 +1225,7 @@ class financialStatements {
 		}
 
 		$tmp_out = "
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td><b>Gross Profit</b></td>
 				<td align='right'>".fsmoney($gptotals["curr"])."</td>";
 
@@ -1247,7 +1247,7 @@ class financialStatements {
 
 		/* grand totals output */
 		$incomes_out["itotals"] .= "
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td><b>Grand Totals</b></td>
 				<td align='right'>".fsmoney($totals["curr"])."</td>";
 
@@ -1268,7 +1268,7 @@ class financialStatements {
 		}
 
 		$incomes_out["netprof"] = "
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td><b>Net Profit</b></td>
 				<td align='right'>".fsmoney($netprof["curr"])."</td>";
 
@@ -1289,7 +1289,7 @@ class financialStatements {
 		}
 
 		$expenses_out["netproftax"] = "
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td><b>Net Profit After Tax</b></td>
 				<td align='right'>".fsmoney($netprof["curr"])."</td>";
 
@@ -1897,7 +1897,7 @@ class financialStatements {
 					$amt = financialStatements::balsheet_calculate($toptype, $tb_data["debit"], $tb_data["credit"]);
 
 					$$toptype .= "
-						<tr bgcolor='".TMPL_tblDataColor1."'>
+						<tr class='bg-odd'>
 							<td><a onClick=\"window.open('drill-view-trans.php?accid=$accid&month_to=$month_to','window$accid','width=900, height=380, scrollbars=yes');\" href='#'>$tb_data[accname]</a></td>
 							<td align='right' width='10%'><a href='#' onClick=\"window.open('../core/drill-trans-new.php?dtaccid=$accid&ctaccid=$accid','window$accid','height=420, width=900, scrollbars=yes');\">".fsmoney($amt)."</a></td>
 							$tymtd_out
@@ -1947,7 +1947,7 @@ class financialStatements {
 
 		
 // 		$assets_out .= "
-// 			<tr bgcolor='".TMPL_tblDataColor2."'>
+// 			<tr class='bg-even'>
 // 				<td>&nbsp;</td>
 // 				<td align='right'>".fsmoney($totals["assets"], 2)."</td>
 // 				$tymtd_out
@@ -1959,7 +1959,7 @@ class financialStatements {
 // 				<td>&nbsp</td>
 // 			</tr>";
 			$assets1 .= "
-				<tr bgcolor='".TMPL_tblDataColor2."'>
+				<tr class='bg-even'>
 					<td>&nbsp;</td>
 					<td align='right'>".fsmoney($totals["assets"], 2)."</td>
 					$tymtd_out
@@ -1972,7 +1972,7 @@ class financialStatements {
 				</tr>";
 
 			$assets2 .= "
-				<tr bgcolor='".TMPL_tblDataColor2."'>
+				<tr class='bg-even'>
 					<td>&nbsp;</td>
 					<td align='right'>".fsmoney($totals["assets"], 2)."</td>
 					$tymtd_out
@@ -2236,7 +2236,7 @@ class financialStatements {
 					}
 
 					$$toptype .= "
-						<tr bgcolor='".TMPL_tblDataColor1."'>
+						<tr class='bg-odd'>
 							<td><a onClick=\"window.open('drill-view-trans.php?accid=$accid&month_to=$month_to','window$accid','width=900, height=380, scrollbars=yes');\" href='#'>$tb_data[accname]</a></td>
 							<td align='right' width='10%'><a href='#' onClick=\"window.open('../core/drill-trans-new.php?dtaccid=$accid&ctaccid=$accid','window$accid','height=420, width=900, scrollbars=yes');\">".fsmoney($amt)."</a></td>
 							$tymtd_out
@@ -2284,7 +2284,7 @@ class financialStatements {
 		if ($this_year_budget) $tybudget_out = "<td>&nbsp</td>";
 
 		$equity_out .= "
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 		<td>Retained Income</td>
 		<td align='right'>".fsmoney($current_profit_loss_total)."</td>
 		$lysm_out
@@ -2307,7 +2307,7 @@ class financialStatements {
 		$balance1 = $totals["tyytd"];
 
 // 		$equity_out .= "
-// 			<tr bgcolor='".TMPL_tblDataColor2."'>
+// 			<tr class='bg-even'>
 // 				<td>&nbsp;</td>
 // 				<td align='right'>".fsmoney($totals["equity"], 2)."</td>
 // 				$tymtd_out
@@ -2320,7 +2320,7 @@ class financialStatements {
 // 			</tr>";
 
 			$equity1 .= "
-				<tr bgcolor='".TMPL_tblDataColor2."'>
+				<tr class='bg-even'>
 					<td>&nbsp;</td>
 					<td align='right'>".fsmoney($totals["equity"], 2)."</td>
 					$tymtd_out
@@ -2333,7 +2333,7 @@ class financialStatements {
 				</tr>";
 
 			$equity2 .= "
-				<tr bgcolor='".TMPL_tblDataColor2."'>
+				<tr class='bg-even'>
 					<td>&nbsp;</td>
 					<td align='right'>".fsmoney($totals["equity"], 2)."</td>
 					$tymtd_out

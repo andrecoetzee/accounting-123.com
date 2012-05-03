@@ -111,7 +111,7 @@ function printCenter ($_GET)
 				$rec['edate'] = ext_rdate($rec['edate']);
 	
 				$income .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$rec[typename]</td>
 						<td>$sp4 $rec[edate] $sp4</td>
 						<td>$rec[description]</td>
@@ -121,7 +121,7 @@ function printCenter ($_GET)
 			}
 			$totinc = sprint($totinc);
 			$income .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='3' align='right'><b>Total</b></td>
 					<td align='right'><b>".CUR." $totinc</b></td>
 					<td><br></td>
@@ -172,7 +172,7 @@ function printCenter ($_GET)
 				$rec['edate'] = ext_rdate($rec['edate']);
 	
 				$expense .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$rec[typename]</td>
 						<td>$sp4 $rec[edate] $sp4</td>
 						<td>$rec[description]</td>
@@ -182,7 +182,7 @@ function printCenter ($_GET)
 			}
 			$totexp = sprint($totexp);
 			$expense .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='3' align='right'><b>Total</b></td>
 					<td align='right'><b>".CUR." $totexp</b></td>
 				</tr>";
@@ -201,7 +201,7 @@ function printCenter ($_GET)
 			<tr>
 				<th>Cost Center</th>
 			<tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$sp4 $cc[centername] ($cc[centercode]) $sp4</td>
 			</tr>
 		</table>

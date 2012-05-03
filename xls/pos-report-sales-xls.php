@@ -57,7 +57,7 @@ function sel()
 					<tr>
 						<th colspan='2'>Date Range</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center' colspan='2'>
 							<input type=text size=2 name=fday maxlength=2 value='1'>-
 							<input type=text size=2 name=fmon maxlength=2  value='".date("m")."'>-
@@ -68,7 +68,7 @@ function sel()
 							<input type=text size=4 name=toyear maxlength=4 value='".date("Y")."'>
 						</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='submit' name='sum' value='Summary'></td>
 						<td align='right'><input type='submit' name='all' value='All Pos Sales'></td>
 					</tr>

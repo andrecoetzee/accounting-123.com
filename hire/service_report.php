@@ -43,7 +43,7 @@ function display()
 		}
 
 		$service_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$sv_data[asset_des]</td>
 			<td>".getSerial($sv_data["id"])."</td>
 			<td>$sv_data[sv_des]</td>
@@ -52,7 +52,7 @@ function display()
 	}
 
 	if (empty($service_out)) {
-		$service_out = "<tr bgcolor='".bgcolorg()."'>
+		$service_out = "<tr class='".bg_class()."'>
 			<td colspan='4'><li>No results found</li></td>
 		</tr>";
 	}
@@ -64,7 +64,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

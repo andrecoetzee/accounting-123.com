@@ -66,15 +66,15 @@ function enter($errors="")
 			<tr>
 				<th colspan='2'>Document Type Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Name</td>
 				<td><input type='text' name='name' value='$name' /></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td><input type='text' name='description' value='$description' /></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>File Extension</td>
 				<td><input type='text' name='extension' value='$extension' /></td>
 			</tr>
@@ -121,15 +121,15 @@ function confirm()
 			<tr>
 				<th colspan='2'>Confirm</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Name</td>
 				<td>$name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td>$description</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Extension</td>
 				<td>$extension</td>
 			</tr>
@@ -174,7 +174,7 @@ function write()
 			<tr>
 				<th>Write</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><li>Successfully added the document type.</li></td>
 			</tr>
 		</table>";

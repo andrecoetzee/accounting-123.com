@@ -65,7 +65,7 @@ function enter($errors="")
 	  <tr>
 	    <th colspan=2>Conditions</th>
 	  </tr>
-	  <tr bgcolor='".TMPL_tblDataColor1."'>
+	  <tr class='bg-odd'>
 	    <td>Default workshop conditions</td>
 	    <td><textarea name=ws_cond rows=5 cols=20>$ws_cond</textarea></td>
 	  </tr>
@@ -106,7 +106,7 @@ function confirm($_POST)
 	  <tr>
 	    <th colspan=2>Confirm</td>
 	  </tr>
-	  <tr bgcolor='".TMPL_tblDataColor1."'>
+	  <tr class='bg-odd'>
 	    <td>Default workshop conditions</td>
 	    <td>".nl2br($ws_cond)."</td>
 	  </tr>

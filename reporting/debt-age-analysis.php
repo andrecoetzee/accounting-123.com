@@ -66,13 +66,13 @@ function printAgeInv ($_POST,$pure=TRUE)
 				<tr>
 					<th>Filter/Sort Age Analysis</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='checkbox' name='show_zero' onClick='javascript:document.form1.submit();' value='yes' $sel1> Show Zero Balances</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='checkbox' name='show_large' onClick='javascript:document.form1.submit();' value='yes' $sel2> Show Largest Balances First</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='checkbox' name='show_old' onClick='javascript:document.form1.submit();' value='yes' $sel3> Show Oldest Balances First</td>
 				</tr>
 				".TBL_BR."
@@ -85,19 +85,19 @@ function printAgeInv ($_POST,$pure=TRUE)
 		        <tr>
 		        	<th>Quick Links</th>
 		        </tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='index-reports.php'>Financials</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='index-reports-debtcred.php'>Debtors & Creditors Reports</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='../customers-new.php'>Add Customer</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='../customers-view.php'>View Customers</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='../main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -256,7 +256,7 @@ function printAgeInv ($_POST,$pure=TRUE)
 		}
 
 		$printCust .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap><font size='1'>$col1[$key]</font></td>
 				<td nowrap><a href='#' onClick='popupSized(\"../cust-stmnt.php?cusnum=$col11[$key]\",\"window1\",800,700)'><font size='1'>$col2[$key]</font></a></td>
 				<td nowrap><font size='1'>$col22[$key]</font></td>
@@ -283,7 +283,7 @@ function printAgeInv ($_POST,$pure=TRUE)
 
 	$printCust .= "
 			".TBL_BR."
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><font size='1'><b>Totals</b></font></td>
 				<td nowrap><font size='1'><b>".CUR." $totcurr</b></font></td>
 				<td nowrap><font size='1'><b>".CUR." $tot30</b></font></td>
@@ -378,7 +378,7 @@ function printAgeAge ()
 		}
 
 		$printCust .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$cust[accno]</td>
 				<td>$cust[surname]</td>
 				<td>$salesperson</td>
@@ -411,7 +411,7 @@ function printAgeAge ()
 
 	$printCust .= "
 			".TBL_BR."
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'><b>Totals</b></td>
 				<td nowrap><b>".CUR." $totcurr</b></td>
 				<td nowrap><b>".CUR." $tot30</b></td>
@@ -431,19 +431,19 @@ function printAgeAge ()
 	        <tr>
 	        	<th>Quick Links</th>
 	        </tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='index-reports.php'>Financials</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='index-reports-debtcred.php'>Debtors & Creditors Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../customers-new.php'>Add Customer</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../customers-view.php'>View Customers</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

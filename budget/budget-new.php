@@ -93,7 +93,7 @@ function slctOpt($errors="")
 	<tr>
 		<th colspan=3>Details</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Budget</td>
 		<td>
 			<input type='radio' name='budname' value='Financial Budget' $bud_fin>Financial Budget<b> | </b>
@@ -106,24 +106,24 @@ function slctOpt($errors="")
 	<tr>
 		<th colspan=3>Create Budget</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Budget For</td>
 		<td>
 			<input type=radio name=budfor value=cost>Cost Centers &nbsp;&nbsp;
 			<input type=radio name=budfor value=acc checked=yes>Accounts
 		</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Budget Type</td>
 		<td>$typesel</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Budget Period</td>
 		<td>$fromprdsel to $toprdsel</td>
 	</tr>";
 
 	if (PYR_DB) {
-		$Opts .= "<tr bgcolor='".bgcolorg()."'>
+		$Opts .= "<tr class='".bg_class()."'>
 			<td>Use Previous Year Figures</td>
 			<td><input type='checkbox' name='import' /></td>
 		</tr>
@@ -135,7 +135,7 @@ function slctOpt($errors="")
 			<td colspan='3' class='err'>This option is only used to create a budget for accounts,
 				not Cost Centers.</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Increase Percentage</td>
 			<td>
 				<input type='text' name='incperc' size='3' value='0' /> %
@@ -155,8 +155,8 @@ function slctOpt($errors="")
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</td></tr>
+		<tr class='bg-odd'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
+		<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</td></tr>
 	</table>";
 
 	return $Opts;
@@ -257,7 +257,7 @@ function details($_POST, $errata = "<br>")
 
 			$ci = $numacc + $rowcnt + 1; // extra one added so submit button is after annuals
 			$list .= "
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td><input tabindex='$ci' id='cb$ccid' type=checkbox name='ccids[$ccid]' value='$cc[ccid]' $ch>$cc[centercode] - $cc[centername]</td>";
 
 			# Budget prd
@@ -424,7 +424,7 @@ function details($_POST, $errata = "<br>")
 
 			$ci = $numacc + $rowcnt + 1; // extra one added so submit button is after annuals
 			$list .= "
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td><input tabindex='$ci' id='cb$accid' type='checkbox' name='accids[$accid]' value='$accid' $ch>$acc[topacc]/$acc[accnum] - $acc[accname]</td>";
 
 			# Budget prd
@@ -538,7 +538,7 @@ function details($_POST, $errata = "<br>")
 		<tr>
 			<th colspan=2>Details</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Budget Name</td>
 			<td>$budname</td>
 		</tr>
@@ -548,15 +548,15 @@ function details($_POST, $errata = "<br>")
 		<tr>
 			<th colspan=2>Options</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Budget For</td>
 			<td>$vbudfor</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Budget Type</td>
 			<td>$vbudtype</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Budget Period</td>
 			<td>$vfromprd to $vtoprd</td>
 		</tr>
@@ -580,8 +580,8 @@ function details($_POST, $errata = "<br>")
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</td></tr>
+		<tr class='bg-odd'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
+		<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</td></tr>
 	</table>";
 
 	return $OUT;
@@ -691,7 +691,7 @@ function confirm($_POST)
 		foreach($ccids as $ckey => $ccid){
 			$ccRs = get("cubit", "*", "costcenters", "ccid", $ccid);
 			$cc  = pg_fetch_array($ccRs);
-			$list .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name='ccids[$cc[ccid]]' value='$cc[ccid]'>$cc[centercode] - $cc[centername]</td>";
+			$list .= "<tr class='bg-odd'><td><input type=hidden name='ccids[$cc[ccid]]' value='$cc[ccid]'>$cc[centercode] - $cc[centername]</td>";
 
 			foreach($amts[$ccid] as $sprd => $amtr){
 				$amtr = sprint($amtr);
@@ -705,7 +705,7 @@ function confirm($_POST)
 		foreach($accids as $akey => $accid){
 			$accRs = get("core", "*", "accounts", "accid", $accid);
 			$acc  = pg_fetch_array($accRs);
-			$list .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name='accids[$acc[accid]]' value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td>";
+			$list .= "<tr class='bg-odd'><td><input type=hidden name='accids[$acc[accid]]' value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td>";
 
 			foreach($amts[$accid] as $sprd => $amtr){
 				$amtr = sprint($amtr);
@@ -733,7 +733,7 @@ function confirm($_POST)
 	$head .= "</tr>";
 
 	// $totamt = sprint(array_sum($amts));
-	// $list .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><b>Total Budget Amount</b></td><td align=right><b>".CUR." $totamt</b></td></tr>";
+	// $list .= "<tr class='bg-even'><td><b>Total Budget Amount</b></td><td align=right><b>".CUR." $totamt</b></td></tr>";
 
 	/* End Toggle Options */
 
@@ -757,7 +757,7 @@ function confirm($_POST)
 		<tr>
 			<th colspan=2>Details</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Budget Name</td>
 			<td>$budname</td>
 		</tr>
@@ -767,15 +767,15 @@ function confirm($_POST)
 		<tr>
 			<th colspan=2>Options</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Budget For</td>
 			<td>$vbudfor</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Budget Type</td>
 			<td>$vbudtype</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Budget Period</td>
 			<td>$vfromprd to $vtoprd</td>
 		</tr>
@@ -805,10 +805,10 @@ function confirm($_POST)
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td align=center><a href='budget-view.php'>View Budgets</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td align=center><a href='../main.php'>Main Menu</td>
 		</tr>
 	</table>";
@@ -911,7 +911,7 @@ function write($_POST)
 			<th colspan=2>New Monthly Budget created</th>
 		</tr>
 		<tr>
-			<td bgcolor='".TMPL_tblDataColor1."' colspan=2>New Monthly Budget <b>$budname</b> has been created.</td>
+			<td class='bg-odd' colspan=2>New Monthly Budget <b>$budname</b> has been created.</td>
 		</tr>
 	</table>
 	<p>
@@ -919,10 +919,10 @@ function write($_POST)
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td align=center><a href='budget-view.php'>View Budgets</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td align=center><a href='../main.php'>Main Menu</td>
 		</tr>
 	</table>";

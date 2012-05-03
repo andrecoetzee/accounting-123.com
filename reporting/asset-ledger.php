@@ -85,8 +85,8 @@ function slctacc()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=viewtran>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Assets</td><td><input type=radio name=accnt value=slct checked=yes>Selected Assets | <input type=radio name=accnt value=all>All Assets</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Select Asset(s)</td><td>$assets</td></tr>
+	<tr class='bg-even'><td valign=top>Assets</td><td><input type=radio name=accnt value=slct checked=yes>Selected Assets | <input type=radio name=accnt value=all>All Assets</td></tr>
+	<tr class='bg-odd'><td valign=top>Select Asset(s)</td><td>$assets</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=center><input type=submit value='Continue &raquo;'></td></tr>
 	</table>
@@ -162,8 +162,8 @@ function viewtran($_POST)
 
 		$netval = sprint($led['amount'] - $bal['accdep']);
 
-		$trans .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=8><b>$led[des]</b></td></tr>";
-		$trans .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><br></td><td>CST/AMT</td><td>Cost Amount</td><td align=right>$led[amount]</td><td align=right>$netval</td><td><br></td></tr>";
+		$trans .= "<tr class='bg-even'><td colspan=8><b>$led[des]</b></td></tr>";
+		$trans .= "<tr class='bg-even'><td colspan=2><br></td><td>CST/AMT</td><td>Cost Amount</td><td align=right>$led[amount]</td><td align=right>$netval</td><td><br></td></tr>";
 
 		# --> Transaction reading comes here <--- #
 		$tranRs = get($prd, "*", "assetledger", "id", $ledid);
@@ -172,10 +172,10 @@ function viewtran($_POST)
 			$tran['date'] = explode("-", $tran['date']);
 			$tran['date'] = $tran['date'][2]."-".$tran['date'][1]."-".$tran['date'][0];
 
-			$trans .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><br></td><td>$tran[date]</td><td>DEP</td><td>Accumulated Depriciation</td><td align=right>$tran[accdep]</td><td align=right>$tran[netval]</td><td><br></td></tr>";
+			$trans .= "<tr class='bg-odd'><td><br></td><td>$tran[date]</td><td>DEP</td><td>Accumulated Depriciation</td><td align=right>$tran[accdep]</td><td align=right>$tran[netval]</td><td><br></td></tr>";
 		}
 
-		// $trans .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><br></td><td>A/C Total</td><td>Total for period $prdname to Date :</td><td align=right>$dbal[debit]</td><td align=right></td><td> </td></tr>";
+		// $trans .= "<tr class='bg-even'><td colspan=2><br></td><td>A/C Total</td><td>Total for period $prdname to Date :</td><td align=right>$dbal[debit]</td><td align=right></td><td> </td></tr>";
 		$trans .= "<tr><td colspan=8><br></td></tr>";
 	}
 

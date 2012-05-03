@@ -133,7 +133,7 @@ function details($_GET)
 			}
 			# put in product
 			$products .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$wh[whname]</td>
 							<td>$stk[stkcod]</td>
 							<td>$stk[stkdes]</td>
@@ -176,23 +176,23 @@ function details($_GET)
 							<tr>
 <th colspan='2'> Customer Details </th>
 </tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 <td>Department</td>
 <td valign='center'>$inv[deptname]</td>
 </tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 <td>Customer</td>
 <td valign='center'>$inv[cusname] $inv[surname]</td>
 </tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 <td valign='top'>Customer Address</td>
 <td valign='center'>".nl2br($inv['cusaddr'])."</td>
 </tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 <td>Customer Order number</td>
 <td valign='center'>$inv[cordno]</td>
 </tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 <td>Customer VAT Number</td>
 <td>$inv[cusvatno]</td>
 </tr>
@@ -203,23 +203,23 @@ function details($_GET)
 							<tr>
 								<th colspan='2'> Invoice Details </th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Invoice No.</td>
 								<td valign='center'>$Dis</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Proforma Inv No.</td>
 								<td valign='center'>$inv[docref]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Order No.</td>
 								<td valign='center'>$inv[ordno]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Sales Person</td>
 								<td valign='center'>$inv[salespn]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Invoice Date</td>
 								<td valign='center'>$inv[odate]</td>
 							</tr>
@@ -237,10 +237,10 @@ function details($_GET)
 							<tr>
 								<th>Quick Links</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='cust-credit-stockinv.php'>New Invoice</a></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='invoice-view.php'>View Invoices</a></td>
 							</tr>
 							<script>document.write(getQuicklinkSpecial());</script>

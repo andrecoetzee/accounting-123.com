@@ -66,7 +66,7 @@ function slct()
 		<tr>
 			<th colspan='2'>By Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center' nowrap='t'>
 				".mkDateSelect("from",date("Y"),date("m"),"01")."
 				&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -204,7 +204,7 @@ function printPurch ($_POST, $pure = false)
 
 
 		$printOrd .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$stkp[purnum]</td>
 					<td>$stkp[supinv]</td>
 					<td>$date</td>
@@ -238,7 +238,7 @@ function printPurch ($_POST, $pure = false)
 	}
 
 	$printOrd .= "
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td colspan='4'>Totals</td>
 		<td align='right'>".CUR." $tot1</td>
 		<td align='right'>".CUR." $tot2</td>

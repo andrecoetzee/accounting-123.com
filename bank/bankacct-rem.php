@@ -105,31 +105,31 @@ function confirm($bankid)
 	        	<th>Field</th>
 	        	<th>Value</th>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Account Type</td>
 	        	<td>$accnt[acctype]</td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Bank Name</td>
 	        	<td>$accnt[bankname]</td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Branch Name</td>
 	        	<td>$accnt[branchname]</td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Branch Code</td>
 	        	<td>$accnt[branchcode]</td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Account Name</td>
 	        	<td>$accnt[accname]</td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Account Number</td>
 	        	<td>$accnt[accnum]</td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td>Details</td>
 	        	<td>$accnt[details]</td>
 	        </tr>
@@ -144,7 +144,7 @@ function confirm($bankid)
             <tr>
             	<th>Quick Links</th>
             </tr>
-            <tr bgcolor='".bgcolorg()."'>
+            <tr class='".bg_class()."'>
             	<td><a href='bankacct-view.php'>View Bank Accounts</a></td>
             </tr>
             <script>document.write(getQuicklinkSpecial());</script>
@@ -211,7 +211,7 @@ function rem($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='bankacct-view.php'>View Bank Accounts</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

@@ -34,14 +34,14 @@ require("libs/crm.lib.php");
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='team-add.php'>Add Cubt Team</a></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='team-list.php'>View Cubit Teams</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='index.php'>My Business</a></td>
 						</tr>
 					</table>";
@@ -80,7 +80,7 @@ function list_teams()
 		$i++;
 
 		$out .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$teamdata[name]</td>
 						<td>$teamdata[des]</td>
 						<td><a href='team-alloc.php?id=$teamdata[id]'>Allocate Users</a></td>

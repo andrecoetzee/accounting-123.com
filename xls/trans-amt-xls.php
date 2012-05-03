@@ -86,14 +86,14 @@ function slctacc()
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>Accounts</td>
 					<td><input type='radio' name='accnt' value='slct' checked=yes>Selected Accounts | <input type='radio' name='accnt' value='all'>All Accounts</td></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>Select account(s)</td>
 					<td>$accs</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select period</td>
 					<td>$prds</td>
 				</tr>

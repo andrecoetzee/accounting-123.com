@@ -101,8 +101,8 @@ $rem =
 <input type=hidden name=accname value='$acc[accname]'>
 <input type=hidden name=acctype value='$acc[acctype]'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Number</td><td>$acc[topacc]/$acc[accnum]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Name</td><td>$acc[accname]</td></tr>
+<tr class='bg-odd'><td>Account Number</td><td>$acc[topacc]/$acc[accnum]</td></tr>
+<tr class='bg-even'><td>Account Name</td><td>$acc[accname]</td></tr>
 <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Delete Account&raquo'></td></tr>
 </form>
 </table>

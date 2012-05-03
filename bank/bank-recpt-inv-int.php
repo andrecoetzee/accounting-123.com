@@ -84,7 +84,7 @@ function sel_cus()
 				<tr>
 					<th colspan='2'>Select Customer</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Customers</td>
 					<td>$cust</td>
 				</tr>
@@ -173,11 +173,11 @@ function sel_bank($cusid)
 				<tr>
 					<th colspan='2'>Select Customer</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Banks</td>
 					<td>$banks</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Customer</td>
 					<td>$cus[cusname] $cus[surname]</td>
 				</tr>
@@ -285,35 +285,35 @@ function method($_POST)
 				<tr>
 					<th colspan='2'>Receipt Details</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account</td>
 					<td>$bank[accname] - $bank[bankname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td>".mkDateSelect("date")."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Received from</td>
 					<td valign='center'>$cust</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Description</td>
 					<td valign='center'><textarea col='18' rows='3' name='descript'></textarea></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Cheque Number</td>
 					<td valign='center'><input size='20' name='cheqnum'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Amount</td>
 					<td valign='center'>$bcur <input type='text' size='13' name='amt'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Exchange rate</td>
 					<td valign='center'>".CUR." / $cus[currency] <input type='text' size='8' name='rate' value='$rate'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Allocation</td>
 					<td>$alls</td>
 				</tr>
@@ -352,7 +352,7 @@ function method($_POST)
 
 	# Alternate bgcolor
 	$printCust .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$cus[accno]</td>
 				<td>$cus[contname]</td>
 				<td>$cus[tel]</td>
@@ -495,31 +495,31 @@ function alloc($_POST)
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account</td>
 					<td>$bank[accname] - $bank[bankname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td valign='center'>$date</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Received from</td>
 					<td valign='center'>$cus[cusname] $cus[surname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Description</td>
 					<td valign='center'>".nl2br($descript)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Cheque Number</td>
 					<td valign='center'>$cheqnum</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Amount</td>
 					<td valign='center'>$cus[currency] $amt | ".CUR." $lamt</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Exchange rate</td>
 					<td valign='center'>".CUR." / $cus[currency] $rate</td>
 				</tr>";
@@ -554,7 +554,7 @@ function alloc($_POST)
 
 			$invid = $inv['invid'];
 			$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 						<td>$cus[currency] $inv[fbalance]</td>
 						<td>$inv[terms] days</td>
@@ -590,7 +590,7 @@ function alloc($_POST)
 
 			$invid = $inv['invid'];
 			$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 						<td>$cus[currency] $inv[fbalance]</td>
 						<td></td>
@@ -607,7 +607,7 @@ function alloc($_POST)
 
 		if($out>0) {
 			$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='5'><b>A general transaction will credit the client's account with $cus[currency] $out </b></td>
 					</tr>";}
 	}
@@ -639,7 +639,7 @@ function alloc($_POST)
 
 		# Alternate bgcolor
 		$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cus[currency] $curr</td>
 					<td>$cus[currency] $age30</td>
 					<td>$cus[currency] $age60</td>
@@ -648,7 +648,7 @@ function alloc($_POST)
 					<td>$cus[currency] $custtot</td>
 				</tr>";
 		$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='text' size='7' name='out1'></td>
 					<td><input type='text' size='7' name='out2'></td>
 					<td><input type='text' size='7' name='out3'></td>
@@ -698,7 +698,7 @@ function alloc($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td>$inv[terms] days</td>
@@ -731,7 +731,7 @@ function alloc($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td></td>
@@ -887,31 +887,31 @@ function confirm($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank[accname] - $bank[bankname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Received from</td>
 				<td valign='center'>$cus[cusname] $cus[surname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>$descript</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'>$cheqnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>$cus[currency] $amt | ".CUR." $lamt</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Exchange rate</td>
 				<td valign='center'>".CUR." / $cus[currency] $rate</td>
 			</tr>";
@@ -957,7 +957,7 @@ function confirm($_POST)
 					$invid = $inv['invid'];
 
 					$confirm .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 								<td>$cus[currency] $inv[fbalance]</td>
 								<td>$inv[terms] days</td>
@@ -980,7 +980,7 @@ function confirm($_POST)
 					$invid = $inv['invid'];
 
 					$confirm .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 								<td>$cus[currency] $inv[fbalance]</td>
 								<td></td>
@@ -996,7 +996,7 @@ function confirm($_POST)
 	$out=sprint($out);
 	if($out>0) {
 		$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will credit the client's account with $cus[currency] $out </b></td>
 				</tr>";
 	}
@@ -1040,7 +1040,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td>$inv[terms] days</td>
@@ -1082,7 +1082,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td></td>
@@ -1099,7 +1099,7 @@ function confirm($_POST)
 			$out1=sprint($out1);
 			if($out1>0) {
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='5'><b>A general transaction will credit the client's account with $cus[currency] $out1 (Current) </b></td>
 						</tr>";
 			}
@@ -1143,7 +1143,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td>$inv[terms] days</td>
@@ -1185,7 +1185,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td></td>
@@ -1201,7 +1201,7 @@ function confirm($_POST)
 			$out2=sprint($out2);
 			if($out2>0) {
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='5'><b>A general transaction will credit the client's account with $cus[currency] $out2 (30 days)</b></td>
 						</tr>";
 			}
@@ -1237,7 +1237,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td>$inv[terms] days</td>
@@ -1277,7 +1277,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td></td>
@@ -1293,7 +1293,7 @@ function confirm($_POST)
 			$out3=sprint($out3);
 			if($out3>0) {
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='5'><b>A general transaction will credit the client's account with $cus[currency] $out3 (60 days)</b></td>
 						</tr>";
 			}
@@ -1330,7 +1330,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td>$inv[terms] days</td>
@@ -1372,7 +1372,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td></td>
@@ -1388,7 +1388,7 @@ function confirm($_POST)
 			$out4=sprint($out4);
 			if($out4>0) {
 				$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='5'><b>A general transaction will credit the client's account with $cus[currency] $out4 (90 days)</b></td>
 					</tr>";}
 		}
@@ -1423,7 +1423,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td>$inv[terms] days</td>
@@ -1465,7 +1465,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td></td>
@@ -1481,7 +1481,7 @@ function confirm($_POST)
 			$out5=sprint($out5);
 			if($out5>0) {
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='5'><b>A general transaction will credit the client's account with $cus[currency] $out5 (120 days)</b></td>
 						</tr>";
 			}
@@ -1527,7 +1527,7 @@ function confirm($_POST)
 
 
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td>$inv[terms] days</td>
@@ -1550,7 +1550,7 @@ function confirm($_POST)
 				$invid = $inv['invid'];
 
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 							<td>$cus[currency] $inv[fbalance]</td>
 							<td></td>
@@ -2145,10 +2145,10 @@ function write($_POST)
 					<td align='center'>
 						<table ".TMPL_tblDflts." width='80%'>
 							<tr><th>Quick Links</th></tr>
-							<tr bgcolor='".bgcolorg()."'><td><a href='bank-pay-add.php'>Add Bank Payment</a></td></tr>
-							<tr bgcolor='".bgcolorg()."'><td><a href='bank-recpt-add.php'>Add Bank Receipt</a></td></tr>
-							<tr bgcolor='".bgcolorg()."'><td><a href='bank-recpt-inv.php'>Add Customer Payment</a></td></tr>
-							<tr bgcolor='".bgcolorg()."'><td><a href='cashbook-view.php'>View Cash Book</a></td></tr>
+							<tr class='".bg_class()."'><td><a href='bank-pay-add.php'>Add Bank Payment</a></td></tr>
+							<tr class='".bg_class()."'><td><a href='bank-recpt-add.php'>Add Bank Receipt</a></td></tr>
+							<tr class='".bg_class()."'><td><a href='bank-recpt-inv.php'>Add Customer Payment</a></td></tr>
+							<tr class='".bg_class()."'><td><a href='cashbook-view.php'>View Cash Book</a></td></tr>
 							<script>document.write(getQuicklinkSpecial());</script>
 						</table>
 					</td>

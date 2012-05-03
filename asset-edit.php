@@ -193,7 +193,7 @@ function enter ($_GET,$errors="")
 								</tr>";
 				while ($arr = pg_fetch_array ($run_piclist)){
 					$display_piclist .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>$arr[image_name]</td>
 									<td><a target='iframe1' href='view_image.php?picid=$arr[id]'>View</a></td>
 									<td><input type='checkbox' name='rempicid[$arr[id]]' value='yes'></td>
@@ -236,37 +236,37 @@ function enter ($_GET,$errors="")
 						<tr>
 							<th colspan='2'>Asset Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Select Group</td>
 							<td>$grps</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Select Type</td>
 							<td>$type_sel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Location</td>
 							<td><input type='text' size='20' name='locat' value='$locat'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Description</td>
 							<td><input type='text' size='20' name='des' value='$des'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Details</td>
 							<td><textarea name='details' cols='30' rows='4'>$details</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Billing Requirement Ratio (Units)</td>
 							<td><input type='text' name='units' value='$units' /></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Percentage of Yearly Depreciation</td>
 							<td>
 								<input type='text' size='2' name='dep_perc' value='$dep_perc' maxlength='2' />%
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Auto Monthly Depreciation</td>
 							<td>
 								Yes <input type='radio' name='dep_month' value='yes' $dm_yes />
@@ -276,33 +276,33 @@ function enter ($_GET,$errors="")
 						<tr>
 							<th colspan=2>Bought</th>
 						</tr>
-					 	<tr bgcolor='".bgcolorg()."'>
+					 	<tr class='".bg_class()."'>
 					 		<td>".REQ."Date</td>
 					 		<td>".mkDateSelect("date", $date_year, $date_month, $date_day)."</td>
 					 	</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Amount</td>
 							<td>".CUR."<input type='text' size='20' name='amount' value='$amount'></td>
 						</tr>
 						<tr>
 							<th colspan='2'>Servicing</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Add New Service</td>
 							<td><input type='checkbox' name='set_service' value='yes'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Service Date</td>
 							<td>".mkDateSelect("svdate", $svdate_year, $svdate_month, $svdate_day)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Service Description</td>
 							<td><input type='text' name='sv_desc' value='$sv_desc' /></td>
 						</tr>
 						<tr>
 							<th colspan='2'>Serial Number/Quantity</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Has Serial Number?</td>
 							<td>
 								<input onclick='seryn_update(this);' type='radio' name='seryn' value='yes' ".fcheck($seryn!="no")."> Yes
@@ -313,7 +313,7 @@ function enter ($_GET,$errors="")
 							<td colspan='2' style='margin: 0px; padding: 0px;'>
 								<div id='div_qty' style='$div_qty_style'>
 									<table ".TMPL_tblDflts." width='100%'>
-										<tr bgcolor='".bgcolorg()."'>
+										<tr class='".bg_class()."'>
 											<td>Quantity</td>
 											<td><input type='text' name='qty' value='$serial2'></td>
 										</tr>
@@ -321,11 +321,11 @@ function enter ($_GET,$errors="")
 								</div>
 								<div id='div_serial' style='$div_serial_style'>
 									<table ".TMPL_tblDflts." width='100%'>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>".REQ." Serial Number</td>
 										<td><input type='text' size='20' name='serial' value='$serial'></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>2nd Serial Number</td>
 										<td><input type='text' size='20' name='serial2' value='$serial2'></td>
 									</tr>
@@ -355,7 +355,7 @@ function enter ($_GET,$errors="")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='asset-view.php'>View Assets</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -445,17 +445,17 @@ function confirm ($_POST)
 
 	if ($seryn == "yes") {
 		$serdisp = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Serial Number</td>
 				<td><input type='hidden' name='serial' value='$serial'>$serial</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>2nd Serial Number</td>
 				<td><input type='hidden' name='serial2' value='$serial2'>$serial2</td>
 			</tr>";
 	} else {
 		$serdisp = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Quantity</td>
 				<td><input type='hidden' name='qty' value='$qty'>$qty</td>
 			</tr>";
@@ -503,57 +503,57 @@ function confirm ($_POST)
 						<tr>
 							<th colspan='2'>Asset Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Group</td>
 							<td>$grp[grpname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Type</td>
 							<td>$type_name</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Location</td>
 							<td>$locat</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Description</td>
 							<td>$des</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Details</td>
 							<td>".nl2br($details)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Billing Requirement Ratio (Units)</td>
 							<td>$units</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Percentage of Yearly Depreciation</td>
 							<td>$dep_perc%</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Auto Monthly Depreciation</td>
 							<td>".ucfirst($dep_month)."</td>
 						</tr>
 						<tr>
 							<th colspan='2'>Bought</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td>$date</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td>".CUR." $amount</td>
 						</tr>
 						<tr>
 							<th colspan='2'>Servicing</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Next Service Date</td>
 							<td>$svdate</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Service Description</td>
 							<td>$sv_desc</td>
 						</tr>
@@ -569,7 +569,7 @@ function confirm ($_POST)
 							<th>Picture Name</th>
 							<th>File Location</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='text' name='picupload_name'></td>
 							<td><input type='file' name='picupload_image'></td>
 							<td></td>
@@ -588,7 +588,7 @@ function confirm ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='asset-view.php'>View Assets</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -744,10 +744,10 @@ function write ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='asset-new.php'>New Asset</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='asset-view.php'>View Assets</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

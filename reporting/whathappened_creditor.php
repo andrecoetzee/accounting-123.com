@@ -83,7 +83,7 @@ function display()
 		}
 		
 		$ledger_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$ledger_data[id]</td>
 			<td>$ledger_data[edate]</td>
 			<td>$ledger_data[supname]</td>
@@ -96,7 +96,7 @@ function display()
 	
 	if (empty($ledger_out)) {
 		$ledger_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='8'><li>No results found.</li></td>
 		</tr>";
 	}
@@ -126,7 +126,7 @@ function display()
 				<input type='submit' value='Search' style='text-weight: bold; height: 100%' />
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -134,14 +134,14 @@ function display()
 		<tr>
 			<th colspan='3'>Search</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>$search_sel</td>
 			<td><input type='text' name='search' value='$search' style='width: 100%' /></td>
 		</tr>
 	</table>
 	</form>
 	<table ".TMPL_tblDflts.">
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='8' align='center'>
 				$prev_ancor
 				$next_ancor
@@ -157,7 +157,7 @@ function display()
 			<th>Contra</th>
 		</tr>
 		$ledger_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='8' align='center'>
 				$prev_ancor
 				$next_ancor

@@ -33,7 +33,7 @@ function display()
 	$stock_take_ar = array();
 	while ($stktake_data = pg_fetch_array($stktake_rslt)) {
 		$stock_take_ar[$stktake_data["timestamp"]][] = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stktake_data[stkcod]</td>
 				<td>$stktake_data[stkdes]</td>
 				<td>$stktake_data[qty]</td>
@@ -65,7 +65,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

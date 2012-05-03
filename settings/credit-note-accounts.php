@@ -79,7 +79,7 @@ function get_setting_info ($_POST,$err="")
 		}
 
 		$account_listing .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$show_acc</td>
 				<td><input type='checkbox' name='show_account[$acc_arr[accid]]' value='yes' $show></td>
 			</tr>";
@@ -112,7 +112,7 @@ function get_setting_info ($_POST,$err="")
 			<tr>
 				<th>Select Account To Use As VAT Account</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$vataccdrop</td>
 			</tr>
 			".TBL_BR."
@@ -123,10 +123,10 @@ function get_setting_info ($_POST,$err="")
 			<tr>
 				<th>Sort By</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='sortmethod' value='nameacc' $sel1 onChange='document.form.submit();'> Account Name - Account Number</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='sortmethod' value='accname' $sel2 onChange='document.form.submit();'> Account Number - Account Name</td>
 			</tr>
 			".TBL_BR."

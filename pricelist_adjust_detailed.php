@@ -103,7 +103,7 @@ function enter($errors="")
 			<tr>
 				<td align='center'>
 					<table cellspacing='0' cellpadding='0' width='100%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Category Start</td>
 							<td>$cat_start_sel</td>
 							<td>Category End</td>
@@ -115,59 +115,59 @@ function enter($errors="")
 			<tr>
 				<td>
 					<table ".TMPL_tblDflts." width='100%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>&nbsp;</td>
 							<td colspan='4'>
 								<strong>Create new selling price by selecting one of the following methods.</strong>
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='radio' name='price_rad' value='price_all' $all_sel /></td>
 							<td>Increase existing selling prices by</td>
 							<td align='center'><input type='text' name='price_one' size='3' value='$price_one' /></td>
 							<td colspan='2'>(factor 1.1 or 1.2 ect.)</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='radio' name='price_rad' value='price_recent' $recent_sel /></td>
 							<td>Calculate new selling price by multiplying<br /> the most recent (not average) cost by factor</td>
 							<td align='center'><input type='text' name='price_two' size='3' value='$price_two' /></td>
 							<td colspan='2'>(1.45 or 1.55 ect)</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='radio' name='price_rad' value='price_multi' $multi_sel /></td>
 							<td colspan='4'>
 								<strong>Calculate New selling price by using staggered multiple of cost method below</strong>
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>A</td>
 							<td>For parts with a cost of between 0 and</td>
 							<td align='center'><input type='text' name='price_a' size='7' value='$price_a' /></td>
 							<td>multiple by factor</td>
 							<td align='center'><input type='text' name='factor_a' size='3' value='$factor_a' /></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>B</td>
 							<td>And for parts with a cost of between</td>
 							<td align='center'><input type='text' name='price_b' size='7' value='$price_b' /></td>
 							<td>A and B multiply by factor</td>
 							<td><input type='text' name='factor_b' size='3' value='$factor_b' /></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>C</td>
 							<td>And for parts with a cost of between</td>
 							<td align='center'><input type='text' name='price_c' size='7' value='$price_c' /></td>
 							<td>B and C multiply by factor</td>
 							<td><input type='text' name='factor_c' size='3' value='$factor_c'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>D</td>
 							<td>And for parts with a cost of between</td>
 							<td align='center'><input type='text' name='price_d' size='7' value='$price_d' /></td>
 							<td>C and D multiply by factor</td>
 							<td><input type='text' name='factor_d' size='3' value='$factor_d' /></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>E</td>
 							<td>And for parts with a cost of between</td>
 							<td align='center'><input type='text' name='price_e' size='7' value='$price_e' /></td>
@@ -310,7 +310,7 @@ function display()
 			if ($new_price == 0) continue;
 
 			$prices_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>($price_data[stkcod]) $price_data[stkdes]</td>
 					<td align='right'>".sprint($price_data["price"])."</td>
 					<td align='right'><input type='text' name='new_price[$price_data[stkid]]' value='".sprint($new_price)."' size='7' style='text-align: right' /></td>
@@ -334,7 +334,7 @@ function display()
 			if ($new_price == 0) continue;
 
 			$prices_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>($price_data[stkcod]) $price_data[stkdes]</td>
 					<td align='right'>".sprint($price_data["price"])."</td>
 					<td align='right'><input type='text' name='new_price[$price_data[stkid]]' value='".sprint($new_price)."' size='7' style='text-align: right' /></td>
@@ -357,7 +357,7 @@ function display()
 			if ($new_price == 0) continue;
 
 			$prices_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>($price_data[stkcod]) $price_data[stkdes]</td>
 					<td align='right'>".sprint($price_data["price"])."</td>
 					<td align='right'><input type='text' name='new_price[$price_data[stkid]]' value='".sprint($new_price)."' size='7' style='text-align: right' /></td>
@@ -382,7 +382,7 @@ function display()
 			if ($new_price == 0) continue;
 
 			$prices_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>($price_data[stkcod]) $price_data[stkdes]</td>
 					<td align='right'>".sprint($price_data["price"])."</td>
 					<td align='right'><input type='text' name='new_price[$price_data[stkid]]' value='".sprint($new_price)."' size='7' style='text-align: right' /></td>
@@ -406,7 +406,7 @@ function display()
 			if ($new_price == 0) continue;
 
 			$prices_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>($price_data[stkcod]) $price_data[stkdes]</td>
 					<td align='right'>".sprint($price_data["price"])."</td>
 					<td align='right'><input type='text' name='new_price[$price_data[stkid]]' value='".sprint($new_price)."' size='7' style='text-align: right' /></td>
@@ -431,7 +431,7 @@ function display()
 			if ($new_price == 0) continue;
 
 			$prices_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>($price_data[stkcod]) $price_data[stkdes]</td>
 					<td align='right'>".sprint($price_data["price"])."</td>
 					<td align='right'><input type='text' name='new_price[$price_data[stkid]]' value='".sprint($new_price)."' size='7' style='text-align: right' /></td>
@@ -455,7 +455,7 @@ function display()
 			if ($new_price == 0) continue;
 
 			$prices_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>($price_data[stkcod]) $price_data[stkdes]</td>
 					<td align='right'>".sprint($price_data["price"])."</td>
 					<td align='right'><input type='text' name='new_price[$price_data[stkid]]' value='".sprint($new_price)."' size='7' style='text-align: right' /></td>
@@ -465,7 +465,7 @@ function display()
 
 	if (empty($prices_out)) {
 		$prices_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'><li>No results found.</li></td>
 			</tr>";
 	}

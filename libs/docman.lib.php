@@ -62,7 +62,7 @@ $DOCLIB_DOCTYPESIN = array(
 function xin($typeid, $xin = ""){
 	global $DOCLIB_DOCTYPESIN;
 	if(!preg_match("/\d/", $typeid)){
-		return "<tr bgcolor='".TMPL_tblDataColor1."'><td>$DOCLIB_DOCTYPESIN[$typeid] No.</td>
+		return "<tr class='bg-odd'><td>$DOCLIB_DOCTYPESIN[$typeid] No.</td>
 		<td><input type=text size=4 name=xin value='$xin'></td></tr>";
 	}
 }
@@ -79,7 +79,7 @@ function xin_gw($typeid, $xin = ""){
 function xinc($typeid, $xin){
 	global $DOCLIB_DOCTYPESIN;
 	if(!preg_match("/\d/", $typeid)){
-		return "<tr bgcolor='".TMPL_tblDataColor1."'><td>$DOCLIB_DOCTYPESIN[$typeid] No.</td>
+		return "<tr class='bg-odd'><td>$DOCLIB_DOCTYPESIN[$typeid] No.</td>
 		<td><input type=hidden name=xin value='$xin'>$xin</td></tr>";
 	}
 }
@@ -101,7 +101,7 @@ function doclib_getdocs($typeid, $xin){
 	$ret = "";
 	if(pg_numrows($rs) > 0){
 		$ret = "<table border=0 cellspacing=1 cellpadding=3>
-		<tr bgcolor='".TMPL_tblDataColor2."'>";
+		<tr class='bg-even'>";
 		for($i = 0; $doc = pg_fetch_array($rs); $i++){
 			$ret .= "<td><a href='docman/doc-dload.php?docid=$doc[docid]'>$doc[docname]</a></td>";
 		}

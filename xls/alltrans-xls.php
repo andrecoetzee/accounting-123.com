@@ -55,12 +55,12 @@ function view()
                 <input type=hidden name=key value=viewtrans>
                 <input type=hidden name=search value=date>
                 <tr><th colspan=2>By Date Range</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td width=80% align=center><table><tr><td>
+                <tr class='bg-odd'><td width=80% align=center><table><tr><td>
                 <input type=text size=2 name=fday maxlength=2 value='01'></td><td>-</td><td><input type=text size=2 name=fmon maxlength=2  value='".date("m")."'></td><td>-</td><td><input type=text size=4 name=fyear maxlength=4 value='".date("Y")."'></td><td>
                 &nbsp;&nbsp;TO&nbsp;&nbsp;</td><td>
                 <input type=text size=2 name=today maxlength=2 value='".date("d")."'></td><td>-</td><td><input type=text size=2 name=tomon maxlength=2 value='".date("m")."'></td><td>-</td><td><input type=text size=4 name=toyear maxlength=4 value='".date("Y")."'></td></tr></table></td>
                 </td><td rowspan=2 valign=bottom><input type=submit value='Search'></td></tr>
-                <tr bgcolor='".TMPL_tblDataColor2."'><td>Select Period  <select name=prd>";
+                <tr class='bg-even'><td>Select Period  <select name=prd>";
                 db_conn(YR_DB);
                 $sql = "SELECT * FROM info WHERE prdname !=''";
                 $prdRslt = db_exec($sql);
@@ -88,10 +88,10 @@ function view()
                 <input type=hidden name=key value=viewtrans>
                 <input type=hidden name=search value=refnum>
                 <tr><th colspan=2>By Journal number</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td width=80% align=center>
+                <tr class='bg-odd'><td width=80% align=center>
                 From <input type=text size=5 name=fromnum> to <input type=text size=5 name=tonum>
                 </td><td rowspan=2 valign=bottom><input type=submit value='Search'></td></tr>
-                <tr bgcolor='".TMPL_tblDataColor2."'><td>Select Period <select name=prd>";
+                <tr class='bg-even'><td>Select Period <select name=prd>";
                 db_conn(YR_DB);
                 $sql = "SELECT * FROM info WHERE prdname !=''";
                 $prdRslt = db_exec($sql);
@@ -123,7 +123,7 @@ function view()
 				<input type='hidden' name='key' value='viewtrans'>
 				<input type='hidden' name='search' value='all'>
 				<tr><th colspan='2'>View All</th></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Period <select name='prd'>";
                 db_conn(YR_DB);
                 $sql = "SELECT * FROM info WHERE prdname !=''";

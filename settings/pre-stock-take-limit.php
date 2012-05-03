@@ -41,7 +41,7 @@ function get_limit_setting ($err="")
 			<tr>
 				<th>Display Limit</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' size='5' name='setting' value='$cur_setting'></td>
 			</tr>
 			".TBL_BR."

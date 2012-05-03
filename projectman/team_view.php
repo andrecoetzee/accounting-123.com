@@ -24,7 +24,7 @@ function display()
 	$team_out = "";
 	while ($team_data = pg_fetch_array($team_rslt)) {
 		$team_out .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$team_data[name]</td>
 							<td>$team_data[description]</td>
 							<td><a href='team_save.php?page_option=Edit&id=$team_data[id]'>Edit</a></td>
@@ -33,7 +33,7 @@ function display()
 
 	if (empty($team_out)) {
 		$team_out = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='3'><li>No teams found</li></td>
 						</tr>";
 	}

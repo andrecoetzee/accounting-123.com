@@ -76,7 +76,7 @@ function enter()
 			<tr>
 				<th>Year/Period Control</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='submit' value='$button'></td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -126,7 +126,7 @@ function confirm($_POST)
 			<tr>
 				<th colspan='2'>Year/Period Control</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$button</td>
 			</tr>
 			".TBL_BR."

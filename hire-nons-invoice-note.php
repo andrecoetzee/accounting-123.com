@@ -123,7 +123,7 @@ function details($_GET, $errata = "") {
 
 		# put in product
 		$products .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'>$i<input type='hidden' name=ids[] value='$stkd[id]'></td>
 						<td>$stkd[description]</td>
 						<td><input type='hidden' name=oqtys[] value='$stkd[qty]'><input type='text' size='4' name=qtys[] value='$stkd[qty]'></td>
@@ -186,15 +186,15 @@ function details($_GET, $errata = "") {
 							<tr>
 								<th colspan='2'> Customer Details </th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer</td>
 								<td valign='center'>$inv[cusname]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer Address</td>
 								<td valign='center'><pre>$inv[cusaddr]</pre></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer VAT Number</td>
 								<td valign='center'>$inv[cusvatno]</td>
 							</tr>
@@ -205,15 +205,15 @@ function details($_GET, $errata = "") {
 							<tr>
 								<th colspan='2'> Non-Stock Invoice Details </th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Non-Stock Invoice No.</td>
 								<td valign='center'>$inv[invnum]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Date</td>
 								<td valign='center'>".mkDateSelect("ninv",$ninv_year,$ninv_month,$ninv_day)."</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>VAT Inclusive</td>
 								<td valign='center'>$inv[chrgvat]</td>
 							</tr>
@@ -236,10 +236,10 @@ function details($_GET, $errata = "") {
 								<td rowspan='5' valign='top' width=15%><br></td>
 							</tr>
 							<tr>
-								<td bgcolor='".bgcolorg()."'><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td>
-								<td bgcolor='".bgcolorg()."' rowspan=4 align=center valign=top><textarea name='remarks' cols='20' rows='5'>".nl2br($inv['remarks'])."</textarea></td>
+								<td class='".bg_class()."'><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td>
+								<td class='".bg_class()."' rowspan=4 align=center valign=top><textarea name='remarks' cols='20' rows='5'>".nl2br($inv['remarks'])."</textarea></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td>
 							</tr>
 							<script>document.write(getQuicklinkSpecial());</script>
@@ -247,15 +247,15 @@ function details($_GET, $errata = "") {
 					</td>
 					<td align='right'>
 						<table ".TMPL_tblDflts." width='80%'>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>SUBTOTAL</td>
 								<td align='right'>".CUR." $inv[subtot]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>VAT $vat14</td>
 								<td align='right'>".CUR." $inv[vat]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<th>GRAND TOTAL</th>
 								<td align='right'>".CUR." $inv[total]</td>
 							</tr>
@@ -395,7 +395,7 @@ function confirm($_POST)
 		$i++;
 		# put in product
 		$products .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align=center>$i<input type='hidden' name=ids[] value='$stkd[id]'></td>
 						<td>$stkd[description]</td>
 						<td><input type='hidden' name='qtys[]' value='$qtys[$key]'>$qtys[$key]</td>
@@ -537,15 +537,15 @@ function confirm($_POST)
 							<tr>
 								<th colspan='2'> Customer Details </th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer</td>
 								<td valign='center'>$inv[cusname]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer Address</td>
 								<td valign='center'><pre>$inv[cusaddr]</pre></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer VAT Number</td>
 								<td valign='center'>$inv[cusvatno]</td>
 							</tr>
@@ -556,11 +556,11 @@ function confirm($_POST)
 							<tr>
 								<th colspan='2'> Non-Stock Invoice Details </th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Non-Stock Invoice No.</td>
 								<td valign='center'>$inv[invnum]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Date</td>
 								<td valign='center'>
 									<input type='hidden' size='2' name='ninv_day' maxlength='2' value='$ninv_day'>$ninv_day-
@@ -568,7 +568,7 @@ function confirm($_POST)
 									<input type='hidden' size='4' name='ninv_year' maxlength='4' value='$ninv_year'>$ninv_year
 								</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>VAT Inclusive</td>
 								<td valign='center'>$inv[chrgvat]</td>
 							</tr>
@@ -588,10 +588,10 @@ function confirm($_POST)
 								<td rowspan='5' valign='top' width='15%'><br></td>
 							</tr>
 							<tr>
-								<td bgcolor='".bgcolorg()."'><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td>
-								<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'>".nl2br($remarks)."</td>
+								<td class='".bg_class()."'><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td>
+								<td class='".bg_class()."' rowspan='4' align='center' valign='top'>".nl2br($remarks)."</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td>
 							</tr>
 							<script>document.write(getQuicklinkSpecial());</script>
@@ -599,15 +599,15 @@ function confirm($_POST)
 					</td>
 					<td align='right'>
 						<table ".TMPL_tblDflts." width='80%'>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>SUBTOTAL</td>
 								<td align='right'><input type='hidden' name='subtot' value='$SUBTOT'>".CUR." $SUBTOT</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>VAT $vat14</td>
 								<td align='right'><input type='hidden' name='vat' value='$VAT'>".CUR." $VAT</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<th>GRAND TOTAL</th>
 								<td align='right'><input type='hidden' name='total' value='$TOTAL'>".CUR." $TOTAL</td>
 							</tr>

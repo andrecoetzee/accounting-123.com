@@ -78,19 +78,19 @@ function enter($errors="")
 		<tr>
 			<th colspan='2'>Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Asset</td>
 			<td>$asset_sel</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Expected Back Date</td>
 			<td>".mkDateSelect("ex", $ex_year, $ex_month, $ex_day)."</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Description</td>
 			<td><input type='text' name='description' value='$description' /></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Notes</td>
 			<td><textarea name='notes' rows='5' cols='20'>$notes</textarea></td>
 		</tr>
@@ -137,7 +137,7 @@ function confirm()
 	$e_to = getDTEpoch("$ex_date 23:59:59");
 
 	if (!isSerialized($asset_id)) {
-		$qty_out = "<tr bgcolor='".bgcolorg()."'>
+		$qty_out = "<tr class='".bg_class()."'>
 			<td>Qty</td>
 			<td><input type='text' name='qty' value='$qty' /></td>
 		</tr>";
@@ -174,20 +174,20 @@ function confirm()
 		<tr>
 			<th colspan='2'>Confirm</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Asset</td>
 			<td>$asset_out</td>
 		</tr>
 		$qty_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Expected Back Date</td>
 			<td>$ex_date</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Description</td>
 			<td>$description</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Notes</td>
 			<td>$notes</td>
 		</tr>
@@ -263,7 +263,7 @@ function write()
 		<tr>
 			<th>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Successfully booked asset to the workshop.</li></td>
 		</tr>
 	</table>";

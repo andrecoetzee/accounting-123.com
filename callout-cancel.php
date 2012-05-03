@@ -119,7 +119,7 @@ function details($_GET)
 			}
 
 			# put in product
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td>$wh[whname]</td><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>$stkd[qty]</td><td>$stkd[unitcost]</td></tr>";
+			$products .="<tr class='bg-odd'><td>$wh[whname]</td><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>$stkd[qty]</td><td>$stkd[unitcost]</td></tr>";
 	}
 	$products .= "</table>";
 
@@ -132,20 +132,20 @@ function details($_GET)
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=40%>
 			<tr><th colspan=2> Customer Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Department</td><td valign=center>$callout[deptname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer</td><td valign=center>$callout[cusname] $callout[surname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Customer Address</td><td valign=center>".nl2br($callout['cusaddr'])."</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Order number</td><td valign=center>$callout[cordno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer Vat Number</td><td>$callout[cusvatno]</td></tr>
+			<tr class='bg-odd'><td>Department</td><td valign=center>$callout[deptname]</td></tr>
+			<tr class='bg-even'><td>Customer</td><td valign=center>$callout[cusname] $callout[surname]</td></tr>
+			<tr class='bg-odd'><td valign=top>Customer Address</td><td valign=center>".nl2br($callout['cusaddr'])."</td></tr>
+			<tr class='bg-even'><td>Customer Order number</td><td valign=center>$callout[cordno]</td></tr>
+			<tr class='bg-odd'><td>Customer Vat Number</td><td>$callout[cusvatno]</td></tr>
 			<tr><th colspan=2 valign=top>Comments</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2 align=center>".nl2br($callout['comm'])."</pre></td></tr>
+			<tr class='bg-even'><td colspan=2 align=center>".nl2br($callout['comm'])."</pre></td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Quote Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Job No.</td><td valign=center>$callout[calloutid]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Call Out Person</td><td valign=center>$callout[calloutp]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Service Date</td><td valign=center>$callout[odate]</td></tr>
+			<tr class='bg-even'><td>Job No.</td><td valign=center>$callout[calloutid]</td></tr>
+			<tr class='bg-even'><td>Call Out Person</td><td valign=center>$callout[calloutp]</td></tr>
+			<tr class='bg-odd'><td>Service Date</td><td valign=center>$callout[odate]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -156,9 +156,9 @@ function details($_GET)
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<p>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='callout-new.php'>New Call Out Document</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='callout-view.php'>View Call Out Documents</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-odd'><td><a href='callout-new.php'>New Call Out Document</a></td></tr>
+			<tr class='bg-odd'><td><a href='callout-view.php'>View Call Out Documents</a></td></tr>
+			<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>
 	</td><td align=right>
 	</td></tr>
@@ -243,13 +243,13 @@ function write($_POST)
 	$write = "
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Call Out Document Cancelled</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Call Out Document for customer <b>$cust[cusname] $cust[surname]</b> has been canceled.</td></tr>
+		<tr class='bg-even'><td>Call Out Document for customer <b>$cust[cusname] $cust[surname]</b> has been canceled.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='callout-view.php'>View Call Out Documents</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='callout-view.php'>View Call Out Documents</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

@@ -82,7 +82,7 @@ function viewAccountTypes()
 	while ( $row = pg_fetch_array($rslt) ) {
 
 		$OUTPUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$row[accname]</td>
 				<td><a href='accounttype-add.php?key=edit&acctype_id=$row[acctype_id]'>Edit</a></td>
 				<td><a href='accounttype-add.php?key=delete&acctype_id=$row[acctype_id]'>Delete</a></td>

@@ -42,11 +42,11 @@ if(isset($_POST["key"])) {
 $OUTPUT.="<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='team-add.php'>Add Team</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='team-list.php'>View Teams</a></td></tr>
+	<tr class='bg-odd'><td><a href='team-add.php'>Add Team</a></td></tr>
+	<tr class='bg-odd'><td><a href='team-list.php'>View Teams</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 require("template.php");
@@ -199,7 +199,7 @@ function update($_POST) {
 
 	$out="<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>System updated</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Team link has been set.</td></tr>
+	<tr class='bg-odd'><td>Team link has been set.</td></tr>
 	</table>";
 
 	return $out;

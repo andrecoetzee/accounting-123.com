@@ -50,7 +50,7 @@ function cust_slct($message="")
 		<tr>
 			<th colspan='2'>Search</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='cust_search' value='$cust_search' /></td>
 			<td><input type='submit' value='Search &raquo' /></td>
 		</tr>
@@ -70,7 +70,7 @@ function cust_slct($message="")
 			$cust_out .= "<tr>";
 		}
 
-		$cust_out .= "<td bgcolor='".bgcolorg()."' align='center'>
+		$cust_out .= "<td class='".bg_class()."' align='center'>
 			<a href='".SELF."?key=basis&cust_id=$cust_data[cusnum]'>
 				$cust_data[surname] $cust_data[cusname]
 			</a>
@@ -85,7 +85,7 @@ function cust_slct($message="")
 	}
 
 	if (empty($cust_out)) {
-		$cust_out = "<tr bgcolor='".bgcolorg()."'>
+		$cust_out = "<tr class='".bg_class()."'>
 			<td><li>No customers found.</li></td>
 		</tr>";
 	}
@@ -161,7 +161,7 @@ function basis()
 			}
 		}
 
-		$asset_out .= "<tr bgcolor='".bgcolorg()."'>
+		$asset_out .= "<tr class='".bg_class()."'>
 			<td>$asset_data[des]</td>
 			<td>".getSerial($asset_data["id"])."</td>
 			<td>$asset_data[locat]</td>
@@ -188,7 +188,7 @@ function basis()
 
 	if (empty($asset_out)) {
 		$asset_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='6'><li>$n_msg</li></td>
 		</tr>";
 	}
@@ -206,14 +206,14 @@ function basis()
 		<tr>
 			<th colspan='2'>Search</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='asset_search' value='$asset_search' /></td>
 			<td><input type='submit' value='Search &raquo' /></td>
 		</tr>
 		<tr>
 			<th colspan='2'>Customer</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>
 				<a href='javascript:".
 				"popupOpen(\"../cust-det.php?cusnum=$cust_data[cusnum]\");'>
@@ -280,7 +280,7 @@ function save()
 
 	pglib_transaction("COMMIT");
 
-	$message = "<tr bgcolor='".bgcolorg()."'>
+	$message = "<tr class='".bg_class()."'>
 		<td colspan='2'><li>Successfully saved customer basis</li></td>
 	</tr>";
 

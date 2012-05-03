@@ -24,7 +24,7 @@ function display()
 		$user_rslt = db_exec($sql) or errDie("Unable to retrieve users.");
 		$user_data = pg_fetch_array($user_rslt);
 
-		$people_out .= "<tr bgcolor='".bgcolorg()."'>
+		$people_out .= "<tr class='".bg_class()."'>
 			<td>$user_data[username]</td>
 			<td>$people_data[description]</td>
 			<td>
@@ -36,7 +36,7 @@ function display()
 	}
 
 	if (empty($people_out)) {
-		$people_out = "<tr bgcolor='".bgcolorg()."'>
+		$people_out = "<tr class='".bg_class()."'>
 			<td colspan='3'><li>No people found</li></td>
 		</tr>";
 	}

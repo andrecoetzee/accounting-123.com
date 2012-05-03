@@ -57,13 +57,13 @@ $view = "
 <form action='".SELF."' method=post name=form>
 <input type=hidden name=key value=confirm>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Select Category type</td><td valign=center>
+<tr class='bg-odd'><td>".REQ."Select Category type</td><td valign=center>
 <select name='type'>
 <option value='I'>Income</option>
 <option value='B'>Balance</option>
 <option value='E'>Expenditure</option>
 </select></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Category Name</td><td valign=center><input type=text name=catname maxlength=40></td></tr>
+<tr class='bg-even'><td>".REQ."Category Name</td><td valign=center><input type=text name=catname maxlength=40></td></tr>
 <tr><td><input type=button value='&laquo; Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Add Category &raquo;'></td></tr>
 <p>
 <tr><th>Quick Links</th></tr>
@@ -135,8 +135,8 @@ $confirm =
 <input type=hidden name=catname value='$catname'>
 <input type=hidden name=tab value='$tab'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Category Type</td><td>$tab</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Category Name</td><td>$catname</td></tr>
+<tr class='bg-odd'><td>".REQ."Category Type</td><td>$tab</td></tr>
+<tr class='bg-even'><td>".REQ."Category Name</td><td>$catname</td></tr>
 <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Add Category &raquo'></td></tr>
 <tr><th>Quick Links</th></tr>
 <script>document.write(getQuicklinkSpecial());</script>

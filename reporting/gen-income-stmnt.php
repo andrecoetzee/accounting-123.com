@@ -52,7 +52,7 @@ function slct(){
 	<input type=hidden name=key value=print>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=200>
 		<tr><th colspan=2>Report Type</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=radio name=summary value=yes>Summarized</td>
+		<tr class='bg-odd'><td><input type=radio name=summary value=yes>Summarized</td>
 		<td><input type=radio name=summary value=no checked=yes>Detailed</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='Cancel' onClick='javascript:history.back();'></td><td align=right><input type=submit value='Print'></td></tr>
@@ -106,11 +106,11 @@ function sheet($_POST)
 	<tr><td colspan=3><br></td></tr>
 	".$cosrep->getReport()."
 	<tr><td colspan=3><br></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td align=right class=tot><br></td><td class=tot><b><u>Gross Profit</u></b></td><td align=right class=tot><b>$grosamt</b></td></tr>
+	<tr class='bg-even'><td align=right class=tot><br></td><td class=tot><b><u>Gross Profit</u></b></td><td align=right class=tot><b>$grosamt</b></td></tr>
 	<tr><td colspan=3><br></td></tr>
 	".$exprep->getReport()."
 	<tr><td><br></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td align=right class=tot><br></td><td class=tot><b><u>Nett Profit</u></b></td><td align=right class=tot><b>$nettamt</b></td></tr>
+	<tr class='bg-even'><td align=right class=tot><br></td><td class=tot><b><u>Nett Profit</u></b></td><td align=right class=tot><b>$nettamt</b></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=25%>
@@ -145,13 +145,13 @@ class grp_report{
 		# all connects to core
 		db_conn("core");
 
-		$products = "<tr bgcolor='".TMPL_tblDataColor1."'><th colspan=3>$name</th></tr>";
+		$products = "<tr class='bg-odd'><th colspan=3>$name</th></tr>";
 
 		$sql = "SELECT * FROM stmntgrps WHERE typ = '$typ'";
 		$grpRslt = db_exec ($sql) or errDie ("Unable to get groups information.");
 		while($grp = pg_fetch_array($grpRslt)){
 			$grpbal = sprint(0);
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><b>$grp[grpname]<b></td>";
+			$products .="<tr class='bg-odd'><td colspan=2><b>$grp[grpname]<b></td>";
 
 			$sql = "SELECT * FROM stmntgrpaccids WHERE gkey = '$grp[gkey]' AND typ = '$typ'";
 			$gaccRslt = db_exec ($sql) or errDie ("Unable to get group accounts information.");
@@ -165,8 +165,8 @@ class grp_report{
 			$products .="<td align=right>$grpbal</td></tr>";
 			$balance = sprint($balance + $grpbal);
 		}
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=3><br></td></tr>";
-		$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td align=right><br></td><td class=tot><b>Total $name</b></td><td align=right class=tot><b>$balance</b></td></tr>";
+		$products .="<tr class='bg-odd'><td colspan=3><br></td></tr>";
+		$products .="<tr class='bg-even'><td align=right><br></td><td class=tot><b>Total $name</b></td><td align=right class=tot><b>$balance</b></td></tr>";
 
 		$this->balance = $balance;
 
@@ -198,13 +198,13 @@ class acc_report{
 		# all connects to core
 		db_conn("core");
 
-		$products = "<tr bgcolor='".TMPL_tblDataColor1."'><th colspan=3>$name</th></tr>";
+		$products = "<tr class='bg-odd'><th colspan=3>$name</th></tr>";
 
 		$sql = "SELECT * FROM stmntgrps WHERE typ = '$typ'";
 		$grpRslt = db_exec ($sql) or errDie ("Unable to get groups information.");
 		while($grp = pg_fetch_array($grpRslt)){
 			$grpbal = 0;
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><b><u>$grp[grpname]<u><b></td><td> <br> </td><tr>";
+			$products .="<tr class='bg-odd'><td colspan=2><b><u>$grp[grpname]<u><b></td><td> <br> </td><tr>";
 
 			$sql = "SELECT * FROM stmntgrpaccids WHERE gkey = '$grp[gkey]' AND typ = '$typ'";
 			$gaccRslt = db_exec ($sql) or errDie ("Unable to get group accounts information.");
@@ -218,14 +218,14 @@ class acc_report{
 				$bal = pg_fetch_array($balRslt);
 				$bal['bal'] = sprint($bal['bal']);
 				$grpbal = sprint($grpbal + $bal['bal']);
-				$products .="<tr bgcolor='".TMPL_tblDataColor1."'>
+				$products .="<tr class='bg-odd'>
 				<td colspan=2><blockquote>$acc[topacc]/$acc[accnum] - $acc[accname]</blockquote></td><td align=right>$bal[bal]</td></tr>";
 			}
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2></td><td align=right class=tot>$grpbal</td></tr>";
+			$products .="<tr class='bg-odd'><td colspan=2></td><td align=right class=tot>$grpbal</td></tr>";
 			$balance = sprint($balance + $grpbal);
 		}
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=3><br></td></tr>";
-		$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td><br></td><td class=tot><b>Total $name</b></td><td align=right class=tot><b>$balance</b></td></tr>";
+		$products .="<tr class='bg-odd'><td colspan=3><br></td></tr>";
+		$products .="<tr class='bg-even'><td><br></td><td class=tot><b>Total $name</b></td><td align=right class=tot><b>$balance</b></td></tr>";
 
 		$this->balance = $balance;
 

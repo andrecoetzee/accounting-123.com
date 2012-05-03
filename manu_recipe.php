@@ -98,7 +98,7 @@ function recipe()
 	// Just a dummy message to make the user feel good about his/herself :)
 	if (isset($save) && $save) {
 		$msg = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='3'><li>The recipe has been successfully saved.</li></td>
 			</tr>";
 	} else {
@@ -151,7 +151,7 @@ function recipe()
 				<th>Select Category</th>
 				<th>Select Classification</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$cat_drop</td>
 				<td align='center'>$class_drop</td>
 			</tr>";
@@ -204,17 +204,17 @@ function recipe()
 				<th>Store</th>
 				<th>Search Code/Description</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$store_drop</td>
 				<td align='center'><input type='text' name='search_string' value='$search_string'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' colspan='2'><input type='submit' name='search' value='Search'></td>
 			</tr>
 			<tr>
 				<th colspan='4'>Stock Item</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'>$m_stock_sel</td>
 			</tr>
 		</table>
@@ -360,7 +360,7 @@ function recipe()
 			$cost = $stock_data["csprice"] * $recipe_data["qty"];
 			$cost_total += $cost;
 			$recipe_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>($stock_data[stkcod]) $stock_data[stkdes]</td>
 					<td align='center'>$recipe_data[qty]</td>
 					<td align='right'>".sprint($cost)."</td>
@@ -383,7 +383,7 @@ function recipe()
 			<tr>
 				<th colspan='4'>Stock Used in Manufacturing</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'>
 					<table cellpadding='0' cellspacing='1'>
 						<tr>
@@ -408,14 +408,14 @@ function recipe()
 				<th>Cost</th>
 				<th>Add<br />Remove</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$s_stock_sel</td>
 				<td><input type='text' name='qty' size='4' value='0' style='text-align: center'></td>
 				<td>&nbsp;</td>
 				<td><input type='submit' name='key' value='Add' style='width: 100%'></td>
 			</tr>
 			$recipe_out
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>Total</td>
 				<td align='right'>".sprint($cost_total)."</td>
 				<td>&nbsp;</td>
@@ -431,7 +431,7 @@ function recipe()
 		</center>";
 	} else {
 		$OUTPUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><li>Please select a stock item to continue</li></td>
 			</tr>
 		</table>

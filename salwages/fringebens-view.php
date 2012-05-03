@@ -70,7 +70,7 @@ function viewFringe()
 		$acc = pg_fetch_array($accRslt);
 
 		$OUTPUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$myFringe[fringeben]</td>
 				<td>$acc[accname]</td>
 				<td>$myFringe[type]</td>

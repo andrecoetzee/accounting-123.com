@@ -36,7 +36,7 @@ function display()
 	$inv_out = "";
 	while ($inv_data = pg_fetch_array($inv_rslt)) {
 		$inv_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$inv_data[sdate]</td>
 			<td align='center'>$inv_data[invnum]</td>
 			<td>$inv_data[cusname]</td>
@@ -52,7 +52,7 @@ function display()
 
 	if (empty($inv_out)) {
 		$inv_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='6'><li>No results found.</li></td>
 		</tr>";
 	}
@@ -65,7 +65,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -83,7 +83,7 @@ function display()
 			<th>Credit Card</th>
 		</tr>
 		$inv_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'><b>Total</b></td>
 			<td align='right'><b>".sprint($total_cash)."</b></td>
 			<td align='right'><b>".sprint($total_cheque)."</b></td>

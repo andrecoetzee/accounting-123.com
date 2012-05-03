@@ -56,7 +56,7 @@ function stock_out($error="")
 	$items_out = "";
 	while (list($id ,$stkcod, $stkdes, $units, $qty) = pg_fetch_array($stock_rslt)) {
 		$items_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>($stkcod) $stkdes</td>
 			<td>$units</td>
 			<td>$qty</td>
@@ -93,7 +93,7 @@ function stock_out($error="")
 			<th>Remove</th>
 		</tr>
 		$items_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$stock_sel</td>
 			<td>&nbsp;</td>
 			<td><input type='text' name='qty' value='$qty' size='3' /></td>
@@ -243,7 +243,7 @@ function dispatch_out()
 			if (!isset($serial2[$id])) $serial2[$id] = "";
 		
 			$items_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>($stkcod) $stkdes</td>
 				<td>$qty</td>
 				<td>
@@ -275,7 +275,7 @@ function dispatch_out()
 		<tr>
 			<th colspan='2'>Scan Picking Slip</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='barcode' value='$barcode' /></td>
 			<td><input type='submit' value='Scan &raquo' />
 		</tr>

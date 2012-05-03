@@ -43,10 +43,10 @@ if(isset($_POST["key"])) {
 $OUTPUT.="<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='action-add.php'>Add Action</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='action-list.php'>View Actions</a></td></tr>
+	<tr class='bg-odd'><td><a href='action-add.php'>Add Action</a></td></tr>
+	<tr class='bg-odd'><td><a href='action-list.php'>View Actions</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+	<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
 	</table>";
 
 require("template.php");
@@ -58,7 +58,7 @@ function enter() {
 	<input type=hidden name=key value='confirm'>
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th colspan=2>Action Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td><input type=text size=20 name=des value=''></td></tr>
+	<tr class='bg-even'><td>Description</td><td><input type=text size=20 name=des value=''></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -76,7 +76,7 @@ function entererr($_POST,$errors="") {
 	<input type=hidden name=key value='confirm'>
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th colspan=2>Action Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td><input type=text size=20 name=des value='$des'></td></tr>
+	<tr class='bg-even'><td>Description</td><td><input type=text size=20 name=des value='$des'></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -107,7 +107,7 @@ function confirm($_POST,$errors="") {
 	<input type=hidden name=key value='write'>
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th colspan=2>Category Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td><input type=hidden name=des value='$des'>$des</td></tr>
+	<tr class='bg-even'><td>Description</td><td><input type=hidden name=des value='$des'>$des</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>";

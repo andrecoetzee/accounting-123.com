@@ -183,7 +183,7 @@ function customize($_POST)
 
 	// has any accounts been added?
 	if (!pg_num_rows($sbsacc_rslt)) {
-		$acc_list .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+		$acc_list .= "<tr class='bg-odd'>
 			<td>No accounts have been added, ALL balance accounts will be displayed.</td>
 		</tr>";
 	}
@@ -303,27 +303,27 @@ function customize($_POST)
 						<tr>
 							<th colspan='2'>Headings</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Heading 1</td>
 							<td><input type='text' name='heading_1' value='$heading_1'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Heading 2</td>
 							<td><input type='text' name='heading_2' value='$heading_2'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Heading 3</td>
 							<td><input type='text' name='heading_3' value='$heading_3'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Heading 4</td>
 							<td><input type='text' name='heading_4' value='$heading_4'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Capital Employed</td>
 							<td><input type='text' name='capital_employed_out' value='$capital_employed_out'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Employment of Capital</td>
 							<td><input type='text' name='employment_of_capital_out' value='$employment_of_capital_out'></td>
 						</tr>
@@ -332,31 +332,31 @@ function customize($_POST)
 						<tr>
 							<th colspan='2'>Display</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Last Year - Selected Month</td>
 							<td><input type='checkbox' name='last_year_same_month' value='true' $lysm \></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>This Year - Movement To Selected Month</td>
 							<td><input type='checkbox' name='this_year_movement_to_date' value='true' $tymtd \></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>This Year - To Selected Month</td>
 							<td><input type='checkbox' name='this_year_year_to_date' value='true' $tyytd \></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Last Year - Year End</td>
 							<td><input type='checkbox' name='last_year_year_to_date' value='true' $lyytd \></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Selected Month Budget</td>
 							<td><input type='checkbox' name='budget' value='true' $budget \></td>
 						</tr>
-						<!--<tr bgcolor='".bgcolorg()."'>
+						<!--<tr class='".bg_class()."'>
 							<td>This Year Budget To Month</td>
 							<td><input type='checkbox' name='this_year_budget' value='true' $tybudget \></td>
 						</tr>//-->
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Zero Balances</td>
 							<td><input type='checkbox' name='zero_balance' value='checked' $zero_balance></td>
 						</tr>
@@ -365,13 +365,13 @@ function customize($_POST)
 						<tr>
 							<th>Year</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>$year_sel</td>
 						</tr>
 						<tr>
 							<th>Month</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>$month_to_sel</td>
 						</tr>
 					</table>
@@ -379,7 +379,7 @@ function customize($_POST)
 						<!--<tr>
 							<th>Add Account</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>\$acc_sel<input type='submit' name='key' value='Add'></td>
 						</tr>//-->
 						<tr>
@@ -499,7 +499,7 @@ function note_view($_POST, $msg="")
 			<tr>
 				<th>$note_data[accname]</th>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td><textarea name='note' rows='30' cols='50'>".base64_decode($note_data["note"])."</textarea></td>
 			</tr>
 			<tr>
@@ -555,7 +555,7 @@ function note_save($_POST)
 		$sbsacc_rslt = db_exec($sql) or errDie("Unable to insert account information into the accounts list.");
 	}
 
-	return note_view($_POST, "<tr bgcolor='".bgcolorg()."'><td><li>Note has been updated.</li></td></tr>");
+	return note_view($_POST, "<tr class='".bg_class()."'><td><li>Note has been updated.</li></td></tr>");
 
 }
 

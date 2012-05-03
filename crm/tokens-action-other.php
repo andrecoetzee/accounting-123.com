@@ -64,7 +64,7 @@ function enter($_GET) {
 	<input type=hidden name=key value='confirm'>
 	<input type=hidden name=id  value='$id'>
 	<tr><th colspan=2>Action details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Action</td><td><input type=text name=action value='' size=20></td></tr>
+	<tr class='bg-odd'><td>Action</td><td><input type=text name=action value='' size=20></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -93,7 +93,7 @@ function error($_POST,$errors="") {
 	<input type=hidden name=key value='confirm'>
 	<input type=hidden name=id  value='$id'>
 	<tr><th colspan=2>Action details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Action</td><td><input type=text name=action value='$action' size=20></td></tr>
+	<tr class='bg-odd'><td>Action</td><td><input type=text name=action value='$action' size=20></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -135,7 +135,7 @@ function confirm($_POST) {
 	<input type=hidden name=id  value='$id'>
 	<input type=hidden name=action value='$action'>
 	<tr><th colspan=2>Action details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Action</td><td>$action</td></tr>
+	<tr class='bg-odd'><td>Action</td><td>$action</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -178,7 +178,7 @@ function write($_POST) {
 
 	$out="<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Action Recorded</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>$action recorded</td></tr>
+	<tr class='bg-odd'><td>$action recorded</td></tr>
 	</table>";
 
 	return $out;

@@ -53,12 +53,12 @@ function analyze($filename)
 		foreach($file as $key => $value){
 			$info = explode(",", $value);
 			if(count($info) < 3){
-				$analyze .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2 align=center>$info[0]</td></tr>";
+				$analyze .= "<tr class='bg-even'><td colspan=2 align=center>$info[0]</td></tr>";
 			}else{
 				foreach($info as $key2 => $infos){
 					$info[$key2] = str_replace("\"", "", $info[$key2]);
 				}
-				$analyze .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$info[1]</td><td>$info[2]</td></tr>";
+				$analyze .= "<tr class='bg-odd'><td>$info[1]</td><td>$info[2]</td></tr>";
 			}
 		}
 		$analyze .= "</table>";

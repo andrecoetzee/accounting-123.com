@@ -177,27 +177,27 @@ function edit($cashid)
 						<th>Field</th>
 						<th>Value</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Date</td>
 						<td>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Paid to</td>
 						<td valign='center'><input size='20' name='name' value='$cash[name]'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Details</td>
 						<td valign='center'><textarea cols='18' rows='2' name='det'>$cash[det]</textarea></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Available Funds</td>
 						<td><input type='hidden' name='bal' value='$accb[bal]'>".CUR." $accb[bal]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Amount</td>
 						<td valign='center'>".CUR." <input type='text' size='10' name='amount' value='$cash[amount]'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>VAT Inclusive</td>
 						<td valign='center'>
 							Yes <input type='radio' size='7' name='chrgvat' value='inc' $chin>
@@ -205,11 +205,11 @@ function edit($cashid)
 							No VAT<input type='radio' size='7' name='chrgvat' value='nov' $chno>
 						</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>VAT Code</td>
 						<td>$Vatcodes</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Account Paid to</td>
 						<td>$accnts</td>
 					</tr>
@@ -225,10 +225,10 @@ function edit($cashid)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='../main.php'>Main Menu</a></td>
 					</tr>
 				</table>";
@@ -327,27 +327,27 @@ function error($_POST, $err = "")
 						<th>Field</th>
 						<th>Value</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Date</td>
 						<td>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Paid to</td>
 						<td valign='center'><input size='20' name='name' value='$name'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Details</td>
 						<td valign='center'><textarea cols='18' rows='2' name='det'>$det</textarea></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Available Funds</td>
 						<td><input type='hidden' name='bal' value='$accb[bal]'>".CUR." $accb[bal]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Amount</td>
 						<td valign='center'>".CUR." <input type='text' size='10' name='amount' value='$amount'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>VAT Inclusive</td>
 						<td valign='center'>
 							Yes <input type='radio' size='7' name='chrgvat' value='inc' $chin>
@@ -355,11 +355,11 @@ function error($_POST, $err = "")
 							No VAT <input type='radio' size='7' name='chrgvat' value='nov' $chno>
 						</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>VAT Code</td>
 						<td>$Vatcodes</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Account Paid to</td>
 						<td>$accnts</td>
 					</tr>
@@ -376,10 +376,10 @@ function error($_POST, $err = "")
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='../main.php'>Main Menu</a></td>
 					</tr>
 				</table>";
@@ -463,31 +463,31 @@ function confirm($_POST)
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td valign='center'>$date</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Paid to</td>
 							<td valign='center'>$name</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Details</td>
 							<td valign='center'>$det</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td valign='center'>".CUR." $amount</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Inclusive</td>
 							<td valign='center'>$chrgvat</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Code</td>
 							<td>$code</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account Paid to</td>
 							<td valign='center'>$accnt[topacc]/$accnt[accnum] - $accnt[accname]</td>
 						</tr>
@@ -503,13 +503,13 @@ function confirm($_POST)
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='petty-req-add.php'>Add Petty Cash Requisition</a></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='../main.php'>Main Menu</a></td>
 						</tr>
 					</table>";
@@ -575,13 +575,13 @@ function write($_POST)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='petty-req-add.php'>Add Petty Cash Requisition</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='../main.php'>Main Menu</a></td>
 					</tr>
 				</table>";

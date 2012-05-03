@@ -77,7 +77,7 @@ function get_employee ()
 			<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<form action='".SELF."' method=post>
 				<input type=hidden name=key value='confirm'>
-				<tr bgcolor='".TMPL_tblDataColor1."'>
+				<tr class='bg-odd'>
 					<td>$emp_drop</td>
 				</tr>
 				<tr>
@@ -113,7 +113,7 @@ function show_training ($empnum = "")
 	$get_trains = "SELECT * FROM training WHERE empnum = '$empnum' AND div = '".USER_DIV."'";
 	$run_trains = db_exec($get_trains);
 	if(pg_numrows($run_trains) < 1){
-		$listing = "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan='4'>No qualifications recorded for this staff member.</td></tr>";
+		$listing = "<tr class='bg-odd'><td colspan='4'>No qualifications recorded for this staff member.</td></tr>";
 	}else {
 		$listing = "";
 		$i = 0;

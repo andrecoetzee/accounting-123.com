@@ -64,11 +64,11 @@ function view()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>From :</td>
 				<td valign='center'>".mkDateSelect("from",date("Y"),date("m"),"01")."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>To :</td>
 				<td valign='center'>".mkDateSelect("to")."</td>
 			</tr>
@@ -92,13 +92,13 @@ function view()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='petty-req-add.php'>Add Petty Cash Requisition</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -211,7 +211,7 @@ function viewcash($_POST)
 			$vatamt = sprint ($vatamt);
 
 			$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cash[date]</td>
 					<td>$cash[name]</td>
 					<td>$cash[det]</td>
@@ -237,11 +237,11 @@ function viewcash($_POST)
 		# print the total
 		$OUTPUT .= "
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg() ."'>
+			<tr class='".bg_class()."''>
 				<td colspan='3'><b>Total Requisitions</b></td>
 				<td><b>".CUR." ".sprint($rtotal)."</b></td>
 			</tr>
-			<tr bgcolor='".bgcolorg() ."'>
+			<tr class='".bg_class()."''>
 				<td colspan='3'><b>Total Outstanding Requisitions</b></td>
 				<td><b>".CUR." ".sprint($totout)."</b></td>
 			</tr>";
@@ -254,13 +254,13 @@ function viewcash($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='petty-req-add.php'>Add Petty Cash Requisition</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -342,7 +342,7 @@ function viewallcash($_POST)
 			$vatamt = sprint ($vatamt);
 
 			$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cash[date]</td>
 					<td>$cash[name]</td>
 					<td>$cash[det]</td>
@@ -366,11 +366,11 @@ function viewallcash($_POST)
 		# print the total
 		$OUTPUT .= "
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg() ."'>
+			<tr class='".bg_class()."''>
 				<td colspan='3'><b>Total Requisitions</b></td>
 				<td><b>".CUR." ".sprint($rtotal)."</b></td>
 			</tr>
-			<tr bgcolor='".bgcolorg() ."'>
+			<tr class='".bg_class()."''>
 				<td colspan='3'><b>Total Outstanding Requisitions</b></td>
 				<td><b>".CUR." ".sprint($totout)."</b></td>
 			</tr>";
@@ -383,13 +383,13 @@ function viewallcash($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='petty-req-add.php'>Add Petty Cash Requisition</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

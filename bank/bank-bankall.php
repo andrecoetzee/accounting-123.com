@@ -99,7 +99,7 @@ function confirm($_POST)
 				$tot = $cash['amount'];
 				}
         }
-		$OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=7><b>Total Outstanding</b></td><td colspan=2><b>".CUR." $tot</b></td></tr>
+		$OUTPUT .= "<tr class='bg-even'><td colspan=7><b>Total Outstanding</b></td><td colspan=2><b>".CUR." $tot</b></td></tr>
         			<tr><td colspan=8><br></td><td><input type=submit value='Confirm'></td></tr></form></table>";
         return $OUTPUT;
 }

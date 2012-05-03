@@ -62,7 +62,7 @@ function slctAcc()
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account Name</td>
 					<td>
 						<select name='accid'>";
@@ -84,15 +84,15 @@ function slctAcc()
 					</td>
 					<td><input type='submit' name='details' value='View Transactions'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='3'><br></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account Number</td>
 					<td><input type='text' name='topacc' size='3' maxlength='3'> / <input type='text' name='accnum' size='3' maxlength='3'></td>
 					<td><input type='submit' value='View Transactions'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Period</td>
 					<td valign='center' colspan='3'>
 						<select name='prd'>";

@@ -48,7 +48,7 @@ if(isset($_POST["key"])) {
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='../customers-view.php'>View Customers</a></td>
 				</tr>
 			</table>";
@@ -84,7 +84,7 @@ function select_file ()
 			<tr>
 				<th colspan='2'>File details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Please select customer csv</td>
 				<td><input type='file' name='compfile'></td>
 			</tr>
@@ -171,7 +171,7 @@ function confirm($_POST,$_FILES)
 				<tr>
 					<th colspan='2'>Select Department</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'>$depdrop</td>
 				</tr>
 				".TBL_BR."
@@ -212,7 +212,7 @@ function confirm($_POST,$_FILES)
 		}
 
 		$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$fd[des1]</td>
 					<td>$fd[des2]</td>
 					<td>$fd[des3]</td>
@@ -334,7 +334,7 @@ function write($_POST)
 				<tr>
 					<th>Import Complete</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Customers have been successfully imported.</td>
 				</tr>
 			</table>

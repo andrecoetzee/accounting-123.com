@@ -83,20 +83,20 @@ $view = "
 <input type=hidden name=key value=details>
 $err
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer Name</td><td valign=center><input type=text size=20 name=cusname value='$cusname'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td rowspan=3 valign=top>Customer Address</td><td valign=center><input type=text size=20 name=addr1 value='$addr1'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><!-- rowspan --><td><input type=text size=20 name=addr2  value='$addr2'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td><input type=text size=20 name=addr3 value='$addr3'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td rowspan=3 valign=top>Customer Postal Address</td><td valign=center><input type=text size=20 name=paddr1 value='$paddr1'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td><input type=text size=20 name=paddr2 value='$paddr2'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><!-- rowspan --><td><input type=text size=20 name=paddr3 value='$paddr3'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Telephone No.</td><td valign=center><input type=text size=10 name=tel value='$tel'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Fax No.</td><td valign=center><input type=text size=10 name=fax value='$fax'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>E-mail Address</td><td valign=center><input type=text size=20 name=email value='$email'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Order Date</td><td valign=center><input type=text size=2 name=oday maxlength=2>-<input type=text size=2 name=omon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=oyear maxlength=4 value='".date("Y")."'> DD-MM-YYYY</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms</td><td valign=center><input type=text size=10 name=terms> days</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Invoice date</td><td valign=center><input type=text size=2 name=invday maxlength=2 value='".date("d")."'>-<input type=text size=2 name=invmon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=invyear maxlength=4 value='".date("Y")."'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock Account</td><td valign=center>$stockacc</td></tr>
+<tr class='bg-odd'><td>Customer Name</td><td valign=center><input type=text size=20 name=cusname value='$cusname'></td></tr>
+<tr class='bg-even'><td rowspan=3 valign=top>Customer Address</td><td valign=center><input type=text size=20 name=addr1 value='$addr1'></td></tr>
+<tr class='bg-odd'><!-- rowspan --><td><input type=text size=20 name=addr2  value='$addr2'></td></tr>
+<tr class='bg-even'><!-- rowspan --><td><input type=text size=20 name=addr3 value='$addr3'></td></tr>
+<tr class='bg-odd'><td rowspan=3 valign=top>Customer Postal Address</td><td valign=center><input type=text size=20 name=paddr1 value='$paddr1'></td></tr>
+<tr class='bg-even'><!-- rowspan --><td><input type=text size=20 name=paddr2 value='$paddr2'></td></tr>
+<tr class='bg-odd'><!-- rowspan --><td><input type=text size=20 name=paddr3 value='$paddr3'></td></tr>
+<tr class='bg-odd'><td>Telephone No.</td><td valign=center><input type=text size=10 name=tel value='$tel'></td></tr>
+<tr class='bg-even'><td>Fax No.</td><td valign=center><input type=text size=10 name=fax value='$fax'></td></tr>
+<tr class='bg-odd'><td>E-mail Address</td><td valign=center><input type=text size=20 name=email value='$email'></td></tr>
+<tr class='bg-even'><td>Order Date</td><td valign=center><input type=text size=2 name=oday maxlength=2>-<input type=text size=2 name=omon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=oyear maxlength=4 value='".date("Y")."'> DD-MM-YYYY</td></tr>
+<tr class='bg-odd'><td>Terms</td><td valign=center><input type=text size=10 name=terms> days</td></tr>
+<tr class='bg-even'><td>Invoice date</td><td valign=center><input type=text size=2 name=invday maxlength=2 value='".date("d")."'>-<input type=text size=2 name=invmon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=invyear maxlength=4 value='".date("Y")."'></td></tr>
+<tr class='bg-odd'><td>Stock Account</td><td valign=center>$stockacc</td></tr>
 <tr><td><input type=button value='< Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Add >'></td></tr>
 </form>
 </table>";
@@ -179,7 +179,7 @@ function details($_POST)
         <input type=hidden name=stockacc value='$stockacc'>
         <table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width='25%' border=0>
 	        <tr><th class=h4>CUSTOMER ADDRESS</th></tr>
-	        <tr bgcolor='".TMPL_tblDataColor1."'><td>
+	        <tr class='bg-odd'><td>
                         <b>$cusname</b>
                         <p>$addr1<br>$addr2<br>$addr3
                         <p>Tel : $tel<br>Fax : $fax<br>$email<br>
@@ -191,7 +191,7 @@ function details($_POST)
 
         # input boxes
         for($i = 5; $i!=0; $i--){
-                $view .= "<tr bgcolor='".TMPL_tblDataColor2."'><td align=center><input type=checkbox name=sel[$i]></td><td><input type=text name='descript[$i]'></td>
+                $view .= "<tr class='bg-even'><td align=center><input type=checkbox name=sel[$i]></td><td><input type=text name='descript[$i]'></td>
                 </td><td align=center><input type=text name='qty[$i]'></td><td align=center>".CUR." <input type=text name='cost[$i]' size=10></td>
                 <td align=center>".CUR." <input type=text name='unitcost[$i]' size=10></td></td></tr>";
         }
@@ -276,22 +276,22 @@ $confirm =
 <input type=hidden name=terms value='$terms'>
 <input type=hidden name=stockacc value='$stockacc'>
 <tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td width=70%>Customer Name</td><td valign=center>$cusname</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Customer Address</td><td valign=center>$addr1<br>$addr2<br>$addr3</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Telephone No.</td><td valign=center>$tel</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Fax No.</td><td valign=center>$fax</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>E-mail Address</td><td valign=center>$email</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Order Date</td><td valign=center>$orddate</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Invoice date</td><td valign=center>$invdate</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Terms</td><td valign=center>$terms days</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock Account</td><td valign=center>$acc[accname]</td></tr>
+<tr class='bg-odd'><td width=70%>Customer Name</td><td valign=center>$cusname</td></tr>
+<tr class='bg-even'><td valign=top>Customer Address</td><td valign=center>$addr1<br>$addr2<br>$addr3</td></tr>
+<tr class='bg-odd'><td>Telephone No.</td><td valign=center>$tel</td></tr>
+<tr class='bg-even'><td>Fax No.</td><td valign=center>$fax</td></tr>
+<tr class='bg-odd'><td>E-mail Address</td><td valign=center>$email</td></tr>
+<tr class='bg-even'><td>Order Date</td><td valign=center>$orddate</td></tr>
+<tr class='bg-odd'><td>Invoice date</td><td valign=center>$invdate</td></tr>
+<tr class='bg-even'><td>Terms</td><td valign=center>$terms days</td></tr>
+<tr class='bg-odd'><td>Stock Account</td><td valign=center>$acc[accname]</td></tr>
 </table><br>
 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=70%>
 <tr><th width=40%>Description</th><th width=20%>Quantity</th><th width=20%>Unit Cost Price</th><th width=20%>Unit Selling Price</th></tr>";
 
         # input boxes
         foreach($sel as $key => $value){
-                $confirm .= "<tr bgcolor='".TMPL_tblDataColor2."'><td align=center><input type=hidden name=descript[] value='$descript[$key]'>$descript[$key]</td><td><input type=hidden name=qty[] value='$qty[$key]'>$qty[$key]</td>
+                $confirm .= "<tr class='bg-even'><td align=center><input type=hidden name=descript[] value='$descript[$key]'>$descript[$key]</td><td><input type=hidden name=qty[] value='$qty[$key]'>$qty[$key]</td>
                 <td align=center><input type=hidden name=cost[] value='$cost[$key]'>".CUR." ".sprintf("%01.2f",$cost[$key])."</td>
                 <td align=center><input type=hidden name=unitcost[] value='$unitcost[$key]'>".CUR." ".sprintf("%01.2f",$unitcost[$key])."</td></tr>";
         }

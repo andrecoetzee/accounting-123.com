@@ -22,7 +22,7 @@ function display()
 		$asset_rslt = db_exec($sql) or errDie("Unable to retrieve asset.");
 		$asset_data = pg_fetch_array($asset_rslt);
 
-		$items_out .= "<tr bgcolor='".bgcolorg()."'>
+		$items_out .= "<tr class='".bg_class()."'>
 			<td>".getSerial($asset_data["id"], 1)." $asset_data[des]</td>
 			<td align='center'>
 				<input type='checkbox' name='workshop[$asset_data[id]]'

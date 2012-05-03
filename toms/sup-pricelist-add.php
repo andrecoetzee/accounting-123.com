@@ -93,7 +93,7 @@ function enter ()
 	if (pg_numrows ($stkRslt) < 1) {
 		//return "<li class='err'> There are no stock items in the selected warehouse.</li>";
 		$listing .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'>No Results</td>
 			</tr>";
 	}
@@ -101,7 +101,7 @@ function enter ()
 	while ($stk = pg_fetch_array ($stkRslt)) {
 		$stk['selamt'] = sprint ($stk['selamt']);
 		$listing .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='checkbox' name='chk[]' value='$stk[stkid]' checked></td>
 				<td><input type='hidden' name='stkids[]' value='$stk[stkid]'>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td>
 				<td align='right'>".CUR." $stk[selamt]</td>
@@ -202,7 +202,7 @@ function enter ()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Price list</td>
 				<td align='center'><input type='text' size='20' name='listname' value='$listname'></td>
 			</tr>
@@ -218,19 +218,19 @@ function enter ()
 			<tr>
 				<th colspan='2'>Store</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'>$store_drop</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Category</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'>$category_drop</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Classification</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'>$classification_drop</td>
 			</tr>
 			<tr>
@@ -259,10 +259,10 @@ function enter ()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='sup-pricelist-view.php'>View Supplier Price Lists</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -317,7 +317,7 @@ function confirm ($_POST)
 		$stk = pg_fetch_array ($stkRslt);
 
 		$listing .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='hidden' name='stkids[]' value='$stk[stkid]'>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td>
 				<td>".CUR." <input type='hidden' name='prices[]' size='8' value='$prices[$key]'>$prices[$key] $vattype</td>
 			</tr>";
@@ -333,7 +333,7 @@ function confirm ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Price list</td>
 				<td align='center'>$listname</td>
 			</tr>
@@ -362,10 +362,10 @@ function confirm ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='sup-pricelist-view.php'>View Supplier Price Lists</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -456,10 +456,10 @@ function write ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='sup-pricelist-view.php'>View Supplier Price Lists</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

@@ -91,7 +91,7 @@ function enter($_POST,$errors="")
 				<th>Option</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Group Name:</td>
 				<td><input type='text' name='groupname' value='$groupname'></td>
 			</tr>
@@ -133,7 +133,7 @@ function confirm($_POST)
 			<tr>
 				<th colspan='2'>Confirm</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Group Name:</td>
 				<td>$groupname</td>
 			</tr>

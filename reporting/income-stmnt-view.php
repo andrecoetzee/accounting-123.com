@@ -68,7 +68,7 @@ function view ()
 	<tr class='datacell'><td align='center'><a target=_blank href='../core/acc-new2.php'>Add account (New Window)</a></td></tr>
 	<tr class='datacell'><td align='center'><a href='index-reports.php'>Financials</a></td></tr>
 	<tr class='datacell'><td align='center'><a href='index-reports-stmnt.php'>Current Year Financial Statements</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	// call template to display the info and die

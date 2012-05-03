@@ -125,21 +125,21 @@ function enter ()
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<input type=hidden name=key value=confirm>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Dept Number</td><td><input type=text size=10 name=deptno></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Department</td><td><input type=text size=20 name=deptname></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Income Account</td><td>$depacc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Debtors Control Account</td><td>$debtacc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Creditors Control Account</td><td>$credacc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Point of Sale: Cash on hand account</td><td>$pcas</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Point of Sale Income Account</td><td>$pias</td></tr>
+	<tr class='bg-odd'><td>Dept Number</td><td><input type=text size=10 name=deptno></td></tr>
+	<tr class='bg-even'><td>Department</td><td><input type=text size=20 name=deptname></td></tr>
+	<tr class='bg-odd'><td>Income Account</td><td>$depacc</td></tr>
+	<tr class='bg-even'><td>Debtors Control Account</td><td>$debtacc</td></tr>
+	<tr class='bg-odd'><td>Creditors Control Account</td><td>$credacc</td></tr>
+	<tr class='bg-even'><td>Point of Sale: Cash on hand account</td><td>$pcas</td></tr>
+	<tr class='bg-odd'><td>Point of Sale Income Account</td><td>$pias</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='dept-view.php'>View Departments</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../core/acc-new2.php'>Add Account</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='dept-view.php'>View Departments</a></td></tr>
+	<tr class='bg-odd'><td><a href='../core/acc-new2.php'>Add Account</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -214,21 +214,21 @@ function confirm ($_POST)
 	<input type=hidden name=pia     value='$pia'>
 	<input type=hidden name=pca     value='$pca'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Dept Number</td><td>$deptno</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Department</td><td>$deptname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Income Account</td><td>$accinc[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Debtors Control Account</td><td>$accdebt[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Creditors Control Account</td><td>$acccred[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Point of Sale: Cash on hand account</td><td>$poscash[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Point of Sale Income Account</td><td>$posinc[accname]</td></tr>
+	<tr class='bg-odd'><td>Dept Number</td><td>$deptno</td></tr>
+	<tr class='bg-even'><td>Department</td><td>$deptname</td></tr>
+	<tr class='bg-odd'><td>Income Account</td><td>$accinc[accname]</td></tr>
+	<tr class='bg-even'><td>Debtors Control Account</td><td>$accdebt[accname]</td></tr>
+	<tr class='bg-odd'><td>Creditors Control Account</td><td>$acccred[accname]</td></tr>
+	<tr class='bg-even'><td>Point of Sale: Cash on hand account</td><td>$poscash[accname]</td></tr>
+	<tr class='bg-odd'><td>Point of Sale Income Account</td><td>$posinc[accname]</td></tr>
 	<tr><td align=right><input type=button value='Back' onclick='javascript:history.back();'></td><td valign=left><input type=submit value='Write &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='dept-view.php'>View Department</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../core/acc-new2.php'>Add Account</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='dept-view.php'>View Department</a></td></tr>
+	<tr class='bg-odd'><td><a href='../core/acc-new2.php'>Add Account</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -281,9 +281,9 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='dept-view.php'>View Departments</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../core/acc-new2.php'>Add Account</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='dept-view.php'>View Departments</a></td></tr>
+	<tr class='bg-odd'><td><a href='../core/acc-new2.php'>Add Account</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

@@ -58,7 +58,7 @@ function printCat ()
 	while ($cat = pg_fetch_array ($catRslt)) {
 
 		$printCat .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$cat[catcod]</td>
 								<td align='center'>$cat[cat]</td>
 								<td>$cat[descript]</td>
@@ -86,7 +86,7 @@ function printCat ()
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='stockcat-add.php'>Add Stock Category</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>

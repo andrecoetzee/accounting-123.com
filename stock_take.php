@@ -55,7 +55,7 @@ function take_display()
 		$stktake_data = pg_fetch_array($stktake_rslt);
 		
 		$stock_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$stock_data[bar]</td>
 			<td>$stock_data[stkcod]</td>
 			<td>$stock_data[stkdes]</td>
@@ -73,7 +73,7 @@ function take_display()
 	
 	if (empty($stock_out)) {
 		$stock_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'>No results found. All stock <em>adjusted</em>?</td>
 		</tr>";
 	}
@@ -146,7 +146,7 @@ function adjust_display()
 		$total_value += $value;
 	
 		$adjust_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$adjust_data[bar]</td>
 			<td>$adjust_data[stkcod]</td>
 			<td>$adjust_data[stkdes]</td>
@@ -163,7 +163,7 @@ function adjust_display()
 	
 	if (empty($adjust_out)) {
 		$adjust_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='6'>
 				<li>No results found, stock take <em>completed?</em></li>
 			</td>
@@ -185,7 +185,7 @@ function adjust_display()
 			<th>&nbsp;</th>
 		</tr>
 		$adjust_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'>Total</td>
 			<td align='right'>".sprint($total_value)."</td>
 			<td>&nbsp;</td>
@@ -247,7 +247,7 @@ function complete()
 	<h3>Stock Take</h3>
 	<table ".TMPL_tblDflts.">
 		<tr><th>Complete</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Stock Take has successfully been completed.</td></li>
 		</tr>
 	</table>";

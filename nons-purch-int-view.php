@@ -58,7 +58,7 @@ function slct()
 					<tr>
 						<th colspan='2'>By Date Range</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'>
 							".mkDateSelect("from",date("Y"),date("m"),"01")."
 							&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
@@ -73,10 +73,10 @@ function slct()
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='nons-purch-int-new.php'>New International Non Stock Order</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";
@@ -162,7 +162,7 @@ function printPurch ($_POST)
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='nons-purch-int-new.php'>New International Non-Stock Orders</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>
@@ -181,7 +181,7 @@ function printPurch ($_POST)
 		$recv = "nons-purch-int-recv.php";
 
 		$printOrd .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$stkp[purnum]</td>
 								<td>$date</td>
 								<td>$stkp[supplier]</td>
@@ -219,10 +219,10 @@ function printPurch ($_POST)
 					        <tr>
 					        	<th>Quick Links</th>
 					        </tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='nons-purch-int-new.php'>New International Non-Stock Order</a></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='main.php'>Main Menu</a></td>
 							</tr>
 						</table>";

@@ -71,9 +71,9 @@ function seluse()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value='report'>
 	<tr><th colspan=2>Options</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer</td><td>$customers</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Type</td><td>$reports</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>From</td><td>
+	<tr class='bg-odd'><td>Customer</td><td>$customers</td></tr>
+	<tr class='bg-even'><td>Type</td><td>$reports</td></tr>
+	<tr class='bg-odd'><td>From</td><td>
 		<table cellpadding=1 cellspacing=2><tr>
 			<td><input type=text size=3 value='1' name=day></td>
 			<td>-</td>
@@ -82,7 +82,7 @@ function seluse()
 			<td><input type=text size=5 value='".date("Y")."' name=year></td>
 		</tr></table>
 	</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>To</td><td>
+	<tr class='bg-even'><td>To</td><td>
 		<table cellpadding=1 cellspacing=2><tr>
 			<td><input type=text size=3 value='".date("d")."' name=tday></td>
 			<td>-</td>
@@ -154,7 +154,7 @@ function report($_POST)
 			$inc=sprint($data['inc']);
 
 			$out="<tr><th>Description</th><th>Amount exl VAT</th><th>VAT</th><th>Amount inc VAT</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Total</td><td align=right>".CUR." $exl</td><td align=right>".CUR." $vat</td><td align=right>".CUR." $inc</td></tr>";
+			<tr class='bg-odd'><td>Total</td><td align=right>".CUR." $exl</td><td align=right>".CUR." $vat</td><td align=right>".CUR." $inc</td></tr>";
 		} else {
 			$Sl="SELECT * FROM sj WHERE date>='$date' AND date<='$tdate' $whe ORDER BY id";
 			$Ry=db_exec($Sl) or errDie("Unable to get sales journal.");
@@ -171,7 +171,7 @@ function report($_POST)
 
 				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
-				$out.="<tr bgcolor='".TMPL_tblDataColor1."'><td>$vd[date]</td><td>$vd[des]</td>
+				$out.="<tr class='bg-odd'><td>$vd[date]</td><td>$vd[des]</td>
 				<td align=right>".CUR." $vd[exl]</td><td align=right>".CUR." $vd[vat]</td><td align=right>".CUR." $vd[inc]</td></tr>";
 
 				$i++;
@@ -185,7 +185,7 @@ function report($_POST)
 			$totvat=sprint($totvat);
 			$totinc=sprint($totinc);
 
-			$out.="<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2>Total</td><td align=right>".CUR." $totexl</td><td align=right>".CUR." $totvat</td><td align=right>".CUR." $totinc</td></tr>";
+			$out.="<tr class='bg-odd'><td colspan=2>Total</td><td align=right>".CUR." $totexl</td><td align=right>".CUR." $totvat</td><td align=right>".CUR." $totinc</td></tr>";
 		}
 
 	} else {
@@ -247,7 +247,7 @@ function report($_POST)
 				$vat=sprint($vd['vat']);
 				$inc=sprint($vd['inc']);
 
-				$out.="<tr bgcolor='".TMPL_tblDataColor1."'><td>$vd[date]</td><td>$vd[des]</td>
+				$out.="<tr class='bg-odd'><td>$vd[date]</td><td>$vd[des]</td>
 				<td align=right>".CUR." $exl</td><td align=right>".CUR." $vat</td><td align=right>".CUR." $inc</td></tr>";
 
 				$i++;
@@ -262,7 +262,7 @@ function report($_POST)
 			$totvat=sprint($totvat);
 			$totinc=sprint($totinc);
 
-			$out.="<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2>Total</td><td align=right>".CUR." $totexl</td><td align=right>".CUR." $totvat</td><td align=right>".CUR." $totinc</td></tr>";
+			$out.="<tr class='bg-odd'><td colspan=2>Total</td><td align=right>".CUR." $totexl</td><td align=right>".CUR." $totvat</td><td align=right>".CUR." $totinc</td></tr>";
 		}
 	}
 

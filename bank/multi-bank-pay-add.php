@@ -187,7 +187,7 @@ function add($_POST)
 		$accamt[$i] = sprint ($accamt[$i]);
 		
 		$accounts .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$glacc</td>
 				<td align='center'>".CUR." <input type='text' size='8' name='accamt[]' value='$accamt[$i]'></td>
 				<td>
@@ -200,7 +200,7 @@ function add($_POST)
 	}
 
 	$accounts .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='right'><b>Total:</b></td>
 			<td>".CUR." ".sprint(array_sum ($accamt))."</td>
 			<td colspan='2'></td>
@@ -256,27 +256,27 @@ function add($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account</td>
 				<td>$banks</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Paid to</td>
 				<td valign='center'><input size='20' name='name' value='$name'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'><textarea col='20' rows='5' name='descript'>$descript</textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference</td>
 				<td valign='center'><input size='25' name='reference' value='$reference'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'><input size='20' name='cheqnum' value='$cheqnum'></td>
 			</tr>
@@ -416,7 +416,7 @@ function confirm($_POST)
 			<input type='hidden' name='vatcode[]' value='$vatcode[$key]'>
 			<input type='hidden' name='accamt[]' value='$accamt[$key]'>
 			<input type='hidden' name='chrgvat[]' value='$chrgvat[$key]'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$accnt[topacc]/$accnt[accnum] - $accnt[accname]</td>
 				<td>".CUR." ".sprint($totamt)."</td>
 				<td>$showvat</td>
@@ -459,31 +459,31 @@ function confirm($_POST)
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account</td>
 					<td>$bank[accname] - $bank[bankname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td valign='center'>$date</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Paid to/Received from</td>
 					<td valign='center'>$name</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Description</td>
 					<td valign='center'>$descript</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Reference</td>
 					<td valign='center'>$reference</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Cheque Number</td>
 					<td valign='center'>$cheqnum</td>
 				</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $gamt</td>
 			</tr>
@@ -680,7 +680,7 @@ function write($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='cashbook-view.php'>View Cash Book</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>

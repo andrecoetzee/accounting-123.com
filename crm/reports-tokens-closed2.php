@@ -41,7 +41,7 @@ $OUTPUT.="<p>
 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 <tr><th>Quick Links</th></tr>
 <script>document.write(getQuicklinkSpecial());</script>
-<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
 </table>";
 
 require("template.php");
@@ -53,14 +53,14 @@ function select_dates() {
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value='report'>
 	<tr><th colspan=3>Open Date</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>
+	<tr class='bg-odd'><td>
 		".mkDateSelect("ofrom")."
 	</td><td>TO</td><td>
 		".mkDateSelect("oto")."
 	</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=3 align=center>OR</td></tr>
+	<tr class='bg-even'><td colspan=3 align=center>OR</td></tr>
 	<tr><th colspan=3>Closed Date</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>
+	<tr class='bg-odd'><td>
 		".mkDateSelect("cfrom")."
 	</td><td>TO</td><td>
 		".mkDateSelect("cto")."

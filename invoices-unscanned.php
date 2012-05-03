@@ -23,7 +23,7 @@ function display()
 		if (pg_num_rows($scan_rslt)) continue;
 	
 		$inv_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".pick_slip_barcode($sordid)."</td>
 			<td>$inv_data[invnum]</td>
 			<td>$inv_data[cusname]</td>
@@ -33,7 +33,7 @@ function display()
 
 	if (empty($inv_out)) {
 		$inv_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'><li>No results found.</li></td>
 		</tr>";
 	}

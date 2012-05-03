@@ -74,27 +74,27 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'  colspan='2'>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
 					".mkDateSelect("to")."
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Customer</td>
 				<td>$custs</td>
 				<td valign='bottom'><input type='submit' value='Search'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'>OR</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Input customer account number</td>
 				<td><input type='text' name='accnum' size='10'></td>
 				<td valign='bottom'><input type='submit' value='View'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>All Customers</td>
 				<td><input type='submit' name='all' value='List All &raquo;'></td>
 			</tr>
@@ -228,7 +228,7 @@ function printInv ($_POST)
 			}
 
 			$printInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[deptname]</td>
 					<td>$inv[salespn]</td>
 					<td>RI $inv[invid]</td>
@@ -250,7 +250,7 @@ function printInv ($_POST)
 	if($i > 0 ) {
 		$tot1 = sprint($tot1);
 		$printInv .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='6'>Totals:$i</td>
 				<td align='right'>".CUR." $tot1</td>
 				<td><br></td>
@@ -271,7 +271,7 @@ function printInv ($_POST)
 				<input type='hidden' name='accnum' value='$accnum'>
 				<input type='hidden' name='cusnum' value='$cusnum'>
 				<input type='hidden' name='all' value=''>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='6'></td>
 					<td align='right'></td>
 					<td><br></td>

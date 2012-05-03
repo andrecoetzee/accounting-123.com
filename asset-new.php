@@ -225,42 +225,42 @@ function enter ($errors="")
 						<tr>
 							<th colspan='2'>Asset Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Select Group</td>
 							<td>$grps</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Select Type</td>
 							<td>$type_sel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Location</td>
 							<td><input type='text' size='20' name='locat' value='$locat'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Description</td>
 							<td><input type='text' size='20' name='des' value='$des'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Details</td>
 							<td><textarea name='details' cols='30' rows='4'>$details</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Billing Requirement Ratio (Units)</td>
 							<td><input type='text' name='units' value='$units' /></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Percentage of Yearly Depreciation</td>
 							<td><input type='text' size='2' name='dep_perc' value='$dep_perc' maxlength='2' />%</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Auto Monthly Depreciation</td>
 							<td>
 								Yes <input type='radio' name='dep_month' value='yes' $dm_yes />
 								No <input type='radio' name='dep_month' value='no' $dm_no />
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Method</td>
 							<td valign='center'>
 								Add Asset <input type='radio' name='method' value='add' $meth_add>
@@ -270,24 +270,24 @@ function enter ($errors="")
 						<tr>
 							<th colspan='2'>Bought</th>
 						</tr>
-					 	<tr bgcolor='".bgcolorg()."'>
+					 	<tr class='".bg_class()."'>
 					 		<td>".REQ."Date</td>
 					 		<td>".mkDateSelect("date", $date_year, $date_month, $date_day)."</td>
 					 	</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Amount</td>
 							<td>".CUR."<input type='text' size='20' name='amount' value='$amount'></td>
 						</tr>
 						<!--
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cost Account</td>
 							<td>$cost_acc_sel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Accumulated Depreciation Account</td>
 							<td>$accdep_acc_sel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Depreciation Account</td>
 							<td>$dep_acc_sel</td>
 						</tr>
@@ -295,18 +295,18 @@ function enter ($errors="")
 						<tr>
 							<th colspan='2'>Servicing</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Next Service Date</td>
 							<td>".mkDateSelect("svdate", $svdate_year, $svdate_month, $svdate_day)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Service Description</td>
 							<td><input type='text' name='sv_desc' value='$sv_desc' /></td>
 						</tr>
 						<tr>
 							<th colspan='2'>Serial Number/Quantity</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Has Serial Number?</td>
 							<td>
 								<input onclick='seryn_update(this);' type='radio' name='seryn' value='yes' ".fcheck($seryn!="no")."> Yes
@@ -317,7 +317,7 @@ function enter ($errors="")
 							<td colspan='2' style='margin: 0px; padding: 0px;'>
 								<div id='div_qty' style='height: 0px; $div_qty_style'>
 									<table ".TMPL_tblDflts." width='100%'>
-										<tr bgcolor='".bgcolorg()."'>
+										<tr class='".bg_class()."'>
 											<td>".REQ." Quantity</td>
 											<td><input type='text' size='20' name='qty' value='$qty'></td>
 										</tr>
@@ -325,11 +325,11 @@ function enter ($errors="")
 								</div>
 								<div id='div_serial' style='$div_serial_style'>
 									<table ".TMPL_tblDflts." width='100%'>
-										<tr bgcolor='".bgcolorg()."'>
+										<tr class='".bg_class()."'>
 											<td>".REQ." Serial Number</td>
 											<td><input type='text' size='20' name='serial' value='$serial'></td>
 										</tr>
-										<tr bgcolor='".bgcolorg()."'>
+										<tr class='".bg_class()."'>
 											<td>2nd Serial Number</td>
 											<td><input type='text' size='20' name='serial2' value='$serial2'></td>
 										</tr>
@@ -349,7 +349,7 @@ function enter ($errors="")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='asset-view.php'>View Assets</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -485,7 +485,7 @@ function confirm ($_POST)
 	}else{
 		$vmethod = "Add Asset";
 		$accnt = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Contra Account <input align='right' type='button' onClick=\"window.open('core/acc-new2.php?update_parent=yes','accounts','width=700, height=400');\" value='New Account'></td>
 				<td>".mkAccSelect("accnt", $accnt)."</td>
 			</tr>";
@@ -493,11 +493,11 @@ function confirm ($_POST)
 
 	if ($seryn == "yes") {
 		$serdisp = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Serial Number</td>
 				<td><input type='hidden' name='serial' value='$serial'>$serial</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>2nd Serial Number</td>
 				<td>
 					<input type='hidden' name='serial2' value='$serial2'>
@@ -506,7 +506,7 @@ function confirm ($_POST)
 			</tr>";
 	} else {
 		$serdisp = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Quantity</td>
 				<td><input type='hidden' name='qty' value='$qty'>$qty</td>
 			</tr>";
@@ -536,45 +536,45 @@ function confirm ($_POST)
 					<tr>
 						<th colspan='2'>Asset Details</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Group</td>
 						<td><input type='hidden' name='grpid' value='$grpid'>$grp[grpname]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Type</td>
 						<td>$type_name</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Location</td>
 						<td><input type='hidden' name='locat' value='$locat'>$locat</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Description</td>
 						<td><input type='hidden' name='des' value='$des'>$des</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Details</td>
 						<td><input type='hidden' name='details' value='$details'>".nl2br($details)."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Billing Requirement Ratio</td>
 						<td><input type='hidden' name='units' value='$units' />$units</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Percentage of Yearly Depreciation</td>
 						<td>
 							<input type='hidden' name='dep_perc' value='$dep_perc' />
 							$dep_perc%
 						</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Auto Monthly Depreciation</td>
 						<td>
 							<input type='hidden' name='dep_month' value='$dep_month' />
 							".ucfirst($dep_month)."
 						</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Method</td>
 						<td><input type='hidden' name='method' value='$method'>$vmethod</td>
 					</tr>
@@ -582,7 +582,7 @@ function confirm ($_POST)
 					<tr>
 						<th colspan='2'>Bought</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Date</td>
 						<td>
 							<input type='hidden' name='date_year' value='$date_year' />
@@ -591,7 +591,7 @@ function confirm ($_POST)
 							$date
 						</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Amount</td>
 						<td>
 							<input type='hidden' name='amount' value='$amount'>".CUR." $amount
@@ -599,15 +599,15 @@ function confirm ($_POST)
 					</tr>".
 /*
 			<!--
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cost Account</td>
 				<td>$cost_acc_data[topacc]/$cost_acc_data[accnum] $cost_acc_data[accname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Accumulated Depreciation</td>
 				<td>$accdep_acc_data[topacc]/$accdep_acc_data[accnum] $accdep_acc_data[accname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Depreciation</td>
 				<td>$dep_acc_data[topacc]/$dep_acc_data[accnum] $dep_acc_data[accname]</td>
 			</tr>
@@ -617,7 +617,7 @@ function confirm ($_POST)
 						<tr>
 							<th colspan='2'>Servicing</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Next Service Date</td>
 							<td>
 								<input type='hidden' name='svdate_year' value='$svdate_year' />
@@ -625,7 +625,7 @@ function confirm ($_POST)
 								<input type='hidden' name='svdate_day' value='$svdate_day' />
 								$svdate
 							</td>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Service Description</td>
 							<td>
 								<input type='hidden' name='sv_desc' value='$sv_desc' />
@@ -641,11 +641,11 @@ function confirm ($_POST)
 						<tr>
 							<th colspan='2'>Add Picture</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Image Name</td>
 							<td><input type='text' size='40' name='picupload_name'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Image Location</td>
 							<td><input type='file' name='picupload_image'></td>
 						</tr>
@@ -663,7 +663,7 @@ function confirm ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='asset-view.php'>View Assets</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -879,10 +879,10 @@ function write ($_POST)
 //			<tr>
 //				<th>Quick Links</th>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td><a href='asset-new.php'>New Asset</a></td>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td><a href='asset-view.php'>View Assets</a></td>
 //			</tr>
 //			<script>document.write(getQuicklinkSpecial());</script>

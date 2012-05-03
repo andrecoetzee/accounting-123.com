@@ -62,11 +62,11 @@ function enter ()
 						<th>Field</th>
 						<th>Value</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Classification Code</td>
 						<td><input type='text' size='10' name='classcode'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Classification</td>
 						<td><input type='text' size='20' name='classname'></td>
 					</tr>
@@ -80,10 +80,10 @@ function enter ()
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='stockclass-view.php'>View Classifications</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";
@@ -141,11 +141,11 @@ function confirm ($_POST)
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Classification code</td>
 							<td>$classcode</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Classification</td>
 							<td>$classname</td>
 						</tr>
@@ -160,10 +160,10 @@ function confirm ($_POST)
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='stockclass-view.php'>View Classifications</a></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='main.php'>Main Menu</a></td>
 						</tr>
 					</table>";
@@ -245,7 +245,7 @@ function write ($_POST)
 					<tr>
 						<th>Classification added to system</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>New Classification <b>$classname</b>, has been successfully added to the system.</td>
 					</tr>
 				</table>
@@ -254,10 +254,10 @@ function write ($_POST)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='stockclass-view.php'>View Classifications</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";

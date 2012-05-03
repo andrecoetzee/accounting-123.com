@@ -62,11 +62,11 @@ function enter($errors="")
 					<tr>
 						<th colspan='2'>Team Details</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Name</td>
 						<td><input type='text' name='name' value='$name' /></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Description</td>
 						<td><input type='text' name='description' value='$description' /></td>
 					</tr>
@@ -109,11 +109,11 @@ function confirm()
 					<tr>
 						<th colspan='2'>Confirm</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Name</td>
 						<td>$name</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Description</td>
 						<td>$description</td>
 					</tr>
@@ -161,7 +161,7 @@ function write()
 					<tr>
 						<th>Write</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><li>Successfully saved the team.</li></td>
 					</tr>
 				</table>";

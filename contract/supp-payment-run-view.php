@@ -35,7 +35,7 @@ function get_runs ()
 			<tr>
 				<th>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from",date("Y"),date("m"),"01")." To ".mkDateSelect("to")." <input type='submit' value='Search'></td>
 			</tr>
 		</form>
@@ -85,7 +85,7 @@ function show_runs ($_POST)
 					$supplier_name = pg_fetch_result($run_supp,0,0);
 
 					$listing .= "
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>$supplier_name</td>
 										<td>$rarr[proc_date]</td>
 										<td>$rarr[cheq_num]</td>

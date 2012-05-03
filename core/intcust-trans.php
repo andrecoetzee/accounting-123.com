@@ -144,31 +144,31 @@ function slctacc($_GET)
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account Number</td>
 					<td>$cust[accno]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Customer</td>
 					<td>$cust[cusname] $cust[surname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td>".mkDateSelect("date")."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Reference Number</td>
 					<td><input type='text' size='10' name='refnum' value='".($refnum++)."'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Entry Type</td>
 					<td><input type='radio' name='entry' value='DT' $entd> Debit | <input type='radio' name='entry' value='CT' $entc>Credit</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td rowspan='2'>Cotra Account</td>
 					<td>$accounts <input name='details' type='submit' value='Enter Details'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<!--        Rowspan      -->
 					<td><input type='text' name='accnum' size='20'> <input type='submit' value='Enter Details'></td>
 				</tr>
@@ -181,10 +181,10 @@ function slctacc($_GET)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='trans-new.php'>Journal Transactions</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='../customers-view.php'>View Customers</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -244,14 +244,14 @@ function details($_POST)
 		# Probe tran type
 		if($entry == "CT"){
 			$tran = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 							<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 						</tr>
 					";
 		}else{
 			$tran = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 							<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 						</tr>
@@ -275,27 +275,27 @@ function details($_POST)
 				$tran
 				".TBL_BR."
 				".TBL_BR."
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td valign='center'>$date</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Reference No.</td>
 					<td valign='center'><input type='text' size='20' name='refnum' value='$refnum'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Amount</td>
 					<td valign='center'>$cust[currency]<input type='text' size='20' name='amount'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Exchange rate</td>
 					<td valign='center'>".CUR." / $cust[currency] <input type='text' size='8' name='rate' value='1'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Transaction Details</td>
 					<td valign='center'><textarea cols='20' rows='5' name='details'></textarea></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Person Authorising</td>
 					<td valign='center'><input type='hidden' size='20' name='author' value=".USER_NAME.">".USER_NAME."</td>
 				</tr>
@@ -311,10 +311,10 @@ function details($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='trans-new.php'>Journal Transactions</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='../customers-view.php'>View Customers</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -390,13 +390,13 @@ function details2($_POST)
 	# probe tran type
 	if($entry == "CT"){
 		$tran = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 					<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 				</tr>";
 	}else{
 		$tran = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 					<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 				</tr>";
@@ -419,27 +419,27 @@ function details2($_POST)
 				$tran
 				".TBL_BR."
 				".TBL_BR."
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td valign='center'>$date</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Reference No.</td>
 					<td valign='center'><input type='text' size='20' name='refnum' value='$refnum'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Amount</td>
 					<td valign='center'>$cust[currency] <input type='text' size='20' name='amount'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Exchange rate</td>
 					<td valign='center'>".CUR." / $cust[currency] <input type='text' size='8' name='rate' value='1'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Transaction Details</td>
 					<td valign='center'><textarea cols='20' rows='5' name='details'></textarea></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Person Authorising</td>
 					<td valign='center'><input type='hidden' size='20' name='author' value=".USER_NAME.">".USER_NAME."</td>
 				</tr>
@@ -455,10 +455,10 @@ function details2($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='trans-new.php'>Journal Transactions</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='../customers-view.php'>View Customers</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -525,14 +525,14 @@ function confirm($_POST)
 	# Probe tran type
 	if($entry == "CT"){
 		$tran = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 						<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 					</tr>
 				";
 	}else{
 		$tran = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 						<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 					</tr>
@@ -566,23 +566,23 @@ function confirm($_POST)
 				$tran
 				".TBL_BR."
 				".TBL_BR."
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td>$date</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Reference number</td>
 					<td>$refnum</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Amount</td>
 					<td valign='center'>$cust[currency] $amount | ".CUR." $lamt</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Details</td>
 					<td>$details</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Authorising Person</td>
 					<td>$author</td>
 				</tr>
@@ -598,10 +598,10 @@ function confirm($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='trans-new.php'>Journal Transactions</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='../customers-view.php'>View Customers</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -688,7 +688,7 @@ function write($_POST)
 		# Write transaction  (debit contra account, credit debtors control)
 		writetrans($accid, $dept['debtacc'], $date, $refnum, $amount, $details." - Customer $cust[cusname] $cust[surname]");
 		$tran = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 					<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 				</tr>";
@@ -702,7 +702,7 @@ function write($_POST)
 		# Write transaction  (debit debtors control, credit contra account)
 		writetrans($dept['debtacc'], $accid, $date, $refnum, $amount, $details." - Customer $cust[cusname] $cust[surname]");
 		$tran = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 					<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 				</tr>";
@@ -749,7 +749,7 @@ function write($_POST)
 				<tr colspan='2'>
 					<td><h4>Amount</h4></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'><b>".CUR." $famt</b></td>
 				</tr>
 			</table>
@@ -758,10 +758,10 @@ function write($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='trans-new.php'>Journal Transactions</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><a href='../customers-view.php'>View Customers</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>

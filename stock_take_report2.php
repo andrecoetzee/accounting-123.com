@@ -57,7 +57,7 @@ function display()
 		}
 
 		$ledger_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$ledger_data[id]</td>
 			<td>$ledger_data[edate]</td>
 			<td>($ledger_data[stkcod]) $ledger_data[stkdes]</td>
@@ -80,7 +80,7 @@ function display()
 		$bal_out = "";
 		while ($bal_data = pg_fetch_array($bal_rslt)) {
 			$bal_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$ledger_data[id]</td>
 				<td>$ledger_data[edate]</td>
 				<td>$ledger_data[stkcod] $ledger_data[stkdes]</td>
@@ -95,7 +95,7 @@ function display()
 
 	if (empty($ledger_out)) {
 		$ledger_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='7'><li>No results found</li></td>
 		</tr>";
 	}
@@ -125,7 +125,7 @@ function display()
 				<input type='submit' value='Search' style='text-weight: bold; height: 100%' />
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -133,7 +133,7 @@ function display()
 	</table>
 	</form>
 	<table ".TMPL_tblDflts.">
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='7' align='center'>
 				$prev_ancor
 				$next_ancor
@@ -148,12 +148,12 @@ function display()
 			<th>Amount</th>
 		</tr>
 		$ledger_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'>Total</td>
 			<td>$total_qty</td>
 			<td>".sprint($total_csamt)."</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='7' align='center'>
 				$prev_ancor
 				$next_ancor

@@ -68,7 +68,7 @@ function viewAllow ()
 		$acc = pg_fetch_array($accRslt);
 
 		$viewAllow .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$myAllow[name]</td>
 				<td>$acc[accname]</td>
 				<td><a href='rbs-edit.php?id=$myAllow[id]'>Edit</a></td>

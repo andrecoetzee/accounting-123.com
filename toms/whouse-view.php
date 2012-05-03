@@ -66,10 +66,10 @@ function printWh ()
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='whouse-add.php'>Add Store</a></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='../main.php'>Main Menu</a></td>
 						</tr>
 					</table>";
@@ -140,7 +140,7 @@ function printWh ()
 		if(pg_numrows($run_check) > 0){$showremove = "Store has transactions";}
 
 		$printWh .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$wh[whno]</td>
 							<td>$wh[whname]</td>
 							<td>$accstk[accname]</td>
@@ -160,10 +160,10 @@ function printWh ()
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='whouse-add.php'>Add Store</a></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='../main.php'>Main Menu</a></td>
 						</tr>
 					</table>";

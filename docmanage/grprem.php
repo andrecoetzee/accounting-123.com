@@ -72,8 +72,8 @@ $viewGroup.= "
 	 <form action='".SELF."' method='post'>
 	 <input type=hidden name=key  value='confirm'>
 	 <tr><th colspan=2>Group Details</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Group Name</td><td align=center><input type=text size=27 name=grpname value='$Data[grpname]'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."' ><td >Group Unit</td><td align=center>
+	 <tr class='bg-odd'><td>Group Name</td><td align=center><input type=text size=27 name=grpname value='$Data[grpname]'></td></tr>
+	 <tr class='bg-even' ><td >Group Unit</td><td align=center>
 		<select name=unit  value='$Data[unit]' size='3' multiple='1'>
 		<option value='none'>None</option>
 		<option value='default' selected>Default</option>
@@ -174,7 +174,7 @@ function deleteGroup() {
 	$link="<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docman-index.php'>Document Management</a></td></tr>";
+	<tr class='bg-odd'><td><a href='docman-index.php'>Document Management</a></td></tr>";
 	
 	print $link;
 

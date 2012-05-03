@@ -69,7 +69,7 @@ function display()
 	$rslt = db_exec($sql) or errDie("Unable to retrieve workshop items from Cubit.");
 	
 	if (!pg_num_rows($rslt)) {
-		$ws_out = "<tr bgcolor='".TMPL_tblDataColor1."'>
+		$ws_out = "<tr class='bg-odd'>
 			<td colspan='8'>No items were found in the workshop archive for the current date selection</td>
 		</tr>";
 	} else {
@@ -112,10 +112,10 @@ function display()
 		<tr>
 			<th colspan='4'>Filter</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td colspan='4' align='center'><b>Date Range</b></td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>From</td>
 			<td>
 				<input type='text' name='frm_day' value='$frm_day' size='2'>-
@@ -129,7 +129,7 @@ function display()
 				<input type='text' name='to_year' value='$to_year' size='4'>
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td colspan='4' align='center'>
 				<input type='submit' value='Continue &raquo'>
 			</td>

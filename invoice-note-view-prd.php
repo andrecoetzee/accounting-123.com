@@ -79,7 +79,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' colspan='2'>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -223,7 +223,7 @@ function printNote ($_POST)
 				$curr = $note['currency'];
 			}
 			$printNote .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$note[deptname]</td>
 					<td>$note[salespn]</td>
 					<td>$note[notenum]</td>
@@ -243,7 +243,7 @@ function printNote ($_POST)
 	// Layout
 	if($tot1 > 0){
 		$printNote .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='7'>Totals:$i</td>
 				<td align='right'>".CUR." $tot1</td>
 				<td colspan='2'>&nbsp;</td>

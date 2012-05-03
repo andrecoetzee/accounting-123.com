@@ -93,7 +93,7 @@ function details($_POST, $errata = "<br>")
 			$ccRs = get("cubit", "*", "costcenters", "ccid", $bit['id']);
 			$cc  = pg_fetch_array($ccRs);
 			
-			$list .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$cc[centercode] - $cc[centername]</td>";
+			$list .= "<tr class='bg-odd'><td>$cc[centercode] - $cc[centername]</td>";
 			
 			db_connect();
 			$lstRs = db_exec("SELECT * FROM buditems WHERE id = '$bit[id]' AND budid = '$budid'");
@@ -111,7 +111,7 @@ function details($_POST, $errata = "<br>")
 		while($bit = pg_fetch_array($bitRslt)){
 			$accRs = get("core", "*", "accounts", "accid", $bit['id']);
 			$acc  = pg_fetch_array($accRs);
-			$list .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>";
+			$list .= "<tr class='bg-odd'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>";
 			
 			db_connect();
 			$lstRs = db_exec("SELECT * FROM buditems WHERE id = '$bit[id]' AND budid = '$budid'");
@@ -148,12 +148,12 @@ function details($_POST, $errata = "<br>")
 	<input type=hidden name=key value=write>
 	<input type=hidden name=budid value='$budid'>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' align=center>
-	<tr><th colspan=2>Details</th></tr><tr bgcolor='".TMPL_tblDataColor1."'><td>Budget Name</td><td>$bud[budname]</td></tr>
+	<tr><th colspan=2>Details</th></tr><tr class='bg-odd'><td>Budget Name</td><td>$bud[budname]</td></tr>
 	<tr><td><br></td></tr>
 	<tr><th colspan=2>Options</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Budget For</td><td>$vbudfor</td>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Budget Type</td><td>$vbudtype</td>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Budget Period</td><td>$vfromprd to $vtoprd</td>
+	<tr class='bg-odd'><td>Budget For</td><td>$vbudfor</td>
+	<tr class='bg-even'><td>Budget Type</td><td>$vbudtype</td>
+	<tr class='bg-odd'><td>Budget Period</td><td>$vfromprd to $vtoprd</td>
 	<tr><td colspan=2>$errata</td></tr>
 	
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' align=center>
@@ -167,8 +167,8 @@ function details($_POST, $errata = "<br>")
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</td></tr>
+		<tr class='bg-odd'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
+		<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</td></tr>
 	</table>";
 
 	return $details;
@@ -221,13 +221,13 @@ function write($_POST)
 	$write = "<center>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=500>
 		<tr><th colspan=2>Remove Budget</th></tr>
-		<tr><td bgcolor='".TMPL_tblDataColor1."' colspan=2>Budget <b>$bud[budname]</b> has been removed.</td></tr>
+		<tr><td class='bg-odd' colspan=2>Budget <b>$bud[budname]</b> has been removed.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=25%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</td></tr>
+		<tr class='bg-odd'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
+		<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</td></tr>
 	</table>";
 
 	return $write;

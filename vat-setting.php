@@ -58,7 +58,7 @@ function enter()
 		<tr>
 			<th colspan='3'>Setting</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>VAT Inclusive</td>
 			<td>
 				<input type='radio' name='vatinc' value='yes' $vatinc_y /> Yes
@@ -85,7 +85,7 @@ function confirm()
 		<tr>
 			<th colspan='3'>Confirm</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>VAT Inclusive</td>
 			<td>".ucfirst($vatinc)."</td>
 			<td>
@@ -124,7 +124,7 @@ function write()
 		<tr>
 			<th>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Successfully updated VAT Setting</li></td>
 		</tr>
 	</table>";

@@ -52,7 +52,7 @@ function slct()
 	<form action='".SELF."' method=post name=form>
 	<input type=hidden name=key value=view>
 		<tr><th>By Date Range</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>
+		<tr class='bg-odd'><td align=center>
 		<input type=text size=2 name=fday maxlength=2 value='1'>-<input type=text size=2 name=fmon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=fyear maxlength=4 value='".date("Y")."'>
 		&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
 		<input type=text size=2 name=today maxlength=2 value='".date("d")."'>-<input type=text size=2 name=tomon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=toyear maxlength=4 value='".date("Y")."'>
@@ -62,8 +62,8 @@ function slct()
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='nons-invoices-new.php'>New Non Stock Invoice</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='nons-invoices-new.php'>New Non Stock Invoice</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $slct;
@@ -173,8 +173,8 @@ function printInvoice ($_POST)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $printOrd;

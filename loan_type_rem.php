@@ -50,7 +50,7 @@ function confirm_loan ($_POST)
 				<tr>
 					<th>Loan Type</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$loan_type</td>
 				</tr>
 				<tr><td><br></td></tr>
@@ -82,7 +82,7 @@ function write_loan ($_POST)
 				<tr>
 					<th>Information Updated</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Loan Type Has Been Removed</td>
 				</tr>
 			</table><br>"

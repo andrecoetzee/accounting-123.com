@@ -53,18 +53,18 @@ function enter()
 		<tr>
 			<th colspan='2'>Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Document Title</td>
 			<td>$doc_data[title]</td>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Action Title</td>
 			<td><input type='text' name='title' value='$title' /></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Action Date</td>
 			<td>".mkDateSelect("ad", $ad_year, $ad_month, $ad_day)."</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Action Description</td>
 			<td><textarea name='desc' rows='5' cols='20'>$desc</textarea></td>
 		</tr>
@@ -102,19 +102,19 @@ function confirm()
 		<tr>
 			<th colspan='2'>Confirm</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Document Title</td>
 			<td>$doc_data[title]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Action Title</td>
 			<td>$title</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Action Date</td>
 			<td>$ad_date</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Action Description</td>
 			<td>$desc</td>
 		</tr>
@@ -143,7 +143,7 @@ function write()
 		<tr>
 			<th>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Successfully saved the action</td>
 		</tr>
 	</table>";

@@ -95,11 +95,11 @@ function rem($whid)
 						<th>Field</th>
 						<th>Value</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Dept No</td>
 						<td>$wh[whno]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Store</td>
 						<td>$wh[whname]</td>
 					</tr>
@@ -114,10 +114,10 @@ function rem($whid)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='whouse-view.php'>View Store</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='../main.php'>Main Menu</a></td>
 					</tr>
 				</table>";
@@ -165,7 +165,7 @@ function write ($_POST)
 					<tr>
 						<th>Store Removed</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Store <b>$whname</b>, has been removed.</td>
 					</tr>
 				</table>
@@ -174,10 +174,10 @@ function write ($_POST)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='whouse-view.php'>View Stores</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='../main.php'>Main Menu</a></td>
 					</tr>
 				</table>";

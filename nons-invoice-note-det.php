@@ -110,7 +110,7 @@ function details($_GET)
 		}
 
 		# put in product
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .="<tr class='bg-odd'>
 			<td align=center>$i</td>
 			<td>$stkd[description]</td>
 			<td>$stkd[qty]</td>
@@ -151,16 +151,16 @@ function details($_GET)
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Customer Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer</td><td valign=center>$inv[cusname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Address</td><td valign=center><pre>$inv[cusaddr]</pre></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer Vat Number</td><td valign=center>$inv[cusvatno]</td></tr>
+			<tr class='bg-odd'><td>Customer</td><td valign=center>$inv[cusname]</td></tr>
+			<tr class='bg-even'><td>Customer Address</td><td valign=center><pre>$inv[cusaddr]</pre></td></tr>
+			<tr class='bg-odd'><td>Customer Vat Number</td><td valign=center>$inv[cusvatno]</td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Credit note Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Credit note No.</td><td valign=center>$inv[notenum]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$sday-$smon-$syear</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>VAT Inclusive</td><td valign=center>$inv[chrgvat]</td></tr>
+			<tr class='bg-odd'><td>Credit note No.</td><td valign=center>$inv[notenum]</td></tr>
+			<tr class='bg-odd'><td>Date</td><td valign=center>$sday-$smon-$syear</td></tr>
+			<tr class='bg-even'><td>VAT Inclusive</td><td valign=center>$inv[chrgvat]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -170,14 +170,14 @@ function details($_GET)
 	<tr><td>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=30%>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='nons-invoice-note-view.php'>View Non-Stock credit notes</a></td></tr>
+			<tr class='bg-odd'><td><a href='nons-invoice-note-view.php'>View Non-Stock credit notes</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>$cur $inv[subtot]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT $vat14</td><td align=right>$cur $inv[vat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><th>GRAND TOTAL</th><td align=right>$cur $inv[total]</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>$cur $inv[subtot]</td></tr>
+			<tr class='bg-odd'><td>VAT $vat14</td><td align=right>$cur $inv[vat]</td></tr>
+			<tr class='bg-even'><th>GRAND TOTAL</th><td align=right>$cur $inv[total]</td></tr>
 		</table>
 	</td></tr>
 	</table></form>

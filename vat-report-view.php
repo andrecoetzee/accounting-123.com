@@ -61,7 +61,7 @@ function printCat ()
 	while ($vat = pg_fetch_array ($vatRslt)) {
 
 		$printCat .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$vat[returnname]</td>
 				<td align='center'>$vat[from_date]</td>
 				<td align='center'>$vat[to_date]</td>
@@ -78,7 +78,7 @@ function printCat ()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='reporting/vat_return_report.php'>VAT 201</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

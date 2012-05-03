@@ -24,7 +24,7 @@ function display()
 	$types_out = "";
 	while ($dt_data = pg_fetch_array($dt_rslt)) {
 		$types_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$dt_data[name]</td>
 				<td>$dt_data[description]</td>
 				<td>$dt_data[extension]</td>
@@ -34,7 +34,7 @@ function display()
 
 	if (empty($types_out)) {
 		$types_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='10'><li>No document types found.</li></td>
 			</tr>";
 	}

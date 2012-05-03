@@ -48,7 +48,7 @@ function slct()
 		<tr>
 			<th colspan='2'>Select Project</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$project_sel</td>
 			<td><input type='submit' value='Display &raquo' /></td>
 		</tr>
@@ -113,7 +113,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("start", $start_year, $start_month, $start_day)."</td>
 			<td><b>To</b></td>
 			<td>".mkDateSelect("end", $end_year, $end_month, $end_day)."</td>
@@ -121,7 +121,7 @@ function display()
 		<tr>
 			<th colspan='4'>Display</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4' align='center'>$period_sel</td>
 		</tr>
 	</table>

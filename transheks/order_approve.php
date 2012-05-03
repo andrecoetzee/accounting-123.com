@@ -62,7 +62,7 @@ function listorders($err = "") {
 		}
 
 		$OUT .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$ci[surname]$exdisp</td>
 			<td>$row[pdate]</td>
 			<td>$row[balance]</td>

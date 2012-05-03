@@ -94,7 +94,7 @@ function rem($listid)
 	<input type=hidden name=listid value='$list[listid]'>
 	<input type=hidden name=listname value='$list[listname]'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Supplier Price list</td><td align=center>$list[listname]</td></tr>
+	<tr class='bg-odd'><td>Supplier Price list</td><td align=center>$list[listname]</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Remove &raquo;'></td></tr>
 	<tr><td colspan=2><h3>Prices</h3><td><tr>
@@ -126,8 +126,8 @@ function rem($listid)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sup-pricelist-view.php'>View Price Lists</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='sup-pricelist-view.php'>View Price Lists</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -179,8 +179,8 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sup-pricelist-view.php'>View Supplier Price Lists</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='sup-pricelist-view.php'>View Supplier Price Lists</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

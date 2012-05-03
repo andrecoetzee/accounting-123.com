@@ -62,7 +62,7 @@ function slctAcc()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Name</td>
 				<td>
 					<select name='accid'>";
@@ -84,13 +84,13 @@ function slctAcc()
 				</td>
 				<td><input type='submit' name='details' value='Enter Details'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'><td colspan=3><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'><td colspan=3><br></td></tr>
+			<tr class='".bg_class()."'>
 				<td>Account Number</td>
 				<td><input type='text' name='topacc' size='4' maxlength='4'> / <input type='text' size='3' maxlength='3' disabled='yes' value='000'></td>
 				<td><input type='submit' value='View'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Period</td>
 				<td valign='center' colspan='3'>".finMonList("prd", PRD_DB)."</td>
 			</tr>
@@ -196,7 +196,7 @@ function viewtran($_POST)
 	while($subacc = pg_fetch_array($subRs)){
 		$OUTPUT .= "
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='10'><h2>Account : $subacc[topacc]/$subacc[accnum] - $subacc[accname]</h2></td>
 			</tr>";
 
@@ -209,13 +209,13 @@ function viewtran($_POST)
 			$credtot = 0;
 			$debtot = 0;
 			$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='10'>No Transactions found</td>
 				</tr>";
 			$debtot = sprint ($debtot);
 			$credtot = sprint ($credtot);
 			$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='4'><b>Total</b></td>
 					<td><b>".CUR." $debtot</b></td>
 					<td><b>".CUR." $credtot</b></td>
@@ -257,7 +257,7 @@ function viewtran($_POST)
 				*/
 
 				$OUTPUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$date</td>
 						<td>$custom_refnum</td>
 						<td>$cacc[topacc]/$cacc[accnum] - $cacc[accname]</td>
@@ -283,13 +283,13 @@ function viewtran($_POST)
 			$accbal = sprint ($accbal);
 			
 			$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='4'><b>Total</b></td>
 					<td><b>".CUR." $debtot</b></td>
 					<td><b>".CUR." $credtot</b></td>
 					<td></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='4'><b>Balance</b></td>
 					<td colspan='2'><b>".CUR." $accbal</b></td>
 					<td></td>
@@ -302,7 +302,7 @@ function viewtran($_POST)
 
 	$OUTPUT .= "
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'><b>Total</b></td>
 				<td><b>".CUR." $alldebtot</b></td>
 				<td><b>".CUR." $allcredtot</b></td>

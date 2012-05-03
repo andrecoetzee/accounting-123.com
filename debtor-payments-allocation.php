@@ -57,11 +57,11 @@ function get_data_filter ()
 			<tr>
 				<th colspan='2'>Statement Criteria</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td>$cust_drop</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date Range</td>
 				<td>
 					".mkDateSelect("from",date("Y"),date("m"),"01")." 
@@ -108,7 +108,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 		$run_entries = db_exec($get_entries) or errDie ("Unable to get customer information.");
 		if (pg_numrows($run_entries) < 1){
 			$listing = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='6'>No Entries Found.</td>
 				</tr>";
 		}else {
@@ -132,7 +132,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 				}
 
 				$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$showradio</td>
 						<td>$showcheck</td>
 						<td>$earr[invid]</td>
@@ -150,7 +150,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 		$run_entries = db_exec($get_entries) or errDie ("Unable to get customer information.");
 		if (pg_numrows($run_entries) < 1){
 			$listing = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'>No Entries Found.</td>
 				</tr>";
 		}else {
@@ -173,7 +173,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 				}
 	
 				$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$showradio</td>
 						<td>$showcheck</td>
 						<td>$earr[invid]</td>
@@ -223,7 +223,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 	$run_entries = db_exec($get_entries) or errDie ("Unable to get customer information.");
 	if (pg_numrows($run_entries) < 1){
 		$listing1 = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'>No Allocated Entries Found.</td>
 			</tr>";
 	}else {
@@ -244,7 +244,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			$run_entries2 = db_exec($get_entries2) or errDie ("Unable to get allocated entries information.");
 			if(pg_numrows($run_entries2) < 1){
 				$listing1 .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='4'>No Allocated Entries Found.</td>
 					</tr>";
 			}else {
@@ -260,7 +260,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 				continue;
 
 			$listing1 .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<th>$earr[type]</th>
 					<th>$earr[invid]</th>
 					<th>$earr[date]</th>
@@ -281,7 +281,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 	$run_entries2 = db_exec($get_entries2) or errDie ("Unable to get customer information.");
 	if (pg_numrows($run_entries2) < 1){
 		$listing2 = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'>No Allocated Entries Found.</td>
 			</tr>";
 	}else {
@@ -295,7 +295,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			$run_entries22 = db_exec($get_entries22) or errDie ("Unable to get allocated entries information.");
 			if(pg_numrows($run_entries22) < 1){
 				$listing2 .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='4'>No Allocated Entries Found.</td>
 					</tr>";
 			}else {
@@ -303,7 +303,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 				$listing2 .= "<input type='hidden' name='alloc[]' value='$earr[id]'>";
 				while ($earr3 = pg_fetch_array ($run_entries22)){
 					$listing2 .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='checkbox' name='entries[]' value='$earr2[id]'></td>
 							<td>$earr3[docref] ($earr3[invid])</td>
 							<td>$earr3[type]</td>
@@ -315,7 +315,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			}
 
 			$listing2 .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<th colspan='3'>$earr2[type]</th>
 					<th>$earr2[invid]</th>
 					<th>$earr2[date]</th>
@@ -346,15 +346,15 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			<input type='hidden' name='to_day' value='$to_day'>
 		<table ".TMPL_tblDflts.">
 			$err
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Customer</th>
 				<td>$customer_name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Date Range</th>
 				<td>$from_date to $to_date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Total Outstanding Balance</th>
 				<td>".CUR." $balance</td>
 			</tr>
@@ -362,7 +362,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			<tr>
 				<th colspan='2'>Click on the button below to unallocate credit/debits</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='submit' value='Unallocate Payments'></td>
 				<td align='right'><input type='button'  onClick='showPhonetical(this);' value='Additional Help'></td>
 			</tr>
@@ -386,7 +386,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			<tr>
 				<td>
 					<table ".TMPL_tblDflts.">
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center' colspan='5'>$switch_button</td>
 						</tr>
 						".TBL_BR."

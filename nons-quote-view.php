@@ -74,7 +74,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' nowrap>
 					".mkDateSelect("from", $from_year, $from_month, $from_day)."
 					&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -89,10 +89,10 @@ function slct()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='nons-quote-new.php'>New Non Stock Quote</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -177,10 +177,10 @@ function printInvoice ($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-quote-new.php'>New Non Stock Quote</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -210,7 +210,7 @@ function printInvoice ($_POST)
 		}
 
 		$printOrd .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$nonstks[invnum]</td>
 				<td>$date</td>
 				<td align='center'>$nonstks[ncdate]</td>
@@ -242,7 +242,7 @@ function printInvoice ($_POST)
 	$tot_total = sprint ($tot_total);
 
 	$printOrd .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'>Totals</td>
 			<td align='right'>".CUR." $tot_subtot</td>
 			<td align='right'>".CUR." $tot_total</td>
@@ -252,10 +252,10 @@ function printInvoice ($_POST)
 	<table ".TMPL_tblDflts.">
 		<tr><td><br></td></tr>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='nons-quote-new.php'>New Non-Stock Quotes</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='main.php'>Main Menu</a></td>
 		</tr>
 	</table>";

@@ -74,8 +74,8 @@ function enterAllow ()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=confirm>
 	<tr><th colspan=2>Reimbursement Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Name</td><td align=center><input type=text size=20 name=name></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Category</td><td align=center>$allcat</td></tr>
+	<tr class='bg-odd'><td>Name</td><td align=center><input type=text size=20 name=name></td></tr>
+	<tr class='bg-even'><td>Account Category</td><td align=center>$allcat</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>"
@@ -135,8 +135,8 @@ function confirmAllow ($_POST)
 	<input type=hidden name=key value=write>
 	<input type=hidden name=name value='$name'>
 	<tr><th colspan=2>Allowance Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Name of reimbursement</td><td align=center>$name</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Reimbursement Account</td><td align=center>$allacc</td></tr>
+	<tr class='bg-odd'><td>Name of reimbursement</td><td align=center>$name</td></tr>
+	<tr class='bg-even'><td>Reimbursement Account</td><td align=center>$allacc</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>"

@@ -101,11 +101,11 @@ function details($_GET)
 	<input type=hidden name=deptid value='$quo[deptid]'>
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 		<tr><th colspan=2>Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Quote Number</td><td>$quoid</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Department</td><td valign=center>$quo[deptname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Sales Person</td><td>$quo[salespn]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer</td><td valign=center>$quo[cusname] $quo[surname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Sub Total</td><td>".CUR." $quo[subtot]</td></tr>
+		<tr class='bg-odd'><td>Quote Number</td><td>$quoid</td></tr>
+		<tr class='bg-even'><td>Department</td><td valign=center>$quo[deptname]</td></tr>
+		<tr class='bg-odd'><td>Sales Person</td><td>$quo[salespn]</td></tr>
+		<tr class='bg-even'><td>Customer</td><td valign=center>$quo[cusname] $quo[surname]</td></tr>
+		<tr class='bg-odd'><td>Sub Total</td><td>".CUR." $quo[subtot]</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td><input type=submit value='Confirm &raquo'></td></tr>
 	</table>
@@ -113,10 +113,10 @@ function details($_GET)
 	<p>
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='quote-canc-view.php'>View Cancelled Quotes</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='quote-unf-view.php'>View Incomplete Quotes</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='quote-new.php'>New Quote</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='quote-view.php'>View Quotes</a></td></tr>
+		<tr class='bg-odd'><td><a href='quote-canc-view.php'>View Cancelled Quotes</td></tr>
+		<tr class='bg-odd'><td><a href='quote-unf-view.php'>View Incomplete Quotes</td></tr>
+		<tr class='bg-odd'><td><a href='quote-new.php'>New Quote</a></td></tr>
+		<tr class='bg-odd'><td><a href='quote-view.php'>View Quotes</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -196,14 +196,14 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 	$write = "
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=40%>
 		<tr><th> Incomplete Quote Cancelled </th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Quote No. <b>$quoid</b> has been cancelled.</td></tr>
+		<tr class='bg-odd'><td>Quote No. <b>$quoid</b> has been cancelled.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='quote-unf-view.php'>View Incomplete Quotes</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='quote-new.php'>New Quote</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='quote-view.php'>View Quotes</a></td></tr>
+		<tr class='bg-odd'><td><a href='quote-unf-view.php'>View Incomplete Quotes</td></tr>
+		<tr class='bg-odd'><td><a href='quote-new.php'>New Quote</a></td></tr>
+		<tr class='bg-odd'><td><a href='quote-view.php'>View Quotes</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

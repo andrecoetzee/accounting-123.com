@@ -128,7 +128,7 @@ function slct($_GET, $err = "")
 	$depts .= "</select>";
 
 	//Option removed
-	//<tr bgcolor='".TMPL_tblDataColor1."' ".ass("Select when tranferring goods between Departments or Stores")."><td colspan=2><input type=radio name=ctyp value='c' checked=yes>Accounts Order</td></tr>
+	//<tr class='bg-odd' ".ass("Select when tranferring goods between Departments or Stores")."><td colspan=2><input type=radio name=ctyp value='c' checked=yes>Accounts Order</td></tr>
 
 	$details = "
 		<center>
@@ -144,15 +144,15 @@ function slct($_GET, $err = "")
 			<tr>
 				<th colspan='2'> Order Details </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."' ".ass("Select when purchasing non stock goods from your suppliers").">
+			<tr class='".bg_class()."' ".ass("Select when purchasing non stock goods from your suppliers").">
 				<td><input type='radio' name='ctyp' value='s' checked='yes'> Select Supplier</td>
 				<td>$sups</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."' ".ass("Select when the Order of non stock goods is a cash Order").">
+			<tr class='".bg_class()."' ".ass("Select when the Order of non stock goods is a cash Order").">
 				<td><input type='radio' name='ctyp' value='c'>Cash Order</td>
 				<td>$depts</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='radio' name='ctyp' value='p'>Petty Cash Order</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -414,7 +414,7 @@ function details($_POST, $error="")
 			<input type='hidden' size='4' name='cod[]' value='$stkd[cod]'>
 			<input type='hidden' name='qts[]' value='$stkd[qty]'>
 			<input type='hidden' size='4' name='unitcost[]' value='$stkd[unitcost]'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stkd[cod]</td>
 				<td>$stkd[des]</td>
 				<td><input type='text' size='5' name='qtys[]' value='$stkd[qty]'></td>
@@ -470,15 +470,15 @@ function details($_POST, $error="")
 						<tr>
 							<th colspan='2'> Supplier Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier</td>
 							<td valign='center'>$pur[supplier]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier Address</td>
 							<td valign='center'><pre>$pur[supaddr]</pre></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."' ".ass("Select the account you wish to Credit").">
+						<tr class='".bg_class()."' ".ass("Select the account you wish to Credit").">
 							<td>Account <input align='right' type='button' onClick=\"window.open('core/acc-new2.php?update_parent=yes','accounts','width=700, height=400');\" value='New Account'></td>
 							<td>$supacc</td>
 						</tr>
@@ -489,31 +489,31 @@ function details($_POST, $error="")
 						<tr>
 							<th colspan='2'> Non-Stock Order Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Non-Stock Order No.</td>
 							<td valign='center'>$pur[purnum]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier Invoice Number</td>
 							<td valign='center'><input type='text' name='supinv' size='10' value='$pur[supinv]'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Delivery Ref No.</td>
 							<td valign='center'><input type='text' name='refno' size='10' value='$pur[refno]'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Terms</td>
 							<td valign='center'>$pur[terms] Days</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td valign='center'>".mkDateSelect("p",$p_year,$p_month,$p_day)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Inclusive</td>
 							<td valign='center'>$pur[vatinc]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Delivery Charges</td>
 							<td valign='center' nowrap>".CUR." <input type='hidden' name='shipchrg' size='10' value='$pur[shipchrg]'>$pur[shipchrg]</td>
 						</tr>
@@ -534,10 +534,10 @@ function details($_POST, $error="")
 							<td rowspan='5' valign='top' width='50%'>$error</td>
 						</tr>
 						<tr>
-							<td bgcolor='".bgcolorg()."'><a href='nons-purchase-new.php'>New Order</a></td>
-							<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$pur[remarks]</textarea></td>
+							<td class='".bg_class()."'><a href='nons-purchase-new.php'>New Order</a></td>
+							<td class='".bg_class()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$pur[remarks]</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='nons-purchase-view.php'>View Orders</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>
@@ -545,19 +545,19 @@ function details($_POST, $error="")
 				</td>
 				<td align='right'>
 					<table ".TMPL_tblDflts." width='80%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>SUBTOTAL</td>
 							<td align='right' nowrap>".CUR." $SUBTOT</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Delivery Charges</td>
 							<td align='right' nowrap>".CUR." $pur[shipping]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT $vat14</td>
 							<td align='right' nowrap>".CUR." $pur[vat]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th>GRAND TOTAL</th>
 							<td align='right' nowrap>".CUR." $TOTAL</td>
 						</tr>
@@ -1023,7 +1023,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 			<tr>
 				<th>Non-Stock Order received</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Non-Stock Order receipt has been recorded.</td>
 			</tr>
 		</table>
@@ -1032,7 +1032,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='nons-purchase-view.php'>View Orders</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

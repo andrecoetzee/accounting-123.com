@@ -90,10 +90,10 @@ function enterAllow ($id)
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=id value='$id'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Name of allowance</td><td align=center><input type=text size=20 name=allowance value='$myAllow[allowance]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Account</td><td align=center>$acc[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Taxable</td><td align=center><select name=taxable><option value='yes'>Yes</option><option value='no'>No</option></select></td></tr>
-	<!--<tr bgcolor='".TMPL_tblDataColor2."'><td>Allowance Type</td><td>$seltype</td></tr>//-->
+	<tr class='bg-odd'><td>Name of allowance</td><td align=center><input type=text size=20 name=allowance value='$myAllow[allowance]'></td></tr>
+	<tr class='bg-even'><td>Account</td><td align=center>$acc[accname]</td></tr>
+	<tr class='bg-odd'><td>Taxable</td><td align=center><select name=taxable><option value='yes'>Yes</option><option value='no'>No</option></select></td></tr>
+	<!--<tr class='bg-even'><td>Allowance Type</td><td>$seltype</td></tr>//-->
 	<input type=hidden name=type value='$myAllow[type]'>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
@@ -144,9 +144,9 @@ function confirmAllow ($_POST)
 	<input type=hidden name=taxable value='$taxable'>
 	<input type=hidden name=type value='$type'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Name of allowance</td><td align=center>$allowance</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Taxable</td><td align=center>$taxable</td></tr>
-	<!--<tr bgcolor='".TMPL_tblDataColor2."'><td>Allowance Type</td><td align=center>$type</td></tr>//-->
+	<tr class='bg-odd'><td>Name of allowance</td><td align=center>$allowance</td></tr>
+	<tr class='bg-even'><td>Taxable</td><td align=center>$taxable</td></tr>
+	<!--<tr class='bg-even'><td>Allowance Type</td><td align=center>$type</td></tr>//-->
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>"

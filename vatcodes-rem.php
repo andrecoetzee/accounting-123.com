@@ -87,16 +87,16 @@ function rem($id)
 	<input type=hidden name=code value='$clas[code]'>
 	<input type=hidden name=description value='$clas[description]'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Code</td><td align=center>$clas[code]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td align=center>$clas[description]</td></tr>
+	<tr class='bg-odd'><td>Code</td><td align=center>$clas[code]</td></tr>
+	<tr class='bg-even'><td>Description</td><td align=center>$clas[description]</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Remove &raquo;'></td></tr>
 	<tr><td><br></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='vatcodes-view.php'>View VAT Codes</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='vatcodes-view.php'>View VAT Codes</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -143,8 +143,8 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='vatcodes-view.php'>View VAT Codes</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='vatcodes-view.php'>View VAT Codes</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

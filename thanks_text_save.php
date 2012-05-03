@@ -40,7 +40,7 @@ function enter()
 		<tr>
 			<th>Text</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='thank_you' value='$thank_you' style='width: 400px' /></td>
 		</tr>
 		<tr>
@@ -62,7 +62,7 @@ function confirm()
 	<input type='hidden' name='thank_you' value='$thank_you' />
 	<table ".TMPL_tblDflts.">
 		<tr><th>Confirm</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$thank_you</td>
 		</tr>
 		<tr>
@@ -84,7 +84,7 @@ function write()
 	$OUTPUT = "<h3>Edit Thank You Text</h3>
 	<table ".TMPL_tblDflts.">
 		<tr><th>Write</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Successfully saved thank you text.</li></td>
 		</tr>
 	</table>";

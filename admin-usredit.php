@@ -121,7 +121,7 @@ function editUser ($_POST)
 				<tr>
 					<th colspan='2'>Select User Permissions</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'><input type='submit' name='deps[$active_dept]' value='Add'><input type='submit' name='depsrem[$active_dept]' value='Remove'> $dept_name</td>
 				</tr>";
 
@@ -140,7 +140,7 @@ function editUser ($_POST)
 					if (pg_numrows ($Ex) > 0) {$Ch ="checked";}else{$Ch="";}
 
 					$department .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>..... <input type='checkbox' name='perm[]' $Ch value='$scr[script]'> $Tp[script]</td>
 						</tr>";
 
@@ -189,7 +189,7 @@ function editUser ($_POST)
 					$checked = "checked='yes'";
 
 				$payroll_groups .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>".ucfirst($garr['emp_group'])."</td>
 						<td><input type='checkbox' name='payroll_group[$garr[id]]' value='$garr[id]' $checked></td>
 					</tr>";
@@ -239,11 +239,11 @@ function editUser ($_POST)
 						</table>
 					</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Show Tooltips</td>
 					<td>$tsel</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Employee</td>
 					<td>$employee_sel</td>
 				</tr>
@@ -263,7 +263,7 @@ function editUser ($_POST)
 				<tr>
 					<th>Departments</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$dept_drop</td>
 				</tr>
 				".TBL_BR."
@@ -434,7 +434,7 @@ function confirmUser ($_POST) // Function args
 			<tr>
 				<th>Committed changes to user</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>User, $username, was successfully edited.</td>
 			</tr>
 		</table>";

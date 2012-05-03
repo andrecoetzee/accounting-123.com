@@ -24,7 +24,7 @@ function view()
 	$at_out = "";
 	while ($at_data = pg_fetch_array($at_rslt)) {
 		$at_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$at_data[name]</td>
 				<td>".nl2br($at_data["description"])."</td>
 				<td><a href='asset_type_save.php?page_option=Edit&id=$at_data[id]'>Edit</a></td>
@@ -34,7 +34,7 @@ function view()
 
 	if (empty($at_out)) {
 		$at_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'>No asset types found</td>
 			</tr>";
 	}

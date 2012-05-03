@@ -45,71 +45,71 @@ function display()
 		<tr>
 			<th colspan='2'>Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Title</td>
 			<td>$title</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Project</td>
 			<td>$project</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Area</td>
 			<td>$area</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Discipline</td>
 			<td>$discipline</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Document Type</td>
 			<td>$type_name</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Revision</td>
 			<td>$revision</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Drawing Number</td>
 			<td>$drawing_num</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Sheet Number</td>
 			<td>$sheet_num</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>File Location</td>
 			<td>$location</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Contract</td>
 			<td>$contract</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Contractor</td>
 			<td>$contractor</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Code</td>
 			<td>$code</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Issue For</td>
 			<td>$issue_for</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Comments</td>
 			<td>$comments</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>QS</td>
 			<td>$qs</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Team Permissions</td>
 			<td>$team_name</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Status</td>
 			<td>$status</td>
 		</tr>
@@ -121,14 +121,14 @@ function display()
 
 	$file_out = "";
 	while ($df_data = pg_fetch_array($df_rslt)) {
-		$file_out .= "<tr bgcolor='".bgcolorg()."'>
+		$file_out .= "<tr class='".bg_class()."'>
 			<td><a href='getfile.php?key=doc&id=$df_data[id]'>$df_data[filename]</a></td>
 			<td>".getFilesize($df_data["size"])."</td>
 		</tr>";
 	}
 
 	if (empty($file_out)) {
-		$file_out = "<tr bgcolor='".bgcolorg()."'>
+		$file_out = "<tr class='".bg_class()."'>
 			<td colspan='2'>No files found.</td>
 		</tr>";
 	}

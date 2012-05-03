@@ -72,7 +72,7 @@ function display()
 		}
 
 		$dm_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".date("d-m-Y G:i:s", $dm_data["e_time"])."</td>
 				<td>$dm_data[title]</td>
 				<td>$dm_data[doc_id]</td>
@@ -88,7 +88,7 @@ function display()
 
 	if (empty($dm_out)) {
 		$dm_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='20'><li>No results found.</li></td>
 			</tr>";
 	}
@@ -101,7 +101,7 @@ function display()
 			<tr>
 				<th colspan='4'>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				<td><b>To</b></td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

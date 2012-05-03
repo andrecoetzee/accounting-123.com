@@ -89,7 +89,7 @@ function details($_GET)
 
 		while($stkd = pg_fetch_array($stkdRslt)){
 			# put in product
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td>$stkd[cod]</td><td>$stkd[des]</td><td>$stkd[qty]</td><td>$pur[curr] $stkd[cunitcost] or </td><td>".CUR." $stkd[unitcost]</td><td>$pur[curr] $stkd[duty] or </td><td>$stkd[dutyp]%</td><td>$pur[curr] $stkd[amt]</td></tr>";
+			$products .="<tr class='bg-odd'><td>$stkd[cod]</td><td>$stkd[des]</td><td>$stkd[qty]</td><td>$pur[curr] $stkd[cunitcost] or </td><td>".CUR." $stkd[unitcost]</td><td>$pur[curr] $stkd[duty] or </td><td>$stkd[dutyp]%</td><td>$pur[curr] $stkd[amt]</td></tr>";
 		}
 
 	$products .= "</table>";
@@ -119,20 +119,20 @@ function details($_GET)
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Supplier Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Supplier</td><td valign=center>$pur[supplier]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Supplier Address</td><td valign=center><pre>$pur[supaddr]</pre></td></tr>
+			<tr class='bg-odd'><td>Supplier</td><td valign=center>$pur[supplier]</td></tr>
+			<tr class='bg-even'><td>Supplier Address</td><td valign=center><pre>$pur[supaddr]</pre></td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Non-Stock Order Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Non-Stock Order No.</td><td valign=center>$pur[purnum]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Order No.</td><td valign=center>$pur[ordernum]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms</td><td valign=center>$pur[terms] Days</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td valign=center>$pday-$pmon-$pyear</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Foreign Currency</td><td valign=center>$currsel &nbsp;&nbsp;Exchange rate $pur[curr] $pur[xrate]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Tax</td><td valign=center>$pur[curr] $pur[tax]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Shipping Charges</td><td valign=center>$pur[curr] $pur[shipchrg]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Delivery Date</td><td valign=center>$dday-$dmon-$dyear</td></tr>
+			<tr class='bg-odd'><td>Non-Stock Order No.</td><td valign=center>$pur[purnum]</td></tr>
+			<tr class='bg-even'><td>Order No.</td><td valign=center>$pur[ordernum]</td></tr>
+			<tr class='bg-odd'><td>Terms</td><td valign=center>$pur[terms] Days</td></tr>
+			<tr class='bg-even'><td>Date</td><td valign=center>$pday-$pmon-$pyear</td></tr>
+			<tr class='bg-odd'><td>Foreign Currency</td><td valign=center>$currsel &nbsp;&nbsp;Exchange rate $pur[curr] $pur[xrate]</td></tr>
+			<tr class='bg-even'><td>Tax</td><td valign=center>$pur[curr] $pur[tax]</td></tr>
+			<tr class='bg-odd'><td>Shipping Charges</td><td valign=center>$pur[curr] $pur[shipchrg]</td></tr>
+			<tr class='bg-even'><td>Delivery Date</td><td valign=center>$dday-$dmon-$dyear</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -142,16 +142,16 @@ function details($_GET)
 	<tr><td>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th width=40%>Quick Links</th><th width=45%>Remarks</th><td rowspan=5 valign=top width=15%><br></td></tr>
-			<tr><td bgcolor='".TMPL_tblDataColor1."'><a href='nons-purch-int-new.php'>New International Non-Stock Order</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top>".nl2br($pur['remarks'])."</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='nons-purch-int-view.php'>View International Non-Stock Orders</a></td></tr>
+			<tr><td class='bg-odd'><a href='nons-purch-int-new.php'>New International Non-Stock Order</a></td><td class='bg-odd' rowspan=4 align=center valign=top>".nl2br($pur['remarks'])."</td></tr>
+			<tr class='bg-odd'><td><a href='nons-purch-int-view.php'>View International Non-Stock Orders</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>$pur[curr] $pur[subtot]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Delivery Charges</td><td align=right>$pur[curr] $pur[shipping]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Tax </td><td align=right>$pur[curr] $pur[tax]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><th>GRAND TOTAL</th><td align=right>$pur[curr] $pur[total]</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>$pur[curr] $pur[subtot]</td></tr>
+			<tr class='bg-even'><td>Delivery Charges</td><td align=right>$pur[curr] $pur[shipping]</td></tr>
+			<tr class='bg-odd'><td>Tax </td><td align=right>$pur[curr] $pur[tax]</td></tr>
+			<tr class='bg-even'><th>GRAND TOTAL</th><td align=right>$pur[curr] $pur[total]</td></tr>
 		</table>
 	</td></tr>
 	</table></form>

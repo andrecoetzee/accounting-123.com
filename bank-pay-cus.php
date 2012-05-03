@@ -116,12 +116,12 @@ function add($_POST)
 	<form action='".SELF."' method=post name=form>
 	<input type=hidden name=key value=confirm>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Bank Account</td><td valign=center>$bank</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td><input type=text size=2 name=day maxlength=2 value='$day'>-<input type=text size=2 name=mon maxlength=2 value='$mon'>-<input type=text size=4 name=year maxlength=4 value='$year'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Paid to</td><td valign=center>$custs</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Description</td><td valign=center><textarea col=18 rows=3 name=descript>$descript</textarea></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Cheque Number</td><td valign=center><input size=20 name=cheqnum value='$cheqnum'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Amount</td><td valign=center>".CUR." <input type=text size=10 name=amount value='$amount'></td></tr>
+	<tr class='bg-odd'><td>Bank Account</td><td valign=center>$bank</td></tr>
+	<tr class='bg-even'><td>Date</td><td><input type=text size=2 name=day maxlength=2 value='$day'>-<input type=text size=2 name=mon maxlength=2 value='$mon'>-<input type=text size=4 name=year maxlength=4 value='$year'></td></tr>
+	<tr class='bg-odd'><td>Paid to</td><td valign=center>$custs</td></tr>
+	<tr class='bg-even'><td valign=top>Description</td><td valign=center><textarea col=18 rows=3 name=descript>$descript</textarea></td></tr>
+	<tr class='bg-odd'><td>Cheque Number</td><td valign=center><input size=20 name=cheqnum value='$cheqnum'></td></tr>
+	<tr class='bg-even'><td>Amount</td><td valign=center>".CUR." <input type=text size=10 name=amount value='$amount'></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td></td><td valign=center align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</table>";
@@ -135,7 +135,7 @@ function add($_POST)
 				<tr><th>Quick Links</th></tr>
 				<script>document.write(getQuicklinkSpecial());</script>
 				<script>document.write(getQuicklinkSpecial());</script>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+				<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 		</table>
 	</td></tr>
 	</table>";
@@ -205,12 +205,12 @@ function confirm($_POST)
 	<input type=hidden name=mon value='$mon'>
 	<input type=hidden name=year value='$year'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Account</td><td>$bank[accname] - $bank[bankname] ($acc[acctype])</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td valign=center>$date</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Paid to</td><td valign=center>($cust[accno]) $cust[cusname] $cust[surname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td valign=center>$descript</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Cheque Number</td><td valign=center>$cheqnum</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Amount</td><td valign=center>".CUR." $amount</td></tr>
+	<tr class='bg-odd'><td>Account</td><td>$bank[accname] - $bank[bankname] ($acc[acctype])</td></tr>
+	<tr class='bg-even'><td>Date</td><td valign=center>$date</td></tr>
+	<tr class='bg-odd'><td>Paid to</td><td valign=center>($cust[accno]) $cust[cusname] $cust[surname]</td></tr>
+	<tr class='bg-even'><td>Description</td><td valign=center>$descript</td></tr>
+	<tr class='bg-odd'><td>Cheque Number</td><td valign=center>$cheqnum</td></tr>
+	<tr class='bg-even'><td>Amount</td><td valign=center>".CUR." $amount</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td><input type=submit name=back value='&laquo; Correction'></td><td align=right><input type=submit value='Write &raquo'></td></tr>
 	</form></table>
@@ -219,7 +219,7 @@ function confirm($_POST)
 	<tr><th>Quick Links</th></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	<script>document.write(getQuicklinkSpecial());</script>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -337,11 +337,11 @@ function write($_POST)
 		<td align=center>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=80%>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='bank-pay-add.php'>Add Bank Payment</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='bank-recpt-add.php'>Add Bank Receipt</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cashbook-view.php'>View Cash Book</a></td></tr>
+			<tr class='bg-odd'><td><a href='bank-pay-add.php'>Add Bank Payment</a></td></tr>
+			<tr class='bg-odd'><td><a href='bank-recpt-add.php'>Add Bank Receipt</a></td></tr>
+			<tr class='bg-odd'><td><a href='cashbook-view.php'>View Cash Book</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+			<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 		</table>
 		</td></tr>
 	</table>";

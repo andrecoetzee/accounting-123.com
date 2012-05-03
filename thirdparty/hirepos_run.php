@@ -61,7 +61,7 @@ function enter()
 			<tr>
 				<th colspan='2'>User</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$users_sel</td>
 				<td><input type='submit' value='Select' /></td>
 			</tr>
@@ -97,7 +97,7 @@ function enter()
 			<th colspan='2'>Options</th>
 -->
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Rentals</td>
 			<td>$rental_count</td>
 <!--
@@ -113,7 +113,7 @@ function enter()
 			</td>
 -->
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Invoices</td>
 			<td>$invoice_count</td>
 <!--			
@@ -129,7 +129,7 @@ function enter()
 			</td>
 -->
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4' align='center'>
 				<a href='".SELF."?key=run&user_id=$user_id'
 				style='font-size: 1.6em'>Run</a>
@@ -161,7 +161,7 @@ function view_rental()
 	$rentals_out = "";
 	while ($rentals_data = pg_fetch_array($rentals_rslt)) {
 		$rentals_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'>$rentals_data[id]</td>
 			<td>$rentals_data[surname]</td>
 			<td>$rentals_data[order_num]</td>
@@ -179,7 +179,7 @@ function view_rental()
 		<tr>
 			<th>User</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$username</td>
 		</tr>
 	</table>
@@ -218,7 +218,7 @@ function view_invoice()
 	$invoice_out = "";
 	while ($invoice_data = pg_fetch_array($invoice_rslt)) {
 		$invoice_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'>$invoice_data[id]</td>
 			<td align='center'>$invoice_data[hire_id]</td>
 			<td>$invoice_data[surname]</td>
@@ -238,7 +238,7 @@ function view_invoice()
 		<tr>
 			<th>User</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$username</td>
 		</tr>
 	</table>

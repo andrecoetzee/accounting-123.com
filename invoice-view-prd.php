@@ -88,27 +88,27 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' nowrap>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;TO&nbsp;
 					".mkDateSelect("to")."
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Customer</td>
 				<td>$custs</td>
 				<td><input type='submit' value='Search'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'>OR</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Input customer account number</td>
 				<td><input type='text' name='accnum' size='10'></td>
 				<td valign='bottom'><input type='submit' value='View'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>All Customers</td>
 				<td><input type='submit' name='all' value='List All &raquo;'></td>
 			</tr>
@@ -285,7 +285,7 @@ function printInv ($_POST)
 			}
 			$delnote="<td><a target='_blank' href='invoice-delnote-prd.php?invid=$inv[invid]&prd=$prd'>Delivery Note</a></td>";
 			$printInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[deptname]</td>
 					<td>$inv[invnum]</td>
 					<td>$inv[docref]</td>
@@ -311,7 +311,7 @@ function printInv ($_POST)
 	// Layout
 	if($tot1 > 0){
 		$printInv .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='7'>Totals:$i</td>
 				<td align='right'>$tot1</td>
 				<td align='right' colspan='6'></td>
@@ -326,13 +326,13 @@ function printInv ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='invoice-canc-view.php'>View Cancelled Invoices</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='invoice-unf-view.php'>View Incomplete Invoices</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='cust-credit-stockinv.php'>New Invoice</td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

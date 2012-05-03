@@ -54,16 +54,16 @@ if (isset($_POST["key"])) {
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='costcenter-add.php'>Add Cost Center</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='costcenter-view.php'>View Cost Centers</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='projects-edit.php'>Manage Project Cost Centers</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>
@@ -200,11 +200,11 @@ function view($_POST,$err="")
 						<th>Field</th>
 						<th>Value</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Code</td>
 						<td><input type='text' size='20' name='centercode' value='$centercode'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>".REQ."Name</td>
 						<td><input type='text' size='20' name='centername' value='$centername'></td>
 					</tr>
@@ -212,19 +212,19 @@ function view($_POST,$err="")
 					<tr>
 						<th colspan='2'>Project</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'>$lev1_drop</td>
 					</tr>
 					<tr>
 						<th colspan='2'>Sub-Section</th>
 					</th>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'>$lev2_drop</td>
 					</tr>
 					<tr>
 						<th colspan='2'>Sub-Sub-Section</th>
 					</th>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'>$lev3_drop</td>
 					</tr>
 					<tr><td><br></td></tr>
@@ -302,11 +302,11 @@ function confirm($_POST)
 							<th width='40%'>Field</th>
 							<th width='60%'>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Code</td>
 							<td>$centercode</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Name</td>
 							<td>$centername</td>
 						</tr>

@@ -44,7 +44,7 @@ function display()
 			$charter = "";
 		}
 
-		$proj_out .= "<tr bgcolor='".bgcolorg()."'>
+		$proj_out .= "<tr class='".bg_class()."'>
 			<td>$proj_data[name]</td>
 			<td>$champion[username]</td>
 			<td>$sponsor[username]</td>
@@ -75,7 +75,7 @@ function display()
 				$$key = pg_fetch_array($user_rslt);
 			}
 
-			$proj_out .= "<tr bgcolor='".bgcolorg()."'>
+			$proj_out .= "<tr class='".bg_class()."'>
 				<td><li>$sproj_data[name]</li></td>
 				<td>$champion[username]</td>
 				<td>$sponsor[username]</td>
@@ -98,7 +98,7 @@ function display()
 	}
 
 	if (empty($proj_out)) {
-		$proj_out = "<tr bgcolor='".bgcolorg()."'>
+		$proj_out = "<tr class='".bg_class()."'>
 			<td colspan='10'><li>No projects found.</li></td>
 		</tr>";
 	}

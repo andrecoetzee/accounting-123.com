@@ -60,7 +60,7 @@ function view()
 	<form action='".SELF."' method=post name=form>
 	<input type=hidden name=key value=out>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Bank Account</td>
+	<tr class='bg-odd'><td>Bank Account</td>
 	<td valign=center><select name=bankid>";
 
 	db_connect();
@@ -138,7 +138,7 @@ function cashbook($_POST, $err="")
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><td colspan=10>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><th>Bank Account</th><td>$bank[accname]</td><th>Opening Balance</th><td>".CUR." <input type=text name=sbal size=12 value='$sbal'><th>Closing Balance</th><td>".CUR." <input type=text name=cbal size=12 value='$cbal'></td></tr>
+			<tr class='bg-odd'><th>Bank Account</th><td>$bank[accname]</td><th>Opening Balance</th><td>".CUR." <input type=text name=sbal size=12 value='$sbal'><th>Closing Balance</th><td>".CUR." <input type=text name=cbal size=12 value='$cbal'></td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br>$err<br></td></tr>
@@ -197,11 +197,11 @@ function cashbook($_POST, $err="")
 	$sysbal = sprint($bal['bal']);
 
 	$cashbook .= "
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>System Bank Balance + Oustanding Amounts</b></td><td colspan=4 align=right><b>".CUR." $sysbal</b></td></tr>
+	<tr class='bg-even'><td colspan=2><b>System Bank Balance + Oustanding Amounts</b></td><td colspan=4 align=right><b>".CUR." $sysbal</b></td></tr>
 	<tr><td><br><br><td></tr>
 	<input type=hidden name=recon value='$recon'>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><b>Reconciled Bank Balance</b></td><td align=right colspan=4><b>".CUR." $reconbal</b></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><b>Closing Bank Balance</b></td><td align=right colspan=4><b>".CUR." $cbal</b></td></tr>
+	<tr class='bg-odd'><td colspan=2><b>Reconciled Bank Balance</b></td><td align=right colspan=4><b>".CUR." $reconbal</b></td></tr>
+	<tr class='bg-odd'><td colspan=2><b>Closing Bank Balance</b></td><td align=right colspan=4><b>".CUR." $cbal</b></td></tr>
 	<tr><td><br><td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td><input type=submit name='upBtn' value='Update'></td></tr>
 	</table>

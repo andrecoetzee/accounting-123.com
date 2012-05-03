@@ -15,7 +15,7 @@ function show_list ()
 	$get_burs = "SELECT * FROM active_bursaries ORDER BY rec_name";
 	$run_burs = db_exec($get_burs) or errDie("Unable to get bursaries information.");
 	if(pg_numrows($run_burs) < 1){
-		$listing .= "<tr bgcolor='".bgcolorg()."'><td colspan='8'>No bursaries found.</td></tr>";
+		$listing .= "<tr class='".bg_class()."'><td colspan='8'>No bursaries found.</td></tr>";
 	}else {
 		$listing = "";
 		while ($barr = pg_fetch_array($run_burs)){
@@ -29,7 +29,7 @@ function show_list ()
 			$showburs = $burarr['bursary_name'];
 
 			$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$barr[rec_name]</td>
 						<td>$showburs</td>
 						<td>$barr[rec_idnum]</td>

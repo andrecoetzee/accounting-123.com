@@ -56,7 +56,7 @@ function printCat ()
 	}
 	while ($cat = pg_fetch_array ($catRslt)) {
 		$printCat .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$cat[category]</td>
 							<td><a href='cat-edit.php?catid=$cat[catid]'>Edit</a></td>
 							<td><a href='cat-rem.php?catid=$cat[catid]'>Remove</a></td>
@@ -72,10 +72,10 @@ function printCat ()
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='cat-add.php'>Add Category</a></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='../main.php'>Main Menu</a></td>
 						</tr>
 					</table>";

@@ -36,7 +36,7 @@ require("template.php");
 function view(){
 $view = "<center><table width=90%>
         <tr><td width=80%><h3>View Purchases</h3></td>
-        <td bgcolor='".TMPL_tblDataColor2."'><a href='purchase-new.php'>Add New Purchase</a></td></tr>
+        <td class='bg-even'><a href='purchase-new.php'>Add New Purchase</a></td></tr>
         </table><br>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=90%>
         <tr><th>Item Name</th><th>Description</th><th>Quantity</th><th>Total Cost</th><th>Payment Method</th><th>Item Account</th><th>Account Used</th></tr>";

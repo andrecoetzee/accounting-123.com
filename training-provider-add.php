@@ -154,31 +154,31 @@ function enter ()
 								<tr>
 									<th colspan='2'>Training Provider Details</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>".REQ."Name</td>
 									<td><input type='text' size='20' name='supname'></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>".REQ."Address</td>
 									<td><textarea name='supaddr' rows='5' cols='18'></textarea></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>".REQ."Contact Name</td>
 									<td><input type='text' size='20' name='contname'></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>".REQ."Tel No.</td>
 									<td><input type='text' size='20' name='tel'></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Fax No.</td>
 									<td><input type='text' size='20' name='fax'></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Training BEE</td>
 									<td>Yes <input type='radio' name='bee_training' value='yes' $sel1> No <input type='radio' name='bee_training' value='no' $sel2></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td valign='center'>Notes</td>
 									<td><textarea cols='25' rows='4' name='comments'></textarea></td>
 								</tr>
@@ -193,10 +193,10 @@ function enter ()
 											<tr>
 												<th>Quick Links</th>
 											</tr>
-											<tr bgcolor='".bgcolorg()."'>
+											<tr class='".bg_class()."'>
 												<td><a href='supp-view.php'>View Suppliers</a></td>
 											</tr>
-											<tr bgcolor='".bgcolorg()."'>
+											<tr class='".bg_class()."'>
 												<td><a href='main.php'>Main Menu</a></td>
 											</tr>
 										</table>
@@ -352,10 +352,10 @@ function enter_err ($_POST, $err="")
 											<tr>
 												<th>Quick Links</th>
 											</tr>
-											<tr bgcolor='".bgcolorg()."'>
+											<tr class='".bg_class()."'>
 												>td><a href='supp-view.php'>View Suppliers</a></td>
 											</tr>
-											<tr bgcolor='".bgcolorg()."'>
+											<tr class='".bg_class()."'>
 												<td><a href='main.php'>Main Menu</a></td>
 											</tr>
 										</table>
@@ -482,31 +482,31 @@ function confirm ($_POST)
 								<tr>
 									<th colspan='2'>Supplier Details</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Name </td>
 									<td>$supname</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Address</td>
 									<td><pre>$supaddr</pre></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Contact Name</td>
 									<td>$contname</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Tel No.</td>
 									<td>$tel</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Fax No.</td>
 									<td>$fax</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Training BEE</td>
 									<td>$bee_training</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Notes</td>
 									<td>".nl2br($comments)."</td>
 								</tr>
@@ -522,10 +522,10 @@ function confirm ($_POST)
 											<tr>
 												<th>Quick Links</th>
 											</tr>
-											<tr bgcolor='".bgcolorg()."'>
+											<tr class='".bg_class()."'>
 												<td><a href='supp-view.php'>View Suppliers</a></td>
 											</tr>
-											<tr bgcolor='".bgcolorg()."'>
+											<tr class='".bg_class()."'>
 												<td><a href='main.php'>Main Menu</a></td>
 											</tr>
 										</table>
@@ -657,7 +657,7 @@ function write ($_POST)
 					<tr>
 						<th>Supplier added to the system</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>New Supplier <b>$supname</b>, has been successfully added to the system.</td>
 					</tr>
 				</table>
@@ -666,13 +666,13 @@ function write ($_POST)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='supp-new.php'>Add Supplier</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='supp-view.php'>View Suppliers</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";

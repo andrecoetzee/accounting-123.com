@@ -39,10 +39,10 @@ $OUTPUT .= "
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='import-settings.php'>Statement Import Settings</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='../main.php'>Main Menu</a></td>
 		</tr>
 	</table>";
@@ -74,11 +74,11 @@ function confirm($_GET)
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td>$rd[ref]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>+/-</td>
 				<td>$rd[pn]</td>
 			</tr>
@@ -109,7 +109,7 @@ function write($_POST)
 			<tr>
 				<th>Done</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description deleted</td>
 			</tr>
 		</table>";

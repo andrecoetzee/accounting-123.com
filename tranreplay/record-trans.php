@@ -38,7 +38,7 @@ function get_trans ($_POST)
 						<tr>
 							<th>Select Transaction Type To Record</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>
 								<select size='4' name='transtype'>
 									<option value='journal'>Journal Transaction</option>
@@ -73,7 +73,7 @@ function run_trans ($_POST)
 	$run_list = db_exec($get_list) or errDie("Unable to get transaction batch information");
 	if(pg_numrows($run_list) < 1){
 		$listing = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='6'>No Transactions Found.</td>
 						</tr>
 					";
@@ -94,7 +94,7 @@ function run_trans ($_POST)
 			$creditaccname = $ctarr['accname'];
 			
 			$listing .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$debitaccname</td>
 								<td>$creditaccname</td>
 								<td align='center'>$tarr[tdate]</td>

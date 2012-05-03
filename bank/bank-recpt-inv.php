@@ -106,10 +106,10 @@ function sel_cus($_POST)
 	$cust .= "</select>";
 
 
-//	<tr bgcolor='".bgcolorg()."'>
+//	<tr class='".bg_class()."'>
 //		<td colspan='2' align='center'>OR</td>
 //	</tr>
-//	<tr bgcolor='".bgcolorg()."'>
+//	<tr class='".bg_class()."'>
 //		<td>Input customer account number</td>
 //		<td><input type='text' name='accnum' size='10'></td>
 //	</tr>
@@ -124,7 +124,7 @@ function sel_cus($_POST)
 			<tr>
 				<th colspan='2'>Select Customer</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customers</td>
 				<td>$cust</td>
 			</tr>
@@ -215,7 +215,7 @@ function sel_cus($_POST)
 //				<tr>
 //					<th colspan='2'>Receipt Details</th>
 //				</tr>
-//				<tr bgcolor='".bgcolorg()."'>
+//				<tr class='".bg_class()."'>
 //					<td>Bank Account / Cash</td>
 //					<td valign='center'>
 //						<select name='bankid'>";
@@ -288,35 +288,35 @@ function sel_cus($_POST)
 //					</select>
 //				</td>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td>Payment Date</td>
 //				<td>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td>Received from</td>
 //				<td valign='center'>$cust</td>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td>Description</td>
 //				<td valign='center'><textarea col='18' rows='3' name='descript'>$descript</textarea></td>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td>Reference</td>
 //				<td valign='center'><input size='25' name='reference' value='$reference'></td>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td>Cheque Number</td>
 //				<td valign='center'><input size='20' name='cheqnum' value='$cheqnum'></td>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td>Amount</td>
 //				<td valign='center'>".CUR." <input type='text' size='13' name='amt' value='$amt'></td>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td>Settlement Discount Amount</td>
 //				<td>".CUR." <input type='text' size='13' name='setamt' value='$setamt'></td>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td>Settlement Discount VAT</td>
 //				<td>$vatcode_drop <input type='radio' name='setvat' value='inc' checked='yes'>VAT Inclusive <input type='radio' name='setvat' value='novat'> No VAT</td>
 //			</tr>
@@ -360,7 +360,7 @@ function sel_cus($_POST)
 //
 //	# Alternate bgcolor
 //	$printCust .= "
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td>$cus[accno]</td>
 //				<td>$cus[contname]</td>
 //				<td>$cus[tel]</td>
@@ -673,39 +673,39 @@ function alloc($_POST,$err="")
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account</td>
 							<td>$bank_drop</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Payment Date</td>
 							<td valign='center'>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Received from</td>
 							<td valign='center'>$cus[accno] - $cus[cusname] $cus[surname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Description</td>
 							<td valign='center'><textarea col='18' rows='3' name='descript'>$descript</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Reference</td>
 							<td valign='center'><input size='25' name='reference' value='$reference'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cheque Number</td>
 							<td valign='center'><input size='20' name='cheqnum' value='$cheqnum'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td valign='center'>".CUR." $amt</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Settlement Discount</td>
 							<td>".CUR." $setamt</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Settlement Discount VAT</td>
 							<td>
 								$vatcode_drop 
@@ -721,15 +721,15 @@ function alloc($_POST,$err="")
 						<tr>
 							<th colspan='2'><font style='color:red'>Quick</font> Payment</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td valign='center'>".CUR." <input type='text' size='6' name='amt' value='$amt'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bulk Payments/Single Statement Entry</td>
 							<td><input type='checkbox' name='bulk_pay' value='yes'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='2' align='right'><input type='submit' name='quickpay' value='Allocate the above payment automatically'></td>
 						</tr>
 						".TBL_BR."
@@ -761,7 +761,7 @@ function alloc($_POST,$err="")
 		$confirm .= "
 			</table>
 			<table ".TMPL_tblDflts.">
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'>Add unallocated payment to customer statement &nbsp;</td>
 					<td>&nbsp;".CUR." <input type='text' size='10' name='overpay' value='$overpay'></td>
 				</tr>
@@ -910,8 +910,8 @@ function alloc($_POST,$err="")
 					$confirm .= "
 						<tr>
 							<td colspan='4' align='right'><input type='submit' value='Update'></td>
-							<td bgcolor='".bgcolorg()."'>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
-							<td bgcolor='".bgcolorg()."'>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
+							<td class='".bg_class()."'>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
+							<td class='".bg_class()."'>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
 						</tr>";
 //					$counter = 0;
 				}
@@ -920,8 +920,8 @@ function alloc($_POST,$err="")
 			$confirm .= "
 				<tr>
 					<td colspan='4' align='right'><input type='submit' value='Update'></td>
-					<td bgcolor='".bgcolorg()."'>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
-					<td bgcolor='".bgcolorg()."'>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
+					<td class='".bg_class()."'>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
+					<td class='".bg_class()."'>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
 				</tr>";
 		}
 
@@ -1035,8 +1035,8 @@ function alloc($_POST,$err="")
 					$confirm .= "
 						<tr>
 							<td colspan='4' align='right'><input type='submit' value='Update'></td>
-							<td bgcolor='".bgcolorg()."'>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
-							<td bgcolor='".bgcolorg()."'>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
+							<td class='".bg_class()."'>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
+							<td class='".bg_class()."'>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
 						</tr>";
 					$counter = 0;
 				}
@@ -1045,8 +1045,8 @@ function alloc($_POST,$err="")
 			$confirm .= "
 				<tr>
 					<td colspan='4' align='right'><input type='submit' value='Update'></td>
-					<td bgcolor='".bgcolorg()."'>Total: ".CUR." ".sprint (array_sum($paidamt))."</td>
-					<td bgcolor='".bgcolorg()."'>Total: ".CUR." ".sprint (array_sum($stock_setamt))."</td>
+					<td class='".bg_class()."'>Total: ".CUR." ".sprint (array_sum($paidamt))."</td>
+					<td class='".bg_class()."'>Total: ".CUR." ".sprint (array_sum($stock_setamt))."</td>
 				</tr>";
 		}
 
@@ -1163,8 +1163,8 @@ function alloc($_POST,$err="")
 					$confirm .= "
 						<tr>
 							<td colspan='4' align='right'><input type='submit' value='Update'></td>
-							<td bgcolor='".bgcolorg()."'>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
-							<td bgcolor='".bgcolorg()."'>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
+							<td class='".bg_class()."'>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
+							<td class='".bg_class()."'>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
 						</tr>";
 					$counter = 0;
 				}
@@ -1173,8 +1173,8 @@ function alloc($_POST,$err="")
 			$confirm .= "
 				<tr>
 					<td colspan='4' align='right'><input type='submit' value='Update'></td>
-					<td bgcolor='".bgcolorg()."'>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
-					<td bgcolor='".bgcolorg()."'>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
+					<td class='".bg_class()."'>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
+					<td class='".bg_class()."'>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
 				</tr>";
 		}
 
@@ -1197,7 +1197,7 @@ function alloc($_POST,$err="")
 				}
 
 				$ox .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' size='20' name='open[$oid]' value='$oid'>$od[type]</td>
 						<td>".CUR." $od[balance]</td>
 						<td>$od[date]</td>
@@ -1446,45 +1446,45 @@ function confirm($_POST)
 			<th>Field</th>
 			<th>Value</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Account</td>
 			<td>$bank[accname] - $bank[bankname]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Payment Date</td>
 			<td valign='center'>$date</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Received from</td>
 			<td valign='center'>$cus[accno] - $cus[cusname] $cus[surname]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Description</td>
 			<td valign='center'>$descript</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Reference</td>
 			<td valign='center'>$reference</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Cheque Number</td>
 			<td valign='center'>$cheqnum</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Amount</td>
 			<td valign='center'>".CUR." $amt</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Settlement Discount</td>
 			<td valign='center'>".CUR." $setamt $showsetvat</td>
 		</tr>
 		".TBL_BR."
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Print Receipt</td>
 			<td>$show_print_recpt</td>
 		</tr>
 		".TBL_BR."
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'><b>A general transaction will credit the client's account with ".CUR." $overpay </b></td>
 		</tr>";
 
@@ -1692,7 +1692,7 @@ function confirm($_POST)
 				}
 
 				$ox .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' size='20' name='open[$oid]' value='$oid'>$od[type]</td>
 						<td>".CUR." $od[balance]</td>
 						<td>$od[date]</td>
@@ -2353,7 +2353,7 @@ function write($_POST)
 //					<tr>
 //						<th>Bank Receipt</th>
 //					</tr>
-//					<tr bgcolor='".bgcolorg()."'>
+//					<tr class='".bg_class()."'>
 //						<td>Bank Receipt added to cash book.</td>
 //					</tr>
 //				</table>

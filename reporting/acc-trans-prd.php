@@ -72,7 +72,7 @@ function slctAcc()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Name</td>
 				<td><select name='accid'>";
 
@@ -93,13 +93,13 @@ function slctAcc()
 				</td>
 				<td><input type='submit' name='details' value='View Transactions'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'><td colspan='3'><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'><td colspan='3'><br></td></tr>
+			<tr class='".bg_class()."'>
 				<td>Account Number</td>
 				<td><input type='text' name='topacc' size='4' maxlength='4'> / <input type='text' name='accnum' size='3' maxlength='3'></td>
 				<td><input type='submit' value='View Transactions'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>From :</td>
 				<td valign='center' colspan='3'>$fprd To : $tprd</td>
 			</tr>
@@ -286,7 +286,7 @@ function viewtran($_POST)
 				*/
 
 				$OUTPUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$months[$i]</td>
 						<td>$date</td>
 						<td>$custom_refnum</td>
@@ -304,7 +304,7 @@ function viewtran($_POST)
 	vsprint($credtot);
 
 	$OUTPUT .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'><b>Total</b></td>
 			<td nowrap='t'><b>".CUR." $debtot</b></td>
 			<td nowrap='t'><b>".CUR." $credtot</b></td>

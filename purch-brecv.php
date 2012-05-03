@@ -171,7 +171,7 @@ function details($_POST, $error="")
 		list($syear, $smon, $sday) = explode("-", $stkd['ddate']);
 
 		# put in product
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=whids[] value='$stkd[whid]'>$wh[whname]</td><td><input type=hidden name=ids[] value='$stkd[id]'><input type=hidden name=stkids[] value='$stkd[stkid]'><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>$stk[stkdes]</td><td><input type=hidden size=5 name=qts[] value='$stkd[qty]'><input type=text size=5 name=qtys[] value='$stkd[qty]'></td><td><input type=hidden size=4 name=unitcost[] value='$stkd[unitcost]'>".CUR." $stkd[unitcost]</td><td>$sday-$smon-$syear</td><td>".CUR." $stkd[amt]</td></tr>";
+		$products .="<tr class='bg-odd'><td><input type=hidden name=whids[] value='$stkd[whid]'>$wh[whname]</td><td><input type=hidden name=ids[] value='$stkd[id]'><input type=hidden name=stkids[] value='$stkd[stkid]'><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>$stk[stkdes]</td><td><input type=hidden size=5 name=qts[] value='$stkd[qty]'><input type=text size=5 name=qtys[] value='$stkd[qty]'></td><td><input type=hidden size=4 name=unitcost[] value='$stkd[unitcost]'>".CUR." $stkd[unitcost]</td><td>$sday-$smon-$syear</td><td>".CUR." $stkd[amt]</td></tr>";
 		$key++;
 	}
 	# Look above(if i = 0 then there are no products)
@@ -204,20 +204,20 @@ function details($_POST, $error="")
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Supplier Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Department</td><td valign=center>$dept[deptname]</td></tr>
-   			<tr bgcolor='".TMPL_tblDataColor2."'><td>Supplier</td><td valign=center>$sup[supname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Account number</td><td valign=center>$sup[supno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Supplier Address</td><td valign=center>".nl2br($supaddr)."</td></tr>
+			<tr class='bg-odd'><td>Department</td><td valign=center>$dept[deptname]</td></tr>
+   			<tr class='bg-even'><td>Supplier</td><td valign=center>$sup[supname]</td></tr>
+			<tr class='bg-odd'><td>Account number</td><td valign=center>$sup[supno]</td></tr>
+			<tr class='bg-even'><td valign=top>Supplier Address</td><td valign=center>".nl2br($supaddr)."</td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Purchase Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Purchase No.</td><td valign=center>$pur[purnum]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Delivery Ref No.</td><td valign=center><input type=text name=refno size=10 value='$pur[refno]'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms</td><td valign=center>$pur[terms] Days</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td valign=center>$pday-$pmon-$pyear DD-MM-YYYY</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Inclusive</td><td valign=center>$pur[vatinc]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Delivery Charges</td><td valign=center>".CUR." <input type=hidden name=shipchrg size=10 value='$pur[shipchrg]'>$pur[shipchrg]</td></tr>
+			<tr class='bg-odd'><td>Purchase No.</td><td valign=center>$pur[purnum]</td></tr>
+			<tr class='bg-even'><td>Delivery Ref No.</td><td valign=center><input type=text name=refno size=10 value='$pur[refno]'></td></tr>
+			<tr class='bg-odd'><td>Terms</td><td valign=center>$pur[terms] Days</td></tr>
+			<tr class='bg-even'><td>Date</td><td valign=center>$pday-$pmon-$pyear DD-MM-YYYY</td></tr>
+			<tr class='bg-odd'><td>VAT Inclusive</td><td valign=center>$pur[vatinc]</td></tr>
+			<tr class='bg-even'><td>Delivery Charges</td><td valign=center>".CUR." <input type=hidden name=shipchrg size=10 value='$pur[shipchrg]'>$pur[shipchrg]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -226,16 +226,16 @@ function details($_POST, $error="")
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th width=25%>Quick Links</th><th width=25%>Remarks</th><td rowspan=5 valign=top width=50%>$error</td></tr>
-			<tr><td bgcolor='".TMPL_tblDataColor1."'><a href='purchase-new.php'>New Stock Order</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top><textarea name=remarks rows=4 cols=20>$pur[remarks]</textarea></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purchase-view.php'>View Stock Orders</a></td></tr>
+			<tr><td class='bg-odd'><a href='purchase-new.php'>New Stock Order</a></td><td class='bg-odd' rowspan=4 align=center valign=top><textarea name=remarks rows=4 cols=20>$pur[remarks]</textarea></td></tr>
+			<tr class='bg-odd'><td><a href='purchase-view.php'>View Stock Orders</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>".CUR." $SUBTOT</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Delivery Charges</td><td align=right>".CUR." $pur[shipping]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT @ ".TAX_VAT." %</td><td align=right>".CUR." $pur[vat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><th>GRAND TOTAL</th><td align=right>".CUR." $TOTAL</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>".CUR." $SUBTOT</td></tr>
+			<tr class='bg-even'><td>Delivery Charges</td><td align=right>".CUR." $pur[shipping]</td></tr>
+			<tr class='bg-odd'><td>VAT @ ".TAX_VAT." %</td><td align=right>".CUR." $pur[vat]</td></tr>
+			<tr class='bg-even'><th>GRAND TOTAL</th><td align=right>".CUR." $TOTAL</td></tr>
 		</table>
 	</td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'> | <input type=submit name='upBtn' value='Write'></td></tr>
@@ -542,12 +542,12 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 	$write = "
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Order received</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Order receipt from Supplier <b>$sup[supname]</b> has been recorded.</td></tr>
+		<tr class='bg-even'><td>Order receipt from Supplier <b>$sup[supname]</b> has been recorded.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purchase-view.php'>View Orders</a></td></tr>
+		<tr class='bg-odd'><td><a href='purchase-view.php'>View Orders</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

@@ -61,7 +61,7 @@ function edit($_POST = array(), $error="")
 	$sql = "SELECT * FROM trialgrps ";
 	$grpRslt = db_exec ($sql) or errDie ("Unable to get groups information.");
 	while($grp = pg_fetch_array($grpRslt)){
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=text size=30 name=grpnames[] value='$grp[grpname]'></td><td><input name=addacc_$grp[gkey] type=submit value='Add Accounts'></td><td><input type=checkbox name=delgrps[] value='$grp[gkey]'></td><tr>";
+		$products .="<tr class='bg-odd'><td><input type=text size=30 name=grpnames[] value='$grp[grpname]'></td><td><input name=addacc_$grp[gkey] type=submit value='Add Accounts'></td><td><input type=checkbox name=delgrps[] value='$grp[gkey]'></td><tr>";
 
 		$sql = "SELECT * FROM trialgrpaccids WHERE gkey = '$grp[gkey]'";
 		$gaccRslt = db_exec ($sql) or errDie ("Unable to get group accounts information.");
@@ -72,7 +72,7 @@ function edit($_POST = array(), $error="")
 			$accRslt = db_exec ($sql) or errDie ("Unable to view account.");
 			$acc = pg_fetch_array($accRslt);
 
-			$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td><br></td><td><input type=hidden name=grpaccids[$grp[gkey]][] value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td><input type=checkbox name=delaccids[$grp[gkey]][] value='$acc[accid]'></td></tr>";
+			$products .="<tr class='bg-even'><td><br></td><td><input type=hidden name=grpaccids[$grp[gkey]][] value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td><input type=checkbox name=delaccids[$grp[gkey]][] value='$acc[accid]'></td></tr>";
 		}
 		$btn = "addacc_$grp[gkey]";
 		if(isset($$btn)){
@@ -88,20 +88,20 @@ function edit($_POST = array(), $error="")
 				}
 			$accs .= "</select>";
 
-			$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td><br></td><td align=center>$accs</td><td><br></td></tr>";
+			$products .="<tr class='bg-even'><td><br></td><td align=center>$accs</td><td><br></td></tr>";
 		}
 	}
 	if(isset($grpadd)){
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=text size=30 name=grpnames[] value=''></td><td><br></td><td><br></td><tr>";
+		$products .="<tr class='bg-odd'><td><input type=text size=30 name=grpnames[] value=''></td><td><br></td><td><br></td><tr>";
 	}
 
-	$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=3><br></td></tr>
+	$products .="<tr class='bg-odd'><td colspan=3><br></td></tr>
 	<tr><th></th><th>Accounts</th><th></th></tr>";
 	$sql = "SELECT * FROM accounts WHERE div = '".USER_DIV."'";
 	$accRslt = db_exec ($sql) or errDie ("Unable to get group accounts information.");
 	while($acc = pg_fetch_array($accRslt)){
 		if(in_array($acc['accid'], $selected)) continue;
-		$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td><br></td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td><br></td></tr>";
+		$products .="<tr class='bg-even'><td><br></td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td><br></td></tr>";
 	}
 
 /* -- Final Layout -- */
@@ -113,7 +113,7 @@ function edit($_POST = array(), $error="")
 	<tr><td colspan=4><br></td></tr>
 	<tr><th>Groups</th><th>Accounts</th><th>Delete</th></tr>
 	$products
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=3><br></td></tr>
+	<tr class='bg-odd'><td colspan=3><br></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center colspan=3><input name=grpadd type=submit value='Add Group'> | <input name=updateBtn type=submit value='Update'> | <input name=doneBtn type=submit value='Done'></td></tr>
 	</table></form>

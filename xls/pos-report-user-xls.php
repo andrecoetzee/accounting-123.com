@@ -59,8 +59,8 @@ function seluse()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value='report'>
 	<tr><th colspan=2>Report Criteria</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>User</td><td>$users</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td>
+	<tr class='bg-odd'><td>User</td><td>$users</td></tr>
+	<tr class='bg-even'><td>Date</td><td>
 		<table cellpadding=1 cellspacing=2><tr>
 			<td><input type=text size=3 value='".date("d")."' name=day></td>
 			<td>-</td>
@@ -69,7 +69,7 @@ function seluse()
 			<td><input type=text size=5 value='".date("Y")."' name=year></td>
 		</tr></table>
 	</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Starting Amount</td><td><input type=text size=20 name=amount></td></tr>
+	<tr class='bg-odd'><td>Starting Amount</td><td><input type=text size=20 name=amount></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='View Report &raquo;'></td></tr>
 	</form>
 	</table><p>
@@ -157,27 +157,27 @@ function report($_POST)
 	<tr>
 		<th colspan=2>Report</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Starting Amount</td>
 		<td align='right'>".CUR." $amount</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Cash</td>
 		<td align='right'>".sprint($cash)."</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Cheque</td>
 		<td align='right'>".sprint($cheque)."</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Credit Card</td>
 		<td align='right'>".sprint($credit_card)."</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Credit</td>
 		<td align='right'>".sprint($credit)."</td>
 	</td>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Expected Amount</td>
 		<td align='right'>".CUR." $expected</td>
 	</tr>

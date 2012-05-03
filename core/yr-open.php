@@ -122,7 +122,7 @@ function view()
 	<form action='".SELF."' method=post name=form>
 	<input type=hidden name=key value=confirm>
 	<tr><th>Financial year names</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 	<td align=center>
 	<select name=yrname>";
 	core_connect();
@@ -193,7 +193,7 @@ function confirm($_POST)
 		<input type=hidden name=yrname value=$yrname>
 		<input type=hidden name=yrdb value=$yr[yrdb]>
 		<tr><th>Financial year name</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 		<td align=center>$yrname</td>
 		</tr>
 		</table>

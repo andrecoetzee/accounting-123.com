@@ -56,7 +56,7 @@ function printList ()
 	}
 	while ($list = pg_fetch_array ($listRslt)) {
 		$printList .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$list[listname]</td>
 				<td><a href='pricelist-det.php?listid=$list[listid]'>Details</a></td>
 				<td><a target=_blank href='pricelist-print.php?listid=$list[listid]'>Print</a></td>
@@ -76,10 +76,10 @@ function printList ()
 	        <tr>
 	        	<th>Quick Links</th>
 	        </tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pricelist-add.php'>Add Price List</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

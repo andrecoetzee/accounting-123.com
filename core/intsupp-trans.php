@@ -136,13 +136,13 @@ function slctacc($_GET)
 	<input type=hidden name=supid value='$supid'>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Supplier Number</td><td>$supp[supno]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Supplier</td><td>$supp[supname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>".mkDateSelect("date")."</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Reference Number</td><td><input type=text size=10 name=refnum value='".($refnum++)."'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Entry Type</td><td><input type=radio name=entry value=DT $entd> Debit | <input type=radio name=entry value=CT $entc>Credit</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td rowspan=2>Contra Account</td><td>$accounts <input name=details type=submit value='Enter Details'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><!--       Rowspan      --><td><input type=text name=accnum size=20> <input type=submit value='Enter Details'></td></tr>
+		<tr class='bg-odd'><td>Supplier Number</td><td>$supp[supno]</td></tr>
+		<tr class='bg-even'><td>Supplier</td><td>$supp[supname]</td></tr>
+		<tr class='bg-odd'><td>Date</td><td>".mkDateSelect("date")."</td></tr>
+		<tr class='bg-even'><td>Reference Number</td><td><input type=text size=10 name=refnum value='".($refnum++)."'></td></tr>
+		<tr class='bg-odd'><td>Entry Type</td><td><input type=radio name=entry value=DT $entd> Debit | <input type=radio name=entry value=CT $entc>Credit</td></tr>
+		<tr class='bg-even'><td rowspan=2>Contra Account</td><td>$accounts <input name=details type=submit value='Enter Details'></td></tr>
+		<tr class='bg-odd'><!--       Rowspan      --><td><input type=text name=accnum size=20> <input type=submit value='Enter Details'></td></tr>
 	</table>
 	<p>
 	<input type=button value='Go Back' onClick='javascript:history.back();'>
@@ -150,7 +150,7 @@ function slctacc($_GET)
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
 		<tr class=datacell><td align=center><a href='trans-new.php'>Journal Transactions</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../supp-view.php'>View Suppliers</a></td></tr>
+		<tr class='bg-odd'><td align=center><a href='../supp-view.php'>View Suppliers</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -205,9 +205,9 @@ function details($_POST)
 
 		# Probe tran type
 		if($entry == "CT"){
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$supp[supno] - $supp[supname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$supp[supno] - $supp[supname]</td></tr>";
 		}else{
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$supp[supno] - $supp[supname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$supp[supno] - $supp[supname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
 		}
 
         // Layout Details
@@ -223,12 +223,12 @@ function details($_POST)
 			$tran
 			<tr><td><br></td></tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$date</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td valign=center>$supp[currency]<input type=text size=20 name=amount></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Exchange rate</td><td valign=center>".CUR." / $supp[currency] <input type=text size=8 name=rate value='1'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details></textarea></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
+			<tr class='bg-odd'><td>Date</td><td valign=center>$date</td></tr>
+			<tr class='bg-even'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
+			<tr class='bg-odd'><td>Amount</td><td valign=center>$supp[currency]<input type=text size=20 name=amount></td></tr>
+			<tr class='bg-even'><td>Exchange rate</td><td valign=center>".CUR." / $supp[currency] <input type=text size=8 name=rate value='1'></td></tr>
+			<tr class='bg-odd'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details></textarea></td></tr>
+			<tr class='bg-even'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
 			<tr><td><br></td></tr>
 			<tr><td><input type=button value=Back OnClick='javascript:history.back()'></td><td valign=center><input type=submit value='Record Transaction'></td></tr>
         </table></form>
@@ -236,7 +236,7 @@ function details($_POST)
 		<table border=0 cellpadding='2' cellspacing='1' width=15%>
 			<tr><th>Quick Links</th></tr>
 			<tr class=datacell><td align=center><a href='trans-new.php'>Journal Transactions</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../supp-view.php'>View Suppliers</a></td></tr>
+			<tr class='bg-odd'><td align=center><a href='../supp-view.php'>View Suppliers</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
         </table>";
 
@@ -307,9 +307,9 @@ function details2($_POST)
 
 		# probe tran type
 		if($entry == "CT"){
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$supp[supno] - $supp[supname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$supp[supno] - $supp[supname]</td></tr>";
 		}else{
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$supp[supno] - $supp[supname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$supp[supno] - $supp[supname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
 		}
 
 		// Layout Details
@@ -325,12 +325,12 @@ function details2($_POST)
 			$tran
 			<tr><td><br></td></tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$date</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td valign=center>$supp[currency] <input type=text size=20 name=amount></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Exchange rate</td><td valign=center>".CUR." / $supp[currency] <input type=text size=8 name=rate value='1'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details></textarea></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
+			<tr class='bg-odd'><td>Date</td><td valign=center>$date</td></tr>
+			<tr class='bg-even'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
+			<tr class='bg-odd'><td>Amount</td><td valign=center>$supp[currency] <input type=text size=20 name=amount></td></tr>
+			<tr class='bg-even'><td>Exchange rate</td><td valign=center>".CUR." / $supp[currency] <input type=text size=8 name=rate value='1'></td></tr>
+			<tr class='bg-odd'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details></textarea></td></tr>
+			<tr class='bg-even'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
 			<tr><td><br></td></tr>
 			<tr><td><input type=button value=Back OnClick='javascript:history.back()'></td><td valign=center><input type=submit value='Record Transaction'></td></tr>
         </table></form>
@@ -338,7 +338,7 @@ function details2($_POST)
 		<table border=0 cellpadding='2' cellspacing='1' width=15%>
 			<tr><th>Quick Links</th></tr>
 			<tr class=datacell><td align=center><a href='trans-new.php'>Journal Transactions</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../supp-view.php'>View Suppliers</a></td></tr>
+			<tr class='bg-odd'><td align=center><a href='../supp-view.php'>View Suppliers</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
         </table>";
 
@@ -399,9 +399,9 @@ function confirm($_POST)
 
 		# Probe tran type
 		if($entry == "CT"){
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$supp[supno] - $supp[supname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$supp[supno] - $supp[supname]</td></tr>";
 		}else{
-			$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$supp[supno] - $supp[supname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
+			$tran = "<tr class='bg-odd'><td>$supp[supno] - $supp[supname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
 		}
 
 		$lamt = sprint($amount * $rate);
@@ -427,11 +427,11 @@ function confirm($_POST)
 			$tran
 			<tr><td><br></td></tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$date</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Reference number</td><td>$refnum</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td valign=center>$supp[currency] $amount | ".CUR." $lamt</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Details</td><td>$details</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Authorising Person</td><td>$author</td></tr>
+			<tr class='bg-odd'><td>Date</td><td>$date</td></tr>
+			<tr class='bg-even'><td>Reference number</td><td>$refnum</td></tr>
+			<tr class='bg-odd'><td>Amount</td><td valign=center>$supp[currency] $amount | ".CUR." $lamt</td></tr>
+			<tr class='bg-even'><td>Details</td><td>$details</td></tr>
+			<tr class='bg-odd'><td>Authorising Person</td><td>$author</td></tr>
 			<tr><td><br></td></tr>
 			<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Confirm Transaction &raquo'></td></tr>
 		</table></form>
@@ -439,7 +439,7 @@ function confirm($_POST)
 		<table border=0 cellpadding='2' cellspacing='1' width=15%>
         	<tr><th>Quick Links</th></tr>
         	<tr class=datacell><td align=center><a href='trans-new.php'>Journal Transactions</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../supp-view.php'>View Suppliers</a></td></tr>
+			<tr class='bg-odd'><td align=center><a href='../supp-view.php'>View Suppliers</a></td></tr>
         	<script>document.write(getQuicklinkSpecial());</script>
 
         </table>";
@@ -524,7 +524,7 @@ function write($_POST)
 	if($entry == "CT"){
 		# Write transaction  (debit contra account, credit debtors control)
 		writetrans($accid, $dept['credacc'], $td, $refnum, $amount, $details." - Supplier $supp[supname]");
-		$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$supp[supno] - $supp[supname]</td></tr>";
+		$tran = "<tr class='bg-odd'><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td>$supp[supno] - $supp[supname]</td></tr>";
 		$samount = $amount;
 		$sfamt = $famt;
 		// recordCT(-$amount, $supp['supid']);
@@ -533,7 +533,7 @@ function write($_POST)
 	}else{
 		# Write transaction  (debit debtors control, credit contra account)
 		writetrans($dept['credacc'], $accid, $td, $refnum, $amount, $details." - Supplier $supp[supname]");
-		$tran = "<tr bgcolor='".TMPL_tblDataColor1."'><td>$supp[supno] - $supp[supname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
+		$tran = "<tr class='bg-odd'><td>$supp[supno] - $supp[supname]</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>";
 		$samount = sprint($amount - ($amount * 2));
 		$sfamt = sprint($famt - ($famt * 2));
 		// recordDT($amount, $supp['supid']);
@@ -568,13 +568,13 @@ function write($_POST)
 		$tran
 		<tr><td><br></td></tr>
 		<tr colspan=2><td><h4>Amount</h4></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>".CUR." $famt</b></td></tr>
+		<tr class='bg-even'><td colspan=2><b>".CUR." $famt</b></td></tr>
 	</table>
 	<P>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=25%>
 		<tr><th>Quick Links</th></tr>
 		<tr class=datacell><td align=center><a href='trans-new.php'>Journal Transactions</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../supp-view.php'>View Suppliers</a></td></tr>
+		<tr class='bg-odd'><td align=center><a href='../supp-view.php'>View Suppliers</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

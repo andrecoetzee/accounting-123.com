@@ -50,19 +50,19 @@ $OUTPUT .= "
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='project-add.php'>Add Project</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='projects-edit.php'>View/Edit Project Information</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='costcenter-add.php'>Add Cost Center</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='costcenter-view.php'>View Cost Centers</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>
@@ -113,7 +113,7 @@ function enter ($err="")
 					</tr>
 				<form action='".SELF."' method='POST'>
 					<input type='hidden' name='key' value='add'>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Project</td>
 						<td><input type='text' size='30' name='project_add'></td>
 						<td><input type='text' size='8' name='project_code' value='Code' onClick=\"value=''\"></td>

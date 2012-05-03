@@ -101,11 +101,11 @@ function details($_GET)
 	<input type=hidden name=deptid value='$sord[deptid]'>
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 		<tr><th colspan=2>Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Consignment Order Number</td><td>$sordid</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Department</td><td valign=center>$sord[deptname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Sales Person</td><td>$sord[salespn]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer</td><td valign=center>$sord[cusname] $sord[surname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Sub Total</td><td>".CUR." $sord[subtot]</td></tr>
+		<tr class='bg-odd'><td>Consignment Order Number</td><td>$sordid</td></tr>
+		<tr class='bg-even'><td>Department</td><td valign=center>$sord[deptname]</td></tr>
+		<tr class='bg-odd'><td>Sales Person</td><td>$sord[salespn]</td></tr>
+		<tr class='bg-even'><td>Customer</td><td valign=center>$sord[cusname] $sord[surname]</td></tr>
+		<tr class='bg-odd'><td>Sub Total</td><td>".CUR." $sord[subtot]</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td><input type=submit value='Cancel &raquo'></td></tr>
 	</table>
@@ -113,10 +113,10 @@ function details($_GET)
 	<p>
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='corder-canc-view.php'>View Cancelled Consignment Orders</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='corder-unf-view.php'>View Incomplete Consignment Orders</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='corder-new.php'>New Consignment Order</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='corder-view.php'>View Consignment Orders</a></td></tr>
+		<tr class='bg-odd'><td><a href='corder-canc-view.php'>View Cancelled Consignment Orders</td></tr>
+		<tr class='bg-odd'><td><a href='corder-unf-view.php'>View Incomplete Consignment Orders</td></tr>
+		<tr class='bg-odd'><td><a href='corder-new.php'>New Consignment Order</a></td></tr>
+		<tr class='bg-odd'><td><a href='corder-view.php'>View Consignment Orders</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -195,14 +195,14 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 	$write = "
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=40%>
 		<tr><th> Incomplete Consignment Order Cancelled </th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Consignment Order No. <b>$sordid</b> has been cancelled.</td></tr>
+		<tr class='bg-odd'><td>Consignment Order No. <b>$sordid</b> has been cancelled.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='corder-unf-view.php'>View Incomplete Consignment Orders</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='corder-new.php'>New Consignment Order</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='corder-view.php'>View Consignment Orders</a></td></tr>
+		<tr class='bg-odd'><td><a href='corder-unf-view.php'>View Incomplete Consignment Orders</td></tr>
+		<tr class='bg-odd'><td><a href='corder-new.php'>New Consignment Order</a></td></tr>
+		<tr class='bg-odd'><td><a href='corder-view.php'>View Consignment Orders</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

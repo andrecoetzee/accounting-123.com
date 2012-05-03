@@ -74,9 +74,9 @@ function select($_POST,$errors="") {
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
+		<tr class='bg-odd'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+		<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
 		</table>";
 	}
 
@@ -88,9 +88,9 @@ function select($_POST,$errors="") {
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
+		<tr class='bg-odd'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+		<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
 		</table>";
 	}
 
@@ -125,19 +125,19 @@ function select($_POST,$errors="") {
 	<input type=hidden name=key value='listr'>
 	<input type=hidden name=poken value='$poken'>
 	<tr><th colspan=2>Search</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>$flags</td><td><input type=text size=20 name=value value='$value'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Type</td><td>$types</td></tr>
+	<tr class='bg-odd'><td>$flags</td><td><input type=text size=20 name=value value='$value'></td></tr>
+	<tr class='bg-even'><td>Type</td><td>$types</td></tr>
 	<tr><th colspan='3'>Options</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2 align=center><a href='../new_con.php?crm=yes'>Add Contact</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2 align=center><a href='../customers-new.php?crm=yes'>Add Customer</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2 align=center><a href='../supp-new.php?crm=yes'>Add Supplier</a></td></tr>
+	<tr class='bg-odd'><td colspan=2 align=center><a href='../new_con.php?crm=yes'>Add Contact</a></td></tr>
+	<tr class='bg-even'><td colspan=2 align=center><a href='../customers-new.php?crm=yes'>Add Customer</a></td></tr>
+	<tr class='bg-odd'><td colspan=2 align=center><a href='../supp-new.php?crm=yes'>Add Supplier</a></td></tr>
 	<tr><td colspan=3 align=right><input type=submit value='List &raquo;'></td></tr>
 	</form>
 	</table>
 	<p>
                 <table border=0 cellpadding='2' cellspacing='1'>
                 <tr><th>Quick Links</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+                <tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
                 </table>";
 
 	return $out;
@@ -232,7 +232,7 @@ function listr ($_POST) {
 			}
 
 			$cons.="</select>";
-			$out.="<tr bgcolor='".TMPL_tblDataColor1."'><td>$cons</td></tr>";
+			$out.="<tr class='bg-odd'><td>$cons</td></tr>";
 			$out.="<tr><td align=right><input type=submit value='Enter query data &raquo;'></td></tr>
 			</form>";
 		}
@@ -279,11 +279,11 @@ function listr ($_POST) {
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../new_con.php?crm=yes'>Add Contact</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../customers-new.php?crm=yes'>Add Customer</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../supp-new.php?crm=yes'>Add Supplier</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tokens-new.php?poken=$poken'>Try Again</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+	<tr class='bg-odd'><td><a href='../new_con.php?crm=yes'>Add Contact</a></td></tr>
+	<tr class='bg-odd'><td><a href='../customers-new.php?crm=yes'>Add Customer</a></td></tr>
+	<tr class='bg-odd'><td><a href='../supp-new.php?crm=yes'>Add Supplier</a></td></tr>
+	<tr class='bg-odd'><td><a href='tokens-new.php?poken=$poken'>Try Again</a></td></tr>
+	<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
 	</table>";
 
 	return $out;
@@ -348,9 +348,9 @@ function enter($_POST,$errors="") {
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
+		<tr class='bg-odd'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+		<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
 		</table>";
 	}
 
@@ -375,7 +375,7 @@ function enter($_POST,$errors="") {
 			//}
 		}
 		$teamsel.="</select>";
-		$text="<tr bgcolor='".TMPL_tblDataColor2."'><td>Team</td><td colspan=2>$teamsel</td></tr>";
+		$text="<tr class='bg-even'><td>Team</td><td colspan=2>$teamsel</td></tr>";
 	} else {
 		$text="<input type=hidden name=team value=0>";
 	}
@@ -418,7 +418,7 @@ function enter($_POST,$errors="") {
 
 		$cpdata=pg_fetch_array($Rc);
 
-		$ext="<tr bgcolor='".TMPL_tblDataColor1."'><td>Contact Person</td><td>$cpdata[name]</td></tr>";
+		$ext="<tr class='bg-odd'><td>Contact Person</td><td>$cpdata[name]</td></tr>";
 
 	} else {
 		$ext="";
@@ -447,21 +447,21 @@ function enter($_POST,$errors="") {
 	<input type=hidden name=conper value='$conper'>
 	<input type=hidden name=poken value='$poken'>
 	<tr><th colspan=3>Equiry From</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Company/Name</td><td colspan=2>$cdata[surname]</td></tr>
+	<tr class='bg-odd'><td>Company/Name</td><td colspan=2>$cdata[surname]</td></tr>
 	$ext
 	<tr><th colspan=3>Query Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Category</td><td colspan=2>$cats</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Subject/Summary</td><td colspan=2><input type=text size=35 name=sub value='$sub'></td></tr>
+	<tr class='bg-even'><td>Category</td><td colspan=2>$cats</td></tr>
+	<tr class='bg-odd'><td>Subject/Summary</td><td colspan=2><input type=text size=35 name=sub value='$sub'></td></tr>
 	$text
 	<tr><th colspan=3>Query Notes</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=3><textarea name=notes cols=50 rows=4>$notes</textarea></td></tr>
+	<tr class='bg-even'><td colspan=3><textarea name=notes cols=50 rows=4>$notes</textarea></td></tr>
 	<tr><td colspan=2><input type=submit name=unall value='Add as Unallocated and add another &raquo;'></td><td align=right><input type=submit value='Add & Manage &raquo;'></td></tr>
 	</form>
 	</table>
 	<p>
                 <table border=0 cellpadding='2' cellspacing='1'>
                 <tr><th>Quick Links</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+                <tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
                 </table>";
 
 	return $out;

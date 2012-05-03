@@ -52,15 +52,15 @@ function enter()
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Title</td>
 				<td>$doc_data[title]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Current Location</td>
 				<td>$doc_data[location]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>New Location</td>
 				<td><input type='text' name='location' value='$location' /></td>
 			</tr>
@@ -94,15 +94,15 @@ function confirm()
 			<tr>
 				<th colspan='2'>Confirm</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Title</td>
 				<td>$doc_data[title]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Old Location</td>
 				<td>$doc_data[location]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>New Location</td>
 				<td>$location</td>
 			</tr>

@@ -32,7 +32,7 @@ function get_loan ()
 				<tr>
 					<th>Loan Type</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='text' name='loan_type'></td>
 				</tr>
 				<tr><td><br></td></tr>
@@ -65,7 +65,7 @@ function confirm_loan ($_POST)
 				<tr>
 					<th>Loan Type</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$loan_type</td>
 				</tr>
 				<tr><td><br></td></tr>
@@ -97,7 +97,7 @@ function write_loan ($_POST)
 				<tr>
 					<th>Information Saved</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Loan Type Has Been Added</td>
 				</tr>
 			</table><br>"

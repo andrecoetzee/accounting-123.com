@@ -60,20 +60,20 @@ $view = "
 <input type=hidden name=key value=addview>
 <tr><th>Field</th><th>Value</th></tr>
 <input type=hidden size=20 name=finyear value=1>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 1</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd1 checked=yes><input type=text size=14 maxlength=14 name=prd1 value=January></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 2</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd2 checked=yes><input type=text size=14 maxlength=14 name=prd2 value=February></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 3</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd3 checked=yes><input type=text size=14 maxlength=14 name=prd3 value=March></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 4</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd4 checked=yes><input type=text size=14 maxlength=14 name=prd4 value=April></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 5</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd5 checked=yes><input type=text size=14 maxlength=14 name=prd5 value=May></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 6</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd6 checked=yes><input type=text size=14 maxlength=14 name=prd6 value=June></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 7</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd7 checked=yes><input type=text size=14 maxlength=14 name=prd7 value=July></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 8</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd8 checked=yes><input type=text size=14 maxlength=14 name=prd8 value=August></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 9</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd9 checked=yes><input type=text size=14 maxlength=14 name=prd9 value=September></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 10</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd10 checked=yes><input type=text size=14 maxlength=14 name=prd10 value=October></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 11</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd11 checked=yes><input type=text size=14 maxlength=14 name=prd11 value=November></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 12</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd12 checked=yes><input type=text size=14 maxlength=14 name=prd12 value=December></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 13</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd13><input type=text size=14 maxlength=14 name=prd13 value=Additional1></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 14</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd14><input type=text size=14 maxlength=14 name=prd14 value=Additional2></td></tr>
+<tr class='bg-odd'><td>Period 1</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd1 checked=yes><input type=text size=14 maxlength=14 name=prd1 value=January></td></tr>
+<tr class='bg-even'><td>Period 2</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd2 checked=yes><input type=text size=14 maxlength=14 name=prd2 value=February></td></tr>
+<tr class='bg-odd'><td>Period 3</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd3 checked=yes><input type=text size=14 maxlength=14 name=prd3 value=March></td></tr>
+<tr class='bg-even'><td>Period 4</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd4 checked=yes><input type=text size=14 maxlength=14 name=prd4 value=April></td></tr>
+<tr class='bg-odd'><td>Period 5</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd5 checked=yes><input type=text size=14 maxlength=14 name=prd5 value=May></td></tr>
+<tr class='bg-even'><td>Period 6</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd6 checked=yes><input type=text size=14 maxlength=14 name=prd6 value=June></td></tr>
+<tr class='bg-odd'><td>Period 7</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd7 checked=yes><input type=text size=14 maxlength=14 name=prd7 value=July></td></tr>
+<tr class='bg-even'><td>Period 8</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd8 checked=yes><input type=text size=14 maxlength=14 name=prd8 value=August></td></tr>
+<tr class='bg-odd'><td>Period 9</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd9 checked=yes><input type=text size=14 maxlength=14 name=prd9 value=September></td></tr>
+<tr class='bg-even'><td>Period 10</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd10 checked=yes><input type=text size=14 maxlength=14 name=prd10 value=October></td></tr>
+<tr class='bg-odd'><td>Period 11</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd11 checked=yes><input type=text size=14 maxlength=14 name=prd11 value=November></td></tr>
+<tr class='bg-even'><td>Period 12</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd12 checked=yes><input type=text size=14 maxlength=14 name=prd12 value=December></td></tr>
+<tr class='bg-odd'><td>Period 13</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd13><input type=text size=14 maxlength=14 name=prd13 value=Additional1></td></tr>
+<tr class='bg-even'><td>Period 14</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd14><input type=text size=14 maxlength=14 name=prd14 value=Additional2></td></tr>
 <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Add Names &raquo'></td></tr>
 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
 
@@ -173,20 +173,20 @@ $view .="
 <input type=hidden name=key value=addview>
 <tr><th>Field</th><th>Value</th></tr>
 <input type=hidden size=20 name=finyear value=$finyear>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 1</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd1 checked=yes><input type=text size=14 maxlength=14 name=prd1 value=January></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 2</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd2 checked=yes><input type=text size=14 maxlength=14 name=prd2 value=February></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 3</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd3 checked=yes><input type=text size=14 maxlength=14 name=prd3 value=March></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 4</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd4 checked=yes><input type=text size=14 maxlength=14 name=prd4 value=April></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 5</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd5 checked=yes><input type=text size=14 maxlength=14 name=prd5 value=May></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 6</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd6 checked=yes><input type=text size=14 maxlength=14 name=prd6 value=June></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 7</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd7 checked=yes><input type=text size=14 maxlength=14 name=prd7 value=July></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 8</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd8 checked=yes><input type=text size=14 maxlength=14 name=prd8 value=August></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 9</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd9 checked=yes><input type=text size=14 maxlength=14 name=prd9 value=September></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 10</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd10 checked=yes><input type=text size=14 maxlength=14 name=prd10 value=October></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 11</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd11 checked=yes><input type=text size=14 maxlength=14 name=prd11 value=November></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 12</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd12 checked=yes><input type=text size=14 maxlength=14 name=prd12 value=December></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Period 13</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd13><input type=text size=14 maxlength=14 name=prd13 value=Additional1></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Period 14</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd14><input type=text size=14 maxlength=14 name=prd14 value=Additional2></td></tr>
+<tr class='bg-odd'><td>Period 1</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd1 checked=yes><input type=text size=14 maxlength=14 name=prd1 value=January></td></tr>
+<tr class='bg-even'><td>Period 2</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd2 checked=yes><input type=text size=14 maxlength=14 name=prd2 value=February></td></tr>
+<tr class='bg-odd'><td>Period 3</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd3 checked=yes><input type=text size=14 maxlength=14 name=prd3 value=March></td></tr>
+<tr class='bg-even'><td>Period 4</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd4 checked=yes><input type=text size=14 maxlength=14 name=prd4 value=April></td></tr>
+<tr class='bg-odd'><td>Period 5</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd5 checked=yes><input type=text size=14 maxlength=14 name=prd5 value=May></td></tr>
+<tr class='bg-even'><td>Period 6</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd6 checked=yes><input type=text size=14 maxlength=14 name=prd6 value=June></td></tr>
+<tr class='bg-odd'><td>Period 7</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd7 checked=yes><input type=text size=14 maxlength=14 name=prd7 value=July></td></tr>
+<tr class='bg-even'><td>Period 8</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd8 checked=yes><input type=text size=14 maxlength=14 name=prd8 value=August></td></tr>
+<tr class='bg-odd'><td>Period 9</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd9 checked=yes><input type=text size=14 maxlength=14 name=prd9 value=September></td></tr>
+<tr class='bg-even'><td>Period 10</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd10 checked=yes><input type=text size=14 maxlength=14 name=prd10 value=October></td></tr>
+<tr class='bg-odd'><td>Period 11</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd11 checked=yes><input type=text size=14 maxlength=14 name=prd11 value=November></td></tr>
+<tr class='bg-even'><td>Period 12</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd12 checked=yes><input type=text size=14 maxlength=14 name=prd12 value=December></td></tr>
+<tr class='bg-odd'><td>Period 13</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd13><input type=text size=14 maxlength=14 name=prd13 value=Additional1></td></tr>
+<tr class='bg-even'><td>Period 14</td><td valign=center><input type=checkbox size=20 name=cprd[] value=prd14><input type=text size=14 maxlength=14 name=prd14 value=Additional2></td></tr>
 <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Add Names &raquo'></td></tr>
 </form>
 </table>

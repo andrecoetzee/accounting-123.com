@@ -105,31 +105,31 @@ function rem($supid)
 	<tr valign=top><td>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th colspan=2>Supplier Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Department</td><td>$deptname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Supplier No</td><td>$supno</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Name </td><td>$supname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Address</td><td><pre>$supaddr</pre></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Contact Name</td><td>$contname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Tel No.</td><td>$tel</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Fax No.</td><td>$fax</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>E-mail</td><td>$email</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Web Address</td><td>http://$url</td></tr>
+		<tr class='bg-even'><td>Department</td><td>$deptname</td></tr>
+		<tr class='bg-odd'><td>Supplier No</td><td>$supno</td></tr>
+		<tr class='bg-even'><td>Name </td><td>$supname</td></tr>
+		<tr class='bg-odd'><td>Address</td><td><pre>$supaddr</pre></td></tr>
+		<tr class='bg-even'><td>Contact Name</td><td>$contname</td></tr>
+		<tr class='bg-odd'><td>Tel No.</td><td>$tel</td></tr>
+		<tr class='bg-even'><td>Fax No.</td><td>$fax</td></tr>
+		<tr class='bg-odd'><td>E-mail</td><td>$email</td></tr>
+		<tr class='bg-odd'><td>Web Address</td><td>http://$url</td></tr>
 		</table>
 	</td><td>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
-		<tr bgcolor='".TMPL_tblDataColor2."'><th colspan=2> Bank Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Bank </td><td>$bankname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Branch</td><td>$branname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Branch Code</td><td>$brancode</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Number</td><td>$bankaccno</td></tr>
+		<tr class='bg-even'><th colspan=2> Bank Details</th></tr>
+		<tr class='bg-odd'><td>Bank </td><td>$bankname</td></tr>
+		<tr class='bg-even'><td>Branch</td><td>$branname</td></tr>
+		<tr class='bg-odd'><td>Branch Code</td><td>$brancode</td></tr>
+		<tr class='bg-even'><td>Account Number</td><td>$bankaccno</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td colspan=2 align=right><input type=submit value='Remove &raquo;'></td></tr>
 		<tr><td><br></td></tr>
 		<tr><td colspan=2 align=right>
 			<table border=0 cellpadding='2' cellspacing='1'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='supp-view.php'>View Suppliers</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-odd'><td><a href='supp-view.php'>View Suppliers</a></td></tr>
+			<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 			</table>
 		</td></tr>
 		</table></form>
@@ -196,8 +196,8 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='supp-view.php'>View Suppliers</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='supp-view.php'>View Suppliers</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

@@ -72,7 +72,7 @@ $OUTPUT.= "
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='import-settings.php'>Statement Import Settings</a></td>
 		</tr>
 		<script>document.write(getQuicklinkSpecial());</script>
@@ -132,15 +132,15 @@ function select_file ()
 			<tr>
 				<th colspan='2'>Statement details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$accounts</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank:</td>
 				<td>$banks</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Please select your statement</td>
 				<td><input type='file' name='compfile'></td>
 			</tr>
@@ -723,7 +723,7 @@ function enter_actions($_POST,$err="")
 		}
 
 		$out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$date</td>
 				<td>$amountd</td>
 				<td>$description</td>
@@ -1081,7 +1081,7 @@ function confirm_actions($_POST)
 		if($action == "d" || $action == "i") {
 
 			$out.= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>
 						<table border='0' cellpadding='0' cellspacing='0'>
 							<tr>
@@ -1111,7 +1111,7 @@ function confirm_actions($_POST)
 		} else {
 
 			$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>
 						<table border='0' cellpadding='0' cellspacing='0'>
 							<tr>
@@ -1353,7 +1353,7 @@ function confirm_actions2($_POST)
 		if($action == "d" || $action == "i") {
 			$pamount = sprint ($pamount);
 			$out.= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>
 						<table border=0 cellpadding=0 cellspacing=0>
 							<tr>
@@ -1385,7 +1385,7 @@ function confirm_actions2($_POST)
 		} else {
 			$amounts[$id] = sprint ($amounts[$id]);
 			$out.= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>
 						<table border='0' cellpadding='0' cellspacing='0'>
 							<tr>
@@ -1773,7 +1773,7 @@ function write_actions($_POST)
 			<tr>
 				<th>Done</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Your transactions have been processed</th>
 			</tr>
 		</table>";
@@ -2553,7 +2553,7 @@ function cp2($id,$amount,$description,$contra,$refnum,$date,$cheque=0,$bankid)
 
 	#if there is any amount unallocated, it goes to general transaction
 	$confirm .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='6'><b>A general transaction will credit the client's account with ".CUR." $out </b></td>
 		</tr>";
 
@@ -2628,7 +2628,7 @@ function cp2($id,$amount,$description,$contra,$refnum,$date,$cheque=0,$bankid)
 				$open_amount[$oid] = $od['balance'];
 				$open_out = sprint($open_out - $od['balance']);
 				$ox.= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' size='20' name='open[$oid]' value='$oid'>$od[type]</td>
 						<td>".CUR." $od[balance]</td>
 						<td>$od[date]</td>
@@ -2642,7 +2642,7 @@ function cp2($id,$amount,$description,$contra,$refnum,$date,$cheque=0,$bankid)
 				$open_amount[$oid] = $open_out;
 				$open_out = 0;
 				$ox .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' size='20' name='open[$oid]' value='$od[id]'>$od[type]</td>
 						<td>".CUR." $od[balance]</td>
 						<td>$od[date]</td>

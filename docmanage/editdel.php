@@ -49,16 +49,16 @@ foreach ($_GET as $key => $value) {
 <input type=hidden name=key value=confirm>
 <input type=hidden name=id value='$id'>
 <tr><th colspan=2>Personal details</th></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Name</td><td align=center><input type=text size=27 name=name value='$Data[name]'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Surname</td><td align=center><input type=text size=27 name=surname value='$Data[surname]'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Tel</td><td align=center><input type=text size=27 name=tel value='$Data[tel]'></td></tr>
+<tr class='bg-even'><td>Name</td><td align=center><input type=text size=27 name=name value='$Data[name]'></td></tr>
+<tr class='bg-even'><td>Surname</td><td align=center><input type=text size=27 name=surname value='$Data[surname]'></td></tr>
+<tr class='bg-even'><td>Tel</td><td align=center><input type=text size=27 name=tel value='$Data[tel]'></td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 </form>
 </table>
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_consdel.php'>List contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_consdel.php'>List contacts</a></td></tr>
         </table>
 ";
         return $get_data;
@@ -86,16 +86,16 @@ function enter_err($_POST, $err="")
 <input type=hidden name=key value=confirm>
 <input type=hidden name=id value='$id'>
 <tr><th colspan=2>Personal details</th></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Name</td><td align=center><input type=text size=27 name=name value='$name'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Surname</td><td align=center><input type=text size=27 name=surname value='$surname'></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Tel</td><td align=center><input type=text size=27 name=tel value='$tel'></td></tr>
+<tr class='bg-even'><td>Name</td><td align=center><input type=text size=27 name=name value='$name'></td></tr>
+<tr class='bg-even'><td>Surname</td><td align=center><input type=text size=27 name=surname value='$surname'></td></tr>
+<tr class='bg-even'><td>Tel</td><td align=center><input type=text size=27 name=tel value='$tel'></td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 </form>
 </table>
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_consdel.php'>List contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_consdel.php'>List contacts</a></td></tr>
         </table>
 ";
         return $get_data;
@@ -138,16 +138,16 @@ function con_data ($_POST)
 	<input type=hidden name=tel     value='$tel'>
 	<input type=hidden name=id     value='$id'>
 	<tr><th colspan=2>Personal details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Name</td><td align=center>$name</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Surname</td><td align=center>$surname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Tel</td><td align=center>$tel</td></tr>
+	<tr class='bg-odd'><td>Name</td><td align=center>$name</td></tr>
+	<tr class='bg-even'><td>Surname</td><td align=center>$surname</td></tr>
+	<tr class='bg-even'><td>Tel</td><td align=center>$tel</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_consdel.php'>List contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_consdel.php'>List contacts</a></td></tr>
         </table>";
         return $con_data;
 }
@@ -211,7 +211,7 @@ function write_data ($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>	
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_consdel.php'>View contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_consdel.php'>View contacts</a></td></tr>
         </table>";
 	return $write_data;
 }

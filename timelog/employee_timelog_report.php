@@ -120,7 +120,7 @@ function display_logs($err="")
 		}
 
 		$times_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$fnames $sname</td>
 				<td>$display_in_date</td>
 				<td>$display_out_date</td>
@@ -130,7 +130,7 @@ function display_logs($err="")
 
 	if (empty($items_out)) {
 		$items_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'><li>No results found</li></td>
 			</tr>";
 	}
@@ -145,14 +145,14 @@ function display_logs($err="")
 			<tr>
 				<th colspan='4'>Employee</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4' align='center'>
 					<input type='text' name='employee' value='$employee' />
 					<input type='submit' value='Select' />
 				</td>
 			</tr>
 			<tr><th colspan='4'>Date Range</th></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				<td>&nbsp; <b>To</b> &nbsp;</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -214,7 +214,7 @@ function display_totals()
 		$total_time = round($total_secs / 60 / 60);
 
 		$times_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$username</td>
 				<td align='center'>$total_time Hours</td>
 			</tr>";
@@ -228,7 +228,7 @@ function display_totals()
 			<tr>
 				<th colspan='4'>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				<td>&nbsp; <b>To</b> &nbsp;</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

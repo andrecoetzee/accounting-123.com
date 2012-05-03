@@ -183,7 +183,7 @@ function order($_POST,$errors="")
 	<form action='".SELF."' method=post name=form>
 	<input type=hidden name=key value=account_info>
 	<table border=0 cellpadding=0 cellspacing=0>
-	<tr bgcolor='".TMPL_tblDataColor2."'><th colspan=3 align=center><a href='glodiary.php?month=$ppmon&year=$ppy'>Previous Month</a></th><th colspan=2 align=center><h3>$cdate</h3></th><th colspan=2 align=center><a href='diary.php?month=$mnum&year=$my'>Next Month</a></th></tr>
+	<tr class='bg-even'><th colspan=3 align=center><a href='glodiary.php?month=$ppmon&year=$ppy'>Previous Month</a></th><th colspan=2 align=center><h3>$cdate</h3></th><th colspan=2 align=center><a href='diary.php?month=$mnum&year=$my'>Next Month</a></th></tr>
 	<tr><th align=center style='width:88'>Monday</th><th align=center style='width:88'>Tuesday</th><th align=center style='width:88'>Wednesday</th><th align=center style='width:88'>Thursday</th><th align=center style='width:88'>Friday</th><td class=datacell2 align=center style='width:88'>Saterday</td><td class=datacell align=center style='width:88'>Sunday</td></tr>
 	$Diary
 
@@ -192,8 +192,8 @@ function order($_POST,$errors="")
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=30%>
 	 <tr><td><br><br></tr>
 	 <tr><th>Quick Links</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</td>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</td>
+	 <tr class='bg-odd'><td><a href='index_die.php'>Diary</td>
+	 <tr class='bg-odd'><td><a href='main.php'>Main Menu</td>
 	 </tr>
 	</table>";
 

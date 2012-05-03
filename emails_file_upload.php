@@ -25,14 +25,14 @@ function get_file ($err="")
 			<tr>
 				<th>Enter Name Of Queue</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' size='40' name='upload_name'></td>
 			</tr>
 			".TBL_BR."
 			<tr>
 				<th>Select File To Upload</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='file' name='upload_file'></td>
 			</tr>
 			".TBL_BR."
@@ -42,7 +42,7 @@ function get_file ($err="")
 			<tr>
 				<th>Eg. </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>test@test.com<br>
 				test2@test.com<br>
 				test3@test.com</li></td>

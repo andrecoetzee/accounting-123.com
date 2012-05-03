@@ -61,7 +61,7 @@ function view ()
         <form action='".SELF."' method=post>
         <input type=hidden  name=key value=select>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr  bgcolor='".TMPL_tblDataColor2."'><td>Select Customer Initial</td>
+        <tr  class='bg-even'><td>Select Customer Initial</td>
         <td>
         <select name=alpha>
         <option value='a'>A</option>
@@ -92,7 +92,7 @@ function view ()
         <option value='z'>Z</option>
         </select>
         </td></tr>
-        <tr  bgcolor='".TMPL_tblDataColor1."'><td><input type=submit value=Submit></td><td valign=center align=center><a href='customers-new.php' target=mainframe>New Customer</a></td></tr>
+        <tr  class='bg-odd'><td><input type=submit value=Submit></td><td valign=center align=center><a href='customers-new.php' target=mainframe>New Customer</a></td></tr>
         </form></table>
 <tr><td><input type=button value='Back' onClick='javascript:history.back();'></td><td valign=center></td></tr>
 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>

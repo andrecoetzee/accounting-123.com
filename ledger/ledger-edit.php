@@ -140,7 +140,7 @@ function edit($_GET)
 			<tr>
 				<th colspan='3'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Ledger Name</td>
 				<td><input type='text' size='30' name='lname' value='$led[lname]'></td>
 			</tr>
@@ -148,7 +148,7 @@ function edit($_GET)
 				<th><h4>Debit</h4></th>
 				<th><h4>Credit</h4></th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>".mkAccSelect ("dtaccid", $led['dtaccid'])."</td>
 				<td align='center'>".mkAccSelect ("ctaccid", $led['ctaccid'])."</td>
 			</tr>
@@ -156,52 +156,52 @@ function edit($_GET)
 			<tr>
 				<th colspan='3'>Options</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Number of Entries</td>
 				<td><input type='text' size='10' name='numtran' value='$led[numtran]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date Entry</td>
 				<td><input type='radio' name='dateopt' value='system' $dates>System &nbsp;&nbsp; <input type='radio' name='dateopt' value='user' $dateu>User Input</td>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Charge Vat </td>
 				<td><input type='radio' name='chrgvat' value='yes' $chrgy>Yes &nbsp;&nbsp; <input type='radio' name='chrgvat' value='no' $chrgn>No</td>
 			</tr>
 			<tr>
 				<th colspan='3'>Description</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td><input type='text' size='30' name='descript' value='$led[descript]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='3' valign='top'>Options</td>
 				<td><input type='radio' name='desopt' value='emp' $emp> Empty Input Box</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='desopt' value='once' $once> Once Only Setting</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='desopt' value='edit' $edit> Default Editable</td>
 			</tr>
 			<tr>
 				<th colspan='3'>Reference Number</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference Number</td>
 				<td><input type='text' size='10' name='refnum' value='$led[refnum]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='4' valign='top'>Options</td>
 				<td><input type='radio' name='refopt' value='num' $numr> Auto Number</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='refopt' value='emp' $empr> Empty Input Box</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='refopt' value='once' $oncer> Once Only Setting</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='refopt' value='edit' $editr> Default Editable Input</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -216,10 +216,10 @@ function edit($_GET)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-view.php'>View High Speed Input Ledgers</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";
@@ -327,7 +327,7 @@ function error($_POST, $error)
 			<tr>
 				<th colspan='3'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Ledger Name</td>
 				<td><input type='text' size='30' name='lname' value='$led[lname]'></td>
 			</tr>
@@ -335,7 +335,7 @@ function error($_POST, $error)
 				<th><h4>Debit</h4></th>
 				<th><h4>Credit</h4></th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$dtacc</td>
 				<td align='center'>$ctacc</td>
 			</tr>
@@ -343,53 +343,53 @@ function error($_POST, $error)
 			<tr>
 				<th colspan='3'>Options</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Number of Entries</td>
 				<td><input type='text' size='10' name='numtran' value='$led[numtran]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date Entry</td>
 				<td><input type='radio' name='dateopt' value='system' $dates>System &nbsp;&nbsp; <input type='radio' name='dateopt' value='user' $dateu>User Input</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Charge Vat </td>
 				<td><input type='radio' name='chrgvat' value='yes' $chrgy>Yes &nbsp;&nbsp; <input type='radio' name='chrgvat' value='no' $chrgn>No</td>
 			</tr>
 			<tr>
 				<th colspan='3'>Description</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td><input type='text' size='30' name='descript' value='$led[descript]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='3' valign='top'>Options</td>
 				<td><input type='radio' name='desopt' value='emp' $emp> Empty Input Box</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='desopt' value='once' $once> Once Only Setting</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='desopt' value='edit' $edit> Default Editable</td>
 			</tr>
 			<tr>
 				<th colspan='3'>Reference Number</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference Number</td>
 				<td><input type='text' size='10' name='refnum' value='$led[refnum]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='4' valign='top'>Options</td>
 				<td><input type='radio' name='refopt' value='num' $numr> Auto Number</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='refopt' value='emp' $empr> Empty Input Box</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='refopt' value='once' $oncer> Once Only Setting</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='refopt' value='edit' $editr> Default Editable Input</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -404,10 +404,10 @@ function error($_POST, $error)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-view.php'>View High Speed Input Ledgers</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";
@@ -543,19 +543,19 @@ function slctacc($_POST)
 				<th>Option</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Ledger Name</td>
 				<td>$lname</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Vat Deductable Account</td>
 				<td><input type='radio' name='vatdedacc' value='$dtaccid' $vatdt>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]<br><input type='radio' name='vatdedacc' value='$ctaccid' $vatct>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Vat Account</td>
 				<td>$vatacc</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Vat Inclusive</td>
 				<td><input type='radio' size='20' name='vatinc' value='yes' $vatincy>Yes &nbsp;&nbsp;<input type='radio' size='20' name='vatinc' value='no' $vatincn>No</td>
 			</tr>
@@ -569,10 +569,10 @@ function slctacc($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-view.php'>View High Speed Input Ledgers</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";
@@ -645,11 +645,11 @@ function details($_POST)
 		$vatacc  = pg_fetch_array($vataccRs);
 		$vatin = ucwords($vatinc);
 		$vataccnum = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Vat Account</td>
 				<td><input type='hidden' name='vataccid' value='$vataccid'><input type='hidden' name='vatdedacc' value='$vatdedacc'>$vatacc[topacc]/$vatacc[accnum] - $vatacc[accname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Vat Inclusive</td>
 				<td><input type='hidden' name='vatinc' value='$vatinc'>$vatin</td>
 			</tr>";
@@ -708,7 +708,7 @@ function details($_POST)
 				<th>Option</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Ledger Name</td>
 				<td>$lname</td>
 			</tr>
@@ -716,7 +716,7 @@ function details($_POST)
 				<th><h4>Debit</h4></th>
 				<th><h4>Credit</h4></th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 				<td align='center'>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 			</tr>
@@ -724,15 +724,15 @@ function details($_POST)
 			<tr>
 				<th colspan='3'>Options</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Number of Entries</td>
 				<td>$numtran</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date Entry</td>
 				<td>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Charge Vat </td>
 				<td>$vat</td>
 			</tr>
@@ -740,22 +740,22 @@ function details($_POST)
 			<tr>
 				<th colspan='3'>Description</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td>$descript</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Option</td>
 				<td>$descriptopt</td>
 			</tr>
 			<tr>
 				<th colspan='3'>Reference Number</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference Number</td>
 				<td>$refnums</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Option</td>
 				<td>$refnumopt</td>
 			</tr>
@@ -771,13 +771,13 @@ function details($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-new.php'>New High Speed Input Ledger</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-view.php'>View High Speed Input Ledgers</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";
@@ -871,13 +871,13 @@ function write($_POST)
 				<th colspan='2'>High Speed Input Ledger Edit</th>
 			</tr>
 			<tr>
-				<td bgcolor='".bgcolorg()."' colspan='2'>High Speed Input Ledger : <b>$lname</b> has been edited.</td>
+				<td class='".bg_class()."' colspan='2'>High Speed Input Ledger : <b>$lname</b> has been edited.</td>
 			</tr>
 			<tr>
 				<td width='50%'><h3>Debit</h3></td>
 				<td width='50%'><h3>Credit</h3></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 				<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 			</tr>
@@ -887,13 +887,13 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-new.php'>New High Speed Input Ledger</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-view.php'>View High Speed Input Ledgers</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";

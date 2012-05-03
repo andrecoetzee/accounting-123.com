@@ -75,25 +75,25 @@ function enter($_GET) {
 	<input type=hidden name=key value=rem>
 	<input type=hidden name=id value='$id'>
 	<tr><th colspan=2>Personal details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Main Contact</td><td>$mainname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Name</td><td align=center>$name</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Position</td><td align=center>$pos</td></tr>
+	<tr class='bg-odd'><td>Main Contact</td><td>$mainname</td></tr>
+	<tr class='bg-even'><td>Name</td><td align=center>$name</td></tr>
+	<tr class='bg-odd'><td>Position</td><td align=center>$pos</td></tr>
 	<tr><th colspan=2>Contact details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Telephone</td><td align=center>$tell</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Cellphone</td><td align=center>$cell</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Facsimile</td><td align=center>$fax</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Email</td><td align=center>$email</td></tr>
+	<tr class='bg-even'><td>Telephone</td><td align=center>$tell</td></tr>
+	<tr class='bg-odd'><td>Cellphone</td><td align=center>$cell</td></tr>
+	<tr class='bg-even'><td>Facsimile</td><td align=center>$fax</td></tr>
+	<tr class='bg-odd'><td>Email</td><td align=center>$email</td></tr>
 	<tr><th colspan=2>Notes</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><pre>$notes</pre></td></td></tr>
+	<tr class='bg-even'><td colspan=2><pre>$notes</pre></td></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Delete &raquo;'></td></tr>
 	</form>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_cons.php'>List contacts</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_cons.php'>List contacts</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
         return $out;
@@ -116,8 +116,8 @@ function rem($_POST) {
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $out;

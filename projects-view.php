@@ -64,16 +64,16 @@ $OUTPUT .= "
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='projects-edit.php'>Edit Project Information</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='costcenter-add.php'>Add Cost Center</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='costcenter-view.php'>View Cost Centers</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>
@@ -153,7 +153,7 @@ function enter ($err="")
 									<tr>
 										<th colspan='4'>Project Information</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td colspan='2'>$p1arr[project_name]</td>
 										<td><a href='projects-view.php?key=edit&project=1&id=$p1arr[id]'>Edit</a></td>
 										<td>$showremove</td>
@@ -163,7 +163,7 @@ function enter ($err="")
 			$get_pro2 = "SELECT * FROM sub_projects WHERE project_id = '$p1arr[id]' ORDER BY sub_project_name";
 			$run_pro2 = db_exec($get_pro2) or errDie("Unable to get project information.");
 			if(pg_numrows($run_pro2) < 1){
-				$project_listing .= "<tr bgcolor='".bgcolorg()."'><td colspan='4'>No Sub-Sections Found.</td></tr>";
+				$project_listing .= "<tr class='".bg_class()."'><td colspan='4'>No Sub-Sections Found.</td></tr>";
 			}else {
 				$project_listing .= "";
 				while ($p2arr = pg_fetch_array($run_pro2)){
@@ -176,7 +176,7 @@ function enter ($err="")
 						$showremove = "<a href='projects-view?key=remove&project=2&id=$p2arr[id]'>Remove</a>";
 					}
 					$project_listing .= "
-											<tr bgcolor='".bgcolorg()."'>
+											<tr class='".bg_class()."'>
 												<td colspan='2'>$p2arr[sub_project_name]</td>
 												<td><a href='projects-view.php?key=edit&project=2&id=$p2arr[id]'>Edit</a></td>
 												<td>$showremove</td>
@@ -186,7 +186,7 @@ function enter ($err="")
 					$get_pro3 = "SELECT * FROM sub_sub_projects WHERE sub_project_id = '$p2arr[id]' ORDER BY sub_sub_project_name";
 					$run_pro3 = db_exec($get_pro3) or errDie("Unable to get project information.");
 					if(pg_numrows($run_pro3) < 1){
-						$project_listing .= "<tr bgcolor='".bgcolorg()."'><td colspan='4'>No Sub-Sub-Sections Found.</td></tr>";
+						$project_listing .= "<tr class='".bg_class()."'><td colspan='4'>No Sub-Sub-Sections Found.</td></tr>";
 					}else {
 						$project_listing .= "";
 						while ($p3arr = pg_fetch_array($run_pro3)){
@@ -199,7 +199,7 @@ function enter ($err="")
 								$showremove = "<a href='projects-view?key=remove&project=3&id=$p3arr[id]'>Remove</a>";
 							}
 							$project_listing .= "
-													<tr bgcolor='".bgcolorg()."'>
+													<tr class='".bg_class()."'>
 														<td width='4%'></td>
 														<td>$p3arr[sub_sub_project_name]</td>
 														<td><a href='projects-view.php?key=edit&project=3&id=$p3arr[id]'>Edit</a></td>
@@ -236,7 +236,7 @@ function enter ($err="")
 				<form action='".SELF."' method='POST'>
 					<input type='hidden' name='key' value='add'>
 					<input type='hidden' name='project' value='1'>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Project</td>
 						<td><input type='text' size='30' name='project1_add'></td>
 						<td></td>
@@ -246,7 +246,7 @@ function enter ($err="")
 				<form action='".SELF."' method='POST'>
 					<input type='hidden' name='key' value='add'>
 					<input type='hidden' name='project' value='2'>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Sub Section</th>
 						<td><input type='text' size='30' name='project2_add'></td>
 						<td>$project1_drop</td>
@@ -256,7 +256,7 @@ function enter ($err="")
 				<form action='".SELF."' method='POST'>
 					<input type='hidden' name='key' value='add'>
 					<input type='hidden' name='project' value='3'>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Sub Sub Section</th>
 						<td><input type='text' size='30' name='project3_add'></td>
 						<td>$project2_drop</td>
@@ -378,7 +378,7 @@ function edit ($_POST)
 						<tr>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='text' name='value' value='$arr[$conn_to_field]'></td>
 						</tr>
 						".TBL_BR."
@@ -442,7 +442,7 @@ function confirmedit ($_POST)
 						<tr>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$value</td>
 						</tr>
 						".TBL_BR."
@@ -569,7 +569,7 @@ function remove ($_POST)
 						<tr>
 							<th>Remove Entry</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$arr[$conn_to_field]</td>
 						</tr>
 						".TBL_BR."

@@ -77,7 +77,7 @@ function confirmAllow ($id)
 <input type=hidden name=key value=rem>
 <input type=hidden name=id value='$id'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Name of reimbursement</td><td align=center>$myAllow[name]</td></tr>
+<tr class='bg-odd'><td>Name of reimbursement</td><td align=center>$myAllow[name]</td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Delete &raquo;'></td></tr>
 </form>
 </table>"

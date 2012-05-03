@@ -33,7 +33,7 @@ function display()
 	$hist_out = "";
 	while ($hist_data = pg_fetch_array($hist_rslt)) {
 		$hist_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".date("d-m-Y G:i:s", $hist_data["e_time"])."</td>
 			<td>$hist_data[des]</td>
 			<td>".getSerial($hist_data["id"])."</td>
@@ -43,7 +43,7 @@ function display()
 
 	if (empty($hist_out)) {
 		$hist_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'><li>No results found.</li></td>
 		</tr>";
 	}
@@ -53,7 +53,7 @@ function display()
 	<form method='post' action='".SELF."'>
 	<table ".TMPL_tblDflts.">
 		<tr><th colspan='4'>Date Range</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

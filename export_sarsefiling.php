@@ -68,61 +68,61 @@ function get_employer ($_POST,$err="")
 			<tr>
 				<th>Company Name</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='40' name='employer_company' value='$employer_company'></td>
 			</tr>
 			<tr>
 				<th>Address</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='40' name='employer_addr1' value='$employer_addr1'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='40' name='employer_addr2' value='$employer_addr2'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='40' name='employer_addr3' value='$employer_addr3'></td>
 			</tr>
 			<tr>
 				<th>Postal Code</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='5' maxlength='4' name='employer_postalcode' value='$employer_postalcode'></td>
 			</tr>
 			<tr>
 				<th>PAYE Ref No</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='40' name='employer_paye' value='$employer_paye'></td>
 			</tr>
 			<tr>
 				<th>SDL No</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='40' name='employer_sdl' value='$employer_sdl'></td>
 			</tr>
 			<tr>
 				<th>UIF No</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='40' name='employer_uif' value='$employer_uif'></td>
 			</tr>
 			<tr>
 				<th>Tel</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='40' name='employer_tel' value='$employer_tel'></td>
 			</tr>
 			<tr>
 				<th>Alternative Tel</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='40' name='employer_alttel' value='$employer_alttel'></td>
 			</tr>
 			<tr>
 				<th>Process</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>
 					<select name='employer_runstatus'>
 						<option value='TEST'>Test</option>
@@ -133,7 +133,7 @@ function get_employer ($_POST,$err="")
 			<tr>
 				<th>Process Year</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='5' maxlength='4' name='employer_processyear' value='$employer_processyear'></td>
 			</tr>
 			<tr><td><br></td></tr>

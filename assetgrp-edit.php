@@ -107,19 +107,19 @@ function edit($grpid)
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=grpid value='$grp[grpid]'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Asset Group</td><td><input type=text size=20 name=grpname value='$grp[grpname]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Cost Account</td><td>$acccost[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Accumulated Depreciation Account</td><td>$acdacc[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Depreciation Account</td><td>$accdep[accname]</td></tr>
+	<tr class='bg-odd'><td>Asset Group</td><td><input type=text size=20 name=grpname value='$grp[grpname]'></td></tr>
+	<tr class='bg-even'><td>Cost Account</td><td>$acccost[accname]</td></tr>
+	<tr class='bg-odd'><td>Accumulated Depreciation Account</td><td>$acdacc[accname]</td></tr>
+	<tr class='bg-even'><td>Depreciation Account</td><td>$accdep[accname]</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-new.php'>Add Asset Group</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='assetgrp-new.php'>Add Asset Group</a></td></tr>
+		<tr class='bg-odd'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -183,19 +183,19 @@ function confirm ($_POST)
 	<input type=hidden name=grpname value='$grpname'>
 	<input type=hidden name=grpid value='$grpid'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Asset Group</td><td>$grpname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Cost Account</td><td>$acccost[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Accumulated Depreciation Account</td><td>$acdacc[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Depreciation Account</td><td>$accdep[accname]</td></tr>
+	<tr class='bg-odd'><td>Asset Group</td><td>$grpname</td></tr>
+	<tr class='bg-even'><td>Cost Account</td><td>$acccost[accname]</td></tr>
+	<tr class='bg-odd'><td>Accumulated Depreciation Account</td><td>$acdacc[accname]</td></tr>
+	<tr class='bg-even'><td>Depreciation Account</td><td>$accdep[accname]</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=right></td><td valign=left><input type=submit value='Write &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-new.php'>Add Asset Group</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='assetgrp-new.php'>Add Asset Group</a></td></tr>
+		<tr class='bg-odd'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -243,9 +243,9 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-new.php'>Add Asset Group</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='assetgrp-new.php'>Add Asset Group</a></td></tr>
+		<tr class='bg-odd'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

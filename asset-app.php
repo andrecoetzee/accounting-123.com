@@ -102,39 +102,39 @@ function view_data ($_GET)
 								<tr>
 									<th colspan='2'>Asset Details</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Group</td>
 									<td>$grp[grpname]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Serial Number</td>
 									<td>$led[serial]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Location</td>
 									<td>$led[locat]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Description</td>
 									<td>$led[des]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Date Bought</td>
 									<td>$led[bdate]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Cost Amount</td>
 									<td>$led[amount]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Net Value</td>
 									<td><input type='hidden' name='netval' value='$netval'>$netval</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Appreciation Amount</td>
 									<td><input type='text' size='10' name='depamt' value='$depamt'></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Date</td>
 									<td>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 								</tr>
@@ -151,7 +151,7 @@ function view_data ($_GET)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='asset-view.php'>View Assets</a></td>
 					</tr>
 					<script>document.write(getQuicklinkSpecial());</script>
@@ -228,39 +228,39 @@ function confirm ($_POST)
 									<tr>
 										<th colspan='2'>Asset Details</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Group</td>
 										<td>$grp[grpname]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Serial Number</td>
 										<td>$led[serial]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Location</td>
 										<td>$led[locat]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Description</td>
 										<td>$led[des]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Date Bought</td>
 										<td>$led[bdate]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Cost Amount</td>
 										<td>$led[amount]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Net Value</td>
 										<td><input type='hidden' name='netval' value='$netval'>$netval</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Appreciation Amount</td>
 										<td>$depamt</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Date</td>
 										<td>$date</td>
 									</tr>
@@ -279,7 +279,7 @@ function confirm ($_POST)
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='asset-view.php'>View Assets</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>
@@ -392,10 +392,10 @@ function con_data ($_POST)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='asset-new.php'>New Asset</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='asset-view.php'>View Assets</a></td>
 					</tr>
 					<script>document.write(getQuicklinkSpecial());</script>

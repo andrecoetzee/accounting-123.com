@@ -84,15 +84,15 @@ $viewUser.= "
 	 <input type=hidden name=key  value='confirm'>
 	 <input type=hidden name=id value=$id>
 	 <tr><th colspan=2>Personal Details</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Username</td><td><input type=text size=20 name=username value='$Data[username]'> must not contain spaces</td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td>Password</td><td><input type=password size=20 name=password></td></tr>
-         <tr bgcolor='".TMPL_tblDataColor1."'><td>Confirm password</td><td><input type=password size=20 name=password2></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td>Name</td><td><input type=text size=20 name=name value='$Data[name]'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Email</td><td><input type=text size=20 name=email value='$Data[email]'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td>Cellphone</td><td><input type=text size=20 name=cell value='$Data[cell]'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Additional</td><td>Email Notification<input type=checkbox name=notify></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td>Private</td><td align=center>$Cons</td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Initial Group</td><td align=center>$Grp</td></tr>
+	 <tr class='bg-odd'><td>Username</td><td><input type=text size=20 name=username value='$Data[username]'> must not contain spaces</td></tr>
+	 <tr class='bg-even'><td>Password</td><td><input type=password size=20 name=password></td></tr>
+         <tr class='bg-odd'><td>Confirm password</td><td><input type=password size=20 name=password2></td></tr>
+	 <tr class='bg-even'><td>Name</td><td><input type=text size=20 name=name value='$Data[name]'></td></tr>
+	 <tr class='bg-odd'><td>Email</td><td><input type=text size=20 name=email value='$Data[email]'></td></tr>
+	 <tr class='bg-even'><td>Cellphone</td><td><input type=text size=20 name=cell value='$Data[cell]'></td></tr>
+	 <tr class='bg-odd'><td>Additional</td><td>Email Notification<input type=checkbox name=notify></td></tr>
+	 <tr class='bg-even'><td>Private</td><td align=center>$Cons</td></tr>
+	 <tr class='bg-odd'><td>Initial Group</td><td align=center>$Grp</td></tr>
 	
 	</form>
 	</table>";
@@ -190,7 +190,7 @@ function deleteUser() {
 	$link="<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docman-index.php'>Document Management</a></td></tr>";
+	<tr class='bg-odd'><td><a href='docman-index.php'>Document Management</a></td></tr>";
 	
 	print $link;
 

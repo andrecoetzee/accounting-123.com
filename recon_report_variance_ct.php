@@ -35,7 +35,7 @@ function display()
 		}
 		
 		$ct_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$ct_data[supno]</td>
 			<td>$ct_data[supname]</td>
 			<td>$ct_data[sup_balance]</td>
@@ -51,7 +51,7 @@ function display()
 		<tr>
 			<th colspan='2'>Search</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='search' value='$search' /></td>
 			<td><input type='submit' value='Search' /></td>
 		</tr>

@@ -65,7 +65,7 @@ function get_info_setting ($_POST, $err="")
 			<tr>
 				<th>Payment Type</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<input type='radio' name='pay_type' $psel1 value='cheq_man'> Manual Cheque Printing<br>
 					<input type='radio' name='pay_type' $psel2 value='cheq_aut'> System Cheque Printing<br>
@@ -76,10 +76,10 @@ function get_info_setting ($_POST, $err="")
 			<tr>
 				<th>Payment Process Type</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='process_type' value='now' $prsel1>Pay creditor immediately and add to cashbook</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='process_type' value='batch' $prsel2>Add to creditor payment batch</td>
 			</tr>
 			<tr>

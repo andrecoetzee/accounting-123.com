@@ -58,7 +58,7 @@ function slctAcc()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=viewtran>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Name</td><td><select name=accid>";
+	<tr class='bg-even'><td>Account Name</td><td><select name=accid>";
 
 	core_connect();
  	$sql = "SELECT * FROM accounts ORDER BY accname ASC";
@@ -74,9 +74,9 @@ function slctAcc()
 	}
 
 	$slctAcc .="</select></td><td><input type=submit name=details value='View Transactions'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=3><br></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Number</td><td><input type=text name=topacc size=3 maxlength=3> / <input type=text name=accnum size=3 maxlength=3></td><td><input type=submit value='View Transactions'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Select Period</td><td valign=center colspan=3>
+	<tr class='bg-odd'><td colspan=3><br></td></tr>
+	<tr class='bg-even'><td>Account Number</td><td><input type=text name=topacc size=3 maxlength=3> / <input type=text name=accnum size=3 maxlength=3></td><td><input type=submit value='View Transactions'></td></tr>
+	<tr class='bg-odd'><td>Select Period</td><td valign=center colspan=3>
 	<select name=prd>";
 
 	db_conn(YR_DB);
@@ -180,7 +180,7 @@ function viewtran($_POST)
 	$sql = "SELECT * FROM transect WHERE debit = '$acc[accid]' OR credit = '$acc[accid]'";
 	$tranRslt = db_exec ($sql) or errDie ("ERROR: Unable to retrieve Transaction details from database.", SELF);
 	if (pg_numrows ($tranRslt) < 1) {
-		$OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=10>No Transactions found</td></tr>";
+		$OUTPUT .= "<tr class='bg-odd'><td colspan=10>No Transactions found</td></tr>";
 		# counts
 		$credtot = 0;
 		$debtot = 0;
@@ -216,11 +216,11 @@ function viewtran($_POST)
 			$caccRs = undget("core","div, accname,topacc,accnum","accounts","accid",$cacc);
 			$cacc = pg_fetch_array($caccRs);
 			$branname = branname($cacc['div']);
-			$OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$date</td><td>$refnum</td><td>$cacc[topacc]/$cacc[accnum] - $cacc[accname] - $branname</td><td>$details</td><td>$debitamt</td><td>$creditamt</td><td>$author</td></tr>";
+			$OUTPUT .= "<tr class='bg-odd'><td>$date</td><td>$refnum</td><td>$cacc[topacc]/$cacc[accnum] - $cacc[accname] - $branname</td><td>$details</td><td>$debitamt</td><td>$creditamt</td><td>$author</td></tr>";
 		}
 	}
 
-	$OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>Total</b></td><td><b>".CUR." $debtot</b></td><td><b>".CUR." $credtot</b></td><td></td></tr>
+	$OUTPUT .= "<tr class='bg-even'><td colspan=4><b>Total</b></td><td><b>".CUR." $debtot</b></td><td><b>".CUR." $credtot</b></td><td></td></tr>
 	<tr><td><br></td></tr>
 
 	<!--

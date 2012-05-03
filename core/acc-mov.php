@@ -89,15 +89,15 @@ function edit($accid, $err = "") {
 			<th>Field</th>
 			<th>Value</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Account Name</td>
 			<td>$acc[accname]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Account Type</td>
 			<td>".$acctypes[$acc["acctype"]]."</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>To Category</td>
 			<td>
 				<select name=catid>";
@@ -137,7 +137,7 @@ function edit($accid, $err = "") {
 				</optgroup>
 			</select>
 		</td></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Account Number</td>
 			<td valign='center'><input type='text' name='topacc' size='4' maxlength='4' value='$acc[topacc]' /> / <input type='text' name='accnum' size='3' maxlength='3' value='$acc[accnum]' /></td>
 		</tr>
@@ -293,27 +293,27 @@ function confirm ($_POST) {
 		<th>Field</th>
 		<th>Value</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Account Name</td>
 		<td>$acc[accname]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Account Type</td>
 		<td>$tab</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>From Category</td>
 		<td>$fcat[catname]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>To Category</td>
 		<td>$cat[catname]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Account Number</td>
 		<td>$topacc/$accnum</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Financial Statement Category</td>
 		<td>$toptypedrop</td>
 	</tr>

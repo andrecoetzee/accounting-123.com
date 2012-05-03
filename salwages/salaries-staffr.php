@@ -106,16 +106,16 @@ function slctEmployee ($err = "")
 			<tr>
 				<th colspan='2'>Employee</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$employees</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select month</td>
 				<td align=center>".empMonList("MON", DATE_MONTH)."</td>
 				<td class='err'>This is the period for which you are processing the salary.</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Processing Date</td>
 				<td nowrap>".mkDateSelect("date")."</td>
 				<td class='err'>This is the date Cubit will use to enter transactions into the ledgers.</td>
@@ -196,7 +196,7 @@ function slctPrd($err = "")
 		$weeks .= "</select>";
 
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Period</td>
 				<td>$weeks</td>
 			</tr>";
@@ -249,7 +249,7 @@ function slctPrd($err = "")
 		$weeks .= "</select>";
 
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Period</td>
 				<td>$weeks</td>
 			</tr>";
@@ -274,7 +274,7 @@ function slctPrd($err = "")
 		$days .= "</select>";
 
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Day for Payment</td>
 				<td>$days</td>
 			</tr>";
@@ -615,7 +615,7 @@ function process ($_POST)
 	if ( pg_num_rows ($rslt) < 1 ) {
 		$fringes = "
 			<tr>
-				<td bgcolor='".bgcolorg()."' colspan='2' align='center'>None found in database.</td>
+				<td class='".bg_class()."' colspan='2' align='center'>None found in database.</td>
 			</tr>\n";
 	} else {
 		while ($myFringe = pg_fetch_array ($rslt)) {
@@ -650,7 +650,7 @@ function process ($_POST)
 				<input type='hidden' name='fringeid[]' value='$myFringe[id]'>
 				<input type='hidden' name='fringename[]' value='$myFringe[fringeben]'>
 				<input type='hidden' name='fringeaccs[]' value='$tmp_fringeaccs'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$myFringe[fringeben]</td>
 					<td align='center'>
 						".CUR." $tmp_fringebens
@@ -668,7 +668,7 @@ function process ($_POST)
 	$sql = "SELECT * FROM allowances WHERE div = '".USER_DIV."' ORDER BY allowance";
 	$allowRslt = db_exec ($sql) or errDie ("Unable to select allowances from database.");
 	if (pg_numrows($allowRslt) < 1) {
-		$allowances = "<tr><td bgcolor='".bgcolorg()."' colspan='2' align='center'>None found in database.</td></tr>\n";
+		$allowances = "<tr><td class='".bg_class()."' colspan='2' align='center'>None found in database.</td></tr>\n";
 	} else {
 		while ($myAllow = pg_fetch_array ($allowRslt)) {
 
@@ -703,7 +703,7 @@ function process ($_POST)
 				<input type='hidden' size='30' name='allowname[]' value='$myAllow[allowance]'>
 				<input type='hidden' size='10' name='allowtax[]' value='$myAllow[add]'>
 				<input type='hidden' name='allowaccs[]' value='$tmp_allowaccs'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$myAllow[allowance]</td>
 					<td align='center'>".CUR." $tmp_allowances<input type='hidden' size='10' name='allowances[]' value='$tmp_allowances'></td>
 				</tr>";
@@ -791,7 +791,7 @@ function process ($_POST)
 	if (pg_numrows ($deductRslt) < 1) {
 		$deductions = "
 			<tr>
-				<td bgcolor='".bgcolorg()."' colspan='2' align='center'>None found in database.</td>
+				<td class='".bg_class()."' colspan='2' align='center'>None found in database.</td>
 			</tr>\n";
 	} else {
 		while ($myDeduct = pg_fetch_array ($deductRslt)) {
@@ -875,7 +875,7 @@ function process ($_POST)
 				<input type='hidden' size='10' name='employer_deductions[]' value='$tmp_emp_ded'>
 				<input type='hidden' size='10' name='deducttax[]' value='$myDeduct[add]'>
 				<input type='hidden' name='grosdeduct[]' value='$tmp_grosdeduct'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$myDeduct[deduction] $deductions_msg</td>
 					<td align='center'>
 						".CUR." $tmp_deductions
@@ -957,7 +957,7 @@ function process ($_POST)
 
 	if ($myEmp['paytype'] == "Cash") {
 		$paydetails = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>Employee paid cash</td>
 			</tr>
 			<input type='hidden' name='accid' value='0'>";
@@ -980,14 +980,14 @@ function process ($_POST)
 		$accounts .= "</select>";
 
 		$paydetails = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Ledger Account for payment</td>
 				<td>$accounts</td>
 			</tr>
 			<input type='hidden' name='accid' value='0'>";
 	} else {
 		$paydetails = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account</td>
 				<td valign='center'>$banks</td>
 			</tr>";
@@ -1108,7 +1108,7 @@ function process ($_POST)
 			}
 
 			$rt .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='hidden' name='rbs[$td[id]]' value='$td[id]'>$td[name]</td>
 					<td>".CUR." ".$rbsa[$td['id']]."<input type='hidden' size='10' name='rbsa[$td[id]]' value='".$rbsa[$td['id']]."' class=right></td>
 				</tr>";
@@ -1117,7 +1117,7 @@ function process ($_POST)
 		}
 	} else {
 		$rt .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'>There are no reimbursements</td>
 			</tr>";
 	}
@@ -1282,7 +1282,7 @@ function process ($_POST)
 		<tr>
 			<th colspan='2'>Salary Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td nowrap>Basic salary</td>
 			<td nowrap>".CUR." <input type='hidden' size='10' name='basic_sal' value='$prevsal[salrate]' class='right' onChange='changedfield();'> $prevsal[salrate] $saltype $multi_show</td>
 		</tr>";
@@ -1293,26 +1293,26 @@ function process ($_POST)
 			<input type='hidden' name='wh_actual' value='1'>";
 	} else {
 		$process .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Total Work Hours:</td>
 				<td><input type='hidden' size='10' name='wh_total' value='$wh_total' class='right' onChange='workhours();'>$wh_total</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Actual Hours Worked:</td>
 				<td><input type='hidden' size='10' name='wh_actual' value='$wh_actual' class='right' onChange='workhours();'>$wh_actual</td>
 			</tr>";
 	}
 
 	$process .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Normal Overtime</td>
 				<td><input type='hidden' size='5' name='novert' value='$h1' class='right'>$h1 Hrs</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Public Holiday Overtime</td>
 				<td><input type='hidden' size='5' name='hovert' value='$h2' class='right'>$h2 Hrs</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!--<td>Special Bonus/Additional Salary</td>-->
 				<td>Annual Bonus</td>
 				<td>".CUR." <input type='hidden' name='bonus' value='0' class='right'><input type='hidden' name='abonus' value='$prevsal[bonus]' class='right'>$prevsal[bonus]</td>
@@ -1325,15 +1325,15 @@ function process ($_POST)
 				</td>-->
 			</tr>
 			<input type='hidden' name='annual' value='0' />
-			<!--<tr bgcolor='".bgcolorg()."'>
+			<!--<tr class='".bg_class()."'>
 				<td>Bonus(Annual/Once Off Payments)</td>
 				<td nowrap>".CUR." <input type='text' size='10' name='annual' value='$annual' class='right'></td>
 			</tr>-->
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Commission</td>
 				<td>".CUR." <input type='hidden' size='10' name='commission' value='$prevsal[comm]' class='right'>$prevsal[comm]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Low or interest-free loan</td>
 				<td>".CUR." <input type='hidden' size=10 name=loaninstall value='$tm_loaninstall' class=right>$tm_loaninstall</td>
 				<input type='hidden' name='fringe_loan' value='$fringe_loan'>
@@ -1341,60 +1341,60 @@ function process ($_POST)
 				<input type='hidden' name='loaninstall_date' value='$loaninstall_date'>
 				<input type='hidden' name='loaninstall_prd' value='$loaninstall_prd'>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Travel Allowance</td>
 				<td>R <input type='hidden' size='10' name='all_travel' value='$myEmp[all_travel]' class='right'>$myEmp[all_travel]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Pension: Company Contribution</td>
 				<td>".CUR." <input type='hidden' size='10' name='comp_pension' value='$prevsal[comp_pension]' class='right'>$prevsal[comp_pension]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Pension: Employee Deduction</td>
 				<td>".CUR." <input type='hidden' size='10' name='emp_pension' value='$prevsal[emp_pension]' class='right'>$prevsal[emp_pension]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Provident: Company Contribution</td>
 				<td>".CUR." <input type='hidden' size='10' name='comp_provident' value='$prevsal[comp_provident]' class='right'>$prevsal[comp_provident]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Provident: Employee Deduction</td>
 				<td>".CUR." <input type='hidden' size='10' name='emp_provident' value='$prevsal[emp_provident]' class='right'>$prevsal[emp_provident]</td>
 			</tr>
 			<!--
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>UIF: Company Contribution</td>
 				<td>".CUR." <input type='hidden' size='10' name='comp_uif' value='$prevsal[comp_uif]' class='right'>$prevsal[comp_uif]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>UIF: Employee Deduction</td>
 				<td>".CUR." <input type='hidden' size='10' name='emp_uif' value='$prevsal[emp_uif]' class='right'>$prevsal[comp_uif]</td>
 			</tr>
 			//-->
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Retirement Annuity: Company Contribution</td>
 				<td>".CUR." <input type='hidden' size='10' name='comp_ret' value='$prevsal[comp_ret]' class='right'>$prevsal[comp_ret]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Retirement Annuity: Employee Deduction</td>
 				<td>".CUR." <input type='hidden' size='10' name='emp_ret' value='$prevsal[emp_ret]' class='right'>$prevsal[emp_ret]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Medical Contribution: Company</td>
 				<td>".CUR." <input type='hidden' size='10' name='comp_medical' value='$prevsal[comp_medical]' class='right'>$prevsal[comp_medical]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Medical Contribution: Employee</td>
 				<td>".CUR." <input type='hidden' size='10' name='emp_medical' value='$prevsal[emp_medical]' class='right'>$prevsal[emp_medical]</td>
 			</tr>
 			<input type='hidden' name='comp_other' value='0'>
 			<input type='hidden' name='emp_other' value='0'>
 			<!--
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Other: Company Contribution</td>
 				<td>".CUR." <input type='hidden' size='10' name='comp_other' value='$prevsal[comp_other]' class='right'>$prevsal[comp_other]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>Other: Employee Deduction</td>
 				<td>".CUR." <input type='hidden' size='10' name='emp_other' value='$prevsal[emp_other]' class='right'>$prevsal[emp_other]</td>
 			</tr>
@@ -1699,14 +1699,14 @@ function confirm ($_POST)
 		foreach ($allowtax as $key => $perc) {
 			if($perc == "Yes" and $allowances[$key]>0) {
 				$all_before .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$allowname[$key]</td>
 						<td>".CUR." $allowances[$key]</td>
 					</tr>";
 				$all_beforeamount = ($all_beforeamount  + $allowances[$key]);
 			}elseif ($allowances[$key] > 0) {
 				$all_after .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$allowname[$key]</td>
 						<td>".CUR." $allowances[$key]</td>
 					</tr>";
@@ -1784,7 +1784,7 @@ function confirm ($_POST)
 		foreach ($deducttax as $key => $perc) {
 			if($perc == "Yes" and $deductions[$key] > 0) {
 				$de_before .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$deductname[$key]</td>
 						<td>".CUR." $deductions[$key]</td>
 						<!--<td>".CUR." $employer_deductions[$key]</td>//-->
@@ -1793,7 +1793,7 @@ function confirm ($_POST)
 				$de_beforeamount_emp += $employer_deductions[$key];
 			}elseif ($deductions[$key] > 0) {
 				$de_after .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$deductname[$key]</td>
 						<td>".CUR." $deductions[$key]</td>
 						<!--<td>".CUR." $employer_deductions[$key]</td>//-->
@@ -2113,7 +2113,7 @@ function confirm ($_POST)
 			if ( $fringebens[$key] > 0 ) {
 
 				$fringes_desc .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$fringename[$key]</td>
 						<td>".CUR." $fringebens[$key]</td>
 					</tr>";
@@ -2243,7 +2243,7 @@ function confirm ($_POST)
 			}
 
 			$rt .= "
-                <tr bgcolor='".bgcolorg()."'>
+                <tr class='".bg_class()."'>
                     <td><input type='hidden' name='rbs[$td[id]]' value='$td[id]'>$td[name]</td>
                     <td>".CUR." <input type='hidden' name='rbsa[$td[id]]' value='".$rbsa[$td['id']]."'>".$rbsa[$td['id']]."</td>
 				</tr>";
@@ -2252,7 +2252,7 @@ function confirm ($_POST)
 		}
 	} else {
 		$rt .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>There are no reimbursements</td>
 			</tr>";
 	}
@@ -2274,12 +2274,12 @@ function confirm ($_POST)
 
 	if($myEmp['paytype']=="Cash") {
 		$paydetails = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>Pay Salary Cash</td>
 			</tr>";
 	} else {
 		$paydetails = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account</td>
 				<td>$bank[accname]</td>
 			</tr>";
@@ -2307,7 +2307,7 @@ function confirm ($_POST)
 		$ad = pg_fetch_array($Ri);
 
 		$paydetails = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Ledger Account</td>
 				<td>$ad[accname]</td>
 			</tr>";
@@ -2315,14 +2315,14 @@ function confirm ($_POST)
 
 	if($myEmp['payprd'] == "w") {
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Period</td>
 				<td>$week</td>
 			</tr>
 			<input type='hidden' name='week' value='$week'>";
 	} elseif($myEmp['payprd']=="f") {
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Period</td>
 				<td>$week</td>
 			</tr>
@@ -2399,104 +2399,104 @@ function confirm ($_POST)
 			<tr>
 				<th colspan='2'>Salary Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Basic salary</td>
 				<td>".CUR." $basic_sal</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Annual Bonus</td>
 				<!--<td>Special Bonus/Additional Salary</td>-->
 				<td>".CUR." $abonus</td>
 			</tr>
 			<!--
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bonus(Annual Payments)</td>
 				<td>".CUR." $annual</td>
 			</tr>
 			-->
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Commission</td>
 				<td>".CUR." $commission</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Travel Allowance</td>
 				<td>".CUR." $all_travel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Pension: Company Contribution</td>
 				<td>".CUR." $comp_pension</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Pension: Employee Deduction</td>
 				<td>".CUR." $emp_pension</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Provident Fund: Company Contribution</td>
 				<td>".CUR." $comp_provident</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Provident Fund: Employee Deduction</td>
 				<td>".CUR." $emp_provident</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>UIF: Company Contribution</td>
 				<td>".CUR." $comp_uif</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>UIF: Employee Deduction</td>
 				<td>".CUR." $emp_uif</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Retirement Annuity: Company Contribution</td>
 				<td>".CUR." $comp_ret</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Retirement Annuity: Employee Deduction</td>
 				<td>".CUR." $emp_ret</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Medical Contribution: Company</td>
 				<td>".CUR." $comp_medical</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Medical Contribution: Employee</td>
 				<td>".CUR." $emp_medical</td>
 			</tr>
 			<!--
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Other: Company Contribution</td>
 				<td>".CUR." $comp_other</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Other: Employee Deduction</td>
 				<td>".CUR." $emp_other</td>
 			</tr>
 			//-->
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Overtime</td>
 				<td>".CUR." $overamt</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Medical Fringe Benefit</td>
 				<td>".CUR." $fringe_medical</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Motorcar 1 Fringe Benefit</td>
 				<td>".CUR." $fringe_car1</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Motorcar 1 Contribution for Use</td>
 				<td>".CUR." $myEmp[fringe_car1_contrib]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Motorcar 2 Fringe Benefit</td>
 				<td>".CUR." $fringe_car2</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Motorcar 2 Contribution for Use</td>
 				<td>".CUR." $myEmp[fringe_car2_contrib]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan Interest Fringe Benefit</td>
 				<td>".CUR." $fringe_loan</td>
 			</tr>
@@ -2506,18 +2506,18 @@ function confirm ($_POST)
 			<tr>
 				<th colspan='2'>Gross Salary</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Gross Salary</td>
 				<td>".CUR." $grossal</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>SITE/PAYE</td>
 				<td>".CUR." $paye</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Loans</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan Instalment</td>
 				<td>".CUR." $loaninstall</td>
 			</tr>
@@ -2527,16 +2527,16 @@ function confirm ($_POST)
 			<tr>
 				<th colspan='2'>Nett Pay</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Nett Pay + Reimbursements</td>
 				<td>".CUR." $nettpay</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount Paid now</td>
 				<td><input type='text' size='10' name='paidamount' value='0'></td>
 			</tr>
 			$paydetails
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>$date</td>
 			</tr>

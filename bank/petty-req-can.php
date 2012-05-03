@@ -96,19 +96,19 @@ function confirm($cashid)
 	<input type=hidden name=key value=cancel>
 	<input type=hidden name=cashid value='$cash[cashid]'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$cash[date]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Paid to</td><td>$cash[name]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Details</td><td><pre>$cash[det]</pre></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Amount</td><td>".CUR." $cash[amount]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Account</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>
+	<tr class='bg-odd'><td>Date</td><td>$cash[date]</td></tr>
+	<tr class='bg-even'><td>Paid to</td><td>$cash[name]</td></tr>
+	<tr class='bg-odd'><td>Details</td><td><pre>$cash[det]</pre></td></tr>
+	<tr class='bg-even'><td>Amount</td><td>".CUR." $cash[amount]</td></tr>
+	<tr class='bg-odd'><td>Account</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td	><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Cancel &raquo'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -155,9 +155,9 @@ function write($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='petty-req-add.php'>Add Petty Cash Requisition</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='petty-req-add.php'>Add Petty Cash Requisition</a></td></tr>
+		<tr class='bg-odd'><td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

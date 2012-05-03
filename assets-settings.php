@@ -105,15 +105,15 @@ function enter($msg="")
 		<tr>
 			<th colspan='2'>Default Asset Accounts</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Cost Account</td>
 			<td>$cost_sel</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Accumulated Depreciation</td>
 			<td>$accdep_sel</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Depreciation</td>
 			<td>$dep_sel</td>
 		</tr>

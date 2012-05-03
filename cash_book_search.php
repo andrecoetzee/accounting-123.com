@@ -23,7 +23,7 @@ function display()
 		<tr>
 			<th colspan='2'>Search</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='search' value='$search' /></td>
 			<td><input type='submit' value='Search' /></td>
 		</tr>
@@ -48,7 +48,7 @@ function display()
 		$cheq_num = ($cb_data["cheqnum"]) ? $cb_data["cheqnum"] : "&nbsp;";
 
 		$cb_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".ucfirst($cb_data["trantype"])."</td>
 			<td>$cb_data[accname] - $cb_data[bankname]</td>
 			<td>".date("d-m-Y", $cb_data["e_date"])."</td>

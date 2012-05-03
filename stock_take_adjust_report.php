@@ -37,7 +37,7 @@ function display()
 	$adjust_out = "";
 	while ($adjust_data = pg_fetch_array($adjust_rslt)) {
 		$adjust_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$adjust_data[date]</td>
 			<td>$adjust_data[whname]</td>
 			<td>($adjust_data[stkcod]) $adjust_data[stkdes]</td>
@@ -53,7 +53,7 @@ function display()
 	<form method='post' action='".SELF."'>
 	<table ".TMPL_tblDflts.">
 		<tr><th colspan='4'>Date Range</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("frm", $frm_year, $frm_month, $frm_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

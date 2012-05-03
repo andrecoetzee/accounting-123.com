@@ -70,7 +70,7 @@ function enter($errors="")
 			}
 		
 			$cash_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='cash_id' value='$cash_data[id]' $sel /></td>
 				<td>$cash_data[date]</td>
 				<td>$cash_data[invnum]</td>
@@ -79,7 +79,7 @@ function enter($errors="")
 			
 			if (empty($cash_out)) {
 				$cash_out = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='4'>
 						<li>No deposits found for this customer</li>
 					</td>
@@ -88,7 +88,7 @@ function enter($errors="")
 		}
 	} else {
 		$cash_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'>
 				<li>Please select a customer</li>
 			</td>
@@ -97,7 +97,7 @@ function enter($errors="")
 	
 	if (empty($cash_out)) {
 		$cash_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'>
 				<li>No results found</li>
 			</td>
@@ -116,11 +116,11 @@ function enter($errors="")
 		<tr>
 			<th colspan='2'>Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='right'>Customer</td>
 			<td>$cust_sel</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Amount</td>
 			<td><input type='text' name='amount' value='$amount' style='text-align: right; width: 100%' /></td>
 		</tr>
@@ -202,7 +202,7 @@ function confirm()
 	$cash_data = pg_fetch_array($cash_rslt);
 	
 	$cash_out = "
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>$cash_data[date]</td>
 		<td>$cash_data[invnum]</td>
 		<td>$cash_data[cash]</td>
@@ -222,11 +222,11 @@ function confirm()
 		<tr>
 			<th colspan='2'>Confirm</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Customer</td>
 			<td>$surname</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Amount</td>
 			<td align='right'>".sprint($amount)."</td>
 		</tr>
@@ -341,7 +341,7 @@ function write()
 		<tr>
 			<th>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Successfully refunded customer.</li></td>
 		</tr>
 	</table>";

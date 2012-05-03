@@ -38,7 +38,7 @@ function select()
 	$emp_out = "";
 	while ($emp_data = pg_fetch_array($emp_rslt)) {
 		$emp_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><img src='employee-view-image.php?id=$emp_data[empnum]' width='60' height='75' /></td>
 				<td><img src='".getBarcode($emp_data["enum"])."' /></td>
 				<td>$emp_data[sname]</td>
@@ -55,7 +55,7 @@ function select()
 			<tr>
 				<th colspan='2'>Search</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' name='search' value='$search' /></td>
 				<td><input type='submit' value='Search' /></td>
 			</tr>

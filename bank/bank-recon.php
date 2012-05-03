@@ -93,7 +93,7 @@ function view()
         <form action='".SELF."' method=post name=form>
         <input type=hidden name=key value=viewcash>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Bank Account</td>
+        <tr class='bg-odd'><td>Bank Account</td>
         <td valign=center><select name=bankid>";
         db_connect();
         $sql = "SELECT * FROM bankacct";
@@ -110,8 +110,8 @@ function view()
         }
 
         $view .= "</select></td></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td>From :</td><td valign=center>$fday - $fmonth - <input type=text name=fyear size=4 maxlength=4 value=".date("Y")."></td></tr>
-                <tr bgcolor='".TMPL_tblDataColor2."'><td>To :</td><td valign=center>$lday - $lmonth - <input type=text name=lyear size=4 maxlength=4 value=".date("Y")."></td></tr>
+                <tr class='bg-odd'><td>From :</td><td valign=center>$fday - $fmonth - <input type=text name=fyear size=4 maxlength=4 value=".date("Y")."></td></tr>
+                <tr class='bg-even'><td>To :</td><td valign=center>$lday - $lmonth - <input type=text name=lyear size=4 maxlength=4 value=".date("Y")."></td></tr>
                 <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='View &raquo'></td></tr>
         </table>
         <p>

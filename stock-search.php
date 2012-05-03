@@ -107,15 +107,15 @@ function slct($errors="")
 			<tr>
 				<th colspan='2'>Key Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Store</td>
 				<td valign='center'>$whs</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Search By</td>
 				<td valign='center'>$flds</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Search Key</td>
 				<td valign='center'><input type='text' name='skey' size='20'></td>
 			</tr>
@@ -125,13 +125,13 @@ function slct($errors="")
 			<tr>
 				<th>Sort By</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='sortby' value='normal' checked='yes'> Normal</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='sortby' value='cat'> Category</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='sortby' value='class'> Classification</td>
 			</tr>
 			<tr>
@@ -148,13 +148,13 @@ function slct($errors="")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-add.php'>Add Stock</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-view.php'>View Stock</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -230,7 +230,7 @@ function printStk ()
 				<tr>
 					<th>Sort By:</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>
 						<input type='radio' name='sortby' $sel1 value='normal' onChange='javascript:document.form1.submit();'> Normal
 						<input type='radio' name='sortby' $sel2 value='cat' onChange='javascript:document.form1.submit();'> Category
@@ -384,7 +384,7 @@ function printStk ()
 		$OUT .= $showheading;
 
 		$OUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stk[stkcod]</td>
 				<td>$stk[stkdes]</td>
 				<td>$stk[classname]</td>
@@ -443,7 +443,7 @@ function printStk ()
 	$t = sprint($tc);
 
 	$OUT .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'>Totals</td>
 			<td align='right' nowrap>".CUR." ".sprint ($tot1)."</td>
 			<td align='right' nowrap>".CUR." ".sprint($tot2)."</td>

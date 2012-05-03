@@ -91,13 +91,13 @@ function enter($_POST) {
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=tid value='$id'>
 	<tr><th colspan=2 align=center>Email Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td width=25%>Account:</td><td width=75%>$select_accounts</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>To:</td><td><input type=text name=send_to value='$tokendata[email]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Cc:</td><td><input type=text name=send_cc value=''></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Bcc:</td><td><input type=text name=send_bcc value=''></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Subject:</td><td><input type=text name=subject value=''></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Attachment:</td><td><input type=file name=attachment></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><textarea rows=20 cols=80 name='body'></textarea></td></tr>
+	<tr class='bg-odd'><td width=25%>Account:</td><td width=75%>$select_accounts</td></tr>
+	<tr class='bg-even'><td>To:</td><td><input type=text name=send_to value='$tokendata[email]'></td></tr>
+	<tr class='bg-odd'><td>Cc:</td><td><input type=text name=send_cc value=''></td></tr>
+	<tr class='bg-even'><td>Bcc:</td><td><input type=text name=send_bcc value=''></td></tr>
+	<tr class='bg-odd'><td>Subject:</td><td><input type=text name=subject value=''></td></tr>
+	<tr class='bg-even'><td>Attachment:</td><td><input type=file name=attachment></td></tr>
+	<tr class='bg-odd'><td colspan=2><textarea rows=20 cols=80 name='body'></textarea></td></tr>
 	<tr><td><input type=reset value='Clear'></td><td align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -137,13 +137,13 @@ function errors($_POST) {
 	<input type=hidden name=key value=send>
 	<input type=hidden name=tid value='$tid'>
 	<tr><th colspan=2 align=center>Email Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td width=25%>Account:</td><td width=75%>$select_accounts</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>To:</td><td><input type=text name=send_to value='$send_to'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Cc:</td><td><input type=text name=send_cc value='$send_cc'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Bcc:</td><td><input type=text name=send_bcc value='$send_bcc'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Subject:</td><td><input type=text name=subject value='$subject'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Attachment:</td><td><input type=file name=attachment value='$attachment'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><textarea rows=20 cols=80 name='body'>$body</textarea></td></tr>
+	<tr class='bg-odd'><td width=25%>Account:</td><td width=75%>$select_accounts</td></tr>
+	<tr class='bg-even'><td>To:</td><td><input type=text name=send_to value='$send_to'></td></tr>
+	<tr class='bg-odd'><td>Cc:</td><td><input type=text name=send_cc value='$send_cc'></td></tr>
+	<tr class='bg-even'><td>Bcc:</td><td><input type=text name=send_bcc value='$send_bcc'></td></tr>
+	<tr class='bg-odd'><td>Subject:</td><td><input type=text name=subject value='$subject'></td></tr>
+	<tr class='bg-even'><td>Attachment:</td><td><input type=file name=attachment value='$attachment'></td></tr>
+	<tr class='bg-odd'><td colspan=2><textarea rows=20 cols=80 name='body'>$body</textarea></td></tr>
 	<tr><td><input type=reset value='Clear'></td><td align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -174,13 +174,13 @@ function confirm($_POST) {
 	<input type=hidden name=body value='$body'>
 	<input type=hidden name=tid value='$tid'>
 	<tr><th colspan=2 align=center>Email Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td width=25%>Account:</td><td width=75%>$accdata[smtp_from]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>To:</td><td><input type=hidden name=send_to value='$send_to'>$send_to</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Cc:</td><td><input type=hidden name=send_cc value='$send_cc'>$send_cc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Bcc:</td><td><input type=hidden name=send_bcc value='$send_bcc'>$send_bcc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Subject:</td><td><input type=hidden name=subject value='$subject'>$subject</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Attachment:</td><td><input type=file name=attachment value='$attachment'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><pre>$body</pre></td></tr>
+	<tr class='bg-odd'><td width=25%>Account:</td><td width=75%>$accdata[smtp_from]</td></tr>
+	<tr class='bg-even'><td>To:</td><td><input type=hidden name=send_to value='$send_to'>$send_to</td></tr>
+	<tr class='bg-odd'><td>Cc:</td><td><input type=hidden name=send_cc value='$send_cc'>$send_cc</td></tr>
+	<tr class='bg-even'><td>Bcc:</td><td><input type=hidden name=send_bcc value='$send_bcc'>$send_bcc</td></tr>
+	<tr class='bg-odd'><td>Subject:</td><td><input type=hidden name=subject value='$subject'>$subject</td></tr>
+	<tr class='bg-even'><td>Attachment:</td><td><input type=file name=attachment value='$attachment'></td></tr>
+	<tr class='bg-odd'><td colspan=2><pre>$body</pre></td></tr>
 	<tr><td><input type=reset value='Clear'></td><td align=right><input type=submit value='Send &raquo;'></td></tr>
 	</form>
 	</table>";

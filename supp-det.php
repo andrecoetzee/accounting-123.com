@@ -160,71 +160,71 @@ function view($supid)
 						<tr>
 							<th colspan='2'>Supplier Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Department</td>
 							<td>$deptname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier No</td>
 							<td>$supno</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Name</td>
 							<td>$supname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Group</td>
 							<td>$group[groupname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch</td>
 							<td>$branch</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Number</td>
 							<td>$vatnum</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Address</td>
 							<td><pre>$supaddr</pre></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Postal Address</td>
 							<td><pre>$suppostaddr</pre></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Contact Name</td>
 							<td>$contname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Tel No.</td>
 							<td>$tel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Fax No.</td>
 							<td>$fax</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cell No.</td>
 							<td>$cell</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>E-mail</td>
 							<td>$email</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Web Address</td>
 							<td>http://$url</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Status BEE</td>
 							<td>$bee_status</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Team Permissions</td>
 							<td>$team_name</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Comments</td>
 							<td>$comments</td>
 						</tr>
@@ -232,30 +232,30 @@ function view($supid)
 				</td>
 				<td>
 					<table ".TMPL_tblDflts.">
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th colspan='2'> Bank Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank </td>
 							<td>$bankname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch</td>
 							<td>$branname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch Code</td>
 							<td>$brancode</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account Number</td>
 							<td>$bankaccno</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Reference Number</td>
 							<td>$reference</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Settlement Discount %</td>
 							<td>$setdisc %</td>
 						</tr>
@@ -283,7 +283,7 @@ function view($supid)
 			}
 
 			$docs_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='supp_doc_get.php?id=$sdoc_data[id]'>$showdoc</a></td>
 					<td>".getFileSize($sdoc_data["size"])."</td>
 				</tr>";
@@ -315,10 +315,10 @@ function view($supid)
 								<tr>
 									<th>Quick Links</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td><a href='supp-view.php'>View Suppliers</a></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td><a href='main.php'>Main Menu</a></td>
 								</tr>
 							</table>

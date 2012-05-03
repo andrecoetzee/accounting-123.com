@@ -56,7 +56,7 @@ function view ()
 		// display all statements
 		for ($i=0; $sheet = pg_fetch_array ($Rslt); $i++) {
 			$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$sheet[id]($sheet[des])</td>
 					<td>$sheet[gendate]</td>
 					<td><a target='_blank' href='bal-sheet-print.php?id=$sheet[id]'>Print</a></td>
@@ -78,7 +78,7 @@ function view ()
 			<tr class='datacell'>
 				<td><a href='index-reports-stmnt.php'>Current Year Financial Statements</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

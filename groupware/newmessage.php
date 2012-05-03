@@ -282,7 +282,7 @@ function writeMsg($errors="") {
 		<tr>
 			<th colspan='3'>Compose Mail</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td width=25%>
 				Account:
 			</td>
@@ -290,7 +290,7 @@ function writeMsg($errors="") {
 				$select_accounts
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td width=25%>
 				To:
 			</td>
@@ -299,7 +299,7 @@ function writeMsg($errors="") {
 				<b> OR </b> $lead_sel
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td width=25%>
 				Cc:
 			</td>
@@ -307,7 +307,7 @@ function writeMsg($errors="") {
 				<input type=text name=send_cc style='width: 300px' value='$send_cc'>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td width=25%>
 				Bcc:
 			</td>
@@ -315,7 +315,7 @@ function writeMsg($errors="") {
 				<input type=text name=send_bcc style='width: 300px' value='$send_bcc'>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td width=25%>
 				Subject:
 			</td>
@@ -323,7 +323,7 @@ function writeMsg($errors="") {
 				<input type=text name=subject style='width: 300px' value='$subject'>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td width=25%>
 				Attachment:
 			</td>
@@ -331,7 +331,7 @@ function writeMsg($errors="") {
 				<input type=file name=attachment size=50 value='$attachment'>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td width=100% colspan=2>
 				<script language='JavaScript'>
 

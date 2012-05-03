@@ -53,10 +53,10 @@ $OUTPUT .= "
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='costcenter-view.php'>View Cost Center</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='main.php'>Main Menu</a></td>
 		</tr>
 	</table>";
@@ -189,7 +189,7 @@ function slct($_POST)
 			<tr>
 				<th colspan='2'>Cost Ledger</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Period Range</td>
 				<td>$from_Prds TO $to_Prds</td>
 			</tr>
@@ -197,13 +197,13 @@ function slct($_POST)
 			<tr>
 				<td class='err' colspan='2'>In The Following Section, Select Only The Items You Want To Include In The Report</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>$lev1_drop</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>$lev2_drop</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>$lev3_drop</td>
 			</tr>
 			".TBL_BR."
@@ -328,7 +328,7 @@ function printCenter ($_POST)
 		}
 
 			$printCenter .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$centercode</td>
 							<td>$centername</td>
 							<td align='right'>".CUR." ".sprint($cc['inc'])."</td>
@@ -344,7 +344,7 @@ function printCenter ($_POST)
 	$totprof = sprint($totprof);
 
 	$printCenter .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td align='right' colspan='2'><b>Total</b></td>
 								<td align='right'><b>".CUR." $totinc</b></td>
 								<td align='right'><b>".CUR." $totexp</b></td>

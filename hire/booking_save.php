@@ -126,15 +126,15 @@ function enter($errors="&nbsp;")
 		<tr>
 			<th colspan='2'>Booking Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".REQ."Small Plant</td>
 			<td>$asset_sel</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".REQ."Customer</td>
 			<td>$cust_sel</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".REQ."Booking Date</td>
 			<td align='center'>
 				".mkDateSelect("from", $from_year, $from_month, $from_day)."
@@ -243,19 +243,19 @@ function confirm()
 		<tr>
 			<th colspan='2'>Confirm</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Small Plant</td>
 			<td>$asset_name</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Customer</td>
 			<td>$cust_name</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Units</td>
 			<td>$units_input</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Booking Date</td>
 			<td>$from_date &nbsp; <b>To</b> &nbsp; $to_date</td>
 		</tr>
@@ -322,7 +322,7 @@ function write()
 		<tr>
 			<th>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Successfully saved booking.</li></td>
 		</tr>
 	</table>";

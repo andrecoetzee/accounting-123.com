@@ -99,7 +99,7 @@ function rem($listid)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Price list</td>
 				<td align='center'>$list[listname]</td>
 			</tr>
@@ -130,7 +130,7 @@ function rem($listid)
 			$stk = pg_fetch_array ($stkRslt);
 
 			$enter .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td>
 					<td align='right'>".CUR." ".sprint($stkp['price'])." $vattype</td>
 				</tr>";
@@ -147,10 +147,10 @@ function rem($listid)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pricelist-view.php'>View Price Lists</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -215,10 +215,10 @@ function write ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pricelist-view.php'>View Price Lists</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

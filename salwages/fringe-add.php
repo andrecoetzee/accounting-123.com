@@ -94,13 +94,13 @@ function enterDeduct ()
         <input type=hidden name=key value=confirm>
         <input type=hidden name=refno value='$refno'>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Name of deduction</td><td align=center><input type=text size=20 name=deduction></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Creditor name</td><td align=center><input type=text size=20 name=creditor></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Reference no.</td><td align=center>$refno</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Category</td><td align=center>$dedcat</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Creditor details</td><td align=center><input type=text size=20 name=details></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Deduct Before PAYE</td><td align=center>$taxables</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Deduction Type</td><td>$seltype</td></tr>
+        <tr class='bg-odd'><td>Name of deduction</td><td align=center><input type=text size=20 name=deduction></td></tr>
+        <tr class='bg-even'><td>Creditor name</td><td align=center><input type=text size=20 name=creditor></td></tr>
+        <tr class='bg-odd'><td>Reference no.</td><td align=center>$refno</td></tr>
+	<tr class='bg-even'><td>Account Category</td><td align=center>$dedcat</td></tr>
+	<tr class='bg-odd'><td>Creditor details</td><td align=center><input type=text size=20 name=details></td></tr>
+	<tr class='bg-even'><td>Deduct Before PAYE</td><td align=center>$taxables</td></tr>
+	<tr class='bg-odd'><td>Deduction Type</td><td>$seltype</td></tr>
 
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
         </form></table>"
@@ -175,14 +175,14 @@ function confirmDeduct ($_POST)
 	<input type=hidden name=taxable value='$taxable'>
 	<input type=hidden name=type value='$type'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Name of deduction</td><td align=center>$deduction</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Creditor name</td><td align=center>$creditor</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Reference no.</td><td align=center>$refno</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Deduction Account</td><td align=center>$dedacc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Expense Account</td><td align=center>$expacc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Creditor details</td><td align=center>$details</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Deduct Before PAYE</td><td align=center>$taxable</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Deduction Type</td><td align=center>$type</td></tr>
+	<tr class='bg-odd'><td>Name of deduction</td><td align=center>$deduction</td></tr>
+	<tr class='bg-even'><td>Creditor name</td><td align=center>$creditor</td></tr>
+	<tr class='bg-odd'><td>Reference no.</td><td align=center>$refno</td></tr>
+	<tr class='bg-even'><td>Deduction Account</td><td align=center>$dedacc</td></tr>
+	<tr class='bg-odd'><td>Expense Account</td><td align=center>$expacc</td></tr>
+	<tr class='bg-even'><td>Creditor details</td><td align=center>$details</td></tr>
+	<tr class='bg-odd'><td>Deduct Before PAYE</td><td align=center>$taxable</td></tr>
+	<tr class='bg-even'><td>Deduction Type</td><td align=center>$type</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>"

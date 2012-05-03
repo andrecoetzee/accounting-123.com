@@ -75,7 +75,7 @@ function options ($_POST)
 	  <tr>
 	    <th colspan=2>Options</th>
 	  </tr>
-	  <tr bgcolor='".TMPL_tblDataColor1."'>
+	  <tr class='bg-odd'>
 	    <td>Comment</td>
 	    <td><textarea name=comment rows=5 cols=20>$comment</textarea></td>
 	  </tr>

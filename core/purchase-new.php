@@ -67,16 +67,16 @@ function view($retailer="", $itemname="", $descript="", $quantity="", $tlcost=""
 	<input type=hidden name=key value=slctacc>
 	$err
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Supplier</td><td valign=center><input type=text name=retailer value='$retailer'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Item Name</td><td valign=center><input type=text name=itemname value='$itemname'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td valign=center><textarea name=descript cols=18 rows=5>$descript</textarea></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Quantity</td><td valign=center><input type=text name=quantity value='$quantity'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Total Cost</td><td valign=center>".CUR." <input type=text name=tlcost size=10 value='$tlcost'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td><input type=text size=2 name=day maxlength=2>-<input type=text size=2 name=mon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=year maxlength=4 value='".date("Y")."'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Payment Method</td><td valign=center><select name=paytype>
+	<tr class='bg-odd'><td>Supplier</td><td valign=center><input type=text name=retailer value='$retailer'></td></tr>
+	<tr class='bg-odd'><td>Item Name</td><td valign=center><input type=text name=itemname value='$itemname'></td></tr>
+	<tr class='bg-even'><td>Description</td><td valign=center><textarea name=descript cols=18 rows=5>$descript</textarea></td></tr>
+	<tr class='bg-odd'><td>Quantity</td><td valign=center><input type=text name=quantity value='$quantity'></td></tr>
+	<tr class='bg-even'><td>Total Cost</td><td valign=center>".CUR." <input type=text name=tlcost size=10 value='$tlcost'></td></tr>
+	<tr class='bg-odd'><td>Date</td><td><input type=text size=2 name=day maxlength=2>-<input type=text size=2 name=mon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=year maxlength=4 value='".date("Y")."'></td></tr>
+	<tr class='bg-even'><td>Payment Method</td><td valign=center><select name=paytype>
 	<option value='Transfer'>Transfer</option><option value='Cash'>Cash</option>
 	<option value='Cheque'>Cheque</option><option value='Credit'>Credit</option></select></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Item Account Type</td><td valign=center><select name=paidacctype>
+	<tr class='bg-odd'><td>Item Account Type</td><td valign=center><select name=paidacctype>
 	<option value='E'>Expenditure</option>
 	<option value='B'>Balance</option>
 	<option value='I'>Income</option>
@@ -177,22 +177,22 @@ function slctacc($_POST)
         <input type=hidden name=tlcost value='$tlcost'>
         <input type=hidden name=paytype value='$paytype'>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Supplier</td><td valign=center>$retailer</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Item Name</td><td valign=center>$itemname</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Description</td><td valign=center>$descript</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Quantity</td><td valign=center>$quantity</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$date</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Payment Method</td><td valign=center>$paytype</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Total Cost</td><td valign=center>".CUR." $tlcost</td></tr>";
+        <tr class='bg-odd'><td>Supplier</td><td valign=center>$retailer</td></tr>
+        <tr class='bg-even'><td>Item Name</td><td valign=center>$itemname</td></tr>
+        <tr class='bg-odd'><td>Description</td><td valign=center>$descript</td></tr>
+        <tr class='bg-even'><td>Quantity</td><td valign=center>$quantity</td></tr>
+		<tr class='bg-odd'><td>Date</td><td valign=center>$date</td></tr>
+        <tr class='bg-even'><td>Payment Method</td><td valign=center>$paytype</td></tr>
+        <tr class='bg-odd'><td>Total Cost</td><td valign=center>".CUR." $tlcost</td></tr>";
                 if($paytype == "Cheque"){
-                        $purchase .= "<tr bgcolor='".TMPL_tblDataColor2."'><td>Cheque Number</td><td valign=center><input type=text name=cheqnum></td></tr>";
+                        $purchase .= "<tr class='bg-even'><td>Cheque Number</td><td valign=center><input type=text name=cheqnum></td></tr>";
                 }elseif($paytype == "Credit"){
-                        $purchase .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms Of Payment</td><td valign=center><input type=text name=terms>
+                        $purchase .= "<tr class='bg-odd'><td>Terms Of Payment</td><td valign=center><input type=text name=terms>
                                       <select name=time><option value='days'>days</option><option value='months'>months</option></select></td></tr>";
                 }
         $purchase .= "
-        <tr bgcolor='".TMPL_tblDataColor1."'><td valign=center>Select Account Used</td><td valign=center>$used</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td valign=center>Select Account For Item</td><td valign=center>$paid</td></tr>
+        <tr class='bg-odd'><td valign=center>Select Account Used</td><td valign=center>$used</td></tr>
+        <tr class='bg-even'><td valign=center>Select Account For Item</td><td valign=center>$paid</td></tr>
         <tr><td><input type=button value='< Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Add >'></td></tr>
         </table>
 
@@ -297,24 +297,24 @@ function confirm($_POST)
 
 
         $confirm .="<tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Supplier</td><td valign=center>$retailer</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Item Name</td><td valign=center>$itemname</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td valign=center>$descript</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Quantity</td><td valign=center>$quantity</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td valign=center>$date</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Total Cost</td><td valign=center>".CUR." $tlcost</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Payment Method</td><td valign=center>$paytype</td></tr>";
+        <tr class='bg-even'><td>Supplier</td><td valign=center>$retailer</td></tr>
+        <tr class='bg-odd'><td>Item Name</td><td valign=center>$itemname</td></tr>
+        <tr class='bg-even'><td>Description</td><td valign=center>$descript</td></tr>
+        <tr class='bg-odd'><td>Quantity</td><td valign=center>$quantity</td></tr>
+		<tr class='bg-even'><td>Date</td><td valign=center>$date</td></tr>
+		<tr class='bg-odd'><td>Total Cost</td><td valign=center>".CUR." $tlcost</td></tr>
+        <tr class='bg-even'><td>Payment Method</td><td valign=center>$paytype</td></tr>";
 
                  # view cheq number if it is there
                 if($paytype == "Cheque"){
-                        $confirm .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>Cheque Number</td><td valign=center>$cheqnum</td></tr>";
+                        $confirm .= "<tr class='bg-odd'><td>Cheque Number</td><td valign=center>$cheqnum</td></tr>";
                 }elseif($paytype == "Credit"){
-                        $confirm .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms Of Payment</td><td valign=center>$terms $time</td></tr>";
+                        $confirm .= "<tr class='bg-odd'><td>Terms Of Payment</td><td valign=center>$terms $time</td></tr>";
                 }
 
         $confirm .= "
-        <tr bgcolor='".TMPL_tblDataColor2."'><td valign=center>Account Used</td><td valign=center>$usedaccname</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td valign=center>Account For Item</td><td valign=center>$paidaccname</td></tr>
+        <tr class='bg-even'><td valign=center>Account Used</td><td valign=center>$usedaccname</td></tr>
+        <tr class='bg-odd'><td valign=center>Account For Item</td><td valign=center>$paidaccname</td></tr>
         <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Confirm &raquo'></td></tr>
         </form></table>
 
@@ -438,8 +438,8 @@ function write($_POST)
         <td align=center>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=80%>
         <tr><th>Quick Navigation</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Add New Purchase</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purchase-view.php'>View Purchases</a></td></tr>
+        <tr class='bg-odd'><td><a href='".SELF."'>Add New Purchase</a></td></tr>
+        <tr class='bg-odd'><td><a href='purchase-view.php'>View Purchases</a></td></tr>
 	</table>
         </td></tr></table>
 	<p>

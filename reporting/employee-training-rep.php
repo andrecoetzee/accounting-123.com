@@ -74,7 +74,7 @@ function get_emps ()
 			<tr>
 				<th>Employees</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$listing</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -129,7 +129,7 @@ function show_training ()
 							</tr>";
 						while ($tarr = pg_fetch_array($run_train)){
 							$listing .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>$tarr[course_name]</td>
 									<td>$tarr[commence_date]</td>
 									<td>$tarr[completed_date]</td>
@@ -142,7 +142,7 @@ function show_training ()
 						$listing .= "<tr><td><br></td></tr>";
 					}else {
 						$listing .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>This employee has no training courses completed</td>
 							</tr>";
 					}
@@ -178,7 +178,7 @@ function show_training ()
 						</tr>";
 					while ($tarr = pg_fetch_array($run_train)){
 						$listing .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>$tarr[course_name]</td>
 									<td>$tarr[commence_date]</td>
 									<td>$tarr[completed_date]</td>
@@ -192,7 +192,7 @@ function show_training ()
 					$listing .= "<tr><td><br></td></tr>";
 				}else {
 					$listing .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>This employee has no training courses completed</td>
 						</tr>";
 				}

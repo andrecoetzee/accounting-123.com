@@ -53,7 +53,7 @@ function view()
 		if ($count == 0) continue;
 
 		$inv_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$inv_data[odate]</td>
 			<td>$inv_data[surname]</td>
 			<td>$inv_data[cordno]</td>
@@ -76,14 +76,14 @@ function view()
 		<tr>
 			<th colspan='2'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("frm", $frm_year, $frm_month, $frm_day)."</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
 		</tr>
 		<tr>
 			<th colspan='2'>Search</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>
 				<input type='text' name='search' value='$search'
 				style='width: 100%' />
@@ -133,7 +133,7 @@ function edit($errors="")
 		}
 
 		$items_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$items_data[whname]</td>
 			<td>$description</td>
 			<td>$items_data[qty]</td>

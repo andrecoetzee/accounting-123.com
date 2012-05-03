@@ -61,7 +61,7 @@ function view()
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bank Account</td>
 					<td valign='center'>
 						<select name='bankid'>";
@@ -84,11 +84,11 @@ function view()
 						</select>
 					</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>From :</td>
 					<td valign='center'>".mkDateSelect("from")."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>To :</td>
 					<td valign='center'>".mkDateSelect("to")."</td>
 				</tr>
@@ -101,9 +101,9 @@ function view()
 				<p>
 				<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 					<tr><th>Quick Links</th></tr>
-					<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index-reports.php'>Financials</a></td></tr>
-					<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index-reports-banking.php'>Banking Reports</a></td></tr>
-					<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+					<tr class='bg-odd'><td><a href='index-reports.php'>Financials</a></td></tr>
+					<tr class='bg-odd'><td><a href='index-reports-banking.php'>Banking Reports</a></td></tr>
+					<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 				</table>";
 
 	return $view;
@@ -170,7 +170,7 @@ function viewsaved($_POST)
 			$date = $date[2]."-".$date[1]."-".$date[0];
 
 			$OUTPUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$recon[id]</td>
 						<td>$date</td>
 						<td><a target='_blank' href='bank-recon-print.php?id=$recon[id]'>Print</a></td>
@@ -191,16 +191,16 @@ function viewsaved($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align=center><a target=_blank href='../core/acc-new2.php'>Add account (New Window)</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='index-reports.php'>Financials</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='index-reports-banking.php'>Banking Reports</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='../main.php'>Main Menu</a></td>
 				</tr>
 			</table>";

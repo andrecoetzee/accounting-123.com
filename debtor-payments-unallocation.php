@@ -52,7 +52,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 	$run_entries = db_exec($get_entries) or errDie ("Unable to get customer information.");
 	if (pg_numrows($run_entries) < 1){
 		$listing = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'>No Allocated Entries Found.</td>
 			</tr>";
 	}else {
@@ -60,7 +60,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 		while ($earr = pg_fetch_array ($run_entries)){
 
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<th>$earr[invid]</th>
 					<th>$earr[docref]</th>
 					<th>$earr[type]</th>
@@ -74,7 +74,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			$run_entries2 = db_exec($get_entries2) or errDie ("Unable to get allocated entries information.");
 			if(pg_numrows($run_entries2) < 1){
 				$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='4'>No Allocated Entries Found.</td>
 					</tr>";
 			}else {
@@ -82,7 +82,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 				$listing .= "<input type='hidden' name='alloc[]' value='$earr[id]'>";
 				while ($earr2 = pg_fetch_array ($run_entries2)){
 					$listing .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='checkbox' name='entries[]' value='$earr2[id]'></td>
 							<td>$earr2[docref] ($earr2[invid])</td>
 							<td>$earr2[type]</td>
@@ -93,17 +93,17 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 				}
 			}
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'></td>
 					<td align='right'><b>Total:</b></td>
 					<td>".CUR." ".sprint ($total)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'></td>
 					<td align='right'><b>Outstanding:</b></td>
 					<td>".CUR." ".sprint ($outstanding)."</b></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='4' align='center'><a href='debtor-payments-allocation.php?reallocate=$earr[id]&from_date=$from_date&to_date=$to_date'>Unallocate</a></td>
 				</tr>
 				".TBL_BR."";
@@ -119,7 +119,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 	$run_entries2 = db_exec($get_entries2) or errDie ("Unable to get customer information.");
 	if (pg_numrows($run_entries2) < 1){
 		$listing2 = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'>No Allocated Entries Found.</td>
 			</tr>";
 	}else {
@@ -127,7 +127,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 		while ($earr2 = pg_fetch_array ($run_entries2)){
 
 			$listing2 .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<th>$earr2[invid]</th>
 					<th>$earr2[docref]</th>
 					<th>$earr2[type]</th>
@@ -141,7 +141,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			$run_entries22 = db_exec($get_entries22) or errDie ("Unable to get allocated entries information.");
 			if(pg_numrows($run_entries22) < 1){
 				$listing2 .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='4'>No Allocated Entries Found.</td>
 					</tr>";
 			}else {
@@ -149,7 +149,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 				$listing2 .= "<input type='hidden' name='alloc[]' value='$earr[id]'>";
 				while ($earr3 = pg_fetch_array ($run_entries22)){
 					$listing2 .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='checkbox' name='entries[]' value='$earr2[id]'></td>
 							<td>$earr3[docref] ($earr3[invid])</td>
 							<td>$earr3[type]</td>
@@ -160,17 +160,17 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 				}
 			}
 			$listing2 .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'></td>
 					<td align='right'><b>Total:</b></td>
 					<td>".CUR." ".sprint ($total2)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'></td>
 					<td align='right'><b>Outstanding:</b></td>
 					<td>".CUR." ".sprint ($outstanding2)."</b></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='4' align='center'><a href='debtor-payments-allocation.php?reallocate=$earr2[id]&from_date=$from_date&to_date=$to_date'>Unallocate</a></td>
 				</tr>
 				".TBL_BR."";
@@ -197,11 +197,11 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			<input type='hidden' name='to_day' value='$to_day'>
 		<table ".TMPL_tblDflts.">
 			$err
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Customer</th>
 				<td>$customer_name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Date Range</th>
 				<td>$from_date to $to_date</td>
 			</tr>
@@ -209,7 +209,7 @@ function show_allocate_entries ($_POST,$err=TBL_BR)
 			<tr>
 				<th>Click on the button below to allocate credit/debits</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='submit' value='Allocate Payments'></td>
 				<td align='right'><input type='button'  onClick='showPhonetical(this);' value='Additional Help'></td>
 			</tr>

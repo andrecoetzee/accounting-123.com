@@ -47,7 +47,7 @@ function display()
 		}
 
 		$history_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>H".getHirenum($history_data["invid"], 1)."</td>
 			<td>$history_data[surname]</td>
 			<td>$history_data[des]</td>
@@ -58,7 +58,7 @@ function display()
 
 	if (empty($history_out)) {
 		$history_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'><li>No results found</li></td>
 		</tr>";
 	}
@@ -68,7 +68,7 @@ function display()
 	<form method='post' action='".SELF."'>
 	<table ".TMPL_tblDflts.">
 		<tr><th colspan='4'>Date Range</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

@@ -109,7 +109,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' nowrap>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -120,7 +120,7 @@ function slct()
 			<tr>
 				<th>Select Customer</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$cust_drop</td>
 			</tr>
 		</form>
@@ -130,10 +130,10 @@ function slct()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='nons-invoice-new.php'>New Non Stock Invoice</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -208,13 +208,13 @@ function printInvoice ($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-invoice-new.php'>New Non Stock Invoice</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-invoice-view.php'>View Non Stock Invoices</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -280,7 +280,7 @@ function printInvoice ($_POST)
 		}
 
 		$printOrd .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$nonstks[invnum]</td>
 				<td>$nonstks[docref]</td>
 				<td>$nonstks[odate]</td>
@@ -322,7 +322,7 @@ function printInvoice ($_POST)
 	$tot_total = sprint($tot_total);
 
 	$printOrd .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'>Totals</td>
 				<td align='right'>".CUR." $tot_total</td>
 				<td colspan='4' align='right'>
@@ -381,23 +381,23 @@ function delete_confirm($_POST)
 			<tr>
 				<th colspan='2'>Confirm</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoice Num</td>
 				<td>$ninvData[invid]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Proforma Inv Num</td>
 				<td>$ninvData[docref]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoice Date</td>
 				<td>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td>$ninvData[cusname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total</td>
 				<td>".CUR."$ninvData[total]</td>
 			</tr>
@@ -411,19 +411,19 @@ function delete_confirm($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-invoice-new.php'>New Non Stock Invoice</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-invoice-view.php'>View Non Stock Invoices</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='rec-nons-invoice-view.php'>View Recurring Non Stock Invoices</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='rec-invoice-view.php'>View Recurring Invoices</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -466,19 +466,19 @@ function delete_write($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-invoice-new.php'>New Non Stock Invoice</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-invoice-view.php'>View Non Stock Invoices</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='rec-nons-invoice-view.php'>View Recurring Non Stock Invoices</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='rec-invoice-view.php'>View Recurring Invoices</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -544,7 +544,7 @@ function bdel_confirm($GET)
 
 		$OUT .= "
 			<input type='hidden' name='ids[]' value='$inv[invid]' />
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>T $inv[invid]</td>
 				<td valign='center'>$oday-$omon-$oyear</td>
 				<td>$inv[cusname]</td>

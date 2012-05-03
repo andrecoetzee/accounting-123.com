@@ -151,27 +151,27 @@ function enterLeave ()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$employees</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date of Application</td>
 				<td align='center'>$today</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."' ".ass("This is the first date the employee will be on leave.").">
+			<tr class='".bg_class()."' ".ass("This is the first date the employee will be on leave.").">
 				<td>Leave start date</td>
 				<td align='center'>".mkDateSelect("start")."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."' ".ass("This is the last date the employee will be on leave.").">
+			<tr class='".bg_class()."' ".ass("This is the last date the employee will be on leave.").">
 				<td>Leave end date</td>
 				<td align='center'>".mkDateSelect("fin")."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Approved by</td>
 				<td align='center'>".USER_NAME."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type of leave</td>
 				<td align='center'>
 					<select size='1' name='type'>
@@ -294,35 +294,35 @@ function confirmLeave ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$myEmp[sname], $myEmp[fnames] ($myEmp[enum])</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date of Application</td>
 				<td align='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Leave start date</td>
 				<td align='center'>".$start_year."-".$start_month."-".$start_day."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Leave end date</td>
 				<td align='center'>".$fin_year."-".$fin_month."-".$fin_day."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total days inbetween</td>
 				<td align='center'>$days_between</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total working days inbetween</td>
 				<td align='center'>$workDays</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Approved by</td>
 				<td align='center'>$approvedby</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type of leave</td>
 				<td align='center'>$type</td>
 			</tr>

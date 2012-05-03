@@ -133,7 +133,7 @@ function selectOther() {
 	<tr>
 		<th colspan=2>Details</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td align=center>$select_user</td>
 		<td align=center><input type=submit value='View'></td>
 	</tr>

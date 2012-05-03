@@ -86,13 +86,13 @@ function slctReports ($err="")
 		<form action='".SELF."' method='POST'>
 			$err
 			<input type='hidden' name='key' value='show'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Filter reports by:</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>Employee:<br>$employees</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>Report type:<br>$report_types</td>
 			</tr>
 			<tr>
@@ -185,7 +185,7 @@ function showReports ($_POST)
 		}
 
 		$reports .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$myRep[id]</td>
 				<td>$myRep[date]</td>
 				<td>$this_employee</td>

@@ -76,7 +76,7 @@ function select_year() {
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=slctacc>
 	<tr><th>Select Year</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>$years</td></tr>
+	<tr class='bg-odd'><td>$years</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=right><input type=submit value='Next &raquo;'></td></tr>
 	</form>
@@ -158,9 +158,9 @@ function slctacc($_POST)
 	<input type=hidden name=key value=viewtran>
 	<input type=hidden name=year value='$year'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Accounts</td><td><input type=radio name=accnt value=slct checked=yes>Selected Accounts | <input type=radio name=accnt value=all>All Accounts</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Select account(s)</td><td>$accs</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Period Range :</td><td valign=center colspan=3>$fprd To : $tprd</td></tr>
+	<tr class='bg-odd'><td valign=top>Accounts</td><td><input type=radio name=accnt value=slct checked=yes>Selected Accounts | <input type=radio name=accnt value=all>All Accounts</td></tr>
+	<tr class='bg-even'><td valign=top>Select account(s)</td><td>$accs</td></tr>
+	<tr class='bg-odd'><td>Period Range :</td><td valign=center colspan=3>$fprd To : $tprd</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center></td><td align=center><input type=submit value='Continue &raquo;'></td></tr>
 	</table>";

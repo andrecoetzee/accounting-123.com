@@ -91,8 +91,8 @@ function enterFringe() {
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=id value='$id'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Name</td><td align=center><input type=text size=20 name=fringeben value='$myFringe[fringeben]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Type</td><td>$seltype</td></tr>
+	<tr class='bg-odd'><td>Name</td><td align=center><input type=text size=20 name=fringeben value='$myFringe[fringeben]'></td></tr>
+	<tr class='bg-even'><td>Type</td><td>$seltype</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>"
@@ -136,8 +136,8 @@ function confirmFringe() {
 	<input type=hidden name=fringeben value='$fringeben'>
 	<input type=hidden name=type value='$type'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Name</td><td align=center>$fringeben</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Type</td><td align=center>$type</td></tr>
+	<tr class='bg-odd'><td>Name</td><td align=center>$fringeben</td></tr>
+	<tr class='bg-even'><td>Type</td><td align=center>$type</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>"

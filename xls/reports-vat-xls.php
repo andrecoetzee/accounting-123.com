@@ -72,10 +72,10 @@ function seluse()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value='report'>
 	<tr><th colspan=2>Report Criteria</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Type</td><td>$types</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Report</td><td>$reports</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Code</td><td>$users</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>From</td><td>
+	<tr class='bg-odd'><td>Type</td><td>$types</td></tr>
+	<tr class='bg-even'><td>Report</td><td>$reports</td></tr>
+	<tr class='bg-odd'><td>VAT Code</td><td>$users</td></tr>
+	<tr class='bg-even'><td>From</td><td>
 		<table cellpadding=1 cellspacing=2><tr>
 			<td><input type=text size=3 value='".date("d")."' name=day></td>
 			<td>-</td>
@@ -84,7 +84,7 @@ function seluse()
 			<td><input type=text size=5 value='".date("Y")."' name=year></td>
 		</tr></table>
 	</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>To</td><td>
+	<tr class='bg-odd'><td>To</td><td>
 		<table cellpadding=1 cellspacing=2><tr>
 			<td><input type=text size=3 value='".date("d")."' name=tday></td>
 			<td>-</td>

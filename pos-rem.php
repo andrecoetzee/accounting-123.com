@@ -140,16 +140,16 @@ function order($_POST,$errors="")
 	<input type=hidden name=tab value='$tab'>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=500>
 	<tr><th colspan=2>Stock Details</th>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Code: $St[stkcod]</td>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description: $St[stkdes]</td>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Bar Code: $id</td>
+	<tr class='bg-odd'><td>Code: $St[stkcod]</td>
+	<tr class='bg-even'><td>Description: $St[stkdes]</td>
+	<tr class='bg-odd'><td>Bar Code: $id</td>
 	<tr><td valign=center><input type=submit value='Remove >>>'></td></tr>
 	</form>
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=30%>
 	 <tr><td><br><br></tr>
 	 <tr><th>Quick Links</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-view.php'>View Stock</td>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</td>
+	 <tr class='bg-odd'><td><a href='stock-view.php'>View Stock</td>
+	 <tr class='bg-odd'><td><a href='main.php'>Main Menu</td>
 	 </tr>
 	</table>";
 

@@ -202,7 +202,7 @@ function display()
 			<tr>
 				<th colspan='4'>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("frm", $frm_year, $frm_month, $frm_day)."</td>
 				<td><b> To </b></td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -211,7 +211,7 @@ function display()
 			<tr>
 				<th colspan='4'>Report Options</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>$type_sel</td>
 				<td colspan='2'>$id_sel</td>
 			</tr>
@@ -313,7 +313,7 @@ function display()
 			$dept_data = pg_fetch_array($dept_rslt);
 
 			$inv_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv_data[cusname] $inv_data[surname]</td>
 					<td>$dept_data[deptname]</td>
 					<td>$inv_data[invnum]</td>
@@ -348,7 +348,7 @@ function display()
 					<th>Total</th>
 				</tr>
 				$inv_out
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='3'>&nbsp;</td>
 					<td align='right'><b>".CUR.sprint($totals["discount"])."</b></td>
 					<td align='right'><b>".CUR.sprint($totals["total"])."</b></td>

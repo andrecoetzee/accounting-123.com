@@ -54,7 +54,7 @@ function slct()
 				<tr>
 					<th colspan='2'>By Date Range</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'>
 						".mkDateSelect("from",date("Y"),date("m"),"01")."
 						&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -69,10 +69,10 @@ function slct()
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-sorder-new.php'>New Non Stock Sales Order</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -167,7 +167,7 @@ function printInvoice ($_POST)
 			$nonstks['invnum']=$nonstks['invid'];
 		}
 		$printOrd .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$nonstks[invnum]</td>
 					<td>$nonstks[odate]</td>
 					<td>$nonstks[cusname]</td>
@@ -195,7 +195,7 @@ function printInvoice ($_POST)
 	}
 
 	$printOrd .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'>Totals</td>
 			<td align='right'>".CUR." ".sprint($tot_subtot)."</td>
 			<td align='right'>".CUR." ".sprint($tot_total)."</td>
@@ -206,13 +206,13 @@ function printInvoice ($_POST)
 			<tr><td><br></td></tr>
 			<tr>
 		<th>Quick Links</th></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='nons-sorder-new.php'>New Non-Stock Sales Orders</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='nons-sorder-view.php'>View Non Stock Sales Orders</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

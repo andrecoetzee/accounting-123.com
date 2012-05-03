@@ -61,7 +61,7 @@ function view()
 	$brans = "";
 	while($bran = pg_fetch_array ($branRslt)){
 		$sp = "&nbsp;&nbsp;&nbsp;";
-		$brans .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><input type=checkbox name=divs[] checked=yes value='$bran[div]'>$sp $bran[branname]</td></tr>";
+		$brans .= "<tr class='bg-odd'><td colspan=2><input type=checkbox name=divs[] checked=yes value='$bran[div]'>$sp $bran[branname]</td></tr>";
 	}
 
 	# Layout
@@ -71,7 +71,7 @@ function view()
 	<form action='".SELF."' method=post name=form>
 	<input type=hidden name=key value=print>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Include Accounts with Zero balances</td><td valign=center>
+	<tr class='bg-odd'><td>Include Accounts with Zero balances</td><td valign=center>
 	<input type=radio name=zero value=yes>Yes | <input type=radio name=zero value=no checked=yes>No</td></tr>
 	<tr><td><br></td></tr>
 	<tr><th colspan=2>Select Branch</th></tr>
@@ -94,12 +94,12 @@ function sub()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=400>
 	<tr><th colspan=3>Owners Equity</th></tr>";
 	for($i = 0; $i < 5; $i++){
-		$sub .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>Sub Heading ".($i+1)."</td><td align=center><input size=30 type=text name=oesub[]></td></tr>";
+		$sub .= "<tr class='bg-odd'><td>Sub Heading ".($i+1)."</td><td align=center><input size=30 type=text name=oesub[]></td></tr>";
 	}
 
 	$sub .= "<tr><th colspan=3>Assets</th></tr>";
 	for($i = 0; $i < 5; $i++){
-		$sub .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>Sub Heading ".($i+1)."</td><td align=center><input size=30 type=text name=asssub[]></td></tr>";
+		$sub .= "<tr class='bg-odd'><td>Sub Heading ".($i+1)."</td><td align=center><input size=30 type=text name=asssub[]></td></tr>";
 	}
 
 	$sub .= "<tr><td></td><td align=right><input type=submit value='Continue &raquo;'></td></tr>
@@ -338,11 +338,11 @@ function confirm($_POST)
 	# Display oe subs
 	$oesubdsp = "<tr><th colspan=2>Equity</th></tr>";
 	foreach($oesub as $ksub => $sub){
-		$oesubdsp .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>$sub</b></td></tr>";
+		$oesubdsp .= "<tr class='bg-even'><td colspan=2><b>$sub</b></td></tr>";
 		$subaccs = getaccs($ksub, $heads, 'o', $accno);
 		foreach($subaccs as $kkey => $subacc){
 			$acc = getaccnum($subacc);
-			$oesubdsp .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$subacc</td><td>$acc[accname]</td></tr>";
+			$oesubdsp .= "<tr class='bg-odd'><td>$subacc</td><td>$acc[accname]</td></tr>";
 		}
 	}
 
@@ -350,11 +350,11 @@ function confirm($_POST)
 	$asssubdsp = "<tr><th colspan=2>Assets</th></tr>";
 	if(isset($asssub)) {
 		foreach($asssub as $ksub => $sub){
-			$asssubdsp .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>$sub</b></td></tr>";
+			$asssubdsp .= "<tr class='bg-even'><td colspan=2><b>$sub</b></td></tr>";
 			$subaccs = getaccs($ksub, $heads, 'a', $accno);
 			foreach($subaccs as $kkey => $subacc){
 				$acc = getaccnum($subacc);
-				$asssubdsp .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$subacc</td><td>$acc[accname]</td></tr>";
+				$asssubdsp .= "<tr class='bg-odd'><td>$subacc</td><td>$acc[accname]</td></tr>";
 			}
 		}
 	}

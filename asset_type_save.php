@@ -64,11 +64,11 @@ function enter($errors="")
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Name</td>
 				<td><input type='text' name='name' value='$name' /></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td><textarea name='descr' rows='5' cols='20'>$descr</textarea></td>
 			</tr>
@@ -113,11 +113,11 @@ function confirm()
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Name</td>
 				<td>$name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td>$descr</td>
 			</tr>
@@ -161,7 +161,7 @@ function write()
 			<tr>
 				<th>Write</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Successfully Saved the Asset Type.</td>
 			</tr>
 		</table>

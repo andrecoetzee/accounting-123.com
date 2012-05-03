@@ -124,7 +124,7 @@ function get_report ()
 				}
 
 				$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$earr[transfer_date]</td>
 						<td>$earr[reference]</td>
 						<td>$stock</td>
@@ -147,19 +147,19 @@ function get_report ()
 			<tr>
 				<th>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect ("from",date("Y"),date("m"),"01")." To ".mkDateSelect ("to",date("Y"),date("m"),date("d"))."</td>
 			</tr>
 			<tr>
 				<th>Store From</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$store_from_drop</td>
 			</tr>
 			<tr>
 				<th>Store To</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$store_to_drop</td>
 			</tr>
 			<tr>

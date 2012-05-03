@@ -83,7 +83,7 @@ function display()
 		$group_rslt = db_exec($sql) or errDie("Unable to retrieve asset group.");
 		$group_data = pg_fetch_array($group_rslt);
 
-		$service_out .= "<tr bgcolor='".bgcolorg()."'>
+		$service_out .= "<tr class='".bg_class()."'>
 			<td>$service_data[svdate]</td>
 			<td>$group_data[grpname]</td>
 			<td>$asset_data[des]</td>
@@ -93,7 +93,7 @@ function display()
 	}
 
 	if (empty($service_out)) {
-		$service_out = "<tr bgcolor='".bgcolorg()."'>
+		$service_out = "<tr class='".bg_class()."'>
 			<td colspan='5'>No results found.</td>
 		</tr>";
 	}
@@ -105,7 +105,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><b>&nbsp; From &nbsp;</b></td>
 			<td>".mkDateSelect("frm", $frm_year, $frm_month, $frm_day)."</td>
 			<td><b>&nbsp; To &nbsp;</b></td>
@@ -115,14 +115,14 @@ function display()
 			<th colspan='2'>Search</th>
 			<th colspan='2'>Group</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>
 				<input type='text' name='search' value='$search'
 				style='width:100%' />
 			</td>
 			<td colspan='2'>$group_sel</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4' align='center'>
 				<input type='submit' value='Search &raquo' />
 			</td>

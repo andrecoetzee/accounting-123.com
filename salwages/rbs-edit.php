@@ -87,8 +87,8 @@ function enterAllow ($id)
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=id value='$id'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Name of reimbursement</td><td align=center><input type=text size=20 name=name value='$myAllow[name]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Account</td><td align=center>$acc[accname]</td></tr>
+	<tr class='bg-odd'><td>Name of reimbursement</td><td align=center><input type=text size=20 name=name value='$myAllow[name]'></td></tr>
+	<tr class='bg-even'><td>Account</td><td align=center>$acc[accname]</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>"
@@ -136,7 +136,7 @@ function confirmAllow ($_POST)
 <input type=hidden name=id value='$id'>
 <input type=hidden name=name value='$name'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Name of reimbursement</td><td align=center>$name</td></tr>
+<tr class='bg-odd'><td>Name of reimbursement</td><td align=center>$name</td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 </form>
 </table>"

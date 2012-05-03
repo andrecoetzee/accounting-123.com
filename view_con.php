@@ -164,63 +164,63 @@ if ( ! ($busy_deleting) )
 	<center>
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th colspan=4>Contact Information</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td width=120>First Name</td>
 		<td width=210>$name</td>
 
 		<td width=120>Office Phone</td>
 		<td width=210>$tell_office</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Company/Last Name</td>
 		<td>$surname</td>
 
 		<td>Mobile</td>
 		<td>$cell</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Reports To</td>
 		<td>$reports_to</td>
 		
 		<td>Home Phone</td>
 		<td>$tell</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Lead Source</td>
 		<td>$lead_source</td>
 
 		<td>Other Phone</td>
 		<td>$tell_other</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Title</td>
 		<td>$title</td>
 
 		<td>Fax</td>
 		<td>$fax</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Department</td>
 		<td>$department</td>
 
 		<td>E-mail</td>
 		<td>$email</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Birthdate</td>
 		<td>$birthdate_description</td>
 
 		<td>Other E-mail</td>
 		<td>$email_other</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Account Name</td>
 		<td>$accountname ($account_type)</td>
 
 		<td>Assistant</td>
 		<td>$assistant</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 
@@ -234,30 +234,30 @@ if ( ! ($busy_deleting) )
 		<th colspan=2>Physical Address</th>
 		<th colspan=2>Postal Address</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td colspan=2 align=left valign=top><xmp>$hadd</xmp></td>
 		
 		<td colspan=2 align=left><xmp>$padd</xmp></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>City</td>
 		<td>$padd_city</td>
 		<td>City</td>
 		<td>$hadd_city</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>State/Province</td>
 		<td>$padd_state</td>
 		<td>State/Province</td>
 		<td>$hadd_state</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Postal Code</td>
 		<td>$padd_code</td>
 		<td>Postal Code</td>
 		<td>$hadd_code</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Country</td>
 		<td>$padd_country</td>
 		<td>Country</td>
@@ -269,7 +269,7 @@ if ( ! ($busy_deleting) )
 	<tr>
 		<th colspan=2>Description</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td colspan=2 align=left><xmp>$description</xmp></td>
 	</tr>
 	

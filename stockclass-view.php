@@ -57,7 +57,7 @@ function printClass ()
 	}
 	while ($class = pg_fetch_array ($classRslt)) {
 		$printClass .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$class[classcode]</td>
 								<td>$class[classname]</td>
 								<td><a href='stockclass-edit.php?clasid=$class[clasid]'>Edit</a></td>
@@ -74,10 +74,10 @@ function printClass ()
 							<tr>
 								<th>Quick Links</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='stockclass-add.php'>Add Classification</a></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='main.php'>Main Menu</a></td>
 							</tr>
 						</table>";

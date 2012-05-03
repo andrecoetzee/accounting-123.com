@@ -95,7 +95,7 @@ function slct($errors="")
 	}
 	$nincome_codes_sel .= "</select>";
 
-	$income_sources_out = "<tr bgcolor='".TMPL_tblDataColor1."'>
+	$income_sources_out = "<tr class='bg-odd'>
 		<td>$nincome_codes_sel</td>
 		<td align=center><input type=text name=nincome_description size=100%></td>
 		<td align=center>
@@ -177,7 +177,7 @@ function slct($errors="")
 		<tr>
 			<th colspan=5>Date Range</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td><b>From</b></td>
 			<td>".mkDateSelect("fdate",$fdate_year,$fdate_month,$fdate_day)."</td>
 			<td><b>To</b></td>
@@ -189,15 +189,15 @@ function slct($errors="")
 		<tr>
 			<th colspan=2>Values</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>IRP 5 Number</td>
 			<td><input type=text name='irp5_number' value='$irp5_number'></td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Directive Number</td>
 			<td><input type=text name='directive_number' value='$directive_number'></td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Voluntary over-deduction</td>
 			<td><input type=text name='over_deduction' value='$over_deduction'></td>
 		</tr>

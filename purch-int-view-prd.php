@@ -80,7 +80,7 @@ function slct()
 					<tr>
 						<th colspan='2'>By Date Range</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center' colspan='2'>
 							".mkDateSelect("from",date("Y"),date("m"),"01")."
 							&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -213,7 +213,7 @@ function printOrd ($_POST)
 		$stkp['fbalance'] = sprint($stkp['fbalance']);
 		$stkp['total'] = sprint(sprint($stkp['total']));
 		$printOrd .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$stkp[purnum]</td>
 							<td>$date</td>
 							<td>$sup[supname]</td>

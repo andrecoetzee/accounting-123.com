@@ -73,7 +73,7 @@ function confirm()
 			<tr>
 				<th colspan='2'>Date</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'>".date("d F Y")."</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -126,7 +126,7 @@ function calculate ()
 			<tr>
 				<th>Interest has been calculated</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date : ".date("d F Y")."</td>
 			</tr>
 		</table>

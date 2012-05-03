@@ -83,7 +83,7 @@ function select_year()
 			<tr>
 				<th>Select Year</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$years</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -162,15 +162,15 @@ function slctacc($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Stock Items</td>
 				<td><input type='radio' name='accnt' value='slct' checked='yes'>Selected Items | <input type='radio' name='accnt' value='all'>All Items</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Select Stock Item(s)</td>
 				<td>$stks</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select period</td>
 				<td>$prds</td>
 			</tr>

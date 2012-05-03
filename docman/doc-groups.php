@@ -99,11 +99,11 @@ function enter()
 				<tr>
 					<th colspan='2'>Add User to Group</th>
 				</tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'>
+				<tr class='bg-odd'>
 					<td>Group Name</td>
 					<td>$groups_sel</td>
 				</tr>
-				<tr bgcolor='".TMPL_tblDataColor2."'>
+				<tr class='bg-even'>
 					<td>Username</td>
 					<td>$users_sel</td>
 				</tr>

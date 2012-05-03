@@ -60,7 +60,7 @@ function view()
 	<form action='".SELF."' method=post name=form>
 	<input type=hidden name=key value=print>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Include Accounts with Zero balances</td><td valign=center>
+	<tr class='bg-odd'><td>Include Accounts with Zero balances</td><td valign=center>
 	<input type=radio name=zero value=yes>Yes | <input type=radio name=zero value=no checked=yes>No</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td><input type=button value='< Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue >'></td></tr>
@@ -120,7 +120,7 @@ function inc($_POST)
 		$tlinc = sprint($tlinc);
 
         # write totals for income
-        $income .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><b>Total<b></td><td align=center><b>".CUR." $tlinc</b></td></tr>";
+        $income .= "<tr class='bg-odd'><td><b>Total<b></td><td align=center><b>".CUR." $tlinc</b></td></tr>";
 
 		core_connect();
         # get the income statement settings
@@ -160,11 +160,11 @@ function inc($_POST)
 
 		$tlexp = sprint($tlexp);
 
-        $income .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><b>Total<b></td><td align=center><b>".CUR." $tlexp</b></td></tr>
+        $income .= "<tr class='bg-odd'><td><b>Total<b></td><td align=center><b>".CUR." $tlexp</b></td></tr>
 		<tr><td colspan=3><br></td></tr>";
 
         # Calculate Profit/Loss
-        $income .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><b>Nett Profit Carried Forward<b></td><td align=center colspan=2><b>".CUR." ".($tlinc-$tlexp)."</b></td></tr>
+        $income .= "<tr class='bg-even'><td><b>Nett Profit Carried Forward<b></td><td align=center colspan=2><b>".CUR." ".($tlinc-$tlexp)."</b></td></tr>
 		<tr><td><br></td></tr>
 		<tr><td>
 			<table width=100%>

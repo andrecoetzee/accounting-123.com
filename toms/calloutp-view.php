@@ -61,7 +61,7 @@ function printCalloutp ()
 	}
 	while ($calloutp = pg_fetch_array ($calloutpRslt)) {
 		$printCalloutp .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$calloutp[calloutp]</td>
 				<td>$calloutp[telno]</td>
 				<td><a href='calloutp-edit.php?calloutpid=$calloutp[calloutpid]'>Edit</a></td>

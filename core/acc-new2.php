@@ -164,7 +164,7 @@ function checknum()
 //				<th>Field</th>
 //				<th>Value</th>
 //			</tr>
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td>".REQ."Select Account type</td>
 //				<td valign='center'>
 //					<select name='type'>
@@ -336,11 +336,11 @@ function slctCat($_POST, $err="")
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Type</td>
 				<td>$tab_drop</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Category Name</td>
 				<td>
 					<select name='catid'>";
@@ -366,7 +366,7 @@ function slctCat($_POST, $err="")
 				$toptype_out</td>
 				<td>(Financial Statements heading)</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Account Number</td>
 				<td valign='center' nowrap='t'>
 					<input onChange='chAccnum(\"top\", this);' type='text' name='topacc' size='4' maxlength='4' value='$topacc' /> /
@@ -375,7 +375,7 @@ function slctCat($_POST, $err="")
 				</td>
 				<td><span id='accnum_check'></span></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Account Name</td>
 				<td valign='center'><input type='text' name='accname' maxlength='40' value='$accname' /></td>
 			</tr>
@@ -577,23 +577,23 @@ function confirm($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Type</td>
 				<td>$tab</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category ID</td>
 				<td>$catid</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category Type</td>
 				<td>$toptype_h</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Number</td>
 				<td>$topacc/$accnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Name</td>
 				<td>$accname</td>
 			</tr>

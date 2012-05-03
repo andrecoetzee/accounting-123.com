@@ -63,7 +63,7 @@ function enter ()
 						<th>Field</th>
 						<th>Value</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Minimum</td>
 						<td align='center'>
 							<table>
@@ -74,7 +74,7 @@ function enter ()
 							</table>
 						</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Maximum</td>
 						<td align='center'>
 							<table>
@@ -85,7 +85,7 @@ function enter ()
 							</table>
 						</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Percentage</td>
 						<td align='center'>
 							<table>
@@ -159,15 +159,15 @@ function confirm ($_POST)
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Minimum</td>
 							<td align='right'>".CUR." $min</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Maximum</td>
 							<td align='right'>".CUR." $max</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Percentage</td>
 							<td align='right'>$percentage %</td>
 						</tr>

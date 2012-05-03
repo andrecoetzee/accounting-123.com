@@ -53,7 +53,7 @@ function display()
 		}
 
 		$stock_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stock_data[stkcod]</td>
 				<td>$stock_data[stkdes]</td>
 				<td align='center'>".sprint3($stock_data['units'])."</td>
@@ -66,7 +66,7 @@ function display()
 
 	if (empty($stock_out)) {
 		$stock_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='7'>No items required for purchase.</td>
 			</tr>";
 	}

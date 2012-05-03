@@ -116,15 +116,15 @@ function enter($errors="")
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Pricelist</td>
 				<td>$pricelist_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock Category</td>
 				<td>$category_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock Classification</td>
 				<td>$classification_sel</td>
 			</tr>
@@ -132,7 +132,7 @@ function enter($errors="")
 				<th>Increase %</th>
 				<th>Decrease %</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<input type='text' name='increase' value='$increase'
 					style='text-align: center' />
@@ -230,15 +230,15 @@ function confirm()
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Pricelist</td>
 				<td>$pricelist_name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category</td>
 				<td>$category_name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Classification</td>
 				<td>$classification_name</td>
 			</tr>
@@ -246,14 +246,14 @@ function confirm()
 				<th>Increase %</th>
 				<th>Decrease %</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$increase</td>
 				<td align='center'>$decrease</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Prices Affected</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'><b>$prices_affected</b></td>
 			</tr>
 			<tr>
@@ -337,7 +337,7 @@ function write()
 			<tr>
 				<th>Write</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><li>Successfully adjusted <b>$i</b> prices.</li></td>
 			</tr>
 		</table>";

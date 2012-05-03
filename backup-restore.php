@@ -55,7 +55,7 @@ function confirm ()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
         <script>document.write(getQuicklinkSpecial());</script>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+        <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
 return $confirm;
@@ -166,7 +166,7 @@ function backup ()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
         <script>document.write(getQuicklinkSpecial());</script>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+        <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
 return $back;

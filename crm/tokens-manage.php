@@ -135,9 +135,9 @@ function seltoken() {
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
+		<tr class='bg-odd'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+		<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
 		</table>";
 	}
 
@@ -149,9 +149,9 @@ function seltoken() {
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
+		<tr class='bg-odd'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+		<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
 		</table>";
 	}
 
@@ -170,13 +170,13 @@ function seltoken() {
 
 	if(pg_numrows($Ry)<1) {
 		$teamlinks="<tr>
-			<td bgcolor='".bgcolorg()."'>
+			<td class='".bg_class()."'>
 				There are no links for this team. Select links under settings,
 				view teams.
 			</td>
 		</tr>
 		<tr><th>Quick Links</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'>
+        <tr class='bg-odd'>
         	<td align=center>
         		<a href='team-links.php?id=$crmdata[teamid]'>
         			Select Team Links
@@ -384,12 +384,12 @@ function seltoken() {
 		<form action='".SELF."' method=post name=form>
 		<input type=hidden name=key value='seltoken'>
 		<tr><th colspan=2>Query Criteria</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Team</td><td>$teams</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Users</td><td>$users</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Categories</td><td>$cats</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Enquery By(name)</td><td><input type=text size=20 name=name value='$name'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Subject</td><td><input type=text size=20 name=subject value='$subject'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Notes</td><td><input type=text size=20 name=notes value='$notes'></td></tr>
+		<tr class='bg-odd'><td>Team</td><td>$teams</td></tr>
+		<tr class='bg-even'><td>Users</td><td>$users</td></tr>
+		<tr class='bg-odd'><td>Categories</td><td>$cats</td></tr>
+		<tr class='bg-even'><td>Enquery By(name)</td><td><input type=text size=20 name=name value='$name'></td></tr>
+		<tr class='bg-odd'><td>Subject</td><td><input type=text size=20 name=subject value='$subject'></td></tr>
+		<tr class='bg-even'><td>Notes</td><td><input type=text size=20 name=notes value='$notes'></td></tr>
 		<tr><td colspan=2 align=right><input type=submit value='Search &raquo;'></td></tr>
 		</form>
 		</table>
@@ -410,8 +410,8 @@ function seltoken() {
 		<form action='".SELF."' method=post>
 		<input type=hidden name=key value='find'>
 		<tr><th colspan=2>Search</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><li><a href='tokens-list-open.php'>List All Open Queries</a></li></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Input No</td><td><input name=id type=text size=7></td></tr>
+		<tr class='bg-odd'><td colspan=2><li><a href='tokens-list-open.php'>List All Open Queries</a></li></td></tr>
+		<tr class='bg-even'><td>Input No</td><td><input name=id type=text size=7></td></tr>
 		<tr><td colspan=2 align=right><input type=submit name='search' value='Search &raquo;'></td></tr>
 		</form>
 		</table>
@@ -431,7 +431,7 @@ function seltoken() {
 	<p>
                 <table border=0 cellpadding='2' cellspacing='1'>
                 <tr><th>Quick Links</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+                <tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
                 </table>";
 
 	return $out;
@@ -483,9 +483,9 @@ function manage($_POST,$Notes="") {
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
+		<tr class='bg-odd'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+		<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
 		</table>";
 	}
 
@@ -497,9 +497,9 @@ function manage($_POST,$Notes="") {
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
+		<tr class='bg-odd'><td><a href='crms-allocate.php'>Allocate users to Teams</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
+		<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
 		</table>";
 	}
 
@@ -655,7 +655,7 @@ function manage($_POST,$Notes="") {
 			$ex2.="<tr><td colspan=2 align=center><input type=button value='Print Supplier Statement' onclick='openwindow(\"../supp-stmnt.php?supid=$condata[supp_id]\")'></td></tr>";
 		}
 		if(strlen($tokendata['conpos'])>0) {
-			$conpos="<tr bgcolor='".TMPL_tblDataColor1."'><td>Position</td><td>$tokendata[conpos]</td></tr>";
+			$conpos="<tr class='bg-odd'><td>Position</td><td>$tokendata[conpos]</td></tr>";
 		}
 
 
@@ -673,13 +673,13 @@ function manage($_POST,$Notes="") {
 
 	if(pg_numrows($Ry)<1) {
 		$teamlinks="<tr>
-			<td bgcolor='".bgcolorg()."'>
+			<td class='".bg_class()."'>
 				There are no links for this team. Select links under settings,
 				view teams.
 			</td>
 		</tr>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='team-links.php?id=$tokendata[teamid]'>Select Team Links</a></td></tr>";
+		<tr class='bg-odd'><td align=center><a href='team-links.php?id=$tokendata[teamid]'>Select Team Links</a></td></tr>";
 	} else {
 		$teamlinks="";
 		while($linkdata=pg_fetch_array($Ry)) {
@@ -716,7 +716,7 @@ function manage($_POST,$Notes="") {
 	$tteamdata=pg_fetch_array($Ry);
 
 	if($tokendata['nextdate']>$date) {
-		$nextdate="<tr bgcolor='".TMPL_tblDataColor2."'><td>Next Date</td><td>$tokendata[nextdate]</td></tr>";
+		$nextdate="<tr class='bg-even'><td>Next Date</td><td>$tokendata[nextdate]</td></tr>";
 	} else {
 		$nextdate="";
 	}
@@ -791,9 +791,9 @@ function manage($_POST,$Notes="") {
 	}
 
 	// Still to do
-	//<tr bgcolor='".TMPL_tblDataColor2."'><td>Send Fax</td></tr>
+	//<tr class='bg-even'><td>Send Fax</td></tr>
         //Works but replaced
-	//<tr bgcolor='".TMPL_tblDataColor2."'><td><input type=button value='Record other action taken &raquo;' onclick='openwindow(\"tokens-action-other.php?id=$id\")'></td></tr>
+	//<tr class='bg-even'><td><input type=button value='Record other action taken &raquo;' onclick='openwindow(\"tokens-action-other.php?id=$id\")'></td></tr>
 	$out="<center>
 	$Notes
 	<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=750>
@@ -818,9 +818,9 @@ function manage($_POST,$Notes="") {
 		<td width='22%' valign=top align=center>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th colspan=2>Search Queries</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><li><a href='tokens-list-open.php'>List All Open Queries</a></li></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><li><a href='tokens-manage.php'>Advanced Search</a></li></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Input No</td><td><input name=find type=text size=7></td></tr>
+		<tr class='bg-odd'><td colspan=2><li><a href='tokens-list-open.php'>List All Open Queries</a></li></td></tr>
+		<tr class='bg-even'><td colspan=2><li><a href='tokens-manage.php'>Advanced Search</a></li></td></tr>
+		<tr class='bg-odd'><td>Input No</td><td><input name=find type=text size=7></td></tr>
 		<tr><td align=center colspan=2><input type=submit name='search' value='Search &raquo;'></td></tr>
 		</table>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width='95%'>
@@ -835,22 +835,22 @@ function manage($_POST,$Notes="") {
 		</td>
 		<td valign=top>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<th>Query Team</th>
 			<td>$qteams</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<th>Query Category</th>
 			<td>$cats</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<th>SUBJECT/SUMMARY:</th>
 			<td><input size=30 type=text name=sub value='$tokendata[sub]'></td>
 		</tr>
 		<tr>
 			<th colspan=2>Query Notes</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td colspan='2'>
 				<textarea cols=50 rows=3 name=notes style='width: 100%'>"
 				."$tokendata[notes]".
@@ -858,7 +858,7 @@ function manage($_POST,$Notes="") {
 			</td>
 		</tr>
 		<tr><th colspan=2>Select/Input other action</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>$actions</td>
 			<td><input type='text' name='oaction' style='width: 100%'></td></tr>
 		<tr>
@@ -881,12 +881,12 @@ function manage($_POST,$Notes="") {
 		<td>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width='100%'>
 		<tr><th>Query Actions</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=button value='Send Message to User &raquo;' onclick='openwindow(\"message-send.php?id=$id\")' style='width: 100%'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td><input type=button value='Send E-Mail &raquo;' onclick='openwindow(\"email-send.php?id=$id\")' style='width: 100%'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=button value='Send SMS &raquo;' onclick='openwindow(\"https_face.php?target=sms-send.php?id=$id\")' style='width: 100%'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=button value='Forward to Future Date &raquo;' onclick='openwindow(\"tokens-forward.php?id=$id\")' style='width: 100%'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td><input type=submit name='closetoken' value='Close Query &raquo;' style='width: 100%'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=button value='Send query to other User/Team &raquo;' onclick='openwindow(\"tokens-pass.php?id=$id\")' style='width: 100%'></td></tr>
+		<tr class='bg-odd'><td><input type=button value='Send Message to User &raquo;' onclick='openwindow(\"message-send.php?id=$id\")' style='width: 100%'></td></tr>
+		<tr class='bg-even'><td><input type=button value='Send E-Mail &raquo;' onclick='openwindow(\"email-send.php?id=$id\")' style='width: 100%'></td></tr>
+		<tr class='bg-odd'><td><input type=button value='Send SMS &raquo;' onclick='openwindow(\"https_face.php?target=sms-send.php?id=$id\")' style='width: 100%'></td></tr>
+		<tr class='bg-odd'><td><input type=button value='Forward to Future Date &raquo;' onclick='openwindow(\"tokens-forward.php?id=$id\")' style='width: 100%'></td></tr>
+		<tr class='bg-even'><td><input type=submit name='closetoken' value='Close Query &raquo;' style='width: 100%'></td></tr>
+		<tr class='bg-odd'><td><input type=button value='Send query to other User/Team &raquo;' onclick='openwindow(\"tokens-pass.php?id=$id\")' style='width: 100%'></td></tr>
 		</table>
 		</td>
 		<td rowspan=2 valign=top>
@@ -900,9 +900,9 @@ function manage($_POST,$Notes="") {
 		<td colspan=2 valign=top>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width='100%'>
 		<tr><th colspan=2>Query Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Team & User</td><td>$tteamdata[name], $tokendata[username]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Created</td><td>$tokendata[opendate] By: $tokendata[openby]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Last Worked On</td><td>$tokendata[lastdate] By: $tokendata[lastuser]</td></tr>
+		<tr class='bg-odd'><td>Team & User</td><td>$tteamdata[name], $tokendata[username]</td></tr>
+		<tr class='bg-even'><td>Created</td><td>$tokendata[opendate] By: $tokendata[openby]</td></tr>
+		<tr class='bg-odd'><td>Last Worked On</td><td>$tokendata[lastdate] By: $tokendata[lastuser]</td></tr>
 		$nextdate
 		$ex1
 		$ex2
@@ -913,7 +913,7 @@ function manage($_POST,$Notes="") {
 		<td valign=top>
                 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width='100%'>
                 <tr><th>Query Criteria</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>$listcats</td></tr>
+		<tr class='bg-odd'><td>$listcats</td></tr>
 		</table>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width='100%'>
 		$tokens
@@ -926,17 +926,17 @@ function manage($_POST,$Notes="") {
 		<td align=right valign=top>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width='100%'>
 		<tr><th colspan=2>$tokendata[csct] Information</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Acc Num</td><td>$accnum</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Name</td><td><input name=name type=text size=20 value='$tokendata[name]'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Contact</td><td><input name=con type=text size=20 value='$tokendata[con]'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Tel</td><td><input name=tel type=text size=20 value='$tokendata[tel]'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Cell</td><td><input name=cel type=text size=20 value='$tokendata[cell]'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Fax</td><td><input name=fax type=text size=20 value='$tokendata[fax]'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Email</td><td><input name=email type=text size=20 value='$tokendata[email]'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Balance</td><td align=right>".CUR." $balance</td></tr>
+		<tr class='bg-odd'><td>Acc Num</td><td>$accnum</td></tr>
+		<tr class='bg-even'><td>Name</td><td><input name=name type=text size=20 value='$tokendata[name]'></td></tr>
+		<tr class='bg-odd'><td>Contact</td><td><input name=con type=text size=20 value='$tokendata[con]'></td></tr>
+		<tr class='bg-even'><td>Tel</td><td><input name=tel type=text size=20 value='$tokendata[tel]'></td></tr>
+		<tr class='bg-odd'><td>Cell</td><td><input name=cel type=text size=20 value='$tokendata[cell]'></td></tr>
+		<tr class='bg-even'><td>Fax</td><td><input name=fax type=text size=20 value='$tokendata[fax]'></td></tr>
+		<tr class='bg-odd'><td>Email</td><td><input name=email type=text size=20 value='$tokendata[email]'></td></tr>
+		<tr class='bg-even'><td>Balance</td><td align=right>".CUR." $balance</td></tr>
 		$conpos
 		<tr><th colspan=2>Address/Notes</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2 align=center><textarea name=address rows=5 cols=23>$tokendata[address]</textarea></td></tr>
+		<tr class='bg-odd'><td colspan=2 align=center><textarea name=address rows=5 cols=23>$tokendata[address]</textarea></td></tr>
 		<tr>
 			<td colspan=2 align='center'>
 				<input type=submit value='Update Query Information'

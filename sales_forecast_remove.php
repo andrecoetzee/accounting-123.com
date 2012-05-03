@@ -36,7 +36,7 @@ function confirm()
 		<tr>
 			<th colspan='2'>Confirm</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Remove this sales forecast</li></td>
 			<td align='right'>
 				<input type='submit' value='Remove &raquo' />
@@ -69,7 +69,7 @@ function write()
 		<tr>
 			<th>Remove</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Saved sales forecast removed successfully.</li></td>
 		</tr>
 	</table>";

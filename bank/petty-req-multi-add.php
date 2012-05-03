@@ -130,7 +130,7 @@ function add($_POST, $err = "")
 		}
 
 		$reqs .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td nowrap>".mkDateSelectA("o", $i, $o_year[$i], $o_month[$i], $o_day[$i])."</td>
 				<td><input type='text' size='20' name='name[]' value='$name[$i]'></td>
 				<td nowrap valign='center'>".CUR." <input type='text' size='6' name='amount[]' value='$amount[$i]'></td>
@@ -145,7 +145,7 @@ function add($_POST, $err = "")
 	}
 
 	$reqs .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2' align='right'><b>Total:</b></td>
 			<td>".CUR." ".sprint(array_sum ($amount))."</td>
 			<td colspan='3'></td>
@@ -165,7 +165,7 @@ function add($_POST, $err = "")
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Available Funds</td>
 				<td><input type='hidden' name='bal' value='$accb[bal]'>".CUR." $accb[bal]</td>
 			</tr>
@@ -194,10 +194,10 @@ function add($_POST, $err = "")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -306,7 +306,7 @@ function confirm($_POST)
 			<input type='hidden' name='o_day[]' value='$o_day[$key]'>
 			<input type='hidden' name='o_month[]' value='$o_month[$key]'>
 			<input type='hidden' name='o_year[]' value='$o_year[$key]'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='hidden' name='date[]' value='$date[$key]'>$date[$key]</td>
 				<td><input type='hidden' size='20' name='name[]' value='$name[$key]'>$name[$key]</td>
 				<td valign='center'><input type='hidden' type='text' size='10' name='amount[]' value='$amount[$key]'>".CUR." $amount[$key]</td>
@@ -328,7 +328,7 @@ function confirm($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Available Funds</td>
 				<td><input type='hidden' name='bal' value='$bal'>".CUR." $bal</td>
 			</tr>
@@ -356,10 +356,10 @@ function confirm($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -442,13 +442,13 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='petty-req-add.php'>Add Petty Cash Requisition</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pettycashbook-view.php'>View Petty Cash Requisitions</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

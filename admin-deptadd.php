@@ -61,7 +61,7 @@ function enter ($dept = "",$err="")
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."User Department</td>
 				<td><input type='text' size='20' name='dept' value='$dept'></td>
 			</tr>
@@ -123,7 +123,7 @@ function confirm ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>User Department</td>
 				<td>$dept</td>
 			</tr>
@@ -140,7 +140,7 @@ function confirm ($_POST)
 	$i = 0;
 	while($scr = pg_fetch_array($rslt)){
 		$confirm .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' nowrap><input type='checkbox' name='perm[]' value='$scr[name]'>".strtoupper($scr['script'])."</td>
 			</tr>";
 		$i++;

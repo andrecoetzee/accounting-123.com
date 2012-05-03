@@ -120,28 +120,28 @@ function view_data ($_GET)
 <input type=hidden name=key value=confirm>
 <input type=hidden name=id value=$id>
 <tr><th colspan=2>Personal details</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Name</td><td align=center>$Data[name]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Surname</td><td align=center>$Data[surname]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Company</td><td align=center>$Data[comp]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Ref</td><td align=center>$Data[ref]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Date added</td><td align=center>$Date</td></tr>
+<tr class='bg-odd'><td>Name</td><td align=center>$Data[name]</td></tr>
+<tr class='bg-even'><td>Surname</td><td align=center>$Data[surname]</td></tr>
+<tr class='bg-odd'><td>Company</td><td align=center>$Data[comp]</td></tr>
+<tr class='bg-even'><td>Ref</td><td align=center>$Data[ref]</td></tr>
+<tr class='bg-odd'><td>Date added</td><td align=center>$Date</td></tr>
 <tr><th colspan=2>Contact details</th></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Telephone</td><td align=center>$Data[tell]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Cellphone</td><td align=center>$Data[cell]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Facsimile</td><td align=center>$Data[fax]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Email</td><td align=center>$Data[email]</td></tr>
+<tr class='bg-even'><td>Telephone</td><td align=center>$Data[tell]</td></tr>
+<tr class='bg-odd'><td>Cellphone</td><td align=center>$Data[cell]</td></tr>
+<tr class='bg-even'><td>Facsimile</td><td align=center>$Data[fax]</td></tr>
+<tr class='bg-odd'><td>Email</td><td align=center>$Data[email]</td></tr>
 <tr><th colspan=2>Physical Address</th></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2 align=center>".nl2br($hadd)."</td></tr>
+<tr class='bg-even'><td colspan=2 align=center>".nl2br($hadd)."</td></tr>
 <tr><th colspan=2>Postal Address</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2 align=center>".nl2br($padd)."</td></tr>
+<tr class='bg-odd'><td colspan=2 align=center>".nl2br($padd)."</td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Remove &raquo;'></td></tr>
 </table>
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_cons.php'>View other contacts</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_cons.php'>View other contacts</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
         return $view_data;
@@ -183,9 +183,9 @@ function con_data ($_POST)
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_cons.php'>View other contacts</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_cons.php'>View other contacts</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 
 ";
@@ -243,9 +243,9 @@ function write_data ($_POST)
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Add another contact</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='".SELF."'>Add another contact</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 
 ";

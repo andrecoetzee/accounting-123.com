@@ -172,15 +172,15 @@ function slct($_GET)
 						<tr>
 							<th colspan='2'> Invoice Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."' ".ass("Select when selling non stock goods to your customers").">
+						<tr class='".bg_class()."' ".ass("Select when selling non stock goods to your customers").">
 							<td><input type='radio' name='ctyp' value='s' checked='yes'> Select Customer</td>
 							<td>$custs</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."' ".ass("Select when the sale of non stock goods is a cash sale").">
+						<tr class='".bg_class()."' ".ass("Select when the sale of non stock goods is a cash sale").">
 							<td><input type='radio' name='ctyp' value='c'>Cash Sale</td>
 							<td>$depts</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."' ".ass("Select when the sale of non stock goods is not a cash sale").">
+						<tr class='".bg_class()."' ".ass("Select when the sale of non stock goods is not a cash sale").">
 							<td><input type='radio' name='ctyp' value='ac'>Ledger Accounts Sale</td>
 							<td></td>
 						</tr>
@@ -188,7 +188,7 @@ function slct($_GET)
 						<tr>
 							<th colspan='2'>Search by surname</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='text' size='10' name='letters' value='$letters'></td>
 							<td><input type='submit' value='Search &raquo;'></td>
 							</td>
@@ -267,19 +267,19 @@ function cdetails($_GET)
 								<th colspan='2'> Customer Details </th>
 							</tr>
 							<input type='hidden' name='cusnum' value='$cusnum'>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer</td>
 								<td valign='center'>$cust[cusname] $cust[surname]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer Address</td>
 								<td valign='center'><pre>$cust[addr1]</pre></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer VAT Number</td>
 								<td valign='center'>$cust[vatnum]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer Order number</td>
 								<td valign='center'>$inv[cordno]</td>
 							</tr>
@@ -296,19 +296,19 @@ function cdetails($_GET)
 								<th colspan='2'> Customer Details </th>
 							</tr>
 							<input type='hidden' name='deptid' value='$deptid'>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer</td>
 								<td valign='center'>$inv[cusname] </td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer Address</td>
 								<td valign='center'><pre>$inv[cusaddr]</pre></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer VAT Number</td>
 								<td valign='center'>$inv[cusvatno]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer Order number</td>
 								<td valign='center'>$inv[cordno]</td>
 							</tr>
@@ -332,23 +332,23 @@ function cdetails($_GET)
 								<th colspan='2'> Customer Details </th>
 							</tr>
 							<input type='hidden' name='bankid' value='$inv[accid]'>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer</td>
 								<td valign='center'>$inv[cusname] </td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer Address</td>
 								<td valign='center'><pre>$inv[cusaddr]</pre></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer VAT Number</td>
 								<td valign='center'>$inv[cusvatno]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer Order number</td>
 								<td valign='center'>$inv[cordno]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Account</td>
 								<td>$supacc</td>
 							</tr>
@@ -424,7 +424,7 @@ function cdetails($_GET)
 
 		# put in product
 		$products .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>$i</td>
 							<td>$ex $stkd[description]</td>
 							<td>$stkd[qty]</td>
@@ -475,11 +475,11 @@ function cdetails($_GET)
 	</td><td valign='top' align='right'>
 		<table ".TMPL_tblDflts.">
 			<tr><th colspan='2'> Non-Stock Invoice Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Non-Stock Invoice No.</td><td valign='center'>T $inv[invid]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Proforma Inv No.</td><td valign='center'>$inv[docref]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign='center'>$sday-$smon-$syear</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>VAT Inclusive</td><td valign='center'>$inv[chrgvat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms</td><td valign='center'>$inv[terms] Days</td></tr>
+			<tr class='bg-odd'><td>Non-Stock Invoice No.</td><td valign='center'>T $inv[invid]</td></tr>
+			<tr class='bg-even'><td>Proforma Inv No.</td><td valign='center'>$inv[docref]</td></tr>
+			<tr class='bg-odd'><td>Date</td><td valign='center'>$sday-$smon-$syear</td></tr>
+			<tr class='bg-even'><td>VAT Inclusive</td><td valign='center'>$inv[chrgvat]</td></tr>
+			<tr class='bg-odd'><td>Terms</td><td valign='center'>$inv[terms] Days</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -489,15 +489,15 @@ function cdetails($_GET)
 	<tr><td>
 		<table ".TMPL_tblDflts.">
 			<tr><th width='40%'>Quick Links</th><th width='45%'>Remarks</th><td rowspan='5' valign='top' width='15%'><br></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align='center'><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top>".nl2br($inv['remarks'])."</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align='center'><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td></tr>
+			<tr class='bg-odd'><td align='center'><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td><td class='bg-odd' rowspan=4 align=center valign=top>".nl2br($inv['remarks'])."</td></tr>
+			<tr class='bg-odd'><td align='center'><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align='right'>
 		<table ".TMPL_tblDflts." width='80%'>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align='right'>".CUR." $inv[subtot]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT $vat14</td><td align='right'>".CUR." $inv[vat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><th>GRAND TOTAL</th><td align='right'>".CUR." $inv[total]</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align='right'>".CUR." $inv[subtot]</td></tr>
+			<tr class='bg-odd'><td>VAT $vat14</td><td align='right'>".CUR." $inv[vat]</td></tr>
+			<tr class='bg-even'><th>GRAND TOTAL</th><td align='right'>".CUR." $inv[total]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td align='right'><input type='submit' value='Confirm &raquo'></td></tr>
@@ -555,10 +555,10 @@ function acdetails($_GET)
 		<table ".TMPL_tblDflts.">
 			<tr><th colspan='2'> Customer Details </th></tr>
 			<input type='hidden' name='cusnum' value=$cusnum>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer</td><td valign='center'>$cust[cusname] $cust[surname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Address</td><td valign='center'><pre>$cust[addr1]</pre></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer VAT Number</td><td valign='center'>$cust[vatnum]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Order number</td><td valign='center'>$inv[cordno]</td></tr>
+			<tr class='bg-odd'><td>Customer</td><td valign='center'>$cust[cusname] $cust[surname]</td></tr>
+			<tr class='bg-even'><td>Customer Address</td><td valign='center'><pre>$cust[addr1]</pre></td></tr>
+			<tr class='bg-odd'><td>Customer VAT Number</td><td valign='center'>$cust[vatnum]</td></tr>
+			<tr class='bg-even'><td>Customer Order number</td><td valign='center'>$inv[cordno]</td></tr>
 		</table>";
 	}elseif($ctyp == 'ac'){
 // 		db_conn("exten");
@@ -570,10 +570,10 @@ function acdetails($_GET)
 		<table ".TMPL_tblDflts.">
 			<tr><th colspan='2'> Customer Details </th></tr>
 			<input type='hidden' name='deptid' value='$deptid'>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer</td><td valign='center'>$inv[cusname] </td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Address</td><td valign='center'><pre>$inv[cusaddr]</pre></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer VAT Number</td><td valign='center'>$inv[cusvatno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Order number</td><td valign='center'>$inv[cordno]</td></tr>
+			<tr class='bg-odd'><td>Customer</td><td valign='center'>$inv[cusname] </td></tr>
+			<tr class='bg-even'><td>Customer Address</td><td valign='center'><pre>$inv[cusaddr]</pre></td></tr>
+			<tr class='bg-odd'><td>Customer VAT Number</td><td valign='center'>$inv[cusvatno]</td></tr>
+			<tr class='bg-even'><td>Customer Order number</td><td valign='center'>$inv[cordno]</td></tr>
 		";
 	}
 
@@ -589,7 +589,7 @@ function acdetails($_GET)
 		}
 	$stkacc .= "</select>";
 
-	$details.="<tr bgcolor='".TMPL_tblDataColor2."'><td>Select Account</td><td valign='center'><select name='accountc'>$stkacc</select></td></tr>
+	$details.="<tr class='bg-even'><td>Select Account</td><td valign='center'><select name='accountc'>$stkacc</select></td></tr>
 	</table>";
 
 	/* --- Start Products Display --- */
@@ -640,7 +640,7 @@ function acdetails($_GET)
 
 		# put in product
 		$products .= "
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td align='center'>$i</td>
 			<td>$stkd[description]</td>
 			<td>$stkd[qty]</td>
@@ -689,11 +689,11 @@ function acdetails($_GET)
 	</td><td valign=top align=right>
 		<table ".TMPL_tblDflts.">
 			<tr><th colspan=2> Non-Stock Invoice Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Non-Stock Invoice No.</td><td valign=center>T $inv[invid]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Proforma Inv No.</td><td valign=center>$inv[docref]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$sday-$smon-$syear</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>VAT Inclusive</td><td valign=center>$inv[chrgvat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms</td><td valign=center>$inv[terms] Days</td></tr>
+			<tr class='bg-odd'><td>Non-Stock Invoice No.</td><td valign=center>T $inv[invid]</td></tr>
+			<tr class='bg-even'><td>Proforma Inv No.</td><td valign=center>$inv[docref]</td></tr>
+			<tr class='bg-odd'><td>Date</td><td valign=center>$sday-$smon-$syear</td></tr>
+			<tr class='bg-even'><td>VAT Inclusive</td><td valign=center>$inv[chrgvat]</td></tr>
+			<tr class='bg-odd'><td>Terms</td><td valign=center>$inv[terms] Days</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -703,15 +703,15 @@ function acdetails($_GET)
 	<tr><td>
 		<table ".TMPL_tblDflts.">
 			<tr><th width=40%>Quick Links</th><th width=45%>Remarks</th><td rowspan=5 valign=top width=15%><br></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align='center'><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top>".nl2br($inv['remarks'])."</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align='center'><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td></tr>
+			<tr class='bg-odd'><td align='center'><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td><td class='bg-odd' rowspan=4 align=center valign=top>".nl2br($inv['remarks'])."</td></tr>
+			<tr class='bg-odd'><td align='center'><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
 		<table ".TMPL_tblDflts." width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>".CUR." $inv[subtot]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT $vat14</td><td align=right>".CUR." $inv[vat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><th>GRAND TOTAL</th><td align=right>".CUR." $inv[total]</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>".CUR." $inv[subtot]</td></tr>
+			<tr class='bg-odd'><td>VAT $vat14</td><td align=right>".CUR." $inv[vat]</td></tr>
+			<tr class='bg-even'><th>GRAND TOTAL</th><td align=right>".CUR." $inv[total]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td align=right><input type=submit value='Confirm &raquo'></td></tr>
@@ -805,7 +805,7 @@ function cconfirm($_POST)
 
 		$i++;
 		# put in product
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .="<tr class='bg-odd'>
 			<td align=center>$i</td>
 			<td>$stkd[description]</td>
 			<td>$stkd[qty]</td>
@@ -844,15 +844,15 @@ function cconfirm($_POST)
 								<th colspan='2'> Customer Details </th>
 							</tr>
 							<input type='hidden' name='cusnum' value='$cusnum'>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer</td>
 								<td valign='center'>$cust[cusname] $cust[surname]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer Address</td>
 								<td valign='center'><pre>$cust[addr1]</pre></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer VAT Number</td>
 								<td valign='center'>$cust[vatnum]</td>
 							</tr>
@@ -866,15 +866,15 @@ function cconfirm($_POST)
 								<th colspan='2'> Customer Details </th>
 							</tr>
 							<input type='hidden' name='deptid' value='$deptid'>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer</td>
 								<td valign='center'>$inv[cusname] </td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer Address</td>
 								<td valign='center'><pre>$inv[cusaddr]</pre></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer VAT Number</td>
 								<td valign='center'>$inv[cusvatno]</td>
 							</tr>
@@ -899,19 +899,19 @@ function cconfirm($_POST)
 								<th colspan='2'> Customer Details </th>
 							</tr>
 							<input type='hidden' name='bankid' value='$inv[accid]'>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer</td>
 								<td valign='center'>$inv[cusname] </td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer Address</td>
 								<td valign='center'><pre>$inv[cusaddr]</pre></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer VAT Number</td>
 								<td valign='center'>$inv[cusvatno]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Account</td>
 								<td>$supacc</td>
 							</tr>
@@ -928,19 +928,19 @@ function cconfirm($_POST)
 								<th colspan='2'>Customer Details </th>
 							</tr>
 							<input type='hidden' name='accountc' value='$accountc'>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer</td>
 								<td valign='center'>$inv[cusname] </td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer Address</td>
 								<td valign='center'><pre>$inv[cusaddr]</pre></td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Customer VAT Number</td>
 								<td valign='center'>$inv[cusvatno]</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Account</td>
 								<td valign='center'>$accd[accname]</td>
 							</tr>
@@ -972,23 +972,23 @@ function cconfirm($_POST)
 									<tr>
 										<th colspan='2'> Non-Stock Invoice Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Non-Stock Invoice No.</td>
 										<td valign='center'>T $inv[invid]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Proforma Inv No.</td>
 										<td valign='center'>$inv[docref]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Date</td>
 										<td valign='center'>$sday-$smon-$syear</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>VAT Inclusive</td>
 										<td valign='center'>$inv[chrgvat]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Terms</td>
 										<td valign='center'>$inv[terms] Days</td>
 									</tr>
@@ -1005,11 +1005,11 @@ function cconfirm($_POST)
 										<th width='45%'>Remarks</th>
 										<td rowspan='5' valign='top' width='15%'><br></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td align='center'><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td>
-										<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'>".nl2br($inv['remarks'])."</td>
+										<td class='".bg_class()."' rowspan='4' align='center' valign='top'>".nl2br($inv['remarks'])."</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td align='center'><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td>
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
@@ -1017,15 +1017,15 @@ function cconfirm($_POST)
 							</td>
 							<td align='right'>
 								<table ".TMPL_tblDflts." width='80%'>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>SUBTOTAL</td>
 										<td align='right'>".CUR." $inv[subtot]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>VAT $vat14</td>
 										<td align='right'>".CUR." $inv[vat]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<th>GRAND TOTAL</th>
 										<td align='right'>".CUR." $inv[total]</td>
 									</tr>

@@ -106,7 +106,7 @@ function details($_GET)
 
 		# put in product
 		$products .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>$i</td>
 							<td>$stkd[description]</td>
 							<td>$stkd[qty]</td>
@@ -157,19 +157,19 @@ function details($_GET)
 								<tr>
 									<th colspan='2'> Customer Details </th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Customer</td>
 									<td valign='center'>$inv[cusname]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Customer Address</td>
 									<td valign='center'><pre>$inv[cusaddr]</pre></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Customer Vat Number</td>
 									<td valign='center'>$inv[cusvatno]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Customer Order number</td>
 									<td valign='center'>$inv[cordno]</td>
 								</tr>
@@ -180,23 +180,23 @@ function details($_GET)
 								<tr>
 									<th colspan='2'> Non-Stock Invoice Details </th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Non-Stock Invoice No.</td>
 									<td valign='center'>$inv[invnum]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Proforma Inv No.</td>
 									<td valign='center'>$inv[docref]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Date</td>
 									<td valign='center'>$sday-$smon-$syear</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>VAT Inclusive</td>
 									<td valign='center'>$inv[chrgvat]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>Terms</td>
 									<td valign='center'>$inv[terms] Days</td>
 								</tr>
@@ -216,10 +216,10 @@ function details($_GET)
 									<td rowspan='5' valign='top' width='15%'><br></td>
 								</tr>
 								<tr>
-									<td bgcolor='".bgcolorg()."'><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td>
-									<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'>".nl2br($inv['remarks'])."</td>
+									<td class='".bg_class()."'><a href='nons-invoice-new.php'>New Non-Stock Invoices</a></td>
+									<td class='".bg_class()."' rowspan='4' align='center' valign='top'>".nl2br($inv['remarks'])."</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td><a href='nons-invoice-view.php'>View Non-Stock Invoices</a></td>
 								</tr>
 								<script>document.write(getQuicklinkSpecial());</script>
@@ -227,15 +227,15 @@ function details($_GET)
 						</td>
 						<td align='right'>
 							<table ".TMPL_tblDflts." width='80%'>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>SUBTOTAL</td>
 									<td align='right'>".CUR." $inv[subtot]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>VAT $vat14</td>
 									<td align='right'>".CUR." $inv[vat]</td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<th>GRAND TOTAL</th>
 									<td align='right'>".CUR." $inv[total]</td>
 								</tr>

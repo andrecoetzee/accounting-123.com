@@ -49,7 +49,7 @@ function enter()
 			<tr>
 				<th colspan='2'>Sales Order</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Use Picking Slip</td>
 				<td>
 					<input type='radio' name='pslip' value='y' $set_y> Yes
@@ -82,7 +82,7 @@ function write()
 			<tr>
 				<th>Write</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><li>Successfully saved picking slip setting.</li></td>
 			</tr>
 		</table>";

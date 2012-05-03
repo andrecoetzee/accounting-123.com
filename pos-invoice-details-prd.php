@@ -147,7 +147,7 @@ function details($_GET)
 
 			# put in product
 			$products .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$wh[whname]</td>
 								<td>$stk[stkcod]</td>
 								<td>$stkd[serno]</td>
@@ -192,19 +192,19 @@ function details($_GET)
 							<td valign='top'>
 								<table ".TMPL_tblDflts." width='60%'>
 									<tr><th colspan='2'> Customer Details </th></tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Department</td>
 										<td valign='center'>$inv[deptname]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Customer</td>
 										<td valign='center'>$inv[cusname] $inv[surname]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'><td valign='top'>Customer Address</td><td valign='center'>".nl2br($inv['cusaddr'])."</td></tr>
-									<tr bgcolor='".bgcolorg()."'><td>Customer Order number</td><td valign='center'>$inv[cordno]</td></tr>
-									<tr bgcolor='".bgcolorg()."'><td>Customer Vat Number</td><td>$inv[cusvatno]</td></tr>
+									<tr class='".bg_class()."'><td valign='top'>Customer Address</td><td valign='center'>".nl2br($inv['cusaddr'])."</td></tr>
+									<tr class='".bg_class()."'><td>Customer Order number</td><td valign='center'>$inv[cordno]</td></tr>
+									<tr class='".bg_class()."'><td>Customer Vat Number</td><td>$inv[cusvatno]</td></tr>
 									<tr><th colspan='2' valign='top'>Comments</th></tr>
-									<tr bgcolor='".bgcolorg()."'><td colspan='2' align='center'>".nl2br($inv['comm'])."</pre></td></tr>
+									<tr class='".bg_class()."'><td colspan='2' align='center'>".nl2br($inv['comm'])."</pre></td></tr>
 								</table>
 							</td>
 							<td valign='top' align='right'>
@@ -212,35 +212,35 @@ function details($_GET)
 									<tr>
 										<th colspan='2'> Invoice Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Invoice No.</td>
 										<td valign='center'>$inv[invnum]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Order No.</td>
 										<td valign='center'>$inv[ordno]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>VAT Inclusive</td>
 										<td valign='center'>$inv[chrgvat]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Terms</td>
 										<td valign=center>$inv[terms] Days</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Sales Person</td>
 										<td valign='center'>$inv[salespn]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Invoice Date</td>
 										<td valign='center'>$inv[odate]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Trade Discount</td>
 										<td valign='center'>$inv[traddisc]%</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Charge</td>
 										<td valign='center'>$inv[delchrg]</td>
 									</tr>
@@ -258,10 +258,10 @@ function details($_GET)
 									<tr>
 										<th>Quick Links</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='pos-invoice-new.php'>New Invoice</a></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='pos-invoice-list.php'>View Invoices</a></td>
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
@@ -269,23 +269,23 @@ function details($_GET)
 							</td>
 							<td align='right'>
 								<table ".TMPL_tblDflts." width='80%'>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>SUBTOTAL</td>
 										<td align='right' nowrap>".CUR." $SUBTOT</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Trade Discount</td>
 										<td align='right' nowrap>".CUR." $inv[discount]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Charge</td>
 										<td align='right' nowrap>".CUR." $inv[delivery]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><b>VAT $vat14</b></td>
 										<td align='right' nowrap>".CUR." $VAT</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<th>GRAND TOTAL</th>
 										<td align='right' nowrap>".CUR." $TOTAL</td>
 									</tr>

@@ -88,7 +88,7 @@ function hireNotes($errors="")
 
 			$basis = ucwords(implode(" ", explode("_", $mii_data["basis"])));
 
-			$mi_out .= "<tr bgcolor='".bgcolorg()."'>
+			$mi_out .= "<tr class='".bg_class()."'>
 				<td>$cust_data[surname] $cust_data[cusname]</td>
 				<td>$basis</td>
 				<td>".getSerial($mii_data["asset_id"], true)." $mii_data[des]</td>
@@ -100,7 +100,7 @@ function hireNotes($errors="")
 	}
 
 	if (empty($mi_out)) {
-		$mi_out = "<tr bgcolor='".bgcolorg()."'>
+		$mi_out = "<tr class='".bg_class()."'>
 			<td colspan='6'>No invoices found.</td>
 		</tr>";
 	}
@@ -113,7 +113,7 @@ function hireNotes($errors="")
 	<table ".TMPL_tblDflts.">
 		<tr><td colspan='2'>$errors</td></tr>
 		<tr><th colspan='2'>Processing Date</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'>".mkDateSelect("date", $date_year, $date_month, $date_day)."</td>
 		</tr>
 	</table>

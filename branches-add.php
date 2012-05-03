@@ -14,13 +14,13 @@
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='branches-add.php'>Add Branch</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='branches-view.php'>View Branches</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";
@@ -76,25 +76,25 @@ function get_details ($_POST,$err="")
 									<tr>
 										<th>Branch Name</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><input type='text' size='35' name='branch_name' value='$branch_name'></td>
 									</tr>
 									<tr>
 										<th>Branch Description</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><textarea cols='30' rows='4' name='branch_desc'>$branch_desc</textarea></td>
 									</tr>
 									<tr>
 										<th>Branch Contact</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><input type='text' size='35' name='branch_contact' value='$branch_contact'></td>
 									</tr>
 									<tr>
 										<th>Branch Company Code (Eg aaaa,aaab,etc)</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><input type='text' size='4' maxlength='4' name='branch_company' value='$branch_company'></td>
 									</tr>
 								</table>
@@ -104,31 +104,31 @@ function get_details ($_POST,$err="")
 									<tr>
 										<th>Branch IP</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><input type='text' size='35' name='branch_ip' value='$branch_ip'></td>
 									</tr>
 									<tr>
 										<th>Branch Username</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><input type='text' size='35' name='branch_username' value='$branch_username'></td>
 									</tr>
 									<tr>
 										<th>Branch Password</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><input type='password' size='35' name='branch_password' value='$branch_password'></td>
 									</tr>
 									<tr>
 										<th>Branch Password (Confirm)</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><input type='password' size='35' name='branch_passwordconfirm' value='$branch_passwordconfirm'></td>
 									</tr>
 									<tr>
 										<th>Local User</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>$users_drop</td>
 									</tr>
 								</table>
@@ -197,7 +197,7 @@ function write_details ($_POST)
 						<tr>
 							<th>Branch Added</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch Has Been Added.</td>
 						</tr>
 					</table>

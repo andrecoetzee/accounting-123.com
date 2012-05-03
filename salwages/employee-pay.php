@@ -102,7 +102,7 @@ function enter($HTTP_VARS)
 
 	if($edata['paytype'] == "Cash") {
 
-		$row = "<tr bgcolor='".bgcolorg()."'><td colspan='2'>Paid Cash</td></tr>";
+		$row = "<tr class='".bg_class()."'><td colspan='2'>Paid Cash</td></tr>";
 
 	} elseif($edata['paytype'] == "Ledger Account") {
 
@@ -125,7 +125,7 @@ function enter($HTTP_VARS)
 		$accounts .= "</select>";
 
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Ledger Account</td>
 				<td>$accounts</td>
 			</tr>";
@@ -152,7 +152,7 @@ function enter($HTTP_VARS)
 		$banks .= "</select>";
 
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account</td>
 				<td>$banks</td>
 			</tr>";
@@ -184,15 +184,15 @@ function enter($HTTP_VARS)
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount due to employee</td>
 				<td>".CUR." $edata[balance]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount paid now</td>
 				<td><input type=text size=8 name=paidamount value='$paidamount'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>".mkDateSelect("date", $date_year, $date_month, $date_day)."</td>
 			</tr>
@@ -274,7 +274,7 @@ function confirm($HTTP_VARS)
 
 	if($edata['paytype'] == "Cash") {
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>Paid Cash</td>
 			</tr>
 			<input type='hidden' name='bankid' value='0'>";
@@ -289,7 +289,7 @@ function confirm($HTTP_VARS)
 		$bank = pg_fetch_array($bankRslt);
 
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank[accname]</td>
 			</tr>
@@ -305,7 +305,7 @@ function confirm($HTTP_VARS)
 		$bank = pg_fetch_array($bankRslt);
 
 		$row = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank</td>
 				<td>$bank[accname]</td>
 			</tr>
@@ -328,15 +328,15 @@ function confirm($HTTP_VARS)
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount due to employee</td>
 				<td>".CUR." $edata[balance]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount paid now</td>
 				<td><input type='hidden' name='paidamount' value='$paidamount'>".CUR." $paidamount</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>$date</td>
 			</tr>
@@ -463,7 +463,7 @@ function write($HTTP_VARS)
 			<tr>
 				<th>Payment Processed</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee payment has been processed.</td>
 			</tr>
 		</table>";

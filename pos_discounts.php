@@ -53,7 +53,7 @@ function enter()
 		<tr>
 			<th colspan='2'>Disable Pos User Discounts</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td align='center'>
 				<select name='posdisc'>
 					<option value='yes'>Yes</option>
@@ -94,7 +94,7 @@ function confirm($_POST)
 		<tr>
 			<th colspan='2'>Confirm</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Pos User Discounts</td>
 			<td>".ucfirst($posdisc)."</td>
 		</tr>
@@ -128,7 +128,7 @@ function write($_POST)
 	$rslt = db_exec($sql) or errDie("Unable to save the pos user discount setting to Cubit.");
 	
 	$OUTPUT = "<table border='0' cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Successfully updated the information to Cubit.</td>
 		</tr>
 	</table>";

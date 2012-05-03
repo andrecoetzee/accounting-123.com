@@ -78,15 +78,15 @@ function slctStk()
 		<form action='".SELF."' method=post name=form>
 		<input type=hidden name=key value=details>
 		<tr><th>Select Category</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td valign=center>$stockcat</td></tr>
+		<tr class='bg-odd'><td valign=center>$stockcat</td></tr>
 		<tr><td><input type=button value='< Cancel' onClick='javascript:history.back();'><input type=submit value='Add >'></td></tr>
 		</form>
 		</table>
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='stock-view.php'>View Stock</a></td></tr>
+			<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+			<tr class='bg-even'><td><a href='stock-view.php'>View Stock</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 
@@ -144,8 +144,8 @@ function details($_POST)
         <input type=hidden name=key value=confirm>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>Field</th><th>Value</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center><input type=text size=2 name=day maxlength=2 value='".date("d")."'>-<input type=text size=2 name=mon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=year maxlength=4 value='".date("Y")."'> DD-MM-YYYY</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Bank Account</td><td>$bank</td></tr>
+			<tr class='bg-odd'><td>Date</td><td valign=center><input type=text size=2 name=day maxlength=2 value='".date("d")."'>-<input type=text size=2 name=mon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=year maxlength=4 value='".date("Y")."'> DD-MM-YYYY</td></tr>
+			<tr class='bg-even'><td>Bank Account</td><td>$bank</td></tr>
 		</table>
 		<p>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
@@ -159,7 +159,7 @@ function details($_POST)
                 return "There is no stock found in Cubit.";
         	}else{
                 while($stk = pg_fetch_array($stkRslt)){
-                        $view .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=checkbox name='sel[]' value='$stk[stkid]'></td><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td><input type=text size=10 name='buom[".$stk['stkid']."]'> x $stk[buom]</td>
+                        $view .= "<tr class='bg-odd'><td><input type=checkbox name='sel[]' value='$stk[stkid]'></td><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td><input type=text size=10 name='buom[".$stk['stkid']."]'> x $stk[buom]</td>
 						<td><input type=text size=10 name='suom[".$stk['stkid']."]'> x $stk[suom]</td><td>".CUR." <input type=text size=9 name='csamt[".$stk['stkid']."]'></td></tr>";
                 }
         	}
@@ -169,8 +169,8 @@ function details($_POST)
         </table>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
         	<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='stock-view.php'>View Stock</a></td></tr>
+			<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+			<tr class='bg-even'><td><a href='stock-view.php'>View Stock</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
         </form>
         </table>";
@@ -239,8 +239,8 @@ function confirm($_POST)
 		<input type=hidden name=bankacc value='$bankacc'>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>Field</th><th>Value</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$date</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Bank Account</td><td>$bank[accname]</td></tr>
+			<tr class='bg-odd'><td>Date</td><td valign=center>$date</td></tr>
+			<tr class='bg-even'><td>Bank Account</td><td>$bank[accname]</td></tr>
         </table>
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
@@ -259,7 +259,7 @@ function confirm($_POST)
         		$stkRslt = db_exec($sql);
         		$stk = pg_fetch_array($stkRslt);
 
-				$confirm .= "<tr bgcolor='".TMPL_tblDataColor1."'><input type=hidden size=10 name='sel[]' value='$sel[$key]'><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td><input type=hidden size=10 name='buom[]' value='$buom[$value]'>$buom[$value] x $stk[buom]</td>
+				$confirm .= "<tr class='bg-odd'><input type=hidden size=10 name='sel[]' value='$sel[$key]'><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td><input type=hidden size=10 name='buom[]' value='$buom[$value]'>$buom[$value] x $stk[buom]</td>
 				<td><input type=hidden size=10 name='suom[]' value='$suom[$value]'>$suom[$value] x $stk[suom]</td><td>".CUR." <input type=hidden size=9 name='csamt[]' value='$csamt[$value]'>$csamt[$value]</td></tr>";
 			}
 		}
@@ -270,8 +270,8 @@ function confirm($_POST)
 		<p>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
         	<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='stock-view.php'>View Stock</a></td></tr>
+			<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+			<tr class='bg-even'><td><a href='stock-view.php'>View Stock</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
         </form>
         </table>";
@@ -374,8 +374,8 @@ function write($_POST)
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='stock-view.php'>View Stock</a></td></tr>
+			<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+			<tr class='bg-even'><td><a href='stock-view.php'>View Stock</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 

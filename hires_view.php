@@ -33,7 +33,7 @@ function display()
 
 		$time = date("d-m-Y G:i:s", $hire_data["e_time"]);
 
-		$hires_out .= "<tr bgcolor='".bgcolorg()."'>
+		$hires_out .= "<tr class='".bg_class()."'>
 			<td>$time</td>
 			<td>$cust_data[surname]</td>
 			<td>$stock_data[stkcod]</td>
@@ -47,7 +47,7 @@ function display()
 	}
 
 	if (empty($hires_out)) {
-		$hires_out .= "<tr bgcolor='".bgcolorg()."'>
+		$hires_out .= "<tr class='".bg_class()."'>
 			<td colspan='7'>No items on hire.</td>
 		</tr>";
 	}

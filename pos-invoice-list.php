@@ -75,7 +75,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' nowrap='t'>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
@@ -90,10 +90,10 @@ function slct()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pos-invoice-new.php'>New Point of Sale Invoice</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pos-invoice-list.php'>View Unprocessed Point of Sale Invoice</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -199,7 +199,7 @@ function printInv()
 			}
 
 			$printInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[deptname]</td>
 					<td>$inv[salespn]</td>
 					<td>TP $inv[invid]</td>
@@ -236,7 +236,7 @@ function printInv()
 
 		// Layout
 		$printInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'>Total Invoices: $i</td>
 					<td align='right'>".CUR." $tot1</td>
 				</tr>
@@ -254,10 +254,10 @@ function printInv()
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='pos-invoice-new.php'>New Point of Sale Invoice</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='pos-invoice-list.php'>View Unprocessed Point of Sale Invoice</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -301,27 +301,27 @@ function delete_confirm()
 			<tr>
 				<th colspan='2'>Confirm</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Department</td>
 				<td>$pinvData[deptname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sales Person</td>
 				<td>$pinvData[salespn]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Inv No.</td>
 				<td>$pinvData[invid]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoice Date</td>
 				<td>$pinvData[odate]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td>$pinvData[cusname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Grand Total</td>
 				<td>".CUR."$pinvData[total]</td>
 			</tr>
@@ -334,10 +334,10 @@ function delete_confirm()
 		<table ".TMPL_tblDflts.">
 			<tr>
 				<th>Quick Links</th></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pos-invoice-new.php'>New Point of Sale Invoice</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='pos-invoice-list.php'>View Unprocessed Point of Sale Invoice</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -452,10 +452,10 @@ function delete_write()
 			<table ".TMPL_tblDflts.">
 				<tr>
 					<th>Quick Links</th></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='pos-invoice-new.php'>New Point of Sale Invoice</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='pos-invoice-list.php'>View Unprocessed Point of Sale Invoice</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -468,10 +468,10 @@ function delete_write()
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='pos-invoice-new.php'>New Point of Sale Invoice</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='pos-invoice-list.php'>View Unprocessed Point of Sale Invoice</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>

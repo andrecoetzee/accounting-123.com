@@ -106,7 +106,7 @@ function get_data ($_POST)
 //			}
 
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<input type='hidden' name='stockid[]' value='$arr[stkid]'>
 					<td>$arr[stkcod]</td>
 					<td>$arr[stkdes]</td>
@@ -171,7 +171,7 @@ function confirm_data ($_POST)
 				continue;
 
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<input type='hidden' name='stockid[$i]' value='$stockid[$i]'>
 					<input type='hidden' name='stockprice[$i]' value='$stockprice[$i]'>
 					<td>$arr[stkcod]</td>

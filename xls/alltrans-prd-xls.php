@@ -94,7 +94,7 @@ function slctAcc()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=viewtran>
 	<tr><th colspan=2>Period Range</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>From : $fprd</td><td>To : $tprd</td></tr>
+	<tr class='bg-odd'><td>From : $fprd</td><td>To : $tprd</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td><input type=submit value='View All'></td></tr>
 	</form>

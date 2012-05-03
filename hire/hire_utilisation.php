@@ -36,7 +36,7 @@ function display()
 		if (!is_numeric($perc_search) || $percentage > $perc_search) {
 			continue;
 		}
-		$asset_out .= "<tr bgcolor='".bgcolorg()."'>
+		$asset_out .= "<tr class='".bg_class()."'>
 			<td>$asset_data[grpname]</td>
 			<td>".getSerial($asset_data["id"])."</td>
 			<td>$asset_data[des]</td>
@@ -51,7 +51,7 @@ function display()
 	}
 
 	if (empty($asset_out)) {
-		$asset_out = "<tr bgcolor='".bgcolorg()."'>
+		$asset_out = "<tr class='".bg_class()."'>
 			<td colspan='6'><li>No results found</li></td>
 		</tr>";
 	}
@@ -63,7 +63,7 @@ function display()
 		<tr>
 			<th colspan='3'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b> To </b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -71,7 +71,7 @@ function display()
 		<tr>
 			<th colspan='3'>Utilisation Percentage Filter (Less Than or Equal)</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3' align='center'>
 				<input type='text' name='perc_search' value='$perc_search'
 				size='2' style='text-align: center' />%

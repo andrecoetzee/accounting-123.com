@@ -112,11 +112,11 @@ function view()
 						<tr>
 							<th colspan='2'>Options</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Pricelist</td>
 							<td>$pricelists</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Increase Type</td>
 							<td><input type='radio' name='inctype' value='per' checked='yes'>Percentage <input type='text' name='perc' size='4' maxlength='4'> % <br> <input type='radio' name='inctype' value='man'>Manual</td>
 						</tr>
@@ -124,7 +124,7 @@ function view()
 						<tr>
 							<th colspan='2'>By Category</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>$cats</td>
 							<td valign='bottom'><input type='submit' name='cat' value='Increase'></td>
 						</tr>
@@ -132,7 +132,7 @@ function view()
 						<tr>
 							<th colspan='2'>By Classification</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>$class</td>
 							<td valign='bottom'><input type='submit' name='class' value='Increase'></td>
 						</tr>
@@ -147,7 +147,7 @@ function view()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='toms/pricelist-view.php'>View Price Lists</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -217,7 +217,7 @@ function details($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Price list</td>
 				<td align='center'>$list[listname]</td>
 			</tr>
@@ -252,7 +252,7 @@ function details($_POST)
 				continue;
 
 			$enter .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='hidden' name='stkids[]' value='$stk[stkid]'>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td>
 					<td>".CUR." ".sprint($stkp["price"])."</td>
 					<td align='right'>".CUR." <input type='text' name='prices[]' size='8' value='$stkp[price]'></td>
@@ -271,7 +271,7 @@ function details($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='toms/pricelist-view.php'>View Price Lists</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -393,7 +393,7 @@ function confirm ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Price list</td>
 				<td align='center'>$list[listname]</td>
 			</tr>
@@ -430,7 +430,7 @@ function confirm ($_POST)
 		$stkp = pg_fetch_array ($rslt);
 
 		$confirm .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='hidden' name='stkids[]' value='$stk[stkid]'>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td>
 				<td>".CUR." ".sprint($stkp["price"])."</td>
 				<td>".CUR." <input type='hidden' name='prices[]' size='8' value='$prices[$key]'>$prices[$key]</td>
@@ -450,7 +450,7 @@ function confirm ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='toms/pricelist-view.php'>View Price Lists</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -532,13 +532,13 @@ function write ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='toms/pricelist-view.php'>View Price Lists</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-settings.php'>Stock Settings</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

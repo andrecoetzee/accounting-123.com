@@ -125,41 +125,41 @@ function enter($_GET)
 			<tr>
 				<th colspan='2'>Personal details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Main Contact</td>
 				<td>$mainname</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Name</td>
 				<td align='center'><input type='text' size='27' name='name' value='$name'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Position</td>
 				<td align='center'><input type='text' size='27' name='pos' value='$pos'></td>
 			</tr>
 			<tr>
 				<th colspan=2>Contact details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Telephone</td>
 				<td align='center'><input type='text' size='27' name='tell' value='$tell'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cellphone</td>
 				<td align='center'><input type='text' size='27' name='cell' value='$cell'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Facsimile</td>
 				<td align='center'><input type='text' size='27' name='fax' value='$fax'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Email</td>
 				<td align='center'><input type='text' size='27' name='email' value='$email'></td>
 			</tr>
 			<tr>
 				<th colspan='2'>Notes</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><textarea name='notes' rows='4' cols='35'>$notes</textarea></td>
 			</tr>
 			<tr>
@@ -172,13 +172,13 @@ function enter($_GET)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='list_cons.php'>List contacts</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='groupware/list_cons.php'>Contacts</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -246,41 +246,41 @@ function confirm($_POST)
 			<tr>
 				<th colspan='2'>Personal details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Main Contact</td>
 				<td>$mainname</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Name</td>
 				<td align='center'><input type=hidden name=name value='$name'>$name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Position</td>
 				<td align='center'><input type=hidden name=pos value='$pos'>$pos</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Contact details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Telephone</td>
 				<td align='center'><input type='hidden' name='tell' value='$tell'>$tell</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cellphone</td>
 				<td align='center'><input type='hidden' name='cell' value='$cell'>$cell</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Facsimile</td>
 				<td align='center'><input type='hidden' name='fax' value='$fax'>$fax</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Email</td>
 				<td align='center'><input type='hidden' name='email' value='$email'>$email</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Notes</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='hidden' name='notes' value='$notes'><pre>$notes</pre></td>
 			</tr>
 			<tr>
@@ -293,13 +293,13 @@ function confirm($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='list_cons.php'>List contacts</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='groupware/list_cons.php'>Contacts</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -379,13 +379,13 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='conper-add.php?type=conn&id=$id'>Add another contact</a></td>
 			</tr>
-		    <tr bgcolor='".bgcolorg()."'>
+		    <tr class='".bg_class()."'>
 		    	<td><a href='groupware/list_cons.php'>Contacts</a></td>
 		    </tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

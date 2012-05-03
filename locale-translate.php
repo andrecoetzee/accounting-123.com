@@ -113,15 +113,15 @@ function enter($errors="")
 	  <tr>
 	    <th colspan=2>".ct("Language Info")."</th>
 	  </tr>
-	  <tr bgcolor='".bgcolorg()."'>
+	  <tr class='".bg_class()."'>
 	    <td>".ct("Language")."</td>
 	    <td>$language_sel</td>
 	  </tr>
-	  <tr bgcolor='".bgcolorg()."'>
+	  <tr class='".bg_class()."'>
 	    <td>".ct("Country")."</td>
 	    <td>$country_sel</td>
 	  </tr>
-	  <tr bgcolor='".bgcolorg()."'>
+	  <tr class='".bg_class()."'>
 	    <td>".ct("Character Encoding")."</td>
 	    <td>$encoding_sel</td>
 	  </tr>
@@ -254,10 +254,10 @@ function translate($offset = 1) {
 				if (preg_match("/(^msgstr \")([^\"]*)(\")/", $ar_pot_file[($i+1)],
 				$ar_msgstr)) {
 
-					$tl .= "<tr bgcolor='".bgcolorg()."'>
+					$tl .= "<tr class='".bg_class()."'>
 					<td><b>".htmlspecialchars($ar_msgid[2])."</b></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 					<td align=center>
 						<input type=text style='width: 495px;
 						background:'".bgcolorg()."' name='tl[".($i+1)."]'
@@ -318,21 +318,21 @@ function translate($offset = 1) {
       <tr>
         <th colspan=2>".ct("Translation Info")."</th>
       </tr>
-	  <tr bgcolor='".bgcolorg()."'>
+	  <tr class='".bg_class()."'>
 	    <td>".ct("Language")."</td>
 	    <td>$lang_out</td>
 	  </tr>
-	  <tr bgcolor='".bgcolorg()."'>
+	  <tr class='".bg_class()."'>
 	    <td>".ct("Country")."</td>
 	    <td>$country_out</td>
 	  </tr>
-	  <tr bgcolor='".bgcolorg()."'>
+	  <tr class='".bg_class()."'>
 	    <td>".ct("Character Encoding")."</td>
 	    <td>
 	      $encoding
 	    </td>
 	  </tr>
-	  <tr bgcolor='".bgcolorg()."'>
+	  <tr class='".bg_class()."'>
 	    <td>".ct("Page")."</td>
 	    <td>
 	    	<input type='text' name='page_txt' size='3' value='$current_page'
@@ -340,20 +340,20 @@ function translate($offset = 1) {
 	    	<input type='submit' name='page_btn' value='Goto' />
 	    </td>
 	  </tr>
-	  <tr bgcolor='".bgcolorg()."'>
+	  <tr class='".bg_class()."'>
 	  	<td colspan='2' align='center'>
 	  		<input type='checkbox' name='untrans' value='checked' $untrans
 	  		onchange='javascript:document.form.submit();' />
 	  		Display Only Untranslated Sentences
 	  	</td>
 	  </tr>
-	  <tr bgcolor='".bgcolorg()."'>
+	  <tr class='".bg_class()."'>
 	  	<td colspan='2'>
 	  		<table ".TMPL_tblDflts." width='100%'>
 	  			<tr>
 	  				<th colspan='5'>Search and Replace</th>
 	  			</tr>
-	  			<tr bgcolor='".bgcolorg()."'>
+	  			<tr class='".bg_class()."'>
 	  				<td>Search</td>
 	  				<td>
 	  					<input type='text' name='search' value='$search'
@@ -375,7 +375,7 @@ function translate($offset = 1) {
 	  		</table>
 	  	</td>
 	  </tr>
-	  <tr bgcolor='".bgcolorg()."'>
+	  <tr class='".bg_class()."'>
 	    <td colspan=2>
 	      Some of the translation sentences includes special words and characters
 	      such as `".htmlspecialchars("&laquo")."', `".htmlspecialchars("&raquo")."', `<', `<<', ect... Please include these words
@@ -387,10 +387,10 @@ function translate($offset = 1) {
 	  <tr>
 	    <th>".ct("Translate")."</th>
 	  </tr>
-	  <tr bgcolor='".bgcolorg()."'>
+	  <tr class='".bg_class()."'>
 	    <td>
 	      <table border=0 cellpadding=0 cellspacing=0 width=500>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	          <td width=50% align=left>$sz_prev</td>
 	          <td width=50% align=right>$sz_next</td>
 	        </tr>
@@ -398,10 +398,10 @@ function translate($offset = 1) {
 	    </td>
 	  </tr>
 	  $tl
-	  <tr bgcolor='".bgcolorg()."'>
+	  <tr class='".bg_class()."'>
 	    <td>
 	      <table border=0 cellpadding=0 cellspacing=0 width=500>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	          <td width=50% align=left>$sz_prev</td>
 	          <td width=50% align=right>$sz_next</td>
 	        </tr>

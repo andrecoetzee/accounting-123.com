@@ -123,25 +123,25 @@ function details($ordnum)
         <input type=hidden name=ordnum value='$ordnum'>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300>
 			<tr><th>Field</th><th>Value</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Reference No.</td><td><input type=text name=refno size=10></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock code</td><td>$stk[stkcod]</td></tr>
-        	<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock description</td><td>$stk[stkdes]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Supplier</td><td>$supplier</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Tel No.</td><td>$tel</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Fax No.</td><td>$fax</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Address</td><td><pre>$addr</pre></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Order Date</td><td>$orddate</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Delivery Date</td><td>$deldate</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Buying units</td><td>$buom x $stk[buom]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Selling units</td><td>$suom x $stk[suom]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Cost Amount</td><td>".CUR." $csamt</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Bank Account</td><td>$bank[accname]</td></tr>
+			<tr class='bg-even'><td>Reference No.</td><td><input type=text name=refno size=10></td></tr>
+			<tr class='bg-odd'><td>Stock code</td><td>$stk[stkcod]</td></tr>
+        	<tr class='bg-even'><td>Stock description</td><td>$stk[stkdes]</td></tr>
+			<tr class='bg-odd'><td>Supplier</td><td>$supplier</td></tr>
+			<tr class='bg-even'><td>Tel No.</td><td>$tel</td></tr>
+			<tr class='bg-odd'><td>Fax No.</td><td>$fax</td></tr>
+			<tr class='bg-even'><td valign=top>Address</td><td><pre>$addr</pre></td></tr>
+			<tr class='bg-odd'><td>Order Date</td><td>$orddate</td></tr>
+			<tr class='bg-even'><td>Delivery Date</td><td>$deldate</td></tr>
+			<tr class='bg-odd'><td>Buying units</td><td>$buom x $stk[buom]</td></tr>
+			<tr class='bg-even'><td>Selling units</td><td>$suom x $stk[suom]</td></tr>
+			<tr class='bg-odd'><td>Cost Amount</td><td>".CUR." $csamt</td></tr>
+			<tr class='bg-even'><td>Bank Account</td><td>$bank[accname]</td></tr>
 			<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td align=right><input type=submit value='Confirm &raquo'></td></tr>
 		</table><br><br>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
         	<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='order-new.php'>New Order</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='orders-view.php'>View Orders</a></td></tr>
+			<tr class='bg-odd'><td><a href='order-new.php'>New Order</a></td></tr>
+			<tr class='bg-even'><td><a href='orders-view.php'>View Orders</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
          </form>
         </table>";
@@ -257,8 +257,8 @@ function write($_POST)
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='order-new.php'>New Order</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='orders-view.php'>View Orders</a></td></tr>
+			<tr class='bg-odd'><td><a href='order-new.php'>New Order</a></td></tr>
+			<tr class='bg-even'><td><a href='orders-view.php'>View Orders</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 

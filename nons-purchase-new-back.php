@@ -187,7 +187,7 @@ function details($_POST, $error="")
 		}
 
 		# put in product
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><input type=text size=10 name=cod[] value='$stkd[cod]'></td><td align=center><input type=text size=20 name=des[] value='$stkd[des]'></td><td align=center><input type=text size=3 name=qtys[] value='$stkd[qty]'></td><td align=center><input type=text size=8 name=unitcost[] value='$stkd[unitcost]'></td><td align=center><input type=text size=2 name=dday[] maxlength=2 value='$sday'>-<input type=text size=2 name=dmon[] maxlength=2 value='$smon'>-<input type=text size=4 name=dyear[] maxlength=4 value='$syear'></td><td><input type=hidden name=amt[] value='$stkd[amt]'> ".CUR." $stkd[amt]</td><td>$tip <input type=text name=vat[] size=9 value='$stkd[svat]'></td><td><input type=checkbox name=remprod[] value='$key'><input type=hidden name=SCROLL value=yes></td></tr>";
+		$products .="<tr class='bg-odd'><td align=center><input type=text size=10 name=cod[] value='$stkd[cod]'></td><td align=center><input type=text size=20 name=des[] value='$stkd[des]'></td><td align=center><input type=text size=3 name=qtys[] value='$stkd[qty]'></td><td align=center><input type=text size=8 name=unitcost[] value='$stkd[unitcost]'></td><td align=center><input type=text size=2 name=dday[] maxlength=2 value='$sday'>-<input type=text size=2 name=dmon[] maxlength=2 value='$smon'>-<input type=text size=4 name=dyear[] maxlength=4 value='$syear'></td><td><input type=hidden name=amt[] value='$stkd[amt]'> ".CUR." $stkd[amt]</td><td>$tip <input type=text name=vat[] size=9 value='$stkd[svat]'></td><td><input type=checkbox name=remprod[] value='$key'><input type=hidden name=SCROLL value=yes></td></tr>";
 		$key++;
 	}
 
@@ -199,14 +199,14 @@ function details($_POST, $error="")
 		$done = "";
 		list($year, $mon, $day) = explode("-", date("Y-m-d"));
 		# add one
-		$products .= "<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><input type=text size=10 name=cod[] value=''></td><td align=center><input type=text size=20 name=des[] value=''></td><td align=center><input type=text size=3 name=qtys[] value='1'></td><td align=center><input type=text size=8 name=unitcost[]></td><td align=center><input type=text size=2 name=dday[] maxlength=2 value='$day'>-<input type=text size=2 name=dmon[] maxlength=2 value='$mon'>-<input type=text size=4 name=dyear[] maxlength=4 value='$year'></td><td>".CUR." 0.00</td><td><input type=hidden name=novat[] value='1'></td><td> </td></tr>";
+		$products .= "<tr class='bg-odd'><td align=center><input type=text size=10 name=cod[] value=''></td><td align=center><input type=text size=20 name=des[] value=''></td><td align=center><input type=text size=3 name=qtys[] value='1'></td><td align=center><input type=text size=8 name=unitcost[]></td><td align=center><input type=text size=2 name=dday[] maxlength=2 value='$day'>-<input type=text size=2 name=dmon[] maxlength=2 value='$mon'>-<input type=text size=4 name=dyear[] maxlength=4 value='$year'></td><td>".CUR." 0.00</td><td><input type=hidden name=novat[] value='1'></td><td> </td></tr>";
 	}
 
 	/* -- start Listeners -- */
 
 	if(isset($diffwhBtn)){
 		list($year, $mon, $day) = explode("-", date("Y-m-d"));
-		$products .= "<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><input type=text size=10 name=cod[] value=''></td><td align=center><input type=text size=20 name=des[] value=''></td><td align=center><input type=text size=3 name=qtys[] value='1'></td><td align=center><input type=text size=8 name=unitcost[]></td><td align=center><input type=text size=2 name=dday[] maxlength=2 value='$day'>-<input type=text size=2 name=dmon[] maxlength=2 value='$mon'>-<input type=text size=4 name=dyear[] maxlength=4 value='$year'></td><td>".CUR." 0.00</td><td><input type=hidden name=novat[$key] value='1'></td><td> </td></tr>";
+		$products .= "<tr class='bg-odd'><td align=center><input type=text size=10 name=cod[] value=''></td><td align=center><input type=text size=20 name=des[] value=''></td><td align=center><input type=text size=3 name=qtys[] value='1'></td><td align=center><input type=text size=8 name=unitcost[]></td><td align=center><input type=text size=2 name=dday[] maxlength=2 value='$day'>-<input type=text size=2 name=dmon[] maxlength=2 value='$mon'>-<input type=text size=4 name=dyear[] maxlength=4 value='$year'></td><td>".CUR." 0.00</td><td><input type=hidden name=novat[$key] value='1'></td><td> </td></tr>";
 		$key++;
 	}
 
@@ -238,18 +238,18 @@ function details($_POST, $error="")
  	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Supplier Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Supplier</td><td valign=center><input type=text name=supplier value='$pur[supplier]'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Supplier Address</td><td valign=center><textarea name=supaddr cols=18 rows=3>$pur[supaddr]</textarea></td></tr>
+			<tr class='bg-odd'><td>Supplier</td><td valign=center><input type=text name=supplier value='$pur[supplier]'></td></tr>
+			<tr class='bg-even'><td valign=top>Supplier Address</td><td valign=center><textarea name=supaddr cols=18 rows=3>$pur[supaddr]</textarea></td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Non-Stock Order Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Non-Stock Order No.</td><td valign=center>$pur[purnum]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Order No.</td><td valign=center><input type=text size=10 name=ordernum value='$ordernum'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms</td><td valign=center>$termssel Days</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td valign=center><input type=text size=2 name=pday maxlength=2 value='$pday'>-<input type=text size=2 name=pmon maxlength=2 value='$pmon'>-<input type=text size=4 name=pyear maxlength=4 value='$pyear'> DD-MM-YYYY</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Inclusive</td><td valign=center>Yes <input type=radio size=7 name=vatinc value='yes' $chy> No<input type=radio size=7 name=vatinc value='no' $chn> No VAT<input type=radio size=7 name=vatinc value='novat' $chnv></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Delivery Charges</td><td valign=center><input type=text size=7 name=shipchrg value='$pur[shipchrg]'></td></tr>
+			<tr class='bg-odd'><td>Non-Stock Order No.</td><td valign=center>$pur[purnum]</td></tr>
+			<tr class='bg-even'><td>Order No.</td><td valign=center><input type=text size=10 name=ordernum value='$ordernum'></td></tr>
+			<tr class='bg-odd'><td>Terms</td><td valign=center>$termssel Days</td></tr>
+			<tr class='bg-even'><td>Date</td><td valign=center><input type=text size=2 name=pday maxlength=2 value='$pday'>-<input type=text size=2 name=pmon maxlength=2 value='$pmon'>-<input type=text size=4 name=pyear maxlength=4 value='$pyear'> DD-MM-YYYY</td></tr>
+			<tr class='bg-odd'><td>VAT Inclusive</td><td valign=center>Yes <input type=radio size=7 name=vatinc value='yes' $chy> No<input type=radio size=7 name=vatinc value='no' $chn> No VAT<input type=radio size=7 name=vatinc value='novat' $chnv></td></tr>
+			<tr class='bg-even'><td>Delivery Charges</td><td valign=center><input type=text size=7 name=shipchrg value='$pur[shipchrg]'></td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -258,16 +258,16 @@ function details($_POST, $error="")
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th width=25%>Quick Links</th><th width=25%>Remarks</th><td rowspan=5 valign=top width=50%>$error</td></tr>
-			<tr><td bgcolor='".TMPL_tblDataColor1."'><a href='nons-purchase-view.php'>View Non-Stock Orders</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top><textarea name=remarks rows=4 cols=20>$pur[remarks]</textarea></td></tr>
+			<tr><td class='bg-odd'><a href='nons-purchase-view.php'>View Non-Stock Orders</a></td><td class='bg-odd' rowspan=4 align=center valign=top><textarea name=remarks rows=4 cols=20>$pur[remarks]</textarea></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>".CUR." <input type=hidden name=subtot value='$SUBTOT'>$SUBTOT</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Charges</td><td align=right>".CUR." $pur[shipping]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT @ ".TAX_VAT." %</td><td align=right>".CUR." $pur[vat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><th>GRAND TOTAL</th><td align=right>".CUR." <input type=hidden name=total value='$TOTAL'>$TOTAL</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>".CUR." <input type=hidden name=subtot value='$SUBTOT'>$SUBTOT</td></tr>
+			<tr class='bg-odd'><td>Delivery Charges</td><td align=right>".CUR." $pur[shipping]</td></tr>
+			<tr class='bg-odd'><td>VAT @ ".TAX_VAT." %</td><td align=right>".CUR." $pur[vat]</td></tr>
+			<tr class='bg-even'><th>GRAND TOTAL</th><td align=right>".CUR." <input type=hidden name=total value='$TOTAL'>$TOTAL</td></tr>
 		</table>
 	</td></tr>
 	<tr><td align=right><input name=diffwhBtn type=submit value='Add Item'> |</td><td><input type=submit name='upBtn' value='Update'>$done</td></tr>
@@ -572,14 +572,14 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 		$write = "
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>New Non-Stock Order</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Non-Stock Order from Supplier <b>$supplier</b> has been recorded.</td></tr>
+			<tr class='bg-even'><td>Non-Stock Order from Supplier <b>$supplier</b> has been recorded.</td></tr>
 		</table>
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='nons-purchase-view.php'>View Non-Stock Orders</a></td></tr>
+			<tr class='bg-odd'><td><a href='nons-purchase-view.php'>View Non-Stock Orders</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>";
 
 		return $write;

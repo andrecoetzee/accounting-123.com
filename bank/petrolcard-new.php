@@ -111,19 +111,19 @@ function view($VARS = array(), $err="")
 	<input type=hidden name=key value=confirm>
 	<tr><td colspan=2>$err</td></tr>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Bank Name</td><td ><input type=text size=20 name=bankname value='$bankname'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Type</td><td>$locsel</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Currency</td><td>$currsel</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Branch Name</td><td ><input type=text size=20 name=branchname value='$branchname'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Branch Code</td><td ><input type=text size=20 name=branchcode value='$branchcode'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Account Name</td><td ><input type=text size=20 name=accname maxlength=50 value='$accname'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Account Number</td><td ><input type=text size=20 name=accnum value='$accnum'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Ledger Account</td><td>$accs</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Card Number</td><td ><input type=text size=25 name=cardnum maxlength=16 value='$cardnum'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Expiry Date</td><td><input type=text size=2 name=mon maxlength=2 value='$mon'>-<input type=text size=4 name=year maxlength=4 value='$year'>MM-YYYY</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Last 3 Digits at back of Card</td><td ><input type=text size=3 maxlength=3 name=lastdigits value='$lastdigits'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Card Type</td><td><input type=radio name=cardtyp value=Visa $chv>Visa &nbsp;&nbsp; <input type=radio name=cardtyp value='Mastercard' $chm> Mastercard &nbsp;&nbsp;&nbsp;<input type=radio name=cardtyp value='other' $cho>Other: <input type=text name=cardname value='$cardname'></td>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Details</td><td ><textarea cols=20 rows=3 name=details>$details</textarea></td></tr>
+	<tr class='bg-odd'><td>".REQ."Bank Name</td><td ><input type=text size=20 name=bankname value='$bankname'></td></tr>
+	<tr class='bg-even'><td>".REQ."Type</td><td>$locsel</td></tr>
+	<tr class='bg-odd'><td>".REQ."Currency</td><td>$currsel</td></tr>
+	<tr class='bg-even'><td>".REQ."Branch Name</td><td ><input type=text size=20 name=branchname value='$branchname'></td></tr>
+	<tr class='bg-odd'><td>".REQ."Branch Code</td><td ><input type=text size=20 name=branchcode value='$branchcode'></td></tr>
+	<tr class='bg-even'><td>".REQ."Account Name</td><td ><input type=text size=20 name=accname maxlength=50 value='$accname'></td></tr>
+	<tr class='bg-odd'><td>".REQ."Account Number</td><td ><input type=text size=20 name=accnum value='$accnum'></td></tr>
+	<tr class='bg-even'><td>".REQ."Ledger Account</td><td>$accs</td></tr>
+	<tr class='bg-odd'><td>".REQ."Card Number</td><td ><input type=text size=25 name=cardnum maxlength=16 value='$cardnum'></td></tr>
+	<tr class='bg-even'><td>".REQ."Expiry Date</td><td><input type=text size=2 name=mon maxlength=2 value='$mon'>-<input type=text size=4 name=year maxlength=4 value='$year'>MM-YYYY</td></tr>
+	<tr class='bg-odd'><td>".REQ."Last 3 Digits at back of Card</td><td ><input type=text size=3 maxlength=3 name=lastdigits value='$lastdigits'></td></tr>
+	<tr class='bg-even'><td>Card Type</td><td><input type=radio name=cardtyp value=Visa $chv>Visa &nbsp;&nbsp; <input type=radio name=cardtyp value='Mastercard' $chm> Mastercard &nbsp;&nbsp;&nbsp;<input type=radio name=cardtyp value='other' $cho>Other: <input type=text name=cardname value='$cardname'></td>
+	<tr class='bg-odd'><td>".REQ."Details</td><td ><textarea cols=20 rows=3 name=details>$details</textarea></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td ><input type=submit value='Confirm &raquo'></td></tr>
 	</form>
@@ -131,8 +131,8 @@ function view($VARS = array(), $err="")
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../core/acc-new2.php'>Add Ledger Account</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='../core/acc-new2.php'>Add Ledger Account</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $view;
@@ -209,19 +209,19 @@ function confirm($_POST)
 	<input type=hidden name=cardtyp value='$cardtyp'>
 	<input type=hidden name=details value='$details'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Bank Name</td><td>$bankname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Type</td><td>$locs[$loc]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Currency</td><td>$curr[symbol] - $curr[name]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Branch Name</td><td>$branchname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Branch Code</td><td>$branchcode</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Name</td><td>$accname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Number</td><td>$accnum</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Ledger Account</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Card Number</td><td>$cardnum</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Expiry Date</td><td>$mon-$year</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Last 3 Digits at back of Card</td><td>$lastdigits</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Card Type</td><td>$cardtyp</td>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Details</td><td>$details</td></tr>
+	<tr class='bg-odd'><td>Bank Name</td><td>$bankname</td></tr>
+	<tr class='bg-even'><td>Type</td><td>$locs[$loc]</td></tr>
+	<tr class='bg-odd'><td>Currency</td><td>$curr[symbol] - $curr[name]</td></tr>
+	<tr class='bg-even'><td>Branch Name</td><td>$branchname</td></tr>
+	<tr class='bg-odd'><td>Branch Code</td><td>$branchcode</td></tr>
+	<tr class='bg-even'><td>Account Name</td><td>$accname</td></tr>
+	<tr class='bg-odd'><td>Account Number</td><td>$accnum</td></tr>
+	<tr class='bg-even'><td>Ledger Account</td><td>$acc[topacc]/$acc[accnum] - $acc[accname]</td></tr>
+	<tr class='bg-odd'><td>Card Number</td><td>$cardnum</td></tr>
+	<tr class='bg-even'><td>Expiry Date</td><td>$mon-$year</td></tr>
+	<tr class='bg-odd'><td>Last 3 Digits at back of Card</td><td>$lastdigits</td></tr>
+	<tr class='bg-even'><td>Card Type</td><td>$cardtyp</td>
+	<tr class='bg-odd'><td>Details</td><td>$details</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Write &raquo'></td></tr>
 	</form>
@@ -229,8 +229,8 @@ function confirm($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../core/acc-new2.php'>Add Ledger Account</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='../core/acc-new2.php'>Add Ledger Account</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 	return $confirm;
 }
@@ -297,8 +297,8 @@ function write($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='bankacct-view.php'>View Bank Accounts</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='bankacct-view.php'>View Bank Accounts</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

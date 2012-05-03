@@ -154,37 +154,37 @@ function edit($recid)
 						<td width='50%'><h3>Debit</h3></td>
 						<td width='50%'><h3>Credit</h3></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 						<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 					</tr>
 					<tr><td><br></td></tr>
 					<tr><td><br></td></tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Date</td>
 						<td>".mkDateSelect("date",$date[0],$date[1],$date[2])."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Reference No.</td>
 						<td valign='center'><input type='text' size='20' name='refnum' value='$tran[refnum]'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Amount</td>
 						<td valign='center'>".CUR."<input type='text' size='20' name='amount' value='$tran[amount]'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Transaction Details</td>
 						<td valign='center'><textarea cols='20' rows='5' name='details'>$tran[details]</textarea></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Person Authorising</td>
 						<td valign='center'><input type='hidden' size='20' name='author' value='$tran[author]'>$tran[author]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>VAT Code</td>
 						<td>$Vatcodes</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>VAT</td>
 						<td><input type='radio' name='chrgvat' $sel1 value='inclusive'>Inclusive <input type='radio' name='chrgvat' $sel2 value='exclusive'>Exclusive <input type='radio' name='chrgvat' $sel3 value='novat'>No vat</td>
 					</tr>
@@ -293,37 +293,37 @@ function confirm($_POST)
 							<td width='50%'><h3>Debit</h3></td>
 							<td width='50%'><h3>Credit</h3></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 							<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 						</tr>
 						<tr><td><br></td></tr>
 						<tr><td><br></td></tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td>$date</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Reference number</td>
 							<td>$refnum</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td>".CUR." $amount</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Details</td>
 							<td>$details</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Authorising Person</td>
 							<td>$author</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Code</td>
 							<td>$vatcodes</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT</td>
 							<td>$chrgvat</td>
 						</tr>
@@ -428,7 +428,7 @@ function write($_POST)
 						<td width='50%'><h3>Debit</h3></td>
 						<td width='50%'><h3>Credit</h3></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 						<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 					/tr>
@@ -436,7 +436,7 @@ function write($_POST)
 					<tr colspan='2'>
 						<td><h4>Amount</h4></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'><b>".CUR." $amount</b></td>
 					</tr>
 				</table>

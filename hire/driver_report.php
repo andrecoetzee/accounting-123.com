@@ -27,7 +27,7 @@ function display()
 		<form method='post' action='".SELF."'>
 		<table ".TMPL_tblDflts.">
 			<tr><th colspan='4'>Date Range</th></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				<td>&nbsp; <b>To</b> &nbsp;</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -74,26 +74,26 @@ function display()
 
 			$item_out .= "
 			<table ".TMPL_tblDflts." width='400' style='border: 1px solid #000'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><b>$item_data[surname]</b></td>
 					<td>".ucfirst($value)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Hire No: H".getHirenum($item_data["invid"], 1)."</td>
 					<td>Date:_____________________</td>
 				</td>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Business Tel: $item_data[bustel]</td>
 					<td>Cell No: $item_data[cellno]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'>$address</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td style='padding-top: 10px'>Signature (Driver)</td>
 					<td>___________________________</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td style='padding-top: 10px'>Signature (Recipient)</td>
 					<td>___________________________</td>
 				</tr>

@@ -163,31 +163,31 @@ function enter($errors="")
 			<tr>
 				<th colspan='2'>Project Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Name</td>
 				<td><input type='text' name='name' value='$name' style='width: 100%' /></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Champion</td>
 				<td>$champ_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sponsor</td>
 				<td>$sponsor_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Leader</td>
 				<td>$leader_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Expected Date of Completion</td>
 				<td>".mkDateSelect("edate", $edate_year, $edate_month, $edate_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Priority</td>
 				<td>$priority_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sub Project</td>
 				<td align='center'>
 					Yes <input type='radio' name='sub_project' value='yes' $sproj_y />
@@ -266,27 +266,27 @@ function confirm()
 			<tr>
 				<th colspan='2'>Confirm</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Name</td>
 				<td>$name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Champion</td>
 				<td>$champion</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sponsor</td>
 				<td>$sponsor</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Leader</td>
 				<td>$leader</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Expected Date of Project Completion</td>
 				<td>$edate</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Priority</td>
 				<td>$priority</td>
 			</tr>
@@ -348,7 +348,7 @@ function write()
 			<tr>
 				<th>Write</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><li>Successfully saved the project</li></td>
 			</tr>
 		</table>";

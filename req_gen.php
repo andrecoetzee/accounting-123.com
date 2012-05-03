@@ -83,20 +83,20 @@ function get_req ()
 <form action='".SELF."' method=post>
 <input type=hidden name=key value=write>
 <tr><th>For</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>
+<tr class='bg-odd'><td align=center>
 [CTRL] + Click to select more than one user<br>
 $users
 </td></tr>
 <tr><th>Message</th></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td align=center><textarea cols=25 rows=4 name=des></textarea></td></tr>
+<tr class='bg-even'><td align=center><textarea cols=25 rows=4 name=des></textarea></td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Send &raquo;'></td></tr>
 </form>
 </table>
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_reqs.php'>Messages</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='index_reqs.php'>Messages</a></td></tr>
+        <tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
         return $get_req;
@@ -188,9 +188,9 @@ function write_req ($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Send another message</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_reqs.php'>Messages</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='".SELF."'>Send another message</a></td></tr>
+		<tr class='bg-odd'><td><a href='index_reqs.php'>Messages</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write_req;

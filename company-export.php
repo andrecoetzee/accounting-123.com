@@ -60,9 +60,9 @@ if ( ! isset($_GET["code"]) ) {
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 	<tr><td><br></td></tr>
 	<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='company-import.php'>Import Company</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='company-new.php'>Add Company</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='company-import.php'>Import Company</a></td></tr>
+		<tr class='bg-odd'><td><a href='company-new.php'>Add Company</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	require ("template.php");

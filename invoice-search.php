@@ -60,11 +60,11 @@ function slct()
 			<tr>
 				<th>Invoice Number</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='5' name='invnum'></td>
 			</tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='submit' value='Search'></td>
 			</tr>
 		</form>
@@ -251,7 +251,7 @@ function find_invoice ($invnum)
 			}
 			//<a href='invoice-email.php?invid=$inv[invid]'>Email</a>
 			$normalInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[deptname]</td>
 					<td>$Dis</td>
 					<td align='center'>$inv[odate]</td>
@@ -397,7 +397,7 @@ function find_invoice ($invnum)
 			}
 			$delnote = "<td><a target='_blank' href='invoice-delnote-prd.php?invid=$inv[invid]&prd=$prd'>Delivery Note</a></td>";
 			$paidInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[deptname]</td>
 					<td>$inv[invnum]</td>
 					<td>$inv[docref]</td>
@@ -473,7 +473,7 @@ function find_invoice ($invnum)
 			
 			$inv['total'] = sprint($inv['total']);
 			$unfInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[username]</td>
 					<td>$inv[deptname]</td>
 					<td>$inv[salespn]</td>
@@ -543,7 +543,7 @@ function find_invoice ($invnum)
 			}
 
 			$unposInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[deptname]</td>
 					<td>$inv[salespn]</td>
 					<td>TP $inv[invid]</td>
@@ -643,7 +643,7 @@ function find_invoice ($invnum)
 			$total = sprint($inv['total'] - $inv['rounding']);
 
 			$posInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[deptname]</td>
 					<td>$inv[salespn]</td>
 					<td>$inv[invnum]</td>
@@ -762,7 +762,7 @@ function find_invoice ($invnum)
 		}
 
 		$nonsOrd .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$nonstks[invnum]</td>
 				<td>$nonstks[docref]</td>
 				<td>$nonstks[odate]</td>
@@ -895,7 +895,7 @@ function find_invoice ($invnum)
 		}
 		
 		$paidnonsOrd .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$nonstks[invnum]</td>
 				<td>$nonstks[docref]</td>
 				<td>$date</td>
@@ -986,7 +986,7 @@ function find_invoice ($invnum)
 		$cur = CUR;
 
 		$unfnonsOrd .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$nonstks[invnum]</td>
 				<td>$nonstks[docref]</td>
 				<td>$date</td>

@@ -58,7 +58,7 @@ function enter($error="")
 	    <th>Option</th>
 	    <th>Value</th>
 	  <tr>
-	  <tr bgcolor='".TMPL_tblDataColor1."'>
+	  <tr class='bg-odd'>
 	    <td>".REQ."Comment text</td>
 	    <td><textarea rows=5 cols=20 name=comments>$comments</textarea></td>
 	  </tr>
@@ -84,7 +84,7 @@ function confirm($_POST)
 	    <th>Option</th>
 	    <th>Value</th>
 	  </tr>
-	  <tr bgcolor='".TMPL_tblDataColor1."'>
+	  <tr class='bg-odd'>
 	    <td>Comment Text</td>
 	    <td>$comments</td>
 	  </tr>

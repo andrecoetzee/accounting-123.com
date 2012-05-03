@@ -81,7 +81,7 @@ function add($err = "") {
 		<th>Field</th>
 		<th>Value</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Bank Account</td>
 		<td valign='center'>$bank</td>
 	</tr>
@@ -120,19 +120,19 @@ function confirm() {
 		<th>Field</th>
 		<th>Value</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Bank</td>
 		<td>$bank[bankname]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Branch</td>
 		<td>$bank[branchname] ($bank[branchcode])</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Account Name</td>
 		<td>$bank[accname]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Account Number</td>
 		<td>$bank[accnum]</td>
 	</tr>

@@ -56,7 +56,7 @@ function slct()
 			<tr>
 				<th>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td width='80%' align='center'>
 					<input type='text' size='2' name='fday' maxlength='2'>-
 					<input type='text' size='2' name='fmon' maxlength='2' value='".date("m")."'>-
@@ -75,17 +75,17 @@ function slct()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='order-new.php'>New Order</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-report.php'>Stock Control Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-view.php'>View Stock</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
   		</table>";
@@ -166,17 +166,17 @@ function printOrd ($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='order-new.php'>New Order</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='stock-report.php'>Stock Control Reports</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='stock-view.php'>View Stock</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -199,7 +199,7 @@ function printOrd ($_POST)
 			$stk = pg_fetch_array($stkRslt);
 			if($stkp['recved'] != "c"){
 				$printOrd .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$date</td>
 						<td>$deldate</td>
 						<td>$stk[stkcod]</td>
@@ -222,7 +222,7 @@ function printOrd ($_POST)
 			}
 		}else{
 			$printOrd .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$date</td>
 					<td></td>
 					<td align='center'>Removed Stock</td>
@@ -244,13 +244,13 @@ function printOrd ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='order-new.php'>New Order</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".bgcolorg()."'><td><a href='stock-report.php'>Stock Control Reports</a></td></tr>
-			<tr bgcolor='".bgcolorg()."'><td><a href='stock-view.php'>View Stock</a></td></tr>
-			<tr bgcolor='".bgcolorg()."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='".bg_class()."'><td><a href='stock-report.php'>Stock Control Reports</a></td></tr>
+			<tr class='".bg_class()."'><td><a href='stock-view.php'>View Stock</a></td></tr>
+			<tr class='".bg_class()."'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>";
 	return $printOrd;
 

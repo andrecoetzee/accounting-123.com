@@ -681,7 +681,7 @@ function enterEmp ($err="")
 							<td>Resident</td>
 							<td valign='center'>$residents</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Employee Group</td>
 							<td>$emp_group_drop</td>
 						</tr>
@@ -883,7 +883,7 @@ function enterEmp ($err="")
 							".mkDateSelect("t")."
 						</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Nature Of Person</td>
 						<td>$natures_drop</td>
 					</tr>
@@ -1141,7 +1141,7 @@ function confirmEmp ($_POST)
 
 			if ( $fringebens[$key] > 0 ) {
 				$fringe_disp .="
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$fringename[$key]</td>
 						<td>$symbol_cur $fringebens[$key] $symbol_perc</td>
 					</tr>";
@@ -1176,7 +1176,7 @@ function confirmEmp ($_POST)
 
 			if( $perc == "Yes" && $allowances[$key]>0 ) {
 				$all_before .="
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$allowname[$key]</td>
 						<td>$symbol_cur $allowances[$key] $symbol_perc</td>
 					</tr>";
@@ -1184,7 +1184,7 @@ function confirmEmp ($_POST)
 				$all_beforeamount = ($all_beforeamount  + $allowances[$key]);
 			} elseif ( $allowances[$key] > 0 ) {
 				$all_after .="
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$allowname[$key]</td>
 						<td>$symbol_cur $allowances[$key] $symbol_perc</td>
 					</tr>";
@@ -1264,7 +1264,7 @@ function confirmEmp ($_POST)
 
             if( $perc == "Yes" && $deductions[$key]>0 ) {
 				$de_before .="
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$deductname[$key]</td>
 						<td>$symbol_cur $deductions[$key] $symbol_perc</td>
 						<td>$symbol_cur $comp_deductions[$key] $symbol_perc</td>
@@ -1273,7 +1273,7 @@ function confirmEmp ($_POST)
 				$de_beforeamount = ($de_beforeamount  + $deductions[$key]);
             } else if ( $deductions[$key] > 0 ) {
 				$de_after .="
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$deductname[$key]</td>
 						<td>$symbol_cur $deductions[$key] $symbol_perc</td>
 						<td>$symbol_cur $comp_deductions[$key] $symbol_perc</td>
@@ -1314,7 +1314,7 @@ function confirmEmp ($_POST)
 	$saltype = $salarr[$saltyp];
 
 	if ( $changelogo == "yes" ) {
-		$img = "<tr bgcolor='".bgcolorg()."'><td>Image</td><td><input type='file' size='20' name='logo'></td></tr>";
+		$img = "<tr class='".bg_class()."'><td>Image</td><td><input type='file' size='20' name='logo'></td></tr>";
 	} else {
 		$img = "";
 	}
@@ -1335,7 +1335,7 @@ function confirmEmp ($_POST)
 
 	while( $data = pg_fetch_array($rslt) ) {
 		$ctd .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$data[centername]</td>
 				<td><input type='hidden' name='ct[$data[ccid]]' value='".$ct[$data['ccid']]."'>".$ct[$data['ccid']]." %</td>
 			</tr>";
@@ -1566,145 +1566,145 @@ function confirmEmp ($_POST)
 						<tr>
 							<th colspan='2'>Employee Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Emp Num</td>
 							<td>$empnum</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Surname</td>
 							<td valign='center'>$sname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>First Names</td>
 							<td valign='center'>$fnames</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Sex</td>
 							<td valign='center'>$sexx</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Race</td>
 							<td>$race</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Disabled Status</td>
 							<td>$disabled_stat</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Marital Status</td>
 							<td valign='center'>$marital</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Resident</td>
 							<td valign='center'>$resident</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Employee Group</td>
 							<td>$show_emp_group</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Hire Date<li class='err'>Ensure this date is correct as
 								it will be used in<br />PAYE calculations and cannot be
 								changed once saved.</li></td>
 							<td valign='center'>$hiredate</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Telephone No</td>
 							<td valign='center'>$telno</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Email</td>
 							<td valign='center'>$email</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Remuneration</td>
 							<td valign='center'>R $basic_sal $saltype</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Hours Per Week</td>
 							<td valign='top'>$hpweek&nbsp;&nbsp;Hours</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td rowspan='2'>Overtime rate</td>
 							<td valign='top'>x $novert&nbsp;&nbsp;Normal</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<!--         rowspan         -->
 							<td valign='top'>x $hovert&nbsp;&nbsp;Public holidays</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Pay Period</td>
 							<td valign='top'>$payprd_day</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Pay Type</td>
 							<td valign='center'>$paytype</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Name</td>
 							<td valign='center'>$bankname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch Code</td>
 							<td valign='center'>$bankcode</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Account Type</td>
 							<td valign='center'>$bankacctype</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Account No</td>
 							<td valign='center'>$bankaccno</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>UIF: Employee Contribution</td>
 							<td valign='center'>$emp_uif %</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>UIF: Company Contribution</td>
 							<td valign='center'>$comp_uif %</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Retirement Annuity: Employee Contribution</td>
 							<td valign='center'>".CUR." $emp_ret</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Retirement Annuity: Company Contribution</td>
 							<td valign='center'>".CUR." $comp_ret</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Pension: Employee Contribution</td>
 							<td valign='center'>$emp_pension %</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Pension: Company Contribution</td>
 							<td valign='center'>$comp_pension %</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Medical Contribution: Employee</td>
 							<td valign='center'>".CUR." $emp_medical</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Medical Contribution: Employee Beneficiaries</td>
 							<td valign='center'>$emp_meddeps</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Medical Contribution: Company</td>
 							<td valign='center'>".CUR." $comp_medical</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Provident Fund: Employee Contribution</td>
 							<td valign='center'>$emp_provident %</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Provident Fund: Company Contribution</td>
 							<td valign='center'>$comp_provident %</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Other: Employee Contribution</td>
 							<td valign='center'>$emp_other %</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Other: Company Contribution</td>
 							<td valign='center'>$comp_other %</td>
 						</tr>
@@ -1715,143 +1715,143 @@ function confirmEmp ($_POST)
 						<tr>
 							<th colspan='2'>Employee Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Medical Aid</td>
 							<td>$show_medical_aid</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Medical Aid Number</td>
 							<td>$medical_aid_number</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Nature Of Person</td>
 							<td>$natures[$person_nature]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Designation (Job Title)</td>
 							<td>$designation</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Department</td>
 							<td>$showdepartment</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Occupational Category</td>
 							<td>$showocc_cat</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Occupational Level</td>
 							<td>$showocc_level</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>This Position Filled</td>
 							<td>$showpos_filled</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Temporary (Employee or Contract)</td>
 							<td>$temporary</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>If Temporary: Termination Date</td>
 							<td>$termination_date</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Recruitment From</td>
 							<td>$recruitment_from</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Reason for Employment</td>
 							<td>$employment_reason</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Union Name</td>
 							<td>$showunion</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Union Membership Number</td>
 							<td>$union_mem_num</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Union Position</td>
 							<td>$union_pos</td>
 						</tr>
 						$img
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>ID Num</td>
 							<td>$idnum</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Passport Num</td>
 							<td>$passportnum</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Income Tax Ref No.</td>
 							<td>$taxref</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Vacation Leave</td>
 							<td valign='top'>$vaclea days</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Sick Leave</td>
 							<td valign='top'>$siclea days</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Study Leave</td>
 							<td valign='top'>$stdlea days</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Residential Address</td>
 							<td valign='center'>$res1</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$res2</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$res3</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$res4</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Postal Address</td>
 							<td valign='center'>$pos1</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$pos2</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Postal Code</td>
 							<td valign='center'>$pcode</td>
 						</tr>
 						<tr>
 							<th colspan='2'>Friend Not Living With Employee</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Surname</td>
 							<td valign='center'>$contsname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>First Names</td>
 							<td valign='center'>$contfnames</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Residential Address</td>
 							<td valign='center'>$contres1</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$contres2</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$contres3</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Telephone No</td>
 							<td valign='center'>$conttelno</td>
 						</tr>

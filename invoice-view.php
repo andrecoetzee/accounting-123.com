@@ -86,27 +86,27 @@ function slct()
 				<tr>
 					<th colspan='2'>By Date Range</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align=center  colspan=2>
 						".mkDateSelect("from",date("Y"),date("m"),"01")."
 						&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
 						".mkDateSelect("to")."
 					</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Customer</td>
 					<td>$custs</td>
 					<td valign='bottom'><input type='submit' value='Search'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2' align='center'>OR</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Input customer account number</td>
 					<td><input type='text' name='accnum' size='10'></td>
 					<td valign='bottom'><input type='submit' value='View'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>All Customers</td>
 					<td><input type='submit' name='all' value='List All &raquo;'></td>
 				</tr>
@@ -283,7 +283,7 @@ function printInv ($_POST)
 			}
 			//<a href='invoice-email.php?invid=$inv[invid]'>Email</a>
 			$printInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[deptname]</td>
 					<td>$Dis</td>
 					<td align='center'>$inv[odate]</td>
@@ -341,7 +341,7 @@ function printInv ($_POST)
 	// Layout
 	if($i > 0) {
 		$printInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='6'>Totals:$i</td>
 					<td align='right' nowrap>".CUR." $tot1</td>
 					<td align='right' nowrap>".CUR." $tot2</td>

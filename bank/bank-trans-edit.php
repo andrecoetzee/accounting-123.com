@@ -140,27 +140,27 @@ function add($_POST)
 						<th width='40%'>Field</th>
 						<th>Value</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>From</td>
 						<td>$frombanksel</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>To</td>
 						<td>$tobanksel</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Date</td>
 						<td>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Description</td>
 						<td valign='center'><textarea cols='18' rows='2' name='descript'>$descript</textarea></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Cheque Number</td>
 						<td valign='center'><input size='10' name='cheqnum' value='$cheqnum'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Amount</td>
 						<td valign='center'>".CUR." <input type='text' size='10' name='amount' value='$amount'></td>
 					</tr>
@@ -264,27 +264,27 @@ function confirm($_POST)
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>From</td>
 							<td>$fbank[accname] - $fbank[bankname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>To</td>
 							<td>$tbank[accname] - $tbank[bankname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td valign='center'>$date</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Description</td>
 							<td valign='center'>$descript</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cheque Number</td>
 							<td valign='center'>$cheqnum</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td valign='center'>".CUR." $amount</td>
 						</tr>
@@ -422,7 +422,7 @@ function write($_POST)
 								<tr class='datacell'>
 									<td align='center'><a target=_blank href='../core/acc-new2.php'>Add account (New Window)</a></td>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td><a href='cashbook-view.php'>View Cash Book</a></td>
 								</tr>
 								<script>document.write(getQuicklinkSpecial());</script>

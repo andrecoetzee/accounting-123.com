@@ -86,7 +86,7 @@ function sel_sup()
 				<tr>
 					<th colspan='2'>Select Supplier</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Suppliers</td>
 					<td>$supp</td>
 				</tr>
@@ -108,7 +108,7 @@ function sel_sup()
 							<tr>
 								<th>Quick Links</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 							</tr>
 							<script>document.write(getQuicklinkSpecial());</script>
@@ -176,11 +176,11 @@ function sel_bank($supid)
 				<tr>
 					<th colspan='2'>Select Customer</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Banks</td>
 					<td>$banks</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Supplier</td>
 					<td valign='center'>($sup[supno]) $sup[supname]</td>
 				</tr>
@@ -278,35 +278,35 @@ function method($_POST,$err = "")
 				<input type='hidden' name='bankid' value='$bankid'>
 				<tr><th colspan='2'>Payment Details</th></tr>
 				$err
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account</td>
 					<td>$bank[accname] - $bank[bankname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Paid To</td>
 					<td valign='center'>($sup[supno]) $sup[supname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Description</td>
 					<td valign='center'><textarea col='18' rows='3' name='descript'>$descript</textarea></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Cheque Number</td>
 					<td valign='center'><input size='20' name='cheqnum' value='$cheqnum'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Amount</td>
 					<td valign='center'>$bcur <input type='text' size='13' name='amt' value='$amt'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Exchange rate</td>
 					<td valign='center'>".CUR." / $sup[currency] <input type='text' size='8' name='rate' value='$rate'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Allocation</td>
 					<td>$alls</td>
 				</tr>
@@ -350,7 +350,7 @@ function method($_POST,$err = "")
 
 	# Alternate bgcolor
 	$printCust .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$sup[currency] ".sprint ($curr)."</td>
 					<td>$sup[currency] ".sprint ($age30)."</td>
 					<td>$sup[currency] ".sprint ($age60)."</td>
@@ -370,7 +370,7 @@ function method($_POST,$err = "")
 							<tr>
 								<th>Quick Links</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 							</tr>
 							<script>document.write(getQuicklinkSpecial());</script>
@@ -472,31 +472,31 @@ function alloc($_POST)
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account</td>
 					<td>$bank[accname] - $bank[bankname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td valign='center'>$date</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Paid To</td>
 					<td valign='center'>($sup[supno]) $sup[supname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Description</td>
 					<td valign='center'>".nl2br($descript)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Cheque Number</td>
 					<td valign='center'>$cheqnum</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Amount</td>
 					<td valign='center'>$sup[currency] $amt | ".CUR." $lamt</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Exchange rate</td>
 					<td valign='center'>".CUR." / $sup[currency] $rate</td>
 				</tr>";
@@ -532,7 +532,7 @@ function alloc($_POST)
 
 			$invid = $inv['invid'];
 			$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 						<td>$sup[currency] $inv[fbalance]</td>
 						<td>$inv[odate]</td>";
@@ -553,7 +553,7 @@ function alloc($_POST)
 		}
 		if($out > 0) {
 			$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='5'><b>A general transaction will debit the supplier's account with $sup[currency] $out </b></td>
 					</tr>";}
 	}
@@ -584,7 +584,7 @@ function alloc($_POST)
 
 		# Alternate bgcolor
 		$confirm .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$sup[currency] ".sprint ($curr)."</td>
 								<td>$sup[currency] ".sprint ($age30)."</td>
 								<td>$sup[currency] ".sprint ($age60)."</td>
@@ -593,7 +593,7 @@ function alloc($_POST)
 								<td>$sup[currency] ".sprint ($supttot)."</td>
 							</tr>";
 		$confirm .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='text' size='7' name='out1'></td>
 								<td><input type='text' size='7' name='out2'></td>
 								<td><input type='text' size='7' name='out3'></td>
@@ -640,7 +640,7 @@ function alloc($_POST)
 			$val = '';
 			if(pg_numrows($prnInvRslt) == 1) {$val = $amt;}
 			$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 						<td>$sup[currency] $inv[fbalance]</td>
 						<td>$inv[odate]</td>";
@@ -652,7 +652,7 @@ function alloc($_POST)
 		}
 		if($out > 0) {
 			$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='5'><b>A general transaction will debit the supplier's account with $sup[currency] $out </b></td>
 					</tr>";}
 	}
@@ -670,7 +670,7 @@ function alloc($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -761,7 +761,7 @@ function confirm($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -800,31 +800,31 @@ function confirm($_POST)
 			<tr>
 				<th colspan='2'>Payment Details</th>
 			</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Account</td>
 		<td>$bank[accname] - $bank[bankname]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Date</td>
 		<td valign='center'>$date</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Paid To</td>
 		<td valign='center'>($sup[supno]) $sup[supname]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Description</td>
 		<td valign='center'>$descript</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Cheque Number</td>
 		<td valign='center'>$cheqnum</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Amount</td>
 		<td valign='center'>$sup[currency] $amt | ".CUR." $lamt</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Exchange rate</td>
 		<td valign='center'>".CUR." / $sup[currency] $rate</td>
 	</tr>";
@@ -873,7 +873,7 @@ function confirm($_POST)
 
 
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 							<td>$sup[currency] $inv[fbalance]</td>
 							<td>$inv[odate]</td>";
@@ -886,7 +886,7 @@ function confirm($_POST)
 		}
 		if($out > 0){
 			$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='5'><b>A general transaction will debit the supplier's account with $sup[currency] $out </b></td>
 					</tr>";
 		}
@@ -929,7 +929,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 							<td>$sup[currency] $inv[fbalance]</td>
 							<td>$inv[odate]</td>";
@@ -948,7 +948,7 @@ function confirm($_POST)
 			}
 			if($out1 > 0){
 				$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='5'><b>A general transaction will debit the supplier's account with $sup[currency] $out1 (Current) </b></td>
 						</tr>";}
 		}
@@ -979,7 +979,7 @@ function confirm($_POST)
 				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
 				$confirm .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 								<td>$sup[currency] $inv[fbalance]</td>
 								<td>$inv[odate]</td>";
@@ -997,7 +997,7 @@ function confirm($_POST)
 				$i++;
 			}
 			if($out2 > 0) {$confirm .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='5'><b>A general transaction will debit the supplier's account with $sup[currency] $out2 (30 days)</b></td>
 							</tr>";}
 		}
@@ -1030,7 +1030,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 				$confirm .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 								<td>$sup[currency] $inv[fbalance]</td>
 								<td>$inv[odate]</td>";
@@ -1048,7 +1048,7 @@ function confirm($_POST)
 				$i++;
 			}
 			if($out3 > 0) {$confirm .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='5'><b>A general transaction will debit the supplier's account with $sup[currency] $out3 (60 days)</b></td>
 							</tr>";}
 		}
@@ -1079,7 +1079,7 @@ function confirm($_POST)
 				$invid = $inv['invid'];
 
 				$confirm .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 								<td>$sup[currency] $inv[fbalance]</td>
 								<td>$inv[odate]</td>";
@@ -1173,7 +1173,7 @@ function confirm($_POST)
 
 			}
 		}
-		if($out > 0) {$confirm .="<tr bgcolor='".bgcolorg()."'><td colspan='5'><b>A general transaction will debit the supplier's account with $sup[currency] $out </b></td></tr>";}
+		if($out > 0) {$confirm .="<tr class='".bg_class()."'><td colspan='5'><b>A general transaction will debit the supplier's account with $sup[currency] $out </b></td></tr>";}
 
 	}
 
@@ -1194,7 +1194,7 @@ function confirm($_POST)
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 		</tr>
 		<script>document.write(getQuicklinkSpecial());</script>
@@ -1549,7 +1549,7 @@ function write($_POST)
 		<tr>
 			<th>International Bank Payment</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>International Bank Payment added to cash book.</td>
 		</tr>
 	</table>";
@@ -1564,16 +1564,16 @@ function write($_POST)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='bank-pay-supp.php'>Add supplier payment</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='bank-pay-add.php'>Add Bank Payment</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='bank-recpt-add.php'>Add Bank Receipt</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='cashbook-view.php'>View Cash Book</a></td>
 					</tr>
 				</table>

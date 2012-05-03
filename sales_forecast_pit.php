@@ -41,7 +41,7 @@ function display()
 		<tr>
 			<th colspan='3'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -51,7 +51,7 @@ function display()
 			<th>&nbsp;</th>
 			<th>Decrease</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'>
 				<span style='font-weight: bold'>+</span>
 				<input type='text' name='inc_perc' value='$inc_perc' size='4'
@@ -96,7 +96,7 @@ function display()
 		$stkdes_rslt = db_exec($sql) or errDie("Unable to retrieve stock.");
 		$stkdes = pg_fetch_result($stkdes_rslt, 0);
 
-		$stock_out .= "<tr bgcolor='".bgcolorg()."'>
+		$stock_out .= "<tr class='".bg_class()."'>
 			<td>$stkcod</td>
 			<td>$stkdes</td>
 			<td>

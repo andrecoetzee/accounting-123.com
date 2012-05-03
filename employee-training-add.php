@@ -130,39 +130,39 @@ function get_training ($err = "")
 				$err
 				<tr><td><br></td></tr>
 				<tr><th colspan='2'>Add Date</th></tr>
-				<tr bgcolor='".bgcolorg()."'><td colspan='2'>".mkDateSelect("date")."</td></tr>
+				<tr class='".bg_class()."'><td colspan='2'>".mkDateSelect("date")."</td></tr>
 				<tr><th colspan='2'>Add Name of Course or Qualification</th></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'><textarea name='course_name' cols='40' rows='4'></textarea></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date Commenced: </td>
 					<td>".mkDateSelect("commence")."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date Completed: </td>
 					<td>".mkDateSelect("completed")."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Training Provider: </td>
 					<td>$provider_list</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Name of Assessor: </td>
 					<td><input type='text' name='assessor_name'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Cost of training: </td>
 					<td>R <input type='text' size='8' name='training_cost'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Individual competent date: </td>
 					<td>".mkDateSelect("competent")."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<th colspan='2'>Other Details: </th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'><textarea name='other_details' cols='40' rows='4'></textarea></td>
 				</tr>
 				<tr><td><br></td></tr>
@@ -249,7 +249,7 @@ function get_training_err ($_POST,$err = "")
 				$err
 				<tr><td><br></td></tr>
 				<tr><th colspan='2'>Add Date</th></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'>
 						<input type='text' size='4' name='date_year' maxlength='4' value='$date_year'>-
 						<input type='text' size='2' name='date_month' maxlength='2'  value='$date_month'>-
@@ -257,10 +257,10 @@ function get_training_err ($_POST,$err = "")
 					</td>
 				</tr>
 				<tr><th colspan='2'>Add Name of Course or Qualification</th></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'><textarea name='course_name' cols='40' rows='4'>$course_name</textarea></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date Commenced: </td>
 					<td>
 						<input type='text' size='4' name='commence_year' maxlength='4' value='$commence_year'>-
@@ -268,7 +268,7 @@ function get_training_err ($_POST,$err = "")
 						<input type='text' size='2' name='commence_day' maxlength='2' value='$commence_day'>
 					</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date Completed: </td>
 					<td>
 						<input type='text' size='4' name='completed_year' maxlength='4' value='$completed_year'>-
@@ -276,16 +276,16 @@ function get_training_err ($_POST,$err = "")
 						<input type='text' size='2' name='completed_day' maxlength='2' value='$completed_day'>
 					</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'><td>Select Training Provider: </td><td>$provider_list</td></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'><td>Select Training Provider: </td><td>$provider_list</td></tr>
+				<tr class='".bg_class()."'>
 					<td>Name of Assessor: </td>
 					<td><input type='text' name='assessor_name' value='$assessor_name'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Cost of training: </td>
 					<td><input type='text' name='training_cost' value='$training_cost'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Individual competent date: </td>
 					<td>
 						<input type='text' size='4' name='competent_year' maxlength='4' value='$competent_year'>-
@@ -293,8 +293,8 @@ function get_training_err ($_POST,$err = "")
 						<input type='text' size='2' name='competent_day' maxlength='2' value='$competent_day'>
 					</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'><th colspan='2'>Other Details: </th></tr>
-				<tr bgcolor='".bgcolorg()."'><td colspan='2'><textarea name='other_details' cols='40' rows='4'>$other_details</textarea></td></tr>
+				<tr class='".bg_class()."'><th colspan='2'>Other Details: </th></tr>
+				<tr class='".bg_class()."'><td colspan='2'><textarea name='other_details' cols='40' rows='4'>$other_details</textarea></td></tr>
 				<tr><td><br></td></tr>
 				<tr><td><input type=submit value='Add Qualification to Staff Member'></td></tr>
 			</form>
@@ -421,18 +421,18 @@ function confirm_grievance ($_POST)
 				<input type=hidden name=other_details value='$other_details'>
 
 				<tr><th colspan='2'>Add Date</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td colspan='2'>$date_date</td></tr>
+				<tr class='bg-odd'><td colspan='2'>$date_date</td></tr>
 				<tr><th colspan='2'>Add Name of Course or Qualification</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td colspan='2'>".nl2br($course_name)."</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td>Date Commenced: </td><td>$commence_date</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor2."'><td>Date Completed: </td><td>$completed_date</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td>Training Provider: </td><td>$supid</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor2."'><td>Name of Assessor: </td><td>$assessor_name</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td>Cost of Training: </td><td>$training_cost</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor2."'><td>Individual Competent Date: </td><td>$competent_date</td></tr>
+				<tr class='bg-odd'><td colspan='2'>".nl2br($course_name)."</td></tr>
+				<tr class='bg-odd'><td>Date Commenced: </td><td>$commence_date</td></tr>
+				<tr class='bg-even'><td>Date Completed: </td><td>$completed_date</td></tr>
+				<tr class='bg-odd'><td>Training Provider: </td><td>$supid</td></tr>
+				<tr class='bg-even'><td>Name of Assessor: </td><td>$assessor_name</td></tr>
+				<tr class='bg-odd'><td>Cost of Training: </td><td>$training_cost</td></tr>
+				<tr class='bg-even'><td>Individual Competent Date: </td><td>$competent_date</td></tr>
 				<tr><td><br></td></tr>
 				<tr><th colspan='2'>Other Details:</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td colspan='2'>".nl2br($other_details)."</td></tr>
+				<tr class='bg-odd'><td colspan='2'>".nl2br($other_details)."</td></tr>
 				<tr><td><br></td></tr>
 				<tr><td><input type=submit value='Save'></td></tr>
 			</form>

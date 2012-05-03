@@ -36,7 +36,7 @@ if(isset($_POST["key"])) {
 
 $OUTPUT .="<p><br><table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='customers-view.php'>View Customers</a></td></tr>
+	<tr class='bg-odd'><td><a href='customers-view.php'>View Customers</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -110,7 +110,7 @@ function save ()
 
 	$out ="<p><br><table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Done</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Age analysis saved.</td></tr>
+	<tr class='bg-odd'><td>Age analysis saved.</td></tr>
 	</table>";
 
 	return $out;

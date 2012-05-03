@@ -40,7 +40,7 @@ function get_filter ($_POST,$err="")
 			<tr>
 				<th colspan='2'>Select Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp To &nbsp
@@ -105,7 +105,7 @@ function show_notes ($_POST)
 	$run_get = db_exec($get_sql) or errDie ("Unable to get credit note information.");
 	if(pg_numrows($run_get) < 1){
 		$listing .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='7'>No Credit Notes Found.</td>
 			</tr>";
 	}else {
@@ -125,7 +125,7 @@ function show_notes ($_POST)
 				$showstockused = "No";
 
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cusname</td>
 					<td>g$carr[creditnote_num]</td>
 					<td>$carr[refnum]</td>

@@ -65,7 +65,7 @@ function view()
 					<tr>
 						<th>Transactions By Date Range</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'>
 							".mkDateSelect("from",date("Y"),date("m"),"01")."
 							&nbsp;TO&nbsp;
@@ -77,7 +77,7 @@ function view()
 					<tr>
 						<th>Vat Balance</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'><input type='submit' name='amt' value='View Amount'></td>
 					</tr>
 				</form>

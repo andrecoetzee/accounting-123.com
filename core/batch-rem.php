@@ -109,14 +109,14 @@ function rem($batchid)
         <input type=hidden name=ctaccname value='$ctacc[accname]'>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=500>
         <tr><td width=50%><h3>Debit</h3></td><td width=50%><h3>Credit</h3></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
+        <tr class='bg-odd'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
         <tr><td><br></td></tr>
         <tr><td><br></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$tran[date]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Reference No.</td><td valign=center>$tran[refnum]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td valign=center>".CUR." $tran[amount]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Transaction Details</td><td valign=center>$tran[details]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Person Authorising</td><td valign=center>$tran[author]</td></tr>
+        <tr class='bg-odd'><td>Date</td><td>$tran[date]</td></tr>
+        <tr class='bg-even'><td>Reference No.</td><td valign=center>$tran[refnum]</td></tr>
+        <tr class='bg-odd'><td>Amount</td><td valign=center>".CUR." $tran[amount]</td></tr>
+        <tr class='bg-even'><td>Transaction Details</td><td valign=center>$tran[details]</td></tr>
+        <tr class='bg-odd'><td>Person Authorising</td><td valign=center>$tran[author]</td></tr>
         <tr><td><input type=button value=Back OnClick='javascript:history.back()'></td><td valign=center><input type=submit value='Remove Entry'></td></tr>
         </form>
         </table>
@@ -182,10 +182,10 @@ function write($_POST)
         <h3>Batch Entry has been removed</h3>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=500>
         <tr><td width=50%><h3>Debit</h3></td><td width=50%><h3>Credit</h3></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
+        <tr class='bg-even'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
         <tr><td><br></td></tr>
         <tr colspan=2><td><h4>Amount</h4></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>".CUR." $tran[amount]</b></td></tr>
+        <tr class='bg-even'><td colspan=2><b>".CUR." $tran[amount]</b></td></tr>
         </table>
         <br>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=25%>

@@ -99,12 +99,12 @@ function details($_POST, $errata = "<br>")
 			db_connect();
 			$lstRs = db_exec("SELECT * FROM buditems WHERE id = '$cc[ccid]' AND budid = '$budid'");
 			if(pg_numrows($lstRs) > 0){
-				$list .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=checkbox name=ccids[] value='$cc[ccid]' checked=yes>$cc[centercode] - $cc[centername]</td>";
+				$list .= "<tr class='bg-odd'><td><input type=checkbox name=ccids[] value='$cc[ccid]' checked=yes>$cc[centercode] - $cc[centername]</td>";
 				while($lst = pg_fetch_array($lstRs)){
 					$list .= "<td align=right>".CUR." <input type=text size=7 name=amts[$cc[ccid]][$lst[prd]] value='$lst[amt]'></td>";
 				}
 			}else{
-				$list .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=checkbox name=ccids[] value='$cc[ccid]'>$cc[centercode] - $cc[centername]</td>";
+				$list .= "<tr class='bg-odd'><td><input type=checkbox name=ccids[] value='$cc[ccid]'>$cc[centercode] - $cc[centername]</td>";
 				# Budget prd
 				if($bud['fromprd'] < $bud['toprd']){
 					for($i = $bud['fromprd']; $i <= $bud['toprd']; $i++){
@@ -147,7 +147,7 @@ function details($_POST, $errata = "<br>")
 			$lstRs = db_exec("SELECT * FROM buditems WHERE id = '$acc[accid]' AND budid = '$budid'");
 			if(pg_numrows($lstRs) > 0){
 				$list .= "
-				<tr bgcolor='".TMPL_tblDataColor1."'>
+				<tr class='bg-odd'>
 					<td><input type=checkbox name='accids[$accid]' value='$acc[accid]' checked=yes>$acc[topacc]/$acc[accnum] - $acc[accname]</td>";
 
 				while($lst = pg_fetch_array($lstRs)){
@@ -163,7 +163,7 @@ function details($_POST, $errata = "<br>")
 				}
 
 				$list .= "
-				<tr bgcolor='".TMPL_tblDataColor1."'>
+				<tr class='bg-odd'>
 					<td><input type=checkbox name='accids[$accid]' value='$acc[accid]' $ch>$acc[topacc]/$acc[accnum] - $acc[accname]</td>";
 
 				# Budget prd
@@ -218,12 +218,12 @@ function details($_POST, $errata = "<br>")
 	<input type=hidden name=budid value='$budid'>
 	<input type=hidden name=budfor value='$bud[budfor]'>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' align=center>
-	<tr><th colspan=2>Details</th></tr><tr bgcolor='".TMPL_tblDataColor1."'><td>Budget Name</td><td><input type=text size=30 name=budname value='$bud[budname]'></td></tr>
+	<tr><th colspan=2>Details</th></tr><tr class='bg-odd'><td>Budget Name</td><td><input type=text size=30 name=budname value='$bud[budname]'></td></tr>
 	<tr><td><br></td></tr>
 	<tr><th colspan=2>Options</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Budget For</td><td>$vbudfor</td>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Budget Type</td><td>$typesel</td>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Budget Year</td><td>$vfromyr to $vtoyr</td>
+	<tr class='bg-odd'><td>Budget For</td><td>$vbudfor</td>
+	<tr class='bg-even'><td>Budget Type</td><td>$typesel</td>
+	<tr class='bg-odd'><td>Budget Year</td><td>$vfromyr to $vtoyr</td>
 	<tr><td colspan=2>$errata</td></tr>
 
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' align=center>
@@ -237,8 +237,8 @@ function details($_POST, $errata = "<br>")
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</td></tr>
+		<tr class='bg-odd'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
+		<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</td></tr>
 	</table>";
 
 	return $details;
@@ -355,7 +355,7 @@ function confirm($_POST)
 		foreach($ccids as $ckey => $ccid){
 			$ccRs = get("cubit", "*", "costcenters", "ccid", $ccid);
 			$cc  = pg_fetch_array($ccRs);
-			$list .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=ccids[] value='$cc[ccid]'>$cc[centercode] - $cc[centername]</td>";
+			$list .= "<tr class='bg-odd'><td><input type=hidden name=ccids[] value='$cc[ccid]'>$cc[centercode] - $cc[centername]</td>";
 
 			foreach($amts[$ccid] as $sprd => $amtr){
 				$amtr = sprint($amtr);
@@ -369,7 +369,7 @@ function confirm($_POST)
 		foreach($accids as $akey => $accid){
 			$accRs = get("core", "*", "accounts", "accid", $accid);
 			$acc  = pg_fetch_array($accRs);
-			$list .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=accids[] value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td>";
+			$list .= "<tr class='bg-odd'><td><input type=hidden name=accids[] value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td>";
 
 			foreach($amts[$accid] as $sprd => $amtr){
 				$amtr = sprint($amtr);
@@ -398,7 +398,7 @@ function confirm($_POST)
 	$head .= "</tr>";
 
 	// $totamt = sprint(array_sum($amts));
-	// $list .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><b>Total Budget Amount</b></td><td align=right><b>".CUR." $totamt</b></td></tr>";
+	// $list .= "<tr class='bg-even'><td><b>Total Budget Amount</b></td><td align=right><b>".CUR." $totamt</b></td></tr>";
 
 	/* End Toggle Options */
 
@@ -412,12 +412,12 @@ function confirm($_POST)
 	<input type=hidden name=budfor value='$bud[budfor]'>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' align=center>
 	<tr><th colspan=2>Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Budget Name</td><td>$budname</td></tr>
+	<tr class='bg-odd'><td>Budget Name</td><td>$budname</td></tr>
 	<tr><td><br></td></tr>
 	<tr><th colspan=2>Options</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Budget For</td><td>$vbudfor</td>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Budget Type</td><td>$vbudtype</td>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Budget Year</td><td>$vfromyr to $vtoyr</td>
+	<tr class='bg-odd'><td>Budget For</td><td>$vbudfor</td>
+	<tr class='bg-even'><td>Budget Type</td><td>$vbudtype</td>
+	<tr class='bg-odd'><td>Budget Year</td><td>$vfromyr to $vtoyr</td>
 	<tr><td><br></td></tr>
 	</table>
 	$mismatches
@@ -433,8 +433,8 @@ function confirm($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</td></tr>
+		<tr class='bg-odd'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
+		<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</td></tr>
 	</table>";
 
 	return $confirm;
@@ -531,13 +531,13 @@ function write($_POST)
 	$write = "<center>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=500>
 		<tr><th colspan=2>Edit Yearly Budget</th></tr>
-		<tr><td bgcolor='".TMPL_tblDataColor1."' colspan=2>Yearly Budget <b>$budname</b> has been edited.</td></tr>
+		<tr><td class='bg-odd' colspan=2>Yearly Budget <b>$budname</b> has been edited.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=25%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</td></tr>
+		<tr class='bg-odd'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
+		<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</td></tr>
 	</table>";
 
 	return $write;

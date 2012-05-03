@@ -124,7 +124,7 @@ function display()
 		}
 
 		$stock_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stock_data[stkcod] - $stock_data[stkdes]</td>
 				<td nowrap>".purchaseForecast($stock_data["stkid"], $from_date, $to_date)."</td>
 				<td align='center'>".totalAverageDailySales($stock_data["stkid"])."</td>
@@ -142,7 +142,7 @@ function display()
 
 	if (empty($stock_out)) {
 		$stock_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='20'><li>No results found.</li></td>
 			</tr>";
 	}
@@ -156,7 +156,7 @@ function display()
 				<th>From</th>
 				<th>To</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$from_day-$from_month-$from_year</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
 			</tr>
@@ -165,7 +165,7 @@ function display()
 				<th>Sales Forecast - Projected Increase</th>
 				<th>Sales Forecast - Projected Decrease</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>
 					<input type='text' name='inc_perc' value='$inc_perc' size='3'
 					style='text-align: center' />%
@@ -177,26 +177,26 @@ function display()
 			</tr>
 	-->
 			<tr><th colspan='2'>Stock Category</th></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>$cat_sel</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Stock Filter</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>
 					<input type='text' name='stock_search' value='$stock_search'
 					style='width: 100%' />
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'>
 					<input type='submit' value='Apply &raquo'
 					style='font-weight: bold' />
 				</td>
 			</tr>
 			".TBL_BR."
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>
 					<li><b>Note:</b> If no lead times has been found for a stock<br />
 					item, a default lead time of 30 days will be used.</li>

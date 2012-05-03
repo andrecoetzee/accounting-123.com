@@ -147,44 +147,44 @@ function edit($custid)
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=custid value='$custid'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Acc No</td><td><input type=text size=10 name=accno value='$accno'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Surname/Company</td><td><input type=text size=20 name=surname value='$surname'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Title</td><td><input type=text size=5 name=title value='$title'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Initials</td><td><input type=text size=10 name=init value='$init'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>First Name</td><td><input type=text size=20 name=firstname value='$firstname'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Category</td><td>$cats</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Classification</td><td>$classes</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Postal Address</td><td><textarea rows=5 cols=18 name=paddr>$paddr</textarea></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Address</td><td><textarea rows=5 cols=18 name=daddr>$daddr</textarea></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Contact Name</td><td><input type=text size=20 name=contname value='$contname'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Business Tel.</td><td><input type=text size=20 name=bustel value='$bustel'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Home Tel.</td><td><input type=text size=20 name=hometel value='$hometel'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Cell No.</td><td><input type=text size=20 name=cellno value='$cellno'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Fax No.</td><td><input type=text size=20 name=faxno value='$faxno'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>E-mail</td><td><input type=text size=20 name=email value='$email'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Sale Term</td><td><select name=saleterm>
+	<tr class='bg-odd'><td>Acc No</td><td><input type=text size=10 name=accno value='$accno'></td></tr>
+	<tr class='bg-odd'><td>Surname/Company</td><td><input type=text size=20 name=surname value='$surname'></td></tr>
+	<tr class='bg-odd'><td>Title</td><td><input type=text size=5 name=title value='$title'></td></tr>
+	<tr class='bg-odd'><td>Initials</td><td><input type=text size=10 name=init value='$init'></td></tr>
+	<tr class='bg-odd'><td>First Name</td><td><input type=text size=20 name=firstname value='$firstname'></td></tr>
+	<tr class='bg-odd'><td>Category</td><td>$cats</td></tr>
+	<tr class='bg-odd'><td>Classification</td><td>$classes</td></tr>
+	<tr class='bg-odd'><td>Postal Address</td><td><textarea rows=5 cols=18 name=paddr>$paddr</textarea></td></tr>
+	<tr class='bg-odd'><td>Delivery Address</td><td><textarea rows=5 cols=18 name=daddr>$daddr</textarea></td></tr>
+	<tr class='bg-odd'><td>Contact Name</td><td><input type=text size=20 name=contname value='$contname'></td></tr>
+	<tr class='bg-odd'><td>Business Tel.</td><td><input type=text size=20 name=bustel value='$bustel'></td></tr>
+	<tr class='bg-odd'><td>Home Tel.</td><td><input type=text size=20 name=hometel value='$hometel'></td></tr>
+	<tr class='bg-odd'><td>Cell No.</td><td><input type=text size=20 name=cellno value='$cellno'></td></tr>
+	<tr class='bg-odd'><td>Fax No.</td><td><input type=text size=20 name=faxno value='$faxno'></td></tr>
+	<tr class='bg-odd'><td>E-mail</td><td><input type=text size=20 name=email value='$email'></td></tr>
+	<tr class='bg-odd'><td>Sale Term</td><td><select name=saleterm>
 	<option value='30'>30</option><option value='60'>60</option><option value='90'>90</option
 	</select></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Trade Discount</td><td><input type=text size=20 name=traddisc value='$traddisc'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Settlement Discount</td><td><input type=text size=20 name=setdisc value='$setdisc'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Price List</td><td>$pricelists</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Charge Interest</td><td><input type=text size=20 name=chrgint value='$chrgint'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Overdue</td><td><input type=text size=20 name=overdue value='$overdue'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Charge Vat</td><td>No<input type=radio size=20 name=chrgvat value=no checked=yes> Yes<input type=radio size=20 name=chrgvat value=yes checked=yes></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2 align=center>Vat : Inclusive<input type=radio size=20 name=vatinc value=yes checked=yes> Exclusive<input type=radio size=20 name=vatinc value=no></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Open Date</td><td><input type=text size=2 name=oday maxlength=2 value='$date[2]'>-<input type=text size=2 name=omon maxlength=2 value='$date[1]'>-<input type=text size=4 name=oyear maxlength=4 value='$date[0]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Credit Term</td><td><input type=text size=20 name=credterm value='$credterm'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Credit Limit</td><td><input type=text size=20 name=credlimit value='$credlimit'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Block Account</td><td>No<input type=radio size=20 name=block value=no checked=yes> Yes<input type=radio size=20 name=block value=yes></td></tr>
+	<tr class='bg-odd'><td>Trade Discount</td><td><input type=text size=20 name=traddisc value='$traddisc'></td></tr>
+	<tr class='bg-odd'><td>Settlement Discount</td><td><input type=text size=20 name=setdisc value='$setdisc'></td></tr>
+	<tr class='bg-odd'><td>Price List</td><td>$pricelists</td></tr>
+	<tr class='bg-odd'><td>Charge Interest</td><td><input type=text size=20 name=chrgint value='$chrgint'></td></tr>
+	<tr class='bg-odd'><td>Overdue</td><td><input type=text size=20 name=overdue value='$overdue'></td></tr>
+	<tr class='bg-odd'><td>Charge Vat</td><td>No<input type=radio size=20 name=chrgvat value=no checked=yes> Yes<input type=radio size=20 name=chrgvat value=yes checked=yes></td></tr>
+	<tr class='bg-odd'><td colspan=2 align=center>Vat : Inclusive<input type=radio size=20 name=vatinc value=yes checked=yes> Exclusive<input type=radio size=20 name=vatinc value=no></td></tr>
+	<tr class='bg-odd'><td>Account Open Date</td><td><input type=text size=2 name=oday maxlength=2 value='$date[2]'>-<input type=text size=2 name=omon maxlength=2 value='$date[1]'>-<input type=text size=4 name=oyear maxlength=4 value='$date[0]'></td></tr>
+	<tr class='bg-odd'><td>Credit Term</td><td><input type=text size=20 name=credterm value='$credterm'></td></tr>
+	<tr class='bg-odd'><td>Credit Limit</td><td><input type=text size=20 name=credlimit value='$credlimit'></td></tr>
+	<tr class='bg-odd'><td>Block Account</td><td>No<input type=radio size=20 name=block value=no checked=yes> Yes<input type=radio size=20 name=block value=yes></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cust-view.php'>View Customers</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>Index</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='toms-settings.php'>Settings</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='cust-view.php'>View Customers</a></td></tr>
+	<tr class='bg-odd'><td><a href='index.php'>Index</a></td></tr>
+	<tr class='bg-odd'><td><a href='toms-settings.php'>Settings</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -311,42 +311,42 @@ function confirm ($_POST)
 	<input type=hidden name=credlimit value='$credlimit'>
 	<input type=hidden name=block value='$block'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Acc No</td><td>$accno</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Surname/Company</td><td>$surname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Title</td><td>$title</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Initials</td><td>$init</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>First Name</td><td>$firstname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Category</td><td>$category</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Classification</td><td>$class</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Postal Address</td><td><pre>$paddr</pre></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Address</td><td><pre>$daddr</pre></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Contact Name</td><td>$contname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Business Tel.</td><td>$bustel</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Home Tel.</td><td>$hometel</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Cell No.</td><td>$cellno</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Fax No.</td><td>$faxno</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>E-mail</td><td>$email</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Sale Term</td><td>$saleterm</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Trade Discount</td><td>$traddisc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Settlement Discount</td><td>$setdisc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Price List</td><td>$plist</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Charge Interest</td><td>$chrgint</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Overdue</td><td>$overdue</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Charge Vat</td><td>$chrgvat</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Vat Inclusive</td><td>$vatinc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Open Date</td><td>$odate</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Credit Term</td><td>$credterm</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Credit Limit</td><td>$credlimit</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Block Account</td><td>$block</td></tr>
+	<tr class='bg-odd'><td>Acc No</td><td>$accno</td></tr>
+	<tr class='bg-odd'><td>Surname/Company</td><td>$surname</td></tr>
+	<tr class='bg-odd'><td>Title</td><td>$title</td></tr>
+	<tr class='bg-odd'><td>Initials</td><td>$init</td></tr>
+	<tr class='bg-odd'><td>First Name</td><td>$firstname</td></tr>
+	<tr class='bg-odd'><td>Category</td><td>$category</td></tr>
+	<tr class='bg-odd'><td>Classification</td><td>$class</td></tr>
+	<tr class='bg-odd'><td>Postal Address</td><td><pre>$paddr</pre></td></tr>
+	<tr class='bg-odd'><td>Delivery Address</td><td><pre>$daddr</pre></td></tr>
+	<tr class='bg-odd'><td>Contact Name</td><td>$contname</td></tr>
+	<tr class='bg-odd'><td>Business Tel.</td><td>$bustel</td></tr>
+	<tr class='bg-odd'><td>Home Tel.</td><td>$hometel</td></tr>
+	<tr class='bg-odd'><td>Cell No.</td><td>$cellno</td></tr>
+	<tr class='bg-odd'><td>Fax No.</td><td>$faxno</td></tr>
+	<tr class='bg-odd'><td>E-mail</td><td>$email</td></tr>
+	<tr class='bg-odd'><td>Sale Term</td><td>$saleterm</td></tr>
+	<tr class='bg-odd'><td>Trade Discount</td><td>$traddisc</td></tr>
+	<tr class='bg-odd'><td>Settlement Discount</td><td>$setdisc</td></tr>
+	<tr class='bg-odd'><td>Price List</td><td>$plist</td></tr>
+	<tr class='bg-odd'><td>Charge Interest</td><td>$chrgint</td></tr>
+	<tr class='bg-odd'><td>Overdue</td><td>$overdue</td></tr>
+	<tr class='bg-odd'><td>Charge Vat</td><td>$chrgvat</td></tr>
+	<tr class='bg-odd'><td>Vat Inclusive</td><td>$vatinc</td></tr>
+	<tr class='bg-odd'><td>Account Open Date</td><td>$odate</td></tr>
+	<tr class='bg-odd'><td>Credit Term</td><td>$credterm</td></tr>
+	<tr class='bg-odd'><td>Credit Limit</td><td>$credlimit</td></tr>
+	<tr class='bg-odd'><td>Block Account</td><td>$block</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cust-view.php'>View Customers</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>Index</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='toms-settings.php'>Settings</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='cust-view.php'>View Customers</a></td></tr>
+	<tr class='bg-odd'><td><a href='index.php'>Index</a></td></tr>
+	<tr class='bg-odd'><td><a href='toms-settings.php'>Settings</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -436,10 +436,10 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cust-view.php'>View Customers</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>Index</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='toms-settings.php'>Settings</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='cust-view.php'>View Customers</a></td></tr>
+	<tr class='bg-odd'><td><a href='index.php'>Index</a></td></tr>
+	<tr class='bg-odd'><td><a href='toms-settings.php'>Settings</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

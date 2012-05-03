@@ -40,7 +40,7 @@ function enter()
 		<tr>
 			<th colspan='2'>Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Location</td>
 			<td><input type='text' name='location' value='$location' /></td>
 		</tr>
@@ -66,7 +66,7 @@ function confirm()
 		<tr>
 			<th colspan='2'>Confirm</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Location</td>
 			<td>$location</td>
 		</tr>
@@ -112,7 +112,7 @@ function write()
 		<tr>
 			<th>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Successfully saved location.</td>
 		</tr>
 	</table>";

@@ -82,7 +82,7 @@ function slctAcc()
 			<tr>
 				<th colspan='2'>Select Account <input align='right' type='button' onClick=\"window.open('../core/acc-new2.php?update_parent=yes','accounts','width=700, height=400');\" value='New Account'></th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>$accnts</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -139,7 +139,7 @@ function confirm($_POST)
 		$accRslt = get("core", "*", "accounts", "accid", $cashlink['accnum']);
 		$acc = pg_fetch_array($accRslt);
 		$note = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><font color=#ffffff>Warning: Petty Cash Account link already exists as : <b>$acc[accname]</b>.<br>Re-linking it will overwrite the existing link.</font></td>
 			</tr>";
 	}else{
@@ -161,7 +161,7 @@ function confirm($_POST)
 			<tr>
 				<th colspan='2'>Petty Cash Account</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>$accc[topacc]/$accc[accnum] - $accc[accname]</td>
 			</tr>
 			$note
@@ -177,7 +177,7 @@ function confirm($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -230,7 +230,7 @@ function write($_POST)
 			<tr>
 				<th>Petty Cash Account</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Petty Cash Account link has been created.</td>
 			</tr>
 		</table>
@@ -239,7 +239,7 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

@@ -98,20 +98,20 @@ $view_data =
 <input type=hidden name=id value='$id'>
 <input type=hidden name=date value='$Data[date]'>
 <tr><th colspan=2>Appointment Details</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>For</td><td>$Data[ref]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>By</td><td>$Data[by]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$Data[date]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Time</td><td>$time</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Regarding</td><td>$Data[des]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Date Made</td><td>$Data[made]</td></tr>
+<tr class='bg-odd'><td>For</td><td>$Data[ref]</td></tr>
+<tr class='bg-even'><td>By</td><td>$Data[by]</td></tr>
+<tr class='bg-odd'><td>Date</td><td>$Data[date]</td></tr>
+<tr class='bg-even'><td>Time</td><td>$time</td></tr>
+<tr class='bg-odd'><td>Regarding</td><td>$Data[des]</td></tr>
+<tr class='bg-even'><td>Date Made</td><td>$Data[made]</td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Remove &raquo;'></td></tr>
 </table>
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='die_view'>View other diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='die_view'>View other diary</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
         return $view_data;
@@ -180,9 +180,9 @@ function con_data ($_POST)
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='die_view'>View diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='die_view'>View diary</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
 
@@ -324,9 +324,9 @@ $Tab
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='die_view'>View another date</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+        <tr class='bg-odd'><td><a href='die_view'>View another date</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+        <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
         return $con_die;

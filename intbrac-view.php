@@ -62,7 +62,7 @@ function showInt ()
 	if (pg_numrows ($intRslt) > 0) {
 		while ($myInt = pg_fetch_array ($intRslt)) {
 			$showInt .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td align='right'>".CUR." $myInt[min]</td>
 								<td align='right'>".CUR." $myInt[max]</td>
 								<td align='right'>$myInt[percentage]%</td>

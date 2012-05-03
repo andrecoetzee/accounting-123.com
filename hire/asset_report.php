@@ -82,7 +82,7 @@ function display()
 
 	$hired_out = "";
 	while ($asset_data = pg_fetch_array($asset_rslt)) {
-		$hired_out .= "<tr bgcolor='".bgcolorg()."'>
+		$hired_out .= "<tr class='".bg_class()."'>
 			<td align='center'>
 				<a href='javascript:popupOpen".
 				"(\"hire-invoice-new.php?invid=$asset_data[invid]\")'>
@@ -101,7 +101,7 @@ function display()
 
 	// Display something atleast, even though we've got no results.
 	if (empty($hired_out)) {
-		$hired_out = "<tr bgcolor='".bgcolorg()."'>
+		$hired_out = "<tr class='".bg_class()."'>
 			<td colspan='8'><li>No results found.</li></td>
 		</tr>";
 	}
@@ -121,7 +121,7 @@ function display()
 		if (isHired($asset_data["id"])) continue;
 
 		$available_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$asset_data[grpname]</td>
 			<td>$asset_data[name]</td>
 			<td>$asset_data[des]</td>
@@ -131,7 +131,7 @@ function display()
 	}
 
 	if (empty($available_out)) {
-		$available_out = "<tr bgcolor='".bgcolorg()."'>
+		$available_out = "<tr class='".bg_class()."'>
 			<td colspan='5'><li>No results found.</li></td>
 		</tr>";
 	}
@@ -144,13 +144,13 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
 			<td><input type='submit' value='Select' /></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'><td colspan='4' align='center'>
+		<tr class='".bg_class()."'><td colspan='4' align='center'>
 		<table ".TMPL_tblDflts.">
 			<tr>
 				<th colspan='2'>Search</th>

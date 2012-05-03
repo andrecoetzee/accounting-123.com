@@ -89,14 +89,14 @@ function confirm($catid)
 			<input type=hidden name=key value=rem>
 			<input type=hidden name=id value='$id'>
 			<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-			<tr bgcolor='".bgcolorg()."'><td>Department</td><td>$department</td></tr>
+			<tr class='".bg_class()."'><td>Department</td><td>$department</td></tr>
 			<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=left><input type=submit value='Confirm &raquo'></td></tr>
 		</form>
 		</table>
 		<p>
 		<table ".TMPL_tblDflts." width='100'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".bgcolorg()."'><td><a href='empdepartment-view.php'>View Employee Departments</a></td></tr>
+			<tr class='".bg_class()."'><td><a href='empdepartment-view.php'>View Employee Departments</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 

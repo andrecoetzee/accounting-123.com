@@ -58,15 +58,15 @@ function enter()
 		<tr>
 			<th colspan='2'>Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Hire No.</td>
 			<td>H".getHirenum($inv_data["invid"], 1)."</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Customer</td>
 			<td>$cust_data[cusname] $cust_data[surname]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Signed Hire Note</td>
 			<td><input type='file' name='file' /></td>
 		</tr>
@@ -118,7 +118,7 @@ function write()
 		<tr>
 			<th>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Successfully saved signed hire note</li></td>
 		</tr>
 	</table>";

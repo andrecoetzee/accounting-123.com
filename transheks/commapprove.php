@@ -32,14 +32,14 @@ function view(&$frm, $err = "") {
 	
 	if ($qry->num_rows() <= 0) {
 		$OUT .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'>No unknown requests.</td>
 		</tr>";
 	}
 	
 	while ($row = $qry->fetch_array()) {
 		$OUT .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$row[compname]</td>
 			<td>$row[bustel]</td>
 			<td><a href='".SELF."?id=$row[id]&key=approve'>Approve</a></td>
@@ -65,14 +65,14 @@ function view(&$frm, $err = "") {
 	
 	if ($qry->num_rows() <= 0) {
 		$OUT .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'>No unknown requests.</td>
 		</tr>";
 	}
 	
 	while ($row = $qry->fetch_array()) {
 		$OUT .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$row[compname]</td>
 			<td>$row[bustel]</td>
 			<td><a href='".SELF."?id=$row[id]&key=approve'>Approve</a></td>

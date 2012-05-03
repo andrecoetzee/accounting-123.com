@@ -50,7 +50,7 @@ function enter($errors="")
 	<table ".TMPL_tblDflts.">
 		<tr><td>$errors</td></tr>
 		<tr><th colspan='2'>Settings</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Hire Out Store</td>
 			<td>$stores_sel</td>
 		</tr>
@@ -88,7 +88,7 @@ function confirm()
 	<input type='hidden' name='wh_id' value='$wh_id' />
 	<table ".TMPL_tblDflts.">
 		<tr><th colspan='2'>Confirm</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Hire Out Store</td>
 			<td>$store_name</td>
 		</tr>
@@ -120,7 +120,7 @@ function write()
 	$OUTPUT = "<h3>Hire Settings</h3>
 	<table ".TMPL_tblDflts.">
 		<tr><th colspan='2'>Write</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Successfully saved settings.</li></td>
 		</tr>
 	</table>";

@@ -62,7 +62,7 @@ function view()
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account type</td>
 					<td valign='center'>
 						<select name=type>
@@ -141,11 +141,11 @@ function slctCat($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Accounts Type</td>
 				<td>$tab</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category Name</td>
 				<td>
 					<select name='catid'>";
@@ -167,7 +167,7 @@ function slctCat($_POST)
 					</select>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Period</td>
 				<td valign='center'>
 					<select name='prd'>";

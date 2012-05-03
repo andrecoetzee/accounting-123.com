@@ -114,7 +114,7 @@ function confirm($stkid)
 						$ddate = $ddate[2]."-".$ddate[1]."-".$ddate[0];
 
 						$deliveries .= "
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>$ddate</td>
 										<td>".sprint3($it['qty'])." x $suom</td>
 									</tr>";
@@ -153,7 +153,7 @@ function confirm($stkid)
 						$ddate = $ddate[2]."-".$ddate[1]."-".$ddate[0];
 
 						$intdeliveries .= "
-										<tr bgcolor='".bgcolorg()."'>
+										<tr class='".bg_class()."'>
 											<td>$ddate</td>
 											<td>".sprint3($it['qty'])." x $suom</td>
 										</tr>";
@@ -182,47 +182,47 @@ function confirm($stkid)
 							<th width='40%'>Field</th>
 							<th width='60%'>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Category</td>
 							<td>$catname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Stock code</td>
 							<td>$stkcod</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Stock description</td>
 							<td>".nl2br($stkdes)."</pre></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>On Hand</td>
 							<td>".sprint3($units)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Allocated</td>
 							<td>".sprint3($alloc)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Available</td>
 							<td>".sprint3($avstk)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>On Order</td>
 							<td>".sprint3($ordered)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Location</td>
 							<td>Shelf : $shelf - Row : $row</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Minimum level</td>
 							<td>$minlvl</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Maximum level</td>
 							<td>$maxlvl</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Selling price per selling unit</td>
 							<td>".CUR." ".sprint($selamt)."</td>
 						</tr>
@@ -276,7 +276,7 @@ function confirm($stkid)
 					$dept = pg_fetch_array($deptRslt);
 				}
 				$alloc .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$dept[deptname]</td>
 								<td>$cust[cusname] $cust[surname]</td>
 								<td>$inv[invid]</td>
@@ -287,7 +287,7 @@ function confirm($stkid)
 		}
 		if($i < 1){
 			$alloc = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='4'>No Invoices Allocated</td>
 						</tr>";
 		}
@@ -326,7 +326,7 @@ function confirm($stkid)
 					$dept = pg_fetch_array($deptRslt);
 				}
 				$nalloc .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$dept[deptname]</td>
 								<td>$cust[cusname] $cust[surname]</td>
 								<td>$inv[invid]</td>
@@ -337,7 +337,7 @@ function confirm($stkid)
 		}
 		if($i < 1){
 			$nalloc = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='4'>No Incomplete Invoices Allocated</td>
 						</tr>";
 		}
@@ -369,7 +369,7 @@ function confirm($stkid)
 					$dept = pg_fetch_array($deptRslt);
 				}
 				$pall .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$dept[deptname]</td>
 								<td>$inv[cusname]</td>
 								<td>$inv[invid]</td>
@@ -380,7 +380,7 @@ function confirm($stkid)
 		}
 		if($i < 1){
 			$pall = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='4'>No unprinted POS Invoices</td>
 					</tr>";
 		}
@@ -419,7 +419,7 @@ function confirm($stkid)
 					$dept = pg_fetch_array($deptRslt);
 				}
 				$sordalloc .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>$dept[deptname]</td>
 									<td>$cust[cusname] $cust[surname]</td>
 									<td>$sord[sordid]</td>
@@ -430,7 +430,7 @@ function confirm($stkid)
 		}
 		if($q < 1){
 			$sordalloc = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='4'>No Sales Orders Allocated</td>
 						</tr>";
 		}
@@ -462,7 +462,7 @@ function confirm($stkid)
 					$dept = pg_fetch_array($deptRslt);
 				}
 				$call .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$dept[deptname]</td>
 								<td>$cord[surname]</td>
 								<td>$cord[sordid]</td>
@@ -473,7 +473,7 @@ function confirm($stkid)
 		}
 		if($c < 1){
 			$call = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='4'>No Consignment Orders</td>
 					</tr>";
 		}

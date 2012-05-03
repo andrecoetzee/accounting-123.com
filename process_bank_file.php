@@ -122,7 +122,7 @@ function get_data_output ($_POST)
 
 
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='text' size='5' maxlength='5' name='first_val[$counter]' value='$first_val[$counter]'></td>
 					<td><input type='text' size='6' maxlength='6' name='branch_val[$counter]' value='$branch_val[$counter]'></td>
 					<td><input type='text' size='7' maxlength='7' name='empno_val[$counter]' value='$empno_val[$counter]'></td>
@@ -233,15 +233,15 @@ function get_data_output ($_POST)
 			<tr>
 				<th colspan='2'>Universal Setting</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>First 5 Chars</td>
 				<td><input type='text' name='first' value='$first' size='5' maxlength='5'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account Character</td>
 				<td><input type='text' name='second' value='$second' size='1' maxlength='1'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Last Characters</td>
 				<td><input type='text' name='third' value='$third' size='7' maxlength='6'</td>
 			</tr>
@@ -255,28 +255,28 @@ function get_data_output ($_POST)
 			<tr>
 				<th>Define Output Order (Left To Right For CSV File)</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$order1</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$order2</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$order3</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$order4</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$order5</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$order6</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$order7</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$order8</td>
 			</tr>
 		</table>

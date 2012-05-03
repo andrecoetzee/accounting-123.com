@@ -27,13 +27,13 @@ function enter()
 	<input type='hidden' name='key' value='confirm' />
 	<table ".TMPL_tblDflts.">
 		<tr><th>CSV Format</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>
 				Transaction Type, Credit Account Id, Debit Account Id, Date,
 				Reference No, Amount, VAT, Details, iid
 			</td>
 		<tr><th colspan='2'>Upload CSV</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='file' name='file' /></td>
 			<td><input type='submit' value='Upload &raquo' /></td>
 		</tr>

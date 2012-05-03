@@ -76,23 +76,23 @@ function seluse()
 				<tr>
 					<th colspan='2'>Report Criteria</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>User</td>
 					<td>$users</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td>".mkDateSelect("date")."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Type</td>
 					<td>$mets</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Starting Amount</td>
 					<td><input type='text' size='20' name='amount'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Display Sales</td>
 					<td>
 						Yes <input type='radio' name='disp_sales' value='yes' checked \><b> | </b>
@@ -109,13 +109,13 @@ function seluse()
 			<p>
 			<table ".TMPL_tblDflts.">
 				<tr><th>Quick Links</th></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='reporting/index-reports.php'>Financials</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='reporting/index-reports-other.php'>Other Reports</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -376,27 +376,27 @@ function report()
 			<tr>
 				<th colspan=2>Report</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Starting Amount</td>
 				<td align='right' width='10%'>".CUR." $amount</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cash</td>
 				<td align='right' width='10%'>".sprint($cash)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque</td>
 				<td align='right' width='10%'>".sprint($cheque)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Credit Card</td>
 				<td align='right' width='10%'>".sprint($credit_card)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Credit</td>
 				<td align='right' width='10%'>".sprint($credit)."</td>
 			</td>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Expected Amount</td>
 				<td align='right' width='10%'><b>".CUR." $expected</b></td>
 			</tr>
@@ -418,13 +418,13 @@ function report()
 		<p>
 		<table ".TMPL_tblDflts.">
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='reporting/index-reports.php'>Financials</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='reporting/index-reports-other.php'>Other Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

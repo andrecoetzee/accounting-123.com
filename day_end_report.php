@@ -98,10 +98,10 @@ function display($_POST)
 		<tr>
 			<th>Select Date For Report</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'><input type='submit' value='View'></td>
 		</tr>
 	</table>
@@ -112,22 +112,22 @@ function display($_POST)
 			<th width='10%'>Exc Vat</th>
 			<th width='10%'>Inc Vat</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Invoices - Hire</td>
 			<td align='right'>".sprint($inv_hire_exc)."</td>
 			<td align='right'>".sprint($inv_hire_inc)."</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Invoices - Stock</td>
 			<td align='right'>".sprint($inv_stock_exc)."</td>
 			<td align='right'>".sprint($inv_stock_inc)."</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Invoices - Other</td>
 			<td align='right'>".sprint($inv_other_exc)."</td>
 			<td align='right'>".sprint($inv_other_inc)."</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><strong>Total Invoices</strong></td>
 			<td align='right'><b>".sprint($inv_total_exc)."</b></td>
 			<td align='right'><b>".sprint($inv_total_inc)."</b></td>
@@ -144,7 +144,7 @@ function display($_POST)
 	$hire_total = 0;
 	while ($hire_data = pg_fetch_array($hire_rslt)) {
 		$hire_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$hire_data[invnum]</td>
 			<td>$hire_data[cusname]</td>
 			<td align='right'>".sprint($hire_data["total"])."</td>
@@ -155,7 +155,7 @@ function display($_POST)
 
 	if (empty($hire_out)) {
 		$hire_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'><li>No hires found</li></td>
 		</tr>";
 	}
@@ -169,7 +169,7 @@ function display($_POST)
 			<th width='10%'>Amount</th>
 		</tr>
 		$hire_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'><b>Total</b></td>
 			<td align='right'><b>".sprint($hire_total)."</b></td>
 	</table>";
@@ -191,7 +191,7 @@ function display($_POST)
 	$notes_out = "";
 	while ($notes_data = pg_fetch_array($notes_rslt)) {
 		$notes_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$notes_data[surname]</td>
 			<td>$notes_data[invnum]</td>
 			<td>$notes_data[notenum]</td>
@@ -207,7 +207,7 @@ function display($_POST)
 
 	while ($notes_data = pg_fetch_array($notes_rslt)) {
 		$notes_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$notes_data[cusname]</td>
 			<td>$notes_data[invnum]</td>
 			<td>$notes_data[notenum]</td>
@@ -218,7 +218,7 @@ function display($_POST)
 
 	if (empty($notes_out)) {
 		$notes_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'><li>No credit notes found.</li></td>
 		</tr>";
 	}
@@ -233,7 +233,7 @@ function display($_POST)
 			<th width='10%'>Amount</th>
 		</tr>
 		$notes_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'><b>Total</b></td>
 			<td align='right'><b>".sprint($notes_total)."</b></td>
 		</tr>
@@ -256,7 +256,7 @@ function display($_POST)
 	$inv_out = "";
 	while ($inv_data = pg_fetch_array($inv_rslt)) {
 		$inv_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$inv_data[surname]</td>
 			<td>&nbsp;</td>
 			<td>$inv_data[invnum]</td>
@@ -279,7 +279,7 @@ function display($_POST)
 
 	while ($inv_data = pg_fetch_array($inv_rslt)) {
 		$inv_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$inv_data[surname]</td>
 			<td>&nbsp;</td>
 			<td>$inv_data[invnum]</td>
@@ -314,7 +314,7 @@ function display($_POST)
 		$hire_amt = pg_fetch_result($hire_amt_rslt, 0);
 
 		$inv_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$inv_data[cusname]</td>
 			<td>$inv_data[hire_invnum]</td>
 			<td>$inv_data[invnum]</td>
@@ -331,7 +331,7 @@ function display($_POST)
 
 	if (empty($inv_out)) {
 		$inv_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='7'><li>No invoices found</li></td>
 		</tr>";
 	}
@@ -349,7 +349,7 @@ function display($_POST)
 			<th width='10%'>Total</th>
 		</tr>
 		$inv_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'><b>Total</b></td>
 			<td align='right'>".sprint($inv_hire)."</td>
 			<td align='right'>".sprint($inv_sales)."</td>
@@ -373,7 +373,7 @@ function display($_POST)
 	$outstanding_out = "";
 	while ($outstanding_data = pg_fetch_array($outstanding_rslt)) {
 		$outstanding_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$outstanding_data[des]</td>
 			<td>$outstanding_data[surname]</td>
 			<td>$outstanding_data[invnum]</td>
@@ -385,7 +385,7 @@ function display($_POST)
 
 	if (empty($outstanding_out)) {
 		$outstanding_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='6'><li>No open hires.</li></td>
 		</tr>";
 	}
@@ -402,7 +402,7 @@ function display($_POST)
 			<th width='10%'>Amount</th>
 		</tr>
 		$outstanding_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'><b>Total</b></td>
 			<td align='right'>0.00</td>
 	</table>";
@@ -420,7 +420,7 @@ function display($_POST)
 	$payment_total = 0;
 	while ($payments_data = pg_fetch_array($payments_rslt)) {
 		$payments_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$payments_data[date]</td>
 			<td>$payments_data[type]</td>
 			<td>$payments_data[surname]</td>
@@ -432,7 +432,7 @@ function display($_POST)
 
 	if (empty($payments_out)) {
 		$payments_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'><li>No Payments found</li></td>
 		</tr>";
 	}
@@ -447,7 +447,7 @@ function display($_POST)
 			<th width='10%'>Amount</th>
 		</tr>
 		$payments_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'><b>Total</b></td>
 			<td align='right'>".sprint($payment_total)."</td>
 		</tr>
@@ -476,7 +476,7 @@ function display($_POST)
 			$cust_surname = pg_fetch_result ($run_cust,0,0);
 
 		$gnotes_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$cust_surname</td>
 			<td>$gnotes_data[creditnote_num]</td>
 			<td align='right'>$gnotes_data[totamt]</td>
@@ -486,7 +486,7 @@ function display($_POST)
 
 	if (empty($gnotes_out)) {
 		$gnotes_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'><li>No general credit notes found.</li></td>
 		</tr>";
 	}
@@ -500,7 +500,7 @@ function display($_POST)
 			<th width='10%'>Amount</th>
 		</tr>
 		$gnotes_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'><b>Total</b></td>
 			<td align='right'><b>".sprint($gnotes_total)."</b></td>
 		</tr>

@@ -73,7 +73,7 @@ function slctDep()
 	if (pg_numrows ($depRslt) < 1) {
 		return "<li>There are default company types in Cubit.";
 	}
-	$printDep .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><select name=depid size=5>";
+	$printDep .= "<tr class='bg-odd'><td><select name=depid size=5>";
 
 	while ($dep = pg_fetch_array ($depRslt)) {
 		# get number of accounts
@@ -142,7 +142,7 @@ function edit ($_POST)
 		}
 		$dep = pg_fetch_array ($depRslt);
 
-	$confirm .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>Name</td><td><input type=text name=depname size=30  value='$dep[depname]'></td></tr>
+	$confirm .= "<tr class='bg-odd'><td>Name</td><td><input type=text name=depname size=30  value='$dep[depname]'></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td align=right><input type=submit value='Continue &raquo'></td></tr>
 	</table></form>

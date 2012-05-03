@@ -35,7 +35,7 @@ function display()
 		$cust_rslt = db_exec($sql) or errDie("Unable to retrieve customers.");
 		$cust_data = pg_fetch_array($cust_rslt);
 
-		$hires_out .= "<tr bgcolor='".bgcolorg()."'>
+		$hires_out .= "<tr class='".bg_class()."'>
 			<td>$inv_data[odate]</td>
 			<td align='center'>
 				<a href='hire-invoice-new.php?invid=$inv_data[invid]'>
@@ -49,7 +49,7 @@ function display()
 		</tr>";
 	}
 	if (empty($hires_out)) {
-		$hires_out = "<tr bgcolor='".bgcolorg()."'>
+		$hires_out = "<tr class='".bg_class()."'>
 			<td colspan='5'>No hire notes found for this date range.</td>
 		</tr>";
 	}
@@ -61,7 +61,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td><b> To </b></td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

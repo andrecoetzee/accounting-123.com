@@ -101,11 +101,11 @@ function slctacc()
 	<tr>
 		<th colspan='2'>Options</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Select period</td>
 		<td>$prds</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Order By</td>
 		<td>
 			Transaction Date<input type='radio' name='t' checked value='t'>
@@ -116,7 +116,7 @@ function slctacc()
 	<tr>
 		<th colspan='2'>Account Options</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td valign='top'>Accounts</td>
 		<td nowrap>
 			<input type='radio' onClick='updateList(this);' name='accnt' value='slct' checked='yes' />Selected Accounts<b> | </b>
@@ -128,14 +128,14 @@ function slctacc()
 		<td colspan='2' style='margin: 0px; padding: 0px;'>
 			<div id='acclist'>
 			<table ".TMPL_tblDflts." width='100%' height='100%'>
-				<tr id='acclist1' bgcolor='".bgcolorg()."'>
+				<tr id='acclist1' class='".bg_class()."'>
 					<td>Account List Options</td>
 					<td colspan='2'>
 						<input type='radio' name='acc_first' onClick='document.form1.submit();' value='topacc' $topacc />Account Number - Account Name<br />
 						<input type='radio' name='acc_first' onClick='document.form1.submit();' value='accname' $accname />Account Name - Account Number<br/>
 					</td>
 				</tr>
-				<tr id='acclist2' bgcolor='".bgcolorg()."'>
+				<tr id='acclist2' class='".bg_class()."'>
 					<td valign='top'>Select account(s)</td>
 					<td>$accs</td>
 				</tr>
@@ -310,7 +310,7 @@ function viewtran($_POST)
 
 
 		$trans .= "$heading
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='8'><b>$account_name</b></td>
 		</tr>";
 
@@ -318,7 +318,7 @@ function viewtran($_POST)
 		$bbf_date = date("t-M-Y", mktime(0, 0, 0, $prd - 1, 1, getYearOfFinMon($prd)));
 
 		$trans .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2' align='right'>$bbf_date</td>
 			<td>Br/Forwd</td>
 			<td>Brought Forward</td>
@@ -378,7 +378,7 @@ function viewtran($_POST)
 
 			if($tran["debit"] != 0) {
 				$trans .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2' nowrap>$tran[edate]</td>
 					<td>$tran[eref]</td>
 					<td>$tran[descript]</td>
@@ -389,7 +389,7 @@ function viewtran($_POST)
 				</tr>";
 			} elseif ($tran["credit"] != 0) {
 				$trans .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2' nowrap>$tran[edate]</td>
 					<td>$tran[eref]</td>
 					<td>$tran[descript]</td>
@@ -415,7 +415,7 @@ function viewtran($_POST)
 		}
 
 		$trans .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'><br></td>
 			<td>A/C Total</td>
 			<td>Total for period $prdname to Date :</td>

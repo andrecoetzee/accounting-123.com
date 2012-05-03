@@ -148,7 +148,7 @@ function slctacc($_GET, $err="")
 	$run_batch = db_exec ($get_batch) or errDie ("Unable to get batch customer transaction information.");
 	if (pg_numrows ($run_batch) < 1){
 		$show_batch_listing = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='9'>No entries Found.</td>
 			</tr>";
 	}else {
@@ -191,7 +191,7 @@ function slctacc($_GET, $err="")
 			$showaccount = pg_fetch_result ($run_acc,0,0);
 
 			$show_batch_listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$showcusnum</td>
 					<td>$barr[proc_date]</td>
 					<td>$barr[ref_num]</td>
@@ -209,13 +209,13 @@ function slctacc($_GET, $err="")
 			<tr>
 				<td colspan='3'></td>
 				<th colspan='2'>TOTALS:</td>
-				<td nowrap bgcolor='".bgcolorg()."'>".CUR." $totamount</td>
-				<td nowrap bgcolor='".bgcolorg()."'>".CUR." $totvatamt</td>
+				<td nowrap class='".bg_class()."'>".CUR." $totamount</td>
+				<td nowrap class='".bg_class()."'>".CUR." $totvatamt</td>
 			</tr>
 			<tr>
 				<td colspan='3'></td>
 				<th colspan='2'>TOTAL INC VAT</th>
-				<td nowrap bgcolor='".bgcolorg()."' colspan='2'>".CUR." ".sprint ($totamount + $totvatamt)."</td>
+				<td nowrap class='".bg_class()."' colspan='2'>".CUR." ".sprint ($totamount + $totvatamt)."</td>
 			</tr>
 			<tr><td><br></td></tr>
 			<tr>
@@ -262,33 +262,33 @@ function slctacc($_GET, $err="")
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td>$cust_drop</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>".mkDateSelect("ct",$ct_year,$ct_month,$ct_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference Number</td>
 				<td><input type='text' size='10' name='refnum' value='".($refnum++)."'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Entry Type</td>
 				<td>
 					<li class='err'>This will debit/credit the customer account selected</li>
 					<input type='radio' name='entry' value='DT' $entd> Debit | <input type='radio' name='entry' value='CT' $entc>Credit</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='2'>Contra Account</td>
 				<td>$accounts <input name='details' type='submit' value='Enter Details'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!--        Rowspan      -->
 				<td><input type='text' name='accnum' size='20'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Charge VAT</td>
 				<td>
 					$vatcode_drop
@@ -297,11 +297,11 @@ function slctacc($_GET, $err="")
 					<input type='radio' name='vatinc' value='0'> No VAT
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." <input type='text' size='20' name='amount' value='$amount'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Transaction Details</td>
 				<td valign='center'><textarea cols='40' rows='4' name='details'>$details</textarea></td>
 			</tr>
@@ -571,7 +571,7 @@ function write($_POST)
 			# Write transaction  (debit contra account, credit debtors control)
 			writetrans($accid, $dept['debtacc'], $date, $refnum, $amount, $details." - Customer $cust[cusname] $cust[surname]");
 			$tran = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 				      <td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 				      <td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 			      </tr>";
@@ -588,7 +588,7 @@ function write($_POST)
 			# Write transaction  (debit debtors control, credit contra account)
 			writetrans($dept['debtacc'], $accid, $date, $refnum, $amount, $details." - Customer $cust[cusname] $cust[surname]");
 			$tran = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cust[accno] - $cust[cusname] $cust[surname]</td>
 					<td>$acc[topacc]/$acc[accnum] - $acc[accname]</td>
 				</tr>";

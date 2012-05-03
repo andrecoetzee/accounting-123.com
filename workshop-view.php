@@ -210,7 +210,7 @@ function display($errors="")
 
 	// See if we got any results from the query
 	if (pg_num_rows($wsRslt) == 0) {
-		$items = "<tr bgcolor='".TMPL_tblDataColor1."'>
+		$items = "<tr class='bg-odd'>
 		  <td colspan=9>No items found.</td>";
 	}
 	while ($wsData = pg_fetch_array($wsRslt)) {
@@ -264,7 +264,7 @@ function display($errors="")
 
 		// Items layout
 		$items .= "
-					<tr bgcolor='".bgcolorg()."' valign=top>
+					<tr class='".bg_class()."' valign=top>
 						<td>$wsData[refnum]</td>
 						<td>$wsData[cdate]</td>
 						<td><a href='cust-det.php?cusnum=$wsData[cusnum]' target=_blank>$cusData[surname] $cusData[init]</a></td>
@@ -323,7 +323,7 @@ function display($errors="")
 					<tr>
 						<th colspan='3'>Search</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='text' name='search' value='$search'></td>
 						<td>$search_keys</td>
 						<td><input type='submit' value='Search'></td>
@@ -337,7 +337,7 @@ function display($errors="")
 								<tr>
 									<th colspan='2'>Workshop reports</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td align='center'><a href='?key=workshop_report&report=age'>Age report</a></td>
 									<td align='center'><a href='?key=workshop_report&report=date'>Date report</td>
 								</tr>
@@ -428,7 +428,7 @@ function update($_POST)
 								<tr>
 									<th>Info</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td><li>After the receipt has been printed successfully, please click on \"<b>Write &raquo</b>\" to commit the changes.</li></td>
 								</tr>
 								<tr>
@@ -471,7 +471,7 @@ function update($_POST)
 							<tr>
 								<th>Info</th>
 							</tr>
-							<tr bgcolor='".TMPL_tblDataColor1."'>
+							<tr class='bg-odd'>
 								<td><li>Successfully checked out.</li></td>
 							</tr>
 							<tr>
@@ -531,27 +531,27 @@ function client_collect($_POST)
 						<tr>
 							<th colspan=2>Client collect from workshop</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Reference number</td>
 							<td>$wsData[refnum]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Customer</td>
 							<td>$surname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Stock Code/Name</td>
 							<td>$wsData[stkcod]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Serial Number</td>
 							<td>$wsData[serno]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Description</td>
 							<td>$wsData[description]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Notes</td>
 							<td>".nl2br(base64_decode($wsData["notes"]))."</td>
 						</tr>
@@ -609,7 +609,7 @@ function status_history($_POST)
 						<tr>
 							<th>Status history</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$hist_out</td>
 						</tr>
 						<tr>
@@ -659,7 +659,7 @@ function edit_notes($_POST)
 						<tr>
 							<th>Edit Notes</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><textarea name='notes' rows='5' style='width: 180px'>$notes</textarea></td>
 						</tr>
 						<tr>
@@ -722,31 +722,31 @@ function check_in($_POST)
 						<tr>
 							<th colspan='2'>Check in</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Status</td>
 							<td>$status</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Reference number</td>
 							<td>$wsData[refnum]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Customer</td>
 							<td>$surname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Stock Code/Name</td>
 							<td>$wsData[stkcod]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Serial Number</td>
 							<td>$wsData[serno]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Description</td>
 							<td>$wsData[description]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Notes</td>
 							<td>".nl2br(base64_decode($wsData["notes"]))."</td>
 						</tr>
@@ -822,35 +822,35 @@ function check_out($_POST)
 						<tr>
 							<th colspan='2'>Check out</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Where</td>
 							<td>$supdn</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Workshop conditions</td>
 							<td><textarea name='conditions' rows='5' style='width: 180px'>$conditions</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Reference number</td>
 							<td>$wsData[refnum]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Customer</td>
 							<td>$surname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Stock Code/Name</td>
 							<td>$wsData[stkcod]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Serial Number</td>
 							<td>$wsData[serno]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Description</td>
 							<td>$wsData[description]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Notes</td>
 							<td>".nl2br(base64_decode($wsData["notes"]))."</td>
 						</tr>
@@ -1045,7 +1045,7 @@ function workshop_report($_POST)
 							<tr>
 								<th colspan='2'>Workshop report</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								$input
 							</tr>
 							<tr>
@@ -1076,7 +1076,7 @@ function workshop_report($_POST)
 		// Display a message if no items were found
 		if (pg_num_rows($wsRslt) == 0) {
 			$items = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='7'>No items found.</td>
 						</tr>
 					";
@@ -1101,7 +1101,7 @@ function workshop_report($_POST)
 
 			// Items display
 			$items .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$wsData[refnum]</td>
 								<td>$wsData[cdate]</td>
 								<td>$surname</td>

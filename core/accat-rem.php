@@ -113,8 +113,8 @@ $rem =
 <input type=hidden name=catname value='$cat[catname]'>
 <input type=hidden name=tab value='$tab'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Category ID</td><td>$cat[catid]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Category Name</td><td>$cat[catname]</td></tr>
+<tr class='bg-even'><td>Category ID</td><td>$cat[catid]</td></tr>
+<tr class='bg-odd'><td>Category Name</td><td>$cat[catname]</td></tr>
 <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Delete Category&raquo'></td></tr>
 <tr><th>Quick Links</th></tr>
 <script>document.write(getQuicklinkSpecial());</script>

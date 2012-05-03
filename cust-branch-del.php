@@ -77,8 +77,8 @@ function confirm($cusnum,$editid)
 					<td><h4>Confirm Customer Branch Removal</h4></td>
 				</tr>
 				<tr><td><br></td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td>Branch Name</td><td>$branch_name</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor2."'><td>Branch Address</td><td>".nl2br($branch_descrip)."</td></tr>
+				<tr class='bg-odd'><td>Branch Name</td><td>$branch_name</td></tr>
+				<tr class='bg-even'><td>Branch Address</td><td>".nl2br($branch_descrip)."</td></tr>
 				<tr><td><br></td></tr>
 				<tr><td colspan=2 align=right><input type=submit value='Confirm & Close &raquo;'></td></tr>
 			</table>

@@ -66,9 +66,9 @@ function enterUser ($username="",$err="")
         <input type=hidden name=key value=confirm>
         $err
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Username</td><td><input type=text size=20 name=username value='$username'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Password</td><td><input type=password size=20 name=password> (MIN 6 Characters MAX 20 Characters)</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Confirm password</td><td><input type=password size=20 name=password2></td></tr>
+        <tr class='bg-even'><td>Username</td><td><input type=text size=20 name=username value='$username'></td></tr>
+        <tr class='bg-odd'><td>Password</td><td><input type=password size=20 name=password> (MIN 6 Characters MAX 20 Characters)</td></tr>
+        <tr class='bg-even'><td>Confirm password</td><td><input type=password size=20 name=password2></td></tr>
 
         <tr><td align=right colspan=2><input type=submit value='Confirm &raquo'></td></tr>
         </form>
@@ -77,7 +77,7 @@ function enterUser ($username="",$err="")
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enterUser;
@@ -124,8 +124,8 @@ function confirmUser ($_POST)
         <input type=hidden name=password value='$password'>
         <input type=hidden name=password2 value='$password2'>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Username</td><td>$username</td>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Password</td><td>*</td>
+        <tr class='bg-even'><td>Username</td><td>$username</td>
+        <tr class='bg-odd'><td>Password</td><td>*</td>
         <tr><td colspan=2><br></td></tr>
         <tr><th colspan=2>Select Department(s)</th></tr>";
 
@@ -149,7 +149,7 @@ function confirmUser ($_POST)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 	return $confirmUser;
 }

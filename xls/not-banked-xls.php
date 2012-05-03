@@ -55,7 +55,7 @@ function view()
 	<form action='".SELF."' method=post name=form>
 	<input type=hidden name=key value=out>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Bank Account</td>
+	<tr class='bg-odd'><td>Bank Account</td>
 	<td valign=center><select name=bankid>";
 	db_connect();
 	$sql = "SELECT * FROM bankacct WHERE div = '".USER_DIV."'";

@@ -23,19 +23,19 @@
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='project-add.php'>Add Project</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='projects-edit.php'>View/Edit Project Information</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='costcenter-add.php'>Add Cost Center</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='costcenter-view.php'>View Cost Centers</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>
@@ -80,14 +80,14 @@ function edit ($_POST)
 						<tr>
 							<th>Project Name</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='text' name='project_name' value='$project_name'></td>
 						</tr>
 						".TBL_BR."
 						<tr>
 							<th>Project Code</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='text' size='8' name='project_code' value='$project_code'></td>
 						</tr>
 						".TBL_BR."
@@ -120,14 +120,14 @@ function confirm ($_POST)
 						<tr>
 							<th>Project Name</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$project_name</td>
 						</tr>
 						".TBL_BR."
 						<tr>
 							<th>Project Code</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$project_code</td>
 						</tr>
 						".TBL_BR."

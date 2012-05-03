@@ -114,7 +114,7 @@ function confirm ($_POST)
 					<tr>
 						<th colspan='2'>Terms</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><pre>".wordwrap($terms, 60)."</pre></td>
 					</tr>
 					".TBL_BR."

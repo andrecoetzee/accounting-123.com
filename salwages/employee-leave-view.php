@@ -56,7 +56,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Application Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>
 					".mkDateSelect("from")."
 					&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
@@ -161,7 +161,7 @@ function printLea ($_POST)
 				$myEmp = pg_fetch_array ($empRslt);
 
 				$printLea .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$myEmp[sname], $myEmp[fnames] ($myEmp[enum])</td>
 						<td>$lea[date]</td>
 						<td>$lea[startdate]</td>

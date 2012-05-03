@@ -167,17 +167,17 @@ function edit($errors="")
 			<input type=hidden name='acctype' value='$acctype'>
 			<tr><td colspan='2'>$errors</td></tr>
 			<tr><th>Field</th><th>Value</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Type</td><td>$tab</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Category Name</td><td>$toptypedrop</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Number</td><td valign=center><input type=text name=topacc size=4 maxlength=4 value='$acc[topacc]'> / <input type=text name=accnum size=3 maxlength=3 value='$acc[accnum]'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Name</td><td><input type=text size=$size name=accname value='$acc[accname]'></td></tr>
+			<tr class='bg-odd'><td>Account Type</td><td>$tab</td></tr>
+			<tr class='bg-even'><td>Category Name</td><td>$toptypedrop</td></tr>
+			<tr class='bg-odd'><td>Account Number</td><td valign=center><input type=text name=topacc size=4 maxlength=4 value='$acc[topacc]'> / <input type=text name=accnum size=3 maxlength=3 value='$acc[accnum]'></td></tr>
+			<tr class='bg-even'><td>Account Name</td><td><input type=text size=$size name=accname value='$acc[accname]'></td></tr>
 			<tr><td><br></td></tr>
 			<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 		</table></form>
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='acc-view.php'>View Accounts</a></td></tr>
+			<tr class='bg-odd'><td><a href='acc-view.php'>View Accounts</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 	return $edit;
@@ -248,10 +248,10 @@ function confirm ($_POST)
 		<input type=hidden name=accname value='$accname'>
 		<input type=hidden name=toptype value='$toptype'>
 		<tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Type</td><td>$tab</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Category Name</td><td>$category[1]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Number</td><td>$topacc/$accnum</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Name</td><td>$accname</td></tr>
+		<tr class='bg-odd'><td>Account Type</td><td>$tab</td></tr>
+		<tr class='bg-even'><td>Category Name</td><td>$category[1]</td></tr>
+		<tr class='bg-odd'><td>Account Number</td><td>$topacc/$accnum</td></tr>
+		<tr class='bg-even'><td>Account Name</td><td>$accname</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td colspan=2 align=right>
 			<input type='submit' name='key' value='&laquo; Correction'>
@@ -261,7 +261,7 @@ function confirm ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='acc-view.php'>View Accounts</a></td></tr>
+		<tr class='bg-odd'><td><a href='acc-view.php'>View Accounts</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -334,7 +334,7 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='acc-view.php'>View Accounts</a></td></tr>
+		<tr class='bg-odd'><td><a href='acc-view.php'>View Accounts</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

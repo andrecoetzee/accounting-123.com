@@ -50,11 +50,11 @@ function confirm_burs ($_POST)
 				<tr>
 					<th colspan='2'>Bursary Information</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bursary Name</td>
 					<td>$bursary_name</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bursary Details</td>
 					<td>".nl2br($bursary_details)."</td>
 				</tr>
@@ -88,7 +88,7 @@ function write_burs ($_POST)
 				<tr>
 					<th>Information Updated.</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bursary Has Been Removed</td>
 				</tr>
 			</table><br>"

@@ -86,11 +86,11 @@ function view()
 			<tr>
 				<th colspan='2'>New International Sales Order</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Department</td>
 				<td valign='center'>$depts</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>First Letters of customer</td>
 				<td valign='center'><input type='text' size='5' name='letters' maxlength='5'></td>
 			</tr>
@@ -105,10 +105,10 @@ function view()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='sorder-view.php'>View Sales Orders</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='customers-new.php'>New Customer</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -159,11 +159,11 @@ function view_err($_POST, $err = "")
 			<tr>
 				<td colspan='2'>$err</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Department</td>
 				<td valign='center'>$depts</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>First Letters of customer</td>
 				<td valign='center'><input type='text' size='5' name='letters' value='$letters' maxlength='5'></td>
 			</tr>
@@ -179,10 +179,10 @@ function view_err($_POST, $err = "")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='sorder-view.php'>View Sales Orders</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='customers-new.php'>New Customer</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -481,7 +481,7 @@ function details($_POST, $error="")
 
 		# put in product
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='hidden' name='whids[]' value='$stkd[whid]'>$wh[whname]</td>
 				<td>
 					<input type='hidden' name='stkids[]' value='$stkd[stkid]'>
@@ -569,7 +569,7 @@ function details($_POST, $error="")
 
 				# put in selected warehouse and stock
 				$products .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' name='whids[]' value='$whid'>$wh[whname]</td>
 						<td><input type='hidden' name='stkids[]' value='$stk[stkid]'><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td>
 						<td>".extlib_rstr($stk['stkdes'], 30)."</td>
@@ -613,7 +613,7 @@ function details($_POST, $error="")
 
 					# put in drop down and warehouse
 					$products .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' name='whidss[]' value='$whid'>$wh[whname]</td>
 							<td>$stks</td>
 							<td> </td>
@@ -661,7 +661,7 @@ function details($_POST, $error="")
 				}
 				$stks .= "</select> ";
 				$products .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' name='whidss[]' value='$whid'>$wh[whname]</td>
 						<td>$stks</td>
 						<td> </td>
@@ -674,7 +674,7 @@ function details($_POST, $error="")
 					</tr>";
 			}else{
 				$products .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$whs</td>
 						<td></td>
 						<td> </td>
@@ -693,7 +693,7 @@ function details($_POST, $error="")
 
 	if(isset($diffwhBtn)){
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$whs</td>
 				<td></td>
 				<td> </td>
@@ -757,27 +757,27 @@ function details($_POST, $error="")
 						<tr>
 							<th colspan='2'> Customer Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Department</td>
 							<td valign='center'>$dept[deptname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account No.</td>
 							<td valign='center'>$cust[accno]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Customer</td>
 							<td valign='center'>$customers</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Customer Address</td>
 							<td valign='center'>".nl2br($cust['addr1'])."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Customer Order number</td>
 							<td valign='center'><input type='text' size='10' name='cordno' value='$sord[cordno]'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Customer Vat Number</td>
 							<td>$cust[vatnum]</td>
 						</tr>
@@ -788,15 +788,15 @@ function details($_POST, $error="")
 						<tr>
 							<th colspan='2'> Sales Order Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Sales Order No.</td>
 							<td valign='center'>$sord[sordid]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Order No.</td>
 							<td valign='center'><input type='text' size='5' name='ordno' value='$sord[ordno]'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Inclusive</td>
 							<td valign='center'>
 								Yes <input type='radio' size='7' name='chrgvat' value='inc' $chin> 
@@ -804,31 +804,31 @@ function details($_POST, $error="")
 								No Vat<input type='radio' size='7' name='chrgvat' value='nov' $chno>
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Foreign Currency</td>
 							<td valign='center'>$currs[symbol] - $currs[name] &nbsp;&nbsp;Exchange rate ".CUR." <input type='text' size='7' name='xrate' value='$sord[xrate]'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Terms</td>
 							<td valign='center'>$termssel Days</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Sales Person</td>
 							<td valign='center'>$salesps</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Sales Order Date</td>
 							<td valign='center'>".mkDateSelect("isord",$isord_year,$isord_month,$isord_day)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Available Credit</td>
 							<td>$sord[currency] ".sprint($avcred)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Trade Discount</td>
 							<td valign='center'><input type='text' size='5' name='traddisc' value='$sord[traddisc]'>%</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Delivery Charge</td>
 							<td valign='center'><input type='text' size='7' name='delchrg' value='$sord[delchrg]'></td>
 						</tr>
@@ -849,10 +849,10 @@ function details($_POST, $error="")
 							<td rowspan='5' valign='top' width='50%'>$error</td>
 						</tr>
 						<tr>
-							<td bgcolor='".bgcolorg()."'><a href='sorder-new.php'>New Sales Order</a></td>
-							<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'><textarea name='comm' rows='4' cols='20'>$sord[comm]</textarea></td>
+							<td class='".bg_class()."'><a href='sorder-new.php'>New Sales Order</a></td>
+							<td class='".bg_class()."' rowspan='4' align='center' valign='top'><textarea name='comm' rows='4' cols='20'>$sord[comm]</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='sorder-view.php'>View Sales Orders</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>
@@ -860,23 +860,23 @@ function details($_POST, $error="")
 				</td>
 				<td align='right'>
 					<table ".TMPL_tblDflts." width='80%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>SUBTOTAL</td>
 							<td align='right'>$sord[currency] <input type='hidden' name='SUBTOT' value='$SUBTOT'>$SUBTOT</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Trade Discount</td>
 							<td align='right'>$sord[currency] $sord[discount]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Delivery Charge</td>
 							<td align='right'>$sord[currency] $sord[delivery]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><b>VAT @ $VATP%</b></td>
 							<td align='right'>$sord[currency] $VAT</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th>GRAND TOTAL</th>
 							<td align='right'>$sord[currency] $TOTAL</td>
 						</tr>
@@ -1349,7 +1349,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 				<tr>
 					<th>New International Sales Order</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Sales Order for customer <b>$cust[cusname] $cust[surname]</b> has been recorded.</td>
 				</tr>
 			</table>
@@ -1370,7 +1370,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 				<tr>
 					<th>New International Sales Order Saved</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Sales Order for customer <b>$cust[cusname] $cust[surname]</b> has been saved.</td>
 				</tr>
 			</table>
@@ -1379,7 +1379,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='sorder-view.php'>View Sales Orders</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>

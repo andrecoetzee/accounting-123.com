@@ -53,7 +53,7 @@ function display()
 			<tr>
 				<th colspan='4'>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				<td>&nbsp; <b>To</b> &nbsp;</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -214,7 +214,7 @@ function display()
 		if (empty($invqty)) $invqty = 0;
 
 		$items_out[$details_data["grpid"]][] = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>H".getHirenum($details_data["invid"], 1)."</td>
 				<td align='center'>$details_data[inv_invnum]</td>
 				<td align='center'>$details_data[surname]</td>
@@ -238,7 +238,7 @@ function display()
 
 	if (!count($items_out)) {
 		$details_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='7'><li>No results found.</li></td>
 		</tr>";
 	}
@@ -251,14 +251,14 @@ function display()
 				<th style='padding-right: 10px'>Total Invoiced Hire</th>
 				<th style='padding-left: 10px'>Total Non Invoiced Hire</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>".sprint($total_invoiced)."</td>
 				<td align='center'>".sprint($total_not_invoiced)."</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Total Hire</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' colspan='2'><b>".sprint($total_hire)."</b></td>
 			</tr>
 		</table>

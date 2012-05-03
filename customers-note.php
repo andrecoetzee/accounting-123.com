@@ -45,7 +45,7 @@ function view_note ()
 			<tr>
 				<th>Note</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><textarea name='note' cols='60' rows='12'>$note</textarea></td>
 			</tr>
 			".TBL_BR."

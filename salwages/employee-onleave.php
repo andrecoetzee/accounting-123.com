@@ -81,7 +81,7 @@ function printLea ()
 			$myEmp = pg_fetch_array ($empRslt);
 
 			$printLea .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$myEmp[sname], $myEmp[fnames] ($myEmp[enum])</td>
 					<td>$typedef</td>
 					<td>$lea[startdate]</td>

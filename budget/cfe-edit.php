@@ -79,13 +79,13 @@ function enter ($HTTP_VARS) {
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=id value='$id'>
 	<tr><th colspan=2>Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td><input type=text size=20 name=des value='$i[description]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Funds In/Out?</td><td valign=center>In<input type=radio name=funds value='in' $chadd>Out<input type=radio name=funds value='out' $chpurch></td></tr>
+	<tr class='bg-even'><td>Description</td><td><input type=text size=20 name=des value='$i[description]'></td></tr>
+	<tr class='bg-odd'><td>Funds In/Out?</td><td valign=center>In<input type=radio name=funds value='in' $chadd>Out<input type=radio name=funds value='out' $chpurch></td></tr>
 	<tr><th colspan=2>Date</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td><table><tr><td><input type=text size=2 name=day maxlength=2 value='$dates[2]'>
+	<tr class='bg-odd'><td>Date</td><td><table><tr><td><input type=text size=2 name=day maxlength=2 value='$dates[2]'>
 	</td><td>-</td><td><input type=text size=2 name=mon maxlength=2  value='$dates[1]'></td><td>-</td><td>
 	<input type=text size=4 name=year maxlength=4 value='$dates[0]'></td></tr></table></td>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Amount</td><td><input type=text size=20 name=amount value='$i[amount]'></td></tr>
+	<tr class='bg-even'><td>Amount</td><td><input type=text size=20 name=amount value='$i[amount]'></td></tr>
 	</table>
 	</td></tr>
 	<tr><td valign=bottom colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
@@ -93,7 +93,7 @@ function enter ($HTTP_VARS) {
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cfe-view.php'>View cash flow budget entries</a></td></tr>
+	<tr class='bg-odd'><td><a href='cfe-view.php'>View cash flow budget entries</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -127,13 +127,13 @@ function enter_err ($_POST, $err="")
 	<tr valign=top><td>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th colspan=2>Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Description</td><td><input type=text size=20 name=des value='$des'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Funds</td><td valign=center>In<input type=radio name=funds value='in' $chadd> Purchase Asset<input type=radio name=funds value='out' $chpurch></td></tr>
+		<tr class='bg-odd'><td>Description</td><td><input type=text size=20 name=des value='$des'></td></tr>
+		<tr class='bg-even'><td>Funds</td><td valign=center>In<input type=radio name=funds value='in' $chadd> Purchase Asset<input type=radio name=funds value='out' $chpurch></td></tr>
 		<tr><th colspan=2>Date</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td><table><tr><td><input type=text size=2 name=day maxlength=2 value='$day'>
+		<tr class='bg-odd'><td>Date</td><td><table><tr><td><input type=text size=2 name=day maxlength=2 value='$day'>
 		</td><td>-</td><td><input type=text size=2 name=mon maxlength=2  value='$mon'></td><td>-</td><td>
 		<input type=text size=4 name=year maxlength=4 value='$year'></td></tr></table></td>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Amount</td><td><input type=text size=20 name=amount value='$amount'></td></tr>
+		<tr class='bg-even'><td>Amount</td><td><input type=text size=20 name=amount value='$amount'></td></tr>
 		</table>
 	</td></tr>
 	<tr><td valign=bottom colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
@@ -141,7 +141,7 @@ function enter_err ($_POST, $err="")
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cfe-view.php'>View Cash flow budget entries</a></td></tr>
+	<tr class='bg-odd'><td><a href='cfe-view.php'>View Cash flow budget entries</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -200,10 +200,10 @@ function confirm ($_POST)
 	<tr valign=top><td>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th colspan=2>Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td><input type=hidden name=des value='$des'>$des</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Funds</td><td>$funds</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td><input type=hidden name=bdate value='$date'>$date</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td align=right><input type=hidden name=amount value='$amount'>".CUR." $amount</td></tr>
+		<tr class='bg-even'><td>Description</td><td><input type=hidden name=des value='$des'>$des</td></tr>
+		<tr class='bg-odd'><td>Funds</td><td>$funds</td></tr>
+		<tr class='bg-even'><td>Date</td><td><input type=hidden name=bdate value='$date'>$date</td></tr>
+		<tr class='bg-odd'><td>Amount</td><td align=right><input type=hidden name=amount value='$amount'>".CUR." $amount</td></tr>
 		<tr><td><input type=submit name=back value='&laquo; Correction'></td><td valign=bottom align=right><input type=submit value='Write &raquo;'></td></tr>
 		</table>
 	</td></tr>
@@ -212,7 +212,7 @@ function confirm ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cfe-view.php'>View cash flow budget entries</a></td></tr>
+		<tr class='bg-odd'><td><a href='cfe-view.php'>View cash flow budget entries</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -271,8 +271,8 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cfe-add.php'>New cash flow budget entry</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cfe-view.php'>View cash flow budget entries</a></td></tr>
+	<tr class='bg-odd'><td><a href='cfe-add.php'>New cash flow budget entry</a></td></tr>
+	<tr class='bg-odd'><td><a href='cfe-view.php'>View cash flow budget entries</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

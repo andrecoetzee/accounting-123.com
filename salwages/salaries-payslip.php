@@ -76,7 +76,7 @@ function slctEmployee ()
 			<tr>
 				<th colspan='2'>Employee</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$employees</td>
 			</tr>
@@ -131,13 +131,13 @@ function process ($_GET)
 	if (pg_numrows ($fringeRslt) < 1) {
 		$fringebens = "
 			<tr>
-				<td bgcolor='".bgcolorg()."' colspan='2' align='center'>None found in database.</td>
+				<td class='".bg_class()."' colspan='2' align='center'>None found in database.</td>
 			</tr>\n";
 	} else {
 		while ($myFringe = pg_fetch_array ($fringeRslt)) {
 
 			$fringebens .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$myFringe[fringeben]</td>";
 			# check if employee has fringe benefit
 			$sql = "SELECT * FROM empfringe WHERE fringebenid='$myFringe[id]' AND empnum='$myEmp[empnum]'";
@@ -166,13 +166,13 @@ function process ($_GET)
 	if (pg_numrows ($allowRslt) < 1) {
 		$allowances = "
 			<tr>
-				<td bgcolor='".bgcolorg()."' colspan='2' align='center'>None found in database.</td>
+				<td class='".bg_class()."' colspan='2' align='center'>None found in database.</td>
 			</tr>\n";
 	} else {
 		while ($myAllow = pg_fetch_array ($allowRslt)) {
 
 			$allowances .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$myAllow[allowance]</td>";
 			# check if employee has allowance
 			$sql = "SELECT * FROM empallow WHERE allowid='$myAllow[id]' AND empnum='$myEmp[empnum]'";
@@ -201,13 +201,13 @@ function process ($_GET)
 	if (pg_numrows ($deductRslt) < 1) {
 		$deductions = "
 			<tr>
-				<td bgcolor='".bgcolorg()."' colspan='2' align='center'>None found in database.</td>
+				<td class='".bg_class()."' colspan='2' align='center'>None found in database.</td>
 			</tr>\n";
 	} else {
 		while ($myDeduct = pg_fetch_array ($deductRslt)) {
 
 			$deductions .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$myDeduct[deduction]</td>";
 			# check if employee has deduction
 			$sql = "SELECT * FROM empdeduct WHERE dedid='$myDeduct[id]' AND empnum='$myEmp[empnum]'";
@@ -237,19 +237,19 @@ function process ($_GET)
 			<tr>
 				<th colspan='2'>Cash section</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Gross Basic salary</td>
 				<td align='center'>".CUR."<br><input type='text' size='10' name='basic_sal' value='$myEmp[basic_sal]' class='right'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Commission</td>
 				<td align='center'>".CUR."<br><input type='text' size='10' name='commission' value='$myEmp[commission]' class='right'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Low or interest-free loan</td>
 				<td align='center'>".CUR."<br><input type='text' size='10' name='loaninstall' value='$myEmp[loaninstall]' class='right'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Interest rate charged by company</td>
 				<td align='center'>%<br><input type='text' size='5' name='loanint' value='$myEmp[loanint]' class='right'></td>
 			</tr>
@@ -368,7 +368,7 @@ function confirm ($_POST)
 		while($i <= (count($fringebens)-1)) {
 
 			$fringe .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$fringename[$i]</td>
 					<input type='hidden' size='10' name='fringebenid[]' value='$fringebenid[$i]'>
 					<input type='hidden' size='10' name='fringebens[]' value='$fringebens[$i]' class='right'>
@@ -395,7 +395,7 @@ function confirm ($_POST)
 		while($i <= (count($allowname)-1)) {
 
 			$allow .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$allowname[$i]</td>
 					<input type='hidden' size='10' name='allowid[]' value='$allowid[$i]'>
 					<input type='hidden' size='10' name='allowances[]' value='$allowances[$i]'>
@@ -421,7 +421,7 @@ function confirm ($_POST)
 		while($i <= (count($deductions)-1)) {
 
 			$deduct .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$deductname[$i]</td>
 					<input type='hidden' size='10' name='deductid[]' value='$deductid[$i]'>
 					<input type='hidden' size='10' name='deductions[]' value='$deductions[$i]'>
@@ -453,35 +453,35 @@ function confirm ($_POST)
 			<tr>
 				<th colspan='2'>Cash section</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Gross Basic salary</td>
 				<td align='center'>".CUR." $basic_sal</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Commission</td>
 				<td align='center'>".CUR." $commission</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Low or interest-free loan</td>
 				<td align='center'>".CUR." $loaninstall</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Interest rate charged by company</td>
 				<td align='center'>$loanint%</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>UIF Percentage</td>
 				<td align='center'>".$uifperc."%</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total UIF</td>
 				<td align='center'>".CUR." $uif</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>PAYE Percentage</td>
 				<td align='center'>$payeperc%</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total PAYE</td>
 				<td align='center'>".CUR." $paye</td>
 			</tr>
@@ -594,35 +594,35 @@ function write ($_POST)
 			<tr>
 				<th colspan='2'>Employee Salary has been successfully proccessed on system</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Gross Basic salary</td>
 				<td align='center'>".CUR." $basic_sal</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Commission</td>
 				<td align='center'>".CUR." $commission</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Low or interest-free loan</td>
 				<td align='center'>".CUR." $loaninstall</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Interest rate charged by company</td>
 				<td align='center'>$loanint%</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>UIF Percentage</td>
 				<td align='center'>".$uifperc."%</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total UIF</td>
 				<td align='center'>".CUR." $uif</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>PAYE Percentage</td>
 				<td align='center'>$payeperc%</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total PAYE</td>
 				<td align='center'>".CUR." $paye</td>
 			</tr>

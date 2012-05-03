@@ -153,7 +153,7 @@ if (isset ($_POST["login_user"]) && isset ($_POST["login_pass"]) && isset ($_POS
 			$AppDate = $Tp['datefor'];
 			$Appointment = $Tp['des'];
 			$Out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$AppDate</td>
 					<td>$AppTime</td>
 					<td>$Appointment</td>

@@ -58,7 +58,7 @@ function details($cusnum)
 	$listing = "";
 	while ($arr = pg_fetch_array($run_branches)){
 		$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$arr[branch_name]</td>
 					<td>".nl2br($arr['branch_descrip'])."</td>
 					<td><a href='cust-branch-edit.php?cusnum=$cusnum&editid=$arr[id]'>Edit</a></td>

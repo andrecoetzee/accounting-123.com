@@ -78,31 +78,31 @@ function display()
 		<tr>
 			<th colspan='2'>Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Title</td>
 			<td>$title</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Document Type</td>
 			<td>$type_name</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Revision</td>
 			<td>$revision</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>File Location</td>
 			<td>$location</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Comments</td>
 			<td>$comments</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Team Permissions</td>
 			<td>$team_name</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Status</td>
 			<td>$status</td>
 		</tr>
@@ -114,14 +114,14 @@ function display()
 
 	$file_out = "";
 	while ($df_data = pg_fetch_array($df_rslt)) {
-		$file_out .= "<tr bgcolor='".bgcolorg()."'>
+		$file_out .= "<tr class='".bg_class()."'>
 			<td><a href='getfile.php?key=doc&id=$df_data[id]'>$df_data[filename]</a></td>
 			<td>".getFilesize($df_data["size"])."</td>
 		</tr>";
 	}
 
 	if (empty($file_out)) {
-		$file_out = "<tr bgcolor='".bgcolorg()."'>
+		$file_out = "<tr class='".bg_class()."'>
 			<td colspan='2'>No files found.</td>
 		</tr>";
 	}
@@ -155,7 +155,7 @@ function remove()
 		<tr>
 			<th>Remove</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Successfully remove document.</td>
 		</tr>
 	</table>";

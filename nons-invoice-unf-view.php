@@ -93,7 +93,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' nowrap>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -104,7 +104,7 @@ function slct()
 			<tr>
 				<th>Select Customer</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$cust_drop</td>
 			</tr>
 		</form>
@@ -114,10 +114,10 @@ function slct()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='nons-invoice-new.php'>New Non Stock Invoice</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -213,7 +213,7 @@ function printInvoice ()
 		$cur = CUR;
 
 		$printOrd .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$nonstks[invnum]</td>
 				<td>$nonstks[docref]</td>
 				<td>$date</td>
@@ -227,7 +227,7 @@ function printInvoice ()
 	$tot_total = sprint($tot_total);
 
 	$printOrd .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'>Totals</td>
 				<td align='right'>".CUR." $tot_total</td>
 			</tr>

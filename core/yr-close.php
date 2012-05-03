@@ -116,19 +116,19 @@ function main()
 		<center>
 		<h3>Close Current Year</h3>
 		<table ".TMPL_tblDflts.">
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Current Financial Year:</th>
 				<td>$act[yrname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Next Financial Year:</th>
 				<td>".($act["yrname"] + 1)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Period Range:</th>
 				<td>$prddesc</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Today's Date:</th>
 				<td><b>".date("D d M Y")."</b></td>
 			</tr>

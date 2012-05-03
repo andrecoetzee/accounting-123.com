@@ -195,43 +195,43 @@ function edit($_GET,$errs="")
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account</td>
 				<td valign='center'>$banks</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock code</td>
 				<td>$stk[stkcod]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock description</td>
 				<td>".nl2br($stk['stkdes'])."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type</td>
 				<td>$ttype</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>".mkDateSelect("date", $date_year, $date_month, $date_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Number of Units</td>
 				<td><input type='text' size='5' name='unitnum' value='$unitnum'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Details</td>
 				<td><textarea name='det' rows='3' cols='18'>$det</textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount per Unit</td>
 				<td>".CUR." <input type='text' size='10' name='cost' value='$cost'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT Inclusive</td>
 				<td valign='center'>Yes <input type='radio' size='7' name='chrgvat' value='inc' checked='yes'> No<input type='radio' size='7' name='chrgvat' value='exc'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT Code</td>
 				<td>$Vatcodes</td>
 			</tr>
@@ -391,43 +391,43 @@ function confirm($_POST)
 				<th width='40%'>Field</th>
 				<th width='60%'>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock code</td>
 				<td>$stkcod</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock description</td>
 				<td>".nl2br($stkdes)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type</td>
 				<td>$type</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Details</td>
 				<td>".nl2br($det)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Number of Units</td>
 				<td>$unitnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount per Unit</td>
 				<td>".CUR." $cost</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT Inclusive</td>
 				<td valign='center'>$chrgvat</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT</td>
 				<td>$showvat</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total Amount</td>
 				<td>".CUR." ".sprint($totcost)."</td>
 			</tr>
@@ -443,10 +443,10 @@ function confirm($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../stock-add.php'>Add Stock</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../stock-view.php'>View Stock</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -720,10 +720,10 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../stock-add.php'>Add Stock</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../stock-view.php'>View Stock</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

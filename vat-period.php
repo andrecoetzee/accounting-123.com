@@ -71,11 +71,11 @@ function vatreg($err="") {
 	<tr>
 		<th colspan=2>Are you VAT Registered?</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td><input type=radio value=no name=vatreg ".($vatreg=="no"?"checked":"")."></td>
 		<td>No</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td><input type=radio value=yes name=vatreg ".($vatreg=="yes"?"checked":"")."></td>
 		<td>Yes</td>
 	</tr>
@@ -143,32 +143,32 @@ function select($err="") {
 	<tr>
 		<th colspan=2>Select Tax Period Category</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td><input type=radio value=none name=prdcat ".($prdcat=="none"?"checked":"")."></td>
 		<td>None</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td><input type=radio value=a name=prdcat ".($prdcat=="a"?"checked":"")."></td>
 		<td>Category A</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td><input type=radio value=b name=prdcat ".($prdcat=="b"?"checked":"")."></td>
 		<td>Category B</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td><input type=radio value=c name=prdcat ".($prdcat=="c"?"checked":"")."></td>
 		<td>Category C</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td><input type=radio value=d name=prdcat ".($prdcat=="d"?"checked":"")."></td>
 		<td>Category D</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td><input type=radio value=e name=prdcat ".($prdcat=="e"?"checked":"")."></td>
 		<td>Category E</td>
 		<td>Select: $selmon</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td><input type=radio value=f name=prdcat ".($prdcat=="f"?"checked":"")."></td>
 		<td>Category F</td>
 	</tr>
@@ -244,7 +244,7 @@ function confirm() {
 		<tr>
 			<th colspan=2>Selected Tax Period Category</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Category</td>
 			<td>$cat</td>
 		</tr>";
@@ -253,7 +253,7 @@ function confirm() {
 		<tr>
 			<th colspan=2>Vat Registered</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Not Vat Registered</td>
 		</tr>";
 	}

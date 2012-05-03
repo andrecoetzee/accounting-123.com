@@ -83,7 +83,7 @@ function view(){
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Account type</td>
 				<td valign='center'>
 					<select name='type'>
@@ -93,7 +93,7 @@ function view(){
 					</select>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Account Level</td>
 				<td valign=center>
 					<select name='level'>
@@ -183,11 +183,11 @@ function slctCat($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Type</td>
 				<td>$tab</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category Name</td>
 				<td>
 					<select name='catid'>";
@@ -210,7 +210,7 @@ function slctCat($_POST)
 					</select>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Name</td>
 				<td valign='center'><input type='text' name='accname' maxlength='40'></td>
 			</tr>
@@ -270,11 +270,11 @@ function slctSubCat($type)
 			<th>Field</th>
 			<th>Value</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Account Type</td>
 			<td>$tab</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Category Name</td>
 			<td>
 				<select name='catid'>";
@@ -374,19 +374,19 @@ function subacc($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Type</td>
 				<td>$tab</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category ID</td>
 				<td>$catid</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Main Account</td>
 				<td>$acc</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sub Account Name</td>
 				<td><Input type='text' name='accname' size='18'></td>
 			</tr>
@@ -463,15 +463,15 @@ function confirm($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Type</td>
 				<td>$tab</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category ID</td>
 				<td>$catid</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Name</td>
 				<td>$accname</td>
 			</tr>
@@ -560,19 +560,19 @@ function confirmsub($_POST)
 			<th>Field</th>
 			<th>Value</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Account Type</td>
 			<td>$tab</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Category ID</td>
 			<td>$catid</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Main Account</td>
 			<td>$topaccname</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Sub Account</td>
 			<td>$accname</td>
 		</tr>

@@ -64,92 +64,92 @@ function cat_list ()
 	$display = "
 			<h2>Auditor recording section</h2>
 			<table ".TMPL_tblDflts." width='400'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Complex/unusual transactions</li></td>
 					<td><a href='auditor_record.php?cat=1&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=1&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Significant estimates</li></td>
 					<td><a href='auditor_record.php?cat=2&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=2&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Period-end adjustments</li></td>
 					<td><a href='auditor_record.php?cat=3&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=3&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Past misstatements</li></td>
 					<td><a href='auditor_record.php?cat=4&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=4&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Unreconciled differences</li></td>
 					<td><a href='auditor_record.php?cat=5&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=5&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Information or Adjustments provided late in audit</li></td>
 					<td><a href='auditor_record.php?cat=6&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=6&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Items not in line with expectations</li></td>
 					<td><a href='auditor_record.php?cat=7&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=7&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Unneccessary complexity</li></td>
 					<td><a href='auditor_record.php?cat=8&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=8&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Management overrides</li></td>
 					<td><a href='auditor_record.php?cat=9&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=9&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Revenue recognition</li></td>
 					<td><a href='auditor_record.php?cat=10&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=10&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Conflicting or missing evidence</li></td>
 					<td><a href='auditor_record.php?cat=11&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=11&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Unsupported transactions</li></td>
 					<td><a href='auditor_record.php?cat=12&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=12&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Frequent changes in accounting estimates</li></td>
 					<td><a href='auditor_record.php?cat=13&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=13&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Strange accounting policies</li></td>
 					<td><a href='auditor_record.php?cat=14&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=14&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Identified fraud opportunities</li></td>
 					<td><a href='auditor_record.php?cat=15&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=15&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Non reconciling suspense accounts</li></td>
 					<td><a href='auditor_record.php?cat=16&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=16&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Reconciliation variations (Bank, Debtor, Creditor)</li></td>
 					<td><a href='auditor_record.php?cat=17&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=17&action=view'>View</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><li>Incomplete or late transactions</li></td>
 					<td><a href='auditor_record.php?cat=18&action=add'>Add</a></td>
 					<td><a href='auditor_record.php?cat=18&action=view'>View</a></td>
@@ -252,7 +252,7 @@ function view_item ()
 		while ($arr = pg_fetch_array($run_info)){
 
 			$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>".nl2br($arr['detail'])."</td>
 					</tr>
 				";

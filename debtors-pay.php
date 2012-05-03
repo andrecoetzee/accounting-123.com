@@ -121,17 +121,17 @@ function details($ordnum)
          // Layout
         $details .=
         "<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td width=70%>Customer Name</td><td valign=center>$cusname</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Telephone No.</td><td valign=center>$tel</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Fax No.</td><td valign=center>$fax</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>E-mail Address</td><td valign=center>$email</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Order Date</td><td valign=center>$orddate</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Invoice Date</td><td valign=center>$invdate</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Outstanding Amount</td><td valign=center>$dt[amount]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Terms</td><td valign=center>$dt[terms]</td></tr>
+        <tr class='bg-odd'><td width=70%>Customer Name</td><td valign=center>$cusname</td></tr>
+        <tr class='bg-even'><td>Telephone No.</td><td valign=center>$tel</td></tr>
+        <tr class='bg-odd'><td>Fax No.</td><td valign=center>$fax</td></tr>
+        <tr class='bg-even'><td>E-mail Address</td><td valign=center>$email</td></tr>
+        <tr class='bg-odd'><td>Order Date</td><td valign=center>$orddate</td></tr>
+        <tr class='bg-even'><td>Invoice Date</td><td valign=center>$invdate</td></tr>
+        <tr class='bg-odd'><td>Outstanding Amount</td><td valign=center>$dt[amount]</td></tr>
+        <tr class='bg-even'><td>Terms</td><td valign=center>$dt[terms]</td></tr>
         <tr><td><br></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Amount Paid</td><td>".CUR." <input type=text name='paidamt' size=7></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Account Paid to</td><td>$paid</td></tr>
+        <tr class='bg-odd'><td>Amount Paid</td><td>".CUR." <input type=text name='paidamt' size=7></td></tr>
+        <tr class='bg-even'><td>Account Paid to</td><td>$paid</td></tr>
         <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Confirm &raquo'></td></tr>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
         <tr><th>Quick Links</th></tr>
@@ -217,17 +217,17 @@ function confirm($_POST)
          // Layout
         $confirm .=
         "<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td width=70%>Customer Name</td><td valign=center>$cusname</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Telephone No.</td><td valign=center>$tel</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Fax No.</td><td valign=center>$fax</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>E-mail Address</td><td valign=center>$email</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Order Date</td><td valign=center>$orddate</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Invoice Date</td><td valign=center>$invdate</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Outstanding Amount</td><td valign=center>$dt[amount]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Terms</td><td valign=center>$dt[terms]</td></tr>
+        <tr class='bg-odd'><td width=70%>Customer Name</td><td valign=center>$cusname</td></tr>
+        <tr class='bg-even'><td>Telephone No.</td><td valign=center>$tel</td></tr>
+        <tr class='bg-odd'><td>Fax No.</td><td valign=center>$fax</td></tr>
+        <tr class='bg-even'><td>E-mail Address</td><td valign=center>$email</td></tr>
+        <tr class='bg-odd'><td>Order Date</td><td valign=center>$orddate</td></tr>
+        <tr class='bg-even'><td>Invoice Date</td><td valign=center>$invdate</td></tr>
+        <tr class='bg-odd'><td>Outstanding Amount</td><td valign=center>$dt[amount]</td></tr>
+        <tr class='bg-even'><td>Terms</td><td valign=center>$dt[terms]</td></tr>
         <tr><td><br></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Amount Paid</td><td>".CUR." $paidamt</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Account Paid to</td><td>$acc[accname]</td></tr>
+        <tr class='bg-odd'><td>Amount Paid</td><td>".CUR." $paidamt</td></tr>
+        <tr class='bg-even'><td>Account Paid to</td><td>$acc[accname]</td></tr>
         <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Confirm &raquo'></td></tr>
 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
 <tr><th>Quick Links</th></tr>

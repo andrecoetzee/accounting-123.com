@@ -26,7 +26,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td><b> To </b></td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -58,7 +58,7 @@ function display()
 			continue;
 		}
 
-		$items_out .= "<tr bgcolor='".bgcolorg()."'>
+		$items_out .= "<tr class='".bg_class()."'>
 			<td>".hiredDate($items_data["id"])."</td>
 			<td>".returnDate($items_data["id"])."</td>
 			<td>$items_data[des]</td>

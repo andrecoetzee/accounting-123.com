@@ -135,31 +135,31 @@ function details($_GET)
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoice Number</td>
 				<td>RI $invid</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Department</td>
 				<td valign='center'>$dept[deptname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sales Person</td>
 				<td>$inv[salespn]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td valign='center'>$cust[cusname] $cust[surname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sub Total</td>
 				<td>".CUR." $inv[subtot]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Vat</td>
 				<td>".CUR." $inv[vat]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total</td>
 				<td>".CUR." $inv[total]</td>
 			</tr>
@@ -175,10 +175,10 @@ function details($_GET)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='rec-invoice-new.php'>New Recurring Invoice</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='rec-invoice-view.php'>View Recurring Invoices</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -250,7 +250,7 @@ function write($_POST)
 			<tr>
 				<th> Incomplete Invoice Cancelled </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Invoice No. <b>$invid</b> has been cancelled.</td>
 			</tr>
 		</table>
@@ -259,10 +259,10 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='rec-invoice-new.php'>New Recurring Invoice</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='rec-invoice-view.php'>View Recurring Invoices</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

@@ -166,8 +166,8 @@ function slctAccR($_POST)
         $i = 0;
         foreach($oesub as $ref => $sub){
 			if(strlen($sub)){
-				$slctAcc .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><input type=hidden name=oesub[] value='$sub'><b>$sub</b></td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td>";
+				$slctAcc .= "<tr class='bg-even'><td><input type=hidden name=oesub[] value='$sub'><b>$sub</b></td></tr>
+				<tr class='bg-odd'><td>";
 				$accRslt = get("core","*","accounts","acctype", "B");
 				while($oeaccs = pg_fetch_array($accRslt)){
 					#get vars (accnum, accname)
@@ -209,8 +209,8 @@ function slctAccR($_POST)
 	if(isset($asssub)) {
         foreach($asssub as $ref => $sub){
 			if(strlen($sub)){
-				$slctAcc .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><input type=hidden name=asssub[] value='$sub'><b>$sub<b></td></tr>
-							<tr bgcolor='".TMPL_tblDataColor1."'><td>";
+				$slctAcc .= "<tr class='bg-even'><td><input type=hidden name=asssub[] value='$sub'><b>$sub<b></td></tr>
+							<tr class='bg-odd'><td>";
 
 				$accRslt = get("core","*","accounts","acctype", "B");
 				while($assaccs = pg_fetch_array($accRslt)){
@@ -347,8 +347,8 @@ function confirm($_POST)
         $i = 0;
         # Strip subs
         foreach($oesub as $k => $sub){
-			$confirm .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><input type=hidden name=oesub[] value='$sub'><b>$sub</b></td></tr>
-						<tr bgcolor='".TMPL_tblDataColor1."'><td>";
+			$confirm .= "<tr class='bg-even'><td><input type=hidden name=oesub[] value='$sub'><b>$sub</b></td></tr>
+						<tr class='bg-odd'><td>";
 
 			# Strip accounts
 			foreach($oeacc[$k] as $key => $accnum){
@@ -363,8 +363,8 @@ function confirm($_POST)
         $i = 0;
         # Strip subs
         foreach($asssub as $k => $sub){
-			$confirm .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><input type=hidden name=asssub[] value='$sub'><b>$sub</b></td></tr>
-						<tr bgcolor='".TMPL_tblDataColor1."'><td>";
+			$confirm .= "<tr class='bg-even'><td><input type=hidden name=asssub[] value='$sub'><b>$sub</b></td></tr>
+						<tr class='bg-odd'><td>";
 
 			# Strip accounts
 			foreach($assacc[$k] as $key => $accnum){

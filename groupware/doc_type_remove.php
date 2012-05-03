@@ -41,7 +41,7 @@ function confirm()
 		<tr>
 			<th colspan='2'>Type Name</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$dt_data[type_name]</td>
 			<td><input type='submit' value='Remove &raquo' /></td>
 		</tr>
@@ -63,7 +63,7 @@ function write()
 		<tr>
 			<th>Remove</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Successfully Removed Document Type</td>
 		</tr>
 	</table>";

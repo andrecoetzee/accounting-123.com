@@ -51,7 +51,7 @@ function display()
 		if (!isset($qty_suggest) || !$qty_suggest) continue;
 
 		$stock_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stock_data[stkcod]</td>
 				<td>$stock_data[stkdes]</td>
 				<td align='center'><b>$qty_suggest</b></td>
@@ -65,7 +65,7 @@ function display()
 		<form method='post' action='".SELF."'>
 		<table ".TMPL_tblDflts.">
 			<tr><th colspan='4'>Date Range</th></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				<td>&nbsp; <b> To </b> &nbsp;</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

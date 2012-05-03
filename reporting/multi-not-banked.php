@@ -55,7 +55,7 @@ function view()
         <form action='".SELF."' method=post name=form>
         <input type=hidden name=key value=out>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Bank Account</td>
+        <tr class='bg-odd'><td>Bank Account</td>
         <td valign=center><select name=bankid>";
         db_connect();
         $sql = "SELECT * FROM bankacct";
@@ -165,7 +165,7 @@ function printrep($bankid)
 						<td><a href='../bank/cheq-cancel.php?cashid=$accnt[cashid]'>Cancel</td></tr>";
 			$tot += $accnt['amount'];
 		}
-		$OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=6><b>Total Outstanding</b></td><td colspan=3><b>".CUR." $tot</b></td></tr>
+		$OUTPUT .= "<tr class='bg-even'><td colspan=6><b>Total Outstanding</b></td><td colspan=3><b>".CUR." $tot</b></td></tr>
 		</form></table>";
 
         return $OUTPUT;
@@ -229,7 +229,7 @@ function printdep($bankid)
 
 			$tot += $accnt['amount'];
 		}
-		$OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=6><b>Total Outstanding</b></td><td colspan=3><b>".CUR." $tot</b></td></tr>
+		$OUTPUT .= "<tr class='bg-even'><td colspan=6><b>Total Outstanding</b></td><td colspan=3><b>".CUR." $tot</b></td></tr>
         </form></table>";
 
 	// return OUTPUT

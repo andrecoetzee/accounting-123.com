@@ -76,10 +76,10 @@ function confirmLoan ($empnum)
 <input type=hidden name=key value=rem>
 <input type=hidden name=empnum value='$empnum'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Loan amount</td><td align=center>".CUR." $myLoan[loanamt]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Monthly installment</td><td align=center>".CUR." $myLoan[loaninstall]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Loan interest</td><td align=center>$myLoan[loanint] %</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Loan period (months)</td><td align=center>$myLoan[loanperiod]</td></tr>
+<tr class='bg-odd'><td>Loan amount</td><td align=center>".CUR." $myLoan[loanamt]</td></tr>
+<tr class='bg-even'><td>Monthly installment</td><td align=center>".CUR." $myLoan[loaninstall]</td></tr>
+<tr class='bg-odd'><td>Loan interest</td><td align=center>$myLoan[loanint] %</td></tr>
+<tr class='bg-even'><td>Loan period (months)</td><td align=center>$myLoan[loanperiod]</td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Delete &raquo;'><input type=button value='Back' onclick='javascript:history.back();'</td><td valign=left></td></tr>
 </form>
 </table>"

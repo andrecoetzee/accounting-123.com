@@ -100,7 +100,7 @@ function AssetLedg ($pure = false) {
 				<th>Group</th>
 				<th>Type</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$group_sel</td>
 				<td>$type_sel</td>
 			</tr>
@@ -160,7 +160,7 @@ function AssetLedg ($pure = false) {
 				        <tr>
 				        	<th>Quick Links</th>
 				        </tr>
-				        <tr bgcolor='".bgcolorg()."'>
+				        <tr class='".bg_class()."'>
 							<td><a href='asset-new.php'>New Asset</a></td>
 				        </tr>
 				        <script>document.write(getQuicklinkSpecial());</script>
@@ -183,7 +183,7 @@ function AssetLedg ($pure = false) {
 				        <tr>
 				        	<th>Quick Links</th>
 				        </tr>
-				        <tr bgcolor='".bgcolorg()."'>
+				        <tr class='".bg_class()."'>
 				        	<td><a href='asset-new.php'>New Asset</a></td>
 				        </tr>
 				        <script>document.write(getQuicklinkSpecial());</script>
@@ -236,7 +236,7 @@ function AssetLedg ($pure = false) {
 		}
 
 		$Assets .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$grp[grpname]</td>
 							<td>$Led[serial]</td>
 							<td>$Led[locat]</td>
@@ -274,7 +274,7 @@ function AssetLedg ($pure = false) {
 	$tot = sprint($tot);
 	$totnet = sprint($totnet);
 	$Assets .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='6'>Total Assets: $i </td>
 						<td align='right' nowrap>".CUR." $tot</td>
 						<td align='right'>$totunit</td>
@@ -355,7 +355,7 @@ function prevAssetLedg ($pure = false)
 		        <tr>
 		        	<th>Quick Links</th>
 		        </tr>
-		        <tr bgcolor='".bgcolorg()."'>
+		        <tr class='".bg_class()."'>
 		        	<td><a href='asset-new.php'>New Asset</a></td>
 		        </tr>
 		        <script>document.write(getQuicklinkSpecial());</script>
@@ -392,7 +392,7 @@ function prevAssetLedg ($pure = false)
 		}
 
 		$Assets .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$grp[grpname]</td>
 							<td>$Led[serial]</td>
 							<td>$qty</td>
@@ -418,7 +418,7 @@ function prevAssetLedg ($pure = false)
 	$tot = sprint($tot);
 	$totnet = sprint($totnet);
 	$Assets .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='7'>Total Assets: $i </td>
 						<td align='right'>".CUR." $tot</td>
 						<td align='right'>".CUR." $totnet</td>

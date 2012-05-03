@@ -318,7 +318,7 @@ function print_stmnt()
 			<form method='post' action='".SELF."' name='form'>
 			<input type='hidden' name='cusnum' value='$cusnum' />
 			<table ".TMPL_tblDflts." style='border: 1px solid #000'>
-				<tr bgcolor='".TMPL_tblDataColor2."'>
+				<tr class='bg-even'>
 					<td colspan='3' align='center'>
 						<input type='radio' name='stmnt_type' value='detailed'
 						onchange='javascript:document.form.submit()' $detailed_sel>
@@ -328,19 +328,19 @@ function print_stmnt()
 						Open Item
 					</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 					<td align='center'>&nbsp; <b>To</b> &nbsp;</td>
 					<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='3' align='center'><b>Comments</b></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='3'>
 						<textarea name='comments' style='width: 100%'>$comments</textarea>
 					</td>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'>
 						<input type='button'  value='Print'
 						onclick='javascript:popupOpen(\"".SELF."?"

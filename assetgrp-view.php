@@ -82,7 +82,7 @@ function printGrp ()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-new.php'>Add Asset Group</a></td></tr>
+		<tr class='bg-odd'><td><a href='assetgrp-new.php'>Add Asset Group</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

@@ -99,10 +99,10 @@ function details($_GET)
 		<input type='hidden' name='deptid' value='$callout[deptid]'>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2>Details</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Job Number</td><td>$calloutid</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Department</td><td valign=center>$callout[deptname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Call Out Person</td><td>$callout[calloutp]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer</td><td valign=center>$callout[cusname] $callout[surname]</td></tr>
+			<tr class='bg-odd'><td>Job Number</td><td>$calloutid</td></tr>
+			<tr class='bg-even'><td>Department</td><td valign=center>$callout[deptname]</td></tr>
+			<tr class='bg-odd'><td>Call Out Person</td><td>$callout[calloutp]</td></tr>
+			<tr class='bg-even'><td>Customer</td><td valign=center>$callout[cusname] $callout[surname]</td></tr>
 			<tr><td><br></td></tr>
 			<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td><input type=submit value='Confirm &raquo'></td></tr>
 		</table>
@@ -110,10 +110,10 @@ function details($_GET)
 		<p>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='callout-canc-view.php'>View Cancelled Call Out Documents</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='callout-unf-view.php'>View Incomplete Call Out Documents</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='callout-new.php'>New Call Out Document</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='callout-view.php'>View Call Out Documents</a></td></tr>
+			<tr class='bg-odd'><td><a href='callout-canc-view.php'>View Cancelled Call Out Documents</td></tr>
+			<tr class='bg-odd'><td><a href='callout-unf-view.php'>View Incomplete Call Out Documents</td></tr>
+			<tr class='bg-odd'><td><a href='callout-new.php'>New Call Out Document</a></td></tr>
+			<tr class='bg-odd'><td><a href='callout-view.php'>View Call Out Documents</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 
@@ -192,15 +192,15 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 	$write = "
 			<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=40%>
 				<tr><th> Incomplete Call Out Document Cancelled </th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td>Job No. <b>$calloutid</b> has been cancelled.</td></tr>
+				<tr class='bg-odd'><td>Job No. <b>$calloutid</b> has been cancelled.</td></tr>
 			</table>
 			<p>
 			<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 				<tr><th>Quick Links</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='callout-unf-view.php'>View Incomplete Call Out Documents</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='callout-new.php'>New Call Out Document</a></td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='callout-view.php'>View Call Out Documents</a></td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+				<tr class='bg-odd'><td><a href='callout-unf-view.php'>View Incomplete Call Out Documents</td></tr>
+				<tr class='bg-odd'><td><a href='callout-new.php'>New Call Out Document</a></td></tr>
+				<tr class='bg-odd'><td><a href='callout-view.php'>View Call Out Documents</a></td></tr>
+				<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 			</table>";
 
 	return $write;

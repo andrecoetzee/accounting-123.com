@@ -55,16 +55,16 @@ function enter ()
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<input type=hidden name=key value=confirm>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Code</td><td><input type=text size=10 name=code></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td><input type=text size=20 name=description></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Percentage</td><td><input type=text size=10 name=vat_amount></td></tr>
+	<tr class='bg-odd'><td>Code</td><td><input type=text size=10 name=code></td></tr>
+	<tr class='bg-even'><td>Description</td><td><input type=text size=20 name=description></td></tr>
+	<tr class='bg-odd'><td>VAT Percentage</td><td><input type=text size=10 name=vat_amount></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='vatcodes-view.php'>View VAT Codes</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='vatcodes-view.php'>View VAT Codes</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -121,16 +121,16 @@ function confirm ($_POST)
 	<input type=hidden name=vat_amount value='$vat_amount'>
 	<input type=hidden name=zero value='$zero'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Code</td><td>$code</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td>$description</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Percentage</td><td>$vat_amount</td></tr>
+	<tr class='bg-odd'><td>Code</td><td>$code</td></tr>
+	<tr class='bg-even'><td>Description</td><td>$description</td></tr>
+	<tr class='bg-odd'><td>VAT Percentage</td><td>$vat_amount</td></tr>
 	<tr><td align=right><input type=button value='Back' onclick='javascript:history.back();'></td><td valign=left><input type=submit value='Write &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='vatcodes-view.php'>View VAT Codes</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='vatcodes-view.php'>View VAT Codes</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -191,8 +191,8 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='vatcodes-view.php'>View VAT Codes</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='vatcodes-view.php'>View VAT Codes</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

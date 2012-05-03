@@ -38,7 +38,7 @@ $OUTPUT .= "
         <tr><th>Quick Links</th></tr>
         <script>document.write(getQuicklinkSpecial());</script>
         <script>document.write(getQuicklinkSpecial());</script>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
         </table>";
 
 

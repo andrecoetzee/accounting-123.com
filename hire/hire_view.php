@@ -51,7 +51,7 @@ function display($msg="")
 		$cust_rslt = db_exec($sql) or errDie("Unable to retrieve customers.");
 		$cust_data = pg_fetch_array($cust_rslt);
 
-		$hires_out .= "<tr bgcolor='".bgcolorg()."'>
+		$hires_out .= "<tr class='".bg_class()."'>
 			<td>
 				<a href='javascript:printer(\"hire/hire-invoice-new.php?invid=$inv_data[invid]&reprint=1\")'>
 					H$inv_data[invnum]".rev($inv_data["invid"])."
@@ -74,7 +74,7 @@ function display($msg="")
 		$total += $inv_data["total"];
 	}
 	if (empty($hires_out)) {
-		$hires_out = "<tr bgcolor='".bgcolorg()."'>
+		$hires_out = "<tr class='".bg_class()."'>
 			<td colspan='5'>Please enter a hire no or customer name</td>
 		</tr>";
 	}
@@ -89,7 +89,7 @@ function display($msg="")
 		<tr>
 			<th colspan='2'>Enter Hire No or Client Name</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='search' value='$search' /></td>
 			<td><input type='submit' value='Filter' /></td>
 		</tr>
@@ -106,7 +106,7 @@ function display($msg="")
 			<th colspan='2'>Options</th>
 		</tr>
 		$hires_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'><strong>Total</strong></td>
 			<td>".sprint($total)."</td>
 			<td colspan='4'>&nbsp;</td>

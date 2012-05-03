@@ -151,7 +151,7 @@ function details($_GET)
 
 		# put in product
 		$products .="
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td>$wh[whname]</td>
 				<td>$stk[stkcod]</td>
 				<td>$stk[stkdes]</td>
@@ -196,7 +196,7 @@ function details($_GET)
 	while($dd=pg_fetch_array($Ri)) {
 
 		$dnotes .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$dd[date]</td>
 							<td>$dd[sub]</td>
 							<td>$dd[vat]</td>
@@ -212,7 +212,7 @@ function details($_GET)
 	$tot=sprint($tot);
 
 	$dnotes .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td></td>
 						<td>$sub</td>
 						<td>$vat</td>
@@ -232,15 +232,15 @@ function details($_GET)
 									<tr>
 										<th colspan='2'> Supplier Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Supplier</td>
 										<td valign='center'>$pur[supname]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Account number</td>
 										<td valign='center'>$rpur[supno]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td valign='top'>Supplier Address</td>
 										<td valign='center'>".nl2br($rpur['supaddr'])."</td>
 									</tr>
@@ -251,27 +251,27 @@ function details($_GET)
 									<tr>
 										<th colspan='2'> Purchase Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Purchase No.</td>
 										<td valign='center'>$rpur[purnum]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Ref No.</td>
 										<td valign='center'>$rpur[refno]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Supplier Inv</td>
 										<td>$rpur[supinv]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Terms</td>
 										<td valign='center'>$rpur[terms] Days</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Date</td>
 										<td valign='center'>$rday-$rmon-$ryear</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>VAT Inclusive</td>
 										<td valign='center'>$rpur[vatinc]</td>
 									</tr>
@@ -291,10 +291,10 @@ function details($_GET)
 										<td rowspan='5' valign='top' width='15%'><br></td>
 									</tr>
 									<tr>
-										<td bgcolor='".bgcolorg()."'><a href='purchase-new.php'>New Purchase</a></td>
-										<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'>".nl2br($pur['remarks'])."</td>
+										<td class='".bg_class()."'><a href='purchase-new.php'>New Purchase</a></td>
+										<td class='".bg_class()."' rowspan='4' align='center' valign='top'>".nl2br($pur['remarks'])."</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='purchase-view-prd.php'>View Received Purchases</a></td>
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
@@ -302,7 +302,7 @@ function details($_GET)
 							</td>
 							<td align='right'>
 								<table ".TMPL_tblDflts." width='80%'>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<th>Total Cost Returned</th>
 										<td align='right'>".CUR." $SUBTOT</td>
 									</tr>

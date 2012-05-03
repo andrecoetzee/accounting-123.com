@@ -62,7 +62,7 @@ function adjust_display()
 		$value = $adjust_data["csprice"] * $adjust_data["adjust_qty"];
 	
 		$adjust_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$adjust_data[bar]</td>
 			<td>$adjust_data[catname]</td>
 			<td>$adjust_data[stkcod]</td>
@@ -80,7 +80,7 @@ function adjust_display()
 	
 	if (empty($adjust_out)) {
 		$adjust_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='7'>
 				<li>No results found for this page.</li>
 			</td>
@@ -107,7 +107,7 @@ function adjust_display()
 		<tr>
 			<th colspan='2'>Page</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>
 				<input type='text' name='page' value='$page' size='3'
 				style='font-weight: bold; text-align: center' />
@@ -235,7 +235,7 @@ function complete()
 	<h3>Stock Take</h3>
 	<table ".TMPL_tblDflts.">
 		<tr><th>Complete</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Page has successfully been completed.</td></li>
 		</tr>
 	</table>";

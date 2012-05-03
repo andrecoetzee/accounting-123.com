@@ -51,11 +51,11 @@ function get_data ()
 	$cons = "
 		<h3>User Details</h3>
 		<td align=center>
-		<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300 bgcolor='".TMPL_tblDataColor1."' >
+		<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300 class='bg-odd' >
 		<tr><th>Name</th><th colspan=2>Options</th></tr>";
 
 	while($data=pg_fetch_array($Ri)) {
-		$cons.="<tr><td bgcolor='".TMPL_tblDataColor1."'>$data[username]</td><td><a
+		$cons.="<tr><td class='bg-odd'>$data[username]</td><td><a
 		 href='usredit.php?id=$data[id]'>Edit</a></td><td><a 
 	         href='usrem.php?id=$data[id]'>Remove</td></tr>";
 	}//end while
@@ -77,15 +77,15 @@ $get_data="
 	 <form action='".SELF."' method='post'>
 	 <input type=hidden name=key value=confirm>
 	 <tr><th colspan=2>Personal Details</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Username</td><td><input type=text size=20 name=username value='$data[username]'> must not contain spaces</td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td>Password</td><td><input type=password size=20 name=password></td></tr>
-         <tr bgcolor='".TMPL_tblDataColor1."'><td>Confirm password</td><td><input type=password size=20 name=password2></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td>Name</td><td><input type=text size=20 name=name value='$name'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Email</td><td><input type=text size=20 name=email value='$email'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td>Cellphone</td><td><input type=text size=20 name=cell value='$cell'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Additional</td><td>Email Notification<input type=checkbox name=notify></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td>Private</td><td align=center>$Cons</td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Initial Group</td><td align=center>$Grps</td></tr>
+	 <tr class='bg-odd'><td>Username</td><td><input type=text size=20 name=username value='$data[username]'> must not contain spaces</td></tr>
+	 <tr class='bg-even'><td>Password</td><td><input type=password size=20 name=password></td></tr>
+         <tr class='bg-odd'><td>Confirm password</td><td><input type=password size=20 name=password2></td></tr>
+	 <tr class='bg-even'><td>Name</td><td><input type=text size=20 name=name value='$name'></td></tr>
+	 <tr class='bg-odd'><td>Email</td><td><input type=text size=20 name=email value='$email'></td></tr>
+	 <tr class='bg-even'><td>Cellphone</td><td><input type=text size=20 name=cell value='$cell'></td></tr>
+	 <tr class='bg-odd'><td>Additional</td><td>Email Notification<input type=checkbox name=notify></td></tr>
+	 <tr class='bg-even'><td>Private</td><td align=center>$Cons</td></tr>
+	 <tr class='bg-odd'><td>Initial Group</td><td align=center>$Grps</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>$cons";
@@ -121,11 +121,11 @@ function enter_err($_POST,$err=""){
 	$cons = "
 		<h3>User Details</h3>
 		<td align=center>
-		<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300 bgcolor='".TMPL_tblDataColor1."' >
+		<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300 class='bg-odd' >
 		<tr><th>Name</th><th colspan=2>Options</th></tr>";
 
 	while($data=pg_fetch_array($Ri)) {
-		$cons.="<tr><td bgcolor='".TMPL_tblDataColor1."'>$data[username]</td><td><a
+		$cons.="<tr><td class='bg-odd'>$data[username]</td><td><a
 		 href='usredit.php?id=$data[id]'>Edit</a></td><td><a 
 	         href='usrem.php?id=$data[id]'>Remove</td></tr>";
 		 
@@ -147,15 +147,15 @@ $get_data="
 	 <form action='".SELF."' method='post'>
 	 <tr><td>$err<br></td></tr>
 	 <input type=hidden name=key value='confirm'>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Username</td><td><input type=text size=20 name=username value='$username'> must not contain spaces</td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td>Password</td><td><input type=password size=20 name=password></td></tr>
-         <tr bgcolor='".TMPL_tblDataColor1."'><td>Confirm password</td><td><input type=password size=20 name=password2></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td>Name</td><td><input type=text size=20 name=name value='$name'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Email</td><td><input type=text size=20 name=email value='$email'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td>Cellphone</td><td><input type=text size=20 name=cell value='$cell'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Additional</td><td>Email Notification<input type=checkbox name=notify></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td>Private</td><td align=center>$Cons</td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Initial Group</td><td align=center>$Grps</td></tr>
+	 <tr class='bg-odd'><td>Username</td><td><input type=text size=20 name=username value='$username'> must not contain spaces</td></tr>
+	 <tr class='bg-even'><td>Password</td><td><input type=password size=20 name=password></td></tr>
+         <tr class='bg-odd'><td>Confirm password</td><td><input type=password size=20 name=password2></td></tr>
+	 <tr class='bg-even'><td>Name</td><td><input type=text size=20 name=name value='$name'></td></tr>
+	 <tr class='bg-odd'><td>Email</td><td><input type=text size=20 name=email value='$email'></td></tr>
+	 <tr class='bg-even'><td>Cellphone</td><td><input type=text size=20 name=cell value='$cell'></td></tr>
+	 <tr class='bg-odd'><td>Additional</td><td>Email Notification<input type=checkbox name=notify></td></tr>
+	 <tr class='bg-even'><td>Private</td><td align=center>$Cons</td></tr>
+	 <tr class='bg-odd'><td>Initial Group</td><td align=center>$Grps</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>$cons";
@@ -213,12 +213,12 @@ function con_data ($_POST)
 		
 		
 		<tr><th colspan=2>User Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Username</td><td align=center>$username</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Name</td><td align=center>$name</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Email</td><td align=center>$email</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Cellphone</td><td align=center>$cell</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Private</td><td align=center>$Cons</td></tr>
-	 	<tr bgcolor='".TMPL_tblDataColor1."'><td>Initial Group</td><td align=center>$Grps</td></tr>
+		<tr class='bg-odd'><td>Username</td><td align=center>$username</td></tr>
+		<tr class='bg-odd'><td>Name</td><td align=center>$name</td></tr>
+		<tr class='bg-odd'><td>Email</td><td align=center>$email</td></tr>
+		<tr class='bg-odd'><td>Cellphone</td><td align=center>$cell</td></tr>
+		<tr class='bg-even'><td>Private</td><td align=center>$Cons</td></tr>
+	 	<tr class='bg-odd'><td>Initial Group</td><td align=center>$Grps</td></tr>
 		<tr><td colspan=2 align=left><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -246,7 +246,7 @@ $write_data="<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'> Document Management</a></td></tr>
+	<tr class='bg-odd'><td><a href='".SELF."'> Document Management</a></td></tr>
         
 	</table>";
 

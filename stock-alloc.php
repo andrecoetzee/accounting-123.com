@@ -111,7 +111,7 @@ function confirm($stkid)
 					$dept = pg_fetch_array($deptRslt);
 				}
 				$alloc .= "
-				<tr bgcolor='".TMPL_tblDataColor1."'>
+				<tr class='bg-odd'>
 					<td>$dept[deptname]</td>
 					<td>$cust[cusname] $cust[surname]</td>
 					<td>$inv[invid]</td>
@@ -121,7 +121,7 @@ function confirm($stkid)
 			}
 		}
 		if($i < 1){
-			$alloc = "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=4>No Invoices Allocated</td></tr>";
+			$alloc = "<tr class='bg-odd'><td colspan=4>No Invoices Allocated</td></tr>";
 		}
 
 		# get all undone allocated invoices
@@ -158,12 +158,12 @@ function confirm($stkid)
 				}else{
 					$dept = pg_fetch_array($deptRslt);
 				}
-				$nalloc .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$dept[deptname]</td><td>$cust[cusname] $cust[surname]</td><td>$inv[invid]</td><td>$all[sum] x $stk[suom]</td></tr>";
+				$nalloc .= "<tr class='bg-odd'><td>$dept[deptname]</td><td>$cust[cusname] $cust[surname]</td><td>$inv[invid]</td><td>$all[sum] x $stk[suom]</td></tr>";
 				$i++;
 			}
 		}
 		if($i < 1){
-			$nalloc = "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=4>No Incomplete Invoices Allocated</td></tr>";
+			$nalloc = "<tr class='bg-odd'><td colspan=4>No Incomplete Invoices Allocated</td></tr>";
 		}
 		
 		# get all pos invoices
@@ -199,7 +199,7 @@ function confirm($stkid)
 				}else{
 					$dept = pg_fetch_array($deptRslt);
 				}
-				$palloc .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$dept[deptname]</td><td>$cust[cusname] $cust[surname]</td><td>$inv[invid]</td><td>$all[sum] x $stk[suom]</td></tr>";
+				$palloc .= "<tr class='bg-odd'><td>$dept[deptname]</td><td>$cust[cusname] $cust[surname]</td><td>$inv[invid]</td><td>$all[sum] x $stk[suom]</td></tr>";
 				$i++;
 			}
 		}
@@ -237,12 +237,12 @@ function confirm($stkid)
 				}else{
 					$dept = pg_fetch_array($deptRslt);
 				}
-				$sordalloc .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$dept[deptname]</td><td>$cust[cusname] $cust[surname]</td><td>$sord[sordid]</td><td>$all[sum] x $stk[suom]</td></tr>";
+				$sordalloc .= "<tr class='bg-odd'><td>$dept[deptname]</td><td>$cust[cusname] $cust[surname]</td><td>$sord[sordid]</td><td>$all[sum] x $stk[suom]</td></tr>";
 				$q++;
 			}
 		}
 		if($q < 1){
-			$sordalloc = "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=4>No Sales Orders Allocated</td></tr>";
+			$sordalloc = "<tr class='bg-odd'><td colspan=4>No Sales Orders Allocated</td></tr>";
 		}
 
 		# Get all allocated consignment orders
@@ -277,12 +277,12 @@ function confirm($stkid)
 				}else{
 					$dept = pg_fetch_array($deptRslt);
 				}
-				$cordalloc .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$dept[deptname]</td><td>$cust[cusname] $cust[surname]</td><td>$cord[sordid]</td><td>$all[sum] x $stk[suom]</td></tr>";
+				$cordalloc .= "<tr class='bg-odd'><td>$dept[deptname]</td><td>$cust[cusname] $cust[surname]</td><td>$cord[sordid]</td><td>$all[sum] x $stk[suom]</td></tr>";
 				$q++;
 			}
 		}
 		if($q < 1){
-			$cordalloc = "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=4>No Consignment Orders Allocated</td></tr>";
+			$cordalloc = "<tr class='bg-odd'><td colspan=4>No Consignment Orders Allocated</td></tr>";
 		}
 
 		// Layout

@@ -93,7 +93,7 @@ function scan_error($msg="")
 			<tr>
 				<td><h2><li class='err'>$msg</li></h2></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Next scan in 3 seconds</td>
 			</tr>
 		</table>
@@ -121,7 +121,7 @@ function enter($sorder_num, $errors="")
 			<tr>
 				<th colspan='2'>Select signed invoice</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='file' name='file' /></td>
 				<td>
 					<input type='submit' value='Upload' style='font-weight; bold' />
@@ -174,7 +174,7 @@ function write()
 			<tr>
 				<th>Write</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><li>Signed Invoice Successfully Added.</li></td>
 			</tr>
 		</table>";
@@ -215,7 +215,7 @@ function select_view()
 	$inv_out = "";
 	while ($inv_data = pg_fetch_array($inv_rslt)) {
 		$inv_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$inv_data[odate]</td>
 				<td>$inv_data[invnum]</td>
 				<td>$inv_data[surname]</td>
@@ -229,7 +229,7 @@ function select_view()
 
 	if (empty($inv_out)) {
 		$inv_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'><li>No results found.</li></td>
 			</tr>";
 	}
@@ -243,7 +243,7 @@ function select_view()
 			<tr>
 				<th colspan='3'>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				<td>&nbsp; <b>To</b> &nbsp;</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -251,7 +251,7 @@ function select_view()
 			<tr>
 				<th colspan='3'>Search</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='3'><input type='text' name='search' value='$search' style='width: 100%' /></td>
 			</tr>
 			<tr>
@@ -292,31 +292,31 @@ function view()
 				<th width='50%'>Signed Invoice</th>
 				<th width='50%'>Invoice Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<img src='get_signed_image.php?sordid=$sordid' width='100%' />
 				</td>
 				<td valign='top'>
 					<table ".TMPL_tblDflts." width='100%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td width='25%'><b>Invoice No</b>: </td>
 							<td width='25%'>$inv_data[invnum]</td>
 							<td width='25%'><b>Date</b>: </td>
 							<td width='25%'>$inv_data[odate]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td width='25%'><b>Customer</b>: </td>
 							<td width='25%'>$inv_data[surname]</td>
 							<td width='25%'><b>Account No</b>: </td>
 							<td width='25%'>$inv_data[cusacc]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td width='25%'><b>Proforma Inv No</b>: </td>
 							<td width='25%'></td>
 							<td width='25%'><b>Sales Order No</b>: </td>
 							<td width='25%'>$inv_data[sordid]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td width='25%'><b>Customer VAT No</b>: </td>
 							<td width='25%'>$inv_data[cusvatno]</td>
 							<td width='25%'><b>Customer Order No</b>: </td>
@@ -340,7 +340,7 @@ function view()
 		}
 
 		$item_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$item_data[stkcod]</td>
 				<td>$description</td>
 				<td>$item_data[qty]</td>
@@ -364,7 +364,7 @@ function view()
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2' align='center'>
 			<a href='".SELF."?key=status&sordid=$sordid'>
 				I certify and confirm that the Invoice and Document information
@@ -394,7 +394,7 @@ function update_status()
 			<tr>
 				<th>Write</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><li>Invoice successfully updated</li></td>
 			</tr>
 		</table>";

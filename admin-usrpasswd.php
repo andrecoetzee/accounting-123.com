@@ -57,17 +57,17 @@ function view()
 	<form action='".SELF."' method=post name=form>
 	<input type=hidden name=key value=confirm>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Username</td><td>".USER_NAME."</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Old Password</td><td><input type=password size=20 name='password'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."New Password</td></td><td><input type=password size=20 name='passwd'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Retype New Password</td></td><td><input type=password size=20 name='passwd2'></td></tr>
+	<tr class='bg-odd'><td>Username</td><td>".USER_NAME."</td></tr>
+	<tr class='bg-even'><td>".REQ."Old Password</td><td><input type=password size=20 name='password'></td></tr>
+	<tr class='bg-odd'><td>".REQ."New Password</td></td><td><input type=password size=20 name='passwd'></td></tr>
+	<tr class='bg-even'><td>".REQ."Retype New Password</td></td><td><input type=password size=20 name='passwd2'></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td></td><td valign=center align=right><input type=submit value='Confirm &raquo'></td></tr>
 	</table>
 	<P>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
 	<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</form>
 	</table>";
 
@@ -120,8 +120,8 @@ function confirm($_POST)
 	<input type=hidden name=password value='$password'>
 	<input type=hidden name=passwd value='$passwd'>
 	<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Username</td><td>".USER_NAME."</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>New Password</td></td><td>******</td></tr>
+	<tr class='bg-odd'><td>Username</td><td>".USER_NAME."</td></tr>
+	<tr class='bg-odd'><td>New Password</td></td><td>******</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td></td><td align=right><input type=submit value='Write &raquo'></td></tr>
 	</form>
@@ -129,7 +129,7 @@ function confirm($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -170,12 +170,12 @@ function write($_POST)
 	$write ="
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width='200'>
   		<tr><th>Change Password</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>Your Password has been changed.</td></tr>
+		<tr class='bg-odd'><td align=center>Your Password has been changed.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

@@ -38,7 +38,7 @@ function enter()
 		<tr>
 			<th>Settings</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>
 				Block customers over
 				<input type='text' name='days' value='$days' size='3' />
@@ -69,7 +69,7 @@ function confirm()
 		<tr>
 			<th colspan='2'>Confirm</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>
 				Block customers over <strong>$days</strong> days
 				(0 to disable this setting)
@@ -110,7 +110,7 @@ function write()
 		<tr>
 			<th>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Successfully saved overdue setting.</li></td>
 		</tr>
 	</table>";

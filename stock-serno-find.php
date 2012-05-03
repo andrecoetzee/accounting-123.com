@@ -59,11 +59,11 @@ function slct($serno = "", $err = "")
 			<tr>
 				<th>Serial Number</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='20' name='serno' value=$serno></td>
 			</tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='submit' value='Continue'></td>
 			</tr>
 		</form>
@@ -73,7 +73,7 @@ function slct($serno = "", $err = "")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -137,7 +137,7 @@ function printSerial($_POST)
 
 			$ser['edate'] = ext_rdate($ser['edate']);
 			$serlist .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$ser[serno]</td>
 					<td>$stk[stkcod]</td>
 					<td>$stk[stkdes]</td>
@@ -156,7 +156,7 @@ function printSerial($_POST)
 			$stk = pg_fetch_array($stkRslt);
 
 			$serlist .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$ser[serno]</td>
 					<td>$stk[stkcod]</td>
 					<td>$stk[stkdes]</td>
@@ -190,10 +190,10 @@ function printSerial($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='".SELF."'>Find Another</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

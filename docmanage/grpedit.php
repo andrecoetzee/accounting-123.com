@@ -39,7 +39,7 @@ require_lib("validate");
   $cons="<table>";
 	
 	while($data=pg_fetch_array($Ri)) {
-		$cons.="<tr><td bgcolor='".TMPL_tblDataColor1."'>$data[grpname]</td><td><a href='grpedit.php?id=$data[id]'>Edit</a></td></td></tr>";
+		$cons.="<tr><td class='bg-odd'>$data[grpname]</td><td><a href='grpedit.php?id=$data[id]'>Edit</a></td></td></tr>";
 	}
 	
 	$cons.="</table>";
@@ -53,8 +53,8 @@ $get_data="
 	 <input type=hidden name=key  value='confirm'>
 	 <input type=hidden name=id value=$id>
 	 <tr><th colspan=2>Group Details</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Group Name</td><td align=center><input type=text size=27 name=grpname value='$Data[grpname]'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."' ><td >Group Unit</td><td align=center>
+	 <tr class='bg-odd'><td>Group Name</td><td align=center><input type=text size=27 name=grpname value='$Data[grpname]'></td></tr>
+	 <tr class='bg-even' ><td >Group Unit</td><td align=center>
 		<select name=unit  value='$Data[unit]' size='3' multiple='1'>
 		<option value='none'>None</option>
 		<option value='default' selected>Default</option>
@@ -65,7 +65,7 @@ $get_data="
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='grpadd.php'>Add Group</a></td></tr>
+        <tr class='bg-odd'><td><a href='grpadd.php'>Add Group</a></td></tr>
 	
 	</table>";
 	
@@ -109,8 +109,8 @@ function con_data ($_POST)
 		<input type=hidden name=id  value='$id'>
 		
 		<tr><th colspan=2>Group Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Group Name</td><td align=center>$grpname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Document type</td><td align=center>$unit</td></tr>
+		<tr class='bg-odd'><td>Group Name</td><td align=center>$grpname</td></tr>
+		<tr class='bg-odd'><td>Document type</td><td align=center>$unit</td></tr>
 		<tr><td colspan=2 align=left><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -159,7 +159,7 @@ function write_data ($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docman-index.php'>Document Management</a></td></tr>
+        <tr class='bg-odd'><td><a href='docman-index.php'>Document Management</a></td></tr>
 	</table>";
 
 	return $write_data; 

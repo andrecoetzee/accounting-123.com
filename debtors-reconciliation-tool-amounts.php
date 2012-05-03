@@ -65,7 +65,7 @@ function get_amount ()
 			<tr>
 				<th>Amount</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' size='8' name='newamount' value='$amount'></td>
 			</tr>
 			".TBL_BR."

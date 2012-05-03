@@ -90,15 +90,15 @@ function edit($grpid)
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=grpid value='$grp[grpid]'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Asset Group</td><td><input type=text size=10 maxlength=10 name=grpname value='$grp[grpname]'></td></tr>
+	<tr class='bg-odd'><td>Asset Group</td><td><input type=text size=10 maxlength=10 name=grpname value='$grp[grpname]'></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -137,15 +137,15 @@ function confirm ($_POST)
 	<input type=hidden name=grpid value='$grpid'>
 	<input type=hidden name=whno value='$grpno'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Number</td><td>$grpno</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Asset Group</td><td>$grpname</td></tr>
+	<tr class='bg-odd'><td>Number</td><td>$grpno</td></tr>
+	<tr class='bg-even'><td>Asset Group</td><td>$grpname</td></tr>
 	<tr><td align=right><input type=button value='Back' onclick='javascript:history.back();'></td><td valign=left><input type=submit value='Write &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -195,8 +195,8 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

@@ -82,7 +82,7 @@ function enter()
 		<tr>
 			<th>Select Project</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$project_sel</td>
 		</tr>
 		<tr>

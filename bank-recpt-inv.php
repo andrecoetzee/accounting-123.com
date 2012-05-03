@@ -84,7 +84,7 @@ function sel_cus($_POST)
 								<tr><th>Quick Links</th></tr>
 								<script>document.write(getQuicklinkSpecial());</script>
 								<script>document.write(getQuicklinkSpecial());</script>
-								<tr bgcolor='".TMPL_tblDataColor1."'>
+								<tr class='bg-odd'>
 									<td><a href='../main.php'>Main Menu</a></td>
 								</tr>
 							</table>";
@@ -113,14 +113,14 @@ function sel_cus($_POST)
 						<tr>
 							<th colspan='2'>Select Customer</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Customers</td>
 							<td>$cust</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='2' align='center'>OR</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Input customer account number</td>
 							<td><input type='text' name='accnum' size='10'></td>
 						</tr>
@@ -143,7 +143,7 @@ function sel_cus($_POST)
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
 									<script>document.write(getQuicklinkSpecial());</script>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='../main.php'>Main Menu</a></td>
 									</tr>
 								</table>
@@ -218,7 +218,7 @@ function method($cusid)
 						<tr>
 							<th colspan='2'>Receipt Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Account</td>
 							<td valign='center'>
 								<select name='bankid'>";
@@ -271,7 +271,7 @@ function method($cusid)
 		        				</select>
 		        			</td>
 		        		</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td>
 								<input type=text size=2 name=day maxlength=2 value='".date("d")."'>-
@@ -279,23 +279,23 @@ function method($cusid)
 								<input type=text size=4 name=year maxlength=4 value='".date("Y")."'>
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Received from</td>
 							<td valign='center'>$cust</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Description</td>
 							<td valign='center'><textarea col='18' rows='3' name='descript'>$descript</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cheque Number</td>
 							<td valign='center'><input size='20' name='cheqnum' value='$cheqnum'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td valign='center'>".CUR." <input type='text' size='13' name='amt' value='$amt'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Allocation</td>
 							<td>$alls</td>
 						</tr>
@@ -332,7 +332,7 @@ function method($cusid)
 
 	# Alternate bgcolor
 	$printCust .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$cus[accno]</td>
 							<td>$cus[contname]</td>
 							<td>$cus[tel]</td>
@@ -358,7 +358,7 @@ function method($cusid)
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
 									<script>document.write(getQuicklinkSpecial());</script>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='../main.php'>Main Menu</a></td>
 									</tr>
 								</table>
@@ -455,27 +455,27 @@ function alloc($_POST)
         					<th>Field</th>
         					<th>Value</th>
         				</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account</td>
 							<td>$bank[accname] - $bank[bankname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td valign='center'>$date</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Received from</td>
 							<td valign='center'>$cus[cusname] $cus[surname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Description</td>
 							<td valign='center'>".nl2br($descript)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cheque Number</td>
 							<td valign='center'>$cheqnum</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td valign='center'>".CUR." $amt</td>
 						</tr>";
@@ -617,13 +617,13 @@ function alloc($_POST)
 				$bout=$out;
 				$out=$open_out;
 				if($out>0) {
-					$confirm .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
+					$confirm .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
 				}
 
 				$out=$bout;
 
 
-			} else  {$confirm .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
+			} else  {$confirm .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
 		}
 	}
 
@@ -651,8 +651,8 @@ function alloc($_POST)
 		}
 
 		# Alternate bgcolor
-		$confirm .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>".CUR." $curr</td><td>".CUR." $age30</td><td>".CUR." $age60</td><td>".CUR." $age90</td><td>".CUR." $age120</td><td>".CUR." $custtot</td></tr>";
-		$confirm .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=text size=7 name=out1 value='$OUT1'></td><td><input type=text size=7 name=out2 value='$OUT2'></td><td><input type=text size=7 name=out3 value='$OUT3'></td><td><input type=text size=7 name=out4 value='$OUT4'></td><td><input type=text size=7 name=out5 value='$OUT5'></td><td></td></tr>";
+		$confirm .= "<tr class='bg-odd'><td>".CUR." $curr</td><td>".CUR." $age30</td><td>".CUR." $age60</td><td>".CUR." $age90</td><td>".CUR." $age120</td><td>".CUR." $custtot</td></tr>";
+		$confirm .= "<tr class='bg-odd'><td><input type=text size=7 name=out1 value='$OUT1'></td><td><input type=text size=7 name=out2 value='$OUT2'></td><td><input type=text size=7 name=out3 value='$OUT3'></td><td><input type=text size=7 name=out4 value='$OUT4'></td><td><input type=text size=7 name=out5 value='$OUT5'></td><td></td></tr>";
 
 		$confirm .= "<tr><td><br></td></tr></table></td></tr>";
 	}
@@ -765,7 +765,7 @@ function alloc($_POST)
 		<tr><th>Quick Links</th></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 		</table>";
 
         return $confirm;
@@ -925,12 +925,12 @@ function confirm($_POST)
         $cus = pg_fetch_array($cusRslt);
 
 	$confirm .="<tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Account</td><td>$bank[accname] - $bank[bankname]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td valign=center>$date</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Received from</td><td valign=center>$cus[cusname] $cus[surname]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td valign=center>$descript</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Cheque Number</td><td valign=center>$cheqnum</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Amount</td><td valign=center>".CUR." $amt</td></tr>";
+        <tr class='bg-odd'><td>Account</td><td>$bank[accname] - $bank[bankname]</td></tr>
+        <tr class='bg-even'><td>Date</td><td valign=center>$date</td></tr>
+        <tr class='bg-odd'><td>Received from</td><td valign=center>$cus[cusname] $cus[surname]</td></tr>
+        <tr class='bg-even'><td>Description</td><td valign=center>$descript</td></tr>
+        <tr class='bg-odd'><td>Cheque Number</td><td valign=center>$cheqnum</td></tr>
+        <tr class='bg-even'><td>Amount</td><td valign=center>".CUR." $amt</td></tr>";
 
 	$bgColor =TMPL_tblDataColor2;
 	if($all==0)
@@ -1048,13 +1048,13 @@ function confirm($_POST)
 				$bout=$out;
 				$out=$open_out;
 				if($out>0) {
-					$confirm .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
+					$confirm .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
 				}
 
 				$out=$bout;
 
 
-			} else  {$confirm .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
+			} else  {$confirm .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
 		}
 
 	}
@@ -1495,7 +1495,7 @@ function confirm($_POST)
 		<tr><th>Quick Links</th></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 		</table>";
 
         return $confirm;
@@ -1752,13 +1752,13 @@ function write($_POST)
 					if($out>0) {
 						$sql = "INSERT INTO open_stmnt(cusnum, invid, amount, balance, date, type, st, div) VALUES('$cus[cusnum]', '0', '-$out', '-$out', '$sdate', 'Payment Received', 'n', '".USER_DIV."')";
 						$stmntRslt = db_exec($sql) or errDie("Unable to Insert statement record in Cubit.",SELF);
-						//$confirm .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
+						//$confirm .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
 					}
 
 					$out=$bout;
 
 
-				} else  {//$confirm .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
+				} else  {//$confirm .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
 			}
 
 			}
@@ -2106,12 +2106,12 @@ function write($_POST)
         <td align=center>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=80%>
         <tr><th>Quick Links</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='bank-pay-add.php'>Add Bank Payment</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='bank-recpt-add.php'>Add Bank Receipt</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='bank-recpt-inv.php'>Add Customer Payment</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cashbook-view.php'>View Cash Book</a></td></tr>
+        <tr class='bg-odd'><td><a href='bank-pay-add.php'>Add Bank Payment</a></td></tr>
+        <tr class='bg-odd'><td><a href='bank-recpt-add.php'>Add Bank Receipt</a></td></tr>
+        <tr class='bg-odd'><td><a href='bank-recpt-inv.php'>Add Customer Payment</a></td></tr>
+		<tr class='bg-odd'><td><a href='cashbook-view.php'>View Cash Book</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
         </table>
         </td></tr></table>";
 

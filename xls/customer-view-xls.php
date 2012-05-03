@@ -103,7 +103,7 @@ function printCust ()
 
 	if ($custRslt->num_rows() < 1) {
 		$ajaxCust .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='20'><li>There are no Customers matching the criteria entered.</li></td>
 		</tr>";
 	}else{

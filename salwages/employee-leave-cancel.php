@@ -162,13 +162,13 @@ function confirmLeave ($_POST)
 	<input type=hidden name=key value=write>
 	<input type=hidden name=id value='$id'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Employee</td><td align=center>$myEmp[sname], $myEmp[fnames] ($myEmp[empnum])</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Date of approval</td><td align=center>$today</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Leave start date</td><td align=center>$lea[startdate]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Leave end date</td><td align=center>$lea[enddate]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Total days inbetween</td><td align=center>$days_between</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Total working days inbetween</td><td align=center>$lea[workingdays]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Type of leave</td><td align=center>$typedef</td></tr>
+	<tr class='bg-odd'><td>Employee</td><td align=center>$myEmp[sname], $myEmp[fnames] ($myEmp[empnum])</td></tr>
+	<tr class='bg-even'><td>Date of approval</td><td align=center>$today</td></tr>
+	<tr class='bg-odd'><td>Leave start date</td><td align=center>$lea[startdate]</td></tr>
+	<tr class='bg-even'><td>Leave end date</td><td align=center>$lea[enddate]</td></tr>
+	<tr class='bg-odd'><td>Total days inbetween</td><td align=center>$days_between</td></tr>
+	<tr class='bg-even'><td>Total working days inbetween</td><td align=center>$lea[workingdays]</td></tr>
+	<tr class='bg-odd'><td>Type of leave</td><td align=center>$typedef</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>

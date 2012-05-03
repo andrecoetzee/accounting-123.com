@@ -87,7 +87,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' nowrap>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
@@ -97,7 +97,7 @@ function slct()
 			<tr>
 				<th>Supplier(s)</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$supplier_drop</td>
 			</tr>
 			<tr>
@@ -110,13 +110,13 @@ function slct()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='purchase-new.php'>New Order</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-report.php'>Stock Control Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-view.php'>View Stock</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -213,10 +213,10 @@ function printPurch ($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='purchase-new.php'>New Order</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='purchase-view.php'>View Purchases</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -242,7 +242,7 @@ function printPurch ($_POST)
 			$docs = doclib_getdocs("pur", $stkp['purnum']);
 
 			$printOrd .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$stkp[purnum]</td>
 					<td>$stkp[ordernum]</td>
 					<td>$stkp[supinv]</td>
@@ -259,7 +259,7 @@ function printPurch ($_POST)
 	}
 
 	$printOrd .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'>Totals</td>
 				<td align='right'>".CUR." $tot1</td>
 				<td align='right'>".CUR." $tot2</td>
@@ -277,13 +277,13 @@ function printPurch ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='purchase-new.php'>New Order</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-report.php'>Stock Control Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-view.php'>View Stock</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -371,10 +371,10 @@ function export ($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='purchase-new.php'>New Order</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='purchase-view.php'>View Purchases</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -548,35 +548,35 @@ function delete_confirm($_POST)
 			<tr>
 				<th colspan='2'>Confirm</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>No.</td>
 				<td>$purData[purnum]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Order No.</td>
 				<td>$purData[ordernum]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Order Date</td>
 				<td>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Supplier</td>
 				<td>$purData[supname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sub Total</td>
 				<td>".CUR."$subtot</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Delivery Charges</td>
 				<td>".CUR."$purData[shipchrg]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Vat</td>
 				<td>".CUR."$vat</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total</td>
 				<td>".CUR."$purData[total]</td>
 			</tr>

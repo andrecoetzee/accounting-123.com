@@ -45,7 +45,7 @@ function printStk ()
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 			<tr><td><br></td></tr>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-transfer-bran.php'>Transfer Stock</a></td></tr>
+			<tr class='bg-odd'><td><a href='stock-transfer-bran.php'>Transfer Stock</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 	}
@@ -111,7 +111,7 @@ function printStk ()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-transfer-bran.php'>Transfer Stock</a></td></tr>
+		<tr class='bg-odd'><td><a href='stock-transfer-bran.php'>Transfer Stock</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

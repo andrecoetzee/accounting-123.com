@@ -99,19 +99,19 @@ function confirm($stkid)
 		<input type=hidden name=key value=write>
 		<input type=hidden name=stkid value='$stkid'>
 		<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Warehouse</td><td>$wh[whname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock code</td><td>$stkcod</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock description</td><td>".nl2br($stkdes)."</pre></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Category</td><td>$catname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Classification</td><td>$classname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Bought Unit of measure</td><td>$buom</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Selling Unit of measure</td><td>$suom</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Selling Units per Bought unit</td><td>$rate</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Location</td><td>Shelf : $shelf - Row : $row</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Minimum level</td><td>$minlvl</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Maximum level</td><td>$maxlvl</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Cost price per selling unit</td><td>".CUR." $csprice</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Selling price per selling unit</td><td>".CUR." $selamt</td></tr>
+		<tr class='bg-odd'><td>Warehouse</td><td>$wh[whname]</td></tr>
+		<tr class='bg-even'><td>Stock code</td><td>$stkcod</td></tr>
+		<tr class='bg-odd'><td>Stock description</td><td>".nl2br($stkdes)."</pre></td></tr>
+		<tr class='bg-even'><td>Category</td><td>$catname</td></tr>
+		<tr class='bg-odd'><td>Classification</td><td>$classname</td></tr>
+		<tr class='bg-even'><td>Bought Unit of measure</td><td>$buom</td></tr>
+		<tr class='bg-odd'><td>Selling Unit of measure</td><td>$suom</td></tr>
+		<tr class='bg-even'><td>Selling Units per Bought unit</td><td>$rate</td></tr>
+		<tr class='bg-odd'><td>Location</td><td>Shelf : $shelf - Row : $row</td></tr>
+		<tr class='bg-even'><td>Minimum level</td><td>$minlvl</td></tr>
+		<tr class='bg-odd'><td>Maximum level</td><td>$maxlvl</td></tr>
+		<tr class='bg-even'><td>Cost price per selling unit</td><td>".CUR." $csprice</td></tr>
+		<tr class='bg-odd'><td>Selling price per selling unit</td><td>".CUR." $selamt</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=left><input type=submit value='Write &raquo'></td></tr>
 		</table>
@@ -149,7 +149,7 @@ function write($_POST)
 					<P>
 					<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
 					<tr><th>Quick Links</th></tr>
-						<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='stock-view.php'>View Stock</a></td></tr>
+						<tr class='bg-even'><td><a href='stock-view.php'>View Stock</a></td></tr>
 						<script>document.write(getQuicklinkSpecial());</script>
 					</form>
 					</table>";
@@ -185,7 +185,7 @@ function write($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='stock-view.php'>View Stock</a></td></tr>
+		<tr class='bg-even'><td><a href='stock-view.php'>View Stock</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

@@ -99,7 +99,7 @@ function slct($errors="")
 //	$nincome_codes_sel .= "</select>";
 
 //	$income_sources_out = "
-//	<tr bgcolor='".bgcolorg()."'>
+//	<tr class='".bg_class()."'>
 //		<td>$nincome_codes_sel</td>
 //		<td align='center'><input type='text' name='nincome_description' size='100%'></td>
 //		<td align='center'>
@@ -158,7 +158,7 @@ function slct($errors="")
 //		$rf_ind_sel .= "</select>";
 //	
 //		$income_sources_out .= "
-//		<tr bgcolor='".bgcolorg()."'>
+//		<tr class='".bg_class()."'>
 //			<td width='20%'>$income_codes_sel</td>
 //			<td align=center><input type=text name='income_description[$income_data[id]]' size=100% value='$income_data[description]'></td>
 //			<td align=center>$rf_ind_sel</td>
@@ -181,7 +181,7 @@ function slct($errors="")
 			<tr>
 				<th colspan='5'>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><b>From</b></td>
 				<td>
 					<input type='text' name='fdate_day' size='2' value='$fdate_day'><b> - </b>
@@ -265,7 +265,7 @@ function slct($errors="")
 			<tr>
 				<th colspan='5'>Select Period</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$year_drop</td>
 			</tr>
 		</table>
@@ -274,19 +274,19 @@ function slct($errors="")
 			<tr>
 				<th colspan='2'>Values</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>IT 3(a) Number</td>
 				<td><input type='text' name='irp5_number' value='$irp5_number'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Directive Number</td>
 				<td><input type='text' name='directive_number' value='$directive_number'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Period employed from</td>
 				<td><input type='text' name='prd_employed_frm' value='$prd_employed_frm'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Period employed to</td>
 				<td><input type='text' name='prd_employed_to' value='$prd_employed_to'></td>
 			</tr>
@@ -298,22 +298,22 @@ function slct($errors="")
 			<tr>
 				<th colspan='3'>Reason for non deduction of tax</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>01</td>
 				<td>Directors Remuneration - Private Company / CC</td>
 				<td><input type='radio' name='reason_code' value='01' $reason_sel[1]></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>02</td>
 				<td>Earned Less than the Tax Threshold</td>
 				<td><input type='radio' name='reason_code' value='02' $reason_sel[2]></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>03</td>
 				<td>Independent Contractor</td>
 				<td><input type='radio' name='reason_code' value='03' $reason_sel[3]></td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td>04</td>
 				<td>Non-Taxable Earnings</td>
 				<td><input type='radio' name='reason_code' value='04' $reason_sel[4]></td>

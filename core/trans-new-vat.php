@@ -78,14 +78,14 @@ function slctacc()
         <input type=hidden name=key value=details>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' align=center>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td><input type=text size=2 name=day maxlength=2  value='".date("d")."'>-<input type=text size=2 name=mon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=year maxlength=4 value='".date("Y")."'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Reference Number</td><td><input type=text size=10 name=refnum value='".($refnum++)."'></td></tr>
+        <tr class='bg-odd'><td>Date</td><td><input type=text size=2 name=day maxlength=2  value='".date("d")."'>-<input type=text size=2 name=mon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=year maxlength=4 value='".date("Y")."'></td></tr>
+        <tr class='bg-odd'><td>Reference Number</td><td><input type=text size=10 name=refnum value='".($refnum++)."'></td></tr>
         <tr><td><br></td></tr>
         <tr><td align=center>
                 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
                 <tr><td><h4>Debit</h4></td></tr>
                 <tr><th>Select Account</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor2."'>
+                <tr class='bg-even'>
                 <td valign=center>
                 <select name='dtaccid'>";
                 core_connect();
@@ -104,7 +104,7 @@ function slctacc()
                 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
                 <tr><td><h4>Credit</h4></td></tr>
                 <tr><th>Select Account</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor2."'>
+                <tr class='bg-even'>
                 <td valign=center>
                 <select name=ctaccid>";
                 $sql = "SELECT * FROM accounts WHERE div = '".USER_DIV."' ORDER BY accname ASC";
@@ -125,14 +125,14 @@ function slctacc()
                 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
                         <tr><td><h4>Debit</h4></td></tr>
                         <tr><th>Account number</th></tr>
-                        <tr bgcolor='".TMPL_tblDataColor2."'><td valign=center><input type=text name=dtaccnum size=20></td></tr>
+                        <tr class='bg-even'><td valign=center><input type=text name=dtaccnum size=20></td></tr>
                 </table>
         </td>
         <td align=center>
                 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
                         <tr><td><h4>Credit</h4></td></tr>
                         <tr><th>Account number</th></tr>
-                        <tr bgcolor='".TMPL_tblDataColor2."'>
+                        <tr class='bg-even'>
                 <td valign=center><input type=text name=ctaccnum size=20></td><td><input type=submit value='Enter Details >'></td></tr></table>
         </td></tr>
         </table>
@@ -202,15 +202,15 @@ function details($_POST)
         <input type=hidden name='dtaccid' value='$dtaccid'>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=500>
         <tr><td width=50%><h3>Debit</h3></td><td width=50%><h3>Credit</h3></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
+        <tr class='bg-odd'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
         <tr><td><br></td></tr>
         <tr><td><br></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$date</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td valign=center>".CUR."<input type=text size=20 name=amount></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Charge VAT </td><td><input type=radio name=chrgvat value=yes>Yes &nbsp;&nbsp; <input type=radio name=chrgvat value=no checked=yes>No</td>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details></textarea></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
+        <tr class='bg-odd'><td>Date</td><td valign=center>$date</td></tr>
+        <tr class='bg-even'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
+        <tr class='bg-odd'><td>Amount</td><td valign=center>".CUR."<input type=text size=20 name=amount></td></tr>
+		<tr class='bg-even'><td>Charge VAT </td><td><input type=radio name=chrgvat value=yes>Yes &nbsp;&nbsp; <input type=radio name=chrgvat value=no checked=yes>No</td>
+        <tr class='bg-odd'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details></textarea></td></tr>
+        <tr class='bg-even'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
         <tr><td><input type=button value=Back OnClick='javascript:history.back()'></td><td valign=center><input type=submit value='Record Transaction'></td></tr>
         </form>
         </table>
@@ -309,15 +309,15 @@ function details2($_POST)
         <input type=hidden name='dtaccid' value='$dtacc[accid]'>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=500>
         <tr><td width=50%><h3>Debit</h3></td><td width=50%><h3>Credit</h3></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
+        <tr class='bg-odd'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
         <tr><td><br></td></tr>
         <tr><td><br></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$date</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td valign=center>".CUR."<input type=text size=20 name=amount></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Charge VAT </td><td><input type=radio name=chrgvat value=yes>Yes &nbsp;&nbsp; <input type=radio name=chrgvat value=no checked=yes>No</td>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details></textarea></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
+        <tr class='bg-odd'><td>Date</td><td valign=center>$date</td></tr>
+        <tr class='bg-even'><td>Reference No.</td><td valign=center><input type=text size=20 name=refnum value='$refnum'></td></tr>
+        <tr class='bg-odd'><td>Amount</td><td valign=center>".CUR."<input type=text size=20 name=amount></td></tr>
+		<tr class='bg-even'><td>Charge VAT </td><td><input type=radio name=chrgvat value=yes>Yes &nbsp;&nbsp; <input type=radio name=chrgvat value=no checked=yes>No</td>
+        <tr class='bg-odd'><td>Transaction Details</td><td valign=center><textarea cols=20 rows=5 name=details></textarea></td></tr>
+        <tr class='bg-even'><td>Person Authorising</td><td valign=center><input type=hidden size=20 name=author value=".USER_NAME.">".USER_NAME."</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value=Back OnClick='javascript:history.back()'></td><td valign=center><input type=submit value='Record Transaction'></td></tr>
         </form>
@@ -411,19 +411,19 @@ function slctVatacc($_POST)
 	<input type=hidden name=chrgvat value='$chrgvat'>
  	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' align=center width=500>
 	<tr><td width=50%><h3>Debit</h3></td><td width=50%><h3>Credit</h3></td></tr>
-    <tr bgcolor='".TMPL_tblDataColor1."'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
+    <tr class='bg-odd'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
 	<tr><td><br></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>VAT Deductable Account</td><td><input type=radio name=vatdedacc value='$dtaccid' checked=yes>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]<br><input type=radio name=vatdedacc value='$ctaccid'>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Account</td><td>$vatacc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>VAT Inclusive </td><td><input type=radio size=20 name=vatinc value=yes checked=yes>Yes(Amount Includes VAT) &nbsp;&nbsp;<input type=radio size=20 name=vatinc value=no>No(Add VAT to Amount)</td></tr>
+	<tr class='bg-even'><td valign=top>VAT Deductable Account</td><td><input type=radio name=vatdedacc value='$dtaccid' checked=yes>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]<br><input type=radio name=vatdedacc value='$ctaccid'>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
+	<tr class='bg-odd'><td>VAT Account</td><td>$vatacc</td></tr>
+	<tr class='bg-even'><td>VAT Inclusive </td><td><input type=radio size=20 name=vatinc value=yes checked=yes>Yes(Amount Includes VAT) &nbsp;&nbsp;<input type=radio size=20 name=vatinc value=no>No(Add VAT to Amount)</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Continue &raquo'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='ledger-view.php'>View High Speed Input Ledgers</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</td></tr>
+		<tr class='bg-odd'><td align=center><a href='ledger-view.php'>View High Speed Input Ledgers</td></tr>
+		<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</td></tr>
 	</table>";
 
 	return $slctacc;
@@ -496,9 +496,9 @@ function confirm($_POST)
 				$vatamt = sprint((($amount/($VATP + 100)) * $VATP));
 				$totamt = sprint($amount);
 			}
-			$vataccnum = "<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Amount</td><td><input type=hidden name=vatinc value='$vatinc'><input type=hidden name=vatamt value='$vatamt'>$vatamt</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Total Transaction Amount</td><td>$totamt</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Account</td><td><input type=hidden name=vataccid value='$vataccid'><input type=hidden name=vatdedacc value='$vatdedacc'>$vatacc[topacc]/$vatacc[accnum] - $vatacc[accname]</td></tr>";
+			$vataccnum = "<tr class='bg-odd'><td>VAT Amount</td><td><input type=hidden name=vatinc value='$vatinc'><input type=hidden name=vatamt value='$vatamt'>$vatamt</td></tr>
+			<tr class='bg-even'><td>Total Transaction Amount</td><td>$totamt</td></tr>
+			<tr class='bg-odd'><td>VAT Account</td><td><input type=hidden name=vataccid value='$vataccid'><input type=hidden name=vatdedacc value='$vatdedacc'>$vatacc[topacc]/$vatacc[accnum] - $vatacc[accname]</td></tr>";
 		}else{
 			$vataccnum = "";
 		}
@@ -525,18 +525,18 @@ function confirm($_POST)
         <input type=hidden name=author value='$author'>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
         <tr><td width=50%><h3>Debit</h3></td><td width=50%><h3>Credit</h3></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
+        <tr class='bg-even'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
         <tr><td><br></td></tr>
         <tr><td><br></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$date</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Reference number</td><td>$refnum</td></tr>
+        <tr class='bg-odd'><td>Date</td><td>$date</td></tr>
+        <tr class='bg-even'><td>Reference number</td><td>$refnum</td></tr>
 		<tr><td><br></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Amount</td><td>$amount</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Charge VAT </td><td>$chrgvat</td></tr>
+        <tr class='bg-odd'><td>Amount</td><td>$amount</td></tr>
+		<tr class='bg-even'><td>Charge VAT </td><td>$chrgvat</td></tr>
 		$vataccnum
 		<tr><td><br></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Details</td><td>$details</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Authorising Person</td><td>$author</td></tr>
+		<tr class='bg-even'><td>Details</td><td>$details</td></tr>
+        <tr class='bg-odd'><td>Authorising Person</td><td>$author</td></tr>
 		<tr><td><br></td></tr>
         <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Confirm Transaction &raquo'></td></tr>
         </form></table>
@@ -622,9 +622,9 @@ function write($_POST)
 			$vataccRs = get("core", "*", "accounts", "accid", $vataccid);
 			$vatacc  = pg_fetch_array($vataccRs);
 
-			$vataccnum = "<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Amount</td><td>$vatamt</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Total Transaction Amount</td><td><b>$totamt</b></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Account</td><td>$vatacc[topacc]/$vatacc[accnum] - $vatacc[accname]</td></tr>";
+			$vataccnum = "<tr class='bg-odd'><td>VAT Amount</td><td>$vatamt</td></tr>
+			<tr class='bg-even'><td>Total Transaction Amount</td><td><b>$totamt</b></td></tr>
+			<tr class='bg-odd'><td>VAT Account</td><td>$vatacc[topacc]/$vatacc[accnum] - $vatacc[accname]</td></tr>";
 		}else{
 			$vataccnum = "";
 		}
@@ -634,9 +634,9 @@ function write($_POST)
         <h3>Journal transaction has been recorded</h3>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=500>
 			<tr><td width=50%><h3>Debit</h3></td><td width=50%><h3>Credit</h3></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
+			<tr class='bg-even'><td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td></tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Amount</td><td><b>$amount</b></td></tr>
+			<tr class='bg-even'><td>Amount</td><td><b>$amount</b></td></tr>
 			$vataccnum
 		</table>
         <br>

@@ -74,7 +74,7 @@ function get_allocation ($_POST,$err="")
 					}
 
 					$listing .= "
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>$ccode</td>
 										<td>$cname</td>
 										<td><input type='checkbox' name='adds[]' value='$carr[ccid]'></td>
@@ -90,7 +90,7 @@ function get_allocation ($_POST,$err="")
 
 	if(strlen($listing) < 1){
 		$listing .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='3'>No Entries Found</td>
 						</tr>
 					";

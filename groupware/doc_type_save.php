@@ -52,7 +52,7 @@ function enter($errors="")
 		<tr>
 			<th colspan='2'>Type</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='type_name' value='$type_name' /></td>
 			<td><input type='submit' value='Confirm &raquo' /></td>
 		</tr>
@@ -77,7 +77,7 @@ function confirm()
 		<tr>
 			<th colspan='2'>Type</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$type_name</td>
 			<td><input type='submit' value='Write &raquo' /></td>
 		</tr>
@@ -101,7 +101,7 @@ function write()
 		<tr>
 			<th>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Successfully Saved The Document Type</td>
 		</tr>
 	</table>";

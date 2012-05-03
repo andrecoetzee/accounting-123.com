@@ -98,22 +98,22 @@ function slctacc()
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'></td>
 							<td>
 								<input type='radio' name='accnt' value='slct' checked='yes'>Selected Accounts | 
 								<input type='radio' name='accnt' value='all'>All Accounts
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Select Supplier(s)</td>
 							<td>$supts</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Select period</td>
 							<td>$fprds to $tprds</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Order By</td>
 							<td>
 								Transaction Date <input type='radio' name='t' checked value='t'>
@@ -290,14 +290,14 @@ function viewtran($_POST)
 			$balance=sprint($bal['cbalance']-$bal['dbalance']);
 	
 			$trans .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='8'><b>$sup[supno] - $sup[supname] </b></td>
 							</tr>";
 	
 			$bbf_date = date("t-M-Y", mktime(0, 0, 0, $prd - 1, 1, getYearOfFinMon($prd)));
 	
 			$trans .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='2' align='right'>$bbf_date</td>
 								<td>Br/Forwd</td>
 								<td>Brought Forward</td>
@@ -344,7 +344,7 @@ function viewtran($_POST)
 				$tran['edate'] = explode("-", $tran['edate']);
 				$tran['edate'] = $tran['edate'][2]."-".$tran['edate'][1]."-".$tran['edate'][0];
 	
-				$trans .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><br></td><td>$tran[edate]</td><td>$tran[eref]</td><td>$tran[descript]</td><td align=right>$tran[debit]</td><td align=right>$tran[credit]</td><td align=right>$cbalance</td><td>$cacc[topacc]/$cacc[accnum] - $cacc[accname]</td></tr>";
+				$trans .= "<tr class='bg-odd'><td><br></td><td>$tran[edate]</td><td>$tran[eref]</td><td>$tran[descript]</td><td align=right>$tran[debit]</td><td align=right>$tran[credit]</td><td align=right>$cbalance</td><td>$cacc[topacc]/$cacc[accnum] - $cacc[accname]</td></tr>";
 			}
 	
 			# Total balance changes
@@ -360,7 +360,7 @@ function viewtran($_POST)
 			}
 	
 			$trans .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='2'><br></td>
 								<td>A/C Total</td>
 								<td>Total for period $prdname to Date :</td>

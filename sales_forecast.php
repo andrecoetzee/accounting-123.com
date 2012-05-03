@@ -129,7 +129,7 @@ function display()
 			<tr>
 				<th colspan='7'>Report Settings</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- COL 1 -->
 				<td>
 					<input type='radio' name='prd' value='weekly' $prd_weekly
@@ -144,18 +144,18 @@ function display()
 				<td>Monthly</td>
 
 				<!-- COL 2 -->
-				<td bgcolor='".bgcolorg()."'>&nbsp;</td>
+				<td class='".bg_class()."'>&nbsp;</td>
 
 				<!-- COL 3 -->
 				<th>Increase</th>
 				<th>Decrease</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- COL 1 -->
 				<td colspan='4' align='center'>$prd_sel</td>
 
 				<!-- COL 2 -->
-				<td bgcolor='".bgcolorg()."'>&nbsp;</td>
+				<td class='".bg_class()."'>&nbsp;</td>
 
 				<!-- COL 3 -->
 				<td>
@@ -171,12 +171,12 @@ function display()
 					<span style='font-weight: bold'>%</span>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- COL 1 -->
 				<td colspan='4'>$start_date <b> To </b> $end_date</td>
 
 				<!-- COL 2 -->
-				<td bgcolor='".bgcolorg()."'>&nbsp;</td>
+				<td class='".bg_class()."'>&nbsp;</td>
 
 				<!-- COL 3 -->
 				<td colspan='2' align='center'>
@@ -185,13 +185,13 @@ function display()
 				</td>
 			</tr>
 			<tr><th colspan='7'>Saved Sales Forecast</th></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='7'>
 					If a saved sales forecast has been chosen, all other<br />
 					settings for this report will be ignored.
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='7'>$forecast_sel</td>
 			</tr>
 		</table>
@@ -228,7 +228,7 @@ function display()
 		$stkdes_rslt = db_exec($sql) or errDie("Unable to retrieve stock.");
 		$stkdes = pg_fetch_result($stkdes_rslt, 0);
 
-		$stock_out .= "<tr bgcolor='".bgcolorg()."'>
+		$stock_out .= "<tr class='".bg_class()."'>
 			<td>$stkcod</td>
 			<td>$stkdes</td>
 			<td>

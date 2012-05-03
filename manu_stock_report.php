@@ -68,7 +68,7 @@ function display()
 			$s_stock = pg_fetch_array($s_stock_rslt);
 
 			$history_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".date("d-m-Y G:i:s", $e_time)."</td>
 				<td>($m_stock[stkcod]) $m_stock[stkdes]</td>
 				<td>($s_stock[stkcod]) $s_stock[stkdes]</td>
@@ -78,7 +78,7 @@ function display()
 			$total += $cost;
 		}
 		$history_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'>Total</td>
 			<td align='right'>".sprint($total)."</td></tr>
 		</tr>";
@@ -89,7 +89,7 @@ function display()
 	<form method='post' action='".SELF."'>
 	<table ".TMPL_tblDflts.">
 		<tr><th colspan='4'>Date Range</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

@@ -91,11 +91,11 @@ function view($_POST)
         <form action='".SELF."' method=post name=form>
         <input type=hidden name=key value=confirm>
 		<tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Branch code</td><td><input type=text size=20 name='brancod' value='$brancod'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Branch name</td></td><td><input type=text size=20 name='branname' value='$branname'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Details</td><td><textarea cols=18 rows=5 name='brandet'>$brandet</textarea></textarea></td></tr>
+		<tr class='bg-odd'><td>Branch code</td><td><input type=text size=20 name='brancod' value='$brancod'></td></tr>
+		<tr class='bg-even'><td>".REQ."Branch name</td></td><td><input type=text size=20 name='branname' value='$branname'></td></tr>
+		<tr class='bg-odd'><td valign=top>Details</td><td><textarea cols=18 rows=5 name='brandet'>$brandet</textarea></textarea></td></tr>
 		<tr><th colspan=2>Setup</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Active Period</td><td valign=center>$asmonth</td></tr>
+		<tr class='bg-even'><td>Active Period</td><td valign=center>$asmonth</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td></td><td valign=center align=right><input type=submit value='Confirm &raquo'></td></tr>
 		</form>
@@ -103,8 +103,8 @@ function view($_POST)
 		<p>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
         <tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='admin-branview.php'>View Branches</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-odd'><td><a href='admin-branview.php'>View Branches</a></td></tr>
+			<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
         </table>";
 
         return $view;
@@ -186,9 +186,9 @@ function confirm($_POST)
 	$monset
 	<input type=hidden name=activemonth value='$activemonth'>
 	<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Branch Code</td><td>$brancod</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Branch Name</td></td><td>$branname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Details</td><td><pre>$brandet</pre></td></tr>
+	<tr class='bg-odd'><td>Branch Code</td><td>$brancod</td></tr>
+	<tr class='bg-even'><td>Branch Name</td></td><td>$branname</td></tr>
+	<tr class='bg-odd'><td valign=top>Details</td><td><pre>$brandet</pre></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td><input type=submit name=back value='&laquo; Correction'></td><td align=right><input type=submit value='Write &raquo'></td></tr>
 	</form>
@@ -196,8 +196,8 @@ function confirm($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='admin-branview.php'>View Branches</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='admin-branview.php'>View Branches</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -2166,8 +2166,8 @@ function write($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='admin-branview.php'>View Branches</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='admin-branview.php'>View Branches</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

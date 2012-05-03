@@ -65,9 +65,9 @@ function enter($_GET) {
 	<input type=hidden name=key value='confirm'>
 	<input type=hidden name=id  value='$id'>
 	<tr><th colspan=2>SMS details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>To</td><td><input type=text name=to value='$tokendata[cell]'></td></tr>
+	<tr class='bg-odd'><td>To</td><td><input type=text name=to value='$tokendata[cell]'></td></tr>
 	<tr><th colspan=2>Text</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><textarea name=text cols=20 rows=4></textarea></td></tr>
+	<tr class='bg-even'><td colspan=2><textarea name=text cols=20 rows=4></textarea></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -96,9 +96,9 @@ function error($_POST,$errors="") {
 	<input type=hidden name=key value='confirm'>
 	<input type=hidden name=id  value='$id'>
 	<tr><th colspan=2>SMS details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>To</td><td><input type=text name=to value='$to'></td></tr>
+	<tr class='bg-odd'><td>To</td><td><input type=text name=to value='$to'></td></tr>
 	<tr><th colspan=2>Text</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><textarea name=text cols=20 rows=4>$text</textarea></td></tr>
+	<tr class='bg-even'><td colspan=2><textarea name=text cols=20 rows=4>$text</textarea></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -141,9 +141,9 @@ function confirm($_POST) {
 	<input type=hidden name=id  value='$id'>
 	<input type=hidden name=text value='$text'>
 	<tr><th colspan=2>SMS details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>To</td><td><input type=hidden name=to value='$to'>$to</td></tr>
+	<tr class='bg-odd'><td>To</td><td><input type=hidden name=to value='$to'>$to</td></tr>
 	<tr><th colspan=2>Text</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><pre>$text</pre></td></tr>
+	<tr class='bg-even'><td colspan=2><pre>$text</pre></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Send &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -199,7 +199,7 @@ function send($_POST) {
 
 	$out="<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>SMS Sent</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>".implode("", $request)."</td></tr>
+	<tr class='bg-odd'><td>".implode("", $request)."</td></tr>
 	</table>";
 
 	return $out;

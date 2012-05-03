@@ -91,10 +91,10 @@ function display()
 			<tr>
 				<th>Section</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$section_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$id_sel</td>
 			</tr>
 		</table>
@@ -124,7 +124,7 @@ function display()
 			$date = date("d-m-Y", $today_data["e_date"]);
 
 			$today_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td nowrap>$date</td>
 					<td>$today_data[info]</td>
 					<td align='center'>
@@ -144,7 +144,7 @@ function display()
 			<form method='POST' action='".SELF."'>
 				<input type='hidden' name='section_id' value='$section_id' />
 				<input type='hidden' name='id' value='$id' />
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td nowrap>".mkDateSelect("date")."</td>
 					<td><input type='text' name='info' style='width: 100%' /></td>
 					<td><input type='submit' name='key' value='Add' style='width:100%' /></td>

@@ -84,11 +84,11 @@ function view()
 			<tr>
 				<th colspan='2'>New Quote</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Select Department</td>
 				<td valign='center'>$depts</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>First Letters of customer</td>
 				<td valign='center'><input type='text' size='5' name='letters' maxlength='5'></td>
 			</tr>
@@ -149,11 +149,11 @@ function view_err($_POST, $err = "")
 			<tr>
 				<td colspan='2'>$err</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select Department</td>
 				<td valign='center'>$depts</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>First Letters of customer</td>
 				<td valign='center'><input type='text' size='5' name='letters' value='$letters' maxlength=5></td>
 			</tr>
@@ -544,7 +544,7 @@ function details($_POST, $error="")
 
 			# Put in product
 			$products .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'>$Accounts<input type='hidden' name='whids[]' value='$stkd[whid]'></td>
 					<td><input type='hidden' name='stkids[]' value='$stkd[stkid]'>$Vatcodes</td>
 					<td><input type='text' size='20' name='descriptions[]' value='$stkd[description]'> $sernos</td>
@@ -601,7 +601,7 @@ function details($_POST, $error="")
 			$products .= "
 				<input type='hidden' name='accounts[]' value='0'>
 				<input type='hidden' name='descriptions[]' value=''>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='hidden' name='whids[]' value='$stkd[whid]'>$wh[whname]</td>
 					<td><input type='hidden' name='stkids[]' value='$stkd[stkid]'><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td>
 					<td>$Vatcodes</td>
@@ -707,7 +707,7 @@ function details($_POST, $error="")
 				$products .= "
 					<input type='hidden' name='accounts[]' value='0'>
 					<input type='hidden' name='descriptions[]' value=''>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' name='whids[]' value='$whid'>$wh[whname]</td>
 						<td><input type='hidden' name='stkids[]' value='$stk[stkid]'><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td>
 						<td>$Vatcodes</td>
@@ -764,7 +764,7 @@ function details($_POST, $error="")
 
 				# Put in selected warehouse and stock
 				$products .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'>$ad[accname]<input type='hidden' name='accounts[]' value='$accountss[$key]'><input type='hidden' name='whids[]' value='0'></td>
 						<td>$Vatcodes<input type='hidden' name='stkids[]' value='0'></td>
 						<td><input type='text' size='20' name='descriptions[]' value='$descriptionss[$key]'></td>
@@ -874,7 +874,7 @@ function details($_POST, $error="")
 					$products .= "
 						<input type='hidden' name='accountss[]' value='0'>
 						<input type='hidden' name='descriptionss[]' value=''>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' name='whidss[]' value='$filter_store'></td>
 							<td>$cods<input type='hidden' name='vatcodess' value='0'></td>
 							<td></td>
@@ -922,7 +922,7 @@ function details($_POST, $error="")
 					$Vatcodes .= "</select>";
 
 					$products .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='2'>$Accounts<input type='hidden' name='whidss[]' value='$FIRST_WH'></td>
 							<inpu type='hidden' name='stkidss[]' value=''>
 							<td>$Vatcodes</td>
@@ -996,7 +996,7 @@ function details($_POST, $error="")
 				<input type='hidden' name='descriptionss[]' value=''>
 				<input type='hidden' name='vatcodess[]' value=''>
 				<input type='hidden' name='accountss[]' value='0'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='hidden' name='whidss[]' value='$filter_store'></td>
 					<td>$stks</td>
 					<td></td>
@@ -1044,7 +1044,7 @@ function details($_POST, $error="")
 
 
 			$products .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'>$Accounts<input type='hidden' name='whidss[]' value='$FIRST_WH'></td>
 					<inpu type='hidden' name='stkidss[]' value=''>
 					<td>$Vatcodes</td>
@@ -1211,11 +1211,11 @@ function details($_POST, $error="")
 			}
 
 			$display_optional_filters = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Category</td>
 					<td>$cat_drop</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Classification</td>
 					<td>$class_drop</td>
 				</tr>";
@@ -1258,41 +1258,41 @@ function details($_POST, $error="")
 				<tr>
 					<th colspan='2'> Customer Details </th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Department</td>
 					<td valign='center'>$dept[deptname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account No.</td>
 					<td valign='center'>$cust[accno]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Customer</td>
 					<td valign='center'>$customers</td>
 					$custedit
 					<td><input type='button' onClick=\"javascript:document.location=('pos-quote-new.php')\" value='Quote Non Customer'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>Customer Address</td>
 					<td valign='center'>".nl2br($cust['addr1'])."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Customer Req number</td>
 					<td valign='center'><input type='text' size='10' name='cordno' value='$quo[cordno]'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Customer VAT Number</td>
 					<td>$cust[vatnum]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>Next Contact Date</td>
 					<td valign='center'>".mkDateSelect("ncdate",$ncdate_year,$ncdate_month,$ncdate_day)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>Add As Lead</td>
 					<td valign='center'><input type='checkbox' name='lead' $sel value='yes'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Using</td>
 					<td>Stock Code<input type='radio' name='sel_frm' value='stkcod' onChange='javascript:document.form.submit();' $sel_frm_cod><br>Stock Description<input type='radio' name='sel_frm' value='stkdes' onChange='javascript:document.form.submit();' $sel_frm_des></td>
 				</tr>
@@ -1300,12 +1300,12 @@ function details($_POST, $error="")
 				<tr>
 					<th colspan='2'>Additional Filters</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Store</td>
 					<td>$store_drop</td>
 				</tr>
 				$display_optional_filters
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Stock Filter</td>
 					<td><input type='text' size='13' name='des' value='$des'> <input type='submit' value='Search'> <input type='submit' name='des' value='Show All'></td>
 				</tr>
@@ -1340,11 +1340,11 @@ function details($_POST, $error="")
 			<tr>
 				<th colspan='2'>New Quote</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Select Department</td>
 				<td valign='center'>$depts</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>First Letters of customer</td>
 				<td valign='center'><input type='text' size='5' id='letters' maxlength='5'></td>
 			</tr>
@@ -1378,39 +1378,39 @@ function details($_POST, $error="")
 						<tr>
 							<th colspan='2'> Quote Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Quote No.</td>
 							<td valign='center'>$quo[quoid]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Order No.</td>
 							<td valign='center'><input type='text' size='5' name='ordno' value='$quo[ordno]'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Inclusive</td>
 							<td valign='center'>Yes <input type='radio' size='7' name='chrgvat' value='inc' $chin> No<input type='radio' size='7' name='chrgvat' value='exc' $chex> </td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Terms</td>
 							<td valign='center'>$termssel Days</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Sales Person</td>
 							<td valign='center'>$salesps</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Quote Date</td>
 							<td valign='center'>".mkDateSelect("quote",$quote_year,$quote_month,$quote_day)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Available Credit</td>
 							<td>".CUR." $avcred</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Trade Discount</td>
 							<td valign='center'><input type='text' size='5' name='traddisc' value='$quo[traddisc]'>%</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Delivery Charge</td>
 							<td valign='center'><input type='text' size='7' name='delchrg' value='$quo[delchrg]'>$Vatcodes</td>
 						</tr>
@@ -1435,7 +1435,7 @@ function details($_POST, $error="")
 							<td rowspan='5' valign='top' width='50%'>$error</td>
 						</tr>
 						<tr>
-							<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'>
+							<td class='".bg_class()."' rowspan='4' align='center' valign='top'>
 								<textarea name='comm' rows='4' cols='20'>$quo[comm]</textarea>
 							</td>
 						</tr>
@@ -1443,23 +1443,23 @@ function details($_POST, $error="")
 				</td>
 				<td align='right'>
 					<table ".TMPL_tblDflts." width='80%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>SUBTOTAL</td>
 							<td align='right' nowrap>".CUR." <input type='hidden' name='SUBTOT' value='$SUBTOT'>$SUBTOT</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Trade Discount</td>
 							<td align='right' nowrap>".CUR." $quo[discount]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Delivery Charge</td>
 							<td align='right' nowrap>".CUR." $quo[delivery]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><b>VAT $vat14</b></td>
 							<td align='right' nowrap>".CUR." $VAT</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th>GRAND TOTAL</th>
 							<td align='right' nowrap>".CUR." $TOTAL</td>
 						</tr>
@@ -2071,7 +2071,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 // 				<tr>
 // 					<th colspan='2'>New Quote</th>
 // 				</tr>
-// 				<tr bgcolor='".bgcolorg()."'>
+// 				<tr class='".bg_class()."'>
 // 					<td>Quote for customer <b>$cust[cusname] $cust[surname]</b> has been recorded.</td>
 // 					<td><input type='button' onClick=\"javascript:printer('pdf/quote-pdf-print.php?quoid=$quoid')\" value='Print Quote'></td>
 // 					<td><input type='button' onclick='javascript:move(\"quote-email.php?evs=$quoid\")' value='Email'></td>
@@ -2096,7 +2096,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 				<tr>
 					<th>New Quote Saved</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Quote for customer <b>$cust[cusname] $cust[surname]</b> has been saved.</td>
 				</tr>
 			</table>"

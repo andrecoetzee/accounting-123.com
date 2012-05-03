@@ -232,8 +232,8 @@ function login ()
 <form action='".SELF."' method=post>
 <input type=hidden name=login value=1>
 <tr><th colspan=2>Please login</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>User name</td><td>$users</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Password</td><td><input type=password size=20 name=login_pass></td></tr>
+<tr class='bg-odd'><td>User name</td><td>$users</td></tr>
+<tr class='bg-even'><td>Password</td><td><input type=password size=20 name=login_pass></td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Log in &raquo;'></td></tr>
 </form>
 </table>

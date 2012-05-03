@@ -67,16 +67,16 @@ function view()
 	<form action='".SELF."' method=post name=form>
 	<input type=hidden name=key value=confirm>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>This Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr1 value=y2003></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>2nd Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr2 value=y2004></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>3rd Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr3 value=y2005></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>4th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr4 value=y2006></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>5th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr5 value=y2007></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>6th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr6 value=y2008></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>7th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr7 value=y2009></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>8th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr8 value=y2010></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>9th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr9 value=y2011></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>10th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr10 value=y2012></td></tr>
+	<tr class='bg-odd'><td>This Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr1 value=y2003></td></tr>
+	<tr class='bg-even'><td>2nd Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr2 value=y2004></td></tr>
+	<tr class='bg-odd'><td>3rd Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr3 value=y2005></td></tr>
+	<tr class='bg-even'><td>4th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr4 value=y2006></td></tr>
+	<tr class='bg-odd'><td>5th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr5 value=y2007></td></tr>
+	<tr class='bg-even'><td>6th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr6 value=y2008></td></tr>
+	<tr class='bg-odd'><td>7th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr7 value=y2009></td></tr>
+	<tr class='bg-even'><td>8th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr8 value=y2010></td></tr>
+	<tr class='bg-odd'><td>9th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr9 value=y2011></td></tr>
+	<tr class='bg-even'><td>10th Financial Year</td><td valign=center><input type=text size=14 maxlength=14 name=yr10 value=y2012></td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Add Year Names &raquo'></td></tr>
 	</table></form>
 	<p>
@@ -164,16 +164,16 @@ function confirm($_POST)
 	".($yr5."_audit").", ".($yr6."_audit").", ".($yr7."_audit").", ".($yr8."_audit").",<br>
 	".($yr9."_audit").", ".($yr10."_audit")."</td></tr>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>This Financial Year</td><td valign=center>$yr1</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>2nd Financial Year</td><td valign=center>$yr2</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>3rd Financial Year</td><td valign=center>$yr3</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>4th Financial Year</td><td valign=center>$yr4</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>5th Financial Year</td><td valign=center>$yr5</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>6th Financial Year</td><td valign=center>$yr6</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>7th Financial Year</td><td valign=center>$yr7</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>8th Financial Year</td><td valign=center>$yr8</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>9th Financial Year</td><td valign=center>$yr9</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>10th Financial Year</td><td valign=center>$yr10</td></tr>
+	<tr class='bg-odd'><td>This Financial Year</td><td valign=center>$yr1</td></tr>
+	<tr class='bg-even'><td>2nd Financial Year</td><td valign=center>$yr2</td></tr>
+	<tr class='bg-odd'><td>3rd Financial Year</td><td valign=center>$yr3</td></tr>
+	<tr class='bg-even'><td>4th Financial Year</td><td valign=center>$yr4</td></tr>
+	<tr class='bg-odd'><td>5th Financial Year</td><td valign=center>$yr5</td></tr>
+	<tr class='bg-even'><td>6th Financial Year</td><td valign=center>$yr6</td></tr>
+	<tr class='bg-odd'><td>7th Financial Year</td><td valign=center>$yr7</td></tr>
+	<tr class='bg-even'><td>8th Financial Year</td><td valign=center>$yr8</td></tr>
+	<tr class='bg-odd'><td>9th Financial Year</td><td valign=center>$yr9</td></tr>
+	<tr class='bg-even'><td>10th Financial Year</td><td valign=center>$yr10</td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Confirm Names &raquo'></td></tr>
 	</table></form>
 	<p>

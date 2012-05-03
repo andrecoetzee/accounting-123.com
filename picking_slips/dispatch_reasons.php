@@ -27,7 +27,7 @@ function enter()
 	$reason_out = "";
 	while (list($id, $reason) = pg_fetch_array($reason_rslt)) {
 		$reason_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$reason</td>
 			<td><input type='checkbox' name='remove[$id]' value='$id' /></td>
 		</tr>";
@@ -42,7 +42,7 @@ function enter()
 			<th>Reason</th>
 			<th>Remove</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='reason' style='width: 100%' /></td>
 			<td>&nbsp;</td>
 		</tr>

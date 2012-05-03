@@ -134,7 +134,7 @@ function settings($_POST)
 		}
 
 		$tab .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$rd[ref]</td>
 				<td>$rd[pn]</td>
 				<td>$rd[dets]</td>
@@ -148,7 +148,7 @@ function settings($_POST)
 	}
 
 	$tab .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='7' align='center'><a href='statement-ref-add.php'>ADD NEW</a></td>
 			</tr>
 		</table>";
@@ -162,7 +162,7 @@ function settings($_POST)
 			<tr>
 				<th colspan='2'>Settings</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Choose Account By</td>
 				<td>$accounts</td>
 			</tr>
@@ -179,10 +179,10 @@ function settings($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='statement-ref-add.php'>Add new description</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

@@ -109,7 +109,7 @@ function confirm (){
 				<tr>
 					<th colspan=2>Splash Screen Details</th>
 				</tr>
-				<tr bgcolor='".TMPL_tblDataColor2."'>
+				<tr class='bg-even'>
 					<td><pre>$temp</pre></td>
 				</tr>
 				<tr>

@@ -81,7 +81,7 @@ function viewEmp ()
 	$empRslt = db_exec ($sql) or errDie ("Unable to select employees from database.");
 	if (pg_numrows ($empRslt) < 1) {
 		$employees = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><li class='err'>No Employees Found.</li></td>
 			</tr>";
 	}else {
@@ -95,7 +95,7 @@ function viewEmp ()
 
 //			<a href='irp5-export.php?empnum=$myEmp[empnum]'>Export IRP 5</a> |
 			$employees .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$myEmp[enum]</td>
 					<td>$myEmp[fnames]</td>
 					<td>$myEmp[sname]</td>
@@ -171,7 +171,7 @@ function viewEmp ()
 			<tr>
 				<th>Filter By Employee Group</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$emp_group_drop</td>
 			</tr>
 			".TBL_BR."

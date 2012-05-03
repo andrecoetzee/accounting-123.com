@@ -38,7 +38,7 @@ function get_current_setting ()
 			</tr>";
 		while ($aarr = pg_fetch_array ($run_list)){
 			$account_list .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$aarr[accname]</td>
 					<td><input type='submit' name='remove[$aarr[accid]]' value='Remove'></td>
 				</tr>";
@@ -67,7 +67,7 @@ function get_current_setting ()
 			<tr>
 				<th>Use These Accounts Only</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<input type='radio' name='setting' value='yes' $yes_setting> Yes
 					<input type='radio' name='setting' value='no' $no_setting> No
@@ -82,7 +82,7 @@ function get_current_setting ()
 			<tr>
 				<th colspan='2'>Add Account</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>".mkAccSelect ("newaccount", $newaccount)." <input type='submit' name='add' value='Add Account'></td>
 			</tr>
 			<tr><td><br></td></tr>

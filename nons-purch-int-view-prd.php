@@ -77,7 +77,7 @@ function slct()
 					<tr>
 						<th colspan='2'>By Date Range</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center' colspan='2'>
 							".mkDateSelect("from",date("Y"),date("m"),"01")."
 							&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -198,7 +198,7 @@ function printPurch ($_POST,$flag=TRUE)
 		$docs = doclib_getdocs("npur", $stkp['purnum']);
 
 		$printOrd .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$stkp[purnum]</td>
 							<td>$date</td>
 							<td>$stkp[supplier]</td>

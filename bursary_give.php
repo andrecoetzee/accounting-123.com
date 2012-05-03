@@ -86,47 +86,47 @@ function get_details ($_POST,$err = "")
 				<tr>
 					<th colspan='2'>Recipient Information</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bursary</td>
 					<td>$bursary_drop</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Name</td>
 					<td><input type='text' name='rec_name' value='$rec_name'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Address</td>
 					<td><input type='text' name='rec_add1' value='$rec_add1'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td></td>
 					<td><input type='text' name='rec_add2' value='$rec_add2'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td></td>
 					<td><input type='text' name='rec_add3' value='$rec_add3'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td></td>
 					<td><input type='text' name='rec_add4' value='$rec_add4'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>ID Number</td>
 					<td><input type='text' name='rec_idnum' value='$rec_idnum'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Telephone</td>
 					<td><input type='text' name='rec_telephone' value='$rec_telephone'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date From</td>
 					<td>".mkDateSelect("from")."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date To</td>
 					<td>".mkDateSelect("to")."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Notes</td>
 					<td><textarea name='notes' cols='40' rows='4'>$notes</textarea></td>
 				</tr>
@@ -193,47 +193,47 @@ function confirm_details ($_POST)
 				<tr>
 					<th colspan='2'>Recipient Information</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bursary</td>
 					<td>$showburs</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Name</td>
 					<td>$rec_name</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Address</td>
 					<td>$rec_add1</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td></td>
 					<td>$rec_add2</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td></td>
 					<td>$rec_add3</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td></td>
 					<td>$rec_add4</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>ID Number</td>
 					<td>$rec_idnum</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Telephone</td>
 					<td>$rec_telephone</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date From</td>
 					<td>$from_year-$from_month-$from_day</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date To</td>
 					<td>$to_year-$to_month-$to_day</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Notes</td>
 					<td>".nl2br($notes)."</td>
 				</tr>
@@ -272,7 +272,7 @@ function write_details ($_POST)
 				<tr>
 					<th>Bursary Information Updated.</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bursary Information Saved</td>
 				</tr>
 			</table>";

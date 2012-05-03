@@ -104,14 +104,14 @@ function confirm($purchid)
         $usedacc =  $acc['accname'];
 
         $confirm .="<tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Retailer</td><td>$purch[retailer]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Item Name</td><td>$purch[itemname]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td>$purch[descript]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Quantity</td><td>$purch[quantity]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Outstanding Amount</td><td>".CUR." $ct[amount]</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Amount To Be Paid</td><td>".CUR." <input type=text name=paidamt size=7></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Account used</td><td>$usedacc</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Account paid</td><td>$paidacc</td></tr>
+        <tr class='bg-even'><td>Retailer</td><td>$purch[retailer]</td></tr>
+        <tr class='bg-odd'><td>Item Name</td><td>$purch[itemname]</td></tr>
+        <tr class='bg-even'><td>Description</td><td>$purch[descript]</td></tr>
+        <tr class='bg-odd'><td>Quantity</td><td>$purch[quantity]</td></tr>
+        <tr class='bg-even'><td>Outstanding Amount</td><td>".CUR." $ct[amount]</td></tr>
+        <tr class='bg-odd'><td>Amount To Be Paid</td><td>".CUR." <input type=text name=paidamt size=7></td></tr>
+        <tr class='bg-even'><td>Account used</td><td>$usedacc</td></tr>
+        <tr class='bg-odd'><td>Account paid</td><td>$paidacc</td></tr>
         <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Pay Credit &raquo'></td></tr>
         </form>
         </table>

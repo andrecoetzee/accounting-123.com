@@ -110,19 +110,19 @@ function edit($deptid)
 		<input type=hidden name=debtacc value='$dept[debtacc]'>
 		<input type=hidden name=credacc value='$dept[credacc]'>
 		<tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Number</td><td align=center><input type=text size=20 name=deptno value='$dept[deptno]'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Department</td><td align=center><input type=text size=20 name=deptname value='$dept[deptname]'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Income Account</td><td>$accinc[accname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Debtors Control Account</td><td>$accdebt[accname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Creditors Control Account</td><td>$acccred[accname]</td></tr>
+		<tr class='bg-odd'><td>Number</td><td align=center><input type=text size=20 name=deptno value='$dept[deptno]'></td></tr>
+		<tr class='bg-even'><td>Department</td><td align=center><input type=text size=20 name=deptname value='$dept[deptname]'></td></tr>
+		<tr class='bg-odd'><td>Income Account</td><td>$accinc[accname]</td></tr>
+		<tr class='bg-even'><td>Debtors Control Account</td><td>$accdebt[accname]</td></tr>
+		<tr class='bg-odd'><td>Creditors Control Account</td><td>$acccred[accname]</td></tr>
 		<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 		</table></form>
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='dept-view.php'>View Departments</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../core/acc-new2.php'>Add Account</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='dept-view.php'>View Departments</a></td></tr>
+		<tr class='bg-odd'><td><a href='../core/acc-new2.php'>Add Account</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 		</table>";
 
 		return $enter;
@@ -181,19 +181,19 @@ function confirm ($_POST)
 	<input type=hidden name=deptid value='$deptid'>
 	<input type=hidden name=deptno value='$deptno'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Number</td><td>$deptno</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Department</td><td>$deptname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Income Account</td><td>$accinc[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Debtors Control Account</td><td>$accdebt[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Creditors Control Account</td><td>$acccred[accname]</td></tr>
+	<tr class='bg-odd'><td>Number</td><td>$deptno</td></tr>
+	<tr class='bg-even'><td>Department</td><td>$deptname</td></tr>
+	<tr class='bg-odd'><td>Income Account</td><td>$accinc[accname]</td></tr>
+	<tr class='bg-even'><td>Debtors Control Account</td><td>$accdebt[accname]</td></tr>
+	<tr class='bg-odd'><td>Creditors Control Account</td><td>$acccred[accname]</td></tr>
 	<tr><td align=right></td><td valign=left><input type=submit value='Write &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='dept-view.php'>View Departments</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../core/acc-new2.php'>Add Account</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='dept-view.php'>View Departments</a></td></tr>
+	<tr class='bg-odd'><td><a href='../core/acc-new2.php'>Add Account</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -243,9 +243,9 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='dept-view.php'>View Departments</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../core/acc-new2.php'>Add Account</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='dept-view.php'>View Departments</a></td></tr>
+	<tr class='bg-odd'><td><a href='../core/acc-new2.php'>Add Account</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

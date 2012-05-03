@@ -126,7 +126,7 @@ function details($_GET)
 
 			# put in product
 			$products .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$wh[whname]</td>
 								<td>$stk[stkcod]</td>
 								<td>$stk[stkdes]</td>
@@ -161,11 +161,11 @@ function details($_GET)
 									<tr>
 										<th colspan='2'> Supplier Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Supplier</td>
 										<td valign='center'>$pur[supname]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td valign='top'>Supplier Address</td>
 										<td valign='center'>".nl2br($rpur['supaddr'])."</td>
 									</tr>
@@ -176,19 +176,19 @@ function details($_GET)
 									<tr>
 										<th colspan='2'> Purchase Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Purchase No.</td>
 										<td valign='center'>$rpur[purnum]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Ref No.</td>
 										<td valign='center'>$rpur[refno]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Terms</td>
 										<td valign='center'>$rpur[terms] Days</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Date</td>
 										<td valign='center'>$rday-$rmon-$ryear</td>
 									</tr>
@@ -208,10 +208,10 @@ function details($_GET)
 										<td rowspan='5' valign='top' width='15%'><br></td>
 									</tr>
 									<tr>
-										<td bgcolor='".bgcolorg()."'><a href='purch-int-new.php'>New International Purchase</a></td>
-										<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'>".nl2br($pur['remarks'])."</td>
+										<td class='".bg_class()."'><a href='purch-int-new.php'>New International Purchase</a></td>
+										<td class='".bg_class()."' rowspan='4' align='center' valign='top'>".nl2br($pur['remarks'])."</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='purch-int-view-prd.php'>View Received International Purchases</a></td>
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
@@ -219,7 +219,7 @@ function details($_GET)
 							</td>
 							<td align='right'>
 								<table ".TMPL_tblDflts." width='80%'>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<th>Total Cost Returned</th>
 										<td align='right'>$rpur[curr] $SUBTOT</td>
 									</tr>

@@ -95,13 +95,13 @@ function slct($_GET)
 						<th>Customer</th>
 					</tr>
 					<tr>
-						<td bgcolor='".bgcolorg()."'>$cust[cusname] $cust[surname]</td>
+						<td class='".bg_class()."'>$cust[cusname] $cust[surname]</td>
 					</tr>
 					<tr><td><br></td></tr>
 					<tr>
 						<th>By Date Range</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align=center>
 							<input type=text size=2 name=fday maxlength=2 value='1'>-
 							<input type=text size=2 name=fmon maxlength=2  value='".date("m")."'>-

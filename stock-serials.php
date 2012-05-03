@@ -98,7 +98,7 @@ function enter ($stkid)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock</td>
 				<td align='center'>$stk[stkcod] $stk[stkdes]</td>
 			</tr>
@@ -113,14 +113,14 @@ function enter ($stkid)
 
 		foreach($sers as $key => $ser){
 			$enter .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center' colspan='2'><input type='text' name='sers[]' size='20' value='$ser[serno]'></td>
 				</tr>";
 		}
 
 		for($i = 0; $i < ($stk['units'] - count($sers)); $i++){
 			$enter .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center' colspan='2'><input type='text' name='sers[]' size='20' value=''></td>
 				</tr>";
 		}
@@ -138,7 +138,7 @@ function enter ($stkid)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -194,7 +194,7 @@ function confirm ($_POST)
 		<table ".TMPL_tblDflts.">
 			<input type='hidden' name='key' value='write'>
 			<input type='hidden' name='stkid' value='$stkid'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock</td>
 				<td align='center'>$stk[stkcod] $stk[stkdes]</td>
 			</tr>
@@ -210,7 +210,7 @@ function confirm ($_POST)
 		foreach($sers as $key => $serno){
 			if(strlen($serno) < 1) continue;
 			$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center' colspan='2'><input type='hidden' name='sers[]' size='20' value='$serno'>$serno</td>
 				</tr>";
 		}
@@ -228,10 +228,10 @@ function confirm ($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='pricelist-view.php'>View Price Lists</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -299,7 +299,7 @@ function write ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

@@ -70,9 +70,9 @@ function confirmPaye ($_GET)
 <input type=hidden name=key value=write>
 <input type=hidden name=id value='$myPaye[id]'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Minimum gross</td><td align=right>".CUR." $myPaye[min]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Maximum gross</td><td align=right>".CUR." $myPaye[max]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Percentage</td><td align=right>$myPaye[percentage]%</td></tr>
+<tr class='bg-odd'><td>Minimum gross</td><td align=right>".CUR." $myPaye[min]</td></tr>
+<tr class='bg-even'><td>Maximum gross</td><td align=right>".CUR." $myPaye[max]</td></tr>
+<tr class='bg-odd'><td>Percentage</td><td align=right>$myPaye[percentage]%</td></tr>
 <tr><td><br></td><td align=right><input type=submit value='Remove PAYE bracket &raquo;'></td></tr>
 </form>
 </table>

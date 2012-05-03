@@ -74,7 +74,7 @@ function confirm()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=close>
 	<tr><th colspan=2>Month End Date</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2 align=center>".date("d F Y")."</td></tr>
+		<tr class='bg-odd'><td colspan=2 align=center>".date("d F Y")."</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td></td><td align=right><input type=submit value='Write &raquo'></td></tr>
 	</form>

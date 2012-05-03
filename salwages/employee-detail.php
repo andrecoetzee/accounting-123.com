@@ -63,34 +63,34 @@ function viewEmp ($empnum)
 
 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Surname</td><td valign=center>$myEmpl[sname]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>First Names</td><td valign=center>$myEmpl[fnames]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Sex</td><td valign=center>$myEmpl[sex]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Marital Status</td><td valign=center>$myEmpl[marital]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Resident</td><td valign=center>$myEmpl[resident]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Hire Date</td><td valign=center>$myEmpl[hiredate]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Telephone No</td><td valign=center>$myEmpl[telno]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Email</td><td valign=center>$myEmpl[email]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Remuneration</td><td valign=center>$myEmpl[basic_sal]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Pay Type</td><td valign=center>$myEmpl[paytype]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Bank Name</td><td valign=center>$myEmpl[bankname]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Branch Code</td><td valign=center>$myEmpl[bankcode]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Bank Account Type</td><td valign=center>$myEmpl[bankacctype]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Bank Account No</td><td valign=center>$myEmpl[bankaccno]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Residential Address</td><td valign=center>$myEmpl[res1]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td><br></td><td valign=center>$myEmpl[res2]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td><br></td><td valign=center>$myEmpl[res3]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td><br></td><td valign=center>$myEmpl[res4]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Postal Address</td><td valign=center>$myEmpl[pos1]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td><br></td><td valign=center>$myEmpl[pos2]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Postal Code</td><td valign=center>$myEmpl[pcode]</td></tr>
+<tr class='bg-odd'><td>Surname</td><td valign=center>$myEmpl[sname]</td></tr>
+<tr class='bg-even'><td>First Names</td><td valign=center>$myEmpl[fnames]</td></tr>
+<tr class='bg-odd'><td>Sex</td><td valign=center>$myEmpl[sex]</td></tr>
+<tr class='bg-even'><td>Marital Status</td><td valign=center>$myEmpl[marital]</td></tr>
+<tr class='bg-odd'><td>Resident</td><td valign=center>$myEmpl[resident]</td></tr>
+<tr class='bg-even'><td>Hire Date</td><td valign=center>$myEmpl[hiredate]</td></tr>
+<tr class='bg-odd'><td>Telephone No</td><td valign=center>$myEmpl[telno]</td></tr>
+<tr class='bg-even'><td>Email</td><td valign=center>$myEmpl[email]</td></tr>
+<tr class='bg-odd'><td>Remuneration</td><td valign=center>$myEmpl[basic_sal]</td></tr>
+<tr class='bg-even'><td>Pay Type</td><td valign=center>$myEmpl[paytype]</td></tr>
+<tr class='bg-odd'><td>Bank Name</td><td valign=center>$myEmpl[bankname]</td></tr>
+<tr class='bg-even'><td>Branch Code</td><td valign=center>$myEmpl[bankcode]</td></tr>
+<tr class='bg-odd'><td>Bank Account Type</td><td valign=center>$myEmpl[bankacctype]</td></tr>
+<tr class='bg-even'><td>Bank Account No</td><td valign=center>$myEmpl[bankaccno]</td></tr>
+<tr class='bg-odd'><td>Residential Address</td><td valign=center>$myEmpl[res1]</td></tr>
+<tr class='bg-even'><td><br></td><td valign=center>$myEmpl[res2]</td></tr>
+<tr class='bg-odd'><td><br></td><td valign=center>$myEmpl[res3]</td></tr>
+<tr class='bg-even'><td><br></td><td valign=center>$myEmpl[res4]</td></tr>
+<tr class='bg-odd'><td>Postal Address</td><td valign=center>$myEmpl[pos1]</td></tr>
+<tr class='bg-even'><td><br></td><td valign=center>$myEmpl[pos2]</td></tr>
+<tr class='bg-odd'><td>Postal Code</td><td valign=center>$myEmpl[pcode]</td></tr>
 <tr><th colspan=2>Friend Not Living With Employee</th></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Surname</td><td valign=center>$myEmpl[contsname]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>First Names</td><td valign=center>$myEmpl[contfnames]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Residential Address</td><td valign=center>$myEmpl[contres1]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td><br></td><td valign=center>$myEmpl[contres2]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td><br></td><td valign=center>$myEmpl[contres3]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Telephone No</td><td valign=center>$myEmpl[conttelno]</td></tr>
+<tr class='bg-even'><td>Surname</td><td valign=center>$myEmpl[contsname]</td></tr>
+<tr class='bg-odd'><td>First Names</td><td valign=center>$myEmpl[contfnames]</td></tr>
+<tr class='bg-even'><td>Residential Address</td><td valign=center>$myEmpl[contres1]</td></tr>
+<tr class='bg-odd'><td><br></td><td valign=center>$myEmpl[contres2]</td></tr>
+<tr class='bg-even'><td><br></td><td valign=center>$myEmpl[contres3]</td></tr>
+<tr class='bg-even'><td>Telephone No</td><td valign=center>$myEmpl[conttelno]</td></tr>
 </table>
 <p>
 ";

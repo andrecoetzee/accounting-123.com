@@ -75,24 +75,24 @@ function showInfo ()
         <form ENCTYPE='multipart/form-data' action='".SELF."' method=post>
         <input type=hidden name=key value=confirm>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Company Name</td><td><input type=text size=20 name=compname value='$comp[compname]'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Company Slogan</td><td><input type=text size=20 name=slogan value='$comp[slogan]'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Registration Number</td><td><input type=text size=20 name=regnum value='$comp[regnum]'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>VAT Number</td><td><input type=text size=20 name=vatnum value='$comp[vatnum]'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>PAYE Ref</td><td><input type=text size=20 name=paye value='$comp[paye]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Change Logo Image</td><td>Yes<input type=radio name=changelogo value=yes> - No<input type=radio name=changelogo value=no checked=yes>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Logo Image</td><td><input type=file size=20 name=logo>&nbsp;&nbsp;&nbsp;width = 230 height=47</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td rowspan=4 valign=top>Address</td><td><input type=text size=20 name=addr1 value='$comp[addr1]'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td><input type=text size=20 name=addr2 value='$comp[addr2]'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td><input type=text size=20 name=addr3 value='$comp[addr3]'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td><input type=text size=20 name=addr4 value='$comp[addr4]'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td rowspan=3 valign=top>Postal Address</td><td><input type=text size=20 name=paddr1 value='$comp[paddr1]'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><!-- rowspan --><td><input type=text size=20 name=paddr2 value='$comp[paddr2]'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><!-- rowspan --><td><input type=text size=20 name=paddr3 value='$comp[paddr3]'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Postal Code</td><td><input type=text size=8 name=pcode value='$comp[pcode]'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Telephone No.</td><td><input type=text size=14 name=tel value='$comp[tel]'>(code) XXX-XXXX</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Fax No.</td><td><input type=text size=14 name=fax value='$comp[fax]'>(code) XXX-XXXX</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>E-mail Address</td><td><input type=text size=14 name=email value='$siteset[cn_email]'></td></tr>
+        <tr class='bg-odd'><td>Company Name</td><td><input type=text size=20 name=compname value='$comp[compname]'></td></tr>
+        <tr class='bg-even'><td>Company Slogan</td><td><input type=text size=20 name=slogan value='$comp[slogan]'></td></tr>
+        <tr class='bg-odd'><td>Registration Number</td><td><input type=text size=20 name=regnum value='$comp[regnum]'></td></tr>
+        <tr class='bg-even'><td>VAT Number</td><td><input type=text size=20 name=vatnum value='$comp[vatnum]'></td></tr>
+        <tr class='bg-odd'><td>PAYE Ref</td><td><input type=text size=20 name=paye value='$comp[paye]'></td></tr>
+	<tr class='bg-even'><td>Change Logo Image</td><td>Yes<input type=radio name=changelogo value=yes> - No<input type=radio name=changelogo value=no checked=yes>
+        <tr class='bg-odd'><td>Logo Image</td><td><input type=file size=20 name=logo>&nbsp;&nbsp;&nbsp;width = 230 height=47</td></tr>
+        <tr class='bg-even'><td rowspan=4 valign=top>Address</td><td><input type=text size=20 name=addr1 value='$comp[addr1]'></td></tr>
+        <tr class='bg-even'><!-- rowspan --><td><input type=text size=20 name=addr2 value='$comp[addr2]'></td></tr>
+        <tr class='bg-even'><!-- rowspan --><td><input type=text size=20 name=addr3 value='$comp[addr3]'></td></tr>
+        <tr class='bg-even'><!-- rowspan --><td><input type=text size=20 name=addr4 value='$comp[addr4]'></td></tr>
+        <tr class='bg-odd'><td rowspan=3 valign=top>Postal Address</td><td><input type=text size=20 name=paddr1 value='$comp[paddr1]'></td></tr>
+        <tr class='bg-odd'><!-- rowspan --><td><input type=text size=20 name=paddr2 value='$comp[paddr2]'></td></tr>
+        <tr class='bg-odd'><!-- rowspan --><td><input type=text size=20 name=paddr3 value='$comp[paddr3]'></td></tr>
+        <tr class='bg-odd'><td>Postal Code</td><td><input type=text size=8 name=pcode value='$comp[pcode]'></td></tr>
+        <tr class='bg-even'><td>Telephone No.</td><td><input type=text size=14 name=tel value='$comp[tel]'>(code) XXX-XXXX</td></tr>
+        <tr class='bg-odd'><td>Fax No.</td><td><input type=text size=14 name=fax value='$comp[fax]'>(code) XXX-XXXX</td></tr>
+	<tr class='bg-even'><td>E-mail Address</td><td><input type=text size=14 name=email value='$siteset[cn_email]'></td></tr>
         <tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
         </form>
         </table>
@@ -100,7 +100,7 @@ function showInfo ()
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>";
 
         return $showInfo;
@@ -122,24 +122,24 @@ function showerr ($_POST, $err="")
 	<input type=hidden name=key value=confirm>
 	<tr><td colspan=2>$err</td></tr>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Company Name</td><td><input type=text size=20 name=compname value='$compname'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Company Slogan</td><td><input type=text size=20 name=slogan value='$slogan'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Registration Number</td><td><input type=text size=20 name=regnum value='$regnum'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>VAT Number</td><td><input type=text size=20 name=vatnum value='$vatnum'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>PAYE Ref</td><td><input type=text size=20 name=paye value='$paye'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Change Logo Image</td><td>Yes<input type=radio name=changelogo value=yes> - No<input type=radio name=changelogo value=no checked=yes>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Logo Image</td><td><input type=file size=20 name=logo>&nbsp;&nbsp;&nbsp;width = 230 height=47</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td rowspan=4 valign=top>Address</td><td><input type=text size=20 name=addr1 value='$addr1'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td><input type=text size=20 name=addr2 value='$addr2'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td><input type=text size=20 name=addr3 value='$addr3'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td><input type=text size=20 name=addr4 value='$addr4'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td rowspan=3 valign=top>Postal Address</td><td><input type=text size=20 name=paddr1 value='$paddr1'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><!-- rowspan --><td><input type=text size=20 name=paddr2 value='$paddr2'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><!-- rowspan --><td><input type=text size=20 name=paddr3 value='$paddr3'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Postal Code</td><td><input type=text size=8 name=pcode value='$pcode'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Telephone No.</td><td><input type=text size=14 name=tel value='$tel'>(code) XXX-XXXX</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Fax No.</td><td><input type=text size=14 name=fax value='$fax'>(code) XXX-XXXX</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>E-mail Address</td><td><input type=text size=14 name=email value='$email'></td></tr>
+	<tr class='bg-odd'><td>Company Name</td><td><input type=text size=20 name=compname value='$compname'></td></tr>
+	<tr class='bg-even'><td>Company Slogan</td><td><input type=text size=20 name=slogan value='$slogan'></td></tr>
+	<tr class='bg-odd'><td>Registration Number</td><td><input type=text size=20 name=regnum value='$regnum'></td></tr>
+	<tr class='bg-even'><td>VAT Number</td><td><input type=text size=20 name=vatnum value='$vatnum'></td></tr>
+	<tr class='bg-odd'><td>PAYE Ref</td><td><input type=text size=20 name=paye value='$paye'></td></tr>
+	<tr class='bg-even'><td>Change Logo Image</td><td>Yes<input type=radio name=changelogo value=yes> - No<input type=radio name=changelogo value=no checked=yes>
+	<tr class='bg-odd'><td>Logo Image</td><td><input type=file size=20 name=logo>&nbsp;&nbsp;&nbsp;width = 230 height=47</td></tr>
+	<tr class='bg-even'><td rowspan=4 valign=top>Address</td><td><input type=text size=20 name=addr1 value='$addr1'></td></tr>
+	<tr class='bg-even'><!-- rowspan --><td><input type=text size=20 name=addr2 value='$addr2'></td></tr>
+	<tr class='bg-even'><!-- rowspan --><td><input type=text size=20 name=addr3 value='$addr3'></td></tr>
+	<tr class='bg-even'><!-- rowspan --><td><input type=text size=20 name=addr4 value='$addr4'></td></tr>
+	<tr class='bg-odd'><td rowspan=3 valign=top>Postal Address</td><td><input type=text size=20 name=paddr1 value='$paddr1'></td></tr>
+	<tr class='bg-odd'><!-- rowspan --><td><input type=text size=20 name=paddr2 value='$paddr2'></td></tr>
+	<tr class='bg-odd'><!-- rowspan --><td><input type=text size=20 name=paddr3 value='$paddr3'></td></tr>
+	<tr class='bg-odd'><td>Postal Code</td><td><input type=text size=8 name=pcode value='$pcode'></td></tr>
+	<tr class='bg-even'><td>Telephone No.</td><td><input type=text size=14 name=tel value='$tel'>(code) XXX-XXXX</td></tr>
+	<tr class='bg-odd'><td>Fax No.</td><td><input type=text size=14 name=fax value='$fax'>(code) XXX-XXXX</td></tr>
+	<tr class='bg-even'><td>E-mail Address</td><td><input type=text size=14 name=email value='$email'></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table>
@@ -147,7 +147,7 @@ function showerr ($_POST, $err="")
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $showerr;
@@ -290,30 +290,30 @@ function confirmInfo ($_POST)
 		<input type=hidden name=paye value='$paye'>
 		<input type=hidden name=email value='$email'>
 		<tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Company Name</td><td>$compname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Company Slogan</td><td>$slogan</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Registration Number</td><td>$regnum</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>VAT Number</td><td>$vatnum</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>PAYE Ref</td><td>$paye</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Logo Image</td><td bgcolor='#ffffff' align=center>$logoimg</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td rowspan=4 valign=top>Address</td><td>$addr1</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><!-- rowspan --><td>$addr2</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><!-- rowspan --><td>$addr3</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><!-- rowspan --><td>$addr4</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td rowspan=3 valign=top>Postal Address</td><td>$paddr1</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td>$paddr2</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><!-- rowspan --><td>$paddr3</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Postal Code</td><td>$pcode</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Telephone No.</td><td>$tel</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Fax No.</td><td>$fax</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>E-mail Address</td><td>$email</td></tr>
+		<tr class='bg-odd'><td>Company Name</td><td>$compname</td></tr>
+		<tr class='bg-even'><td>Company Slogan</td><td>$slogan</td></tr>
+		<tr class='bg-odd'><td>Registration Number</td><td>$regnum</td></tr>
+		<tr class='bg-even'><td>VAT Number</td><td>$vatnum</td></tr>
+		<tr class='bg-odd'><td>PAYE Ref</td><td>$paye</td></tr>
+		<tr class='bg-even'><td>Logo Image</td><td bgcolor='#ffffff' align=center>$logoimg</td></tr>
+		<tr class='bg-odd'><td rowspan=4 valign=top>Address</td><td>$addr1</td></tr>
+		<tr class='bg-odd'><!-- rowspan --><td>$addr2</td></tr>
+		<tr class='bg-odd'><!-- rowspan --><td>$addr3</td></tr>
+		<tr class='bg-odd'><!-- rowspan --><td>$addr4</td></tr>
+		<tr class='bg-even'><td rowspan=3 valign=top>Postal Address</td><td>$paddr1</td></tr>
+		<tr class='bg-even'><!-- rowspan --><td>$paddr2</td></tr>
+		<tr class='bg-even'><!-- rowspan --><td>$paddr3</td></tr>
+		<tr class='bg-odd'><td>Postal Code</td><td>$pcode</td></tr>
+		<tr class='bg-even'><td>Telephone No.</td><td>$tel</td></tr>
+		<tr class='bg-odd'><td>Fax No.</td><td>$fax</td></tr>
+		<tr class='bg-even'><td>E-mail Address</td><td>$email</td></tr>
 		<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 		</form>
 		</table>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>Quick Links</th></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>";
 
         return $confirmInfo;
@@ -383,7 +383,7 @@ function writeInfo ($_POST)
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>Quick Links</th></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>";
 
         return $writeInfo;

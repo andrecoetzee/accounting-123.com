@@ -132,8 +132,8 @@ function details($_GET)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='rec-nons-invoice-new.php'>New Recurring Non-stock Invoice</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='rec-nons-invoice-view.php'>View Recurring Non-stock Invoices</a></td></tr>
+	<tr class='bg-odd'><td><a href='rec-nons-invoice-new.php'>New Recurring Non-stock Invoice</a></td></tr>
+	<tr class='bg-odd'><td><a href='rec-nons-invoice-view.php'>View Recurring Non-stock Invoices</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -594,12 +594,12 @@ function write($_POST)
 	$write = "
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>$i Invoices Proccesed</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Invoices have been successfully printed.</td></tr>
+		<tr class='bg-even'><td>Invoices have been successfully printed.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
+	<tr class='bg-odd'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

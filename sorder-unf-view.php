@@ -84,7 +84,7 @@ function printSord ()
 	$sordRslt = db_exec ($sql) or errDie ("Unable to retrieve Sales Orders from database.");
 	if (pg_numrows ($sordRslt) < 1) {
 		$printSord .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='11'><li>No previous incomplete Sales Orders.</td>
 			</tr>
 			<tr><td><br></td></tr>";
@@ -132,7 +132,7 @@ function printSord ()
 			}
 
 			$printSord .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$sord[username]</td>
 					<td>$dept[deptname]</td>
 					<td>$sord[salespn]</td>

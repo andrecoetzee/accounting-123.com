@@ -79,10 +79,10 @@ function confirmDeduct($id)
 <input type=hidden name=key value=rem>
 <input type=hidden name=id value='$id'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Name of deduction</td><td align=center>$mySal[deduction]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Creditor name</td><td align=center>$mySal[creditor]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Reference no.</td><td align=center>$mySal[refno]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Creditor details</td><td align=center>$mySal[details]</td></tr>
+<tr class='bg-odd'><td>Name of deduction</td><td align=center>$mySal[deduction]</td></tr>
+<tr class='bg-even'><td>Creditor name</td><td align=center>$mySal[creditor]</td></tr>
+<tr class='bg-odd'><td>Reference no.</td><td align=center>$mySal[refno]</td></tr>
+<tr class='bg-even'><td>Creditor details</td><td align=center>$mySal[details]</td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Delete &raquo;'></td></tr>
 </form>
 </table>"

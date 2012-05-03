@@ -61,8 +61,8 @@ function view(){
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=80%>
         <form action='".SELF."' method=post name=form>
         <input type=hidden name=key value=slctacc>
-        <tr bgcolor='".TMPL_tblDataColor1."'><th>Payment Method</th>
-        <td  bgcolor='".TMPL_tblDataColor1."' valign=center><select name=paytype>
+        <tr class='bg-odd'><th>Payment Method</th>
+        <td  class='bg-odd' valign=center><select name=paytype>
                 <option value='Transfer'>Transfer</option><option value='Cash'>Cash</option>
                 <option value='Cheque'>Cheque</option><option value='Credit'>Credit</option>
         </select></td></tr>
@@ -70,7 +70,7 @@ function view(){
         <tr><th>Supplier</th><th>Item Name</th><th>Description</th><th>Quantity</th><th>Date</th><th>Total Cost</th><th>Item Account type</th></tr>";
 
         for($i = 1; $i <= 5; $i++){
-                $view .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=text name=retailer[] size=20></td>
+                $view .= "<tr class='bg-odd'><td><input type=text name=retailer[] size=20></td>
                         <td valign=center><input type=text size=20 name=itemname[]></td>
                         <td valign=center><input type=text size=20 name=descript[]></td>
                         <td valign=center><input type=text name=quantity[] size=7></td>
@@ -189,7 +189,7 @@ function slctacc($_POST)
                         }
                         $paid .="</select>";
 
-                $purchases .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+                $purchases .= "<tr class='bg-odd'>
                         <td><input type=hidden name=retailer[] value='$retailer[$key]'>$retailer[$key]</td>
                         <td valign=center><input type=hidden name=itemname[] value='$itemname[$key]'>$itemname[$key]</td>
                         <td valign=center><input type=hidden name=descript[] value='$descript[$key]'>$descript[$key]</td>
@@ -216,7 +216,7 @@ function slctacc($_POST)
         }
 
         $purchase .= "
-        <tr bgcolor='".TMPL_tblDataColor1."'><th>Payment Method</th><td valign=center><input type=hidden name=paytype value='$paytype'>$paytype</td></tr>
+        <tr class='bg-odd'><th>Payment Method</th><td valign=center><input type=hidden name=paytype value='$paytype'>$paytype</td></tr>
         <tr><td><br></td></tr>
         <tr><th>Supplier</th><th>Item Name</th><th>Description</th><th>Quantity</th><th>Date</th><th>Total Cost</th><th>Used Account</th><th>Item Account</th>$head</tr>
         $purchases
@@ -318,7 +318,7 @@ function confirm($_POST)
                         $acc = pg_fetch_array($accRslt);
                         $paidaccname = $acc['accname'];
 
-                $purchases .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+                $purchases .= "<tr class='bg-odd'>
                         <td><input type=hidden name=retailer[] value='$retailer[$key]'>$retailer[$key]</td>
                         <td valign=center><input type=hidden name=itemname[] value='$itemname[$key]'>$itemname[$key]</td>
                         <td valign=center><input type=hidden name=descript[] value='$descript[$key]'>$descript[$key]</td>
@@ -347,7 +347,7 @@ function confirm($_POST)
         }
 
         $purchase .= "
-        <tr bgcolor='".TMPL_tblDataColor1."'><th>Payment Method</th><td valign=center><input type=hidden name=paytype value='$paytype'>$paytype</td></tr>
+        <tr class='bg-odd'><th>Payment Method</th><td valign=center><input type=hidden name=paytype value='$paytype'>$paytype</td></tr>
         <tr><td><br></td></tr>
         <tr><th>Supplier</th><th>Item Name</th><th>Description</th><th>Quantity</th><th>Date</th><th>Total Cost</th><th>Used Account</th><th>Item Account</th>$head</tr>
         $purchases
@@ -489,8 +489,8 @@ foreach($tlcost as $key => $value){
         <td align=center>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=80%>
         <tr><th>Quick Navigation</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Add New Purchase</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purchase-view.php'>View Purchases</a></td></tr>
+        <tr class='bg-odd'><td><a href='".SELF."'>Add New Purchase</a></td></tr>
+        <tr class='bg-odd'><td><a href='purchase-view.php'>View Purchases</a></td></tr>
 	</table>
         </td></tr></table>
 	<p>

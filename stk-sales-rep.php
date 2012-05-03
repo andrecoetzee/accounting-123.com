@@ -104,21 +104,21 @@ function slct()
 			<form action='".SELF."' method=post name=form>
 			<input type=hidden name=key value=view>
 			<tr><th colspan=2>Store</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center colspan=2>$whs</td></tr>
+			<tr class='bg-odd'><td align=center colspan=2>$whs</td></tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center colspan=2>
+			<tr class='bg-odd'><td align=center colspan=2>
 			<input type=text size=2 name=fday maxlength=2 value='1'>-<input type=text size=2 name=fmon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=fyear maxlength=4 value='".date("Y")."'>
 			&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
 			<input type=text size=2 name=today maxlength=2 value='".date("d")."'>-<input type=text size=2 name=tomon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=toyear maxlength=4 value='".date("Y")."'></td></tr>
 			<tr><td><br></td></tr>
 			<tr><th colspan=2>By Category</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>$cats</td><td valign=bottom><input type=submit name=cat value='View'></td></tr>
+			<tr class='bg-odd'><td align=center>$cats</td><td valign=bottom><input type=submit name=cat value='View'></td></tr>
 			<tr><td><br></td></tr>
 			<tr><th colspan=2>By Classification</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>$class</td><td valign=bottom><input type=submit name=class value='View'></td></tr>
+			<tr class='bg-odd'><td align=center>$class</td><td valign=bottom><input type=submit name=class value='View'></td></tr>
 			<tr><td><br></td></tr>
 			<tr><th colspan=2>All Categories and Classifications</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td align=center colspan=2><input type=submit name=all value='View All'></td></tr>
+			<tr class='bg-odd'><td align=center colspan=2><input type=submit name=all value='View All'></td></tr>
 			</form>
 		</table>
 	</td></tr>
@@ -126,7 +126,7 @@ function slct()
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sales-reports.php'>Sales Reports</a></td></tr>
+		<tr class='bg-odd'><td><a href='sales-reports.php'>Sales Reports</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -193,7 +193,7 @@ function printStk ($_POST)
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 			<tr><td><br></td></tr>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sales-reports.php'>Sales Reports</a></td></tr>
+			<tr class='bg-odd'><td><a href='sales-reports.php'>Sales Reports</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 	}
@@ -241,13 +241,13 @@ function printStk ($_POST)
 		$i++;
 	}
 
-	$report .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>Totals</b></td><td>$totqty</td><td>".CUR." $totcsprice</td><td>".CUR." $totprof</td></tr>
+	$report .= "<tr class='bg-even'><td colspan=2><b>Totals</b></td><td>$totqty</td><td>".CUR." $totcsprice</td><td>".CUR." $totprof</td></tr>
 	</table>
     <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sales-reports.php'>Sales Reports</a></td></tr>
+		<tr class='bg-odd'><td><a href='sales-reports.php'>Sales Reports</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

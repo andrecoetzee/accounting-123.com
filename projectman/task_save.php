@@ -67,7 +67,7 @@ function slct()
 			<tr>
 				<th colspan='2'>Select Project</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$proj_sel</td>
 				<td><input type='submit' value='Select'></td>
 			</tr>
@@ -167,35 +167,35 @@ function enter($errors="")
 			<tr>
 				<th colspan='2'>Task Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Project</td>
 				<td>$project</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Name</td>
 				<td><input type='text' name='name' value='$name' $style /></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Leader</td>
 				<td>$leader_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Expected Time - Start Task</td>
 				<td>".mkDateSelect("start", $start_year, $start_month, $start_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Expected Time - Complete Task</td>
 				<td>".mkDateSelect("end", $end_year, $end_month, $end_day)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Notes</td>
 				<td><textarea name='notes' rows='5' $style>$notes</textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Priority</td>
 				<td>$priority_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sub Task</td>
 				<td>
 					Yes <input type='radio' name='task_sub' value='yes' $ts_yes />
@@ -272,31 +272,31 @@ function confirm()
 			<tr>
 				<th colspan='2'>Task Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Project</td>
 				<td>$project</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Name</td>
 				<td>$name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Leader</td>
 				<td>$leader_name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Expected Date - Start Task</td>
 				<td>$start_date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Expected Date - Complete Task</td>
 				<td>$end_date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Notes</td>
 				<td>$notes</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Priority</td>
 				<td>$priority</td>
 			</tr>
@@ -360,7 +360,7 @@ function write()
 			<tr>
 				<th>Write</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><li>Successfully saved the task.</li></td>
 			</tr>
 		</table>";

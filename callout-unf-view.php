@@ -91,7 +91,7 @@ function printCallout ()
 				$callout['odate'] = $callout['odate'][2]."-".$callout['odate'][1]."-".$callout['odate'][0];
 
 				$printCallout .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>$callout[username]</td>
 									<td>$callout[calloutp]</td>
 									<td>$callout[calloutid]</td>

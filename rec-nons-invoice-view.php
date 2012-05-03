@@ -61,7 +61,7 @@ function slct($err="")
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -76,10 +76,10 @@ function slct($err="")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='rec-nons-invoice-new.php'>New Recurring Non Stock Invoice</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -192,7 +192,7 @@ function printInvoice ($_POST)
 		}
 
 		$printOrd .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$nonstks[invnum]</td>
 				<td>$date</td>
 				<td>$nonstks[cusname]</td>
@@ -231,7 +231,7 @@ function printInvoice ($_POST)
 	$tot_total = sprint($tot_total);
 
 	$printOrd .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'>Totals: $i</td>
 			<td align='right'>".CUR." $tot_total</td>
 			<td colspan='6' align='right'><input type='submit' name='edit' value='Edit Item Prices On Selected'> <input type='submit' value='Process Selected'></td>
@@ -248,7 +248,7 @@ function printInvoice ($_POST)
 			<input type='hidden' name='to_month' value='$to_month'>
 			<input type='hidden' name='to_year' value='$to_year'>
 			<input type='hidden' name='all' value=''>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='6'></td>
 				<td colspan='10'><input type='submit' value='Select All' name='f'> &nbsp; <input type='submit' value='Select 1000' name='selnum'></td>
 			</tr>
@@ -262,10 +262,10 @@ function printInvoice ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='rec-nons-invoice-new.php'>New Recurring Non-Stock Invoice</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

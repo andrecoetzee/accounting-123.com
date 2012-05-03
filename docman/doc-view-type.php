@@ -55,7 +55,7 @@ function printDocs ($_GET)
     $sql = "SELECT * FROM documents WHERE typeid = '$type' AND xin = '$xin' AND div = '".USER_DIV."' ORDER BY docname ASC";
     $docRslt = db_exec ($sql) or errDie ("Unable to retrieve Documents from database.");
 	if (pg_numrows ($docRslt) < 1) {
-		$printDocs .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=10>There are no Documents found.</td></tr>";
+		$printDocs .= "<tr class='bg-odd'><td colspan=10>There are no Documents found.</td></tr>";
 	}else{
 		while($doc = pg_fetch_array ($docRslt)) {
 			# Alternate bgcolor

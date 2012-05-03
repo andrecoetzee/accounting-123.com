@@ -61,7 +61,7 @@ function view()
 						<tr>
 							<th colspan='2'>By Date Range</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>
 								<table>
 									<tr>
@@ -86,7 +86,7 @@ function view()
 						<tr>
 							<th colspan='2'>By Journal number</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td width='80%' align='center'>
 								From <input type='text' size='5' name='fromnum'> to <input type='text' size='5' name='tonum'>
 							</td>
@@ -105,7 +105,7 @@ function view()
 						<tr>
 							<th>View All</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'><input type='submit' value='View All'></td>
 						</tr>
 					</form>
@@ -248,7 +248,7 @@ function viewtrans($_POST)
 		$ctacc = pg_fetch_array($ct);
 
 		$OUTPUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$date</td>
 				<td>$debacc[topacc]/$debacc[accnum]&nbsp;&nbsp;&nbsp;$debacc[accname]</td>
 				<td>$ctacc[topacc]/$ctacc[accnum]&nbsp;&nbsp;&nbsp;$ctacc[accname]</td>

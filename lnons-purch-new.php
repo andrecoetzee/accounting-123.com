@@ -77,11 +77,11 @@ function slct($_GET = array(), $err = "")
 					<tr>
 						<th>Stock Purchase Number To Link To(Eg: 2,3,4)</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'><input type='text' size='10' name='purnum' value='$purnum'></td>
 					</tr>
 					<tr><td><br></td></tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'><input type='submit' value='Enter'></td>
 					</tr>
 				</form>
@@ -341,7 +341,7 @@ function details($_POST, $error="")
 
 		# put in product
 		$products .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'><input type='text' size='10' name='cod[]' value='$stkd[cod]'></td>
 							<td>$Vatcodes</td>
 							<td align='center'><input type='text' size='20' name='des[]' value='$stkd[des]'></td>
@@ -382,7 +382,7 @@ function details($_POST, $error="")
 		$Vatcodes.="</select>";
 		# add one
 		$products .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'><input type='text' size='10' name='cod[]' value=''></td>
 							<td>$Vatcodes</td>
 							<td align='center'><input type='text' size='20' name='des[]' value=''></td>
@@ -420,7 +420,7 @@ function details($_POST, $error="")
 
 
 		$products .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'><input type='text' size='10' name='cod[]' value=''></td>
 							<td>$Vatcodes</td>
 							<td align='center'><input type='text' size='20' name='des[]' value=''></td>
@@ -477,11 +477,11 @@ function details($_POST, $error="")
 									<tr>
 										<th colspan='2'> Supplier Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Supplier</td>
 										<td valign='center'><input type='text' name='supplier' value='$pur[supplier]'></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td valign='top'>Supplier Address</td>
 										<td valign='center'><textarea name='supaddr' cols='18' rows='3'>$pur[supaddr]</textarea></td>
 									</tr>
@@ -492,27 +492,27 @@ function details($_POST, $error="")
 									<tr>
 										<th colspan='2'> Non-Stock Purchase Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Linked Purchase No.</td>
 										<td valign='center'>$pur[spurnum]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Non-Stock Purchase No.</td>
 										<td valign='center'>$pur[purnum]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Order No.</td>
 										<td valign='center'><input type='text' size='10' name='ordernum' value='$ordernum'></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Terms</td>
 										<td valign='center'>$termssel Days</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Date</td>
 										<td valign='center'>".mkDateSelect("lnpur",$lnpur_year,$lnpur_month,$lnpur_day)."</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>VAT Inclusive</td>
 										<td valign='center'>Yes <input type='radio' size='7' name='vatinc' value='yes' $chy> No<input type='radio' size='7' name='vatinc' value='no' $chn></td>
 									</tr>
@@ -533,23 +533,23 @@ function details($_POST, $error="")
 										<td rowspan='5' valign='top' width='50%'>$error</td>
 									</tr>
 									<tr>
-										<td bgcolor='".bgcolorg()."'><a href='nons-purchase-view.php'>View Non-Stock Purchases</a></td>
-										<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$pur[remarks]</textarea></td>
+										<td class='".bg_class()."'><a href='nons-purchase-view.php'>View Non-Stock Purchases</a></td>
+										<td class='".bg_class()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$pur[remarks]</textarea></td>
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
 								</table>
 							</td>
 							<td align='right'>
 								<table ".TMPL_tblDflts." width='80%'>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>SUBTOTAL</td>
 										<td align='right'>".CUR." <input type='hidden' name='subtot' value='$SUBTOT'>$SUBTOT</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>VAT $vat14</td>
 										<td align='right'>".CUR." $pur[vat]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<th>GRAND TOTAL</th>
 										<td align='right'>".CUR." <input type='hidden' name='total' value='$TOTAL'>$TOTAL</td>
 									</tr>
@@ -844,7 +844,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 						<tr>
 							<th>New Non-Stock Purchase</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Non-Stock Purchase from Supplier <b>$supplier</b> has been recorded.</td>
 						</tr>
 					</table>
@@ -853,7 +853,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='nons-purchase-view.php'>View Non-Stock Purchases</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>

@@ -94,11 +94,11 @@ function enterUser ($username="", $postype='P', $manager=false, $err="")
 		<input type=hidden name=f1 value='0'>
         $err
         <tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Branch</td><td>$brans</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Username</td><td><input type=text size=20 name=username value='$username'> must not contain spaces</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Password</td><td><input type=password size=20 name=password></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Confirm password</td><td><input type=password size=20 name=password2></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'><td>".REQ."Branch</td><td>$brans</td></tr>
+        <tr class='bg-even'><td>".REQ."Username</td><td><input type=text size=20 name=username value='$username'> must not contain spaces</td></tr>
+        <tr class='bg-odd'><td>".REQ."Password</td><td><input type=password size=20 name=password></td></tr>
+        <tr class='bg-even'><td>".REQ."Confirm password</td><td><input type=password size=20 name=password2></td></tr>
+        <tr class='bg-odd'>
         	<td rowspan=2>POS Type</td>
         	<td>
 			<table><tr>
@@ -106,7 +106,7 @@ function enterUser ($username="", $postype='P', $manager=false, $err="")
 			</tr></table>
         	</td>
         </tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'>
+        <tr class='bg-odd'>
         	<td>
         	<table><tr>
         		<td><input type=radio name=postype value='S' ".($postype=='S'?"checked":"")." onClick='showPosMan();'>Speed POS User</td>
@@ -121,7 +121,7 @@ function enterUser ($username="", $postype='P', $manager=false, $err="")
         <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enterUser;
@@ -208,17 +208,17 @@ function confirmUser ($_POST)
 
         $ex
         <tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Branch</td><td>$bran[branname]</td>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Username</td><td>$username</td>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Password</td><td>********</td>";
+		<tr class='bg-odd'><td>Branch</td><td>$bran[branname]</td>
+        <tr class='bg-even'><td>Username</td><td>$username</td>
+        <tr class='bg-odd'><td>Password</td><td>********</td>";
 
         if ( $postype == "P" ) {
 			$confirmUser .= "
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>POS Type</td><td>POS User</td>";
+			<tr class='bg-even'><td>POS Type</td><td>POS User</td>";
 		} else if ( $postype == "S" ) {
 			$confirmUser .= "
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>POS Type</td><td>Speed POS User</td>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>POS Manager</td><td>$manager</td>";
+			<tr class='bg-even'><td>POS Type</td><td>Speed POS User</td>
+			<tr class='bg-even'><td>POS Manager</td><td>$manager</td>";
 		}
 
         $confirmUser .= "
@@ -232,7 +232,7 @@ function confirmUser ($_POST)
         <p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>";
 
 		return $confirmUser;

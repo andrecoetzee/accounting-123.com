@@ -97,18 +97,18 @@ function confirm($stkid)
 		<input type=hidden name=key value=rem>
 		<input type=hidden name=stkid value='$stkid'>
 		<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Store</td><td>$wh[whname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock code</td><td>$stkcod</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock description</td><td><pre>$stkdes</pre></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Category</td><td>$catname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Product class</td><td>$classname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Bought Unit of measure</td><td>$buom</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Selling Unit of measure</td><td>$suom</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Selling Units per Bought unit</td><td>$rate</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Minimum level</td><td>$minlvl</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Maximum level</td><td>$maxlvl</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Cost price per selling unit</td><td>".CUR." $csprice</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-odd'><td>Store</td><td>$wh[whname]</td></tr>
+		<tr class='bg-even'><td>Stock code</td><td>$stkcod</td></tr>
+		<tr class='bg-odd'><td>Stock description</td><td><pre>$stkdes</pre></td></tr>
+		<tr class='bg-even'><td>Category</td><td>$catname</td></tr>
+		<tr class='bg-odd'><td>Product class</td><td>$classname</td></tr>
+		<tr class='bg-even'><td>Bought Unit of measure</td><td>$buom</td></tr>
+		<tr class='bg-odd'><td>Selling Unit of measure</td><td>$suom</td></tr>
+		<tr class='bg-even'><td>Selling Units per Bought unit</td><td>$rate</td></tr>
+		<tr class='bg-odd'><td>Minimum level</td><td>$minlvl</td></tr>
+		<tr class='bg-even'><td>Maximum level</td><td>$maxlvl</td></tr>
+		<tr class='bg-odd'><td>Cost price per selling unit</td><td>".CUR." $csprice</td></tr>
+		<tr class='bg-even'>
 			<td>Selling price per selling unit</td>
 			<td>".CUR." ".sprint($selamt)."</td>
 		</tr>

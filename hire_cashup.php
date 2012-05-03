@@ -27,7 +27,7 @@ require ("../template.php");
 // 	$items_out = "";
 // 	foreach ($money_units as $h_value=>$c_value) {
 // 		$items_out .= "
-// 		<tr bgcolor='".bgcolorg()."'>
+// 		<tr class='".bg_class()."'>
 // 			<td>$h_value</td>
 // 			<td><input type='text'";
 // 		
@@ -59,7 +59,7 @@ function report()
 	$total = 0;
 	while ($items_data = pg_fetch_array($items_rslt)) {
 		$items_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".getHirenum($items_data["hire_invid"], 1)."</td>
 			<td>$items_data[invnum]</td>
 			<td>$items_data[surname]</td>
@@ -81,7 +81,7 @@ function report()
 	
 	while ($items_data = pg_fetch_array($items_rslt)) {
 		$items_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".getHirenum($items_data["hire_invid"], 1)."</td>
 			<td>$items_data[invnum]</td>
 			<td>$items_data[surname]</td>
@@ -104,7 +104,7 @@ function report()
 			<th>Paid Cash</th>
 		</tr>
 		$items_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'><b>TOTAL</b>
 			<td align='right'><b>".sprint($total)."</b></td>
 		</tr>

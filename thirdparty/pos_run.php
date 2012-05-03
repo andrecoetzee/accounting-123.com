@@ -53,7 +53,7 @@ function enter()
 				<tr>
 					<th colspan='2'>User</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$users_sel</td>
 					<td><input type='submit' value='Select' /></td>
 				</tr>
@@ -75,11 +75,11 @@ function enter()
 				<th>Type</th>
 				<th>Total Outstanding</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>POS Transactions</td>
 				<td>$count</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4' align='center'><a href='".SELF."?key=run&user_id=$user_id' style='font-size: 1.6em'>Run</a></td>
 			</tr>
 		</table>

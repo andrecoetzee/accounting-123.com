@@ -131,39 +131,39 @@ function confirm($VARS, $cashid)
 		<th>Field</th>
 		<th>Value</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Bank Name</td>
 		<td>$bank[bankname]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Account Number</td>
 		<td>$bank[accnum]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Transaction Type</td>
 		<td>$accnt[trantype]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Date of Transaction</td>
 		<td>$accnt[date]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Date of Return</td>
 		<td>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Paid to/Received from</td>
 		<td>$accnt[name]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Description</td>
 		<td>$accnt[descript]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Amount</td>
 		<td>".CUR." $accnt[amount]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Transaction Contra Account</td>
 		<td>$accinv[accname]</td>
 	</tr>
@@ -872,16 +872,16 @@ function bank($_POST)
 							<tr>
 								<th>Quick Links</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td align='center'><a href='cashbook-view.php'>View Cash Book</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td align='center'><a href='../reporting/not-banked.php'>View Outstanding Cash Book Entries</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td align='center'><a href='bank-pay-add.php'>Add Bank Payment</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td align='center'><a href='bank-recpt-add.php'>Add Bank Receipt</td>
 							</tr>
 							<script>document.write(getQuicklinkSpecial());</script>

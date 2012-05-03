@@ -98,40 +98,40 @@ function view()
 		<th>Description</th>
 		<th>Amount</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Gross Basic salary</td>
 		<td align='center'>".CUR." $gross</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Commission</td>
 		<td align='center'>".CUR." $pay[comm]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Low or interest-free loan</td>
 		<td align='center'>".CUR." $pay[loanins]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Interest rate charged by company</td>
 		<td align='center'>$emp[loanint] %</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Deductions</td>
 		<td align='center'>".CUR." $pay[totded]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>UIF</td>
 		<td align='center'>".CUR." $pay[uif]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>PAYE</td>
 		<td align='center'>".CUR." $pay[paye]</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Allowances</td>
 		<td align='center'>".CUR." $pay[totallow]</td>
 	</tr>
 	".TBL_BR."
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td><h3>Nett Income</h3></td>
 		<td align='center'><b>".CUR." $pay[salary]</b></td>
 	</tr>

@@ -42,7 +42,7 @@ function select_customer()
 			$i = 0;
 		} 
 		if ($i == 0) {
-			$cust_out .= "<tr bgcolor='".bgcolorg()."'>";
+			$cust_out .= "<tr class='".bg_class()."'>";
 		}
 		$i++;
 
@@ -58,14 +58,14 @@ function select_customer()
 		$search = "";
 
 		$cust_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>
 				<li>Please enter the first letters of the customer name.</li>
 			</td>
 		</tr>";
 	} elseif (empty($cust_out)) {
 		$cust_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>No results found. Please redefine your search.</li></td>
 		</tr>";
 	}
@@ -79,7 +79,7 @@ function select_customer()
 		<tr>
 			<th colspan='2'>Select Customer</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='search' value='$search' /></td>
 			<td><input type='submit' value='Search' /></td>
 		</tr>

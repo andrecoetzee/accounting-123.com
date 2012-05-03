@@ -17,7 +17,7 @@ function display()
 	$positions_out = "";
 	while ($positions_data = pg_fetch_array($positions_rslt)) {
 		$positions_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$positions_data[name]</td>
 				<td>$positions_data[description]</td>
 				<td><a href='position_save.php?id=$positions_data[id]&page_option=Edit'>Edit</a></td>
@@ -26,7 +26,7 @@ function display()
 
 	if (empty($positions_out)) {
 		$positions_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='3'><li>No positions found.</li></td>
 			</tr>";
 	}

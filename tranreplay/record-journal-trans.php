@@ -87,11 +87,11 @@ function slctacc($err = "") {
 						<th>Field</th>
 						<th>Value</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Date</td>
 						<td>".mkDateSelect("jr", $jr_year, $jr_month, $jr_day)."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Reference Number</td>
 						<td><input type='text' size='10' name='refnum' value='".($refnum++)."'></td>
 					</tr>
@@ -105,7 +105,7 @@ function slctacc($err = "") {
 								<tr>
 									<th>Select Account</th>
 								</tr>
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td valign='center'>".mkAccSelect("dtaccid", $dtaccid)."</td>
 								</tr>
 							</table>
@@ -234,36 +234,36 @@ function details($_POST, $err = "")
 							<td width='50%'><h3>Debit</h3></td>
 							<td width='50%'><h3>Credit</h3></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 							<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 						</tr>
 						".TBL_BR."
 						".TBL_BR."
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td valign='center'>$date</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Reference No.</td>
 							<td valign='center'><input type='text' size='20' name='refnum' value='$refnum'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td valign='center'>".CUR."<input type='text' size='20' name='amount' value='$amount'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Charge VAT </td>
 							<td>
 								<input type='radio' name='chrgvat' value='yes' $c1 />Yes &nbsp;&nbsp;
 								<input type='radio' name='chrgvat' value='no' $c2 />No
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Transaction Details</td>
 							<td valign='center'><textarea cols='20' rows='5' name='details'>$details</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Person Authorising</td>
 							<td valign='center'><input type='hidden' size='20' name='author' value='".USER_NAME."' />".USER_NAME."</td>
 						</tr>
@@ -352,32 +352,32 @@ function details2($_POST, $err = "")
 						<td width='50%'><h3>Debit</h3></td>
 						<td width='50%'><h3>Credit</h3></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 						<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 					</tr>
 					".TBL_BR."
 					".TBL_BR."
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Date</td>
 						<td valign='center'>$date</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Reference No.</td>
 						<td valign='center'><input type='text' size='20' name='refnum' value='$refnum'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Amount</td>
 						<td valign='center'>".CUR."<input type='text' size='20' name='amount' value='$amount'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Charge VAT </td>
 						<td><input type='radio' name='chrgvat' value='yes' $c1>Yes &nbsp;&nbsp; <input type='radio' name='chrgvat' value='no' $c2>No</td>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Transaction Details</td>
 						<td valign='center'><textarea cols='20' rows='5' name='details'>$details</textarea></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Person Authorising</td>
 						<td valign='center'><input type='hidden' size='20' name='author' value=".USER_NAME.">".USER_NAME."</td>
 					</tr>
@@ -536,30 +536,30 @@ function slctVatacc($_POST, $err="")
 							<td width='50%'><h3>Debit</h3></td>
 							<td width='50%'><h3>Credit</h3></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 							<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 						</tr>
 						".TBL_BR."
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>VAT Deductable Account</td>
 							<td>
 								<input type='radio' name='vatdedacc' value='$dtaccid' $dsel1 />$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]<br />
 								<input type='radio' name='vatdedacc' value='$ctaccid' $dsel2 />$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Account</td>
 							<td>$vatacc</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Inclusive </td>
 							<td>
 								<input type='radio' size='20' name='vatinc' value='yes' $vatsel1 />Yes (Amount Includes VAT) &nbsp;&nbsp;
 								<input type='radio' size='20' name='vatinc' value='no' $vatsel2 />No(Add VAT to Amount)
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Code</td>
 							<td>$Vatcodes</td>
 						</tr>
@@ -655,15 +655,15 @@ function confirm($_POST, $err = "")
 		}
 
 		$vataccnum = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Amount</td>
 							<td><input type='hidden' name='vatinc' value='$vatinc'><input type='hidden' name='vatamt' value='$vatamt'>$vatamt</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Total Transaction Amount</td>
 							<td>$totamt</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Account</td>
 							<td><input type='hidden' name='vataccid' value='$vataccid'><input type='hidden' name='vatdedacc' value='$vatdedacc'>$vatacc[topacc]/$vatacc[accnum] - $vatacc[accname]</td>
 						</tr>";
@@ -692,7 +692,7 @@ function confirm($_POST, $err = "")
 		$va=pg_fetch_array($Ri);
 
 		$vd = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>VAT Code</td>
 					<td>$va[code]</td>
 				</tr>";
@@ -725,37 +725,37 @@ function confirm($_POST, $err = "")
 							<td width='50%'><h3>Debit</h3></td>
 							<td width='50%'><h3>Credit</h3></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 							<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 						</tr>
 						".TBL_BR."
 						".TBL_BR."
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td>$date</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Reference number</td>
 							<td>$refnum</td>
 						</tr>
 						".TBL_BR."
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td>$amount</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Charge VAT </td>
 							<td>$chrgvat</td>
 						</tr>
 						$vataccnum
 						$vd
 						".TBL_BR."
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Details</td>
 							<td>$details</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Authorising Person</td>
 							<td>$author</td>
 						</tr>
@@ -903,15 +903,15 @@ function write($_POST)
 		$vatacc  = pg_fetch_array($vataccRs);
 
 		$vataccnum = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Amount</td>
 							<td>$vatamt</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Total Transaction Amount</td>
 							<td><b>$totamt</b></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Account</td>
 							<td>$vatacc[topacc]/$vatacc[accnum] - $vatacc[accname]</td>
 						</tr>
@@ -947,12 +947,12 @@ function write($_POST)
 						<td width='50%'><h3>Debit</h3></td>
 						<td width='50%'><h3>Credit</h3></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 						<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 					</tr>
 					".TBL_BR."
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Amount</td>
 						<td><b>$amount</b></td>
 					</tr>

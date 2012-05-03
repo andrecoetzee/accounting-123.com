@@ -79,7 +79,7 @@ function display($msg="")
 	
 		$basis_out .= "
 		<input type='hidden' name='asset[]' value='$asset_data[id]' />
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$types_sel</td>
 			<td>$asset_data[des]</td>
 			<td>$asset_data[serial]</td>
@@ -113,7 +113,7 @@ function display($msg="")
 
 	if (empty($basis_out)) {
 		$basis_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='8'><li>$n_msg</li></td>
 		</tr>";
 	}
@@ -125,7 +125,7 @@ function display($msg="")
 		<tr>
 			<th colspan='2'>Search</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='search' value='$search' /></td>
 			<td><input type='submit' value='Search' /></td>
 		</tr>
@@ -223,7 +223,7 @@ function save()
 	}
 	pglib_transaction("COMMIT");
 
-	$msg = "<tr bgcolor='".bgcolorg()."'>
+	$msg = "<tr class='".bg_class()."'>
 		<td colspan='8'><li class='yay'>Successfully saved the default basis prices.</li>
 	</tr>";
 

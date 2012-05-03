@@ -30,7 +30,7 @@ function get_search_details ($err="")
 						<tr>
 							<th>Search Term</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='text' size='35' name='search_term'></td>
 						</tr>
 						<tr><td><br></td></tr>

@@ -54,7 +54,7 @@ function display()
 		$total_stock += $total_cost;
 
 		$stock_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$stock_data[stkcod]</td>
 			<td>$stock_data[stkdes]</td>
 			<td align='right'>".CUR.sprint($stock_data["selamt"])."</td>
@@ -70,7 +70,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td><b>To</b></td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -90,7 +90,7 @@ function display()
 			<th>Total Cost</th>
 		</tr>
 		$stock_out
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'>&nbsp;</td>
 			<td align='right'><b>".CUR.sprint($total_stock)."</b></td>
 		</tr>

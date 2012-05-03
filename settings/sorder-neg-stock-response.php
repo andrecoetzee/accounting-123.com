@@ -42,10 +42,10 @@ function show_setting ($err="")
 			<tr>
 				<th>Display Negative Stock On Sales Orders</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='neg_setting' value='yes' $check1>Yes</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='neg_setting' value='no' $check2>No</td>
 			</tr>
 			".TBL_BR."

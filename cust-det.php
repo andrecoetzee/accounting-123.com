@@ -156,7 +156,7 @@ function view($cusnum)
 			while($cp = pg_fetch_array($Ry)) {
 
 				$conpers .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$cp[name]</td>
 						<td>$cp[pos]</td>
 						<td>$cp[tell]</td>
@@ -221,7 +221,7 @@ function view($cusnum)
 								</tr>";
 				while ($arr = pg_fetch_array ($run_piclist)){
 					$display_piclist .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$arr[image_name]</td>
 							<td><a target='iframe1' href='view_image.php?picid=$arr[id]'>View</a></td>
 						</tr>";
@@ -245,67 +245,67 @@ function view($cusnum)
 			<tr valign='top'>
 				<td>
 					<table ".TMPL_tblDflts." width='100%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Department</td>
 							<td>$deptname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Acc No</td>
 							<td>$accno</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Surname/Company</td>
 							<td>$surname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Title</td>
 							<td>$title</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Initials</td>
 							<td>$init</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Category</td>
 							<td>$category</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Classification</td>
 							<td>$class</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Link to Sales rep</td>
 							<td>$sr_username</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign=top>Postal Address</td>
 							<td valign=center>".nl2br($paddr1)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign=top>Delivery Address</td>
 							<td valign=center>".nl2br($addr1)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign=top>Alternative Delivery Address(1)</td>
 							<td valign=center>".nl2br($add1)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign=top>Alternative Delivery Address(2)</td>
 							<td valign=center>".nl2br($add2)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Number</td>
 							<td>$vatnum</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Contact Name</td>
 							<td>$contname</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Business Tel.</td>
 							<td>$bustel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Team Permissions</td>
 							<td>$team_name</td>
 						</tr>
@@ -313,59 +313,59 @@ function view($cusnum)
 				</td>
 				<td>
 					<table ".TMPL_tblDflts." width='100%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Home Tel.</td>
 							<td>$tel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cell No.</td>
 							<td>$cellno</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Fax No.</td>
 							<td>$fax</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>E-mail</td>
 							<td>$email</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Web Address</td>
 							<td>http://$url</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Trade Discount</td>
 							<td>$traddisc%</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Settlement Discount</td>
 							<td>$setdisc%</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Price List</td>
 							<td>$plist</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Charge Interest</td>
 							<td>$chrgint</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Overdue</td>
 							<td>$overdue</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account Open Date</td>
 							<td>$odate</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Credit Term</td>
 							<td>$credterm</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Credit Limit</td>
 							<td>$credlimit</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Comments</td>
 							<td>".nl2br($comments)."</td>
 						</tr>
@@ -399,7 +399,7 @@ function view($cusnum)
 			}
 
 			$docs_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='cust_doc_get.php?id=$cdoc_data[id]'>$showdoc</a></td>
 					<td>".getFileSize($cdoc_data["size"])."</td>
 				</tr>";
@@ -426,10 +426,10 @@ function view($cusnum)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='customers-view.php'>View Customers</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

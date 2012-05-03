@@ -98,7 +98,7 @@ function seltoken()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='crms-allocate.php'>Allocate users to Teams</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -186,27 +186,27 @@ function seltoken()
 						<tr>
 							<th colspan='2'>Query Criteria</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Teams</td>
 							<td>$teams</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Users</td>
 							<td>$users</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Categories</td>
 							<td>$cats</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Enquery By(name)</td>
 							<td><input type='text' size='20' name='name' value='$name'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Subject</td>
 							<td><input type='text' size='20' name='subject' value='$subject'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Notes</td>
 							<td><input type='text' size='20' name='notes' value='$notes'></td>
 						</tr>
@@ -226,7 +226,7 @@ function seltoken()
 						<tr>
 							<th colspan='2'>Search</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Input No</td>
 							<td><input name='id' type='text' size='7'></td>
 						</tr>
@@ -244,7 +244,7 @@ function seltoken()
 	        	<th>Quick Links</th>
 	        </tr>
 	        <script>document.write(getQuicklinkSpecial());</script>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td><a href='index.php'>My Business</a></td>
 	        </tr>
         </table>";
@@ -361,11 +361,11 @@ function report($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='crms-allocate.php'>Allocate users to Teams</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='index.php'>My Business</a></td>
 				</tr>
 			</table>";
@@ -407,7 +407,7 @@ function report($_POST)
 			$i++;
 
 			$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$data[tid]</td>
 					<td>$data[name] - $data[sub]</td>
 					<td>$data[username]</td>
@@ -431,7 +431,7 @@ function report($_POST)
 				<th>Quick Links</th>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='index.php'>My Business</a></td>
 			</tr>
 		</table>";

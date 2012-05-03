@@ -58,7 +58,7 @@ function select_group ()
 			<tr>
 				<th>Group</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<select name='group'>
 						<option value='customers'>Customers</option>
@@ -278,7 +278,7 @@ function process_data ($_POST,$err="")
 		$count = 0;
 		while ($larr = pg_fetch_array($run_list)){
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$larr[emailaddress]</td>
 					<td><input id='$larr[id]' type='checkbox' name='remove[]' value='$larr[id]'></td>
 				</tr>";
@@ -342,21 +342,21 @@ function process_data ($_POST,$err="")
 			<tr>
 				<th>Search For Email Address</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' size='35' name='search'> <input type='submit' value='Search'></td>
 			</tr>
 			".TBL_BR."
 			<tr>
 				<th>Add Email Address To List</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' size='35' name='add'> <input type='submit' value='Add'></td>
 			</tr>
 			".TBL_BR."
 			<tr>
 				<th>Sending Format</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<input type='radio' name='send_format' value='html' checked='yes'>HTML
 					<input type='radio' name='send_format' value='plain'>Plain Text
@@ -519,28 +519,28 @@ function get_email ($_POST)
 			<tr>
 				<th>Email Batch Name</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$groupname</td>
 			</tr>
 			".TBL_BR."
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Subject</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' size='55' name='subject'></td>
 			</tr>
 			".TBL_BR."
 			<tr>
 				<th>Attachment</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='file' name='attachment'></td>
 			</tr>
 			".TBL_BR."
 			<tr>
 				<th>Email Content</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td width='100%' colspan='2'>
 					$show_ide
 				</td>

@@ -54,11 +54,11 @@ function seluse()
 				<th colspan='2'>Report Criteria</th>
 			</tr>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>From</td>
 				<td>".mkDateSelect("from")."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>To</td>
 				<td>".mkDateSelect("to")."</td>
 			</tr>
@@ -69,9 +69,9 @@ function seluse()
 		</table><p>
 		<table ".TMPL_tblDflts.">
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".bgcolorg()."'><td><a href='index-reports.php'>Financials</a></td></tr>
-			<tr bgcolor='".bgcolorg()."'><td><a href='index-reports-other.php'>Other Reports</a></td></tr>
-			<tr bgcolor='".bgcolorg()."'><td><a href='../main.php'>Main Menu</a></td></tr>
+			<tr class='".bg_class()."'><td><a href='index-reports.php'>Financials</a></td></tr>
+			<tr class='".bg_class()."'><td><a href='index-reports-other.php'>Other Reports</a></td></tr>
+			<tr class='".bg_class()."'><td><a href='../main.php'>Main Menu</a></td></tr>
 		</table>";
 	return $Out;
 
@@ -145,7 +145,7 @@ function report($_POST)
 		$totvat1 += $vat;
 
 		$out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$vd[code]</td>
 				<td>$vd[description]</td>
 				<td>$vd[vat_amount]</td>
@@ -159,7 +159,7 @@ function report($_POST)
 	$totvat1 = sprint($totvat1);
 
 	$out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2' align='right'>Total:</td>
 			<td></td>
 			<td align='right'>".CUR." $total1</td>
@@ -202,7 +202,7 @@ function report($_POST)
 		$totvat2 += $vat;
 
 		$out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$vd[code]</td>
 				<td>$vd[description]</td>
 				<td>$vd[vat_amount]</td>
@@ -216,7 +216,7 @@ function report($_POST)
 	$totvat2 = sprint($totvat2);
 
 	$out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2' align='right'>Total:</td>
 			<td></td>
 			<td align='right'>".CUR." $total2</td>
@@ -225,7 +225,7 @@ function report($_POST)
 
 	$out .= "
 		<tr><td><br></td></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2' align='right'>Total:</td>
 			<td></td>
 			<td align='right'>".CUR." ".sprint($total1-abs($total2))."</td>
@@ -265,13 +265,13 @@ function report($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='index-reports.php'>Financials</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='index-reports-other.php'>Other Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

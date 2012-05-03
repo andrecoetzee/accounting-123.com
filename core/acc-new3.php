@@ -62,9 +62,9 @@ function view()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=slctcat>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Number</td><td valign=center><input type=text name=topacc size=3 maxlength=3> / <input type=text name=accnum size=3 maxlength=3></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Name</td><td valign=center><input type=text name=accname maxlength=40></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Vat Deductable</td><td><input type=radio name=vat value=yes>yes | <input type=radio name=vat value=no checked=yes>no</td></tr>
+	<tr class='bg-odd'><td>Account Number</td><td valign=center><input type=text name=topacc size=3 maxlength=3> / <input type=text name=accnum size=3 maxlength=3></td></tr>
+	<tr class='bg-even'><td>Account Name</td><td valign=center><input type=text name=accname maxlength=40></td></tr>
+	<tr class='bg-odd'><td>Vat Deductable</td><td><input type=radio name=vat value=yes>yes | <input type=radio name=vat value=no checked=yes>no</td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Add Account &raquo'></td></tr>
 	</form>
 	</table>";
@@ -86,9 +86,9 @@ function viewerr($_POST, $err=""){
 	<input type=hidden name=key value=slctcat>
 	$err
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Number</td><td valign=center><input type=text name=topacc size=3 maxlength=3 value='$topacc'> / <input type=text name=accnum size=3 maxlength=3 value='$accnum'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Name</td><td valign=center><input type=text name=accname maxlength=40 value='$accname'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Vat Deductable</td><td><input type=radio name=vat value=yes>yes | <input type=radio name=vat value=no checked=yes>no</td></tr>
+	<tr class='bg-odd'><td>Account Number</td><td valign=center><input type=text name=topacc size=3 maxlength=3 value='$topacc'> / <input type=text name=accnum size=3 maxlength=3 value='$accnum'></td></tr>
+	<tr class='bg-even'><td>Account Name</td><td valign=center><input type=text name=accname maxlength=40 value='$accname'></td></tr>
+	<tr class='bg-odd'><td>Vat Deductable</td><td><input type=radio name=vat value=yes>yes | <input type=radio name=vat value=no checked=yes>no</td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Add Account &raquo'></td></tr>
 	</form>
 	</table>";
@@ -169,10 +169,10 @@ function slctCat($_POST)
 		<input type=hidden name=accname value='$accname'>
 		<input type=hidden name=vat value='$vat'>
 		<tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Number</td><td valign=center>$topacc/$accnum</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Name</td><td valign=center>$accname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Type</td><td>$tab</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Category Name</td><td><select name=catid>";
+		<tr class='bg-odd'><td>Account Number</td><td valign=center>$topacc/$accnum</td></tr>
+		<tr class='bg-even'><td>Account Name</td><td valign=center>$accname</td></tr>
+		<tr class='bg-odd'><td>Account Type</td><td>$tab</td></tr>
+		<tr class='bg-even'><td>Category Name</td><td><select name=catid>";
 		core_connect();
 		$sql = "SELECT * FROM $tab ORDER BY catid";
 		$catRslt = db_exec($sql) or errDie("Could not retrieve Categories Information from the Database.",SELF);
@@ -187,7 +187,7 @@ function slctCat($_POST)
 		}
 
 		$slctCat .="</select></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Vat Deductable</td><td>$vat</td></tr>
+		<tr class='bg-odd'><td>Vat Deductable</td><td>$vat</td></tr>
 		<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Add Account &raquo'></td></tr>
 		</form>
 		</table>";
@@ -238,11 +238,11 @@ function confirm($_POST)
 		<input type=hidden name=topacc value='$topacc'>
 		<input type=hidden name=accnum value='$accnum'>
 		<tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Number</td><td>$topacc/$accnum</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Name</td><td>$accname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Type</td><td>$tab</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Vat Deductable</td><td>$vat</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Category ID</td><td>$catid</td></tr>
+		<tr class='bg-odd'><td>Account Number</td><td>$topacc/$accnum</td></tr>
+		<tr class='bg-even'><td>Account Name</td><td>$accname</td></tr>
+		<tr class='bg-odd'><td>Account Type</td><td>$tab</td></tr>
+		<tr class='bg-even'><td>Vat Deductable</td><td>$vat</td></tr>
+		<tr class='bg-odd'><td>Category ID</td><td>$catid</td></tr>
 		<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Add Account &raquo'></td></tr>
 		</form>
 		</table>";

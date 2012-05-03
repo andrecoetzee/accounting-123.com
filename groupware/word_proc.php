@@ -73,7 +73,7 @@ function enter()
 		<tr>
 			<th>Document Title</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>
 				<input type='text' name='title' value='$title' style='width: 100%' />
 			</td>
@@ -81,7 +81,7 @@ function enter()
 		<tr>
 			<th>Team Permissions</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$team_sel</td>
 		</tr>
 	</table>

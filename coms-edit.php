@@ -125,19 +125,19 @@ function slct()
 			<tr>
 				<th colspan='2'>Select Store</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='center' colspan='2'>$whs</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Select Category</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='center' colspan='2'>$cats</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Select Classification</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='center' colspan='2'>$classes</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -242,7 +242,7 @@ function commision_select ($_POST)
 		$class = $cla['classname'];
 
 		$printStk .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stk[stkcod]</td>
 				<td>$stk[stkdes]</td>
 				<td>$category</td>

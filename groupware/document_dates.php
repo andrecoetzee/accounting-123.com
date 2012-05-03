@@ -43,7 +43,7 @@ function display()
 		<tr>
 			<th colspan='2'>Document</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Document Title</td>
 			<td>$doc_data[title]</td>
 		</tr>
@@ -66,7 +66,7 @@ function display()
 		<form method='post' action='".SELF."'>
 		<input type='hidden' name='id' value='$dd_data[id]' />
 		<input type='hidden' name='doc_id' value='$doc_id' />
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$date_day-$date_month-$date_year</td>
 			<td>$dd_data[notes]</td>
 			<td><input type='submit' name='key' value='Remove' /></td>
@@ -83,7 +83,7 @@ function display()
 		</tr>
 		<form method='post' action='".SELF."'>
 		<input type='hidden' name='doc_id' value='$doc_id' />
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("new_date")."</td>
 			<td><input type='text' name='new_note' /></td>
 			<td>

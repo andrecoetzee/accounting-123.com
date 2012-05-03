@@ -51,7 +51,7 @@ function view(){
 	if(pg_numrows($Rs) > 0){
 		$sum = pg_numrows($Rs);
 		$out = pg_fetch_array($Rs);
-		$note = "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2 class=err><li>Note : There are $sum unprocessed batch entries.</td></tr><tr><td><br></td></tr>";
+		$note = "<tr class='bg-even'><td colspan=2 class=err><li>Note : There are $sum unprocessed batch entries.</td></tr><tr><td><br></td></tr>";
 	}else{
 		$note = "";
 	}
@@ -63,7 +63,7 @@ function view(){
 	<input type=hidden name=key value=print>
 	$note
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Include Accounts with Zero balances</td><td valign=center>
+	<tr class='bg-odd'><td>Include Accounts with Zero balances</td><td valign=center>
 	<input type=radio name=zero value=yes>Yes | <input type=radio name=zero value=no checked=yes>No</td></tr>
 	<tr><td><input type=button value='< Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue >'></td></tr>
 	</table>";

@@ -140,37 +140,37 @@ function enter()
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Title</td>
 				<td><input type='text' name='title' value='$title' style='width: 100%' /></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Document Type</td>
 				<td>$types_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Revision</td>
 				<td><input type='text' name='revision' value='$revision' size='3' /></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Physical Location</td>
 				<td><input type='text' name='location' value='$location' style='width: 100%' /></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Comments</td>
 				<td><textarea name='comments' cols='20' style='width: 100%'>$comments</textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Team Permissions</td>
 				<td>$team_sel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bring Forward</td>
 				<td>
 					<input type='checkbox' name='bf_true' value='checked' $bf_true />
 					".mkDateSelect("bfdate", $bfdate_year, $bfdate_month, $bfdate_day)."
 				</td>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Status</td>
 				<td>
 					Active <input type='radio' name='status' value='active' $status_active />
@@ -238,35 +238,35 @@ function confirm()
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>File</td>
 				<td><input type='file' name='file'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Title</td>
 				<td>$title</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Document Type</td>
 				<td>$type_name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Revision</td>
 				<td>$revision</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>File Location</td>
 				<td>$location</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Team Permissions</td>
 				<td>$team_name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bring Forward</td>
 				<td>$bf_out</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Status</td>
 				<td>$status</td>
 			</tr>
@@ -364,7 +364,7 @@ function write()
 			<tr>
 				<th>Write</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><li>Successfully saved the document</li></td>
 			</tr>
 		</table>

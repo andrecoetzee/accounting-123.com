@@ -244,21 +244,21 @@ function get_data ($_GET)
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=id value='$id'>
 	<tr><th colspan=4>Contact Information</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td width=120>First Name</td>
 		<td width=210><input type=text size=27 name=name value='$name'></td>
 
 		<td width=120>Office Phone</td>
 		<td width=210><input type=text size=27 name=tell_office value='$tell_office'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>".REQ."Company/Last Name</td>
 		<td><input type=text size=27 name=surname value='$surname'></td>
 
 		<td>Mobile</td>
 		<td><input type=text size=27 name=cell value='$cell'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Reports To</td>
 		<td>
 			<input type=text readonly=yes size=27 name='reports_to' value='$reports_to'>
@@ -269,35 +269,35 @@ function get_data ($_GET)
 		<td>Home Phone</td>
 		<td><input type=text size=27 name=tell value='$tell'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Lead Source</td>
 		<td>$select_source</td>
 
 		<td>Other Phone</td>
 		<td><input type=text size=27 name=tell_other value='$tell_other'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Title</td>
 		<td><input type=text size=27 name=title value='$title'></td>
 
 		<td>Fax</td>
 		<td><input type=text size=27 name=fax value='$fax'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Department</td>
 		<td><input type=text size=27 name=department value='$department'></td>
 
 		<td>E-mail</td>
 		<td><input type=text size=27 name=email value='$email'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Birthdate</td>
 		<td>$select_bfday $select_bfmonth $select_bfyear</td>
 
 		<td>Other E-mail</td>
 		<td><input type=text size=27 name=email_other value='$email_other'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td rowspan=2>Account Name</td>
 		<td rowspan=2>
 			<table><tr>
@@ -316,12 +316,12 @@ function get_data ($_GET)
 		<td>Assistant</td>
 		<td><input type=text size=27 name=assistant value='$assistant'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 
 		<td>Assistant Phone</td>
 		<td><input type=text size=27 name=assistant_phone value='$assistant_phone'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Upload contact image</td>
 		<td align='center'>
 			Yes <input type='radio' name='upload_img' value='yes' $img_yes />
@@ -336,30 +336,30 @@ function get_data ($_GET)
 		<th colspan=2>Physical Address</th>
 		<th colspan=2>Postal Address</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td colspan=2 align=center><textarea name=hadd rows=4 cols=35>$hadd</textarea></td>
 
 		<td colspan=2 align=center><textarea name=padd rows=4 cols=35>$padd</textarea></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>City</td>
 		<td><input type=text size=27 name=padd_city value='$padd_city'></td>
 		<td>City</td>
 		<td><input type=text size=27 name=hadd_city value='$hadd_city'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>State/Province</td>
 		<td><input type=text size=27 name=padd_state value='$padd_state'></td>
 		<td>State/Province</td>
 		<td><input type=text size=27 name=hadd_state value='$hadd_state'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Postal Code</td>
 		<td><input type=text size=27 name=padd_code value='$padd_code'></td>
 		<td>Postal Code</td>
 		<td><input type=text size=27 name=hadd_code value='$hadd_code'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Country</td>
 		<td><input type=text size=27 name=padd_country value='$padd_country'></td>
 		<td>Country</td>
@@ -370,7 +370,7 @@ function get_data ($_GET)
 		<th colspan=2>Notes</th>
 		<th colspan=2>Options</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td colspan=2 align=center><textarea name=description rows=4 cols=35>$description</textarea></td>
 		<td>Private</td>
 		<td align=center>$Cons</td>
@@ -382,9 +382,9 @@ function get_data ($_GET)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_cons.php'>List contacts</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_cons.php'>List contacts</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
         return $get_data;
@@ -515,70 +515,70 @@ function con_data ($_POST)
 	<input type='hidden' name='team_id' value='$team_id' />
 	<input type='hidden' name='upload_img' value='$upload_img' />
 	<tr><th colspan=4>Contact Information</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td width=120>First Name</td>
 		<td width=210>$name</td>
 
 		<td width=120>Office Phone</td>
 		<td width=210>$tell_office</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Company/Last Name</td>
 		<td>$surname</td>
 
 		<td>Mobile</td>
 		<td>$cell</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Account Name</td>
 		<td>$accountname</td>
 
 		<td>Home Phone</td>
 		<td>$tell</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Lead Source</td>
 		<td>".crm_get_leadsrc($lead_source)."</td>
 
 		<td>Other Phone</td>
 		<td>$tell_other</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Title</td>
 		<td>$title</td>
 
 		<td>Fax</td>
 		<td>$fax</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Department</td>
 		<td>$department</td>
 
 		<td>E-mail</td>
 		<td>$email</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Birthdate</td>
 		<td>$birthdate_description</td>
 
 		<td>Other E-mail</td>
 		<td>$email_other</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Reports To</td>
 		<td>$reports_to</td>
 
 		<td>Assistant</td>
 		<td>$assistant</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 
 		<td>Assistant Phone</td>
 		<td>$assistant_phone</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		$upload_box
 
 		<td>Team Permissions</td>
@@ -589,30 +589,30 @@ function con_data ($_POST)
 		<th colspan=2>Physical Address</th>
 		<th colspan=2>Postal Address</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td colspan=2 align=left valign=top><xmp>$hadd</xmp></td>
 
 		<td colspan=2 align=left><xmp>$padd</xmp></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>City</td>
 		<td>$padd_city</td>
 		<td>City</td>
 		<td>$hadd_city</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>State/Province</td>
 		<td>$padd_state</td>
 		<td>State/Province</td>
 		<td>$hadd_state</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Postal Code</td>
 		<td>$padd_code</td>
 		<td>Postal Code</td>
 		<td>$hadd_code</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Country</td>
 		<td>$padd_country</td>
 		<td>Country</td>
@@ -623,7 +623,7 @@ function con_data ($_POST)
 		<th colspan=2>Notes</th>
 		<th colspan=2>Options</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td colspan=2 align=left><xmp>$description</xmp></td>
 		<td>Private</td>
 		<td align=center>$Con</td>
@@ -635,9 +635,9 @@ function con_data ($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_cons.php'>List contacts</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_cons.php'>List contacts</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
         return $con_data;
 }
@@ -836,9 +836,9 @@ function write_data ($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_cons.php'>List contacts</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_cons.php'>Contacts</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_cons.php'>List contacts</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_cons.php'>Contacts</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 	return $write_data;
 }

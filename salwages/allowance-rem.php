@@ -80,8 +80,8 @@ function confirmAllow ($id)
 <input type=hidden name=key value=rem>
 <input type=hidden name=id value='$id'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Name of allowance</td><td align=center>$myAllow[allowance]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Taxable</td><td align=center>$myAllow[taxable]</td></tr>
+<tr class='bg-odd'><td>Name of allowance</td><td align=center>$myAllow[allowance]</td></tr>
+<tr class='bg-even'><td>Taxable</td><td align=center>$myAllow[taxable]</td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Delete &raquo;'></td></tr>
 </form>
 </table>"

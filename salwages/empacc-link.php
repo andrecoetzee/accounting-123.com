@@ -174,41 +174,41 @@ function slctAcc($err="")
 			<input type='hidden' name='empnum' value='$empnum'>
 			<tr>
 				<th>Employee Name</th>
-				<td bgcolor='".bgcolorg()."'>$emp[fnames] $emp[sname]</td>
+				<td class='".bg_class()."'>$emp[fnames] $emp[sname]</td>
 			</tr>
 			<tr>
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Salaries and Wages</td>
 				<td>".extlib_cpsel("expacc_salwages", $accs, $expacc_salwages)."</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Deductions</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Pension Fund</td>
 				<td>".extlib_cpsel("expacc_pension", $accs, $expacc_pension)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Provident Fund</td>
 				<td>".extlib_cpsel("expacc_provident", $accs, $expacc_provident)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Retirement Annuity Fund</td>
 				<td>".extlib_cpsel("expacc_ret", $accs, $expacc_ret)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Medical Aid</td>
 				<td>".extlib_cpsel("expacc_medical", $accs, $expacc_medical)."</td>
 			</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>UIF</td>
 				<td>".extlib_cpsel("expacc_uif", $accs, $expacc_uif)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Skills Development Levy</td>
 				<td>".extlib_cpsel("expacc_sdl", $accs, $expacc_sdl)."</td>
 			</tr>
@@ -358,31 +358,31 @@ function confirm()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Salaries and Wages</td>
 				<td>$name_salwages</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Pension Fund</td>
 				<td>$name_pension</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Provident Fund</td>
 				<td>$name_provident</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Retirement Annuity Fund</td>
 				<td>$name_ret</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Medical Aid</td>
 				<td>$name_medical</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>UIF</td>
 				<td>$name_uif</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Skills Development Levy</td>
 				<td>$name_sdl</td>
 			</tr>

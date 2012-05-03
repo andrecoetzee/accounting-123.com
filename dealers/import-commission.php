@@ -20,10 +20,10 @@ $OUTPUT .= "
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'><a href='import-commission.php'>Import Employees Commission</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'><a href='../salwages/salaries-staff.php'>Process Salaries</a></td>
 		</tr>
 	</table>";
@@ -44,7 +44,7 @@ function get_import_file ($err="")
 			<tr>
 				<th>Import File</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='file' name='import_file'></td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -101,7 +101,7 @@ function run_import_file ($_POST)
 			<tr>
 				<th>Commissions Imported</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Commissions Have Been Imported</td>
 			</tr>
 		</table>";

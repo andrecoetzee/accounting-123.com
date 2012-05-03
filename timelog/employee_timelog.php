@@ -75,10 +75,10 @@ function display($OUTPUT="", $user_id=0)
 		</script>
 		<h3>Employee Time and Attendance</h3>
 		<table ".TMPL_tblDflts.">
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><li class='err'>Next scan in ".TIMEOUT." seconds...</li></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td style='font-size: 1.2em'>$book_type: $time</td>
 			</tr>
 		</table>
@@ -87,7 +87,7 @@ function display($OUTPUT="", $user_id=0)
 			<tr>
 				<th colspan='5'>Employee</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><img src='../employee-view-image.php?id=$emp_data[empnum]' width='60' height='75' /></td>
 				<td>$emp_data[sname]</td>
 				<td>$emp_data[fnames]</td>

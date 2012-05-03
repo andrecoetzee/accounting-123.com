@@ -54,7 +54,7 @@ function slct()
 						<tr>
 							<th>Select Team</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$team_sel</td>
 						</tr>
 					</table>
@@ -95,7 +95,7 @@ function display()
 		$user_data = pg_fetch_array($user_rslt);
 
 		$users_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$user_data[username]</td>
 			<td align='center'>
 				<input type='checkbox' name='rem' value='$to_data[id]'
@@ -110,7 +110,7 @@ function display()
 	// Nothing to see here...
 	if (empty($users_out)) {
 		$users_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>No users allocated to this team.</td>
 		</tr>";
 	}
@@ -143,18 +143,18 @@ function display()
 		<tr>
 			<th colspan='2'>Cubit Team Information</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Team Name</td>
 			<td>$team_data[name]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<Td>Total Users</td>
 			<td>$total_users</td>
 		</tr>
 		<tr>
 			<th colspan='2'>Allocate User</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$users_sel</td>
 			<td>
 				<input type='submit' value='Allocate &raquo'

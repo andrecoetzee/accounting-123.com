@@ -10,10 +10,10 @@ $OUTPUT .= "
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'><a href='medical_aid_add.php'>Add Medical Aid</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'><a href='medical_aid_view.php'>View Medical Aid Options</a></td>
 		</tr>
 	</table>";
@@ -35,7 +35,7 @@ function view_medical_aid ()
 		$listing = "";
 		while ($marr = pg_fetch_array ($run_meds)){
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$marr[medical_aid_name]</td>
 					<td>$marr[medical_aid_contact_person]</td>
 					<td>$marr[medical_aid_contact_number]</td>

@@ -27,7 +27,7 @@ function display()
 	$tt_out = "";
 	while ($tt_data = pg_fetch_array($tt_rslt)) {
 		$tt_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$tt_data[name]</td>
 				<td>$tt_data[description]</td>
 				<td><a href='task_type_save.php?id=$tt_data[id]&page_option=Edit'>Edit</a></td>
@@ -36,7 +36,7 @@ function display()
 
 	if (empty($tt_out)) {
 		$tt_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='3'><li>No task types found</li></td>
 			</tr>";
 	}

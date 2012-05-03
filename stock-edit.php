@@ -320,15 +320,15 @@ function edit($stkid,$err = "")
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Store</td>
 							<td>$wh[whname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Stock code</td>
 							<td><input type='text' size='20' name='stkcod' value='$stkcod'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>
 								Supplier Stock Codes<br />
 								<font style='font-size: 12px;'>(necessary for Transactioning<br />
@@ -338,46 +338,46 @@ function edit($stkid,$err = "")
 							<td><input type='button' value='Assign/Edit/Remove'
 									onClick='popupSized(\"supp_stkcod.php?id=$stkid\", \"suppstkcod$stkid\", 400, 300);' /></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Stock description</td>
 							<td><textarea cols='18' rows='5' name='stkdes'>$stkdes</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Type</td>
 							<td valign='center'>$ttype</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Serialized</td>
 							<td valign='center'>
 								<input type='radio' name='serd' value='yes' $serdy>Yes<b> | </b>
 								<input type='radio' name='serd' value='no' $serdn> No
 							</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>RFID type of tag</td>
 							<td valign='center'><input type='text' name='rfidtype' value='$rfidtype'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>RFID (869.4 to 928 Mhz UHF)</td>
 							<td valign='center'><input type='text' name='rfidfreq' value='$rfidfreq'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>RFID Tag read rate</td>
 							<td valign='center'><input type='text' name='rfidrate' value='$rfidrate'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Select Category</td>
 							<td>$cats</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>".REQ."Classification</td>
 							<td>$classes</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Warranty</td>
 							<td><input type='text' name='warranty' size='2' value='$warranty'> $warranty_sel</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Upload Image</td>
 							<td>
 								<input type='radio' name='change_image' value='yes'>Yes<b> | </b>
@@ -395,50 +395,50 @@ function edit($stkid,$err = "")
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Buying Unit of measure</td>
 							<td><input type='text' size='10' name='buom' value='$buom'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Selling Unit of measure</td>
 							<td><input type='text' size='10' name='suom' value='$suom'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Selling Units per Buying unit</td>
 							<td><input type='text' size='10' name='rate' value='$rate'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Location</td>
 							<td>Shelf <input type='text' size='5' name='shelf' value='$shelf'> Row <input type='text' size='5' name='row' value='$row'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Level</td>
 							<td>Minimum <input type='text' size='5' name='minlvl' value='$minlvl'> Maximum <input type='text' size='5' name='maxlvl' value='$maxlvl'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Selling price per selling unit</td>
 							<td>".CUR." <input type='text' size='14' name='selamt' value='".sprint($selamt)."'> $vat</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bar Code</td>
 							<td><input type='text' size='20' name='bar' value='$bar'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Code</td>
 							<td>$vatcodes</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Markup Value</td>
 							<td><input type='text' size='10' name='markup' value='$markup'> %</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'><td>Supplier1</td>
+						<tr class='".bg_class()."'><td>Supplier1</td>
 							<td>$suppliers1</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier2</td>
 							<td>$suppliers2</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier3</td>
 							<td>$suppliers3</td>
 						</tr>
@@ -604,7 +604,7 @@ function confirm($_POST)
 	// Do we want the user to upload an image
 	if ( $change_image == "yes" ) {
 		$img = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Image</td>
 				<td><input type='file' size='20' name='image'></td>
 			</tr>";
@@ -661,88 +661,88 @@ function confirm($_POST)
 				<th width='40%'>Field</th>
 				<th width='60%'>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Store</td>
 				<td>$wh[whname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock code</td>
 				<td>$stkcod</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock description</td>
 				<td><pre>$stkdes</pre></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type</td>
 				<td>$type</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Serialized</td>
 				<td>$serd</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>RFID type of tag</td>
 				<td>$rfidtype</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>RFID (869.4 to 928 Mhz UHF)</td>
 				<td>$rfidfreq</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>RFID Tag read rate</td>
 				<td>$rfidrate</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category</td>
 				<td>$cat[cat]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Classification</td>
 				<td>$class</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Warranty</td>
 				<td>$warranty_out</td>
 			</tr>
 			$img
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bought Unit of measure</td>
 				<td>$buom</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Selling Unit of measure</td>
 				<td>$suom</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Selling Units per Bought unit</td>
 				<td>$rate</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Location</td>
 				<td>Shelf : $shelf - Row : $row</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Minimum level</td>
 				<td>$minlvl</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Maximum level</td>
 				<td>$maxlvl</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Selling price per selling unit</td>
 				<td>".CUR." $selamt $vat</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bar Code</td>
 				<td>$bar</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT Code</td>
 				<td>$vat</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Markup Percentage</td>
 				<td>$markup %</td>
 			</tr>
@@ -756,10 +756,10 @@ function confirm($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-add.php'>Add Stock</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-view.php'>View Stock</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -920,10 +920,10 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-add.php'>Add Stock</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-view.php'>View Stock</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

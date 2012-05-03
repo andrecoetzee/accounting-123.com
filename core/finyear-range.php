@@ -97,8 +97,8 @@ function view()
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><td colspan=2><li class=err>Financial year period range has already been set.</td></tr>
 			<tr><th>Field</th><th>Value</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Financial Year Starts in</td><td align=center>$smonth</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Financial Year Ends in</td><td align=center>$endmon</td></tr>
+			<tr class='bg-odd'><td>Financial Year Starts in</td><td align=center>$smonth</td></tr>
+			<tr class='bg-even'><td>Financial Year Ends in</td><td align=center>$endmon</td></tr>
 		</table>
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
@@ -124,7 +124,7 @@ function view()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300>
 		<input type=hidden name=key value=confirm>
 		<tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Financial Years Start in</td><td valign=center>$smonth</td></tr>
+		<tr class='bg-odd'><td>Financial Years Start in</td><td valign=center>$smonth</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Continue &raquo'></td></tr>
 	</table>
@@ -176,8 +176,8 @@ function confirm($_POST)
 			<input type=hidden name=smon value='$smonth'>
 			<input type=hidden name=endmon value='$endmon'>
 			<tr><th>Field</th><th>Value</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Financial Year Starts in</td><td align=center>$months[$smonth]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Financial Year Ends in</td><td align=center>$months[$endmon]</td></tr>
+			<tr class='bg-odd'><td>Financial Year Starts in</td><td align=center>$months[$smonth]</td></tr>
+			<tr class='bg-even'><td>Financial Year Ends in</td><td align=center>$months[$endmon]</td></tr>
 			<tr><td><br></td></tr>
 			<tr><td><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Confirm &raquo'></td></tr>
 		</table>

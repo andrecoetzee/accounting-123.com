@@ -85,9 +85,9 @@ function slctacc()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=viewtran>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Accounts</td><td><input type=radio name=accnt value=slct checked=yes>Selected Accounts | <input type=radio name=accnt value=all>All Accounts</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Select account(s)</td><td>$accs</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Select period</td><td>$prds</td></tr>
+	<tr class='bg-even'><td valign=top>Accounts</td><td><input type=radio name=accnt value=slct checked=yes>Selected Accounts | <input type=radio name=accnt value=all>All Accounts</td></tr>
+	<tr class='bg-odd'><td valign=top>Select account(s)</td><td>$accs</td></tr>
+	<tr class='bg-even'><td>Select period</td><td>$prds</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=center><input type=submit value='Continue &raquo;'></td></tr>
 	</table>
@@ -197,8 +197,8 @@ function viewtran($_POST)
 
 		$balance = sprint($balance);
 
-		$trans .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=8><b>$acc[topacc]/$acc[accnum] - $acc[accname]</b></td></tr>";
-		$trans .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><br></td><td>Br/Forwd</td><td>Brought Forward</td><td align=right>$bal[dbalance]</td><td align=right>$bal[cbalance]</td><td align=right>$balance $fl</td><td> </td></tr>";
+		$trans .= "<tr class='bg-even'><td colspan=8><b>$acc[topacc]/$acc[accnum] - $acc[accname]</b></td></tr>";
+		$trans .= "<tr class='bg-even'><td colspan=2><br></td><td>Br/Forwd</td><td>Brought Forward</td><td align=right>$bal[dbalance]</td><td align=right>$bal[cbalance]</td><td align=right>$balance $fl</td><td> </td></tr>";
 
 		# --> transactio reding comes here <--- #
 		$dbal['debit'] = 0;
@@ -231,7 +231,7 @@ function viewtran($_POST)
 			$tran['edate'] = explode("-", $tran['edate']);
 			$tran['edate'] = $tran['edate'][2]."-".$tran['edate'][1]."-".$tran['edate'][0];
 
-			$trans .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><br></td><td>$tran[edate]</td><td>$tran[eref]</td><td>$tran[descript]</td><td align=right>$tran[debit]</td><td align=right>$tran[credit]</td><td align=right>$cbalance $cfl</td><td>$tran[ctopacc]/$tran[caccnum] - $tran[caccname]</td></tr>";
+			$trans .= "<tr class='bg-odd'><td><br></td><td>$tran[edate]</td><td>$tran[eref]</td><td>$tran[descript]</td><td align=right>$tran[debit]</td><td align=right>$tran[credit]</td><td align=right>$cbalance $cfl</td><td>$tran[ctopacc]/$tran[caccnum] - $tran[caccname]</td></tr>";
 		}
 
 		# Total balance changes
@@ -246,7 +246,7 @@ function viewtran($_POST)
 			$dbal['debit'] = "0.00";
 		}
 
-		$trans .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><br></td><td>A/C Total</td><td>Total for period $prdname to Date :</td><td align=right>$dbal[debit]</td><td align=right>$dbal[credit]</td><td align=right></td><td> </td></tr>";
+		$trans .= "<tr class='bg-even'><td colspan=2><br></td><td>A/C Total</td><td>Total for period $prdname to Date :</td><td align=right>$dbal[debit]</td><td align=right>$dbal[credit]</td><td align=right></td><td> </td></tr>";
 		$trans .= "<tr><td colspan=8><br></td></tr>";
 	}
 

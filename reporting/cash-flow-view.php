@@ -58,7 +58,7 @@ function view ()
 		// display all statements
 		while ($stmnt = $cf->fetch_array()) {
 			$OUTPUT .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stmnt[id]($stmnt[des])</td>
 				<td>$stmnt[gentime]</td>
 				<td><a target='_blank' href='cash-flow-print.php?id=$stmnt[id]'>Print</a></td>
@@ -74,7 +74,7 @@ function view ()
 	<tr><th>Quick Links</th></tr>
 	<tr class=datacell><td><a href='index-reports.php'>Financials</a></td></tr>
 	<tr class=datacell><td><a href='index-reports-stmnt.php'>Current Year Financial Statements</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	// call template to display the info and die

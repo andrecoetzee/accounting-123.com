@@ -33,19 +33,19 @@ function get_report_parms ($_POST, $err="")
 				<tr>
 					<th colspan='3'>$marr[medical_aid_name]</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Contact</td>
 					<td colspan='2'>$marr[medical_aid_contact_number]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bank Name</td>
 					<td colspan='2'>$marr[medical_aid_bank_name]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bank Branch</td>
 					<td colspan='2'>$marr[medical_aid_bank_branch]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bank Account</td>
 					<td colspan='2'>$marr[medical_aid_bank_account]</td>
 				</tr>
@@ -62,7 +62,7 @@ function get_report_parms ($_POST, $err="")
 				while ($earr = pg_fetch_array ($run_emps)){
 					$earr['comp_medical'] += 0;
 					$view_report .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$earr[sname], $earr[fnames]</td>
 							<td>$earr[medical_aid_number]</td>
 							<td align='right'>".CUR." ".sprint ($earr['comp_medical'])."</td>
@@ -70,13 +70,13 @@ function get_report_parms ($_POST, $err="")
 					$med_total += $earr['comp_medical'];
 				}
 				$view_report .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<th colspan='2'>Total</th>
 						<td align='right'>".CUR." ".sprint ($med_total)."</td>
 					</tr>";
 			}else {
 				$view_report .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='3'>No Employees Using This Medical Aid Option.</td>
 					</tr>";
 			}
@@ -104,7 +104,7 @@ function get_report_parms ($_POST, $err="")
 			<tr>
 				<th>Medical Aid Options</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$medical_aid_drop</td>
 			</tr>
 			".TBL_BR."

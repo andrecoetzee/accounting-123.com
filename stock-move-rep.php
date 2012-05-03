@@ -134,11 +134,11 @@ function slct()
 						<tr>
 							<th colspan='2'>Store</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center' colspan='2'>$whs</td>
 						</tr>
 						<tr><td><br></td></tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center' colspan='2' nowrap>
 								".mkDateSelect("from",date("Y"),date("m"),"01")."
 								&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -149,7 +149,7 @@ function slct()
 						<tr>
 							<th colspan='2'>Use Date</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'><input type='radio' name='usedate' value='transaction' checked> Transaction Date</td>
 							<td align='center'><input type='radio' name='usedate' value='system'> System Date</td>
 						</tr>
@@ -157,7 +157,7 @@ function slct()
 						<tr>
 							<th colspan='2'>Show Stock Movement</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'><input type='radio' name='r_type' value='slow'> Slow Moving Stock</td>
 							<td align='center'><input type='radio' name='r_type' value='fast'> Fast Moving Stock</td>
 						</tr>
@@ -165,7 +165,7 @@ function slct()
 						<tr>
 							<th colspan='2'>All Categories and Classifications</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center' colspan='2'><input type='submit' name='all' value='View All'></td>
 						</tr>
 						<tr><td><br></td></tr>
@@ -179,7 +179,7 @@ function slct()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -246,7 +246,7 @@ function printStk ($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -428,7 +428,7 @@ function printStk ($_POST)
 
 	foreach($items as $key => $item){
 		$report .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$item[stkcod]</td>
 				<td>$item[stkdes]</td>
 				<td align='right'>".sprint3($item['pqty'])."</td>
@@ -441,7 +441,7 @@ function printStk ($_POST)
 
 	$report .= "
 		<tr><td><br></td></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'><b>Totals</b></td>
 			<td align='right'>".sprint3($totpqty)."</td>
 			<td align='right'>".sprint3($totqty)."</td>
@@ -470,7 +470,7 @@ function printStk ($_POST)
 			$move['ratio'] = sprint($move['ratio']);
 
 			$report .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$move[stkdes]</td>
 					<td align='right'>".sprint3($move['pqty'])."</td>
 					<td align='right'>".sprint3($move['qty'])."</td>
@@ -502,7 +502,7 @@ function printStk ($_POST)
 	        <tr>
 	        	<th>Quick Links</th>
 	        </tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

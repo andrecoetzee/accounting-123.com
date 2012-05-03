@@ -131,8 +131,8 @@ function viewacc($type,$catid,$catname, $branname)
         <center>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=70%>
         <tr><td><br></td><td></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2><b>Category : $catid - $catname - $branname<b></td></tr>
-        <!-- bgcolor='".TMPL_tblDataColor2."' <tr><td colspan=2><br></td></tr> -->";
+        <tr class='bg-odd'><td colspan=2><b>Category : $catid - $catname - $branname<b></td></tr>
+        <!-- class='bg-even' <tr><td colspan=2><br></td></tr> -->";
 
 		// get accounts
         $type = strtoupper($type);
@@ -142,7 +142,7 @@ function viewacc($type,$catid,$catname, $branname)
 
 
         if ($numrows < 1) {
-			$OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2>There are no Accounts in this Category.</td></tr></table>";
+			$OUTPUT .= "<tr class='bg-even'><td colspan=2>There are no Accounts in this Category.</td></tr></table>";
 			return $OUTPUT;
 		}
 

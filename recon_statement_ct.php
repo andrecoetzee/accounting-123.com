@@ -62,7 +62,7 @@ function select($message="")
 	$suppliers_out = "";
 	while (list($supid, $supno, $supname) = pg_fetch_array($suppliers_rslt)) {
 		$suppliers_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$supno</td>
 			<td>$supname</td>
 			<td><a href='".SELF."?key=display&supid=$supid'>Select</a></td>
@@ -71,7 +71,7 @@ function select($message="")
 	
 	if (empty($suppliers_out) && empty($search)) {
 		$suppliers_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'>
 				<li>
 					Please enter the first few letters of the creditors name or
@@ -81,7 +81,7 @@ function select($message="")
 		</tr>";
 	} elseif (empty($suppliers_out)) {
 		$suppliers_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'>
 				<li>No results found.</li>
 			</td>
@@ -101,7 +101,7 @@ function select($message="")
 		<tr>
 			<th colspan='2'>Search</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='search' value='$search' /></td>
 			<td><input type='submit' value='Search' /></td>
 		</tr>

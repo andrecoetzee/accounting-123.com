@@ -111,7 +111,7 @@ function slct($_GET, $err = "")
 
 	//Removed option
 	// <tr><th colspan=2> Purchase Details </th></tr>
-	// <tr bgcolor='".TMPL_tblDataColor1."' ".ass("Select when tranferring goods between Departments or Stores")."><td colspan=2><input type=
+	// <tr class='bg-odd' ".ass("Select when tranferring goods between Departments or Stores")."><td colspan=2><input type=
 	//radio name=ctyp value='c' checked=yes>Accounts Purchase</td></tr>
 
 	$details = "
@@ -128,15 +128,15 @@ function slct($_GET, $err = "")
 			<tr>
 				<th colspan='2'> Purchase Details </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."' ".ass("Select when purchasing non stock goods from your suppliers").">
+			<tr class='".bg_class()."' ".ass("Select when purchasing non stock goods from your suppliers").">
 				<td><input type='radio' name='ctyp' value='s' checked> Select Supplier</td>
 				<td>$sups</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."' ".ass("Select when the purchase of non stock goods is a cash purchase").">
+			<tr class='".bg_class()."' ".ass("Select when the purchase of non stock goods is a cash purchase").">
 				<td><input type='radio' name='ctyp' value='c'>Cash Order</td>
 				<td>$depts</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='radio' name='ctyp' value='p'>Petty Cash Purchase</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -297,7 +297,7 @@ function details($_POST, $error="")
 
 		# put in product
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='hidden' size='4' name='cod[]' value='$stkd[cod]'>$stkd[cod]</td>
 				<td>$stkd[des]</td>
 				<td><input type='hidden' name='qts[]' value='$stkd[qty]'><input type='text' size='5' name='qtys[]' value='$stkd[qty]'></td>
@@ -344,15 +344,15 @@ function details($_POST, $error="")
 						<tr>
 							<th colspan='2'> Supplier Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier</td>
 							<td valign='center'>$pur[supplier]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier Address</td>
 							<td valign='center'><pre>$pur[supaddr]</pre></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."' ".ass("Select the account you wish to Credit").">
+						<tr class='".bg_class()."' ".ass("Select the account you wish to Credit").">
 							<td>Account</td>
 							<td>$supacc</td>
 						</tr>
@@ -363,23 +363,23 @@ function details($_POST, $error="")
 						<tr>
 							<th colspan='2'> Non-Stock Purchase Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Non-Stock Purchase No.</td>
 							<td valign='center'>$pur[purnum]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Delivery Ref No.</td>
 							<td valign='center'><input type='text' name='refno' size='10' value='$pur[refno]'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Terms</td>
 							<td valign='center'>$pur[terms] Days</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td valign='center'>".mkDateSelect("p",$p_year,$p_month,$p_day)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Inclusive</td>
 							<td valign='center'>$pur[vatinc]</td>
 						</tr>
@@ -400,10 +400,10 @@ function details($_POST, $error="")
 							<td rowspan='5' valign='top' width='50%'>$error</td>
 						</tr>
 						<tr>
-							<td bgcolor='".bgcolorg()."'><a href='nons-purchase-new.php'>New purchase</a></td>
-							<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$pur[remarks]</textarea></td>
+							<td class='".bg_class()."'><a href='nons-purchase-new.php'>New purchase</a></td>
+							<td class='".bg_class()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$pur[remarks]</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='nons-purchase-view.php'>View purchases</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>
@@ -411,15 +411,15 @@ function details($_POST, $error="")
 				</td>
 				<td align='right'>
 					<table ".TMPL_tblDflts." width='80%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>SUBTOTAL</td>
 							<td align='right' nowrap>".CUR." $SUBTOT</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT @ ".TAX_VAT." %</td>
 							<td align='right' nowrap>".CUR." $pur[vat]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th>GRAND TOTAL</th>
 							<td align='right' nowrap>".CUR." $TOTAL</td>
 						</tr>
@@ -1095,7 +1095,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					<tr>
 						<th>Non-Stock Purchase received</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Non-Stock Purchase receipt has been recorded.</td>
 					</tr>
 				</table>
@@ -1104,7 +1104,7 @@ pglib_transaction ("BEGIN") or errDie("Unable to start a database transaction.",
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='nons-purchase-view.php'>View purchases</a></td>
 					</tr>
 					<script>document.write(getQuicklinkSpecial());</script>

@@ -9,16 +9,16 @@ $OUTPUT = "
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<input type=hidden name=key value=confirm>
 	<h4>Select the file to check in</h4>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>File</td><td><input type=file size=20 name=doc></td></tr>
+	<tr class='bg-odd'><td>File</td><td><input type=file size=20 name=doc></td></tr>
 	<tr><td><br></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Comment</td><td><input type=text size=20 name=docname ></td></tr>
+	<tr class='bg-even'><td>Comment</td><td><input type=text size=20 name=docname ></td></tr>
 	<tr><td colspan=2 align=right><input type=submit name=conf value='Checkin &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocview.php'>View Documents</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docman-index.php'>Document Management</a></td></tr>
+		<tr class='bg-odd'><td><a href='tdocview.php'>View Documents</a></td></tr>
+		<tr class='bg-odd'><td><a href='docman-index.php'>Document Management</a></td></tr>
 	</table>";
 require("../template.php");
 ?>

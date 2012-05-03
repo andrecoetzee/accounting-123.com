@@ -38,7 +38,7 @@ function get_filter ()
 			<tr>
 				<th colspan='2'>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					To
@@ -69,7 +69,7 @@ function show_entries ($_POST,$err="")
 	$run_list = db_exec($get_list) or errDie ("Unable to get list of processed payments.");
 	if(pg_numrows($run_list) < 1){
 		$listing = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='6'>No Entries Found.</td>
 			</tr>";
 	}else {
@@ -92,7 +92,7 @@ function show_entries ($_POST,$err="")
 			}
 
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$carr[supname]</td>
 					<td>$carr[date]</td>
 					<td>".CUR." ".sprint ($carr['amt'])."</td>
@@ -351,7 +351,7 @@ if ($pay_type == "export"){
 
 
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='text' size='5' maxlength='5' name='first_val[$counter]' value='$first_val[$counter]'></td>
 					<td><input type='text' size='6' maxlength='6' name='branch_val[$counter]' value='$branch_val[$counter]'></td>
 					<td><input type='text' size='7' maxlength='7' name='empno_val[$counter]' value='$empno_val[$counter]'></td>
@@ -393,23 +393,23 @@ if ($pay_type == "export"){
 				<tr>
 					<th colspan='2'>Universal Setting</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>First 5 Chars</td>
 					<td><input type='text' name='first' value='$first' size='5' maxlength='5'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bank Account Character</td>
 					<td><input type='text' name='second' value='$second' size='1' maxlength='1'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Last Characters</td>
 					<td><input type='text' name='third' value='$third' size='7' maxlength='6'</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Header</td>
 					<td><input type='text' size='60' name='header' value='$header'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Footer</td>
 					<td><input type='text' size='60' name='footer' value='$footer'></td>
 				</tr>

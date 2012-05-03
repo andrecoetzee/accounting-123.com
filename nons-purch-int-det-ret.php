@@ -88,7 +88,7 @@ function details($_GET)
 
 		# put in product
 		$products .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$stkd[cod]</td>
 							<td>$stkd[des]</td>
 							<td align='right'>$stkd[qty]</td>
@@ -121,11 +121,11 @@ function details($_GET)
 									<tr>
 										<th colspan='2'> Supplier Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Supplier</td>
 										<td valign='center'>$pur[supplier]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td valign='top'>Supplier Address</td>
 										<td valign='center'>".nl2br($pur['supaddr'])."</td>
 									</tr>
@@ -136,19 +136,19 @@ function details($_GET)
 									<tr>
 										<th colspan='2'> Purchase Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Purchase No.</td>
 										<td valign='center'>$pur[purnum]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Ref No.</td>
 										<td valign='center'>$pur[refno]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Terms</td>
 										<td valign='center'>$pur[terms] Days</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Date</td>
 										<td valign='center'>$rday-$rmon-$ryear</td>
 									</tr>
@@ -168,25 +168,25 @@ function details($_GET)
 										<td rowspan='5' valign='top' width='15%'><br></td>
 									</tr>
 									<tr>
-										<td bgcolor='".bgcolorg()."'>
+										<td class='".bg_class()."'>
 											<a href='purch-int-new.php'>New International Purchase</a>
 										</td>
-										<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'>
+										<td class='".bg_class()."' rowspan='4' align='center' valign='top'>
 											".nl2br($pur['remarks'])."
 										</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='purch-int-view-prd.php'>View Received International Purchases</a></td>
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='main.php'>Main Menu</a></td>
 									</tr>
 								</table>
 							</td>
 							<td align='right'>
 								<table ".TMPL_tblDflts." width='80%'>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<th>Total Cost Returned</th>
 										<td align='right' nowrap>$pur[curr] $SUBTOT</td>
 									</tr>

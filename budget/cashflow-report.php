@@ -58,10 +58,10 @@ function details($_GET)
 	$tot90 = sprint($tot60 + $invdays['90']['totamt'] - $purdays['90']['totamt']);
 	$tot120 = sprint($tot90 + $invdays['120']['totamt'] - $purdays['120']['totamt']);
 
-	$view = "<tr bgcolor='".TMPL_tblDataColor1."'><th>Incoming</th><td>$actual[debit]</td><td>".$invdays['1']['totamt']."</td><td>".$invdays['7']['totamt']."</td><td>".$invdays['14']['totamt']."</td><td>".$invdays['30']['totamt']."</td><td>".$invdays['60']['totamt']."</td><td>".$invdays['90']['totamt']."</td><td>".$invdays['120']['totamt']."</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><th>Outgoing</th><td>$actual[credit]</td><td>".$purdays['1']['totamt']."</td><td>".$purdays['7']['totamt']."</td><td>".$purdays['14']['totamt']."</td><td>".$purdays['30']['totamt']."</td><td>".$purdays['60']['totamt']."</td><td>".$purdays['90']['totamt']."</td><td>".$purdays['120']['totamt']."</td></tr>
+	$view = "<tr class='bg-odd'><th>Incoming</th><td>$actual[debit]</td><td>".$invdays['1']['totamt']."</td><td>".$invdays['7']['totamt']."</td><td>".$invdays['14']['totamt']."</td><td>".$invdays['30']['totamt']."</td><td>".$invdays['60']['totamt']."</td><td>".$invdays['90']['totamt']."</td><td>".$invdays['120']['totamt']."</td></tr>
+	<tr class='bg-odd'><th>Outgoing</th><td>$actual[credit]</td><td>".$purdays['1']['totamt']."</td><td>".$purdays['7']['totamt']."</td><td>".$purdays['14']['totamt']."</td><td>".$purdays['30']['totamt']."</td><td>".$purdays['60']['totamt']."</td><td>".$purdays['90']['totamt']."</td><td>".$purdays['120']['totamt']."</td></tr>
 	<tr><td><br></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><th>Running Total</th><td>$actot</td><td>$tot1</td><td>$tot7</td><td>$tot14</td><td>$tot30</td><td>$tot60</td><td>$tot90</td><td>$tot120</td></tr>";
+	<tr class='bg-even'><th>Running Total</th><td>$actot</td><td>$tot1</td><td>$tot7</td><td>$tot14</td><td>$tot30</td><td>$tot60</td><td>$tot90</td><td>$tot120</td></tr>";
 
 	$details = "<center>
 	<h3> Cash Flow Budget Report </h3>
@@ -72,8 +72,8 @@ function details($_GET)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1' width=15%>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</td></tr>
+		<tr class='bg-odd'><td align=center><a href='budget-view.php'>View Budgets</td></tr>
+		<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</td></tr>
 	</table>";
 
 	return $details;

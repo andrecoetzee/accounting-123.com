@@ -62,7 +62,7 @@ require("template.php");
 function view(){
 $view = "<center><table width=90%>
         <tr><td width=80%><h3>Purchase Returns</h3></td>
-        <td bgcolor='".TMPL_tblDataColor2."'><a href='purchase-new.php'>Add New Purchase</a><br>
+        <td class='bg-even'><a href='purchase-new.php'>Add New Purchase</a><br>
         <a href='purchase-ret-view.php'>View Returned Purchases</a>
         </td></tr>
         </table><br>
@@ -160,23 +160,23 @@ function details($purchid)
          $paidaccname = $acc['accname'];
 
         $details .="<tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Retailer</td><td valign=center>$retailer</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Item Name</td><td valign=center>$itemname</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td valign=center>$descript</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Quantity Returned</td><td valign=center>&nbsp;&nbsp;&nbsp;&nbsp;<input type=text name=qty size=10 value='$quantity'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Total Cost Returned</td><td valign=center>".CUR." <input type=text name=cost size=10 value='$tlcost'></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Payment Method</td><td valign=center>$paytype</td></tr>";
+        <tr class='bg-even'><td>Retailer</td><td valign=center>$retailer</td></tr>
+        <tr class='bg-odd'><td>Item Name</td><td valign=center>$itemname</td></tr>
+        <tr class='bg-even'><td>Description</td><td valign=center>$descript</td></tr>
+        <tr class='bg-odd'><td>Quantity Returned</td><td valign=center>&nbsp;&nbsp;&nbsp;&nbsp;<input type=text name=qty size=10 value='$quantity'></td></tr>
+        <tr class='bg-even'><td>Total Cost Returned</td><td valign=center>".CUR." <input type=text name=cost size=10 value='$tlcost'></td></tr>
+        <tr class='bg-odd'><td>Payment Method</td><td valign=center>$paytype</td></tr>";
 
                  # view cheq number if it is there
                 if($paytype == "Cheque"){
-                        $details .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>Cheque Number</td><td valign=center>$cheqnum</td></tr>";
+                        $details .= "<tr class='bg-odd'><td>Cheque Number</td><td valign=center>$cheqnum</td></tr>";
                 }elseif($paytype == "Credit"){
-                        $details .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms Of Payment</td><td valign=center>$ct[terms] $ct[period]</td></tr>";
+                        $details .= "<tr class='bg-odd'><td>Terms Of Payment</td><td valign=center>$ct[terms] $ct[period]</td></tr>";
                 }
 
         $details .= "
-        <tr bgcolor='".TMPL_tblDataColor2."'><td valign=center>Account Used</td><td valign=center>$usedaccname</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td valign=center>Account For Item</td><td valign=center>$paidaccname</td></tr>
+        <tr class='bg-even'><td valign=center>Account Used</td><td valign=center>$usedaccname</td></tr>
+        <tr class='bg-odd'><td valign=center>Account For Item</td><td valign=center>$paidaccname</td></tr>
         <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Confirm &raquo'></td></tr>
         </form></table>
 	<p>
@@ -258,23 +258,23 @@ function confirm($_POST)
          $paidaccname = $acc['accname'];
 
         $details .="<tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Retailer</td><td valign=center>$retailer</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Item Name</td><td valign=center>$itemname</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td valign=center>$descript</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Quantity Returned</td><td valign=center>$qty</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Total Cost Returned</td><td valign=center>".CUR." $cost</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Payment Method</td><td valign=center>$paytype</td></tr>";
+        <tr class='bg-even'><td>Retailer</td><td valign=center>$retailer</td></tr>
+        <tr class='bg-odd'><td>Item Name</td><td valign=center>$itemname</td></tr>
+        <tr class='bg-even'><td>Description</td><td valign=center>$descript</td></tr>
+        <tr class='bg-odd'><td>Quantity Returned</td><td valign=center>$qty</td></tr>
+        <tr class='bg-even'><td>Total Cost Returned</td><td valign=center>".CUR." $cost</td></tr>
+        <tr class='bg-odd'><td>Payment Method</td><td valign=center>$paytype</td></tr>";
 
                  # view cheq number if it is there
                 if($paytype == "Cheque"){
-                        $details .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>Cheque Number</td><td valign=center>$cheqnum</td></tr>";
+                        $details .= "<tr class='bg-odd'><td>Cheque Number</td><td valign=center>$cheqnum</td></tr>";
                 }elseif($paytype == "Credit"){
-                        $details .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms Of Payment</td><td valign=center>$ct[terms] $ct[period]</td></tr>";
+                        $details .= "<tr class='bg-odd'><td>Terms Of Payment</td><td valign=center>$ct[terms] $ct[period]</td></tr>";
                 }
 
         $details .= "
-        <tr bgcolor='".TMPL_tblDataColor2."'><td valign=center>Account Used</td><td valign=center>$usedaccname</td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td valign=center>Account For Item</td><td valign=center>$paidaccname</td></tr>
+        <tr class='bg-even'><td valign=center>Account Used</td><td valign=center>$usedaccname</td></tr>
+        <tr class='bg-odd'><td valign=center>Account For Item</td><td valign=center>$paidaccname</td></tr>
         <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Confirm &raquo'></td></tr>
         </form></table>
 	<p>
@@ -406,8 +406,8 @@ function write($_POST)
         <td align=center>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=80%>
                 <tr><th>Quick Navigation</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Return other Purchase</a></td></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purchase-view.php'>View Purchases</a></td></tr>
+                <tr class='bg-odd'><td><a href='".SELF."'>Return other Purchase</a></td></tr>
+                <tr class='bg-odd'><td><a href='purchase-view.php'>View Purchases</a></td></tr>
         </table>
         </td></tr></table>
 	<p>

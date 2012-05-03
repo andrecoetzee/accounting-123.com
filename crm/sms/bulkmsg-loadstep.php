@@ -97,7 +97,7 @@ function choose_step() {
 			<input type=hidden name=step value=3>
 			$contact_form
 			<table width=700 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td valign=top>
 				$msg
 				</td>
@@ -109,7 +109,7 @@ function choose_step() {
 					<br>&nbsp;
 				</td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td colspan=2>
 				<table width=100%>
 				<tr>
@@ -239,7 +239,7 @@ function enter($err){
 	<form name=msgform method=post action='".SELF."'>
 	<input type=hidden name=step value='2'>
 	<table width=700 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td valign=top align=center>
 		<font size=2><b>Message</b></font><br><br>
 		<textarea rows=5 cols=50 name=msg>$msg</textarea>
@@ -252,7 +252,7 @@ function enter($err){
 			<br>&nbsp;
 		</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td colspan=2>
 		Please select the customers you wish to send a message to.<br>
 		Hold CTRL key and click to select more than one.<br>
@@ -265,7 +265,7 @@ function enter($err){
 			$custs_select
 			</td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td align=center colspan=3>
 				<input type=checkbox name=send_all $send_all_selected> <b>Send to Everybody</b>
 			</td>

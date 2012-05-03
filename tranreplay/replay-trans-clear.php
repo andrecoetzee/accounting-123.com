@@ -63,7 +63,7 @@ function remove_trans ($_POST)
 						<tr>
 							<th>Removed</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>All Replay Transactions Have Been Removed.</td>
 						</tr>
 					</table><p>

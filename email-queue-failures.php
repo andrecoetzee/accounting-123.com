@@ -129,7 +129,7 @@ function show_email_groups ($err = "")
 				}
 
 				$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$groupname</td>
 						<td>$subject</td>
 						<td>$garr2[date_added]</td>
@@ -146,7 +146,7 @@ function show_email_groups ($err = "")
 
 		if ($counter == 0){
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='8'>No Failures Found In Any Email Groups.</td>
 				</tr>";
 		}
@@ -190,7 +190,7 @@ function view_fails ($_POST, $err="")
 		$listing = "";
 		while ($farr = pg_fetch_array ($run_fails)){
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='text' name='emailaddress_name[$farr[id]]' value='$farr[emailaddress]'></td>
 					<td>$farr[date_sent]</td>
 					<td>$farr[failed_reason]</td>
@@ -362,7 +362,7 @@ function send_email_groups ($_POST)
 		$run_list = db_exec($get_list) or errDie ("Unable to get list of emails to be sent.");
 		if(pg_numrows($run_list) < 1){
 //			$listing .= "
-//				<tr bgcolor='".bgcolorg()."'>
+//				<tr class='".bg_class()."'>
 //					<td colspan='2'>All Emails Have Been Sent.</td>
 //				</tr>
 //				".TBL_BR;
@@ -388,7 +388,7 @@ function send_email_groups ($_POST)
 					$larr['status'] = "Queued";
 				}
 				$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$larr[emailaddress]</td>
 						<td>$larr[subject]</td>
 						<td>$larr[date_added]</td>
@@ -589,7 +589,7 @@ function remove_group ($_POST)
 						<tr>
 							<th>Group name</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$groupname</td>
 						</tr>
 						<tr><td><br></td></tr>

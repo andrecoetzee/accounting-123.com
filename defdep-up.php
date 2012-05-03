@@ -67,7 +67,7 @@ function show ()
 			<form ENCTYPE='multipart/form-data' action='".SELF."' method=post>
 			<input type=hidden name=key value=confirm>
 			<tr><th>Field</th><th>Value</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Accounts File</td><td><input type=file size=20 name=accfile></td></tr>
+			<tr class='bg-even'><td>Accounts File</td><td><input type=file size=20 name=accfile></td></tr>
 			<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 			</form>
         </table>";
@@ -97,17 +97,17 @@ function confirm ($_POST)
 			<form action='".SELF."' method=post name=form>
         	<input type=hidden name=key value=write>
         	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Department name</td><td><input type=text name=depname value='unknown' size=30></td></tr>
+			<tr class='bg-even'><td>Department name</td><td><input type=text name=depname value='unknown' size=30></td></tr>
 			<tr><th>Account number</th><th>Account name</th></tr>";
 			foreach($file as $key => $value){
 				$info = explode(",", $value);
 				if(count($info) < 3){
-					$analyze .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2 align=center>$info[0]</td></tr>";
+					$analyze .= "<tr class='bg-even'><td colspan=2 align=center>$info[0]</td></tr>";
 				}else{
 					foreach($info as $key2 => $infos){
 						$info[$key2] = str_replace("\"", "", $info[$key2]);
 					}
-					$analyze .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=accnum[] value='$info[1]'>$info[1]</td><td><input type=hidden name=accname[] value='$info[2]'>$info[2]</td></tr>";
+					$analyze .= "<tr class='bg-odd'><td><input type=hidden name=accnum[] value='$info[1]'>$info[1]</td><td><input type=hidden name=accname[] value='$info[2]'>$info[2]</td></tr>";
 				}
 			}
 			$analyze .= "<tr><td><br></td></tr>
@@ -139,12 +139,12 @@ function confirm2($filename)
 		foreach($file as $key => $value){
 			$info = explode(",", $value);
 			if(count($info) < 3){
-				$analyze .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2 align=center>$info[0]</td></tr>";
+				$analyze .= "<tr class='bg-even'><td colspan=2 align=center>$info[0]</td></tr>";
 			}else{
 				foreach($info as $key2 => $infos){
 					$info[$key2] = str_replace("\"", "", $info[$key2]);
 				}
-				$analyze .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$info[1]</td><td>$info[2]</td></tr>";
+				$analyze .= "<tr class='bg-odd'><td>$info[1]</td><td>$info[2]</td></tr>";
 			}
 		}
 		$analyze .= "</table>";

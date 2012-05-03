@@ -78,12 +78,12 @@ function view()
 				<input type=hidden name=yrname value='$yrname'>
 
                 <tr><th>By Date Range</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td width=80% align=center>
+                <tr class='bg-odd'><td width=80% align=center>
                 <input type=text size=2 name=fday maxlength=2>-<input type=text size=2 name=fmon maxlength=2  value='".date("m")."'>-<input type=text size=4 name=fyear maxlength=4 value='".date("Y")."'>
                 &nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
                 <input type=text size=2 name=today maxlength=2 value='".date("d")."'>-<input type=text size=2 name=tomon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=toyear maxlength=4 value='".date("Y")."'>
                 </td><td rowspan=2 valign=bottom><input type=submit value='Search'></td></tr>
-                <tr bgcolor='".TMPL_tblDataColor2."'><td>Select Period  <select name=prd>";
+                <tr class='bg-even'><td>Select Period  <select name=prd>";
                 db_conn($yrdb);
                 $sql = "SELECT * FROM info WHERE prdname !=''";
                 $prdRslt = db_exec($sql);
@@ -113,10 +113,10 @@ function view()
 				<input type=hidden name=yrname value='$yrname'>
 
                 <tr><th>By Journal number</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td width=80% align=center>
+                <tr class='bg-odd'><td width=80% align=center>
                 From <input type=text size=5 name=fromnum> to <input type=text size=5 name=tonum>
                 </td><td rowspan=2 valign=bottom><input type=submit value='Search'></td></tr>
-                <tr bgcolor='".TMPL_tblDataColor2."'><td>Select Period <select name=prd>";
+                <tr class='bg-even'><td>Select Period <select name=prd>";
                 db_conn($yrdb);
                 $sql = "SELECT * FROM info WHERE prdname !=''";
                 $prdRslt = db_exec($sql);
@@ -149,7 +149,7 @@ function view()
 				<input type=hidden name=yrname value='$yrname'>
 
                 <tr><th>View All</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor2."'><td>Select Period <select name=prd>";
+                <tr class='bg-even'><td>Select Period <select name=prd>";
                 db_conn($yrdb);
                 $sql = "SELECT * FROM info WHERE prdname !=''";
                 $prdRslt = db_exec($sql);
@@ -289,7 +289,7 @@ function viewtrans($_POST)
 		$ct = get("core","accname, topacc,accnum","accounts","accid",$credit);
 		$ctacc = pg_fetch_array($ct);
 
-		$OUTPUT .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$date</td><td>$debacc[topacc]/$debacc[accnum]&nbsp;&nbsp;&nbsp;$debacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum]&nbsp;&nbsp;&nbsp;$ctacc[accname]</td><td>$refnum</td><td>".CUR." $amount</td><td>$details</td><td>$author</td></tr>";
+		$OUTPUT .= "<tr class='bg-odd'><td>$date</td><td>$debacc[topacc]/$debacc[accnum]&nbsp;&nbsp;&nbsp;$debacc[accname]</td><td>$ctacc[topacc]/$ctacc[accnum]&nbsp;&nbsp;&nbsp;$ctacc[accname]</td><td>$refnum</td><td>".CUR." $amount</td><td>$details</td><td>$author</td></tr>";
 	}
 
     $OUTPUT .= "</table>

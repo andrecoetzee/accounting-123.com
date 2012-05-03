@@ -61,7 +61,7 @@ function get_setting ()
 			<tr>
 				<th>Setting</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$period_drop</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -113,7 +113,7 @@ function confirm_settings ($_POST)
 			<tr>
 				<th>Setting</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$showperiod</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -158,7 +158,7 @@ function write_settings ($_POST)
 			<tr>
 				<th>Setting Changed.</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT Period Setting has Been Updated.</td>
 			</tr>
 		</table>
@@ -167,7 +167,7 @@ function write_settings ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='reporting/vat_return_report.php'>Process VAT Return Report</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

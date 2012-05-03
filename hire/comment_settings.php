@@ -49,7 +49,7 @@ function enter()
 			<tr>
 				<th>Comments</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<textarea name='comments' rows='5' cols='40'>$comments</textarea>
 				</td>
@@ -78,7 +78,7 @@ function confirm()
 			<tr>
 				<th>Confirm</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".nl2br($comments)."</td>
 			</tr>
 			<tr>
@@ -109,7 +109,7 @@ function write()
 			<tr>
 				<th>Write</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><li>Successfully saved the hire note comments.</li></td>
 			</tr>
 		</table>

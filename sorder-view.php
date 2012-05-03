@@ -86,15 +86,15 @@ function printSord () {
 				<tr>
 					<th colspan='2'>View Options</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Begin Date:</td>
 					<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>End Date:</td>
 					<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Type:</td>
 					<td>
 						<input type='radio' name='type' $sel_accepted value='accepted' /> Accepted/Invoiced
@@ -178,7 +178,7 @@ function printSord () {
 			}
 
 			$printSord .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$sord[deptname]</td>
 					<td>$sord[salespn]</td>
 					<td>$sord[sordid]</td>

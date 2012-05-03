@@ -105,7 +105,7 @@ function show_report ($_POST)
 		while ($larr = pg_fetch_array($run_leave)){
 			$total_leave_days = $total_leave_days + $larr['workingdays'];
 			$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$larr[startdate]</td>
 						<td>$larr[enddate]</td>
 						<td>$larr[approvedby]</td>
@@ -129,19 +129,19 @@ function show_report ($_POST)
 				<tr>
 					<th colspan='2'>Details</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Employee:</td>
 					<td>$earr[fnames] $earr[sname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Amount Of Annual Leave Days:</td>
 					<td>$earr[stdlea]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Total Days Leave Taken</td>
 					<td>$total_leave_days</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Total Cost Of Employee Leave</td>
 					<td>".CUR." $total_cost</td>
 				</tr>

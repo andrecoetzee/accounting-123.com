@@ -285,7 +285,7 @@ function listLeads()
 	</script>
 	<center>
 	<table ".TMPL_tblDflts.">
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='4'>
 				<form method='POST' action='".SELF."'>
 					<input type='hidden' name='key' value='search'>

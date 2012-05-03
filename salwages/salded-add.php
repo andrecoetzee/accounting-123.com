@@ -102,28 +102,28 @@ function enterDeduct ()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Name of deduction</td>
 				<td align='center'><input type='text' size='20' name='deduction'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Creditor name</td>
 				<td align='center'><input type='text' size='20' name='creditor'></td>
 				<td><input type='button' value='In House' onClick='inHouse();'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference no.</td>
 				<td align='center'>$refno</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Creditor Details/In House</td>
 				<td align='center'><input type='text' size='20' name='details'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Before PAYE: Tax Deductable</td>
 				<td align='center'>$taxables</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Deduction Type</td>
 				<td>
 					<input type='radio' name='type' value='Amount' $check1> Amount
@@ -255,7 +255,7 @@ function confirmDeduct ($_POST)
 				<input type='hidden' name='scale_to[]' value='$scale_to[$each]'>
 				<input type='hidden' name='scale_amount[]' value='$scale_amount[$each]'>";
 			$scales_list .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$own</td>
 					<td>$scale_to[$each]</td>
 					<td>$scale_amount[$each] <input type='submit' name='remove_scale[$each]' value='Remove'></td>
@@ -276,7 +276,7 @@ function confirmDeduct ($_POST)
 				<input type='hidden' name='scale_to[]' value='$new_scale_to'>
 				<input type='hidden' name='scale_amount[]' value='$new_scale_amount'>";
 			$scales_list .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$new_scale_from</td>
 					<td>$new_scale_to</td>
 					<td>$new_scale_amount <input type='submit' name='remove_scale[".($each+1)."]' value='Remove'></td>
@@ -285,7 +285,7 @@ function confirmDeduct ($_POST)
 
 		$scales_display = "
 			$scales_hidden
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th colspan='3'>Percentage Deduction Scales</th>
 			</tr>
 			$scale_error
@@ -295,7 +295,7 @@ function confirmDeduct ($_POST)
 				<th>Percentage</th>
 			</tr>
 			$scales_list
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' size='5' name='new_scale_from'></td>
 				<td><input type='text' size='5' name='new_scale_to'></td>
 				<td>
@@ -324,29 +324,29 @@ function confirmDeduct ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Name of deduction</td>
 				<td align='center'>$deduction</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Creditor name</td>
 				<td align='center'>$creditor</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference no.</td>
 				<td align='center'>$refno</td>
 			</tr>";
 
 	if ( $creditor == "In House" ) {
 		$confirmDeduct .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Expense Account</td>
 				<td align='center'>".mkAccSelect("expaccid", $expaccid, ACCTYPE_IE)."</td>
 			</tr>
 			<input type='hidden' name='accid' value='0'>";
 	} else {
 		$confirmDeduct .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Creditor Account</td>
 				<td align='center'>".mkAccSelect("accid", $accid, ACCTYPE_B)."</td>
 			</tr>
@@ -354,15 +354,15 @@ function confirmDeduct ($_POST)
 	}
 
 	$confirmDeduct .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Creditor details</td>
 				<td align='center'>$details</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Deduct Before PAYE</td>
 				<td align='center'>$taxable</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Deduction Type</td>
 				<td align='center'>$type</td>
 			</tr>

@@ -125,7 +125,7 @@ function slctacc($err = "")
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Accounts</td>
 				<td nowrap>
 					<input type='radio' onClick='updateList(this);' name='accnt' value='slct' checked='yes' />Selected Accounts<b> | </b>
@@ -133,7 +133,7 @@ function slctacc($err = "")
 					<input type='radio' onClick='updateList(this);' name='accnt' value='all' />All Accounts
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sort By</td>
 				<td>
 					<input type='radio' name='acc_first' onClick='document.form1.submit();' value='topacc' $topacc />Account Number - Account Name<br />
@@ -144,7 +144,7 @@ function slctacc($err = "")
 				<td colspan='2' style='margin: 0px; padding: 0px;'>
 					<div id='acclist'>
 					<table ".TMPL_tblDflts." width='100%' height='100%'>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td valign='top'>Select account(s)</td>
 						<td>$accs</td>
 					</tr>
@@ -152,7 +152,7 @@ function slctacc($err = "")
 					</div>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Period Range :</td>
 				<td valign='center' colspan='3'>$fprd To : $tprd</td>
 			</tr>
@@ -264,10 +264,10 @@ function viewtran($_POST)
 				<th>Balance</th>
 				<th>Contra Acc</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='8'><b>$acc[topacc]/$acc[accnum] - $acc[accname]</b></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4' align='right'><b>Balance at end of ".getMonthName($tprd)."</b></td>
 				<td align='right'><b>".money($tb["debit"])."</b></td>
 				<td align='right'><b>".money($tb["credit"])."</b></td>
@@ -301,7 +301,7 @@ function viewtran($_POST)
 			$prdname = prdname($prd);
 
 			$trans .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='8' align='center'><h3>$prdname</h3></td>
 				</tr>";
 
@@ -318,7 +318,7 @@ function viewtran($_POST)
 			}else{
 				if (!isset($t)) {
 					$trans .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='8' align='center'><li> There are no transactions in this period.</td>
 						</tr>";
 				}
@@ -362,7 +362,7 @@ function viewtran($_POST)
 			$bbf_date = date("t-M-Y", mktime(0, 0, 0, $prd - 1, 1, $prd_y));
 
 			$trans .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2' align='right'>$bbf_date</td>
 					<td>Br/Forwd</td>
 					<td>Brought Forward</td>
@@ -404,7 +404,7 @@ function viewtran($_POST)
 				$tran['edate'] = $tran['edate'][2]."-".$tran['edate'][1]."-".$tran['edate'][0];
 
 				$trans .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'>$tran[edate]</td>
 						<td>$tran[eref]</td>
 						<td>$tran[descript]</td>
@@ -428,7 +428,7 @@ function viewtran($_POST)
 			}
 
 			$trans .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'><br></td>
 					<td>A/C Total</td>
 					<td>Total for period $prdname:</td>

@@ -89,7 +89,7 @@ function printAgeInv ()
 	}
 
 	$printCust .= "<tr><td><br></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>Totals</b></td><td><b>".CUR." $totcurr</b></td><td><b>".CUR." $tot30</b></td><td><b>".CUR." $tot60</b></td><td><b>".CUR." $tot90</b></td><td><b>".CUR." $tot120</b></td><td><b>".CUR." $alltot</b></td></tr>
+	<tr class='bg-even'><td colspan=4><b>Totals</b></td><td><b>".CUR." $totcurr</b></td><td><b>".CUR." $tot30</b></td><td><b>".CUR." $tot60</b></td><td><b>".CUR." $tot90</b></td><td><b>".CUR." $tot120</b></td><td><b>".CUR." $alltot</b></td></tr>
 	<tr><td><br></td></tr>
 
 	<!--
@@ -105,8 +105,8 @@ function printAgeInv ()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../customers-new.php'>Add Customer</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../customers-view.php'>View Customers</a></td></tr>
+		<tr class='bg-odd'><td><a href='../customers-new.php'>Add Customer</a></td></tr>
+		<tr class='bg-odd'><td><a href='../customers-view.php'>View Customers</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -167,7 +167,7 @@ function printAgeAge ()
 	}
 
 	$printCust .= "<tr><td><br></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>Totals</b></td><td><b>".CUR." $totcurr</b></td><td><b>".CUR." $tot30</b></td><td><b>".CUR." $tot60</b></td><td><b>".CUR." $tot90</b></td><td><b>".CUR." $tot120</b></td><td><b>".CUR." $alltot</b></td></tr>
+	<tr class='bg-even'><td colspan=4><b>Totals</b></td><td><b>".CUR." $totcurr</b></td><td><b>".CUR." $tot30</b></td><td><b>".CUR." $tot60</b></td><td><b>".CUR." $tot90</b></td><td><b>".CUR." $tot120</b></td><td><b>".CUR." $alltot</b></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center colspan=10>
 		<form action='../xls/debt-age-analysis-xls.php' method=post name=form>
@@ -179,8 +179,8 @@ function printAgeAge ()
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../customers-new.php'>Add Customer</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../customers-view.php'>View Customers</a></td></tr>
+		<tr class='bg-odd'><td><a href='../customers-new.php'>Add Customer</a></td></tr>
+		<tr class='bg-odd'><td><a href='../customers-view.php'>View Customers</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

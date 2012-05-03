@@ -101,7 +101,7 @@ function confirm($id)
 	if(pg_numrows($sRs) > 0){
 		$serials = "<tr><th colspan='2'>Units Serial Numbers</th></tr>";
 		while($ser = pg_fetch_array($sRs)){
-			$serials .= "<tr bgcolor='".bgcolorg()."'><td colspan='2' align='center'>$ser[serno]</td></tr>";
+			$serials .= "<tr class='".bg_class()."'><td colspan='2' align='center'>$ser[serno]</td></tr>";
 		}
 	}
 
@@ -143,15 +143,15 @@ function confirm($id)
 		$sstk = $stk;
 		$head = "New Stock";
 		$data = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Location</td>
 				<td>Shelf <input type='text' size='5' name='shelf'> Row <input type='text' size='5' name='row'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Level</td>
 				<td>Minimum <input type='text' size='5' name='minlvl' value='$stk[minlvl]'> Maximum <input type='text' size='5' name='maxlvl' value='$stk[maxlvl]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Selling price per unit</td>
 				<td>".CUR." <input type='hidden' name='selamt' value='$stk[selamt]'>$stk[selamt]</td>
 			</tr>";
@@ -182,39 +182,39 @@ function confirm($id)
 				<th width='40%'>Field</th>
 				<th width='60%'>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Branch</td>
 				<td>$bran[branname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Warehouse</td>
 				<td>$wh[whname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category</td>
 				<td>$stk[catname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock code</td>
 				<td>$stk[stkcod]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock description</td>
 				<td>".nl2br($stk['stkdes'])."</pre></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>On Hand</td>
 				<td>$stk[units]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Allocated</td>
 				<td>$stk[alloc]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Available</td>
 				<td>$avstk</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>On Order</td>
 				<td>$stk[ordered]</td>
 			</tr>
@@ -224,23 +224,23 @@ function confirm($id)
 			<tr>
 				<th colspan='2'>Transfer to $head</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>To Branch</td>
 				<td>$sbran[branname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>To Store </td>
 				<td>$swh[whname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock code</td>
 				<td>$sstk[stkcod]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock description</td>
 				<td>".nl2br($sstk['stkdes'])."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Number of units</td>
 				<td>$tran[tunits]</td>
 			</tr>
@@ -258,7 +258,7 @@ function confirm($id)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-transit-view.php'>View Stock in transit</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -320,15 +320,15 @@ function write($_POST)
 		$sstk = $stk;
 		$head = "New Stock";
 		$data = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Location</td>
 				<td>Shelf : <input type='hidden' name='shelf' value='$shelf'>$shelf - Row : <input type='hidden' name='row' value='$row'>$row</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Level</td>
 				<td>Minimum : <input type='hidden' name='minlvl' value='$minlvl'>$minlvl -  Maximum : <input type='hidden' name='maxlvl' value='$maxlvl'>$maxlvl</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Selling price per unit</td>
 				<td>".CUR." <input type='hidden' name='selamt' value='$stk[selamt]'>$stk[selamt]</td>
 			</tr>";
@@ -398,7 +398,7 @@ function write($_POST)
 		if(pg_numrows($sRs) > 0){
 			$serials = "<tr><th colspan=2>Units Serial Numbers</th></tr>";
 			while($ser = pg_fetch_array($sRs)){
-				$serials .= "<tr bgcolor='".bgcolorg()."'><td colspan='2' align='center'>$ser[serno]</td></tr>";
+				$serials .= "<tr class='".bg_class()."'><td colspan='2' align='center'>$ser[serno]</td></tr>";
 				ext_uninvSer($ser['serno'], $sstkid);
 			}
 		}
@@ -461,39 +461,39 @@ function write($_POST)
 				<th width='40%'>Field</th>
 				<th width='60%'>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Branch</td>
 				<td>$bran[branname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Warehouse</td>
 				<td>$wh[whname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Category</td>
 				<td>$stk[catname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock code</td>
 				<td>$stk[stkcod]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock description</td>
 				<td>".nl2br($stk['stkdes'])."</pre></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>On Hand</td>
 				<td>$stk[units]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Allocated</td>
 				<td>$stk[alloc]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Available</td>
 				<td>$avstk</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>On Order</td>
 				<td>$stk[ordered]</td>
 			</tr>
@@ -503,23 +503,23 @@ function write($_POST)
 			<tr>
 				<th colspan='2'>Transfered to $head</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>To Branch</td>
 				<td>$sbran[branname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>To Store </td>
 				<td>$swh[whname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock code</td>
 				<td>$sstk[stkcod]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Stock description</td>
 				<td>".nl2br($sstk['stkdes'])."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Number of units transfered</td>
 				<td>$tunits</td>
 			</tr>
@@ -530,7 +530,7 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-transit-view.php'>View Stock in transit</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

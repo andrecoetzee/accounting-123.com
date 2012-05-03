@@ -85,9 +85,9 @@ function slctacc()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=viewtran>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Stock Items</td><td><input type=radio name=accnt value=slct checked=yes>Selected Items | <input type=radio name=accnt value=all>All Items</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Select Stock Item(s)</td><td>$stks</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Select period</td><td>$prds</td></tr>
+	<tr class='bg-even'><td valign=top>Stock Items</td><td><input type=radio name=accnt value=slct checked=yes>Selected Items | <input type=radio name=accnt value=all>All Items</td></tr>
+	<tr class='bg-odd'><td valign=top>Select Stock Item(s)</td><td>$stks</td></tr>
+	<tr class='bg-even'><td>Select period</td><td>$prds</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center></td><td align=right><input type=submit value='Continue &raquo;'></td></tr>
 	</table>

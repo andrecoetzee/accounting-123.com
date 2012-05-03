@@ -92,8 +92,8 @@ function edit($listid)
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=listid value='$list[listid]'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>From Supplier Price list</td><td align=center>$list[listname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>To Supplier Price list</td><td align=center><input type=text size=20 name=listname value='Copy of $list[listname]'></td></tr>
+	<tr class='bg-odd'><td>From Supplier Price list</td><td align=center>$list[listname]</td></tr>
+	<tr class='bg-odd'><td>To Supplier Price list</td><td align=center><input type=text size=20 name=listname value='Copy of $list[listname]'></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	<tr><td colspan=2><h3>Prices</h3><td><tr>
@@ -131,8 +131,8 @@ function edit($listid)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sup-pricelist-view.php'>View Supplier Price Lists</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='sup-pricelist-view.php'>View Supplier Price Lists</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -191,8 +191,8 @@ function confirm ($_POST)
 	<input type=hidden name=listname value='$listname'>
 	<input type=hidden name=listid value='$listid'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>From Price list</td><td align=center>$list[listname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>To Price list</td><td align=center>$listname</td></tr>
+	<tr class='bg-odd'><td>From Price list</td><td align=center>$list[listname]</td></tr>
+	<tr class='bg-even'><td>To Price list</td><td align=center>$listname</td></tr>
 	<tr><td colspan=2><br><td><tr>
 	<tr><td align=right><input type=button value='Back' onclick='javascript:history.back();'></td><td valign=left><input type=submit value='Write &raquo;'></td></tr>
 	<tr><td colspan=2><h3>Prices</h3><td><tr>
@@ -217,8 +217,8 @@ function confirm ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sup-pricelist-view.php'>View Supplier Price Lists</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='sup-pricelist-view.php'>View Supplier Price Lists</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -299,8 +299,8 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='sup-pricelist-view.php'>View Supplier Price Lists</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='sup-pricelist-view.php'>View Supplier Price Lists</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

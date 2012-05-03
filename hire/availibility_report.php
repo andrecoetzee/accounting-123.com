@@ -98,7 +98,7 @@ function display()
 	<center>
 	<h3>Availability Report</h3>
 	<table ".TMPL_tblDflts.">
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td bgcolor='#ff0000'>&nbsp;</td><td>Hired Out</td>
 			<td bgcolor='#00ff00'>&nbsp;</td><td>Available</td>
 			<td bgcolor='#ffa200'>&nbsp;</td><td>Booked</td>
@@ -111,7 +111,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td><b> To </b></td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
@@ -119,7 +119,7 @@ function display()
 		</tr>
 		<tr><td colspan='4'>
 		<table ".TMPL_tblDflts." width='100%'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' width='50%'>$group_sel</td>
 				<td colspan='2' width='50%'>$type_sel</td>
 			</tr>
@@ -152,7 +152,7 @@ function display()
 			continue;
 		}
 
-		$assets_out .= "<tr bgcolor='".bgcolorg()."'>
+		$assets_out .= "<tr class='".bg_class()."'>
 			<td align='center'>
 				".getSerial($asset_data["id"], 1)."<br />
 				$asset_data[des]
@@ -166,7 +166,7 @@ function display()
 
 	if (empty($assets_out)) {
 		$headers = "";
-		$assets_out .= "<tr bgcolor='".bgcolorg()."'>
+		$assets_out .= "<tr class='".bg_class()."'>
 			<td><li>No results found.</li></td>
 		</tr>";
 	}

@@ -16,12 +16,12 @@ function show_listing ()
 	$get_list = "SELECT * FROM public_holidays ORDER BY holiday_date";
 	$run_list = db_exec($get_list) or errDie("Unable to get public holiday list.");
 	if(pg_numrows($run_list) < 1){
-		$listing = "<tr bgcolor='".bgcolorg()."'><td colspan='4'>No Public Holidays Have Been Added.</td></tr>";
+		$listing = "<tr class='".bg_class()."'><td colspan='4'>No Public Holidays Have Been Added.</td></tr>";
 	}else {
 		$listing = "";
 		while ($parr = pg_fetch_array($run_list)){
 			$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$parr[holiday_name]</td>
 						<td>$parr[holiday_type]</td>
 						<td>$parr[holiday_date]</td>

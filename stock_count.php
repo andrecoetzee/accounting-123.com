@@ -39,7 +39,7 @@ function display()
 		}
 
 		$stock_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$stock_data[stkcod]</td>
 			<td>$stock_data[stkdes]</td>
 			<td>$stock_data[units]</td>

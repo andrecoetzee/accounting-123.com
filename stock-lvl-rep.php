@@ -89,7 +89,7 @@ function slct()
 	/* cut code
 	<input type=hidden name=key value=view>
 	<tr><th colspan=2>Store</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td align=center colspan=2>$whs</td></tr>
+	<tr class='bg-odd'><td align=center colspan=2>$whs</td></tr>
 	<tr><td><br></td></tr>
 	*/
 
@@ -105,7 +105,7 @@ function slct()
 						<tr>
 							<th colspan='2'>Criteria</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>Only show stock below minimun level</td>
 							<td valign='bottom'><input type='checkbox' name='min' checked></td>
 						</tr>
@@ -113,7 +113,7 @@ function slct()
 						<tr>
 							<th colspan='2'>By Category</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>$cats</td>
 							<td valign='bottom'><input type='submit' name='cat' value='View'></td>
 						</tr>
@@ -121,7 +121,7 @@ function slct()
 						<tr>
 							<th colspan='2'>By Classification</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>$class</td>
 							<td valign='bottom'><input type='submit' name='class' value='View'></td>
 						</tr>
@@ -129,7 +129,7 @@ function slct()
 						<tr>
 							<th colspan='2'>By Store</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'>$warehouses</td>
 							<td valign='bottom'><input type='submit' name='warehouse' value='View' /></td>
 						</tr>
@@ -137,7 +137,7 @@ function slct()
 						<tr>
 							<th colspan='2'>All Categories, Classifications and Stores</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center' colspan='2'>
 								<input type='submit' name='all' value='View All'>
 							</td>
@@ -152,10 +152,10 @@ function slct()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-report.php'>Stock Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -237,13 +237,13 @@ function printStk ($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='stock-lvl-rep.php'>Back</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='stock-report.php'>Stock Reports</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -256,7 +256,7 @@ function printStk ($_POST)
 		$avail = sprint3($stk['units'] - $stk['alloc']);
 
 		$printStk .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stk[stkcod]</td>
 				<td>$stk[stkdes]</td>
 				<td>$stk[classname]</td>
@@ -292,7 +292,7 @@ function printStk ($_POST)
 	}
 
 	$printStk .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'>Total:</td>
 				<td align='right'>".sprint3($tot_avail)."</td>
 			</tr>
@@ -311,10 +311,10 @@ function printStk ($_POST)
 	        <tr>
 	        	<th>Quick Links</th>
 	        </tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='stock-report.php'>Stock Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -392,13 +392,13 @@ function export ($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='stock-lvl-rep.php'>Back</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='stock-report.php'>Stock Reports</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";

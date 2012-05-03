@@ -71,7 +71,7 @@ function enter()
 			<form action='".SELF."' method=post>
 				<input type=hidden name=key value=confirm>
 				<tr><th colspan=2>Warn/Block on Customers Reaching Credit Limit</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'>
+				<tr class='bg-odd'>
 					<td><input type=radio size=20 name=choice value='warn' $warn>Warn on Reaching Limit</td>
 					<td><input type=radio size=20 name=choice value='block' $block>Block on Reaching Limit</td>
 				</tr>
@@ -127,7 +127,7 @@ function confirm($_POST)
 				<input type='hidden' name='key' value='write'>
 				<input type='hidden' name='choice' value='$choice'>
 				<tr><th colspan>Response</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>$typ</td></tr>
+				<tr class='bg-odd'><td align=center>$typ</td></tr>
 				<tr><td><br></td></tr>
 				<tr><td align=right colspan=2><input type=submit value='Confirm &raquo'></td></tr>
 			</form>

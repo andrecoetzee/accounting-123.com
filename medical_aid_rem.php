@@ -20,10 +20,10 @@ $OUTPUT .= "
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'><a href='medical_aid_add.php'>Add Medical Aid</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'><a href='medical_aid_view.php'>View Medical Aid Options</a></td>
 		</tr>
 	</table>";
@@ -61,27 +61,27 @@ function get_medical_aid_details ($_GET,$err="")
 			<tr>
 				<th colspan='2'>Medical Aid Information</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Medical Aid Name</td>
 				<td>$medical_aid_name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Medical Aid Contact Person</td>
 				<td>$medical_aid_contact_person</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Medical Aid Contact Number</td>
 				<td>$medical_aid_contact_number</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Medical Aid Bank Name</td>
 				<td>$medical_aid_bank_name</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Medical Aid Bank Account Number</td>
 				<td>$medical_aid_bank_account</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Medical Aid Bank Account Branch</td>
 				<td>$medical_aid_bank_branch</td>
 			</tr>

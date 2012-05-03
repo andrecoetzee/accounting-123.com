@@ -123,10 +123,10 @@ function printSord ($_POST)
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'><a href='corder-new.php'>New Consignment Order</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'><a href='main.php'>Main Menu</td>
 						</tr>
 					</table>";
@@ -140,7 +140,7 @@ function printSord ($_POST)
 				$sord['odate'] = $sord['odate'][2]."-".$sord['odate'][1]."-".$sord['odate'][0];
 
 				$printSord .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$sord[deptname]</td>
 								<td>$sord[salespn]</td>
 								<td>$sord[sordid]</td>
@@ -175,10 +175,10 @@ function printSord ($_POST)
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'><a href='corder-new.php'>New Consignment Order</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'><a href='main.php'>Main Menu</td>
 						</tr>
 					</table>";

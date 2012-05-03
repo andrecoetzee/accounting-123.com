@@ -70,7 +70,7 @@ function view()
 					<tr>
 						<th colspan='2'>By Date Range</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td width='95%' align='center'>
 							<table>
 								<tr>
@@ -82,7 +82,7 @@ function view()
 						</td>
 						<td rowspan='2' valign='bottom'><input type='submit' value='Search &raquo;'></td>
 					</tr>
-					<!--<tr bgcolor='".bgcolorg()."'>
+					<!--<tr class='".bg_class()."'>
 						<td>Select Period: ".finMonList("prd", PRD_DB)."</td>
 					</tr>-->
 				</table>
@@ -101,14 +101,14 @@ function view()
 					<tr>
 						<th colspan='2'>By Journal number</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td width='80%' align='center'>
 							From <input type='text' size='5' name='fromnum'>
 							to <input type='text' size='5' name='tonum'>
 						</td>
 						<td rowspan='2' valign='bottom'><input type='submit' value='Search &raquo;'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Select Period: ".finMonList("prd", PRD_DB)."</td>
 					</tr>
 				</table>
@@ -127,7 +127,7 @@ function view()
 					<tr>
 						<th colspan='2'>View All</th>
 					</tr>
-					<tr bgcolor='".TMPL_tblDataColor2."'>
+					<tr class='bg-even'>
 						<td>Select Period: ".finMonList("prd", PRD_DB)."</td>
 						<td rowspan='2' valign='bottom'><input type='submit' value='View All &raquo;'></td>
 					</tr>
@@ -296,13 +296,13 @@ function viewtrans($_POST)
 			$amount = sprint($amount);
 			$tot += $amount;
 			$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$date</td>
 					<td>$dtopacc/$daccnum&nbsp;&nbsp;&nbsp;$daccname</td>
 					<td align='right'>$custom_refnum</td>
 					<td align='right' nowrap>".CUR." $amount</td>
 					<td>&nbsp;</td>
-					<td bgcolor='".bgcolorg()."'>&nbsp;</td>
+					<td class='".bg_class()."'>&nbsp;</td>
 					<td>$date</td>
 					<td>$ctopacc/$caccnum&nbsp;&nbsp;&nbsp;$caccname</td>
 					<td align='right'>$refnum</td>
@@ -313,7 +313,7 @@ function viewtrans($_POST)
 
 		$tot = sprint($tot);
 		$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='right'>&nbsp;</td>
 					<td align='right'>&nbsp;</td>
 					<td align='right'>$ref[refnum]</td>
@@ -326,7 +326,7 @@ function viewtrans($_POST)
 					<td>&nbsp;</td>
 					<td align='right' nowrap>".CUR." $tot</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center' colspan='11'><br></td>
 				</tr>";
 

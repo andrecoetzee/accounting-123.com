@@ -114,7 +114,7 @@ function slct($err = "")
 	}
 	$depts .= "</select>";
 
-	//<tr bgcolor='".TMPL_tblDataColor1."' ".ass("Select when the sale of non stock goods is a bank sale")."><td><input type=radio name=ctyp value='cb'>Bank Sale</td><td>$banks</td></tr>
+	//<tr class='bg-odd' ".ass("Select when the sale of non stock goods is a bank sale")."><td><input type=radio name=ctyp value='cb'>Bank Sale</td><td>$banks</td></tr>
 
 
 	$details = "
@@ -131,15 +131,15 @@ function slct($err = "")
 			<tr>
 				<th colspan='2'> Invoice Details </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."' ".ass("Select when selling non stock goods to your customers").">
+			<tr class='".bg_class()."' ".ass("Select when selling non stock goods to your customers").">
 				<td><input type='radio' name='ctyp' value='s' checked='yes'> Select Customer</td>
 				<td>$custs</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."' ".ass("Select when the sale of non stock goods is a cash sale").">
+			<tr class='".bg_class()."' ".ass("Select when the sale of non stock goods is a cash sale").">
 				<td><input type='radio' name='ctyp' value='c'>Cash Sale</td>
 				<td>$depts</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."' ".ass("Select when the sale of non stock goods is not a cash sale").">
+			<tr class='".bg_class()."' ".ass("Select when the sale of non stock goods is not a cash sale").">
 				<td><input type='radio' name='ctyp' value='ac'>Ledger Accounts Sale</td>
 				<td></td>
 			</tr>
@@ -147,7 +147,7 @@ function slct($err = "")
 			<tr>
 				<th colspan='2'>Search by surname</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' size='10' name='letters' value='$letters'></td>
 				<td><input type='submit' value='Search &raquo;'></td>
 			</tr>
@@ -373,7 +373,7 @@ function details($_POST, $error="")
 
 		# put in product
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='50' name='des[]' value='$stkd[description]'></td>
 				<td align='center'><input type='text' size='3' name='qtys[]' value='$stkd[qty]'></td>
 				<td align='center'><input type='text' size='8' name='unitcost[]' value='$stkd[unitcost]'></td>
@@ -413,7 +413,7 @@ function details($_POST, $error="")
 
 		# add one
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='50' name='des[]' value=''></td>
 				<td align='center'><input type='text' size='3' name='qtys[]' value='1'></td>
 				<td align='center'><input type='text' size='8' name='unitcost[]'></td>
@@ -455,15 +455,15 @@ function details($_POST, $error="")
 			<input type='hidden' name='cusname' value='$cust[surname]'>
 			<input type='hidden' name='cusaddr' value='$cust[addr1]'>
 			<input type='hidden' name='cusvatno' value='$cust[vatnum]'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td valign='center'>$cust[surname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer Address</td>
 				<td valign='center'><pre>$cust[addr1]</pre></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer Vat Number</td>
 				<td valign='center'>$cust[vatnum]</td>
 			</tr>";
@@ -477,15 +477,15 @@ function details($_POST, $error="")
 			<tr>
 				<th colspan='2'> Customer Details </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td valign='center'><input type='text' name='cusname' value='$inv[cusname]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Customer Address</td>
 				<td valign='center'><textarea name='cusaddr' cols='18' rows='3'>$inv[cusaddr]</textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Customer VAT No.</td>
 				<td valign='center'><input type='text' name='cusvatno' value='$inv[cusvatno]'></td>
 			</tr>";
@@ -510,19 +510,19 @@ function details($_POST, $error="")
 			<tr>
 				<th colspan='2'> Customer Details </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td valign='center'><input type='text' name='cusname' value='$inv[cusname]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Customer Address</td>
 				<td valign='center'><textarea name='cusaddr' cols='18' rows='3'>$inv[cusaddr]</textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Customer VAT No.</td>
 				<td valign='center'><input type='text' name='cusvatno' value='$inv[cusvatno]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Ledger Account</td>
 				<td>$accountss</td>
 			</tr>";
@@ -552,7 +552,7 @@ function details($_POST, $error="")
 			$cd = pg_fetch_array($Rq);
 
 			$ctd .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$data[centername]</td>
 					<td><input type='text' name='ct[$data[ccid]]' size='5' value='$cd[amount]'>%</td>
 				</tr>";
@@ -603,7 +603,7 @@ function details($_POST, $error="")
 				<td valign='top'>
 					<table ".TMPL_tblDflts.">
 						$details
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Customer Order number</td>
 							<td valign='center'><input type='text' size='10' name='cordno' value='$inv[cordno]'></td>
 						</tr>
@@ -614,23 +614,23 @@ function details($_POST, $error="")
 						<tr>
 							<th colspan='2'> Non-Stock Invoice Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Recurring Non-Stock Invoice No.</td>
 							<td valign='center'>RI $inv[invid]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Proforma Invoice No.</td>
 							<td><input type='text' name='docref' value='$inv[docref]'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td valign='center'>".mkDateSelect("rinv",$rinv_year,$rinv_month,$rinv_day)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Inclusive</td>
 							<td valign='center'>Yes <input type='radio' size='7' name='chrgvat' value='yes' $chy> No<input type='radio' size='7' name='chrgvat' value='no' $chn></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Terms</td>
 							<td valign='center'>$termssel Days</td>
 						</tr>
@@ -654,23 +654,23 @@ function details($_POST, $error="")
 							<td rowspan='5' valign='top' width='50%'>$error</td>
 						</tr>
 						<tr>
-							<td bgcolor='".bgcolorg()."'><a href='rec-nons-invoice-view.php'>View Recurring Non-Stock Invoices</a></td>
-							<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$comment</textarea></td>
+							<td class='".bg_class()."'><a href='rec-nons-invoice-view.php'>View Recurring Non-Stock Invoices</a></td>
+							<td class='".bg_class()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$comment</textarea></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>
 					</table>
 				</td>
 				<td align='right'>
 					<table ".TMPL_tblDflts." width='80%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>SUBTOTAL</td>
 							<td align='right'>".CUR." <input type='hidden' name='subtot' value='$SUBTOT'>$SUBTOT</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT $vat14</td>
 							<td align='right'>".CUR." $inv[vat]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th>GRAND TOTAL</th>
 							<td align='right'>".CUR." <input type='hidden' name='total' value='$TOTAL'>$TOTAL</td>
 						</tr>
@@ -1037,7 +1037,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 				<tr>
 					<th>New Recurring Non-Stock Invoice</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Recurring Non-Stock Invoices for Customer <b>$cusname</b> has been recorded.</td>
 				</tr>
 			</table>
@@ -1046,10 +1046,10 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='rec-nons-invoice-new.php'>New Recurring Non-Stock Invoice</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='rec-nons-invoice-view.php'>View Recurring Non-Stock Invoices</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>

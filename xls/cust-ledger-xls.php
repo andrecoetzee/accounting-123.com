@@ -84,10 +84,10 @@ function slctacc()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=viewtran>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Customers</td><td><input type=radio name=accnt value=slct checked=yes>Selected Accounts | <input type=radio name=accnt value=all>All Accounts</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Select Customer(s)</td><td>$custs</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Select period</td><td>$prds</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Order By</td><td>Transaction Date<input type=radio name=t checked value='t'>System Date<input type=radio name=t value='s'></td></tr>
+	<tr class='bg-even'><td valign=top>Customers</td><td><input type=radio name=accnt value=slct checked=yes>Selected Accounts | <input type=radio name=accnt value=all>All Accounts</td></tr>
+	<tr class='bg-odd'><td valign=top>Select Customer(s)</td><td>$custs</td></tr>
+	<tr class='bg-even'><td>Select period</td><td>$prds</td></tr>
+	<tr class='bg-odd'><td>Order By</td><td>Transaction Date<input type=radio name=t checked value='t'>System Date<input type=radio name=t value='s'></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td></td><td align=right><input type=submit value='Continue &raquo;'></td></tr>
 	</table>

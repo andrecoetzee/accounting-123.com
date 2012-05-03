@@ -120,11 +120,11 @@ function slct()
 						<tr>
 							<th colspan='2'>Store</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center' colspan='2'>$whs</td>
 						</tr>
 						<tr><td><br></td></tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center' colspan='2'>
 								<input type='text' size='2' name='fday' maxlength='2' value='1'>-
 								<input type='text' size='2' name='fmon' maxlength='2'  value='".date("m")."'>-
@@ -139,7 +139,7 @@ function slct()
 						<tr>
 							<th colspan='2'>All Categories and Classifications</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center' colspan='2'><input type='submit' name='all' value='View All'></td>
 						</tr>
 					</form>
@@ -212,7 +212,7 @@ function printStk ($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='sales-reports.php'>Sales Reports</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>

@@ -34,7 +34,7 @@ function display()
 		if (!isOverdue($overdue_data["id"])) continue;
 
 		$overdue_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$overdue_data[accno]</td>
 			<td>$overdue_data[surname]</td>
 			<td>$overdue_data[bustel]</td>
@@ -45,7 +45,7 @@ function display()
 	}
 
 	if (empty($overdue_out)) {
-		$overdue_out = "<tr bgcolor='".bgcolorg()."'>
+		$overdue_out = "<tr class='".bg_class()."'>
 			<td colspan='6'><li>No results found.</li></td>
 		</tr>";
 	}
@@ -55,7 +55,7 @@ function display()
 	<form method='post' action='".SELF."'>
 	<table ".TMPL_tblDflts.">
 		<tr><th colspan='2'>Search</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='search' value='$search' /></td>
 			<td>
 				<input type='submit' value='Search' style='font-weight: bold' />

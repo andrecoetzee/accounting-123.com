@@ -72,7 +72,7 @@ function display()
 		$reports_out .= "
 		<table ".TMPL_tblDflts." width='100%' style='border: 1px solid #fff'>
 			<tr><th>".nice_name($name)."</th></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<span style='font-size: 0.9em; letter-spacing: -0.065em'>
 						$description

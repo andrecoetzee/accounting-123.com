@@ -44,10 +44,10 @@ function get_setting_val ($err="")
 			<tr>
 				<th>Change Setting</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='operation_setting' value='checked' $sel1>Checked By Default</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='operation_setting' value='not_checked' $sel2>Unchecked By Default</td>
 			</tr>
 			".TBL_BR."

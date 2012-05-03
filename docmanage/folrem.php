@@ -71,8 +71,8 @@ $viewFolder .= "
 	 <table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	 <form action='".SELF."' method='post'>
 	 <input type=hidden name=key  value='confirm'>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Folder Name</td><td align=center><input type=text size=27 name=folname value='$Data[folname]'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."' ><td >Document Type</td><td align=center>
+	 <tr class='bg-odd'><td>Folder Name</td><td align=center><input type=text size=27 name=folname value='$Data[folname]'></td></tr>
+	 <tr class='bg-even' ><td >Document Type</td><td align=center>
 		<select name=doctype  value='$Data[doctype]' size='5' multiple='1'>
 		<option value='def' selected>Default</option>
 		<option value='inv' >Invoice</option>
@@ -175,7 +175,7 @@ function deleteFolder() {
 	$link="<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='docman-index.php'>Document Management</a></td></tr>";
+	<tr class='bg-odd'><td><a href='docman-index.php'>Document Management</a></td></tr>";
 	
 	print $link;
 

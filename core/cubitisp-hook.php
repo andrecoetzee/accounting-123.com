@@ -105,8 +105,8 @@ $slctCat =
 <input type=hidden name='tab' value='$tab'>
 <input type=hidden name='payname' value='$payname'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Type</td><td>$tab</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Category Name</td><td><select name=catid>";
+<tr class='bg-odd'><td>Account Type</td><td>$tab</td></tr>
+<tr class='bg-even'><td>Category Name</td><td><select name=catid>";
 core_connect();
 $sql = "SELECT * FROM $tab ORDER BY catid";
 $catRslt = db_exec($sql) or errDie("Could not retrieve Categories Information from the Database.",SELF);
@@ -171,8 +171,8 @@ function slctAcc($_POST)
 <input type=hidden name='catid' value='$catid'>
 <input type=hidden name='payname' value='$payname'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Type</td><td>$tab</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Name</td><td><select name=accnum>";
+<tr class='bg-odd'><td>Account Type</td><td>$tab</td></tr>
+<tr class='bg-even'><td>Account Name</td><td><select name=accnum>";
         $type = strtoupper($type);
         core_connect();
         $sql = "SELECT * FROM accounts WHERE catid='$catid' AND acctype ='$type'";
@@ -258,10 +258,10 @@ $confirm =
 <input type=hidden name='note' value='$note'>
 <input type=hidden name='payname' value='$payname'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Type</td><td>$tab</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Category ID</td><td>$catid</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Account</td><td>$accc[accname]</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2>$note</td></tr>
+<tr class='bg-odd'><td>Account Type</td><td>$tab</td></tr>
+<tr class='bg-even'><td>Category ID</td><td>$catid</td></tr>
+<tr class='bg-odd'><td>Account</td><td>$accc[accname]</td></tr>
+<tr class='bg-even'><td colspan=2>$note</td></tr>
 <tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right><input type=submit value='Add Link &raquo'></td></tr>
 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
 <tr><th>Quick Links</th></tr>

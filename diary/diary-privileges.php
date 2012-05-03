@@ -96,7 +96,7 @@ function enter($err) {
 	<tr>
 		<th colspan=3>Details</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>$select_user</td>
 		<td colspan=2>$select_privilege</td>
 	</tr>

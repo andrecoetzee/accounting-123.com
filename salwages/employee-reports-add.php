@@ -101,35 +101,35 @@ function enterReport ($submitter="", $submitter2="", $submitter3="", $submitter4
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$employees</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td align='center'>".DATE_STD."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type of report</td>
 				<td align='center'>$report_types</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Person submitting report</td>
 				<td align='center'><input type='text' size='20' name='submitter' value='$submitter'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Other person responsible for report</td>
 				<td align='center'><input type='text' size='20' name='submitter2' value='$submitter2'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Other person responsible for report</td>
 				<td align='center'><input type='text' size='20' name='submitter3' value='$submitter3'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Other person responsible for report</td>
 				<td align='center'><input type='text' size='20' name='submitter4' value='$submitter4'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Details of report</td>
 				<td align='center'><textarea name='report' cols='40' rows='20'>$report</textarea></td>
 			</tr>
@@ -206,35 +206,35 @@ function confirmReport ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$myEmp[enum]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td align='center'>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type of report</td>
 				<td align='center'>$type</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Person submitting report</td>
 				<td align='center'>$submitter</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Other person responsible for report</td>
 				<td align='center'>$submitter2</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Other person responsible for report</td>
 				<td align='center'>$submitter3</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Other person responsible for report</td>
 				<td align='center'>$submitter4</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Details of report</td>
 				<td align='center'>".nl2br ($report)."</td>
 			</tr>

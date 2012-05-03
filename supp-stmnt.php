@@ -210,12 +210,12 @@ function printStmnt ($_GET)
 				<input type='hidden' name='to_month' value='$to_month'>
 				<input type='hidden' name='to_day' value='$to_day'>
 			<table ".TMPL_tblDflts." style='border: 1px solid #000'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 					<td align='center'>&nbsp; <b>To</b> &nbsp;</td>
 					<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'>
 						<input type='button'  value='Print' onClick=\"javascript:document.location.href='supp-stmnt.php?supid=$supid&print=yes&from_year=$from_year&from_month=$from_month&from_day=$from_day&to_year=$to_year&to_month=$to_month&to_day=$to_day'\" />
 					</td>

@@ -289,7 +289,7 @@ function show_emp_listing ($_POST)
 				$subsistence
 				$deductions
 				$fringebens
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$emp[enum]</td>
 					<td>$emp[fnames] $emp[sname]</td>
 					<td>$emp[hiredate]</td>
@@ -323,7 +323,7 @@ function show_emp_listing ($_POST)
 		if (isset ($emp_group) AND is_array($perms) AND $emp_group != "0"){
 			if (!in_array($emp_group,$perms)){
 				$listing = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='4'><li class='err'>You Do Not Have Permission To View This Payroll Group.</td>
 					</tr>";
 			}
@@ -343,14 +343,14 @@ function show_emp_listing ($_POST)
 			<tr>
 				<th colspan='2'>Employee Group</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>$emp_group_drop</td>
 			</tr>
 			".TBL_BR."
 			<tr>
 				<th colspan='3'>Sort By</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' onChange='document.form1.submit();' name='sort' $sel1 value='enum'> Employee Number</td>
 				<td><input type='radio' onChange='document.form1.submit();' name='sort' $sel2 value='fnames'> Employee Name</td>
 				<td><input type='radio' onChange='document.form1.submit();' name='sort' $sel3 value='sname'> Employee Surname</td>
@@ -662,7 +662,7 @@ function multiple_salary($counter=0,$empnum=0)
 		<tr>
 			<th colspan='2'>General Salary and Allowances</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><b>Remuneration per Annum</b></td>
 			<td>
 				<table><tr>
@@ -672,22 +672,22 @@ function multiple_salary($counter=0,$empnum=0)
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Salary Calculation</td>
 			<td>$saltyp</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Pay Period</td>
 			<td valign='top'>
 				$payprd
 				<div id='div_payprd_day'>$payprd_day</div>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Pay Type</td>
 			<td valign='center'>$paytypes</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Annual Bonus</td>
 			<td>
 				<table><tr>
@@ -697,7 +697,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Bonus - Month</td>
 			<td>$bonus_month</td>
 		</tr>
@@ -717,11 +717,11 @@ function multiple_salary($counter=0,$empnum=0)
 		<tr>
 			<th colspan='2'>Fringe Benefits</th>
 		</tr>
-	  	<tr bgcolor='".bgcolorg()."'>
+	  	<tr class='".bg_class()."'>
 	  		<td>Medical Contribution</td>
 	  		<td align='right'><div id='div_fringe_medaid'>".CUR."0.00</div></td>
 	  	</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Motorcar 1 Determined Value</td>
 			<td>
 				<table><tr>
@@ -731,7 +731,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>- Contributions for Use</td>
 			<td>
 				<table><tr>
@@ -741,7 +741,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>- Pays for own Fuel</td>
 			<td>
 				<table><tr>
@@ -756,7 +756,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</tr></table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>- Pays for Servicing</td>
 			<td>
 				<table>
@@ -779,7 +779,7 @@ function multiple_salary($counter=0,$empnum=0)
 	  			manually adjusted when processing salary.</li>
 	  		</td>
 	  	</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Motorcar 2 Determined Value</td>
 			<td>
 				<table>
@@ -791,7 +791,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>- Contributions for Use</td>
 			<td>
 				<table>
@@ -803,7 +803,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>- Pays for own Fuel</td>
 			<td>
 				<table>
@@ -820,7 +820,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>- Pays for Servicing</td>
 			<td>
 				<table><tr>
@@ -841,7 +841,7 @@ function multiple_salary($counter=0,$empnum=0)
 
   		$OUTPUT .= "
 	  		<input type='hidden' name='fringeid[$fid]' value=''>
-	  		<tr bgcolor='".bgcolorg()."'>
+	  		<tr class='".bg_class()."'>
 	  			<td><div id='divfrin[$fid]'></div></td>
 	  			<td>
 	  				<table>
@@ -860,7 +860,7 @@ function multiple_salary($counter=0,$empnum=0)
 		<tr>
 			<th colspan='2'>Allowances</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Travel Allowance</td>
 			<td>
 				<table>
@@ -891,7 +891,7 @@ function multiple_salary($counter=0,$empnum=0)
 		$OUTPUT .= "
 			<input type='hidden' name='allowid[$aid]' value=''>
 			<input type='hidden' name='allowaccid[$aid]' value='$aidaccid'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><div id='divall[$aid]'></div></td>
 				<td>
 					<table>
@@ -918,7 +918,7 @@ function multiple_salary($counter=0,$empnum=0)
 		$OUTPUT .= "
 			<input type='hidden' name='subsname[$sid]' value=''>
 			<input type='hidden' name='subsacc[$sid]' value=''>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><div id='subsname[$sid]'></div></td>
 				<td>
 					<table>
@@ -937,7 +937,7 @@ function multiple_salary($counter=0,$empnum=0)
 		<tr>
 			<th colspan='2'>Deductions: Company Contributions</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>SDL</td>
 			<td>
 				<table>
@@ -949,7 +949,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>UIF</td>
 			<td>
 				<table>
@@ -961,7 +961,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Pension Fund</td>
 			<td>
 				<table>
@@ -973,7 +973,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Retirement Annuity Fund</td>
 			<td>
 				<table>
@@ -985,7 +985,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Medical Contribution</td>
 			<td>
 				<table>
@@ -997,7 +997,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Provident Fund</td>
 		<td>
 			<table>
@@ -1029,7 +1029,7 @@ function multiple_salary($counter=0,$empnum=0)
 
 	/*
 	$OUTPUT .= "
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Other</td>
 		<td>
 			<table></tr>
@@ -1046,7 +1046,7 @@ function multiple_salary($counter=0,$empnum=0)
 		<tr>
 			<th colspan='2'>Deductions: Employee Contributions</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>UIF</td>
 			<td>
 				<table>
@@ -1058,7 +1058,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Pension Fund</td>
 			<td>
 				<table>
@@ -1070,7 +1070,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Retirement Annuity Fund</td>
 			<td>
 				<table>
@@ -1082,7 +1082,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Medical Contribution</td>
 			<td>
 				<table>
@@ -1094,7 +1094,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td> - Total Benificiaries<br>(Including Member)</td>
 			<td>
 				<table>
@@ -1106,7 +1106,7 @@ function multiple_salary($counter=0,$empnum=0)
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Provident Fund</td>
 			<td>
 				<table>
@@ -1126,7 +1126,7 @@ function multiple_salary($counter=0,$empnum=0)
 			<input type='hidden' name='deductid[$did]' value=''>
 			<input type='hidden' name='deducttype[$did]' value=''>
 			<input type='hidden' name='deductaccid[$did]' value=''>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><div id='divded[$did]'></div></td>
 				<td>
 					<table>
@@ -1141,7 +1141,7 @@ function multiple_salary($counter=0,$empnum=0)
 	}
 
 /*	$OUTPUT .= "
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Other</td>
 		<td>
 			<table><tr>

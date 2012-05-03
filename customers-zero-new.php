@@ -262,7 +262,7 @@ function enter($err = "")
 
 	if (isset($cusnum)) {
 		$bran = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Branches</td>
 			<td><input type='button' onClick=\"window.open('cust-branch-add.php?cusnum=$cusnum','','width=380,height=300,status=1')\" value='Add Branch'><input type=button onClick=\"window.open('cust-branch-view.php?cusnum=$cusnum','','width=500,height=400,status=1')\" value='View Branch'></td>
 		</tr>";
@@ -303,51 +303,51 @@ function enter($err = "")
 		<tr valign='top'>
 			<td>
 			<table ".TMPL_tblDflts." width='100%'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".REQ."Department</td>
 					<td>$depts</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".REQ."Acc No</td>
 					<td><input type='text' size='20' name='accno' value='$accno' /></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".REQ."Company/Name</td>
 					<td><input type='text' size='20' name='surname' value='$surname' /></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".REQ."Registration/ID</td>
 					<td><input type='text' size='20' name='registration' value='$registration'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".REQ."Title $titles</td>
 					<td>Initials <input type='text' size='15' name='init' value='$init' /></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".REQ."Type</td>
 					<td>$locsel</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".REQ."Currency</td>
 					<td>$currsel</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."' ".ass("Categories are used to group customers. For example: PTA,JHB,CT").">
+				<tr class='".bg_class()."' ".ass("Categories are used to group customers. For example: PTA,JHB,CT").">
 					<td>".REQ."Category</td>
 					<td>$cats</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."' ".ass("Classifications are used to group customers. For example: Wholesale,Retail").">
+				<tr class='".bg_class()."' ".ass("Classifications are used to group customers. For example: Wholesale,Retail").">
 					<td>".REQ."Classification</td>
 					<td>$classlist</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Link to Sales rep</td>
 					<td>$sales_reps</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>".REQ."Postal Address</td>
 					<td valign='center'><textarea rows='4' cols='19' name='paddr1'>$paddr1</textarea></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>
 						".REQ."Physical Address<br>
 						<font size='-2'>
@@ -357,16 +357,16 @@ function enter($err = "")
 					</td>
 					<td valign='center'><textarea rows='4' cols='19' name='addr1'>$addr1</textarea></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>Delivery Address</td>
 					<td valign='center'><textarea rows='4' cols='19' name='del_addr1'>$del_addr1</textarea></td>
 				</tr>
 				$bran
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Team Permissions</td>
 					<td>$team_sel</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>Comments</td>
 					<td valign='center'><textarea rows='4' cols='19' name='comments'>$comments</textarea></td>
 				</tr>
@@ -374,91 +374,91 @@ function enter($err = "")
 			</td>
 			<td>
 			<table ".TMPL_tblDflts." width='100%'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".REQ."VAT Number</td>
 					<td><input type='text' size='21' name='vatnum' value='$vatnum' /></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".REQ."Business Tel.</td>
 					<td><input type='text' size='21' name='bustel' value='$bustel' /></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Contact Name</td>
 					<td><input type='text' size='21' name='contname' value='$contname' /></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Home Tel.</td>
 					<td><input type='text' size='21' name='tel' value='$tel' /></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Cell No.</td>
 					<td><input type='text' size='21' name='cellno' value='$cellno' /></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Fax No.</td>
 					<td><input type='text' size='21' name='fax' value='$fax' /></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>E-mail</td>
 					<td><input type='text' size='21' name='email' value='$email' /></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Web Address</td>
 					<td>http://<input type='text' size='30' name='url' value='$url' /></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."' ".ass("When invoicing prices comes from the pricelist. Add more at stock settings.").">
+				<tr class='".bg_class()."' ".ass("When invoicing prices comes from the pricelist. Add more at stock settings.").">
 					<td>".REQ."Price List</td>
 					<td>$pricelists</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td ".ass("This is the default discount on invoices, but can be changed per invoice").">Trade Discount &nbsp;<input type='text' size='6' name='traddisc' value='$traddisc' />%</td>
 					<td>Settlement Discount <input type='text' size='7' name='setdisc' value='$setdisc' />%</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".REQ."Charge Interest : Yes <input type='radio' name='chrgint' value='yes' ".($chrgint=="yes"?"checked='t'":"")." /> No<input type='radio' name='chrgint' value='no' ".($chrgint!="yes"?"checked='t'":"")." /></td>
 					<td ".ass("Depending on interest settings, invoices older than this will get interest.").">Overdue &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$overdues</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."' ".ass("Depending on interest settings, this is the interest this client will be charged.").">
+				<tr class='".bg_class()."' ".ass("Depending on interest settings, this is the interest this client will be charged.").">
 					<td>Interest Rate</td>
 					<td><input type='text' size='7' name='intrate' value='$intrate' />%</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account Open Date</td>
 					<td>".mkDateSelect("o", $o_year, $o_month, $o_day)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Credit Term &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$credterms</td>
 					<td>Credit Limit: 0<input type='hidden' name='credlimit' value='0'/></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Lead Source</td>
 					<td>$select_source</td>
 				</tr>
 				<tr><Td><br></td></tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<th colspan='2'> Bank Details</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bank </td>
 					<td><input type='text' size='20' name='bankname' value='$bankname'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Branch</td>
 					<td><input type='text' size='20' name='branname' value='$branname'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Branch Code</td>
 					<td><input type='text' size='20' name='brancode' value='$brancode'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account Name</td>
 					<td><input type='text' size='20' name='bankaccname' value='$bankaccname'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account Number</td>
 					<td><input type='text' size='20' name='bankaccno' value='$bankaccno'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Account Type</td>
 					<td><input type='text' size='20' name='bankacctype' value='$bankacctype'></td>
 				</tr>
@@ -654,75 +654,75 @@ function confirm()
 		<tr valign='top'>
 			<td>
 				<table ".TMPL_tblDflts." width='100%'>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Department</td>
 						<td>$deptname</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Acc No</td>
 						<td>$accno</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Company/Name</td>
 						<td>$surname</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Registration/ID</td>
 						<td>$registration</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Title</td>
 						<td>$title</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Initials</td>
 						<td>$init</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Type</td>
 						<td>$locs[$location]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Currency</td>
 						<td>$curr[symbol] - $curr[name]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Category</td>
 						<td>$catname</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Classification</td>
 						<td>$classname</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Link to Sales rep</td>
 						<td>$salesperson</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td valign='top'>Postal Address</td>
 						<td valign='center'>".nl2br($paddr1)."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td valign='top'>Physical Address</td>
 						<td valign='center'>".nl2br($addr1)."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td valign='top'>Delivery Address</td>
 						<td valign='center'>".nl2br($del_addr1)."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>VAT Number</td>
 						<td>$vatnum</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Contact Name</td>
 						<td>$contname</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Business Tel.</td>
 						<td>$bustel</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Team Permissions</td>
 						<td>$team_data[name]</td>
 					</tr>
@@ -733,94 +733,94 @@ function confirm()
 			</td>
 			<td>
 				<table ".TMPL_tblDflts." width='100%'>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Home Tel.</td>
 						<td>$tel</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Cell No.</td>
 						<td>$cellno</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Fax No.</td>
 						<td>$fax</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>E-mail</td>
 						<td>$email</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Web Address</td>
 						<td>http://$url</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Trade Discount</td>
 						<td>$traddisc%</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Settlement Discount</td>
 						<td>$setdisc%</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Price List</td>
 						<td>$plist</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Charge Interest</td>
 						<td>$chrgint</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Interest Rate</td>
 						<td>$intrate%</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Overdue</td>
 						<td>$overdue</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Account Open Date</td>
 						<td>$odate</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Credit Term</td>
 						<td>$credterm</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Credit Limit</td>
 						<td>$credlimit</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Lead Source</td>
 						<td>".crm_get_leadsrc($lead_source)."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<th colspan='2'> Bank Details</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Bank </td>
 						<td>$bankname</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Branch</td>
 						<td>$branname</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Branch Code</td>
 						<td>$brancode</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Account Name</td>
 						<td>$bankaccname</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Account Number</td>
 						<td>$bankaccno</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Account Type</td>
 						<td>$bankacctype</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Comments</td>
 						<td>".nl2br($comments)."</td>
 					</tr>
@@ -843,7 +843,7 @@ function confirm()
 
 					$cdoc_out = "";
 					while ($cdoc_data = pg_fetch_array($cdoc_rslt)) {
-						$cdoc_out .= "<tr bgcolor='".bgcolorg()."'>
+						$cdoc_out .= "<tr class='".bg_class()."'>
 							<td>
 								<a href='cust_doc_get.php?id=$cdoc_data[id]&tmp=1&table=$cdoc_data[table]'>
 									$cdoc_data[filename]
@@ -858,7 +858,7 @@ function confirm()
 					}
 
 					if (empty($cdoc_out)) {
-						$cdoc_out .= "<tr bgcolor='".bgcolorg()."'>
+						$cdoc_out .= "<tr class='".bg_class()."'>
 							<td colspan='3'><li>No documents added</li></td>
 						</tr>";
 					}
@@ -877,7 +877,7 @@ function confirm()
 							<th>Upload</th>
 							<th>&nbsp;</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='text' name='doc_filename'></td>
 							<td><input type='file' name='doc_file'></td>
 							<td colspan='2' align='center'>

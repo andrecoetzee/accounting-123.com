@@ -50,7 +50,7 @@ function display()
 			$inv_data = pg_fetch_array($inv_rslt);
 
 			while ($asset_data = pg_fetch_array($asset_rslt)) {
-				$$collection .= "<tr bgcolor='".bgcolorg()."'>
+				$$collection .= "<tr class='".bg_class()."'>
 					<td>H".getHirenum($inv_data["invid"], 1)."</td>
 					<td>$asset_data[des]</td>
 					<td>$inv_data[cusname] $inv_data[surname]</td>
@@ -61,7 +61,7 @@ function display()
 		}
 
 		if (empty($$collection)) {
-			$$collection = "<tr bgcolor='".bgcolorg()."'>
+			$$collection = "<tr class='".bg_class()."'>
 				<td colspan='5'><li>No results found.</li></td>
 			</tr>";
 		}
@@ -72,7 +72,7 @@ function display()
 	<form method='post' action='".SELF."'>
 	<table ".TMPL_tblDflts.">
 		<tr><th colspan='2'>Date</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("date", $date_year, $date_month, $date_day)."</td>
 			<td><input type='submit' value='Select' style='font-weight: bold' /></td>
 		</tr>

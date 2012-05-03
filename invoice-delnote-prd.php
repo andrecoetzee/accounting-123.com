@@ -134,7 +134,7 @@ function details($_GET)
 			}
 
 			# Put in product
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td>$wh[whname]</td><td><input type=hidden name=ids[] value='$stkd[id]'><input type=hidden name=stkids[] value='$stk[stkid]'>$stk[stkcod]</td><td>$stk[stkdes]</td><td><input type=hidden size=4 name=qts[] value='$stkd[qty]'><input type=text size=4 name=qtys[] value='$stkd[qty]'></td></tr>";
+			$products .="<tr class='bg-odd'><td>$wh[whname]</td><td><input type=hidden name=ids[] value='$stkd[id]'><input type=hidden name=stkids[] value='$stk[stkid]'>$stk[stkcod]</td><td>$stk[stkdes]</td><td><input type=hidden size=4 name=qts[] value='$stkd[qty]'><input type=text size=4 name=qtys[] value='$stkd[qty]'></td></tr>";
 		}
 	$products .= "</table>";
 
@@ -176,18 +176,18 @@ function details($_GET)
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Customer Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Department</td><td valign=center>$inv[deptname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer</td><td valign=center>$inv[cusname] $inv[surname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Customer Address</td><td valign=center>".nl2br($inv['cusaddr'])."</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Order number</td><td valign=center>$inv[cordno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer VAT Number</td><td>$inv[cusvatno]</td></tr>
+			<tr class='bg-odd'><td>Department</td><td valign=center>$inv[deptname]</td></tr>
+			<tr class='bg-even'><td>Customer</td><td valign=center>$inv[cusname] $inv[surname]</td></tr>
+			<tr class='bg-odd'><td valign=top>Customer Address</td><td valign=center>".nl2br($inv['cusaddr'])."</td></tr>
+			<tr class='bg-even'><td>Customer Order number</td><td valign=center>$inv[cordno]</td></tr>
+			<tr class='bg-odd'><td>Customer VAT Number</td><td>$inv[cusvatno]</td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Invoice Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Order No.</td><td valign=center>$inv[ordno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Sales Person</td><td valign=center>$inv[salespn]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Note Date</td><td valign=center><input type=text size=2 name=oday maxlength=2 value='".date("d")."'>-<input type=text size=2 name=omon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=oyear maxlength=4 value='".date("Y")."'> DD-MM-YYYY</td></tr>
+			<tr class='bg-odd'><td>Order No.</td><td valign=center>$inv[ordno]</td></tr>
+			<tr class='bg-even'><td>Sales Person</td><td valign=center>$inv[salespn]</td></tr>
+			<tr class='bg-odd'><td>Delivery Note Date</td><td valign=center><input type=text size=2 name=oday maxlength=2 value='".date("d")."'>-<input type=text size=2 name=omon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=oyear maxlength=4 value='".date("Y")."'> DD-MM-YYYY</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -198,8 +198,8 @@ function details($_GET)
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<p>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cust-credit-stockinv.php'>New Invoice</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
+			<tr class='bg-odd'><td><a href='cust-credit-stockinv.php'>New Invoice</a></td></tr>
+			<tr class='bg-odd'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td></tr>
@@ -287,7 +287,7 @@ function error($_GET, $err = "")
 			}
 
 			# Put in product
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td>$wh[whname]</td><td><input type=hidden name=ids[] value='$stkd[id]'><input type=hidden name=stkids[] value='$stk[stkid]'>$stk[stkcod]</td><td>$stk[stkdes]</td><td><input type=hidden name=sers[$stkd[stkid]][] value='$stkd[serno]'>$stkd[serno]</td><td><input type=hidden size=4 name=qts[] value='$stkd[qty]'><input type=text size=4 name=qtys[] value='$stkd[qty]'></td></tr>";
+			$products .="<tr class='bg-odd'><td>$wh[whname]</td><td><input type=hidden name=ids[] value='$stkd[id]'><input type=hidden name=stkids[] value='$stk[stkid]'>$stk[stkcod]</td><td>$stk[stkdes]</td><td><input type=hidden name=sers[$stkd[stkid]][] value='$stkd[serno]'>$stkd[serno]</td><td><input type=hidden size=4 name=qts[] value='$stkd[qty]'><input type=text size=4 name=qtys[] value='$stkd[qty]'></td></tr>";
 		}
 	$products .= "</table>";
 
@@ -343,18 +343,18 @@ function error($_GET, $err = "")
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Customer Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Department</td><td valign=center>$inv[deptname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer</td><td valign=center>$inv[cusname] $inv[surname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Customer Address</td><td valign=center>".nl2br($inv['cusaddr'])."</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Order number</td><td valign=center>$inv[cordno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer VAT Number</td><td>$inv[cusvatno]</td></tr>
+			<tr class='bg-odd'><td>Department</td><td valign=center>$inv[deptname]</td></tr>
+			<tr class='bg-even'><td>Customer</td><td valign=center>$inv[cusname] $inv[surname]</td></tr>
+			<tr class='bg-odd'><td valign=top>Customer Address</td><td valign=center>".nl2br($inv['cusaddr'])."</td></tr>
+			<tr class='bg-even'><td>Customer Order number</td><td valign=center>$inv[cordno]</td></tr>
+			<tr class='bg-odd'><td>Customer VAT Number</td><td>$inv[cusvatno]</td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Invoice Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Order No.</td><td valign=center>$inv[ordno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Sales Person</td><td valign=center>$inv[salespn]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Date</td><td valign=center><input type=text size=2 name=oday maxlength=2 value='$oday'>-<input type=text size=2 name=omon maxlength=2 value='$omon'>-<input type=text size=4 name=oyear maxlength=4 value='$oyear'> DD-MM-YYYY</td></tr>
+			<tr class='bg-odd'><td>Order No.</td><td valign=center>$inv[ordno]</td></tr>
+			<tr class='bg-even'><td>Sales Person</td><td valign=center>$inv[salespn]</td></tr>
+			<tr class='bg-odd'><td>Delivery Date</td><td valign=center><input type=text size=2 name=oday maxlength=2 value='$oday'>-<input type=text size=2 name=omon maxlength=2 value='$omon'>-<input type=text size=4 name=oyear maxlength=4 value='$oyear'> DD-MM-YYYY</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -365,8 +365,8 @@ function error($_GET, $err = "")
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<p>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cust-credit-stockinv.php'>New Invoice</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
+			<tr class='bg-odd'><td><a href='cust-credit-stockinv.php'>New Invoice</a></td></tr>
+			<tr class='bg-odd'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td></tr>
@@ -520,7 +520,7 @@ function confirm($_POST)
 
 					if(!(isset($sers[$stk['stkid']][$keys]))) { print "error";}
 					# Put in product
-					$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td>$wh[whname]</td><td><input type=hidden name=ids[] value='$ids[$keys]'><input type=hidden name=stkids[] value='$stk[stkid]'>$stk[stkcod]</td><td>$stk[stkdes]</td><td><input type=hidden name=sers[$stkd[stkid]][] value='$serial'>$serial</td><td><input type=hidden size=5 name='qtys[]' value='$qtys[$keys]'>$qtys[$keys]</td></tr>";
+					$products .="<tr class='bg-odd'><td>$wh[whname]</td><td><input type=hidden name=ids[] value='$ids[$keys]'><input type=hidden name=stkids[] value='$stk[stkid]'>$stk[stkcod]</td><td>$stk[stkdes]</td><td><input type=hidden name=sers[$stkd[stkid]][] value='$serial'>$serial</td><td><input type=hidden size=5 name='qtys[]' value='$qtys[$keys]'>$qtys[$keys]</td></tr>";
 					$c++;
 				} else {
 					# get warehouse name
@@ -563,7 +563,7 @@ function confirm($_POST)
 
 					if(!(isset($sers[$stk['stkid']][$keys]))) { print "error";}
 					# Put in product
-					$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td>$wh[whname]</td><td><input type=hidden name=ids[] value='$ids[$keys]'><input type=hidden name=stkids[] value='$stk[stkid]'>$stk[stkcod]</td><td>$stk[stkdes]</td><td><input type=hidden name=sers[$stkd[stkid]][] value='$serial'>$serial</td><td><input type=hidden size=5 name='qtys[]' value='$qtys[$keys]'>$qtys[$keys]</td></tr>";
+					$products .="<tr class='bg-odd'><td>$wh[whname]</td><td><input type=hidden name=ids[] value='$ids[$keys]'><input type=hidden name=stkids[] value='$stk[stkid]'>$stk[stkcod]</td><td>$stk[stkdes]</td><td><input type=hidden name=sers[$stkd[stkid]][] value='$serial'>$serial</td><td><input type=hidden size=5 name='qtys[]' value='$qtys[$keys]'>$qtys[$keys]</td></tr>";
 
 					$c++;
 				}
@@ -662,18 +662,18 @@ function confirm($_POST)
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Customer Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Department</td><td valign=center>$inv[deptname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer</td><td valign=center>$inv[cusname] $inv[surname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Customer Address</td><td valign=center>".nl2br($inv['cusaddr'])."</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Order number</td><td valign=center>$inv[cordno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer VAT Number</td><td>$inv[cusvatno]</td></tr>
+			<tr class='bg-odd'><td>Department</td><td valign=center>$inv[deptname]</td></tr>
+			<tr class='bg-even'><td>Customer</td><td valign=center>$inv[cusname] $inv[surname]</td></tr>
+			<tr class='bg-odd'><td valign=top>Customer Address</td><td valign=center>".nl2br($inv['cusaddr'])."</td></tr>
+			<tr class='bg-even'><td>Customer Order number</td><td valign=center>$inv[cordno]</td></tr>
+			<tr class='bg-odd'><td>Customer VAT Number</td><td>$inv[cusvatno]</td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Invoice Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Order No.</td><td valign=center>$inv[ordno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Sales Person</td><td valign=center>$inv[salespn]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Date</td><td valign=center><input type=hidden name=odate value='$odate'>$odate</td></tr>
+			<tr class='bg-odd'><td>Order No.</td><td valign=center>$inv[ordno]</td></tr>
+			<tr class='bg-even'><td>Sales Person</td><td valign=center>$inv[salespn]</td></tr>
+			<tr class='bg-odd'><td>Delivery Date</td><td valign=center><input type=hidden name=odate value='$odate'>$odate</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -684,8 +684,8 @@ function confirm($_POST)
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<p>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cust-credit-stockinv.php'>New Invoice</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
+			<tr class='bg-odd'><td><a href='cust-credit-stockinv.php'>New Invoice</a></td></tr>
+			<tr class='bg-odd'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td></tr>

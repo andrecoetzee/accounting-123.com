@@ -166,8 +166,8 @@ function display()
 		<tr>
 			<th>Report Options</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'><td>$type_sel</td></tr>
-		<tr bgcolor='".bgcolorg()."'><td>$id_sel</td></tr>
+		<tr class='".bg_class()."'><td>$type_sel</td></tr>
+		<tr class='".bg_class()."'><td>$id_sel</td></tr>
 	</table>
 	</form>";
 
@@ -277,7 +277,7 @@ function display()
 				$vc_rslt = db_exec($sql) or errDie("Unable to retrieve vatcode.");
 				$vc_data = pg_fetch_array($vc_rslt);
 
-				$invit_out .= "<tr bgcolor='".bgcolorg()."'>
+				$invit_out .= "<tr class='".bg_class()."'>
 					<td>$inv_data[cusname] $inv_data[surname]</td>
 					<td>$dept_data[deptname]</td>
 					<td>$inv_data[invid]</td>

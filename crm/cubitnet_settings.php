@@ -82,30 +82,30 @@ function enter($err) {
 	<tr>
 		<th colspan=2>Company Details</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Surname/Company Name</td>
 		<td><input type=text name=cn_name value='$cn_name'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Telephone</td>
 		<td><input type=text name=cn_tel value='$cn_tel'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Cellphone</td>
 		<td><input type=text name=cn_cell value='$cn_cell'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>E-mail</td>
 		<td><input type=text name=cn_email value='$cn_email'></td>
 	</tr>
 	<tr>
 		<th colspan=2>Cubit.co.za Details</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Username(Any Username)</td>
 		<td><input type=text name=cn_username value='$cn_username'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Password(Any Password)</td>
 		<td><input type=password name=cn_password value='$cn_password'></td>
 	</tr>
@@ -158,30 +158,30 @@ function confirm() {
 	<tr>
 		<th colspan=2>Agency Details</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Surname/Company Name</td>
 		<td>$cn_name</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Telephone</td>
 		<td>$cn_tel</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Cellphone</td>
 		<td>$cn_cell</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>E-mail</td>
 		<td>$cn_email</td>
 	</tr>
 	<tr>
 		<th colspan=2>Cubit.co.za Details</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Username:</td>
 		<td>$cn_username</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Password:</td>
 		<td>( censored )</td>
 	</tr>

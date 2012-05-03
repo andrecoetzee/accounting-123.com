@@ -42,7 +42,7 @@ function display()
 		<tr>
 			<th colspan='2'>Customer</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Contact Name</td>
 			<td>$cust_data[surname]</td>
 		</tr>
@@ -65,7 +65,7 @@ function display()
 		<form method='post' action='".SELF."'>
 		<input type='hidden' name='id' value='$cd_data[id]' />
 		<input type='hidden' name='cusnum' value='$cusnum' />
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$date_day-$date_month-$date_year</td>
 			<td>$cd_data[notes]</td>
 			<td><input type='submit' name='key' value='Remove' /></td>
@@ -82,7 +82,7 @@ function display()
 		</tr>
 		<form method='post' action='".SELF."'>
 		<input type='hidden' name='cusnum' value='$cusnum' />
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("new_date")."</td>
 			<td><input type='text' name='new_note' /></td>
 			<td>

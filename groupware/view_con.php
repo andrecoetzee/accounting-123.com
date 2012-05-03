@@ -233,64 +233,64 @@ if ( ! ($busy_deleting) )
 			<tr>
 				<th colspan='4'>Contact Information</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4' align='center'>$img</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td width='120'>First Name</td>
 				<td width='210'>$name</td>
 				<td width='120'>Office Phone</td>
 				<td width='210'>$tell_office</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Company/Last Name</td>
 				<td>$surname</td>
 				<td>Mobile</td>
 				<td>$cell</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reports To</td>
 				<td>$reports_to</td>
 				<td>Home Phone</td>
 				<td>$tell</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Lead Source</td>
 				<td>$lead_source</td>
 				<td>Other Phone</td>
 				<td>$tell_other</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Title</td>
 				<td>$title</td>
 				<td>Fax</td>
 				<td>$fax</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Department</td>
 				<td>$department</td>
 				<td>E-mail</td>
 				<td>$email</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Birthdate</td>
 				<td>$birthdate_description</td>
 				<td>Other E-mail</td>
 				<td>$email_other</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Name</td>
 				<td>$accountname ($account_type)</td>
 				<td>Assistant</td>
 				<td>$assistant</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td>Assistant Phone</td>
 				<td>$assistant_phone</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>&nbsp;</td>
 				<td>Team Permissions</td>
 				<td>$team_name</td>
@@ -299,29 +299,29 @@ if ( ! ($busy_deleting) )
 				<th colspan='2'>Physical Address</th>
 				<th colspan='2'>Postal Address</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='left' valign='top'><xmp>$hadd</xmp></td>
 				<td colspan='2' align='left'><xmp>$padd</xmp></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>City</td>
 				<td>$padd_city</td>
 				<td>City</td>
 				<td>$hadd_city</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>State/Province</td>
 				<td>$padd_state</td>
 				<td>State/Province</td>
 				<td>$hadd_state</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Postal Code</td>
 				<td>$padd_code</td>
 				<td>Postal Code</td>
 				<td>$hadd_code</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Country</td>
 				<td>$padd_country</td>
 				<td>Country</td>
@@ -330,7 +330,7 @@ if ( ! ($busy_deleting) )
 			<tr>
 				<th colspan='4'>Description</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4' align='left'><xmp>$description</xmp></td>
 			</tr>
 			<tr>

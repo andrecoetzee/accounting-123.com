@@ -93,7 +93,7 @@ function get_list ($_POST,$err="")
 						<tr>
 							<th colspan='2'>Sort By</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='2'>
 								<select name='search' onChange='document.form1.submit();'>
 									<option $sal1 value='name'>Name</option>
@@ -113,7 +113,7 @@ function get_list ($_POST,$err="")
 		if(isset($_POST["print"]) OR isset($_POST["management"])){
 			$listing .= "<tr>";
 		}else {
-			$listing .= "<tr bgcolor='".bgcolorg()."'>";
+			$listing .= "<tr class='".bg_class()."'>";
 		}
 		$listing .= "
 							<td colspan='10'>No Printed Cheques Found.</td>
@@ -130,7 +130,7 @@ function get_list ($_POST,$err="")
 			if(isset($_POST["print"]) OR isset($_POST["management"])){
 				$listing .= "<tr>";
 			}else {
-				$listing .= "<tr bgcolor='".bgcolorg()."'>";
+				$listing .= "<tr class='".bg_class()."'>";
 			}
 
 			db_connect ();

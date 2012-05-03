@@ -45,7 +45,7 @@ function get_current_setting ()
 			<tr>
 				<th>Accounts Sort Order</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<input type='radio' name='sort_order' value='number' $checked1> Account Number - Account Name 
 					<input type='radio' name='sort_order' value='name' $checked2> Account Name - Account Number 

@@ -88,15 +88,15 @@ function edit($clasid)
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=clasid value='$clas[clasid]'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Classification code</td><td align=center><input type=text size=20 name=classcode value='$clas[classcode]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Classification</td><td align=center><input type=text size=20 name=classname value='$clas[classname]'></td></tr>
+	<tr class='bg-odd'><td>Classification code</td><td align=center><input type=text size=20 name=classcode value='$clas[classcode]'></td></tr>
+	<tr class='bg-even'><td>Classification</td><td align=center><input type=text size=20 name=classname value='$clas[classname]'></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
  	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stockclass-view.php'>View Classifications</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='stockclass-view.php'>View Classifications</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $enter;
@@ -145,15 +145,15 @@ function confirm ($_POST)
 	<input type=hidden name=classname value='$classname'>
 	<input type=hidden name=clasid value='$clasid'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Classification code</td><td align=center>$classcode</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Classification</td><td align=center>$classname</td></tr>
+	<tr class='bg-odd'><td>Classification code</td><td align=center>$classcode</td></tr>
+	<tr class='bg-even'><td>Classification</td><td align=center>$classname</td></tr>
 	<tr><td align=right><input type=button value='Back' onclick='javascript:history.back();'></td><td valign=left><input type=submit value='Write &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stockclass-view.php'>View Classifications</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='stockclass-view.php'>View Classifications</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $confirm;
@@ -201,8 +201,8 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stockclass-view.php'>View Classifications</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='stockclass-view.php'>View Classifications</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $write;

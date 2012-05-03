@@ -16,7 +16,7 @@ function show_listing ()
 	$get_loans = "SELECT * FROM loan_requests ORDER BY loanamt";
 	$run_loans = db_exec($get_loans) or errDie("Unable to get loan applications.");
 	if(pg_numrows($run_loans) < 1){
-		$listing = "<tr bgcolor='".bgcolorg()."'><td colspan='8'>No Loan Applications Found.</td></tr>";
+		$listing = "<tr class='".bg_class()."'><td colspan='8'>No Loan Applications Found.</td></tr>";
 	}else {
 		$listing = "";
 		while ($larr = pg_fetch_array($run_loans)){
@@ -40,7 +40,7 @@ function show_listing ()
 			}
 
 			$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$showemp</td>
 						<td>$larr[loanamt]</td>
 						<td>$larr[loaninstall]</td>
@@ -69,7 +69,7 @@ function show_listing ()
 	$empRslt = db_exec ($sql) or errDie ("Unable to select employees with loans from database.");
 	if (pg_numrows ($empRslt) < 1) {
 		$employees .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='7'>No Employees With Loans Found.</td>
 					</tr>";
 // 		return "No employee-loans found in database.<p>"

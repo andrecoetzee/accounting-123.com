@@ -88,20 +88,20 @@ function show_grievance ($err = "")
 				<tr>
 					<th>Staff Member</th>
 				</tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'>
+				<tr class='bg-odd'>
 					<td>$employee</td>
 				</tr>
 				<tr><td><br></td></tr>
 				<tr><th colspan='2'>Date First Recorded</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td colspan='2'>$first_rec_date</td></tr>
+				<tr class='bg-odd'><td colspan='2'>$first_rec_date</td></tr>
 				<tr><th colspan='2'>Details of grievance</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td colspan='2'>".nl2br($griev_details)."</td></tr>
+				<tr class='bg-odd'><td colspan='2'>".nl2br($griev_details)."</td></tr>
 				<tr><th colspan='2'>Status Of Grievance</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td>Company: </td><td>$company_date</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor2."'><td>CCMA: </td><td>$ccma_date</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td>CCMA Appeal: </td><td>$ccma_app_date</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor2."'><td>Court: </td><td>$court_date</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td>Court Appeal: </td><td>$court_app_date</td></tr>
+				<tr class='bg-odd'><td>Company: </td><td>$company_date</td></tr>
+				<tr class='bg-even'><td>CCMA: </td><td>$ccma_date</td></tr>
+				<tr class='bg-odd'><td>CCMA Appeal: </td><td>$ccma_app_date</td></tr>
+				<tr class='bg-even'><td>Court: </td><td>$court_date</td></tr>
+				<tr class='bg-odd'><td>Court Appeal: </td><td>$court_app_date</td></tr>
 				<tr><td><br></td></tr>";
 
 				#get the inputs for this grievances

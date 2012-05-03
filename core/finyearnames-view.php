@@ -111,7 +111,7 @@ function printyr()
 	<tr>
 		<th colspan='3'>Current Financial Year: $thisyear</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<th colspan='3'>Period Range: $prddesc</td>
 	</tr>
 	<tr>

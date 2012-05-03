@@ -62,7 +62,7 @@ function viewLoans ()
 		$myEmp = pg_fetch_array($emp_rslt);
 
 		$employees .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$myEmp[sname], $myEmp[fnames] ($myEmp[enum])</td>
 				<td align='right'>".CUR." $loaninfo[loanamt]</td>
 				<td align='right'>".CUR." $loaninfo[loaninstall]</td>

@@ -61,7 +61,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><b>From</b> &nbsp;</td>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
@@ -71,7 +71,7 @@ function display()
 			<th colspan='2'>Group</th>
 			<th colspan='2'>Type</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>$group_sel</td>
 			<td colspan='2'>$type_sel</td>
 		</tr>
@@ -111,7 +111,7 @@ function display()
 		}
 
 		$sale_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$sale_data[des]</td>
 			<td>$sale_data[serial]</td>
 			<td align='center'>$qty_sold</td>
@@ -123,7 +123,7 @@ function display()
 
 	if (empty($sale_out)) {
 		$sale_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'>
 				<li>No results found from your current selection</li>
 			</td>

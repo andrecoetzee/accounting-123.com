@@ -40,7 +40,7 @@ function enter($msg="")
 		<tr>
 			<th colspan='2'>Setting</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Half Day Rate</td>
 			<td>
 				<input type='text' name='hd_perc' value='$hd_perc' size='3'

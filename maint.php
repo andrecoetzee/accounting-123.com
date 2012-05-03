@@ -121,11 +121,11 @@ function con_sets ($_POST)
 	<input type=hidden name=brack1   value='$brack1'>
 	<input type=hidden name=brack2   value='$brack2'>
 	<tr><th colspan=2>Settings</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Month End</td><td>$monthend</td></tr>
+	<tr class='bg-even'><td>Month End</td><td>$monthend</td></tr>
 	<tr><th colspan=2>Interest Settings</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Interest(R0.00 - R$brack1)</td><td>$int1%</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Interest(R$brack11 - R$brack2)</td><td>$int2%</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Interest(More than R$brack22)</td><td>$int3%</td></tr>
+	<tr class='bg-odd'><td>Interest(R0.00 - R$brack1)</td><td>$int1%</td></tr>
+	<tr class='bg-even'><td>Interest(R$brack11 - R$brack2)</td><td>$int2%</td></tr>
+	<tr class='bg-odd'><td>Interest(More than R$brack22)</td><td>$int3%</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>

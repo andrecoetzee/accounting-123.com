@@ -150,7 +150,7 @@ function details($_POST, $error="")
 		$stk = pg_fetch_array($stkRslt);
 
 		# put in product
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td>$wh[whname]</td><td><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>".extlib_rstr($stk['stkdes'], 30)."</td><td>$stkd[qty]</td><td>$pur[curr] $stkd[cunitcost] &nbsp;&nbsp;or &nbsp;&nbsp;R $stkd[unitcost]</td><td>".CUR." $stkd[duty] &nbsp;&nbsp; or &nbsp;&nbsp;$stkd[dutyp]%</td><td>".CUR." $stkd[amt]</td></tr>";
+		$products .="<tr class='bg-odd'><td>$wh[whname]</td><td><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>".extlib_rstr($stk['stkdes'], 30)."</td><td>$stkd[qty]</td><td>$pur[curr] $stkd[cunitcost] &nbsp;&nbsp;or &nbsp;&nbsp;R $stkd[unitcost]</td><td>".CUR." $stkd[duty] &nbsp;&nbsp; or &nbsp;&nbsp;$stkd[dutyp]%</td><td>".CUR." $stkd[amt]</td></tr>";
 	}
 	$products .= "</table>";
 
@@ -165,21 +165,21 @@ function details($_POST, $error="")
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Supplier Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Department</td><td valign=center>$dept[deptname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Supplier</td><td valign=center>$sup[supname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Supplier Address</td><td valign=center>".nl2br($pur['supaddr'])."</td></tr>
+			<tr class='bg-odd'><td>Department</td><td valign=center>$dept[deptname]</td></tr>
+			<tr class='bg-even'><td>Supplier</td><td valign=center>$sup[supname]</td></tr>
+			<tr class='bg-odd'><td valign=top>Supplier Address</td><td valign=center>".nl2br($pur['supaddr'])."</td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Order Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Order No.</td><td valign=center>$pur[purnum]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms</td><td valign=center>$pur[terms] Days</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td valign=center>$pday-$pmon-$pyear</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Foreign Currency</td><td valign=center>$pur[curr]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Exchange rate</td><td>".CUR." $pur[xrate]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Tax</td><td valign=center>".CUR." $pur[tax]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Shipping Charges</td><td valign=center>$pur[curr] $pur[fshipchrg]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Date</td><td valign=center>$dday-$dmon-$dyear</td></tr>
+			<tr class='bg-even'><td>Order No.</td><td valign=center>$pur[purnum]</td></tr>
+			<tr class='bg-odd'><td>Terms</td><td valign=center>$pur[terms] Days</td></tr>
+			<tr class='bg-even'><td>Date</td><td valign=center>$pday-$pmon-$pyear</td></tr>
+			<tr class='bg-odd'><td>Foreign Currency</td><td valign=center>$pur[curr]</td></tr>
+			<tr class='bg-even'><td>Exchange rate</td><td>".CUR." $pur[xrate]</td></tr>
+			<tr class='bg-odd'><td>Tax</td><td valign=center>".CUR." $pur[tax]</td></tr>
+			<tr class='bg-even'><td>Shipping Charges</td><td valign=center>$pur[curr] $pur[fshipchrg]</td></tr>
+			<tr class='bg-odd'><td>Delivery Date</td><td valign=center>$dday-$dmon-$dyear</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -189,16 +189,16 @@ function details($_POST, $error="")
 	<tr><td>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th width=40%>Quick Links</th><th width=45%>Remarks</th><td rowspan=5 valign=top width=15%><br></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purch-int-new.php'>New International Order</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top>".nl2br($pur['remarks'])."</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purch-int-view.php'>View International Orders</a></td></tr>
+			<tr class='bg-odd'><td><a href='purch-int-new.php'>New International Order</a></td><td class='bg-odd' rowspan=4 align=center valign=top>".nl2br($pur['remarks'])."</td></tr>
+			<tr class='bg-odd'><td><a href='purch-int-view.php'>View International Orders</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>".CUR." $pur[subtot]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Shipping Charges</td><td align=right>".CUR." $pur[shipchrg]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Tax </td><td align=right>".CUR." $pur[tax]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><th>GRAND TOTAL</th><td align=right>".CUR." $pur[total]</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>".CUR." $pur[subtot]</td></tr>
+			<tr class='bg-even'><td>Shipping Charges</td><td align=right>".CUR." $pur[shipchrg]</td></tr>
+			<tr class='bg-odd'><td>Tax </td><td align=right>".CUR." $pur[tax]</td></tr>
+			<tr class='bg-even'><th>GRAND TOTAL</th><td align=right>".CUR." $pur[total]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'> | <input type=submit name='upBtn' value='Cancel &raquo'></td></tr>
@@ -297,12 +297,12 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 	$write = "
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>International Order Cancel</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>International Order from Supplier <b>$sup[supname]</b> has been cancelled.</td></tr>
+		<tr class='bg-even'><td>International Order from Supplier <b>$sup[supname]</b> has been cancelled.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purch-int-view.php'>View International Orders</a></td></tr>
+		<tr class='bg-odd'><td><a href='purch-int-view.php'>View International Orders</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

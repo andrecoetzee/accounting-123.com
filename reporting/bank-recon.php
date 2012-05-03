@@ -70,7 +70,7 @@ function view()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account</td>
 				<td valign='center'>
 					<select name='bankid'>";
@@ -91,7 +91,7 @@ function view()
 					</select>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Output type</td>
 				<td valign='center'><input type='radio' name='oput' value='no' checked='yes'>Normal </td>
 			</tr>
@@ -269,7 +269,7 @@ function cashbook($_POST, $err="")
 			<tr>
 				<td colspan='10'>
 					<table ".TMPL_tblDflts." width='100%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th>Opening Balance</th>
 							<td>$cur <input type='text' name='sbal' size='12' value='$sbal'></td>
 							<th>Closing Balance</th>
@@ -287,7 +287,7 @@ function cashbook($_POST, $err="")
 				<th>Amount</th>
 				<th colspan='2'>Reconcile</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>All Payments</td>
 				<td>$count_withdraw</td>
 				<td>$cur $all_withdraw_amount</td>
@@ -296,7 +296,7 @@ function cashbook($_POST, $err="")
 					<input type='submit' name='all_withdraw_recon_unselect' value='Unselect All'>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>All Deposits</td>
 				<td>$count_deposit</td>
 				<td>$cur $all_deposit_amount</td>
@@ -349,7 +349,7 @@ function cashbook($_POST, $err="")
 
 		$cashbook .= "
 		$update
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$tran[descript]</td>
 				<td align='center'>$tran[date]</td>
 				<td>$tran[cheqnum]</td>
@@ -413,7 +413,7 @@ function cashbook($_POST, $err="")
 	vsprint($cbal);
 
 	$cashbook .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>System Bank Balance + Outstanding Amounts</b></td>
 				<td colspan='4' align='right'><b>$cur $sysbal</b></td>
 			</tr>
@@ -421,11 +421,11 @@ function cashbook($_POST, $err="")
 			<input type='hidden' name='recon' value='$recon' />
 			<input type='hidden' name='oput' value='$oput' />
 			<input type='hidden' name='busy' value='' />
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>Reconciled Bank Balance</b></td>
 				<td align='right' colspan='4'><b>$cur $reconbal</b></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>Closing Bank Balance</b></td>
 				<td align='right' colspan='4'><b>$cur $cbal</b></td>
 			</tr>

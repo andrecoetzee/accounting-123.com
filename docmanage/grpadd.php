@@ -48,11 +48,11 @@ function get_data ()
 	$cons = "
 		<h3>Group Details</h3>
 		<td align=center>
-		<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300 bgcolor='".TMPL_tblDataColor1."' >
+		<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300 class='bg-odd' >
 		<tr><th>Group Name</th><th colspan=2>Options</th></tr>";
 
 	while($data=pg_fetch_array($Ri)) {
-		$cons.="<tr><td bgcolor='".TMPL_tblDataColor1."'>$data[grpname]</td><td><a
+		$cons.="<tr><td class='bg-odd'>$data[grpname]</td><td><a
 		 href='grpedit.php?id=$data[id]'>Edit</a></td><td><a 
 	         href='grprem.php?id=$data[id]'>Delete</td></tr>";
 	}//end while
@@ -63,8 +63,8 @@ $get_data="
 	 <form action='".SELF."' method='post'>
 	 <input type=hidden name=key value=confirm>
 	 <tr><th colspan=2>Group Details</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Group Name</td><td align=center><input type=text size=27 name=grpname value='$data[grpname]'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."' ><td >Group Unit</td><td align=center>
+	 <tr class='bg-odd'><td>Group Name</td><td align=center><input type=text size=27 name=grpname value='$data[grpname]'></td></tr>
+	 <tr class='bg-even' ><td >Group Unit</td><td align=center>
 		<select name=unit  value='$unit' size='3' multiple='1'>
 		<option value='none'>None</option>
 		<option value='default' selected>Default</option>
@@ -102,11 +102,11 @@ function enter_err($_POST,$err=""){
 	$cons = "
 		<h3>Group Details</h3>
 		<td align=center>
-		<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300 bgcolor='".TMPL_tblDataColor1."' >
+		<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300 class='bg-odd' >
 		<tr><th>GroupName</th><th colspan=2>Options</th></tr>";
 
 	while($data=pg_fetch_array($Ri)) {
-		$cons.="<tr><td bgcolor='".TMPL_tblDataColor1."'>$data[grpname]</td><td><a
+		$cons.="<tr><td class='bg-odd'>$data[grpname]</td><td><a
 		 href='grpedit.php?id=$data[id]'>Edit</a></td><td><a 
 	         href='grprem.php?id=$data[id]'>Delete</td></tr>";
 		 
@@ -119,8 +119,8 @@ $get_data="
 	 <tr><td>$err<br></td></tr>
 	 <input type=hidden name=key value='confirm'>
 	 <tr><th colspan=2>Group Details</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td>Group Name</td><td align=center><input type=text size=27 name=grpname value='$grpname'></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."' ><td >Group Unit</td><td align=center>
+	 <tr class='bg-odd'><td>Group Name</td><td align=center><input type=text size=27 name=grpname value='$grpname'></td></tr>
+	 <tr class='bg-even' ><td >Group Unit</td><td align=center>
 		<select name=unit  value='$unit' size='3' multiple='1'>
 		<option value='none'>None</option>
 		<option value='default' selected>Default</option>
@@ -173,8 +173,8 @@ function con_data ($_POST)
 		<input type=hidden name=unit value='$unit'>
 		
 		<tr><th colspan=2>Group Details</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Group name</td><td align=center>$grpname</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Group unit</td><td align=center>$unit</td></tr>
+		<tr class='bg-odd'><td>Group name</td><td align=center>$grpname</td></tr>
+		<tr class='bg-odd'><td>Group unit</td><td align=center>$unit</td></tr>
 		<tr><td colspan=2 align=left><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>";
@@ -202,7 +202,7 @@ $write_data="<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Document Management</a></td></tr>
+	<tr class='bg-odd'><td><a href='".SELF."'>Document Management</a></td></tr>
         
 	</table>";
 

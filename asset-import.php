@@ -49,7 +49,7 @@ function get_file ()
 			<tr>
 				<th>Select File To Import</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='file' name='filename'></td>
 			</tr>
 			".TBL_BR."
@@ -155,7 +155,7 @@ function confirm()
 		}
 
 		$items_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='hidden' name='serial[]' value='$line_arr[1]' />$line_arr[1]</td>
 				<td><input type='hidden' name='locat[]' value='' /></td>
 				<td><input type='hidden' name='des' value='$line_arr[2]' />$line_arr[2]</td>

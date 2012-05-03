@@ -49,7 +49,7 @@ function display()
 				<tr>
 					<th colspan='2'>Select User</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$user_sel</td>
 					<td><input type='submit' value='Select' /></td>
 				</tr>
@@ -95,7 +95,7 @@ function display()
 		}
 
 		$trans_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".date("Y-m-d G:i:s", $trans_data["e_time"])."</td>
 				<td>$trans_data[surname]</td>
 				<td align='right'>".sprint($trans_data["subtotal"]-$trans_data["vat"])."</td>
@@ -117,12 +117,12 @@ function display()
 
 	if (empty($trans_out)) {
 		$trans_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='10'><li>No outstanding transactions for this user found.</li></td>
 			</tr>";
 	} else {
 		$trans_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>Total</b></td>
 				<td align='right'><b>".sprint($totals["subtotal"])."</b></td>
 				<td align='right'><b>".sprint($totals["vat"])."</b></td>
@@ -149,7 +149,7 @@ function display()
 				<th>Credit Card Paid</th>
 			</tr>
 			$trans_out
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='8' align='center'>
 					<a href='pos_run.php?key=run&user_id=$user_id&cashup=1'
 					style='font-size: 1.6em'>RUN TRANSACTIONS</a>

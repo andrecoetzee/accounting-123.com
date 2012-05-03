@@ -102,8 +102,8 @@ function slct($_GET, $err = "")
 	$depts .= "</select>";
 
 	//Option removed
-	//<tr bgcolor='".TMPL_tblDataColor1."' ".ass("Select when tranferring goods between Departments or Stores")."><td colspan=2><input type=radio name=ctyp value='c' checked=yes>Accounts Order</td></tr>
-	//<tr bgcolor='".TMPL_tblDataColor2."' ".ass("Select when the Order of non stock goods is a bank Order")."><td><input type=radio name=ctyp value='cb'>Bank Order</td><td>$banks</td></tr>
+	//<tr class='bg-odd' ".ass("Select when tranferring goods between Departments or Stores")."><td colspan=2><input type=radio name=ctyp value='c' checked=yes>Accounts Order</td></tr>
+	//<tr class='bg-even' ".ass("Select when the Order of non stock goods is a bank Order")."><td><input type=radio name=ctyp value='cb'>Bank Order</td><td>$banks</td></tr>
 
 	$details = "
 		<center>
@@ -118,19 +118,19 @@ function slct($_GET, $err = "")
 			<tr>
 				<th colspan='2'> Order Details </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."' ".ass("Select when purchasing non stock goods from your suppliers").">
+			<tr class='".bg_class()."' ".ass("Select when purchasing non stock goods from your suppliers").">
 				<td><input type='radio' name='ctyp' value='s' checked='yes'> Select Supplier</td>
 				<td>$sups</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."' ".ass("Select when the Order of non stock goods is a cash Order").">
+			<tr class='".bg_class()."' ".ass("Select when the Order of non stock goods is a cash Order").">
 				<td><input type='radio' name='ctyp' value='c'>Cash Order</td>
 				<td>$depts</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."' ".ass("Select when tranferring goods between Departments or Stores").">
+			<tr class='".bg_class()."' ".ass("Select when tranferring goods between Departments or Stores").">
 				<td colspan='2'><input type='radio' name='ctyp' value='ac'>Ledger Accounts Order</td>
 				<td class='err'>This selection will credit the amount of the invoice<br /> to a General Ledger account instead of Creditors Control.</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='radio' name='ctyp' value='p'>Petty Cash Order</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -370,7 +370,7 @@ function details($_POST, $error="")
 
 		# put in product
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='10' name='cod[]' value='$stkd[cod]'></td>
 				<td>$Vatcodes</td>
 				<td align='center'><input type='text' size='20' name='des[]' value='$stkd[des]'></td>
@@ -424,7 +424,7 @@ function details($_POST, $error="")
 
 		# add one
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='10' name='cod[]' value=''></td>
 				<td>$Vatcodes</td>
 				<td align='center'><input type='text' size='20' name='des[]' value=''></td>
@@ -461,7 +461,7 @@ function details($_POST, $error="")
 
 $j = $i + 1;
 		$products .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='10' name='cod[]' value=''></td>
 				<td>$Vatcodes</td>
 				</td><td align='center'><input type='text' size='20' name='des[]' value=''></td>
@@ -514,7 +514,7 @@ $j = $i + 1;
 		$sups .= "</select>";
 
 		$sdata = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Supplier</td>
 				<td>$sups</td>
 			</tr>
@@ -522,11 +522,11 @@ $j = $i + 1;
 
 	} elseif($pur['ctyp']=="cb") {
 		$sdata = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Supplier</td>
 				<td valign='center'><input type='text' name='supplier' value='$pur[supplier]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Supplier Address</td>
 				<td valign='center'><textarea name='supaddr' cols='18' rows='3'>$pur[supaddr]</textarea></td>
 			</tr>";
@@ -535,11 +535,11 @@ $j = $i + 1;
 			$pur['supplier'] = "Cash Order";
 		//Cash Order
 		$sdata = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Supplier</td>
 				<td valign='center'><input type='text' name='supplier' value='$pur[supplier]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Supplier Address</td>
 				<td valign='center'><textarea name='supaddr' cols='18' rows='3'>$pur[supaddr]</textarea></td>
 			</tr>";
@@ -548,11 +548,11 @@ $j = $i + 1;
 			$pur['supplier'] = "Petty Cash Order";
 		//Petty Cash Order
 		$sdata = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Supplier</td>
 				<td valign='center'><input type='text' name='supplier' value='$pur[supplier]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Supplier Address</td>
 				<td valign='center'><textarea name='supaddr' cols='18' rows='3'>$pur[supaddr]</textarea></td>
 			</tr>";
@@ -562,21 +562,21 @@ $j = $i + 1;
 			$pur['supplier'] = "Ledger Account Order";
 		//Ledger Account Order
 		$sdata = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Supplier</td>
 				<td valign='center'><input type='text' name='supplier' value='$pur[supplier]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Supplier Address</td>
 				<td valign='center'><textarea name='supaddr' cols='18' rows='3'>$pur[supaddr]</textarea></td>
 			</tr>";
 	} elseif($pur['ctyp'] == "c") {
 		$sdata = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Supplier</td>
 				<td valign='center'><input type='text' name='supplier' value='$pur[supplier]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Supplier Address</td>
 				<td valign='center'><textarea name='supaddr' cols='18' rows='3'>$pur[supaddr]</textarea></td>
 			</tr>";
@@ -706,31 +706,31 @@ $j = $i + 1;
 						<tr>
 							<th colspan=2> Non-Stock Order Details </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Non-Stock Order No.</td>
 							<td valign='center'>$pur[purnum]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Order No.</td>
 							<td valign='center'><input type='text' size='10' name='ordernum' value='$ordernum'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Supplier Inv No</td>
 							<td valign='center'><input type='text' size='10' name='supinv' value='$supinv'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Terms</td>
 							<td valign='center'>$termssel Days</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Date</td>
 							<td valign='center'>".mkDateSelect("npur",$npur_year,$npur_month,$npur_day)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT Inclusive</td>
 							<td valign='center'>Yes <input type='radio' size='7' name='vatinc' value='yes' $chy> No<input type='radio' size='7' name='vatinc' value='no' $chn></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Delivery Charges</td>
 							<td valign='center'><input type='text' size='7' name='shipchrg' value='$pur[shipchrg]'>$Vatcodes</td>
 						</tr>
@@ -751,29 +751,29 @@ $j = $i + 1;
 							<td rowspan='5' valign='top' width='50%'>$ex $error</td>
 						</tr>
 						<tr>
-							<td bgcolor='".bgcolorg()."'><a href='nons-purchase-view.php'>View Non-Stock Orders</a></td>
-							<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$pur[remarks]</textarea></td>
+							<td class='".bg_class()."'><a href='nons-purchase-view.php'>View Non-Stock Orders</a></td>
+							<td class='".bg_class()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$pur[remarks]</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='main.php'>Main Menu</a></td>
 						</tr>
 					</table>
 				</td>
 				<td align='right'>
 					<table ".TMPL_tblDflts." width='80%'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>SUBTOTAL</td>
 							<td align='right'>".CUR." <input type='hidden' name='subtot' value='$SUBTOT'>$SUBTOT</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Delivery Charges</td>
 							<td align='right'>".CUR." $pur[shipping]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>VAT $vat14</td>
 							<td align='right'>".CUR." $pur[vat]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th>GRAND TOTAL</th>
 							<td align='right'>".CUR." <input type='hidden' name='total' value='$TOTAL'>$TOTAL</td>
 						</tr>
@@ -1172,7 +1172,7 @@ function write($_POST)
 				<tr>
 					<th colspan='2'>New Non-Stock Order</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Non-Stock Order from Supplier <b>$supplier</b> has been recorded.</td>
 					<td><a href='javascript: printer(\"nons-purch-print.php?purid=$purid\");'>Print Order</a></td>
 				</tr>
@@ -1182,10 +1182,10 @@ function write($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='nons-purchase-view.php'>View Non-Stock Orders</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";

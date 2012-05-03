@@ -62,15 +62,15 @@ function seluse()
 			<tr>
 				<th colspan='2'>Report Criteria</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Type</td>
 				<td>$types</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>From</td>
 				<td>".mkDateSelect("from")."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>To</td>
 				<td>".mkDateSelect("to")."</td>
 			</tr>
@@ -81,9 +81,9 @@ function seluse()
 		</table><p>
 		<table ".TMPL_tblDflts.">
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".bgcolorg()."'><td><a href='index-reports.php'>Financials</a></td></tr>
-			<tr bgcolor='".bgcolorg()."'><td><a href='index-reports-other.php'>Other Reports</a></td></tr>
-			<tr bgcolor='".bgcolorg()."'><td><a href='../main.php'>Main Menu</a></td></tr>
+			<tr class='".bg_class()."'><td><a href='index-reports.php'>Financials</a></td></tr>
+			<tr class='".bg_class()."'><td><a href='index-reports-other.php'>Other Reports</a></td></tr>
+			<tr class='".bg_class()."'><td><a href='../main.php'>Main Menu</a></td></tr>
 		</table>";
 	return $Out;
 
@@ -154,7 +154,7 @@ function report($_POST)
 
 		$out .= "
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='6' align='center'><h4>".date ("F", mktime (0,0,0,$prd,1,$from_year))."</h4></td>
 			</tr>";
 
@@ -217,7 +217,7 @@ function report($_POST)
 			}
 
 			$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='#' onClick=\"window.open('drill-view-trans.php?accid=$tran[acc]&month_to=$prd','window','width=900, height=380, scrollbars=yes');\">$tran[ctopacc]/$tran[caccnum] - $tran[caccname]</td>
 					<td>$tran[edate]</td>
 					<td>$tran[eref]</td>
@@ -230,7 +230,7 @@ function report($_POST)
 		}
 
 		$out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4' align='right'>Total:</td>
 				<td align='right'>".CUR." ".sprint ($trans_total)."</td>
 				<td align='right'>".CUR." ".sprint ($total)."</td>
@@ -251,13 +251,13 @@ function report($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='vat-ledger-report.php'>VAT Ledger Report</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='index-reports-other.php'>Other Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

@@ -69,7 +69,7 @@ function slct()
 			<tr>
 				<th colspan='5'>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>From</td>
 				<td>".mkDateSelect("f", DATE_YEAR, DATE_MONTH, 1)."</td>
 				<td>to</td>

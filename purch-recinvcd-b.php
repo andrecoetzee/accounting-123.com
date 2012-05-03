@@ -152,7 +152,7 @@ function details($_POST, $error="")
 		$i++;
 
 		# put in product
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td>$wh[whname]</td><td><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>$stk[stkdes]</td><td>$stkd[qty]</td><td>$stkd[unitcost]</td><td>$sday-$smon-$syear</td><td>".CUR." $stkd[amt]</td></tr>";
+		$products .="<tr class='bg-odd'><td>$wh[whname]</td><td><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>$stk[stkdes]</td><td>$stkd[qty]</td><td>$stkd[unitcost]</td><td>$sday-$smon-$syear</td><td>".CUR." $stkd[amt]</td></tr>";
 		$key++;
 	}
 	# Look above(if i = 0 then there are no products)
@@ -172,21 +172,21 @@ function details($_POST, $error="")
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Supplier Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Department</td><td valign=center>$dept[deptname]</td></tr>
-   			<tr bgcolor='".TMPL_tblDataColor2."'><td>Supplier</td><td valign=center>$sup[supname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Account number</td><td valign=center>$sup[supno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Supplier Address</td><td valign=center>".nl2br($supaddr)."</td></tr>
+			<tr class='bg-odd'><td>Department</td><td valign=center>$dept[deptname]</td></tr>
+   			<tr class='bg-even'><td>Supplier</td><td valign=center>$sup[supname]</td></tr>
+			<tr class='bg-odd'><td>Account number</td><td valign=center>$sup[supno]</td></tr>
+			<tr class='bg-even'><td valign=top>Supplier Address</td><td valign=center>".nl2br($supaddr)."</td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Purchase Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Purchase No.</td><td valign=center>$pur[purnum]</td></tr>
- 			<tr bgcolor='".TMPL_tblDataColor2."'><td>Supp Inv No.</td><td valign=center><input type=text name=supinv size=10 value='$pur[supinv]'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Ref No.</td><td valign=center><input type=text name=refno size=10 value='$pur[refno]'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Terms</td><td valign=center>$pur[terms] Days</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$pday-$pmon-$pyear DD-MM-YYYY</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>VAT Inclusive</td><td valign=center>$pur[vatinc]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Charges</td><td valign=center>".CUR." $pur[shipchrg]</td></tr>
+			<tr class='bg-odd'><td>Purchase No.</td><td valign=center>$pur[purnum]</td></tr>
+ 			<tr class='bg-even'><td>Supp Inv No.</td><td valign=center><input type=text name=supinv size=10 value='$pur[supinv]'></td></tr>
+			<tr class='bg-odd'><td>Delivery Ref No.</td><td valign=center><input type=text name=refno size=10 value='$pur[refno]'></td></tr>
+			<tr class='bg-even'><td>Terms</td><td valign=center>$pur[terms] Days</td></tr>
+			<tr class='bg-odd'><td>Date</td><td valign=center>$pday-$pmon-$pyear DD-MM-YYYY</td></tr>
+			<tr class='bg-even'><td>VAT Inclusive</td><td valign=center>$pur[vatinc]</td></tr>
+			<tr class='bg-odd'><td>Delivery Charges</td><td valign=center>".CUR." $pur[shipchrg]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -195,16 +195,16 @@ function details($_POST, $error="")
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th width=25%>Quick Links</th><th width=25%>Remarks</th><td rowspan=5 valign=top width=50%>$error</td></tr>
-			<tr><td bgcolor='".TMPL_tblDataColor1."'><a href='purchase-new.php'>New purchase</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top><textarea name=remarks rows=4 cols=20>$pur[remarks]</textarea></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purchase-view.php'>View purchases</a></td></tr>
+			<tr><td class='bg-odd'><a href='purchase-new.php'>New purchase</a></td><td class='bg-odd' rowspan=4 align=center valign=top><textarea name=remarks rows=4 cols=20>$pur[remarks]</textarea></td></tr>
+			<tr class='bg-odd'><td><a href='purchase-view.php'>View purchases</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>".CUR." $pur[subtot]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Delivery Charges</td><td align=right>".CUR." $pur[shipping]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT @ ".TAX_VAT." %</td><td align=right>".CUR." $pur[vat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><th>GRAND TOTAL</th><td align=right>".CUR." $pur[total]</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>".CUR." $pur[subtot]</td></tr>
+			<tr class='bg-even'><td>Delivery Charges</td><td align=right>".CUR." $pur[shipping]</td></tr>
+			<tr class='bg-odd'><td>VAT @ ".TAX_VAT." %</td><td align=right>".CUR." $pur[vat]</td></tr>
+			<tr class='bg-even'><th>GRAND TOTAL</th><td align=right>".CUR." $pur[total]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'> | <input type=submit name='upBtn' value='Write'></td></tr>
@@ -454,12 +454,12 @@ function write($_POST)
 	$write = "
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Purchase Invoiced</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Purchase Invoice from Supplier <b>$pur[supname]</b> has been recorded.</td></tr>
+		<tr class='bg-even'><td>Purchase Invoice from Supplier <b>$pur[supname]</b> has been recorded.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purchase-view.php'>View purchases</a></td></tr>
+		<tr class='bg-odd'><td><a href='purchase-view.php'>View purchases</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

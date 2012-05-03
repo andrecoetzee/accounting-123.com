@@ -40,7 +40,7 @@ function display($message="")
 			<tr>
 				<th colspan='2'>Search</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' name='search' value='$search' /></td>
 				<td><input type='submit' value='Search &raquo' /></td>
 			</tr>
@@ -65,7 +65,7 @@ function display($message="")
 		}
 
 		$service_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$asset_data[des]</td>
 				<td>".getSerial($asset_data["id"])."</td>
 				<td>$asset_data[locat]</td>
@@ -83,7 +83,7 @@ function display($message="")
 
 	if (empty($service_out)) {
 		$service_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><li>No service days found.</li></td>
 			</tr>";
 	}
@@ -92,7 +92,7 @@ function display($message="")
 		<form method='post' action='".SELF."'>
 			<input type='hidden' name='key' value='save' />
 		<table ".TMPL_tblDflts.">
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><li>Amount of hire days before warning.</li></td>
 			</tr>
 			<tr>

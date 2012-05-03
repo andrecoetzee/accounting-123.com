@@ -42,11 +42,11 @@ if(isset($_POST["key"])) {
 $OUTPUT.="<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='action-add.php'>Add Action</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='action-list.php'>View Actions</a></td></tr>
+	<tr class='bg-odd'><td><a href='action-add.php'>Add Action</a></td></tr>
+	<tr class='bg-odd'><td><a href='action-list.php'>View Actions</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index.php'>My Business</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='index.php'>My Business</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 require("template.php");
@@ -72,7 +72,7 @@ function confirm($_GET) {
 	<input type=hidden name=id value='$id'>
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th colspan=2>Query Category Details</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Action</td><td>$tcatdata[action]</td></tr>
+	<tr class='bg-odd'><td>Action</td><td>$tcatdata[action]</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Remove &raquo;'></td></tr>
 	</form>
 	</table>";

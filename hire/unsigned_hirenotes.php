@@ -91,7 +91,7 @@ function display()
 			continue;
 		}
 
-		$notes_out .= "<tr bgcolor='".bgcolorg()."'>
+		$notes_out .= "<tr class='".bg_class()."'>
 			<td>$hinv_data[odate]</td>
 			<td>H".getHirenum($hinv_data["invid"], 1)."</td>
 			<td>$cust_data[surname] $cust_data[cusname]</td>
@@ -104,7 +104,7 @@ function display()
 	}
 
 	if (empty($notes_out)) {
-		$notes_out = "<tr bgcolor='".bgcolorg()."'>
+		$notes_out = "<tr class='".bg_class()."'>
 			<td colspan='4'><li>No unsigned hire notes found.</li></td>
 		</tr>";
 	}
@@ -116,16 +116,16 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td><b> To </b></td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>
 			<td><input type='submit' value='Select' style='font-weight: bold' /></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<th colspan='4'>Search</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>
 				<input type='text' name='search' value='$search' style='width: 100%;' />
 			</td>

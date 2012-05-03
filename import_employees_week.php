@@ -24,7 +24,7 @@ function get_file_location ($err="")
 						<tr>
 							<th>Select File To Import</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='file' name='file_upload'></td>
 						</tr>
 						".TBL_BR."

@@ -230,7 +230,7 @@ function details($_POST, $error="") {
 			# put in product
 			$products .="<input type=hidden name=accounts[] value=0>
 			<input type=hidden name=descriptions[] value=''>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=whids[] value='$stkd[whid]'>$wh[whname]</td><td><input type=hidden name=stkids[] value='$stkd[stkid]'><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>".extlib_rstr($stk['stkdes'], 30)."</td><td>$stkd[qty]</td><td>$stkd[unitcost]</td></tr>";
+			<tr class='bg-odd'><td><input type=hidden name=whids[] value='$stkd[whid]'>$wh[whname]</td><td><input type=hidden name=stkids[] value='$stkd[stkid]'><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>".extlib_rstr($stk['stkdes'], 30)."</td><td>$stkd[qty]</td><td>$stkd[unitcost]</td></tr>";
 			$key++;
 	}
 
@@ -283,19 +283,19 @@ function details($_POST, $error="") {
 			<tr>
 				<th colspan=2> Customer Details </th>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td>Department</td>
 				<td valign=center>$dept[deptname]</td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td>Customer</td>
 				<td valign=center>$customers</td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td valign=top>Customer Address</td>
 				<td valign=center>".nl2br($cust['addr1'])."</td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td>Customer VAT Number</td>
 				<td>11</td>
 			</tr>
@@ -306,11 +306,11 @@ function details($_POST, $error="") {
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Callout Document Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Job Number</td><td valign=center>$doc[calloutid]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Call Out Person</td><td valign=center>$doc[calloutp]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date Service Required</td><td valign=center>$oday-$omon-$oyear</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Default Travel or Call Out</td><td valign=center>$doc[def_travel]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Default Labour</td><td valign=center>$doc[def_labour]</td></tr>
+			<tr class='bg-even'><td>Job Number</td><td valign=center>$doc[calloutid]</td></tr>
+			<tr class='bg-even'><td>Call Out Person</td><td valign=center>$doc[calloutp]</td></tr>
+			<tr class='bg-odd'><td>Date Service Required</td><td valign=center>$oday-$omon-$oyear</td></tr>
+			<tr class='bg-even'><td>Default Travel or Call Out</td><td valign=center>$doc[def_travel]</td></tr>
+			<tr class='bg-odd'><td>Default Labour</td><td valign=center>$doc[def_labour]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -322,8 +322,8 @@ function details($_POST, $error="") {
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th width=25%>Quick Links</th><th width=25%>Description Of Callout</th><th width=25%>Comments</th><td rowspan=5 valign=top width=50%>$error</td></tr>
-			<tr><td bgcolor='".TMPL_tblDataColor1."'><a href='callout-new.php'>New Callout Document</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top>".nl2br($doc['calloutdescrip'])."</td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top>".nl2br($doc['comm'])."</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='callout-view.php'>View Callout Documents</a></td></tr>
+			<tr><td class='bg-odd'><a href='callout-new.php'>New Callout Document</a></td><td class='bg-odd' rowspan=4 align=center valign=top>".nl2br($doc['calloutdescrip'])."</td><td class='bg-odd' rowspan=4 align=center valign=top>".nl2br($doc['comm'])."</td></tr>
+			<tr class='bg-odd'><td><a href='callout-view.php'>View Callout Documents</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
@@ -355,8 +355,8 @@ function write ($_POST)
         <p>
         <table ".TMPL_tblDflts.">
             <tr><th width='50'>Quick Links</th></tr>
-            <tr bgcolor='".bgcolorg()."'><td><a href='callout-new.php'>New Callout Document</a></td></tr>
-            <tr bgcolor='".bgcolorg()."'><td><a href='callout-view.php'>View Callout Documents</a></td></tr>
+            <tr class='".bg_class()."'><td><a href='callout-new.php'>New Callout Document</a></td></tr>
+            <tr class='".bg_class()."'><td><a href='callout-view.php'>View Callout Documents</a></td></tr>
             <script>document.write(getQuicklinkSpecial());</script>
         </table>";
 

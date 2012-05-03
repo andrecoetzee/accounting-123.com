@@ -36,7 +36,7 @@ function display()
 	$totals_ar = array();
 	while ($rows = pg_fetch_array($rows_rslt)) {
 		$rows_ar[$rows["reason_id"]][] = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$rows[date]</td>
 			<td>$rows[supname]</td>
 			<td align='right'>".sprint($rows["amount"])."</td>
@@ -64,7 +64,7 @@ function display()
 		}
 
 		$rows_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>Total</td>
 			<td align='right'>".sprint($totals_ar[$reason_id])."</td>
 		</tr>";
@@ -76,7 +76,7 @@ function display()
 	<form method='post' action='".SELF."'>
 	<table ".TMPL_tblDflts.">
 		<tr><th colspan='4'>Date Range</th></tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

@@ -93,7 +93,7 @@ function printSupp ()
 	$filtersel = extlib_cpsel("filter", $filterarr, $filter);
 
 	$supp_grps = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'>
 							<select name='supp_grp'>
 								<option value='all'>View All</option>
@@ -144,11 +144,11 @@ function printSupp ()
 		<th>.: Filter :.</th>
 		<th>.: Value :.</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>$filtersel</td>
 		<td><input type='text' size='20' name='search' value='$search'></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td align='center'><input type='submit' name='all' value='View All'></td>
 		<td align='center'><input type='submit' value='Apply Filter'></td>
 	</tr>
@@ -161,7 +161,7 @@ function printSupp ()
 	<tr>
 		<th colspan='2'>Sort By</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td colspan='2'>$sort_drop <input type='submit' value='Sort'></td>
 	</tr>
 	</form>
@@ -221,7 +221,7 @@ function printSupp ()
 
 	if (pg_numrows ($suppRslt) < 1) {
 		$printSupp .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='20'>
 				<li>Please enter the first few characters of
 				the supplier's name in the search box, to
@@ -352,7 +352,7 @@ function printSupp ()
 
 		$tot=sprint($tot);
 		$printSupp .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan=7>Total Amount Owed, to $i ".($i > 1 ? "suppliers" : "supplier")." </td>
 			<td align=right>".CUR." $tot</td>
 			<td colspan='12'>&nbsp;</td>
@@ -368,7 +368,7 @@ function printSupp ()
 	$next_ancor = ($next_offset < $count) ? "<a href='".SELF."?offset=$next_offset&$get_vars'>Next &raquo;</a>" : "";
 		
 	$printSupp .= "
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 	<td colspan='20' align='center'>
 			$prev_ancor
 			$next_ancor
@@ -396,10 +396,10 @@ function printSupp ()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 				<td><a href='supp-new.php'>Add Supplier</a></td>
 			</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

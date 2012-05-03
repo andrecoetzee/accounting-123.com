@@ -149,9 +149,9 @@ foreach ($_GET as $key => $value) {
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	 <tr><th>Quick Links</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='glodiary.php'>Global Diary</a></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</td>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	 <tr class='bg-odd'><td><a href='glodiary.php'>Global Diary</a></td></tr>
+	 <tr class='bg-odd'><td><a href='index_die.php'>Diary</td>
+	 <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
         return $get_data;
@@ -262,9 +262,9 @@ function con_data ($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	 <tr><th>Quick Links</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='glodiary.php'>Global Diary</a></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</td>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	 <tr class='bg-odd'><td><a href='glodiary.php'>Global Diary</a></td></tr>
+	 <tr class='bg-odd'><td><a href='index_die.php'>Diary</td>
+	 <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
         return $get_data;
@@ -346,9 +346,9 @@ function write_data ($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	 <tr><th>Quick Links</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='glodiary.php'>Global Diary</a></td></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</td>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	 <tr class='bg-odd'><td><a href='glodiary.php'>Global Diary</a></td></tr>
+	 <tr class='bg-odd'><td><a href='index_die.php'>Diary</td>
+	 <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 	return $write_data;
 }

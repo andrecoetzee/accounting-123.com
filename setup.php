@@ -79,7 +79,7 @@ function get_sets ()
 			<tr>
 				<th>Note : </th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Quick Setup can only be run on a new cubit installation.</td>
 			</tr>
 			".TBL_BR."
@@ -151,7 +151,7 @@ function get_sets ()
 	$cRs = db_exec($sql) or errDie("Database Access Failed - check year open.", SELF);
 	if(pg_numrows($cRs) < 1){
 		$monset = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Financial Years Start in</td>
 						<td valign='center'>$smonth</td>
 					</tr>
@@ -159,7 +159,7 @@ function get_sets ()
 	}else{
 		$act = pg_fetch_array($cRs);
 		$monset = "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Financial Years Start in</td>
 						<td valign='center'><input type='hidden' name='smonth' value='$act[prddb]'>".$months[$act['prddb']]."</td>
 					</tr>
@@ -187,11 +187,11 @@ function get_sets ()
 				</tr>
 				$monset
 				$asmonth
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Financial Year to Start At:</td>
 					<td>$selyear</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Select Installation Type:</td>
 					<td>HQ (Default) <input type='radio' name='inst_mode' value='hq' checked='yes'> Branch <input type='radio' name='inst_mode' value='branch'></td>
 				</tr>
@@ -205,7 +205,7 @@ function get_sets ()
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -291,7 +291,7 @@ function write_sets ($_POST)
 						<tr>
 							<th>Note : </th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Quick Setup can only be run on a new cubit installation.</td>
 						</tr>
 						".TBL_BR."
@@ -999,7 +999,7 @@ function write_sets ($_POST)
 					<tr>
 						<th>Setup Complete</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Cubit is ready to be used.</td>
 					</tr>
 				</table>
@@ -1008,7 +1008,7 @@ function write_sets ($_POST)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";
@@ -1040,7 +1040,7 @@ function printSet ()
 							<th>Setting Type</th>
 							<th>Current Setting</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='2'>Cubit Account creation is already set to $set[descript], the quick setup cannot be used for this setting</td>
 						</tr>
 					</table>";

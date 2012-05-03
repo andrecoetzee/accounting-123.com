@@ -161,15 +161,15 @@ function enter($errors="")
 		$tzlist = db_mksel($tzs, "timezone", $timezone, "#timezone", "#timezone");
 
 		$adm_settings = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 		  <td>Username</td>
 		  <td>$usernames</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 		  <td>".COMP_NNAME."'s default locale</td>
 		  <td>$dlocale_sel</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 		    <td>Timezone</td>
 		    <td>$tzlist</td>
 		</tr>";
@@ -197,11 +197,11 @@ function enter($errors="")
 	<tr>
 		<th colspan=2>Settings</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Locale Enabled</td>
 		<td><input type='checkbox' name='enable' value='enabled' $locen_che></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 	<td>User's Locale</td>
 		<td>$locale_sel</td>
 	</tr>
@@ -281,15 +281,15 @@ function confirm($_POST)
 
 		$adm_settings = "<input type=hidden name=username value='$username'>
 		<input type=hidden name=dlocale value='$dlocale'>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Username</td>
 			<td>$usr</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".COMP_NNAME." default locale</td>
 			<td>$dlanguage ($dcountry)</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 		    <td>Timezone</td>
 			<td>$timezone</td>
 		</tr>";
@@ -312,11 +312,11 @@ function confirm($_POST)
 	<tr>
 		<th colspan=2>Confirm</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Enable Locale</td>
 		<td>$enable</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 	<td>User's Locale</td>
 		<td>$language ($country)</td>
 	</tr>
@@ -367,7 +367,7 @@ function write($_POST) {
 		$usrRslt = db_exec($sql) or errDie("Unable to update user locale settings to Cubit.");
 
 		if (pg_affected_rows($usrRslt) > 0) {
-			$msg = "<tr bgcolor='".TMPL_tblDataColor1."'>
+			$msg = "<tr class='bg-odd'>
 			  <td><li>Successfully updated user locale settings</li></td>
 			</tr>";
 		} else {
@@ -380,11 +380,11 @@ function write($_POST) {
 		$defRslt = db_exec($sql) or errDie("Unable to update the default locale setting to Cubit.");
 
 		if (pg_affected_rows($defRslt) > 0) {
-			$msg .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+			$msg .= "<tr class='bg-odd'>
 			  <td><li>Successfully updated the default locale setting.</li></td>
 			</tr>";
 		} else {
-			$msg .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+			$msg .= "<tr class='bg-odd'>
 			  <td><li class=err>Failed to update the default locale setting</li></td>
 			</tr>";
 		}
@@ -395,11 +395,11 @@ function write($_POST) {
 		$defRslt = db_exec($sql) or errDie("Unable to update the timezone setting to Cubit.");
 
 		if (pg_affected_rows($defRslt) > 0) {
-			$msg .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+			$msg .= "<tr class='bg-odd'>
 			  <td><li>Successfully updated the timezone selecion.</li></td>
 			</tr>";
 		} else {
-			$msg .= "<tr bgcolor='".TMPL_tblDataColor1."'>
+			$msg .= "<tr class='bg-odd'>
 			  <td><li class=err>Failed to update the timezone selecion</li></td>
 			</tr>";
 		}
@@ -409,7 +409,7 @@ function write($_POST) {
 		$sql = "UPDATE users SET locale='$locale' WHERE username='".USER_NAME."'";
 		$localeRslt = db_exec($sql) or errDie("Unable to update user locale settings to Cubit.");
 
-		$msg = "<tr bgcolor='".TMPL_tblDataColor1."'>
+		$msg = "<tr class='bg-odd'>
 		  <td><li>Successfully updated user locale settings</li></td>
 		</tr>";
 	}

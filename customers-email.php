@@ -93,11 +93,11 @@ function printCust () {
 	<table border='0' cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<input type='hidden' name='action' value='$action'>
 	<tr><th>.: Filter :.</th><th>.: Value :.</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>$filtersel</td>
 		<td><input type='text' size='20' id='fval' value='$fval' onKeyUp='applyFilter();'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td align=center><input type='button' name='all' value='View All' onClick='viewAll();'></td>
 		<td align=center><input type='button' value='Apply Filter' onClick='applyFilter();'></td>
 	</tr>
@@ -217,7 +217,7 @@ function printCust () {
     $custRslt = db_exec ($sql) or errDie("unable to get customer list.");
 	if (pg_numrows ($custRslt) < 1) {
 		$ajaxCust .= "
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td colspan=20><li>There are no Customers matching the criteria entered.</li></td>
 		</tr>";
 	}else{

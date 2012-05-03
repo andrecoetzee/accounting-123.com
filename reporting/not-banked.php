@@ -57,7 +57,7 @@ function view()
 			<th>Field</th>
 			<th>Value</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Bank Account</td>
 			<td valign='center'>
 				<select name=bankid>";
@@ -87,13 +87,13 @@ function view()
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='index-reports.php'>Financials</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='index-reports-banking.php'>Banking Reports</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='../main.php'>Main Menu</a></td>
 		</tr>
 	</table>";
@@ -120,13 +120,13 @@ function cashbook($bankid)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='index-reports.php'>Financials</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='index-reports-banking.php'>Banking Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -199,7 +199,7 @@ function printrep($bankid)
 
 			# $OUTPUT .= "<tr bgcolor='$bgColor'><td>$accnt[bankname]</td><td align=center>$bname[accname]</td><td align=center>$accnt[date]</td><td>$accnt[descript]</td><td align=center>$accnt[ref]</td><td align=center>$accnt[trantype]</td><td align=center>".CUR." $accnt[amount]<td align=center>$acc[accname]</td></td>";
 			$OUTPUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$bank[bankname]</td>
 						<td align='center'>$bank[accname]</td>
 						<td align='center'>$accnt[date]</td>
@@ -221,7 +221,7 @@ function printrep($bankid)
 		$tot = sprint ($tot);
 
 		$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='6'><b>Total Outstanding</b></td>
 					<td colspan='3'><b>".CUR." $tot</b></td>
 				</tr>
@@ -297,7 +297,7 @@ function printdep($bankid)
 			$accnt['amount'] = sprint ($accnt['amount']);
 
 			$OUTPUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$bank[bankname]</td>
 						<td align='center'>$bank[accname]</td>
 						<td align='center'>$accnt[date]</td>
@@ -319,7 +319,7 @@ function printdep($bankid)
 		$tot = sprint ($tot);
 
 		$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='6'><b>Total Outstanding</b></td>
 					<td colspan='3'><b>".CUR." $tot</b></td>
 				</tr>

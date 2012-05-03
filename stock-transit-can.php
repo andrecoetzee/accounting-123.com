@@ -94,7 +94,7 @@ function confirm($id)
 	if(pg_numrows($sRs) > 0){
 		$serials = "<tr><th colspan=2>Units Serial Numbers</th></tr>";
 		while($ser = pg_fetch_array($sRs)){
-			$serials .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2 align=center>$ser[serno]</td></tr>";
+			$serials .= "<tr class='bg-odd'><td colspan=2 align=center>$ser[serno]</td></tr>";
 		}
 	}
 
@@ -140,22 +140,22 @@ function confirm($id)
 	<input type=hidden name=id value='$id'>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=350>
 		<tr><th width=40%>Field</th><th width=60%>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Branch</td><td>$bran[branname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Warehouse</td><td>$wh[whname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Category</td><td>$stk[catname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock code</td><td>$stk[stkcod]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock description</td><td>".nl2br($stk['stkdes'])."</pre></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>On Hand</td><td>$stk[units]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Allocated</td><td>$stk[alloc]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Available</td><td>$avstk</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>On Order</td><td>$stk[ordered]</td></tr>
+		<tr class='bg-even'><td>Branch</td><td>$bran[branname]</td></tr>
+		<tr class='bg-odd'><td>Warehouse</td><td>$wh[whname]</td></tr>
+		<tr class='bg-even'><td>Category</td><td>$stk[catname]</td></tr>
+		<tr class='bg-odd'><td>Stock code</td><td>$stk[stkcod]</td></tr>
+		<tr class='bg-even'><td>Stock description</td><td>".nl2br($stk['stkdes'])."</pre></td></tr>
+		<tr class='bg-odd'><td>On Hand</td><td>$stk[units]</td></tr>
+		<tr class='bg-even'><td>Allocated</td><td>$stk[alloc]</td></tr>
+		<tr class='bg-odd'><td>Available</td><td>$avstk</td></tr>
+		<tr class='bg-even'><td>On Order</td><td>$stk[ordered]</td></tr>
 		<tr><td><br></td></tr>
 		$serials
 		<tr><td><br></td></tr>
 		<tr><th colspan=2>Transfer to</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>To Branch</td><td>$sbran[branname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>To Store </td><td>$swh[whname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Number of units</td><td>$tran[tunits]</td></tr>
+		<tr class='bg-odd'><td>To Branch</td><td>$sbran[branname]</td></tr>
+		<tr class='bg-even'><td>To Store </td><td>$swh[whname]</td></tr>
+		<tr class='bg-odd'><td>Number of units</td><td>$tran[tunits]</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Confirm &raquo'></td></tr>
 	</table></form>
@@ -163,7 +163,7 @@ function confirm($id)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
 		<tr><td><br></td></tr>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-transit-view.php'>View Stock in transit</a></td></tr>
+		<tr class='bg-odd'><td><a href='stock-transit-view.php'>View Stock in transit</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 
 	</table>";
@@ -242,7 +242,7 @@ function rem($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-transit-view.php'>View Stock in transit</a></td></tr>
+		<tr class='bg-odd'><td><a href='stock-transit-view.php'>View Stock in transit</a></td></tr>
 		<tr bgcolor='#88BBFF'><td><a href='stock-view.php'>View Stock</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";

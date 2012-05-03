@@ -62,7 +62,7 @@ function enter()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=confirm>
 		<tr><th colspan=2>Account Creation</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=radio size=20 name=accc value='cubit' checked=yes>Use Cubit Account numbers(No Default accounts)</td>
+		<tr class='bg-odd'><td><input type=radio size=20 name=accc value='cubit' checked=yes>Use Cubit Account numbers(No Default accounts)</td>
 		<td><input type=radio size=20 name=accc value='user'>Use user selected account numbers(Can select default accounts)</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td align=right colspan=2><input type=submit value='Continue &raquo'></td></tr>
@@ -109,7 +109,7 @@ function confirm($_POST)
 	<input type=hidden name=key value=write>
 	<input type=hidden name=accc value='$accc'>
 	<tr><th colspan>Account Creation</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>";
+	<tr class='bg-odd'>";
 
 	if($accc == "cubit"){
 		$confirm .= "<td>Use Cubit Account numbers</td>";

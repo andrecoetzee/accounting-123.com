@@ -31,7 +31,7 @@ function select()
 		<tr>
 			<th colspan='2'>Report Settings</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Stock Items</td>
 			<td>
 				<input type='radio' name='items_rad' value='sel' />
@@ -60,7 +60,7 @@ function view()
 				<tr>
 					<th colspan='4'>&nbsp;</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<th>Date</th>
 					<th>Details</th>
 					<th>Qty</th>

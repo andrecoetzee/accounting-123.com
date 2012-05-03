@@ -46,11 +46,11 @@ function confirm()
 		<tr>
 			<th colspan='2'>Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".REQ."Name</td>
 			<td>$name</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Description</td>
 			<td>$descr</td>
 		</tr>
@@ -77,7 +77,7 @@ function remove()
 		<tr>
 			<th>Remove</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Successfully Removed the Asset Type</td>
 		</tr>
 	</table>";

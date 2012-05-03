@@ -63,11 +63,11 @@ function slct($purnum = "", $err = "")
 			<tr>
 				<th>Purchase Number</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='text' size='5' name='purnum'></td>
 			</tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><input type='submit' value='Continue'></td>
 			</tr>
 		</form>
@@ -77,10 +77,10 @@ function slct($purnum = "", $err = "")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='purchase-view.php'>View purchases</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

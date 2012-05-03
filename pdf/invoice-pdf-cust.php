@@ -68,7 +68,7 @@ function enter($_GET) {
 				<tr>
 					<th>Invoices</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'1>
+				<tr class='".bg_class()."'1>
 					<td>$invs</td>
 				</tr>
 				<tr><td><br></td></tr>

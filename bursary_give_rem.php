@@ -57,47 +57,47 @@ function confirm_details ($_POST)
 				<tr>
 					<th colspan='2'>Recipient Information</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bursary</td>
 					<td>$showbursary</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Name</td>
 					<td>$rec_name</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Address</td>
 					<td>$rec_add1</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td></td>
 					<td>$rec_add2</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td></td>
 					<td>$rec_add3</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td></td>
 					<td>$rec_add4</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>ID Number</td>
 					<td>$rec_idnum</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Telephone</td>
 					<td>$rec_telephone</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date From</td>
 					<td>$from_date</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date To</td>
 					<td>$to_date</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Notes</td>
 					<td>".nl2br($notes)."</td>
 				</tr>
@@ -136,7 +136,7 @@ function write_details ($_POST)
 				<tr>
 					<th>Bursary Information Updated.</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Bursary Information Removed</td>
 				</tr>
 			</table>";

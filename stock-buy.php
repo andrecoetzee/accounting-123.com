@@ -79,15 +79,15 @@ function slctStk()
 		<form action='".SELF."' method=post name=form>
 		<input type=hidden name=key value=details>
 		<tr><th>Select Stock</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td valign=center>$stock</td></tr>
+		<tr class='bg-odd'><td valign=center>$stock</td></tr>
 		<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'><input type=submit value='Buy &raquo'></td></tr>
 		</form>
 		</table>
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='stock-view.php'>View Stock</a></td></tr>
+			<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+			<tr class='bg-even'><td><a href='stock-view.php'>View Stock</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 
@@ -146,19 +146,19 @@ function details($_POST)
         <input type=hidden name=stkid value='$stkid'>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300>
 			<tr><th>Field</th><th>Value</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock code</td><td>$stk[stkcod]</td></tr>
-        	<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock description</td><td>$stk[stkdes]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center><input type=text size=2 name=day maxlength=2 value='".date("d")."'>-<input type=text size=2 name=mon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=year maxlength=4 value='".date("Y")."'> DD-MM-YYYY</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Buying units</td><td><input type=text size=10 name='buom'> x $stk[buom]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Selling units</td><td><input type=text size=10 name='suom'> x $stk[suom]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Cost Amount</td><td>".CUR." <input type=text size=9 name='csamt'></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Bank Account</td><td>$bank</td></tr>
+			<tr class='bg-odd'><td>Stock code</td><td>$stk[stkcod]</td></tr>
+        	<tr class='bg-even'><td>Stock description</td><td>$stk[stkdes]</td></tr>
+			<tr class='bg-odd'><td>Date</td><td valign=center><input type=text size=2 name=day maxlength=2 value='".date("d")."'>-<input type=text size=2 name=mon maxlength=2 value='".date("m")."'>-<input type=text size=4 name=year maxlength=4 value='".date("Y")."'> DD-MM-YYYY</td></tr>
+			<tr class='bg-even'><td>Buying units</td><td><input type=text size=10 name='buom'> x $stk[buom]</td></tr>
+			<tr class='bg-odd'><td>Selling units</td><td><input type=text size=10 name='suom'> x $stk[suom]</td></tr>
+			<tr class='bg-even'><td>Cost Amount</td><td>".CUR." <input type=text size=9 name='csamt'></td></tr>
+			<tr class='bg-odd'><td>Bank Account</td><td>$bank</td></tr>
 			<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td align=right><input type=submit value='Add &raquo'></td></tr>
         </table>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
         	<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='stock-view.php'>View Stock</a></td></tr>
+			<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+			<tr class='bg-even'><td><a href='stock-view.php'>View Stock</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
         </form>
         </table>";
@@ -242,19 +242,19 @@ function confirm($_POST)
 		<input type=hidden name=bankacc value='$bankacc'>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300>
 			<tr><th>Field</th><th>Value</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Stock code</td><td>$stk[stkcod]</td></tr>
-        	<tr bgcolor='".TMPL_tblDataColor2."'><td>Stock description</td><td>$stk[stkdes]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$date</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Buying units</td><td>$buom x $stk[buom]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Selling units</td><td>$suom x $stk[suom]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Cost Amount</td><td>".CUR." $csamt</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Bank Account</td><td>$bank[accname]</td></tr>
+			<tr class='bg-odd'><td>Stock code</td><td>$stk[stkcod]</td></tr>
+        	<tr class='bg-even'><td>Stock description</td><td>$stk[stkdes]</td></tr>
+			<tr class='bg-odd'><td>Date</td><td>$date</td></tr>
+			<tr class='bg-even'><td>Buying units</td><td>$buom x $stk[buom]</td></tr>
+			<tr class='bg-odd'><td>Selling units</td><td>$suom x $stk[suom]</td></tr>
+			<tr class='bg-even'><td>Cost Amount</td><td>".CUR." $csamt</td></tr>
+			<tr class='bg-odd'><td>Bank Account</td><td>$bank[accname]</td></tr>
 			<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td align=right><input type=submit value='Confirm &raquo'></td></tr>
         </table>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>
         	<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='stock-view.php'>View Stock</a></td></tr>
+			<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+			<tr class='bg-even'><td><a href='stock-view.php'>View Stock</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
         </form>
         </table>";
@@ -348,8 +348,8 @@ function write($_POST)
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='stock-add.php'>Add Stock</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td><a href='stock-view.php'>View Stock</a></td></tr>
+			<tr class='bg-odd'><td><a href='stock-add.php'>Add Stock</a></td></tr>
+			<tr class='bg-even'><td><a href='stock-view.php'>View Stock</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 

@@ -89,7 +89,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' nowrap>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -100,7 +100,7 @@ function slct()
 			<tr>
 				<th>Supplier(s)</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$supplier_drop</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -181,7 +181,7 @@ function printPurch ($_POST)
 			<tr>
 				<th colspan='2'>Filter</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='filter' value='summary' $check1 onClick=\"document.form1.submit();\"> Summary</td>
 				<td><input type='radio' name='filter' value='detailed' $check2 onClick=\"document.form1.submit();\"> Detailed</td>
 			</tr>
@@ -191,7 +191,7 @@ function printPurch ($_POST)
 			<tr>
 				<th colspan='2'>Order</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' name='order' value='date' $ocheck1 onClick=\"document.form1.submit();\"> Date</td>
 				<td><input type='radio' name='order' value='numeric' $ocheck2 onClick=\"document.form1.submit();\"> Numeric</td>
 			</tr>
@@ -264,7 +264,7 @@ function printPurch ($_POST)
 
 			# Alternate bgcolor
 			$printOrd .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$stkp[purnum]</td>
 					<td>$stkp[ordernum]</td>
 					<td>$stkp[supinv]</td>
@@ -365,7 +365,7 @@ function printPurch ($_POST)
 				$run_items = db_exec ($get_items) or errDie ("Unable to get stock items information.");
 				if (pg_numrows ($run_items) > 0){
 					$printOrd .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<th colspan='4'></th>
 							<th>Code</th>
 							<th>Description</th>
@@ -384,7 +384,7 @@ function printPurch ($_POST)
 								$stk['stkdes'] = $stockcodes[$stk['stkid']]['stkdes'];
 						}
 						$printOrd .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='4'></td>
 								<td>$stk[stkcod]</td>
 								<td>$stk[stkdes]</td>
@@ -413,7 +413,7 @@ function printPurch ($_POST)
 	}
 
 	$printOrd .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'>Totals</td>
 				<td align='right' nowrap='t'>".CUR." $tot1</td>
 				<td align='right' nowrap='t'>".CUR." $tot2</td>
@@ -681,35 +681,35 @@ function delete_confirm($_POST)
 			<tr>
 				<th colspan='2'>Confirm</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>No.</td>
 				<td>$purData[purnum]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Order No.</td>
 				<td>$purData[ordernum]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Order Date</td>
 				<td>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Supplier</td>
 				<td>$purData[supname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Sub Total</td>
 				<td>".CUR."$subtot</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Delivery Charges</td>
 				<td>".CUR."$purData[shipchrg]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Vat</td>
 				<td>".CUR."$vat</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total</td>
 				<td>".CUR."$purData[total]</td>
 			</tr>

@@ -37,7 +37,7 @@ function get_show_setting ($err="")
 						<tr>
 							<th>Email Marketing From Address</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='text' size='40' name='setting' value='$setting'></td>
 						</tr>
 						<tr><td><br></td></tr>

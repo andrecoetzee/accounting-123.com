@@ -98,11 +98,11 @@ function edit()
 	<tr>
 		<th colspan='2'>Details</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Name:</td>
 		<td><input type='text' name='name' value='$name'></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>In Republic (ZA):</td>
 		<td>
 			<select name='in_republic'>
@@ -111,7 +111,7 @@ function edit()
 			</select>
 		</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Employee pays for own Meals:</td>
 		<td>
 			<select name='meals'>
@@ -120,7 +120,7 @@ function edit()
 			</select>
 		</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Account:</td>
 		<td>".finAccList("accid", false, $accid)."</td>
 		<td class='err'>Select an account where the expense must be debited to.</td>

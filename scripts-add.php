@@ -63,8 +63,8 @@ $enter =
 <form action='".SELF."' method=post>
 <input type=hidden name=key value=confirm>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Script function </td><td align=right><input type=text size=20 name=name></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>File </td><td align=right><input type=text size=20 name=file></td></tr>
+<tr class='bg-even'><td>Script function </td><td align=right><input type=text size=20 name=name></td></tr>
+<tr class='bg-odd'><td>File </td><td align=right><input type=text size=20 name=file></td></tr>
 <tr><td align=right colspan=2><input type=submit value='Confirm &raquo'></td></tr>
 </form>
 </table>
@@ -108,8 +108,8 @@ function confirm ($_POST)
         <input type=hidden name=name value='$name'>
         <input type=hidden name=file value='$file'>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>Script Function</td><td>$name</td>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>File</td><td>$file</td>
+        <tr class='bg-even'><td>Script Function</td><td>$name</td>
+        <tr class='bg-odd'><td>File</td><td>$file</td>
         <tr><td align=right colspan=2><input type=submit value='Add script &raquo'></td></tr>
         </form>
         </table>";

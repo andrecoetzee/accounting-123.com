@@ -23,17 +23,17 @@ function get_file_location ($err="")
 						<tr>
 							<th>Select File To Import</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='file' name='file_upload'></td>
 						</tr>
 						".TBL_BR."
 						<tr>
 							<th>Date Type Setting</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='radio' name='mode_setting' value='1' checked='yes'> Setting 1 (MM-DD-YY OR MM-DD-YYYY)</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='radio' name='mode_setting' value='2'> Setting 2 (DD-MM-YY OR DD-MM-YYYY)</td>
 						</tr>
 						".TBL_BR."

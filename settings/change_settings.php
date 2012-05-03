@@ -46,7 +46,7 @@ function show_settings ($err = "")
 						<tr>
 							<th colspan='2'>Invoice Trade Discount Setting</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='radio' name='traddisc' value='include' $sel1> Include Delivery Charge In Trade Discount</td>
 							<td><input type='radio' name='traddisc' value='exclude' $sel2> Exclude Delivery Charge In Trade Discount</td>
 						</tr>

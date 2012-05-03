@@ -65,7 +65,7 @@ function slctAcc()
 			<tr>
 				<th colspan='2'>Period Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>From : $fprd</td>
 				<td>To : $tprd</td>
 			</tr>
@@ -204,7 +204,7 @@ function viewtran($_POST)
 				$amount = sprint($amount);
 
 				$OUTPUT .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$date</td>
 						<td>$dtopacc/$daccnum - $daccname</td>
 						<td>$ctopacc/$caccnum - $caccname</td>

@@ -48,19 +48,19 @@ function confirm_holiday ($_POST)
 				<tr>
 					<th>Holiday Name</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$holiday_name</td>
 				</tr>
 				<tr>
 					<th>Holiday Type</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$holiday_type</td>
 				</tr>
 				<tr>
 					<th>Holiday Date</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$holiday_date</td>
 				</tr>
 				<tr><td><br></td></tr>
@@ -89,7 +89,7 @@ function write_holiday ($_POST)
 				<tr>
 					<th>Information Updated</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Public Holiday Has Been Removed.</td>
 				</tr>";
 

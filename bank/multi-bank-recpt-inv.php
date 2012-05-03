@@ -239,7 +239,7 @@ function method($_POST,$ex="")
 
 
 		$listing .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$customerdrop</td>
 				<td>$bankaccs</td>
 				<td>".mkDateSelecta("date",$i,$date_year[$i],$date_month[$i],$date_day[$i])."</td>
@@ -257,7 +257,7 @@ function method($_POST,$ex="")
 	}
 
 	$listing .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='6' align='right'><b>Total:</b></td>
 			<td align='right'>".CUR." ".sprint(array_sum ($amt))."</td>
 			<td colspan='2'></td>
@@ -286,7 +286,7 @@ function method($_POST,$ex="")
 //		<tr>
 //			<th colspan='2'>Receive Method</th>
 //		</tr>
-//		<tr bgcolor='".bgcolorg()."'>
+//		<tr class='".bg_class()."'>
 //			<td>Allocation</td>
 //			<td>$alls</td>
 //		</tr>
@@ -450,35 +450,35 @@ function alloc($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank[accname] - $bank[bankname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date[$t]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Received from</td>
 				<td valign='center'>$cus1 $cus2</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>".nl2br($descript[$t])."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference</td>
 				<td valign='center'>$reference[$t]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'>$cheqnum[$t]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amt[$t]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Settlement Discount</td>
 				<td valign='center'>".CUR." $setamt[$t] $showsetvat</td>
 			</tr>";
@@ -662,7 +662,7 @@ function alloc($_POST)
 		if ($out[$t] > 0) {
 			$out[$t] = sprint ($out[$t]);
 			$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='4'><b>A general transaction will credit the client's account with ".CUR." $out[$t] </b></td>
 				</tr>";
 		}
@@ -893,35 +893,35 @@ function confirm($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$bank[accname] - $bank[bankname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td valign='center'>$date[$t]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Received from</td>
 				<td valign='center'>$cus1 $cus2</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td valign='center'>$descript[$t]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference</td>
 				<td valign='center'>$reference[$t]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Cheque Number</td>
 				<td valign='center'>$cheqnum[$t]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount</td>
 				<td valign='center'>".CUR." $amt[$t]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Settlement Amount</td>
 				<td valign='center'>".CUR." $setamt[$t] $showsetvat</td>
 			</tr>";
@@ -1105,7 +1105,7 @@ function confirm($_POST)
 					$out[$t] = sprint ($out[$t]);
 					if ($out[$t] > 0) {
 						$confirm .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='4'><b>A general transaction will credit the
 								client's account with ".CUR." $out[$t] </b></td>
 						</tr>";
@@ -1115,7 +1115,7 @@ function confirm($_POST)
 				} else {
 					$out[$t] = sprint ($out[$t]);
 					$confirm .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='5'><b>A general transaction will credit the
 							client's account with ".CUR." $out[$t] </b></td>
 					</tr>";
@@ -1482,7 +1482,7 @@ function write($_POST)
 						$open_amount[$t][$oid] = $od['balance'];
 						$open_out[$t] = sprint($open_out[$t]-$od['balance']);
 						$ox .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' size='20' name='open[$t][$oid]' value='$oid'>$od[type]</td>
 								<td>".CUR." $od[balance]</td>
 								<td>$od[date]</td>
@@ -1496,7 +1496,7 @@ function write($_POST)
 						$open_amount[$t][$oid] = $open_out[$t];
 						$open_out = 0;
 						$ox .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' size='20' name='open[$t][$oid]' value='$od[id]'>$od[type]</td>
 								<td>".CUR." $od[balance]</td>
 								<td>$od[date]</td>
@@ -1522,11 +1522,11 @@ function write($_POST)
 								'Payment Received', 'n', '".USER_DIV."'
 							)";
 						$stmntRslt = db_exec($sql) or errDie("Unable to Insert statement record in Cubit.",SELF);
-						//$confirm .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
+						//$confirm .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";
 					}
 
 					$out[$t] = $bout[$t];
-				} else  {//$confirm .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
+				} else  {//$confirm .="<tr class='bg-even'><td colspan=4><b>A general transaction will credit the client's account with ".CUR." $out </b></td></tr>";}
 				}
 			}
 
@@ -1857,7 +1857,7 @@ function write($_POST)
 			<tr>
 				<th>Bank Receipt</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Receipt added to cash book.</td>
 			</tr>
 		</table>";

@@ -54,11 +54,11 @@ function choose_step() {
 		<tr>
 			<th colspan=2>Message Details</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>Cell Number:</td>
 			<td><input name=cellnum type=text></td>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'>
+		<tr class='bg-even'>
 			<td>Message</td>
 			<td><textarea cols=25 rows=4 name=message></textarea></td>
 		</tr>

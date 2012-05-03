@@ -69,7 +69,7 @@ function viewAllow ()
 		$acc = pg_fetch_array($accRslt);
 
 		$viewAllow .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$myAllow[allowance]</td>
 				<td>$myAllow[taxable]</td><td>$acc[accname]</td>
 				<td>$myAllow[type]</td>

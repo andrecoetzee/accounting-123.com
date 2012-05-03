@@ -73,18 +73,18 @@ function view()
 		<input type=hidden name=key value=slctcust>
 		<input type=hidden name=cussel value=cussel>
 		<tr><th colspan=2>Statement</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Select Department</td><td valign=center>$depts</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>First Letters of customer</td><td valign=center><input type=text size=5 name=letters maxlength=5></td></tr>
+		<tr class='bg-odd'><td>Select Department</td><td valign=center>$depts</td></tr>
+		<tr class='bg-even'><td>First Letters of customer</td><td valign=center><input type=text size=5 name=letters maxlength=5></td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue &raquo'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='customers-new.php'>New Customer</a></td></tr>
+		<tr class='bg-odd'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
+		<tr class='bg-odd'><td><a href='customers-new.php'>New Customer</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
         return $view;
@@ -125,18 +125,18 @@ function view_err($_POST, $err = "")
 		<input type=hidden name=cussel value=cussel>
 		<tr><th colspan=2>Statement</th></tr>
 		<tr><td colspan=2>$err</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Select Department</td><td valign=center>$depts</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>First Letters of customer</td><td valign=center><input type=text size=5 name=letters value='$letters' maxlength=5></td></tr>
+		<tr class='bg-odd'><td>Select Department</td><td valign=center>$depts</td></tr>
+		<tr class='bg-even'><td>First Letters of customer</td><td valign=center><input type=text size=5 name=letters value='$letters' maxlength=5></td></tr>
 		<tr><td><br></td></tr>
 		<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue &raquo'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='customers-new.php'>New Customer</a></td></tr>
+		<tr class='bg-odd'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
+		<tr class='bg-odd'><td><a href='customers-new.php'>New Customer</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
         return $view;
@@ -191,17 +191,17 @@ function slctCust($_POST)
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=400>
 			<input type=hidden name=key value=print>
 			<tr><th colspan=2>Statement</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Select Customer</td><td valign=center>$customers</td></tr>
+			<tr class='bg-odd'><td>Select Customer</td><td valign=center>$customers</td></tr>
 			<tr><td><br></td></tr>
 			<tr><td><input type=button value='&laquo Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue &raquo'></td></tr>
 		</table></form>
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='customers-new.php'>New Customer</a></td></tr>
+			<tr class='bg-odd'><td><a href='invoice-view.php'>View Invoices</a></td></tr>
+			<tr class='bg-odd'><td><a href='customers-new.php'>New Customer</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+			<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 		</table>";
 
         return $slct;
@@ -249,7 +249,7 @@ function printInv ($_POST)
 	$sql = "SELECT * FROM invoices WHERE cusnum = '$cusnum' AND balance <> 0 ORDER BY odate ASC";
 	$stRslt = db_exec ($sql) or errDie ("Unable to retrieve invoices statement from database.");
 	if (pg_numrows ($stRslt) < 1) {
-		$stmnt .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2>There are No Outstanding invoices.</td></tr>";
+		$stmnt .= "<tr class='bg-even'><td colspan=2>There are No Outstanding invoices.</td></tr>";
 	}else{
 		$i = 0;
 		while ($st = pg_fetch_array ($stRslt)) {
@@ -288,14 +288,14 @@ function printInv ($_POST)
 	$printInv = "
 	<h3>Monthly Statement</h3>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
-		<tr bgcolor='".TMPL_tblDataColor1."'><th>Account No.</th><td>$cust[accno]</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer : </td><td>$cust[cusname] $cust[surname]</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Balance Brought Forward</td><td>".CUR." $balbf</td>
+		<tr class='bg-odd'><th>Account No.</th><td>$cust[accno]</th></tr>
+		<tr class='bg-even'><td>Customer : </td><td>$cust[cusname] $cust[surname]</td></tr>
+		<tr class='bg-odd'><td>Balance Brought Forward</td><td>".CUR." $balbf</td>
 		<tr><td><br></td></tr>
 		<tr><th>Invoice No.</th><th>Outstanding Amount</th></tr>
 		$stmnt
 		<tr><td><br></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td><b>Total Outstanding Invoices</b></td><td>".CUR." $totout</td></tr>
+		<tr class='bg-even'><td><b>Total Outstanding Invoices</b></td><td>".CUR." $totout</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>

@@ -98,7 +98,7 @@ function select_emp_grievance ()
 			<tr>
 				<th>Select Staff Member</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$emp_drop</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -144,7 +144,7 @@ function view_grievance ($empnum = "")
 	$run_grievs = db_exec($get_grievs);
 	if(pg_numrows($run_grievs) < 1){
 		$listing = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'>No grievances recorded for the staff member.</td>
 			</tr>";
 	}else {
@@ -152,14 +152,14 @@ function view_grievance ($empnum = "")
 		while ($garr = pg_fetch_array($run_grievs)){
 			if($garr['closed'] == "yes"){
 				$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$garr[first_rec_date]</td>
 						<td>$garr[griev_details]</td>
 						<td>$garr[company_date]</td>
 					</tr>";
 			}else {
 				$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$garr[first_rec_date]</td>
 						<td>$garr[griev_details]</td>
 						<td>$garr[company_date]</td>

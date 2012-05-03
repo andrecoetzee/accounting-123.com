@@ -29,8 +29,8 @@ require("settings.php");
 $OUTPUT.="<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td align=center><a href='index.php'>My Business</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td align=center><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-even'><td align=center><a href='index.php'>My Business</a></td></tr>
+	<tr class='bg-odd'><td align=center><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
 
 require("template.php");

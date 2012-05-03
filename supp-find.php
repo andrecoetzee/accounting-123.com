@@ -68,8 +68,8 @@ function printSupp ($_GET)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<form action='".SELF."' method=get>
 	<tr><th>.: Filter :.</th><th>.: Value :.</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>$filtersel</td><td><input type=text size=20 name=fval value='$fval'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td align=center><input type=submit name=all value='View All'></td><td align=center><input type=submit value='Apply Filter'></td></tr>
+	<tr class='bg-odd'><td>$filtersel</td><td><input type=text size=20 name=fval value='$fval'></td></tr>
+	<tr class='bg-even'><td align=center><input type=submit name=all value='View All'></td><td align=center><input type=submit value='Apply Filter'></td></tr>
 	</form>
 	</table>";
 	
@@ -88,7 +88,7 @@ function printSupp ($_GET)
 		$sql = "SELECT * FROM suppliers WHERE (div = '".USER_DIV."' OR ddiv = '".USER_DIV."') $sqlfilter ORDER BY supname ASC";
 		$suppRslt = db_exec ($sql) or errDie ("Unable to retrieve Suppliers from database.");
 		if (pg_numrows ($suppRslt) < 1) {
-			$printSupp .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=20><li>There are no Suppliers in Cubit.</td></tr>";
+			$printSupp .= "<tr class='bg-odd'><td colspan=20><li>There are no Suppliers in Cubit.</td></tr>";
 		}else{
 			while ($supp = pg_fetch_array ($suppRslt)) {
 				# get department
@@ -163,8 +163,8 @@ function printSupp ($_GET)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='supp-new.php'>Add Supplier</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='supp-new.php'>Add Supplier</a></td></tr>
+	<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $printSupp;

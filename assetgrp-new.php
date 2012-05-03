@@ -128,17 +128,17 @@ function enter ($_POST)
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<input type=hidden name=key value=confirm>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Asset Group</td><td><input type=text size=20 name=group value='$group'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Cost Account</td><td>$Dcostacc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>".REQ."Accumulated Depreciation Account</td><td>$Daccdacc</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>".REQ."Depreciation Account</td><td>$Ddepacc</td></tr>
+	<tr class='bg-even'><td>".REQ."Asset Group</td><td><input type=text size=20 name=group value='$group'></td></tr>
+	<tr class='bg-odd'><td>".REQ."Cost Account</td><td>$Dcostacc</td></tr>
+	<tr class='bg-even'><td>".REQ."Accumulated Depreciation Account</td><td>$Daccdacc</td></tr>
+	<tr class='bg-odd'><td>".REQ."Depreciation Account</td><td>$Ddepacc</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
+	<tr class='bg-odd'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -198,17 +198,17 @@ function confirm ($_POST)
 	<input type=hidden name=accdacc value='$accdacc'>
 	<input type=hidden name=depacc value='$depacc'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Asset Group</td><td>$group</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Cost Account</td><td>$acdacct[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Accumulated Depreciation Account</td><td>$acdacc[accname]</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Depreciation Account</td><td>$accdep[accname]</td></tr>
+	<tr class='bg-even'><td>Asset Group</td><td>$group</td></tr>
+	<tr class='bg-odd'><td>Cost Account</td><td>$acdacct[accname]</td></tr>
+	<tr class='bg-even'><td>Accumulated Depreciation Account</td><td>$acdacc[accname]</td></tr>
+	<tr class='bg-odd'><td>Depreciation Account</td><td>$accdep[accname]</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td><input type=submit name=back value='&laquo; Correction'></td><td align=right><input type=submit value='Write &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-view.php'>View Asset Group</a></td></tr>
+	<tr class='bg-odd'><td><a href='assetgrp-view.php'>View Asset Group</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -261,7 +261,7 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
+	<tr class='bg-odd'><td><a href='assetgrp-view.php'>View Asset Groups</a></td></tr>
 	<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

@@ -81,7 +81,7 @@ function view()
 	<input type=hidden name=yrdb value='$yrdb'>
 	<input type=hidden name=yrname value='$yrname'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Select Period</td><td><select name=prd>";
+	<tr class='bg-even'><td>Select Period</td><td><select name=prd>";
                 db_conn($yrdb);
                 $sql = "SELECT * FROM info WHERE prdname !=''";
                 $prdRslt = db_exec($sql);
@@ -99,7 +99,7 @@ function view()
                 }
                 $view .= "
     </select></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Balance Sheet Settings</td><td valign=center>
+	<tr class='bg-odd'><td>Balance Sheet Settings</td><td valign=center>
 	Previous Year's <input type=radio name=balset value=l checked=yes> | This Year's<input type=radio name=balset value=t></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td><input type=button value='< Cancel' onClick='javascript:history.back();'></td><td valign=center><input type=submit value='Continue >'></td></tr>
@@ -149,7 +149,7 @@ function bal_sheet($_POST)
         # get accounts
         $oebal = 0; // OE Balance
         while($oesub = pg_fetch_array($oesubRslt)){
-               $sheet .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=3><b>$oesub[value]<b></td></tr>";
+               $sheet .= "<tr class='bg-even'><td colspan=3><b>$oesub[value]<b></td></tr>";
 
 			   db_conn($baldb);
                $sql = "SELECT * FROM bal_sheet WHERE type ='OEACC' AND ref = $oesub[ref] AND div = '".USER_DIV."'";
@@ -163,14 +163,14 @@ function bal_sheet($_POST)
                         $accbal = pg_fetch_array($balRslt);
                         $balance = ($accbal['credit'] - $accbal['debit']);
                         $oebal += $balance;
-                        $sheet .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><blockquote><li>$accbal[accname]</td><td>".CUR." $balance</td><td><br></td></tr>";
+                        $sheet .= "<tr class='bg-odd'><td><blockquote><li>$accbal[accname]</td><td>".CUR." $balance</td><td><br></td></tr>";
                 }
         }
         # print Net Income and OE Balance on last column
         $netincome = getNetIncome($yrdb, $prdname);
         $oebal += $netincome;
-        $sheet .="<tr bgcolor='".TMPL_tblDataColor1."'><td>&nbsp<b>Net Income</b></td><td>".CUR." $netincome</td><td><br></td></tr>";
-        $sheet .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>Total</b></td><td><b>".CUR." $oebal</b></td></tr>";
+        $sheet .="<tr class='bg-odd'><td>&nbsp<b>Net Income</b></td><td>".CUR." $netincome</td><td><br></td></tr>";
+        $sheet .="<tr class='bg-even'><td colspan=2><b>Total</b></td><td><b>".CUR." $oebal</b></td></tr>";
 
         # Get Assets Sub Headings
         $abal = 0; // Assets Balance
@@ -179,7 +179,7 @@ function bal_sheet($_POST)
 
         # get accounts
         while($asssub = pg_fetch_array($asssubRslt)){
-               $sheet .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=3><b>$asssub[value]<b></td></tr>";
+               $sheet .= "<tr class='bg-even'><td colspan=3><b>$asssub[value]<b></td></tr>";
 
 				db_conn($baldb);
 				$sql = "SELECT * FROM bal_sheet WHERE type ='ASSACC' AND ref = $asssub[ref] AND div = '".USER_DIV."'";
@@ -193,12 +193,12 @@ function bal_sheet($_POST)
                         $accbal = pg_fetch_array($balRslt);
                         $balance = ($accbal['debit'] - $accbal['credit']); // calc Balance
                         $abal += $balance;
-                        $sheet .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><blockquote><li>$accbal[accname]</td><td>".CUR." $balance</td><td><br></td></tr>";
+                        $sheet .= "<tr class='bg-odd'><td><blockquote><li>$accbal[accname]</td><td>".CUR." $balance</td><td><br></td></tr>";
                 }
         }
 
         # print assets balance on last column
-        $sheet .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>Total</b></td><td><b>".CUR." $abal</b></td></tr>
+        $sheet .="<tr class='bg-even'><td colspan=2><b>Total</b></td><td><b>".CUR." $abal</b></td></tr>
         </table>
 		<p>
 		<form>
@@ -223,7 +223,7 @@ function save_bal()
         # get accounts
         $oebal = 0; // OE Balance
         while($oesub = pg_fetch_array($oesubRslt)){
-               $sheet .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=3><b>$oesub[value]<b></td></tr>";
+               $sheet .= "<tr class='bg-even'><td colspan=3><b>$oesub[value]<b></td></tr>";
 
                $sql = "SELECT * FROM bal_sheet WHERE type ='OEACC' AND ref = $oesub[ref] AND div = '".USER_DIV."'";
                $accRslt = db_exec($sql) or errDie("Unable to retrieve balance sheet settings from the Database.",SELF);
@@ -234,14 +234,14 @@ function save_bal()
                         $accbal = pg_fetch_array($balRslt);
                         $balance = ($accbal['credit'] - $accbal['debit']);
                         $oebal += $balance;
-                        $sheet .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><blockquote><li>$accbal[accname]</td><td>".CUR." $balance</td><td><br></td></tr>";
+                        $sheet .= "<tr class='bg-odd'><td><blockquote><li>$accbal[accname]</td><td>".CUR." $balance</td><td><br></td></tr>";
                 }
         }
         # print Net Income and OE Balance on last column
         $netincome = getNetIncome($yrdb, $prdname);
         $oebal += $netincome;
-        $sheet .="<tr bgcolor='".TMPL_tblDataColor1."'><td>&nbsp<b>Net Income</b></td><td>".CUR." $netincome</td><td><br></td></tr>";
-        $sheet .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>Total</b></td><td><b>".CUR." $oebal</b></td></tr>";
+        $sheet .="<tr class='bg-odd'><td>&nbsp<b>Net Income</b></td><td>".CUR." $netincome</td><td><br></td></tr>";
+        $sheet .="<tr class='bg-even'><td colspan=2><b>Total</b></td><td><b>".CUR." $oebal</b></td></tr>";
 
         # Get Assets Sub Headings
         $abal = 0; // Assets Balance
@@ -250,7 +250,7 @@ function save_bal()
 
         # get accounts
         while($asssub = pg_fetch_array($asssubRslt)){
-               $sheet .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=3><b>$asssub[value]<b></td></tr>";
+               $sheet .= "<tr class='bg-even'><td colspan=3><b>$asssub[value]<b></td></tr>";
 
                $sql = "SELECT * FROM bal_sheet WHERE type ='ASSACC' AND ref = $asssub[ref] AND div = '".USER_DIV."'";
                $accRslt = db_exec($sql) or errDie("Unable to retrieve balance sheet settings from the Database.",SELF);
@@ -261,12 +261,12 @@ function save_bal()
                         $accbal = pg_fetch_array($balRslt);
                         $balance = ($accbal['debit'] - $accbal['credit']); // calc Balance
                         $abal += $balance;
-                        $sheet .= "<tr bgcolor='".TMPL_tblDataColor1."'><td><blockquote><li>$accbal[accname]</td><td>".CUR." $balance</td><td><br></td></tr>";
+                        $sheet .= "<tr class='bg-odd'><td><blockquote><li>$accbal[accname]</td><td>".CUR." $balance</td><td><br></td></tr>";
                 }
         }
 
         # print assets balance on last column
-        $sheet .="<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><b>Total</b></td><td><b>".CUR." $abal</b></td></tr>
+        $sheet .="<tr class='bg-even'><td colspan=2><b>Total</b></td><td><b>".CUR." $abal</b></td></tr>
         </table><br>";
 
 		$output = base64_encode($sheet);

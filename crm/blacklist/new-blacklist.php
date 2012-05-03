@@ -74,19 +74,19 @@ function enter($err) {
 	<tr>
 		<th colspan=2>Details</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>ID / Passport Number / Registration Number</td>
 		<td><input type=text name=idnum value='$idnum'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Full Name</td>
 		<td><input type=text name=name value='$name'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Surname</td>
 		<td><input type=text name=surname value='$surname'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Paying Habits</td>
 		<td>
 			<input type=radio name=paying value='bad'> Bad<br>
@@ -94,7 +94,7 @@ function enter($err) {
 			<input type=radio name=paying value='good'> Good
 		</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Person Type</td>
 		<td>
 			<input type=radio name=person value='bad'> Bad<br>
@@ -102,19 +102,19 @@ function enter($err) {
 			<input type=radio name=person value='good'> Good
 		</td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Comments (100 characters)</td>
 		<td><textarea name=comment>$comment</textarea></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Listing Person Name</td>
 		<td><input type=text name=personname value='$personname'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'>
+	<tr class='bg-even'>
 		<td>Contact Number of Listing Person</td>
 		<td><input type=text name=persontel value='$persontel'></td>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>Will you let the person do Business with you again?</td>
 		<td>
 			<input type=radio name=dobusiness value=yes> Yes<br>
@@ -208,7 +208,7 @@ function submit() {
 	<tr>
 		<th>Data Returned</th>
 	</tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td>$site_msg</td>
 	</tr>
 	</table>";

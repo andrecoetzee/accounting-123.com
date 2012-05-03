@@ -14,13 +14,13 @@
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='branches-add.php'>Add Branch</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='branches-view.php'>View Branches</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";
@@ -38,7 +38,7 @@ function show_branches ($active_search=FALSE)
 	$run_branches = db_exec($get_branches) or errDie ("Unable to get branch information.");
 	if (pg_numrows($run_branches) < 1){
 		$listing = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='7'>No Branches Found.</td>
 						</tr>
 					";
@@ -68,7 +68,7 @@ function show_branches ($active_search=FALSE)
 			}
 
 			$listing .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$barr[branch_name]</td>
 								<td>".nl2br($barr['branch_desc'])."</td>
 								<td>$barr[branch_username]</td>

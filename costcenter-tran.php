@@ -63,7 +63,7 @@ function enterdet ()
 	$ccenters = "";
 	for($i = 0; $cc = pg_fetch_array($ccRslt); $i++){
 		$ccenters .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='hidden' name='ccids[]' value='$cc[ccid]'>$cc[centername] ($cc[centercode]) </td>
 					<td align='right'>".CUR." <input type='text' name='ccamts[]' size='8' value='0'></td>
 				</tr>";
@@ -81,15 +81,15 @@ function enterdet ()
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>".REQ."Entry Type</td>
 					<td>$typesel</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td nowrap>".mkDateSelect("date")."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Description</td>
 					<td><textarea cols='18' rows='3' name='descrip'></textarea></td>
 				</tr>
@@ -110,13 +110,13 @@ function enterdet ()
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='costcenter-add.php'>Add Cost Center</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='costcenter-view.php'>View Cost Center</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -184,7 +184,7 @@ function confirm ($_POST)
 		$ccamts[$key] = sprint($ccamts[$key]);
 
 		$ccenters .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' name='ccids[]' value='$cc[ccid]'>$cc[centername] ($cc[centercode]) </td>
 						<td align='right'><input type='hidden' name='ccamts[]' value='$ccamts[$key]'>".CUR." $ccamts[$key]</td>
 					</tr>";
@@ -210,19 +210,19 @@ function confirm ($_POST)
 					<th>Field</th>
 					<th>Value</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Entry Type</td>
 					<td>$typename</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Date</td>
 					<td>$edate</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Total Amount</td>
 					<td>$amount</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Description</td>
 					<td>$descrip</td>
 				</tr>
@@ -249,13 +249,13 @@ function confirm ($_POST)
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='costcenter-add.php'>Add Cost Center</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='costcenter-view.php'>View Cost Center</a></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 			</table>";
@@ -332,7 +332,7 @@ function write ($_POST)
 					<tr>
 						<th><h3>Allocate amount to Cost Centers</h3></th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'><b>( i )</b> Amount has been allocated to Cost Centers. <b>( i )</b></td>
 					</tr>
 				</table>
@@ -342,16 +342,16 @@ function write ($_POST)
 			        <tr>
 			        	<th>Quick Links</th>
 			        </tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='costcenter-rep.php'>View Cost Ledger</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='costcenter-add.php'>Add Cost Center</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='costcenter-view.php'>View Cost Center</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>";

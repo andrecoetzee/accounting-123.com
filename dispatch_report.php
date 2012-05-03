@@ -33,7 +33,7 @@ function display()
 	$report_out = "";
 	while ($dispatch_data = pg_fetch_array($dispatch_rslt)) {
 		$report_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$dispatch_data[ordno]</td>
 			<td>&nbsp;</td>
 			<td>$dispatch_data[cordno]</td>
@@ -46,7 +46,7 @@ function display()
 
 	if (empty($report_out)) {
 		$report_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='8'><li>No results found</li></td>
 		</tr>";
 	}
@@ -58,7 +58,7 @@ function display()
 		<tr>
 			<th colspan='4'>Date Range</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 			<td>&nbsp; <b>To</b> &nbsp;</td>
 			<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

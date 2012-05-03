@@ -54,14 +54,14 @@ function edit($_POST = array(), $error="")
 	}
 
 /* --------------------------- Income ------------------------------*/
-	$products = "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=4><h3>Income</h3></td></tr>";
+	$products = "<tr class='bg-odd'><td colspan=4><h3>Income</h3></td></tr>";
 
 	# Get settings
 	db_conn("core");
 	$sql = "SELECT * FROM stmntgrps WHERE typ = 'inc'";
 	$grpRslt = db_exec ($sql) or errDie ("Unable to get groups information.");
 	while($grp = pg_fetch_array($grpRslt)){
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .="<tr class='bg-odd'>
 		<td><input type=text size=30 name=inc_grpnames[] value='$grp[grpname]'></td><td><input name=inc_addacc_$grp[gkey] type=submit value='Add Accounts'></td><td><input type=checkbox name=inc_delgrps[] value='$grp[gkey]'></td><tr>";
 
 		$sql = "SELECT * FROM stmntgrpaccids WHERE gkey = '$grp[gkey]' AND typ = 'inc'";
@@ -72,7 +72,7 @@ function edit($_POST = array(), $error="")
 			$accRslt = db_exec ($sql) or errDie ("Unable to view account.");
 			$acc = pg_fetch_array($accRslt);
 
-			$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td> <br> </td>
+			$products .="<tr class='bg-even'><td> <br> </td>
 			<td><input type=hidden name=inc_grpaccids[$grp[gkey]][] value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td><input type=checkbox name=inc_delaccids[$grp[gkey]][] value='$acc[accid]'></td></tr>";
 		}
 		$btn = "inc_addacc_$grp[gkey]";
@@ -88,26 +88,26 @@ function edit($_POST = array(), $error="")
 				}
 			$accs .= "</select>";
 
-			$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td> <br> </td>
+			$products .="<tr class='bg-even'><td> <br> </td>
 			<td align=center>$accs</td><td><br></td></tr>";
 		}
 	}
 	$btn = "inc_addgrp";
 	if(isset($$btn)){
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .="<tr class='bg-odd'>
 		<td><input type=text size=30 name=inc_grpnames[] value=''></td><td><br></td><td><br></td><tr>";
 	}
 	$products .="</tr>";
 
 	/* --------------------------- COS ------------------------------*/
-	$products .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=4><h3>Cost Of Sales</h3></td></tr>";
+	$products .= "<tr class='bg-odd'><td colspan=4><h3>Cost Of Sales</h3></td></tr>";
 
 	# Get settings
 	db_conn("core");
 	$sql = "SELECT * FROM stmntgrps WHERE typ = 'cos'";
 	$grpRslt = db_exec ($sql) or errDie ("Unable to get groups information.");
 	while($grp = pg_fetch_array($grpRslt)){
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .="<tr class='bg-odd'>
 		<td><input type=text size=30 name=cos_grpnames[] value='$grp[grpname]'></td><td><input name=cos_addacc_$grp[gkey] type=submit value='Add Accounts'></td><td><input type=checkbox name=cos_delgrps[] value='$grp[gkey]'></td><tr>";
 
 		$sql = "SELECT * FROM stmntgrpaccids WHERE gkey = '$grp[gkey]' AND typ = 'cos'";
@@ -118,7 +118,7 @@ function edit($_POST = array(), $error="")
 			$accRslt = db_exec ($sql) or errDie ("Unable to view account.");
 			$acc = pg_fetch_array($accRslt);
 
-			$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td> <br> </td>
+			$products .="<tr class='bg-even'><td> <br> </td>
 			<td><input type=hidden name=cos_grpaccids[$grp[gkey]][] value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td><input type=checkbox name=cos_delaccids[$grp[gkey]][] value='$acc[accid]'></td></tr>";
 		}
 		$btn = "cos_addacc_$grp[gkey]";
@@ -134,26 +134,26 @@ function edit($_POST = array(), $error="")
 				}
 			$accs .= "</select>";
 
-			$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td> <br> </td>
+			$products .="<tr class='bg-even'><td> <br> </td>
 			<td align=center>$accs</td><td><br></td></tr>";
 		}
 	}
 	$btn = "cos_addgrp";
 	if(isset($$btn)){
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .="<tr class='bg-odd'>
 		<td><input type=text size=30 name=cos_grpnames[] value=''></td><td><br></td><td><br></td><tr>";
 	}
 	$products .="</tr>";
 
 	/* --------------------------- exp ------------------------------*/
-	$products .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=4><h3>Expenses</h3></td></tr>";
+	$products .= "<tr class='bg-odd'><td colspan=4><h3>Expenses</h3></td></tr>";
 
 	# Get settings
 	db_conn("core");
 	$sql = "SELECT * FROM stmntgrps WHERE typ = 'exp'";
 	$grpRslt = db_exec ($sql) or errDie ("Unable to get groups information.");
 	while($grp = pg_fetch_array($grpRslt)){
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .="<tr class='bg-odd'>
 		<td><input type=text size=30 name=exp_grpnames[] value='$grp[grpname]'></td><td><input name=exp_addacc_$grp[gkey] type=submit value='Add Accounts'></td><td><input type=checkbox name=exp_delgrps[] value='$grp[gkey]'></td><tr>";
 
 		$sql = "SELECT * FROM stmntgrpaccids WHERE gkey = '$grp[gkey]' AND typ = 'exp'";
@@ -164,7 +164,7 @@ function edit($_POST = array(), $error="")
 			$accRslt = db_exec ($sql) or errDie ("Unable to view account.");
 			$acc = pg_fetch_array($accRslt);
 
-			$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td> <br> </td>
+			$products .="<tr class='bg-even'><td> <br> </td>
 			<td><input type=hidden name=exp_grpaccids[$grp[gkey]][] value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td><input type=checkbox name=exp_delaccids[$grp[gkey]][] value='$acc[accid]'></td></tr>";
 		}
 		$btn = "exp_addacc_$grp[gkey]";
@@ -180,13 +180,13 @@ function edit($_POST = array(), $error="")
 				}
 			$accs .= "</select>";
 
-			$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td> <br> </td>
+			$products .="<tr class='bg-even'><td> <br> </td>
 			<td align=center>$accs</td><td><br></td></tr>";
 		}
 	}
 	$btn = "exp_addgrp";
 	if(isset($$btn)){
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .="<tr class='bg-odd'>
 		<td><input type=text size=30 name=exp_grpnames[] value=''></td><td><br></td><td><br></td><tr>";
 	}
 	$products .="</tr>";
@@ -200,7 +200,7 @@ function edit($_POST = array(), $error="")
 	<tr><td colspan=4><br></td></tr>
 	<tr><th width=20%>Group</th><th>Accounts</th><th>Delete</th></tr>
 	$products
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=4><br></td></tr>
+	<tr class='bg-odd'><td colspan=4><br></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center colspan=3><input name=inc_addgrp type=submit value='Add Income Group'> | <input name=cos_addgrp type=submit value='Add COS Group'> | <input name=exp_addgrp type=submit value='Add Expediture Group'> | <input name=updateBtn type=submit value='Update'> | <input name=doneBtn type=submit value='Done'></td></tr>
 	</table></form>

@@ -234,7 +234,7 @@ function enter($_POST)
 				<th>Select Account $shownewaccount</th>
 				<th>Type</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$ledgers</td>
 				<td>$accounts</td>
 				<td>$types</td>

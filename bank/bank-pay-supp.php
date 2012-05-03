@@ -116,7 +116,7 @@ function sel_sup()
 			<tr>
 				<th colspan='2'>Select Supplier</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Suppliers</td>
 				<td>$supp</td>
 			</tr>
@@ -342,7 +342,7 @@ function alloc($_POST,$err="")
 				<tr>
 					<th colspan='2'>Payment Process Type</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><input type='radio' name='process_type' value='now' $prsel1>Pay creditor immediately and add to cashbook</td>
 					<td><input type='radio' name='process_type' value='batch' $prsel2>Add to creditor payment batch</td>
 				</tr>
@@ -426,35 +426,35 @@ function alloc($_POST,$err="")
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account</td>
 							<td>$bank_drop</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Payment Date</td>
 							<td valign='center'>".mkDateSelect("date",$date_year,$date_month,$date_day)."</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Paid To</td>
 							<td valign='center'>($sup[supno]) $sup[supname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Description</td>
 							<td valign='center'><textarea col='18' rows='3' name='descript'>$descript</textarea></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Reference</td>
 							<td valign='center'><input type='text' size='25' name='reference' value='$reference'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Total Amount</td>
 							<td>".CUR." $amt</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Settlement Discount</td>
 							<td valign='center'>".CUR." ".sprint (array_sum($stock_setamt))." <input type='button' onClick='showText();' value='Tax Credit Note ?'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td nowrap>Settlement Discount VAT</td>
 							<td nowrap>
 								$vatcode_drop 
@@ -470,15 +470,15 @@ function alloc($_POST,$err="")
 						<tr>
 							<th colspan='2'><font style='color:red'>Quick</font> Payment</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Cheque Number</td>
 							<td valign='center'><input size='20' name='cheqnum' value='$cheqnum'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Amount</td>
 							<td valign='center'>".CUR." <input type='text' size='6' name='amt' value='$amt'></td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='2' align='right'><input type='submit' name='quickpay' value='Allocate the above payment automatically'></td>
 						</tr>
 					</table>
@@ -491,7 +491,7 @@ function alloc($_POST,$err="")
 		</table>
 		<table ".TMPL_tblDflts.">
 			".TBL_BR."
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='4'>Add unallocated payment to supplier statement &nbsp;</td>
 				<td>&nbsp;".CUR." <input type='text' size='10' name='overpay' value='$overpay'></td>
 			</tr>
@@ -637,7 +637,7 @@ function alloc($_POST,$err="")
 			$confirm .= "
 				<input type='hidden' size='20' name='invids[$i]' value='$inv[invid]'>
 				<input id='total_hid$counter' type='hidden' name='totamt[$i]' value='$inv[balance]'>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[invid]</td>
 					<td>$sinv</td>
 					<td>".CUR." $inv[balance]</td>
@@ -655,10 +655,10 @@ function alloc($_POST,$err="")
 				$confirm .= "
 					<tr>
 						<td colspan='2'></td>
-						<td bgcolor='".bgcolorg()."' nowrap colspan='2'>".CUR." ".sprint ($total)."</td>
-						<td bgcolor='".bgcolorg()."' nowrap>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
-						<td bgcolor='".bgcolorg()."' nowrap>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
-						<td bgcolor='".bgcolorg()."' nowrap align='left'><input type='submit' name='midupdate' value='Update'></td>
+						<td class='".bg_class()."' nowrap colspan='2'>".CUR." ".sprint ($total)."</td>
+						<td class='".bg_class()."' nowrap>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
+						<td class='".bg_class()."' nowrap>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
+						<td class='".bg_class()."' nowrap align='left'><input type='submit' name='midupdate' value='Update'></td>
 					</tr>
 					<a name='midupdate'></a>";
 				$counter = 0;
@@ -670,10 +670,10 @@ function alloc($_POST,$err="")
 			$confirm .= "
 				<tr>
 					<td colspan='2'></td>
-					<td bgcolor='".bgcolorg()."' nowrap colspan='2'>".CUR." ".sprint ($total)."</td>
-					<td bgcolor='".bgcolorg()."' nowrap>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
-					<td bgcolor='".bgcolorg()."' nowrap>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
-					<td bgcolor='".bgcolorg()."' nowrap align='left'><input type='submit' name='botupdate' value='Update'></td>
+					<td class='".bg_class()."' nowrap colspan='2'>".CUR." ".sprint ($total)."</td>
+					<td class='".bg_class()."' nowrap>Total: ".CUR." ".sprint (array_sum($paidamt))." </td>
+					<td class='".bg_class()."' nowrap>Total: ".CUR." ".sprint (array_sum($stock_setamt))." </td>
+					<td class='".bg_class()."' nowrap align='left'><input type='submit' name='botupdate' value='Update'></td>
 				</tr>
 				<a name='botupdate'></a>";
 		}
@@ -681,7 +681,7 @@ function alloc($_POST,$err="")
 		// 0.01 because of high precisions like 0.0000000001234 still matching
 		if ($out >= 0.01) {
 			$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>A general transaction will debit the supplier's account with ".CUR." ".sprint($out)." </b></td>
 				</tr>";
 		}
@@ -761,7 +761,7 @@ function alloc($_POST,$err="")
 	$reason_total = 0;
 	while (list($id, $date, $reason, $amount, $reasondescr) = pg_fetch_array($balance_rslt)) {
 		$balance_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$date</td>
 				<td>$reason</td>
 				<td align='right'>".CUR." $amount</td>
@@ -772,7 +772,7 @@ function alloc($_POST,$err="")
 	}
 	if($reason_total != 0){
 		$balance_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>Total:</b></td>
 				<td align='right'><b>".CUR." ".sprint($reason_total)."</b></td>
 				<td colspan='2'></td>
@@ -788,7 +788,7 @@ function alloc($_POST,$err="")
 	$comments_out = "";
 	while ($comments_data = pg_fetch_array($comments_rslt)) {
 		$comments_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$comments_data[date]</td>
 				<td>".base64_decode(nl2br($comments_data["comment"]))."</td>
 				<td><input type='checkbox' name='remcomment' value='$comments_data[id]' onClick='document.form1.submit();'></td>
@@ -834,7 +834,7 @@ function alloc($_POST,$err="")
 							<th>Remove</th>
 						</tr>
 						$balance_out
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='2'>$newreason_drop</td>
 							<td><input type='text' size='10' name='newreasonamt'></td>
 							<td><input type='text' size='14' name='newreasondescr'></td>
@@ -853,7 +853,7 @@ function alloc($_POST,$err="")
 							<th>Remove</th>
 						</tr>
 						$comments_out
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='2'><input type='text' size='30' name='newcomment'></td>
 							<td><input type='submit' value='Add'></td>
 						</tr>
@@ -863,19 +863,19 @@ function alloc($_POST,$err="")
 			".TBL_BR."
 		</table>
 		<table ".TMPL_tblDflts.">
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Balance According to Cubit</td>
 				<td align='right'>".CUR." $sup[balance]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Total Of This Payment</td>
 				<td align='right'>".CUR." ".sprint ($amt + array_sum ($stock_setamt))."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Balance According to Supplier</td>
 				<td align='right'><input type='text' name='creditor_balance' value='$creditor_balance'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Difference in amount paid now and supplier statement</td>
 				<td align='right'><li class='err'>".CUR." $diff_balance</li></td>
 			</tr>
@@ -1092,40 +1092,40 @@ function confirm($_POST)
 		<tr>
 			<th colspan='2'>Payment Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Account</td>
 			<td>$bank[accname] - $bank[bankname]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Payment Date</td>
 			<td valign='center'>$date</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Paid To</td>
 			<td valign='center'>($sup[supno]) $sup[supname]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Description</td>
 			<td valign='center'>$descript</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Reference</td>
 			<td valign='center'>$reference</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Cheque Number</td>
 			<td valign='center'>$cheqnum</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Amount</td>
 			<td valign='center'>".CUR." $amt</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Settlement Discount</td>
 			<td valign='center'>".CUR." ".sprint ($setamt)." $showsetvat</td>
 		</tr>
 		".TBL_BR."
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'><b>A general transaction will credit the client's account with ".CUR." $overpay </b></td>
 		</tr>";
 
@@ -1205,7 +1205,7 @@ function confirm($_POST)
 				$confirm .= "
 					<input type='hidden' size='20' name='invids[$key]' value='$inv[invid]'>
 					<input type='hidden' name='paidamt[$key]' size='7' value='$paidamt[$key]'>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$inv[invid]</td>
 						<td>".CUR." $inv[balance]</td>
 						<td>$inv[odate]</td>
@@ -1218,7 +1218,7 @@ function confirm($_POST)
 			}
 		}else {
 			$confirm .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='4'>No Payments Made</td>
 				</tr>";
 		}
@@ -1226,7 +1226,7 @@ function confirm($_POST)
 		// 0.01 because of high precisions like 0.0000000001234 still matching
 //		if ($out >= 0.01) {
 //			$confirm .= "
-//			<tr bgcolor='".bgcolorg()."'>
+//			<tr class='".bg_class()."'>
 //				<td colspan='5'><b>A general transaction will debit the supplier's account
 //					with ".CUR." ".sprint($out)." </b>
 //				</td>
@@ -1274,7 +1274,7 @@ function confirm($_POST)
 	$reason_total = 0;
 	while (list($id, $date, $reason, $amount) = pg_fetch_array($balance_rslt)) {
 		$balance_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$date</td>
 				<td>$reason</td>
 				<td align='right'>".CUR." $amount</td>
@@ -1283,7 +1283,7 @@ function confirm($_POST)
 	}
 	if($reason_total != 0){
 		$balance_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>Total:</b></td>
 				<td align='right'><b>".CUR." ".sprint($reason_total)."</b></td>
 			</tr>";
@@ -1295,7 +1295,7 @@ function confirm($_POST)
 	$comments_out = "";
 	while ($comments_data = pg_fetch_array($comments_rslt)) {
 		$comments_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$comments_data[date]</td>
 				<td>".base64_decode(nl2br($comments_data["comment"]))."</td>
 			</tr>";
@@ -1361,19 +1361,19 @@ function confirm($_POST)
 				".TBL_BR."
 			</table>
 			<table ".TMPL_tblDflts.">
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Balance According to Cubit</td>
 					<td align='right'>".CUR." $sup[balance]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Total Of This Payment</td>
 					<td align='right'>".CUR." ".sprint ($amt + array_sum ($stock_setamt))."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Balance According to Supplier</td>
 					<td align='right'>".CUR." ".sprint ($creditor_balance)."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Difference in amount</td>
 					<td align='right'><li class='err'>".CUR." $diff_balance</li></td>
 				</tr>

@@ -109,16 +109,16 @@ function edit($catid)
 			<input type=hidden name=catid value='$cat[catid]'>
 			<input type=hidden name=tab value='$tab'>
 			<tr><th>Field</th><th>Value</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Category Type</td><td>$tab</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Category Number</td><td valign=center>$catid</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Category Name</td><td><input type=text size=$size name=catname value='$cat[catname]'></td></tr>
+			<tr class='bg-odd'><td>Account Category Type</td><td>$tab</td></tr>
+			<tr class='bg-even'><td>Account Category Number</td><td valign=center>$catid</td></tr>
+			<tr class='bg-odd'><td>Account Category Name</td><td><input type=text size=$size name=catname value='$cat[catname]'></td></tr>
 			<tr><td><br></td></tr>
 			<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 		</table></form>
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='accat-view.php'>View Account Categories</a></td></tr>
+			<tr class='bg-odd'><td><a href='accat-view.php'>View Account Categories</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 
@@ -170,16 +170,16 @@ function edit_err($_POST, $error = "")
 			<input type=hidden name=tab value='$tab'>
 			<tr><td colspan=2>$error</td></tr>
 			<tr><th>Field</th><th>Value</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Category Type</td><td>$tab</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Category Number</td><td valign=center>$catid</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Category Name</td><td><input type=text size=$size name=catname value='$catname'></td></tr>
+			<tr class='bg-odd'><td>Account Category Type</td><td>$tab</td></tr>
+			<tr class='bg-even'><td>Account Category Number</td><td valign=center>$catid</td></tr>
+			<tr class='bg-odd'><td>Account Category Name</td><td><input type=text size=$size name=catname value='$catname'></td></tr>
 			<tr><td><br></td></tr>
 			<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 		</table></form>
 		<p>
 		<table border=0 cellpadding='2' cellspacing='1'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='accat-view.php'>View Account Categories</a></td></tr>
+			<tr class='bg-odd'><td><a href='accat-view.php'>View Account Categories</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>";
 
@@ -227,16 +227,16 @@ function confirm ($_POST)
 		<input type=hidden name=catname value='$catname'>
 		<input type=hidden name=tab value='$tab'>
 		<tr><th>Field</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Category Type</td><td>$tab</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Account Category Number</td><td>$catid</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Account Category Name</td><td>$catname</td></tr>
+		<tr class='bg-odd'><td>Account Category Type</td><td>$tab</td></tr>
+		<tr class='bg-even'><td>Account Category Number</td><td>$catid</td></tr>
+		<tr class='bg-odd'><td>Account Category Name</td><td>$catname</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='accat-view.php'>View Account Categories</a></td></tr>
+		<tr class='bg-odd'><td><a href='accat-view.php'>View Account Categories</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 
@@ -283,7 +283,7 @@ function write ($_POST)
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='accat-view.php'>View Account Categories</a></td></tr>
+		<tr class='bg-odd'><td><a href='accat-view.php'>View Account Categories</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

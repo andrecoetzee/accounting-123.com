@@ -130,7 +130,7 @@ function slct()
 // 				<th>Store</th>
 // 				<th>Category</th>
 // 			</tr>
-// 			<tr bgcolor='".bgcolorg()."'>
+// 			<tr class='".bg_class()."'>
 // 				<td>$stores_sel</td>
 // 				<td>$categories_sel</td>
 // 			</tr>
@@ -138,7 +138,7 @@ function slct()
 // 				<th>Classification</th>
 // 				<th>Customer</th>
 // 			</tr>
-// 			<tr bgcolor='".bgcolorg()."'>
+// 			<tr class='".bg_class()."'>
 // 				<td>$classifications_sel</td>
 // 				<td>$cust_sel</td>
 // 			</tr>
@@ -152,7 +152,7 @@ function slct()
 			<tr>
 				<th colspan='2'>Stock Sales Report</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' colspan='2'>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -160,7 +160,7 @@ function slct()
 				</td>
 			</tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' colspan='2'><input type='submit' value='View'></td>
 			</tr>
 		</table>
@@ -170,10 +170,10 @@ function slct()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='sales-reports.php'>Sales Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -300,20 +300,20 @@ function printStk ($_POST)
 				<th>SubTotal</th>
 				<th>Total</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>Total Stock Sales</b></td>
 				<td>".CUR." $totvat</td>
 				<td>".CUR." $totexc</td>
 				<td>".CUR." $tot</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>Total Stock Credit Notes</b></td>
 				<td>".CUR." $ctotvat</td>
 				<td>".CUR." $ctotexc</td>
 				<td>".CUR." $ctot</td>
 			</tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>Total Stock Sales after Credit Notes</b></td>
 				<td>".CUR." $stktotvat</td>
 				<td>".CUR." $stktotexc</td>
@@ -330,27 +330,27 @@ function printStk ($_POST)
 				<th>SubTotal</th>
 				<th>Total</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>Total Non-Stock Sales</b></td>
 				<td>".CUR." $ntotvat</td>
 				<td>".CUR." $ntotexc</td>
 				<td>".CUR." $ntot</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>Total Non-Stock Credit Notes</b></td>
 				<td>".CUR." $cntotvat</td>
 				<td>".CUR." $cntotexc</td>
 				<td>".CUR." $cntot</td>
 			</tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>Total Non-Stock Sales after Credit Notes</b></td>
 				<td>".CUR." $nontotvat</td>
 				<td>".CUR." $nontotexc</td>
 				<td>".CUR." $nontot</td>
 			</tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><b>Actual Sales</b></td>
 				<td>".CUR." $ttotvat</td>
 				<td>".CUR." $ttotexc</td>
@@ -363,10 +363,10 @@ function printStk ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='sales-reports.php'>Sales Reports</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='main.php'>Main Menu</a></td>
 				</tr>
 		</table>";

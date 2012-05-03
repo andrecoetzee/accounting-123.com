@@ -161,7 +161,7 @@ function details($_GET)
 		$products .= "
 		<input type='hidden' name=sids[] value='$stkd[id]'>
 		<input type='hidden' name='vatcode[]' value='$stkd[vatcode]' />
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$wh[whname]</td>
 			<td><input type='hidden' name='stkids[]' value='$stk[stkid]'>$stk[stkcod]</td>
 			<td>$stk[stkdes]</td>
@@ -243,7 +243,7 @@ function details($_GET)
 		if (!isset($client)) $client = $inv['cusname'];
 
 		$cd = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td valign='center'><input type='text' size='20' name='client' value='$client'></td>
 			</tr>";
@@ -258,21 +258,21 @@ function details($_GET)
 		$cust=pg_fetch_array($Ri);
 
 		$cd = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='center'>Customer Name</td>
 				<td valign='center'>$cust[surname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Customer Address</td>
 				<td valign='center'>".nl2br($cust['addr1'])."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer VAT Number</td>
 				<td>$cust[vatnum]</td>
 			</tr>";
 		$pcredit = sprint ($pcredit);
 		$pc = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Amount On Credit</td>
 				<td><input size='12' type='text' name='pcredit' value='$pcredit'></td>
 			</tr>";
@@ -293,11 +293,11 @@ function details($_GET)
 	if($inv['rounding']>0) {
 		$due=sprint($inv['total']-$inv['rounding']);
 		$rd = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Rounding</td>
 				<td align='right'>R $inv[rounding]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>Amount</th>
 				<td align='right'>R $due</td>
 			</tr>";
@@ -320,7 +320,7 @@ function details($_GET)
 					<tr>
 						<th colspan='2'> Customer Details </th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Department</td>
 						<td valign='center'>$inv[deptname]</td>
 					</tr>
@@ -328,7 +328,7 @@ function details($_GET)
 					<tr>
 						<th colspan='2' valign='top'>Comments</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2' align=center><textarea name='comm' rows='4' cols='20'>$inv[comm]</textarea></td>
 					</tr>
 				</table>
@@ -338,45 +338,45 @@ function details($_GET)
 					<tr>
 						<th colspan='2'> Invoice Details </th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Order No.</td>
 						<td valign='center'>$inv[ordno]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>VAT Inclusive</td>
 						<td valign='center'>$inv[chrgvat]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Terms</td>
 						<td valign='center'>$termssel Days</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Sales Person</td>
 						<td valign='center'>$inv[salespn]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Credit Note Date</td>
 						<td valign='center'>".mkDateSelect("o")."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Trade Discount</td>
 						<td valign='center'><input type='hidden' size='7' name='traddisc' value='$inv[traddisc]'>$inv[traddisc]%</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Delivery Charge</td>
 						<td valign='center'><input type='hidden' name='dct' value='$dct'><input type='text' size='7' name='delchrg' value='$dct'></td></tr>
 					<tr>
 						<th colspan='2'>Payment Details </th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Amount Paid Cash</td>
 						<td><input size='12' type='text' name='pcash' value='$pcash''></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Amount Paid Cheque</td>
 						<td><input size='12' type='text' name='pcheque' value='$pcheque'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Amount Paid Credit Card</td>
 						<td><input size='12' type='text' name='pcc' value='$pcc'></td>
 					</tr>
@@ -395,10 +395,10 @@ function details($_GET)
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='pos-invoice-new.php'>New POS Invoice</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='pos-invoice-list.php'>View POS Invoices</a></td>
 					</tr>
 					<script>document.write(getQuicklinkSpecial());</script>
@@ -406,23 +406,23 @@ function details($_GET)
 			</td>
 			<td align='right'>
 				<table ".TMPL_tblDflts." width='80%'>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>SUBTOTAL</td>
 						<td align='right' nowrap>".CUR." $SUBTOT</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Trade Discount</td>
 						<td align='right' nowrap>".CUR." $inv[discount]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Delivery Charge</td>
 						<td align='right' nowrap>".CUR." $inv[delivery]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><b>VAT $vat14</b></td>
 						<td align='right' nowrap>".CUR." $VAT</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<th>GRAND TOTAL</th>
 						<td align='right' nowrap>".CUR." $TOTAL</td>
 					</tr>
@@ -544,7 +544,7 @@ function error($_GET, $err = "")
 		$products .= "
 		<input type='hidden' name='sids[]' value='$stkd[id]'>
 		<input type='hidden' name='vatcode[]' value='$stkd[vatcode]' />
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$wh[whname]</td>
 			<td><input type='hidden' name='stkids[]' value='$stk[stkid]'>$stk[stkcod]</td>
 			<td>$stk[stkdes]</td>
@@ -612,7 +612,7 @@ function error($_GET, $err = "")
 		if (!isset($client)) $client = $inv['cusname'];
 
 		$cd = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Customer</td>
 					<td valign='center'><input type='text' size='20' name='client' value='$client'></td>
 				</tr>";
@@ -626,16 +626,16 @@ function error($_GET, $err = "")
 		$cust=pg_fetch_array($Ri);
 
 		$cd = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='top'>Customer Address</td>
 					<td valign='center'>".nl2br($cust['addr1'])."</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Customer VAT Number</td>
 					<td>$cust[vatnum]</td>
 				</tr>";
 		$pc = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Amount On Credit</td>
 					<td><input size='12' type='text' name='pcredit' value='$pcredit'></td>
 				</tr>";
@@ -673,7 +673,7 @@ function error($_GET, $err = "")
 									<tr>
 										<th colspan='2'> Customer Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Department</td>
 										<td valign='center'>$inv[deptname]</td>
 									</tr>
@@ -681,7 +681,7 @@ function error($_GET, $err = "")
 									<tr>
 										<th colspan='2' valign='top'>Comments</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td colspan='2' align='center'><textarea name='comm' rows='4' cols='20'>$comm</textarea></td>
 									</tr>
 								</table>
@@ -691,46 +691,46 @@ function error($_GET, $err = "")
 									<tr>
 										<th colspan='2'> Invoice Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Order No.</td>
 										<td valign='center'>$inv[ordno]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Charge VAT</td>
 										<td valign='center'>$inv[chrgvat]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Terms</td>
 										<td valign='center'>$termssel Days</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Sales Person</td>
 										<td valign='center'>$inv[salespn]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Invoice Date</td>
 										<td valign='center'>".mkDateSelect("o",$o_year,$o_month,$o_day)."</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Trade Discount</td>
 										<td valign='center'><input type='hidden' size='7' name='traddisc' value='$inv[traddisc]'>$inv[traddisc]%</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Charge</td>
 										<td valign='center'><input type='hidden' name='dct' value='$dct'><input type='text' size='7' name='delchrg' value='$delchrg'></td>
 									</tr>
 									<tr>
 										<th colspan='2'>Payment Details</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Amount Paid Cash</td>
 										<td><input size='12' type='text' name='pcash' value='$pcash'></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Amount Paid Cheque</td>
 										<td><input size='12' type='text' name='pcheque' value='$pcheque'></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Amount Paid Credit Card</td>
 										<td><input size='12' type=text name='pcc' value='$pcc'></td>
 									</tr>
@@ -749,10 +749,10 @@ function error($_GET, $err = "")
 									<tr>
 										<th>Quick Links</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='pos-invoice-new.php'>New POS Invoice</a></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='pos-invoice-list.php'>View POS Invoices</a></td>
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
@@ -760,23 +760,23 @@ function error($_GET, $err = "")
 							</td>
 							<td align='right'>
 								<table ".TMPL_tblDflts." width='80%'>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>SUBTOTAL</td>
 										<td align='right' nowrap>".CUR." $SUBTOT</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Trade Discount</td>
 										<td align='right' nowrap>".CUR." $inv[discount]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Charge</td>
 										<td align='right' nowrap>".CUR." $inv[delivery]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><b>VAT $vat14</b></td>
 										<td align='right' nowrap>".CUR." $VAT</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<th>GRAND TOTAL</th>
 										<td align='right' nowrap>".CUR." $TOTAL</td>
 									</tr>
@@ -987,7 +987,7 @@ function confirm($_POST)
 				$products .= "
 				<input type='hidden' name='sids[]' value='$stkd[id]'>
 				<input type='hidden' name='vatcode[]' value='$stkd[vatcode]' />
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$wh[whname]</td>
 					<td><input type='hidden' name='stkids[]' value='$stk[stkid]'>$stk[stkcod]</td>
 					<td>$stk[stkdes]</td>
@@ -1060,7 +1060,7 @@ function confirm($_POST)
 				$products .="
 				<input type='hidden' name='sids[]' value='$stkd[id]'>
 				<input type='hidden' name='vatcode[]' value='$stkd[vatcode]' />
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td></td>
 					<td><input type='hidden' name='stkids[]' value='0'></td>
 					<td>$stkd[description]</td>
@@ -1187,11 +1187,11 @@ function confirm($_POST)
 	if($rounding>0) {
 		$due=sprint($TOTAL-$rounding);
 		$rd = "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Rounding</td>
 					<td align='right'>R $rounding</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<th>Amount</th>
 					<td align='right'>R $due</td>
 				</tr>";
@@ -1200,13 +1200,13 @@ function confirm($_POST)
 		$rd = "";
 	}
 
-	//<tr bgcolor='".bgcolorg()."'><td>Customer</td><td valign='center'>$inv[cusname] $inv[surname]</td></tr>
+	//<tr class='".bg_class()."'><td>Customer</td><td valign='center'>$inv[cusname] $inv[surname]</td></tr>
 
 
 	if($inv['cusnum']==0) {
 		if (!isset($client)) $client = "$inv[cusname] $inv[surname]";
 		$cd="
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer</td>
 				<td valign='center'><input type='text' size='20' name='client' value='$client'></td>
 			</tr>";
@@ -1219,14 +1219,14 @@ function confirm($_POST)
 		$cust=pg_fetch_array($Ri);
 
 		$cd = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='center'>Customer Name</td>
 				<td valign='center'>$cust[surname]</td>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Customer Address</td>
 				<td valign='center'>".nl2br($cust['addr1'])."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Customer VAT Number</td>
 				<td>$cust[vatnum]</td>
 			</tr>";
@@ -1266,7 +1266,7 @@ function confirm($_POST)
 									<tr>
 										<th colspan='2'> Customer Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Department</td>
 										<td valign='center'>$inv[deptname]</td>
 									</tr>
@@ -1274,7 +1274,7 @@ function confirm($_POST)
 									<tr>
 										<th colspan='2' valign='top'>Comments</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td colspan='2' align='center'><input type='hidden' name='comm' value='$comm'>".nl2br($comm)."</td>
 									</tr>
 								</table>
@@ -1284,50 +1284,50 @@ function confirm($_POST)
 									<tr>
 										<th colspan='2'> Invoice Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Order No.</td>
 										<td valign='center'>$inv[ordno]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>VAT Inclusive</td>
 										<td valign='center'>$vchrgvat</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Terms</td>
 										<td valign='center'><input type='hidden' size='7' name='terms' value='$terms'>$terms Days</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Sales Person</td>
 										<td valign='center'>$inv[salespn]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Invoice Date</td>
 										<td valign='center'><input type='hidden' name='odate' value='$odate'>$odate</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Trade Discount</td>
 										<td valign='center'><input type='hidden' size='7' name='traddisc' value='$traddisc'>$traddisc%</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Charge</td>
 										<td valign='center'><input type='hidden' size='7' name='delchrg' value='$delchrg'>$delchrg</td>
 									</tr>
 									<tr>
 										<th colspan='2'>Payment Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Amount Paid Cash</td>
 										<td><input type='hidden' name='pcash' value='$pcash'>$pcash</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Amount Paid Cheque</td>
 										<td><input type='hidden' name='pcheque' value='$pcheque'>$pcheque</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Amount Paid Credit Card</td>
 										<td><input type='hidden' name='pcc' value='$pcc'>$pcc</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Amount Paid Credit</td>
 										<td><input type='hidden' name='pcredit' value='$pcredit'>$pcredit</td>
 									</tr>
@@ -1345,10 +1345,10 @@ function confirm($_POST)
 									<tr>
 										<th>Quick Links</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='pos-invoice-new.php'>New POS Invoice</a></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='pos-invoice-list.php'>View POS Invoices</a></td>
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
@@ -1356,23 +1356,23 @@ function confirm($_POST)
 							</td>
 							<td align='right'>
 								<table ".TMPL_tblDflts." width='80%'>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>SUBTOTAL</td>
 										<td align='right'><input type='hidden' name='SUBTOT' value='$SUBTOT'>".CUR." $SUBTOT</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Trade Discount</td>
 										<td align='right'>".CUR." $traddiscmt</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Charge</td>
 										<td align='right'>".CUR." $delexvat</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><b>VAT $vat14</b></td>
 										<td align='right'>".CUR." $VAT</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<th>GRAND TOTAL</th>
 										<td align='right'>".CUR." $TOTAL</td>
 									</tr>

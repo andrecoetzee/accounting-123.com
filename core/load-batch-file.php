@@ -59,7 +59,7 @@ function slctFile ()
         <form ENCTYPE='multipart/form-data' action='".SELF."' method=post>
         <input type=hidden name=key value=confirm>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>File</td><td><input type=file size=20 name=tfile></td></tr>
+        <tr class='bg-odd'><td>File</td><td><input type=file size=20 name=tfile></td></tr>
         <tr><td colspan=2 align=center><input type=submit value='Save Accounts &raquo;'></td></tr>
         </form>
         </table>";

@@ -63,19 +63,19 @@ function confirm($errors="&nbsp;")
 		<tr>
 			<th colspan='2'>Confirm</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Small Plant</td>
 			<td>$asset_data[des]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Customer</td>
 			<td>$cust_data[surname]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Booking Date - From</td>
 			<td>$from_date</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Booking Date - To</td>
 			<td>$to_date</td>
 		</tr>
@@ -110,7 +110,7 @@ function write()
 		<tr>
 			<th>Remove</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Booking successfully removed</li></td>
 		</tr>
 	</table>";

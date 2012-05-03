@@ -30,7 +30,7 @@ function display()
 			$fc_prd = "Week";
 		}
 
-		$fc_out .= "<tr bgcolor='".bgcolorg()."'>
+		$fc_out .= "<tr class='".bg_class()."'>
 			<td>".date("d-m-Y G:i:s", $fc_data["e_time"])."</td>
 			<td>$fc_data[username]</td>
 			<td>$fc_prd: $fc_data[prd_val]</td>
@@ -49,7 +49,7 @@ function display()
 	}
 
 	if (empty($fc_out)) {
-		$fc_out = "<tr bgcolor='".bgcolorg()."'>
+		$fc_out = "<tr class='".bg_class()."'>
 			<td colspan='6'><li>No saved sales forecasts found</li></td>";
 	}
 

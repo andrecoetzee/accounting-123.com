@@ -50,7 +50,7 @@ function enter($_POST) {
 	<table border=0 cellpadding=1 cellspacing=1>
 	<form action='".SELF."' method=post>
 	<tr><th>Ledger</th><th>Account</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>$ledgers</td></tr>";
+	<tr class='bg-odd'><td>$ledgers</td></tr>";
 
 }
 

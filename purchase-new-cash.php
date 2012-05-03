@@ -86,7 +86,7 @@ function view()
 					<tr>
 						<th colspan='2'>New Order</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Select Department</td>
 						<td valign='center'>$depts</td>
 					</tr>
@@ -102,10 +102,10 @@ function view()
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='purchase-view.php'>View Orders</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='supp-new.php'>New Supplier</a></td>
 					</tr>
 					<script>document.write(getQuicklinkSpecial());</script>
@@ -156,7 +156,7 @@ function view_err($_POST, $err = "")
 					<tr>
 						<td colspan='2'>$err</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Select Department</td>
 						<td valign='center'>$depts</td>
 					</tr>
@@ -172,10 +172,10 @@ function view_err($_POST, $err = "")
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='purchase-view.php'>View Orders</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='customers-new.php'>New Customer</a></td>
 					</tr>
 					<script>document.write(getQuicklinkSpecial());</script>
@@ -422,7 +422,7 @@ function details($_POST, $error="")
 
 		# put in product
 		$products .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' name='whids[]' value='$stkd[whid]'>$wh[whname]</td>
 							<td><input type='hidden' name='stkids[]' value='$stkd[stkid]'><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td>
 							<td>$Vatcodes</td>
@@ -489,7 +489,7 @@ $l = $i++;
 
 				# Put in selected warehouse and stock
 				$products .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td><input type='hidden' name='whids[]' value='$whid'>$wh[whname]</td>
 									<td><input type='hidden' name='stkids[]' value='$stk[stkid]'><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td>
 									<td>$Vatcodes</td>
@@ -533,7 +533,7 @@ $l = $i++;
 
 					# Put in drop down and warehouse
 					$products .= "
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><input type='hidden' name='whidss[]' value='$whid'>$wh[whname]</td>
 										<td>$stks</td>
 										<td> </td>
@@ -583,7 +583,7 @@ $l = $i++;
 				}
 				$stks .= "</select> ";
 				$products .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td><input type='hidden' name='whidss[]' value='$whid'>$wh[whname]</td>
 									<td>$stks</td>
 									<td> </td>
@@ -596,7 +596,7 @@ $l = $i++;
 								</tr>";
 			}else {
 				$products .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>$whs</td>
 									<td> </td>
 									<td> </td>
@@ -616,7 +616,7 @@ $l = $i++;
 		# take todays date
 		list($date_year, $date_month, $date_day) = explode("-", $pur['pdate']);
 		$products .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$whs</td>
 						<td> </td>
 						<td> </td>
@@ -705,18 +705,18 @@ $l = $i++;
 									<tr>
 										<th colspan='2'> Supplier Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Department</td>
 										<td valign='center'>$dept[deptname]</td></tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Supplier</td>
 										<td valign='center'><input type='text' size='20' name='supname' value='$supname'></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Supplier No</td>
 										<td valign='center'><input type='text' size='20' name='supno' value='$supno'></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td valign='top'>Supplier Address</td>
 										<td valign='center'><textarea name='supaddr' rows=4 cols='18'>$supaddr</textarea></td>
 									</tr>
@@ -727,36 +727,36 @@ $l = $i++;
 									<tr>
 										<th colspan='2'> Order Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Purchase No.</td>
 										<td valign='center'>$pur[purnum]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Order No.</td>
 										<td valign='center'><input type='text' size='10' name='ordernum' value='$pur[ordernum]'></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Supplier Inv</td>
 										<td><input type='text' name='supinv' size='10' value='$pur[supinv]'></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Terms</td>
 										<td valign='center'>$termssel Days</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Date</td>
 										<td valign='center'>".mkDateSelect("p",$p_year,$p_month,$p_day)."</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>VAT Inclusive</td>
 										<td valign='center'>Yes <input type='radio' size='7' name='vatinc' value='yes' $chy> No<input type='radio' size='7' name='vatinc' value='no' $chn> No Vat<input type='radio' size='7' name='vatinc' value='novat' $chv></td>
 										</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Charges</td>
 										<td valign='center'><input type='text' size='7' name='shipchrg' value='$pur[shipchrg]'></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Charges VAT Code</td>
 										<td valign='center'>$Vatcodes</td>
 									</tr>
@@ -777,27 +777,27 @@ $l = $i++;
 										<td rowspan='5' valign='top' width='50%'>$error</td>
 									</tr>
 									<tr>
-										<td bgcolor='".bgcolorg()."'><a href='purchase-view.php'>View Orders</a></td>
-										<td bgcolor='".bgcolorg()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$pur[remarks]</textarea></td>
+										<td class='".bg_class()."'><a href='purchase-view.php'>View Orders</a></td>
+										<td class='".bg_class()."' rowspan='4' align='center' valign='top'><textarea name='remarks' rows='4' cols='20'>$pur[remarks]</textarea></td>
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
 								</table>
 							</td>
 							<td align='right'>
 								<table ".TMPL_tblDflts." width='80%'>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>SUBTOTAL</td>
 										<td align='right'>".CUR." <input type=hidden name=subtot value='$SUBTOT'>$SUBTOT</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Charges</td>
 										<td align='right'>".CUR." $pur[shipping]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>VAT $vat14</td>
 										<td align='right'>".CUR." $VAT</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<th>GRAND TOTAL</th>
 										<td align='right'>".CUR." <input type='hidden' name='total' value='$TOTAL'>$TOTAL</td>
 									</tr>
@@ -1222,7 +1222,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 						<tr>
 							<th>New Order</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Order to Supplier <b>$pur[supname]</b> has been recorded.</td>
 						</tr>
 					</table>
@@ -1231,7 +1231,7 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 						<tr>
 							<th>Quick Links</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><a href='purchase-view.php'>View Orders</a></td>
 						</tr>
 						<script>document.write(getQuicklinkSpecial());</script>

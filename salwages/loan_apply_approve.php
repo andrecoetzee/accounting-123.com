@@ -151,7 +151,7 @@ function confirmLoan ($_POST)
 		$acc = pg_fetch_array($accRslt);
 
 		$ac = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account</td>
 				<td>$acc[accname]</td>
 			</tr>";
@@ -162,7 +162,7 @@ function confirmLoan ($_POST)
 		$bank = pg_fetch_array($bankRslt);
 
 		$ac = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account</td>
 				<td>$bank[bankname] - $bank[accname]</td>
 			</tr>";
@@ -179,7 +179,7 @@ function confirmLoan ($_POST)
 	$acc = pg_fetch_array($accRslt);
 
 	$loanac = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Account</td>
 			<td>$acc[accname]</td>
 		</tr>";
@@ -228,39 +228,39 @@ function confirmLoan ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Employee</td>
 				<td align='center'>$myEmp[sname], $myEmp[fnames] ($myEmp[enum])</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan Date</td>
 				<td align='center'>$datedesc</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan Approval/Denial Date</td>
 				<td align='center'>".mkDateSelect("arch", $lyear, $lmonth, $lday)."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan Type</td>
 				<td align='center'>$showloantype</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Loan amount</td>
 				<td align='center'>".CUR." $loanamt</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Interest on loan</td>
 				<td align='center'>$loanint %</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Payback period</td>
 				<td align='center'>$loanperiod months</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Monthly installment amount</td>
 				<td align='center'>".CUR." $loaninstall</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Installment amount (at 11% Interest)</td>
 				<td align='center'>".CUR." $fringeinstall</td>
 			</tr>

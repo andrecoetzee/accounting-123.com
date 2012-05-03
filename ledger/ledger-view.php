@@ -61,7 +61,7 @@ function view()
 						<tr>
 							<th colspan='2'>Search By Name</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'><input type='text' size='20' name='lname'></td>
 							<td rowspan='2' valign='bottom'><input type='submit' value='Search'></td>
 						</tr>
@@ -78,7 +78,7 @@ function view()
 				  		<tr>
 				  			<th>View All</th>
 				  		</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td align='center'><input type='submit' value='View All'></td>
 						</tr>
 					</form>
@@ -91,10 +91,10 @@ function view()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-new.php'>New High Speed Input Ledger</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";
@@ -161,10 +161,10 @@ function viewLedg($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-new.php'>New High Speed Input Ledger</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";
@@ -185,7 +185,7 @@ function viewLedg($_POST)
 		$ctacc = pg_fetch_array($ct);
 
 		$viewLedg .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='ledger-run.php?ledgid=$ledgid'>$led[lname]</a></td>
 				<td>$debacc[topacc]/$debacc[accnum] - $debacc[accname]</td>
 				<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
@@ -204,13 +204,13 @@ function viewLedg($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-new.php'>New High Speed Input Ledger</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-view.php'>View High Speed Input Ledger</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";

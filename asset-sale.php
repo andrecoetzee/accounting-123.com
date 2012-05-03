@@ -60,7 +60,7 @@ function slct()
 					<tr>
 						<th>Select Asset</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$asset_sel</td>
 					</tr>
 					<tr>
@@ -131,7 +131,7 @@ function enter($err = "")
 		}
 		
 		$qtyinput = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Sell Units</td>
 							<td><input type='text' size='4' name='qty' value='$qty' /></td>
 						</tr>";
@@ -150,42 +150,42 @@ function enter($err = "")
 					<tr>
 						<th colspan='2'>Details</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Group</td>
 						<td>$asgrp_data[grpname]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Serial Number</td>
 						<td>$asset_data[serial]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>2nd Serial Number/Qty</td>
 						<td>$asset_data[serial2]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Description</td>
 						<td>$asset_data[des]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Customer</td>
 						<td>$cust_sel</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Date</td>
 						<td>".mkDateSelect("date", $date_year, $date_month, $date_day)."</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Vat</td>
 						<td>
 							<input type='radio' name='vatinc' value='inc' ".fcheck($vatinc!="exc")." /> Including
 							<input type='radio' name='vatinc' value='exc' ".fcheck($vatinc=="exc")." /> Excluding
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Vatcode</td>
 						<td>$sel_vatcode</td>
 					</tr>
 					$qtyinput
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Selling Price/Asset Unit</td>
 						<td nowrap='t'>
 							".CUR." <input type='text' size='10' name='price' value='$price'>
@@ -267,43 +267,43 @@ function confirm()
 					<tr>
 						<th colspan='2'>Confirm</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Group</td>
 						<td>$asgrp_data[grpname]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Serial Number</td>
 						<td>$asset_data[serial]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>2nd Serial Number</td>
 						<td>$asset_data[serial2]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Location</td>
 						<td>$asset_data[locat]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Description</td>
 						<td>$asset_data[des]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Date</td>
 						<td>$date</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Customer</td>
 						<td>$cust_data[surname]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Vat</td>
 						<td>$vat_disp</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Vatcode</td>
 						<td>$vatc_disp</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Selling Price</td>
 						<td>".CUR." ".sprint($price)."</td>
 					</tr>

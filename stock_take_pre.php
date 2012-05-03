@@ -65,7 +65,7 @@ function pretake_display()
 			<input type='hidden' name='limit' value='".OFFSET_SIZE."' />
 			<input type='hidden' name='new' value='1' />
 		<table ".TMPL_tblDflts.">
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					This will start a new <em>Stock Take</em> and remove all previous
 					uncompleted pages $store_drop <input type='submit' value='OK' />

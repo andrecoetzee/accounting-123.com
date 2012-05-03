@@ -118,10 +118,10 @@ function whereis_block()
 		<tr>
 			<th>Where is</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$user_sel</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'><b>$location</b></td>
 		</tr>
 	</table>
@@ -163,7 +163,7 @@ function cust_block($date_start, $date_end)
 	}
 
 	if (empty($cust_out)) {
-		$cust_out .= "<tr bgcolor='".bgcolorg()."'>
+		$cust_out .= "<tr class='".bg_class()."'>
 			<td colspan='3'>None found</td>
 		</tr>";
 	}
@@ -212,7 +212,7 @@ function email_block($date_start, $date_end)
 	}
 
 	if (empty($eml_out)) {
-		$eml_out = "<tr bgcolor='".bgcolorg()."'>
+		$eml_out = "<tr class='".bg_class()."'>
 			<td colspan='3'>None found</td>
 		</tr>";
 	}
@@ -261,7 +261,7 @@ function doc_block($date_start, $date_end)
 	}
 
 	if (empty($doc_out)) {
-		$doc_out = "<tr bgcolor='".bgcolorg()."'>
+		$doc_out = "<tr class='".bg_class()."'>
 			<td colspan='3'>None found</td>
 		</tr>";
 	}
@@ -310,7 +310,7 @@ function lead_block($date_start, $date_end)
 	}
 
 	if (empty($lead_out)) {
-		$lead_out = "<tr bgcolor='".bgcolorg()."'>
+		$lead_out = "<tr class='".bg_class()."'>
 			<td colspan='3'>None found</td>
 		</tr>";
 	}
@@ -375,7 +375,7 @@ function diary_block($date_start, $date_end)
 	}
 
 	if (empty($diary_out)) {
-		$diary_out = "<tr bgcolor='".bgcolorg()."'>
+		$diary_out = "<tr class='".bg_class()."'>
 			<td colspan='3'>None found</td>
 		</tr>";
 	}

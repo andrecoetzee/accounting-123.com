@@ -89,16 +89,16 @@ function rem($calloutpid)
 				<input type='hidden' name='calloutp' value='$calloutp[calloutp]'>
 				<input type='hidden' name='telno' value='$calloutp[telno]'>
 				<tr><th>Field</th><th>Value</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td>Call Out Person</td><td>$calloutp[calloutp]</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor2."'><td>Contact Number</td><td>$calloutp[telno]</td></tr>
+				<tr class='bg-odd'><td>Call Out Person</td><td>$calloutp[calloutp]</td></tr>
+				<tr class='bg-even'><td>Contact Number</td><td>$calloutp[telno]</td></tr>
 				<tr><td><br></td></tr>
 				<tr><td colspan=2 align=right><input type=submit value='Remove &raquo;'></td></tr>
 			</table></form>
 			<p>
 			<table border=0 cellpadding='2' cellspacing='1'>
 				<tr><th>Quick Links</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='calloutp-view.php'>View Call Out Person</a></td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+				<tr class='bg-odd'><td><a href='calloutp-view.php'>View Call Out Person</a></td></tr>
+				<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 			</table>";
 
 	return $enter;
@@ -144,8 +144,8 @@ function write ($_POST)
 			<p>
 			<table border='0' cellpadding='2' cellspacing='1'>
 				<tr><th>Quick Links</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='calloutp-view.php'>View Call Out Persons</a></td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+				<tr class='bg-odd'><td><a href='calloutp-view.php'>View Call Out Persons</a></td></tr>
+				<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 			</table>";
 
 	return $write;

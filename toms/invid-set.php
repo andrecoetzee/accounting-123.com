@@ -82,9 +82,9 @@ function enter()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=confirm>
 		<tr><th>Setting</th><th>Value</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Last Invoice No.</td><td><input type=text size=5 name=linvid value='$invnum'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Last Invoice Credit Note No.</td><td><input type=text size=5 name=lnoteid value='$crednote'></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Last Purchase No.</td><td><input type=text size=5 name=lpurnum value='$purchnum'></td></tr>
+		<tr class='bg-odd'><td>Last Invoice No.</td><td><input type=text size=5 name=linvid value='$invnum'></td></tr>
+		<tr class='bg-even'><td>Last Invoice Credit Note No.</td><td><input type=text size=5 name=lnoteid value='$crednote'></td></tr>
+		<tr class='bg-even'><td>Last Purchase No.</td><td><input type=text size=5 name=lpurnum value='$purchnum'></td></tr>
 		<tr><td><br></td></tr>
 		<tr><td align=right><input type=submit value='Continue &raquo'></td></tr>
 	</form>
@@ -162,9 +162,9 @@ function confirm($_POST)
 	<input type=hidden name=lnoteid value='$lnoteid'>
 	<input type=hidden name=lpurnum value='$lpurnum'>
 	<tr><th>Setting</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Last Invoice No.</td><td>$linvid</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Last Invoice Credit Note No.</td><td>$lnoteid</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Last Purchase No.</td><td>$lpurnum</td></tr>
+	<tr class='bg-odd'><td>Last Invoice No.</td><td>$linvid</td></tr>
+	<tr class='bg-even'><td>Last Invoice Credit Note No.</td><td>$lnoteid</td></tr>
+	<tr class='bg-even'><td>Last Purchase No.</td><td>$lpurnum</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=right colspan=2><input type=button value='&laquo Back' onClick='javascript:history.back()'> | <input type=submit value='Confirm &raquo'></td></tr>
 	</form>

@@ -169,7 +169,7 @@ function details($_POST, $error="")
 		list($syear, $smon, $sday) = explode("-", $stkd['ddate']);
 
 		# put in product
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td>$wh[whname]</td><td><input type=hidden name=stkids[] value='$stkd[stkid]'><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>$stk[stkdes]</td><td><input type=text size=5 name=qtys[] value='$stkd[qty]'></td><td>$stkd[unitcost]</td><td>$sday-$smon-$syear</td><td>".CUR." $stkd[amt]</td></tr>";
+		$products .="<tr class='bg-odd'><td>$wh[whname]</td><td><input type=hidden name=stkids[] value='$stkd[stkid]'><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>$stk[stkcod]</a></td><td>$stk[stkdes]</td><td><input type=text size=5 name=qtys[] value='$stkd[qty]'></td><td>$stkd[unitcost]</td><td>$sday-$smon-$syear</td><td>".CUR." $stkd[amt]</td></tr>";
 		$key++;
 	}
 	# look above(if i = 0 then there are no products)
@@ -203,20 +203,20 @@ function details($_POST, $error="")
  	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Supplier Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Department</td><td valign=center>$dept[deptname]</td></tr>
-   			<tr bgcolor='".TMPL_tblDataColor2."'><td>Supplier</td><td valign=center>$sup[supname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Supplier Address</td><td valign=center>".nl2br($supaddr)."</td></tr>
+			<tr class='bg-odd'><td>Department</td><td valign=center>$dept[deptname]</td></tr>
+   			<tr class='bg-even'><td>Supplier</td><td valign=center>$sup[supname]</td></tr>
+			<tr class='bg-odd'><td valign=top>Supplier Address</td><td valign=center>".nl2br($supaddr)."</td></tr>
 			<tr><th colspan=2 valign=top>Remarks</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2 align=center>".nl2br($pur['remarks'])."</td></tr>
+			<tr class='bg-even'><td colspan=2 align=center>".nl2br($pur['remarks'])."</td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Purchase Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Purchase No.</td><td valign=center>$purid</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Delivery Ref No.</td><td valign=center>$pur[refno]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Terms</td><td valign=center>$pur[terms] Days</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td valign=center>$pday-$pmon-$pyear DD-MM-YYYY</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Delivery Charges</td><td valign=center>".CUR." $pur[shipchrg]</td></tr>
+			<tr class='bg-odd'><td>Purchase No.</td><td valign=center>$purid</td></tr>
+			<tr class='bg-even'><td>Delivery Ref No.</td><td valign=center>$pur[refno]</td></tr>
+			<tr class='bg-odd'><td>Terms</td><td valign=center>$pur[terms] Days</td></tr>
+			<tr class='bg-even'><td>Date</td><td valign=center>$pday-$pmon-$pyear DD-MM-YYYY</td></tr>
+			<tr class='bg-odd'><td>Delivery Charges</td><td valign=center>".CUR." $pur[shipchrg]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -225,15 +225,15 @@ function details($_POST, $error="")
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th>Quick Links</th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='cust-credit-stockinv.php'>New purchase</a></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purchase-view.php'>View purchases</a></td></tr>
+			<tr class='bg-odd'><td><a href='cust-credit-stockinv.php'>New purchase</a></td></tr>
+			<tr class='bg-odd'><td><a href='purchase-view.php'>View purchases</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>".CUR." $SUBTOT</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Delivery Charges</td><td align=right>".CUR." $pur[shipchrg]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><th>GRAND TOTAL</th><td align=right>".CUR." $TOTAL</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>".CUR." $SUBTOT</td></tr>
+			<tr class='bg-even'><td>Delivery Charges</td><td align=right>".CUR." $pur[shipchrg]</td></tr>
+			<tr class='bg-odd'><th>GRAND TOTAL</th><td align=right>".CUR." $TOTAL</td></tr>
 		</table>
 	</td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'> | <input type=submit name='upBtn' value='Write'></td></tr>
@@ -329,12 +329,12 @@ function write($_POST)
 	$write = "
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Purchase removed</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Purchase from Supplier <b>$sup[supname]</b> has been removed.</td></tr>
+		<tr class='bg-even'><td>Purchase from Supplier <b>$sup[supname]</b> has been removed.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='purchase-view.php'>View purchases</a></td></tr>
+		<tr class='bg-odd'><td><a href='purchase-view.php'>View purchases</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

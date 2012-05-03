@@ -66,14 +66,14 @@ function collect_types()
 	<form method='post' action='".SELF."'>
 	<input type='hidden' name='key' value='collect_decide' />
 	<table ".TMPL_tblDflts.">
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><strong>How are goods leaving the premisis?</strong></td>
 			<td rowspan='2'>
 				<input type='submit' value='Continue &raquo'
 				style='height: 100%; font-weight: bold;' />
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$types_sel</td>
 		</tr>
 	</table>
@@ -123,19 +123,19 @@ function collect_customer()
 		<tr>
 			<th colspan='2'>Customer Collect</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Driver Name</td>
 			<td>
 				<input type='text' name='driver_name' value='$driver_name' />
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>ID Number</td>
 			<td>
 				<input type='text' name='driver_idnum' value='$driver_idnum' />
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Vehicle Registration</td>
 			<td>
 				<input type='text' name='driver_plate' value='$driver_plate' />
@@ -144,7 +144,7 @@ function collect_customer()
 		<tr>
 			<th colspan='2'>Comments</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>
 				<textarea name='driver_comments' style='width: 100%'>"
 					."$driver_comments".
@@ -191,25 +191,25 @@ function collect_thirdparty()
 		<tr>
 			<th colspan='2'>Third Party Collect</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Waybill Number</td>
 			<td>
 				<input type='text' name='driver_waybill' value='$driver_waybill' />
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Driver Name</td>
 			<td>
 				<input type='text' name='driver_name' value='$driver_name' />
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>ID Number</td>
 			<td>
 				<input type='text' name='driver_idnum' value='$driver_idnum' />
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Vehicle Registration</td>
 			<td>
 				<input type='text' name='driver_plate' value='$driver_plate' />
@@ -218,7 +218,7 @@ function collect_thirdparty()
 		<tr>
 			<th colspan='2'>Comments</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>
 				<textarea name='driver_comments' style='width: 100%'>"
 					."$driver_comments".
@@ -258,7 +258,7 @@ function collect_default()
 		<tr>		
 			<th colspan='2'>$how</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$how</td>
 			<td><input type='text' name='default' /></td>
 		</tr>
@@ -352,7 +352,7 @@ function invoice_error_notfound()
 				<h2><li class='err'>Scanned invoice does not exist.</li></h2>
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Next scan in 3 seconds</td>
 		</tr>
 	</table>
@@ -395,7 +395,7 @@ function dispatch_now($scan_id)
 		<tr>
 			<th>Dispatch</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='submit' value='Dispatch Now' /></td>
 		</tr>
 	</table>

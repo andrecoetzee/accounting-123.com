@@ -67,90 +67,90 @@ function showInfo ()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Company Name</td>
 				<td><input type='text' size='20' name='compname' value='$comp[compname]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Company Slogan</td>
 				<td><input type='text' size='20' name='slogan' value='$comp[slogan]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Registration Number</td>
 				<td><input type='text' size='20' name='regnum' value='$comp[regnum]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT Number</td>
 				<td><input type='text' size='20' name='vatnum' value='$comp[vatnum]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>PAYE Ref</td>
 				<td><input type='text' size='20' name='paye' value='$comp[paye]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>SDL No</td>
 				<td><input type='text' size='20' name='sdl' value='$comp[sdl]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>UIF No</td>
 				<td><input type='text' size='20' name='uif' value='$comp[uif]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Diplomatic Indemnity</td>
 				<td>
 					Yes<input type='radio' name='diplomatic_indemnity' value='Y'><b> - </b>
 					No<input type='radio' name='diplomatic_indemnity' value='N' checked>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Logo Image</td>
 				<td><input type='file' size='20' name='logo'>&nbsp;&nbsp;&nbsp;width=230 height=47</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Delete Logo</td>
 				<td><input type='checkbox' name='dellogo' value='yes'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>POS Logo Image</td>
 				<td><input type='file' size='20' name='logo2'>&nbsp;&nbsp;&nbsp;width=230 height=47</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='4' valign='top'>".REQ."Address</td>
 				<td><input type='text' size='20' name='addr1' value='$comp[addr1]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td><input type='text' size='20' name='addr2' value='$comp[addr2]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td><input type='text' size='20' name='addr3' value='$comp[addr3]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td><input type='text' size='20' name='addr4' value='$comp[addr4]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='3' valign='top'>Postal Address</td>
 				<td><input type='text' size='20' name='paddr1' value='$comp[paddr1]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td><input type='text' size='20' name='paddr2' value='$comp[paddr2]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td><input type='text' size='20' name='paddr3' value='$comp[paddr3]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Postal Code</td>
 				<td><input type='text' size='8' name='pcode' value='$comp[postcode]'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Telephone No.</td>
 				<td><input type='text' size='14' name='tel' value='$comp[tel]'>(code) XXX-XXXX</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Fax No.</td>
 				<td><input type='text' size='14' name='fax' value='$comp[fax]'>(code) XXX-XXXX</td>
 			</tr>
@@ -193,87 +193,87 @@ function showerr ($_POST, $err="")
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Company Name</td>
 				<td><input type='text' size='20' name='compname' value='$compname'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Company Slogan</td>
 				<td><input type='text' size='20' name='slogan' value='$slogan'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Registration Number</td>
 				<td><input type='text' size='20' name='regnum' value='$regnum'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT Number</td>
 				<td><input type='text' size='20' name='vatnum' value='$vatnum'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>PAYE Ref</td>
 				<td><input type='text' size='20' name='paye' value='$paye'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>SDL No</td>
 				<td><input type='text' size='20' name='sdl' value='$sdl'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>UIF No</td>
 				<td><input type='text' size='20' name='uif' value='$uif'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Diplomatic Indemnity</td>
 				<td>Yes <input type='radio' name='diplomatic_indemnity' value='Y'> - No<input type='radio' name='diplomatic_indemnity' value='N' checked></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Logo Image</td>
 				<td><input type='file' size='20' name='logo'>&nbsp;&nbsp;&nbsp;width=230 height=47</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Delete Logo</td>
 				<td><input type='checkbox' name='dellogo' $dellogosel value='yes'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>POS Logo Image</td>
 				<td><input type='file' size='20' name='logo2'>&nbsp;&nbsp;&nbsp;width=230 height=47</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='4' valign='top'>".REQ."Address</td>
 				<td><input type='text' size='20' name='addr1' value='$addr1'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td><input type='text' size='20' name='addr2' value='$addr2'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td><input type='text' size='20' name='addr3' value='$addr3'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td><input type='text' size='20' name='addr4' value='$addr4'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='3' valign='top'>Postal Address</td>
 				<td><input type='text' size='20' name='paddr1' value='$paddr1'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td><input type='text' size='20' name='paddr2' value='$paddr2'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td><input type='text' size='20' name='paddr3' value='$paddr3'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Postal Code</td>
 				<td><input type='text' size='8' name='pcode' value='$pcode'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Telephone No.</td>
 				<td><input type='text' size='14' name='tel' value='$tel'>(code) XXX-XXXX</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Fax No.</td>
 				<td><input type='text' size='14' name='fax' value='$fax'>(code) XXX-XXXX</td>
 			</tr>
@@ -476,83 +476,83 @@ function confirmInfo ($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Company Name</td>
 				<td>$compname</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Company Slogan</td>
 				<td>$slogan</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Registration Number</td>
 				<td>$regnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT Number</td>
 				<td>$vatnum</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>PAYE Ref</td>
 				<td>$paye</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>SDL No</td>
 				<td>$sdl</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>UIF No</td>
 				<td>$uif</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Diplomatic Indemnity</td>
 				<td>$diplomatic_indemnity</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Logo Image</td>
 				<td bgcolor='#ffffff' align='center'>$logoimg</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>POS Logo Image</td>
 				<td bgcolor='#ffffff' align='center'>$logoimg2</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='4' valign='top'>Address</td>
 				<td>$addr1</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td>$addr2</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td>$addr3</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td>$addr4</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='3' valign='top'>Postal Address</td>
 				<td>$paddr1</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td>$paddr2</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<!-- rowspan -->
 				<td>$paddr3</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Postal Code</td>
 				<td>$pcode</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Telephone No.</td>
 				<td>$tel</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Fax No.</td>
 				<td>$fax</td>
 			</tr>

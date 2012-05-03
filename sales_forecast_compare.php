@@ -70,7 +70,7 @@ function enter()
 		<tr>
 			<th colspan='4'>Saved Sales Forecast</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'>$fc_sel</td>
 
 			<td rowspan='3'>
@@ -78,7 +78,7 @@ function enter()
 				style='width: 100%; height: 100%; font-weight: bold' />
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Compare With</td>
 			<td>
 				Last 7 Days
@@ -89,7 +89,7 @@ function enter()
 				<input type='radio' name='prd' value='month' $prd_month />
 			</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'><table ".TMPL_tblDflts." width='100%'>
 				<tr>
 					<td><b>Increase</b></td>
@@ -145,7 +145,7 @@ function compare()
 		$stkdes_rslt = db_exec($sql) or errDie("Unable to retrieve stock.");
 		$stkdes = pg_fetch_result($stkdes_rslt, 0);
 
-		$stock_out .= "<tr bgcolor='".bgcolorg()."'>
+		$stock_out .= "<tr class='".bg_class()."'>
 			<td>$stkcod</td>
 			<td>$stkdes</td>
 			<td>

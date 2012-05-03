@@ -69,7 +69,7 @@ function enter()
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=confirm>
 		<tr><th colspan=2>Set Stock Purchase Approval</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=radio size=20 name=app value='apprv' $chy>Purchases Must Be Approved</td>
+		<tr class='bg-odd'><td><input type=radio size=20 name=app value='apprv' $chy>Purchases Must Be Approved</td>
 		<td><input type=radio size=20 name=app value='napprv' $chn>Don't Approve Purchases</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td align=right colspan=2><input type=submit value='Continue &raquo'></td></tr>
@@ -122,7 +122,7 @@ function confirm($_POST)
 	<input type=hidden name=key value=write>
 	<input type=hidden name=app value='$app'>
 	<tr><th colspan>Stock Purchase Approval</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td align=center>$typ</td></tr>
+	<tr class='bg-odd'><td align=center>$typ</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=right colspan=2><input type=submit value='Confirm &raquo'></td></tr>
 	</form>

@@ -43,7 +43,7 @@ function get_period ()
 				<tr>
 					<th>Quick Links</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><a href='../vat_period_setting.php'>Set VAT Period</a></td>
 				</tr>
 				<script>document.write(getQuicklinkSpecial());</script>
@@ -99,14 +99,14 @@ function get_period ()
 			<tr>
 				<th>Period</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$period_drop</td>
 			</tr>
 			<tr><td></td></tr>
 			<tr>
 				<th>Name For Report</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='text' name='returnname' value='".date("Y-m-d")." Report'></td>
 			</tr>
 			<tr><td></td></tr>

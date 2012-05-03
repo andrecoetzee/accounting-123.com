@@ -82,7 +82,7 @@ function show_menu ()
 			$mcarr = pg_fetch_array ($run_tot);
 
 			$show_subs .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><b>$carr[topacc]/$carr[accnum] $carr[accname]</b></td>
 					<td nowrap><b>".CUR." ".sprint ($mcarr['debit'])."</td>
 					<td nowrap><b>".CUR." ".sprint ($mcarr['credit'])."</td>
@@ -93,7 +93,7 @@ function show_menu ()
 			$run_subs = db_exec ($get_subs) or errDie ("Unable to get sub accounts information.");
 			while ($sarr = pg_fetch_array ($run_subs)){
 				$show_subs .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$sarr[topacc]/$sarr[accnum] $sarr[accname]</td>
 						<td></td>
 						<td></td>
@@ -117,14 +117,14 @@ function show_menu ()
 
 					if ($sub_arr['accnum'] == $carr['accnum']){
 						$show_subs_tmp .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td><b>$sub_arr[topacc]/$sub_arr[accnum] $sub_arr[accname]</b></td>
 								<td><b>".CUR." ".sprint ($scarr['debit'])."</b></td>
 								<td><b>".CUR." ".sprint ($scarr['credit'])."</b></td>
 							</tr>";
 					}else {
 						$show_subs_tmp .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$sub_arr[topacc]/$sub_arr[accnum] $sub_arr[accname]</td>
 								<td>".CUR." ".sprint ($scarr['debit'])."</td>
 								<td>".CUR." ".sprint ($scarr['credit'])."</td>
@@ -147,7 +147,7 @@ function show_menu ()
 				$mcarr = pg_fetch_array ($run_tot);
 
 				$show_subs .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$main_arr[topacc]/$main_arr[accnum] $main_arr[accname]</td>
 						<td>".CUR." ".sprint ($total_dr)."</td>
 						<td>".CUR." ".sprint ($total_cr)."</td>
@@ -198,7 +198,7 @@ function show_menu ()
 			$amount = sprint($amount);
 
 			$show_results .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$date</td>
 						<td>$sdate</td>
 						<td>$dtopacc/$daccnum&nbsp;&nbsp;&nbsp;$daccname</td>
@@ -215,7 +215,7 @@ function show_menu ()
 
 	}else {
 		$show_results = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='8'>No transactions found for selected date range.</td>
 			</tr>";
 	}
@@ -240,7 +240,7 @@ function show_menu ()
 			<tr>
 				<th colspan='8'>Transaction Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='7' align='center' nowrap>
 					<table>
 						<tr>

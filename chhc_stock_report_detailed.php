@@ -21,7 +21,7 @@ function report()
 	$stock_out = "";
 	while ($stock_data = pg_fetch_array($stock_rslt)) {
 		$stock_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$stock_data[whname]</td>
 			<td>$stock_data[stkcod]</td>
 			<td>$stock_data[stkdes]</td>

@@ -63,9 +63,9 @@ $enterUser =
 <form action='".SELF."' method=post>
 <input type=hidden name=key value=confirm>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>User name</td><td align=right><input type=text size=20 name=username></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Password</td><td align=right><input type=password size=20 name=password></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Confirm password</td><td align=right><input type=password size=20 name=password2></td></tr>
+<tr class='bg-even'><td>User name</td><td align=right><input type=text size=20 name=username></td></tr>
+<tr class='bg-odd'><td>Password</td><td align=right><input type=password size=20 name=password></td></tr>
+<tr class='bg-even'><td>Confirm password</td><td align=right><input type=password size=20 name=password2></td></tr>
 <tr><td align=right colspan=2><input type=submit value='Confirm &raquo'></td></tr>
 </form>
 </table>
@@ -112,8 +112,8 @@ function confirmUser ($_POST)
         <input type=hidden name=password value='$password'>
         <input type=hidden name=password2 value='$password2'>
         <tr><th>Field</th><th>Value</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td>User name</td><td>$username</td>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td>Password</td><td>*</td>
+        <tr class='bg-even'><td>User name</td><td>$username</td>
+        <tr class='bg-odd'><td>Password</td><td>*</td>
         <tr><td colspan=2><br></td></tr>
         <tr><th colspan=2>Select user permissions</th></tr>";
 

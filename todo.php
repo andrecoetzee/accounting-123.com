@@ -109,13 +109,13 @@ function order($_POST,$errors="")
 	"<form action='".SELF."' method=post name=form>
 	<input type=hidden name=key value=account_info>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
-	<tr bgcolor='".TMPL_tblDataColor2."'><th colspan=3 align=left><h3>TO DO LIST ($numrow)</h3></th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor2."'><td width='20%'>CURRENT DATE</td><td>$cdate</td></tr>
+	<tr class='bg-even'><th colspan=3 align=left><h3>TO DO LIST ($numrow)</h3></th></tr>
+	 <tr class='bg-even'><td width='20%'>CURRENT DATE</td><td>$cdate</td></tr>
 	</table>
 
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	 <tr><th>DATE</th><th>TIME</th><th>DESCRIPTION</th><th>DONE</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden name=datemade value='$datemade'>$datemade</td><td><input type=hidden name=timemade value='$timemade'>$timemade</td><td><input type=text size=20 name=des value=''></td><td> &nbsp; </td></tr>
+	 <tr class='bg-odd'><td><input type=hidden name=datemade value='$datemade'>$datemade</td><td><input type=hidden name=timemade value='$timemade'>$timemade</td><td><input type=text size=20 name=des value=''></td><td> &nbsp; </td></tr>
 
 	 $Pals
 
@@ -125,8 +125,8 @@ function order($_POST,$errors="")
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=30%>
 	 <tr><td><br><br></tr>
 	 <tr><th>Quick Links</th></tr>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</td>
-	 <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</td>
+	 <tr class='bg-odd'><td><a href='index_die.php'>Diary</td>
+	 <tr class='bg-odd'><td><a href='main.php'>Main Menu</td>
 	 </tr>
 	</table>
 

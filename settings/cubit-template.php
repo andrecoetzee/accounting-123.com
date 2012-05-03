@@ -130,7 +130,7 @@ function get_tmpl_settings ($err="",$reload=FALSE)
 			$showentry = "<td width='5'></td>";
 
 		$entries .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$description</td>
 							<td><input type='text' size='35' name='$constant' value='$val'></td>
 							$showentry

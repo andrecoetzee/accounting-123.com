@@ -133,7 +133,7 @@ function details($_GET)
 
 			# put in product
 			$products .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$wh[whname]</td>
 								<td>$stk[stkcod]</td>
 								<td>$stk[stkdes]</td>
@@ -179,30 +179,30 @@ function details($_GET)
 									<tr>
 										<th colspan='2'> Customer Details </th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Department</td>
 										<td valign='center'>$quo[deptname]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Customer</td>
 										<td valign='center'>$quo[cusname] $quo[surname]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td valign=top>Customer Address</td>
 										<td valign='center'>".nl2br($quo['cusaddr'])."</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Customer Order number</td>
 										<td valign='center'>$quo[cordno]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Customer Vat Number</td>
 										<td>$quo[cusvatno]</td>
 									</tr>
 									<tr>
 										<th colspan='2' valign='top'>Comments</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td colspan='2' align='center'>".nl2br($quo['comm'])."</pre></td>
 									</tr>
 								</table>
@@ -211,35 +211,35 @@ function details($_GET)
 								<table ".TMPL_tblDflts.">
 									<tr><th colspan='2'> Quote Details </th>
 								</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Quote No.</td>
 										<td valign='center'>$quo[quoid]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Order No.</td>
 										<td valign='center'>$quo[ordno]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>VAT Inclusive</td>
 										<td valign='center'>$quo[chrgvat]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Terms</td>
 										<td valign='center'>$quo[terms] Days</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Sales Person</td>
 										<td valign='center'>$quo[salespn]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Quote Date</td>
 										<td valign='center'>$quo[odate]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Trade Discount</td>
 										<td valign='center'>$quo[traddisc]%</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Charge</td>
 										<td valign='center'>$quo[delchrg]</td>
 									</tr>
@@ -257,10 +257,10 @@ function details($_GET)
 									<tr>
 										<th>Quick Links</th>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='quote-new.php'>New Quote</a></td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><a href='quote-view.php'>View Quotes</a></td>
 									</tr>
 									<script>document.write(getQuicklinkSpecial());</script>
@@ -268,23 +268,23 @@ function details($_GET)
 							</td>
 							<td align='right'>
 								<table ".TMPL_tblDflts." width='80%'>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>SUBTOTAL</td>
 										<td align='right' nowrap>".CUR." $SUBTOT</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Trade Discount</td>
 										<td align='right' nowrap>".CUR." $quo[discount]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>Delivery Charge</td>
 										<td align='right' nowrap>".CUR." $quo[delivery]</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td><b>VAT $vat14</b></td>
 										<td align='right' nowrap>".CUR." $VAT</td>
 									</tr>
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<th>GRAND TOTAL</th>
 										<td align='right' nowrap>".CUR." $TOTAL</td>
 									</tr>

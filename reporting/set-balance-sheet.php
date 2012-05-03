@@ -54,7 +54,7 @@ function edit($_POST = array(), $error="")
 	}
 
 /* --------------------------- OE ------------------------------*/
-	$products = "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=4><h4>Equity & Liabilities</h4></td></tr>";
+	$products = "<tr class='bg-odd'><td colspan=4><h4>Equity & Liabilities</h4></td></tr>";
 
 	# Get settings
 	db_conn("core");
@@ -62,12 +62,12 @@ function edit($_POST = array(), $error="")
 	$subRslt = db_exec ($sql) or errDie ("Unable to get sub-headings information.");
 
 	while ($sub = pg_fetch_array($subRslt)) {
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=text size=30 name=oe_subnames[] value='$sub[subname]'></td><td><input name=oe_addgrp_$sub[skey] type=submit value='Add Group'></td><td><br></td><td><input type=checkbox name=oe_delsubs[] value='$sub[skey]'></td><tr>";
+		$products .="<tr class='bg-odd'><td><input type=text size=30 name=oe_subnames[] value='$sub[subname]'></td><td><input name=oe_addgrp_$sub[skey] type=submit value='Add Group'></td><td><br></td><td><input type=checkbox name=oe_delsubs[] value='$sub[skey]'></td><tr>";
 
 		$sql = "SELECT * FROM balgrps WHERE skey = '$sub[skey]' AND typ = 'oe'";
 		$grpRslt = db_exec ($sql) or errDie ("Unable to get groups information.");
 		while($grp = pg_fetch_array($grpRslt)){
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td> <br> </td>
+			$products .="<tr class='bg-odd'><td> <br> </td>
 			<td><input type=text size=30 name=oe_grpnames[$sub[skey]][] value='$grp[grpname]'></td><td><input name=oe_addacc_$sub[skey]_$grp[gkey] type=submit value='Add Accounts'></td><td><input type=checkbox name=oe_delgrps[$sub[skey]][] value='$grp[gkey]'></td><tr>";
 
 			$sql = "SELECT * FROM balgrpaccids WHERE skey = '$sub[skey]' AND gkey = '$grp[gkey]' AND typ = 'oe'";
@@ -78,7 +78,7 @@ function edit($_POST = array(), $error="")
 				$accRslt = db_exec ($sql) or errDie ("Unable to view account.");
 				$acc = pg_fetch_array($accRslt);
 
-				$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td> <br> </td><td> <br> </td>
+				$products .="<tr class='bg-even'><td> <br> </td><td> <br> </td>
 				<td><input type=hidden name=oe_grpaccids[$sub[skey]][$grp[gkey]][] value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td><input type=checkbox name=oe_delaccids[$sub[skey]][$grp[gkey]][] value='$acc[accid]'></td></tr>";
 			}
 			$btn = "oe_addacc_$sub[skey]_$grp[gkey]";
@@ -94,23 +94,23 @@ function edit($_POST = array(), $error="")
 					}
 				$accs .= "</select>";
 
-				$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td> <br> </td><td> <br> </td>
+				$products .="<tr class='bg-even'><td> <br> </td><td> <br> </td>
 				<td align=center>$accs</td><td><br></td></tr>";
 			}
 		}
 		$btn = "oe_addgrp_$sub[skey]";
 		if(isset($$btn)){
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td> <br> </td>
+			$products .="<tr class='bg-odd'><td> <br> </td>
 			<td><input type=text size=30 name=oe_grpnames[$sub[skey]][] value=''></td><td><br></td><td><br></td><tr>";
 		}
 		$products .="</tr>";
 	}
 	if(isset($oe_addsub)){
-		 $products .="<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=text size=30 name=oe_subnames[] value=''></td><td><br></td><td><br></td><td><br></td><tr>";
+		 $products .="<tr class='bg-odd'><td><input type=text size=30 name=oe_subnames[] value=''></td><td><br></td><td><br></td><td><br></td><tr>";
 	}
 
 	/* --------------------------- Asserts ------------------------------*/
-	$products .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=4><h4>Assets</h4></td></tr>";
+	$products .= "<tr class='bg-odd'><td colspan=4><h4>Assets</h4></td></tr>";
 
 	# Get settings
 	db_conn("core");
@@ -118,12 +118,12 @@ function edit($_POST = array(), $error="")
 	$subRslt = db_exec ($sql) or errDie ("Unable to get sub-headings information.");
 
 	while ($sub = pg_fetch_array($subRslt)) {
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=text size=30 name=as_subnames[] value='$sub[subname]'></td><td><input name=as_addgrp_$sub[skey] type=submit value='Add Group'></td><td><br></td><td><input type=checkbox name=as_delsubs[] value='$sub[skey]'></td><tr>";
+		$products .="<tr class='bg-odd'><td><input type=text size=30 name=as_subnames[] value='$sub[subname]'></td><td><input name=as_addgrp_$sub[skey] type=submit value='Add Group'></td><td><br></td><td><input type=checkbox name=as_delsubs[] value='$sub[skey]'></td><tr>";
 
 		$sql = "SELECT * FROM balgrps WHERE skey = '$sub[skey]' AND typ = 'as'";
 		$grpRslt = db_exec ($sql) or errDie ("Unable to get groups information.");
 		while($grp = pg_fetch_array($grpRslt)){
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td> <br> </td>
+			$products .="<tr class='bg-odd'><td> <br> </td>
 			<td><input type=text size=30 name=as_grpnames[$sub[skey]][] value='$grp[grpname]'></td><td><input name=as_addacc_$sub[skey]_$grp[gkey] type=submit value='Add Accounts'></td><td><input type=checkbox name=as_delgrps[$sub[skey]][] value='$grp[gkey]'></td><tr>";
 
 			$sql = "SELECT * FROM balgrpaccids WHERE skey = '$sub[skey]' AND gkey = '$grp[gkey]' AND typ = 'as'";
@@ -134,7 +134,7 @@ function edit($_POST = array(), $error="")
 				$accRslt = db_exec ($sql) or errDie ("Unable to view account.");
 				$acc = pg_fetch_array($accRslt);
 
-				$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td> <br> </td><td> <br> </td>
+				$products .="<tr class='bg-even'><td> <br> </td><td> <br> </td>
 				<td><input type=hidden name=as_grpaccids[$sub[skey]][$grp[gkey]][] value='$acc[accid]'>$acc[topacc]/$acc[accnum] - $acc[accname]</td><td><input type=checkbox name=as_delaccids[$sub[skey]][$grp[gkey]][] value='$acc[accid]'></td></tr>";
 			}
 			$btn = "as_addacc_$sub[skey]_$grp[gkey]";
@@ -150,19 +150,19 @@ function edit($_POST = array(), $error="")
 					}
 				$accs .= "</select>";
 
-				$products .="<tr bgcolor='".TMPL_tblDataColor2."'><td> <br> </td><td> <br> </td>
+				$products .="<tr class='bg-even'><td> <br> </td><td> <br> </td>
 				<td align=center>$accs</td><td><br></td></tr>";
 			}
 		}
 		$btn = "as_addgrp_$sub[skey]";
 		if(isset($$btn)){
-			$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td> <br> </td>
+			$products .="<tr class='bg-odd'><td> <br> </td>
 			<td><input type=text size=30 name=as_grpnames[$sub[skey]][] value=''></td><td><br></td><td><br></td><tr>";
 		}
 		$products .="</tr>";
 	}
 	if(isset($as_addsub)){
-		 $products .="<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=text size=30 name=as_subnames[] value=''></td><td><br></td><td><br></td><td><br></td><tr>";
+		 $products .="<tr class='bg-odd'><td><input type=text size=30 name=as_subnames[] value=''></td><td><br></td><td><br></td><td><br></td><tr>";
 	}
 
 /* -- Final Layout -- */
@@ -174,7 +174,7 @@ function edit($_POST = array(), $error="")
 	<tr><td colspan=4><br></td></tr>
 	<tr><th width=20%>Sub Heading</th><th width=20%>Group</th><th>Accounts</th><th>Delete</th></tr>
 	$products
-	<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=4><br></td></tr>
+	<tr class='bg-odd'><td colspan=4><br></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center colspan=3><input name=oe_addsub type=submit value='Add Equity & Liabilities Sub'> | <input name=as_addsub type=submit value='Add Assets Sub'> | <input name=updateBtn type=submit value='Update'> | <input name=doneBtn type=submit value='Done'></td></tr>
 	</table></form>

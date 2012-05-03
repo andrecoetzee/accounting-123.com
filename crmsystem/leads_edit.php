@@ -234,49 +234,49 @@ function get_data ($_GET,$errs="")
 			<tr>
 				<th colspan='4'>Lead Information</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td width='120'>First Name</td>
 				<td width='210'><input type='text' size='27' name='name' value='$name'></td>
 				<td width='120'>Office Phone</td>
 				<td width='210'><input type='text' size='27' name='tell_office' value='$tell_office'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".REQ."Company/Last Name</td>
 				<td><input type='text' size='27' name='surname' value='$surname'></td>
 				<td>Mobile</td>
 				<td><input type='text' size='27' name='cell' value='$cell'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Team Permissions</td>
 				<td>$teams_sel</td>
 				<td>Home Phone</td>
 				<td><input type='text' size='27' name='tell' value='$tell'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Lead Source</td>
 				<td>$select_source</td>
 				<td>Other Phone</td>
 				<td><input type='text' size='27' name='tell_other' value='$tell_other'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Title</td>
 				<td><input type='text' size='27' name='title' value='$title'></td>
 				<td>Fax</td>
 				<td><input type='text' size='27' name='fax' value='$fax'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Department</td>
 				<td><input type='text' size='27' name='department' value='$department'></td>
 				<td>E-mail</td>
 				<td><input type='text' size='27' name='email' value='$email'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Birthdate</td>
 				<td>$select_bfday $select_bfmonth $select_bfyear</td>
 				<td>Other E-mail</td>
 				<td><input type='text' size='27' name='email_other' value='$email_other'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td rowspan='2'>Account Name</td>
 				<td rowspan='2'>
 					<table>
@@ -296,23 +296,23 @@ function get_data ($_GET,$errs="")
 				<td>Assistant</td>
 				<td><input type='text' size='27' name='assistant' value='$assistant'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Assistant Phone</td>
 				<td><input type='text' size='27' name='assistant_phone' value='$assistant_phone'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Religion</td>
 				<td><input type='text' size='27' name='religion' value='$religion'></td>
 				<td>Website</td>
 				<td><input type='text' size='27' name='website' value='$website'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Race</td>
 				<td><input type='text' size='27' name='race' value='$race'></td>
 				<td>Next Contact Date</td>
 				<td>".mkDateSelect("ncdate", $ncdate[0], $ncdate[1], $ncdate[2])."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Gender</td>
 				<td>$select_gender</td>
 				<td>Sales Person</td>
@@ -323,29 +323,29 @@ function get_data ($_GET,$errs="")
 				<th colspan='2'>Physical Address</th>
 				<th colspan='2'>Postal Address</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'><textarea name='hadd' rows='4' cols='35'>$hadd</textarea></td>
 				<td colspan='2' align='center'><textarea name='padd' rows='4' cols='35'>$padd</textarea></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>City</td>
 				<td><input type='text' size='27' name='padd_city' value='$padd_city'></td>
 				<td>City</td>
 				<td><input type='text' size='27' name='hadd_city' value='$hadd_city'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>State/Province</td>
 				<td><input type='text' size='27' name='padd_state' value='$padd_state'></td>
 				<td>State/Province</td>
 				<td><input type='text' size='27' name='hadd_state' value='$hadd_state'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Postal Code</td>
 				<td><input type='text' size='27' name='padd_code' value='$padd_code'></td>
 				<td>Postal Code</td>
 				<td><input type='text' size='27' name='hadd_code' value='$hadd_code'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Country</td>
 				<td><input type='text' size='27' name='padd_country' value='$padd_country'></td>
 				<td>Country</td>
@@ -355,33 +355,33 @@ function get_data ($_GET,$errs="")
 			<tr>
 				<th colspan='2'>Description</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'><textarea name='description' rows='4' cols='35'>$description</textarea></td>
 			</tr>
 			<tr><td>&nbsp;</td></tr>
 			<tr>
 				<th colspan='2'>Options</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Private</td>
 				<td align='center'>$Cons</td>
 			</tr>
 			<tr>
 				<td colspan='2' align='right'><input type='submit' value='Confirm &raquo;'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>State/Province</td>
 				<td><input type='text' size='27' name='padd_state' value='$padd_state'></td>
 				<td>State/Province</td>
 				<td><input type='text' size='27' name='hadd_state' value='$hadd_state'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Postal Code</td>
 				<td><input type='text' size='27' name='padd_code' value='$padd_code'></td>
 				<td>Postal Code</td>
 				<td><input type='text' size='27' name='hadd_code' value='$hadd_code'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Country</td>
 				<td><input type='text' size='27' name='padd_country' value='$padd_country'></td>
 				<td>Country</td>
@@ -391,14 +391,14 @@ function get_data ($_GET,$errs="")
 			<tr>
 				<th colspan='2'>Description</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='center'><textarea name='description' rows='4' cols='35'>$description</textarea></td>
 			</tr>
 			<tr><td>&nbsp;</td></tr>
 			<tr>
 				<th colspan='2'>Options</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Private</td>
 				<td align='center'>$Cons</td>
 			</tr>
@@ -412,10 +412,10 @@ function get_data ($_GET,$errs="")
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='leads_list.php'>List leads</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -564,73 +564,73 @@ function con_data ($_POST)
 			<tr>
 				<th colspan='4'>Lead Information</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td width='120'>First Name</td>
 				<td width='210'>$name</td>
 				<td width='120'>Office Phone</td>
 				<td width='210'>$tell_office</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Company/Last Name</td>
 				<td>$surname</td>
 				<td>Mobile</td>
 				<td>$cell</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Account Name</td>
 				<td>$accountname</td>
 				<td>Home Phone</td>
 				<td>$tell</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Lead Source</td>
 				<td>".crm_get_leadsrc($lead_source)."</td>
 				<td>Other Phone</td>
 				<td>$tell_other</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Title</td>
 				<td>$title</td>
 				<td>Fax</td>
 				<td>$fax</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Department</td>
 				<td>$department</td>
 				<td>E-mail</td>
 				<td>$email</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Birthdate</td>
 				<td>$birthdate_description</td>
 				<td>Other E-mail</td>
 				<td>$email_other</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reports To</td>
 				<td>$reports_to</td>
 				<td>Assistant</td>
 				<td>$assistant</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Team Permissions</td>
 				<td>$team_name</td>
 				<td>Assistant Phone</td>
 				<td>$assistant_phone</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Religion</td>
 				<td>$religion</td>
 				<td>Website</td>
 				<td>$website</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Race</td>
 				<td>$race</td>
 				<td>Next Contact Date</td>
 				<td>$ncdate</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Gender</td>
 				<td>$gender</td>
 				<td>Sales Person</td>
@@ -641,29 +641,29 @@ function con_data ($_POST)
 				<th colspan='2'>Physical Address</th>
 				<th colspan='2'>Postal Address</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='left' valign='top'><xmp>$hadd</xmp></td>
 				<td colspan='2' align='left'><xmp>$padd</xmp></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>City</td>
 				<td>$padd_city</td>
 				<td>City</td>
 				<td>$hadd_city</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>State/Province</td>
 				<td>$padd_state</td>
 				<td>State/Province</td>
 				<td>$hadd_state</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Postal Code</td>
 				<td>$padd_code</td>
 				<td>Postal Code</td>
 				<td>$hadd_code</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Country</td>
 				<td>$padd_country</td>
 				<td>Country</td>
@@ -673,14 +673,14 @@ function con_data ($_POST)
 			<tr>
 				<th colspan='2'>Description</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2' align='left'><xmp>$description</xmp></td>
 			</tr>
 			<tr><td>&nbsp;</td></tr>
 			<tr>
 				<th colspan='2'>Options</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Private</td>
 				<td align='center'>$Con</td>
 			</tr>
@@ -694,10 +694,10 @@ function con_data ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='leads_list.php'>List leads</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";
@@ -880,7 +880,7 @@ function write_data ($_POST)
 			<tr>
 				<th>Lead modified</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$surname has been modified.</td>
 			</tr>
 		</table>
@@ -889,10 +889,10 @@ function write_data ($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='leads_list.php'>List leads</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

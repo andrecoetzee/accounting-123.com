@@ -50,7 +50,7 @@ function slct()
 					<tr>
 						<th colspan='2'>Team</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$team_sel</td>
 						<td><input type='submit' value='Select &raquo' /></td>
 					</tr>
@@ -114,7 +114,7 @@ function display()
 		$username = pg_fetch_result($user_rslt, 0);
 
 		$tp_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$username</td>
 			<td><a href='".SELF."?key=remove&id=$id&tp_id=$tp_data[id]'>Remove</a></td>
 		</tr>";
@@ -122,7 +122,7 @@ function display()
 
 	if (empty($tp_out)) {
 		$tp_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'><li>No people found</li></td>
 		</tr>";
 	}
@@ -137,18 +137,18 @@ function display()
 		<tr>
 			<th colspan='2'>Project Management Team Details</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Name</td>
 			<td>$team_data[name]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Description</td>
 			<td>$team_data[description]</td>
 		</tr>
 		<tr>
 			<th colspan='2'>Add Person</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$people_sel</td>
 			<td><input type='submit' value='Add &raquo' /></td>
 		</tr>

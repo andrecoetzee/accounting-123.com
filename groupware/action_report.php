@@ -44,7 +44,7 @@ function display()
 		$doc_rslt = db_exec($sql) or errDie("Unable to retrieve documents.");
 		$doc_data = pg_fetch_array($doc_rslt);
 
-		$actions_out .= "<tr bgcolor='".bgcolorg()."'>
+		$actions_out .= "<tr class='".bg_class()."'>
 			<td>$action_data[date]</td>
 			<td>$doc_data[id]</td>
 			<td>$doc_data[title]</td>
@@ -56,7 +56,7 @@ function display()
 	}
 
 	if (empty($actions_out)) {
-		$actions_out = "<tr bgcolor='".bgcolorg()."'>
+		$actions_out = "<tr class='".bg_class()."'>
 			<td colspan='20'>No results found</td>
 		</tr>";
 	}
@@ -85,10 +85,10 @@ function display()
 		<tr>
 			<th>Display</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>".mkDateSelect("date", $date_year, $date_month, $date_day)."</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td align='center'>$period_sel</td>
 		</tr>
 	</table>

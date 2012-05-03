@@ -57,14 +57,14 @@ function slct()
 				<tr>
 					<th colspan='2'>By Date Range</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center' colspan='2'>
 						".mkDateSelect("from",date("Y"),date("m"),"01")."
 						&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
 						".mkDateSelect("to")."
 					</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td valign='bottom' colspan='2' align='center'><input type='submit' value='Search'></td>
 				</tr>
 			</form>
@@ -162,7 +162,7 @@ function printNote ($_POST)
 				$docs = doclib_getdocs("note", $note['notenum']);
 
 				$printNote .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>$note[notenum]</td>
 								<td>$note[invnum]</td>
 								<td align='center'>$note[date]</td>
@@ -180,7 +180,7 @@ function printNote ($_POST)
 		// Layout
 		if($tot1>0){
 			$printNote .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='4'>Totals:$i</td>
 							<td align='right'>$cur $tot1</td>
 							<td align='right'></td>

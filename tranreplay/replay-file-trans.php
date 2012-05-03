@@ -42,7 +42,7 @@ function get_file ($err="")
 			<tr>
 				<th>File Location</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='file' name='filename'></td>
 			</tr>
 			".TBL_BR."
@@ -103,7 +103,7 @@ function get_do_trans ($_POST)
 			if(pg_numrows($run_debt) < 1){
 				#debtor is not available on this pc .. request to add it
 				$debtor_list .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$debtor[accno]</td>
 						<td>$debtor[surname]</td>
 						<td>$debtor[bustel]</td>
@@ -124,7 +124,7 @@ function get_do_trans ($_POST)
 			$run_cred = db_exec($get_cred) or errDie("Unable to get customer check information");
 			if(pg_numrows($run_cred) < 1){
 				$creditor_list .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$creditor[supno]</td>
 						<td>$creditor[supname]</td>
 						<td>$creditor[tel]</td>
@@ -146,7 +146,7 @@ function get_do_trans ($_POST)
 			$parms = $jobjs->cols;
 			$doid = $jobjs->id;
 				$listing .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$parms[debitacc]</td>
 						<td>$parms[creditacc]</td>
 						<td>$parms[date]</td>
@@ -481,7 +481,7 @@ pglib_transaction("COMMIT") or errDie("Unable to commit transactions.");
 						<tr>
 							<th>Transactions Completed</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>All Selected Replay Transactions Completed.</td>
 						</tr>
 					</table>

@@ -48,7 +48,7 @@ function posttake_display()
 	$stock_out = "";
 	while ($stock_data = pg_fetch_array($stock_rslt)) {
 		$stock_out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>$stock_data[bar]</td>
 			<td>$stock_data[stkcod]</td>
 			<td>$stock_data[stkdes]</td>
@@ -66,7 +66,7 @@ function posttake_display()
 	
 	if (empty($stock_out)) {
 		$stock_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'>No results found.</td>
 		</tr>";
 	}
@@ -79,7 +79,7 @@ function posttake_display()
 		<tr>
 			<th colspan='2'>Page</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>
 				<input type='text' name='page' value='$page' size='3'
 				style='font-weight: bold; text-align: center' />

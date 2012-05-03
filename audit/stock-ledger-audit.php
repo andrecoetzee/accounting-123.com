@@ -83,7 +83,7 @@ function select_year()
 			<tr>
 				<th>Select Year</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$years</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -154,15 +154,15 @@ function slctacc($_POST)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Stock Items</td>
 				<td><input type='radio' name='accnt' value='slct' checked='yes'>Selected Items | <input type='radio' name='accnt' value='all'>All Items</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td valign='top'>Select Stock Item(s)</td>
 				<td>$stks</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Select period</td>
 				<td>$fprds to $tprds</td>
 			</tr>
@@ -331,10 +331,10 @@ function viewtran($_POST)
 			$balance = sprint($bal['balance']);
 
 			$trans .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='5'><b>($stk[stkcod]) $stk[stkdes]</b></td>
 				</tr>
-				<tr bgcolor='".TMPL_tblDataColor2."'>
+				<tr class='bg-even'>
 					<td>&nbsp; $show_year-$prd-01</td>
 					<td>Balance Brought Forward</td>
 					<td align='right'>$bal[bqty]</td>
@@ -360,7 +360,7 @@ function viewtran($_POST)
 				$tran['edate'] = $tran['edate'][2]."-".$tran['edate'][1]."-".$tran['edate'][0];
 	
 				$trans .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>$tran[edate]</td>
 						<td>$tran[details]</td>
 						<td align='right'>$tran[qty]</td>
@@ -371,7 +371,7 @@ function viewtran($_POST)
 			$dbal['balance'] = sprint($dbal['balance']);
 
 			$trans .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td><br></td>
 					<td>Total for period $prdname to Date:</td>
 					<td align='right'>$dbal[bqty]</td>

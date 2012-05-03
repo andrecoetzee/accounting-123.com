@@ -143,16 +143,16 @@ function printaccnt()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td><a href='bank-pay-add.php'>Add Bank Payment</a></td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td><a href='bank-recpt-add.php'>Add Bank Receipt</a></td>
 	        </tr>
-	        <tr bgcolor='".bgcolorg()."'>
+	        <tr class='".bg_class()."'>
 	        	<td><a href='cashbook-view.php'>View Cash Book</a></td>
 	        </tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='../main.php'>Main Menu</a></td>
 			</tr>
 		</table>";

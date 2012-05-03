@@ -105,11 +105,11 @@ function rem($_GET)
 		$vatacc  = pg_fetch_array($vataccRs);
 		$vatin = ucwords($vatinc);
 		$vataccnum = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Vat Account</td>
 				<td><input type='hidden' name='vataccid' value='$vataccid'>$vatacc[topacc]/$vatacc[accnum] - $vatacc[accname]</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Vat Inclusive</td>
 				<td><input type='hidden' name='vatinc' value='$vatinc'>$vatin</td>
 			</tr>";
@@ -158,7 +158,7 @@ function rem($_GET)
 				<th>Option</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Ledger Name</td>
 				<td>$lname</td>
 			</tr>
@@ -166,7 +166,7 @@ function rem($_GET)
 				<th><h4>Debit</h4></th>
 				<th><h4>Credit</h4></th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 				<td align='center'>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 			</tr>
@@ -174,15 +174,15 @@ function rem($_GET)
 			<tr>
 				<th colspan='3'>Options</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Number of Entries</td>
 				<td>$numtran</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date Entry</td>
 				<td>$date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Charge Vat </td>
 				<td>$vat</td>
 			</tr>
@@ -190,22 +190,22 @@ function rem($_GET)
 			<tr>
 				<th colspan='3'>Description</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Description</td>
 				<td>$descript</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Option</td>
 				<td>$descriptopt</td>
 			</tr>
 			<tr>
 				<th colspan='3'>Reference Number</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reference Number</td>
 				<td>$refnums</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Option</td>
 				<td>$refnumopt</td>
 			</tr>
@@ -220,13 +220,13 @@ function rem($_GET)
 		<table border='0' cellpadding='2' cellspacing='1' width=15%>
 			<tr>
 				<th>Quick Links</th></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-new.php'>New High Speed Input Ledger</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-view.php'>View High Speed Input Ledgers</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";
@@ -295,7 +295,7 @@ function write($_POST)
 				<th colspan='2'>High Speed Input Ledger delete</th>
 			</tr>
 			<tr>
-				<td bgcolor='".bgcolorg()."' colspan='2'>High Speed Input Ledger : <b>$lname</b> has been deleted form the system</td>
+				<td class='".bg_class()."' colspan='2'>High Speed Input Ledger : <b>$lname</b> has been deleted form the system</td>
 			</tr>
 		</table>
 		<P>
@@ -303,13 +303,13 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-new.php'>New High Speed Input Ledger</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-view.php'>View High Speed Input Ledgers</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";

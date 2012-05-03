@@ -305,10 +305,10 @@ function get_die ()
 <form action='".SELF."' method=post>
 <input type=hidden name=key value=confirm>
 <tr><th colspan=2>Appointment details</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Employee</td><td align=center>$users</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td align=center><input type=text size=20 name=des></td></tr>
+<tr class='bg-odd'><td>Employee</td><td align=center>$users</td></tr>
+<tr class='bg-even'><td>Description</td><td align=center><input type=text size=20 name=des></td></tr>
 <tr><th colspan=2>Appointment Time</th></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><th align=left>From</th><td align=center>
+<tr class='bg-even'><th align=left>From</th><td align=center>
   <table border=0 cellpadding=1 cellspacing=1>
 	<tr>
         <td>$shours</td>
@@ -316,7 +316,7 @@ function get_die ()
         </tr>
   </table>
 </td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><th align=left>To</th><td align=center>
+<tr class='bg-even'><th align=left>To</th><td align=center>
   <table border=0 cellpadding=1 cellspacing=1>
 	<tr>
 
@@ -327,7 +327,7 @@ function get_die ()
 </td></tr>
 
 <tr><th colspan=2>Appointment Date</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2 align=center>
+<tr class='bg-odd'><td colspan=2 align=center>
 <table border=0 cellpadding=1 cellspacing=1>
 	<tr><td>
 		$days
@@ -344,8 +344,8 @@ function get_die ()
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+        <tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 
 
@@ -414,9 +414,9 @@ function con_die ($_POST)
 		return "$For already has an apointment for the selected time.<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Make another appointment</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='".SELF."'>Make another appointment</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+        <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	}   ;}
@@ -450,12 +450,12 @@ $c
 <input type=hidden name=user      value='$user'>
 
 <tr><th colspan=2>Appointment Details</th></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>For</td>       <td>$For</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Description</td><td>$des</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td>       <td>$date</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Time</td>       <td>$start-$last</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Made by</td>    <td>$user</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Date made</td>  <td>$Date</td></tr>
+<tr class='bg-even'><td>For</td>       <td>$For</td></tr>
+<tr class='bg-odd'><td>Description</td><td>$des</td></tr>
+<tr class='bg-even'><td>Date</td>       <td>$date</td></tr>
+<tr class='bg-odd'><td>Time</td>       <td>$start-$last</td></tr>
+<tr class='bg-even'><td>Made by</td>    <td>$user</td></tr>
+<tr class='bg-odd'><td>Date made</td>  <td>$Date</td></tr>
 
 <tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 </form>
@@ -463,8 +463,8 @@ $c
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+        <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
         return $con_die;
@@ -507,9 +507,9 @@ function wri_die ($_POST)
 		return "$For already has an apointment for the selected time.<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Make another appointment</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='".SELF."'>Make another appointment</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+        <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	} ;}
@@ -534,9 +534,9 @@ function wri_die ($_POST)
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Make another appointment</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='".SELF."'>Make another appointment</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+        <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 
 ";

@@ -126,13 +126,13 @@ function customize($_POST)
 		}
 
 		$last_year_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Last Year</td>
 				<td align='center'><input type='checkbox' name='last_year' value='checked' $ch></td>
 			</tr>";
 	} else {
 		$last_year_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Last Year</td>
 				<td align='center'>No prior years found.</td>
 			</tr>";
@@ -163,7 +163,7 @@ function customize($_POST)
 	}
 
 	$naccount_out = "
-	<tr bgcolor='".TMPL_tblDataColor1."'>
+	<tr class='bg-odd'>
 		<td align=center><select name=naccount style='width: 240px'>
 		<option value='0'>Please select</option>";
 
@@ -189,7 +189,7 @@ function customize($_POST)
 
 	if (pg_num_rows($stbacc_rslt) == 0) {
 		$accounts_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>No accounts have been selected, ALL accounts will be displayed.</td>
 			</tr>";
 	} else {
@@ -208,7 +208,7 @@ function customize($_POST)
 		}
 
 		$accounts_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$stbacc_data[topacc]/$stbacc_data[accnum]</td>
 				<td>$stbacc_data[accname]</td>
 				<td><input type='checkbox' name='rem[$stbacc_data[id]]' value='$stbacc_data[id]' $checked></td>
@@ -233,23 +233,23 @@ function customize($_POST)
 					<th colspan='2'>Display</th>
 				</tr>
 				$last_year_out
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Annual Budget</td>
 					<td align=center><input type=checkbox name=budget value='checked' $budget></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Zero Balances</td>
 					<td align='center'><input type='checkbox' name='zero_balance' value='checked' $zero_balance></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>List Debit & Credit</td>
 					<td align='center'><input type='checkbox' name='debit_credit' $debit_credit></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Year</td>
 					<td align='center'>$year_sel</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Month</td>
 					<td align=center nowrap>$months_to</td>
 				</tr>
@@ -264,19 +264,19 @@ function customize($_POST)
 				<tr>
 					<th colspan='2'>Headings</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Heading 1</td>
 					<td><input type='text' name='heading_1' value='$heading_1' style='width: 100%'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Heading 2</td>
 					<td><input type='text' name='heading_2' value='$heading_2' style='width: 100%'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Heading 3</td>
 					<td><input type='text' name='heading_3' value='$heading_3' style='width: 100%'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td width='0%'>Heading 4</td>
 					<td><input type='text' name='heading_4' value='$heading_4' style='width: 100%'></td>
 				</tr>
@@ -438,7 +438,7 @@ function note_view($_POST, $msg="")
 			<tr>
 				<th>$note_data[accname]</th>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td><textarea name='note' rows='30' cols='50'>".base64_decode($note_data["note"])."</textarea></td>
 			</tr>
 			<tr>
@@ -496,7 +496,7 @@ function note_save($_POST)
 			)";
 		$sbsacc_rslt = db_exec($sql) or errDie("Unable to insert account information into the accounts list.");
 	}
-	return note_view($_POST, "<tr bgcolor='".bgcolorg()."'><td><li>Note has been updated.</li></td></tr>");
+	return note_view($_POST, "<tr class='".bg_class()."'><td><li>Note has been updated.</li></td></tr>");
 
 }
 

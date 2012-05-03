@@ -92,11 +92,11 @@ function edit($cusnum,$editid)
 				<tr>
 					<th colspan='2'>Details</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Branch Name</td>
 					<td><input type='text' size='30' name='branch_name' value='$branch_name'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Branch Address</td>
 					<td><textarea name='branch_descrip' cols='30' rows='5'>$branch_descrip</textarea></td>
 				</tr>
@@ -131,11 +131,11 @@ function enter_err ($_POST, $err="")
 				<tr>
 					<th colspan='2'>Details</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Branch Name</td>
 					<td><input type=text size='30' name=branch_name value='$branch_name'></td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Branch Description</td>
 					<td><textarea name=branch_descrip cols='30' rows='5'>$branch_descrip</textarea></td>
 				</tr>
@@ -187,8 +187,8 @@ function confirm ($_POST)
 			<td><h4>Add Customer Branch</h4></td>
 		</tr>
 		<tr><td><br></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td>Branch Name</td><td>$branch_name</td></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Branch Description</td><td>".nl2br($branch_descrip)."</td></tr>
+		<tr class='bg-odd'><td>Branch Name</td><td>$branch_name</td></tr>
+		<tr class='bg-even'><td>Branch Description</td><td>".nl2br($branch_descrip)."</td></tr>
 		<tr><td><br></td></tr>
 		<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</table>

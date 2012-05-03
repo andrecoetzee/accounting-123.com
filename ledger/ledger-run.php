@@ -152,7 +152,7 @@ function run($_GET)
 	$details = "
 		<h3>Enter Details</h3>
 		<table ".TMPL_tblDflts.">
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>High Speed Input Ledger :</th>
 				<td align='center'>&nbsp;&nbsp;&nbsp;&nbsp;$led[lname]&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				$vatopt
@@ -169,7 +169,7 @@ function run($_GET)
 				<td width='50%'><h3>Debit</h3></td>
 				<td width='50%'><h3>Credit</h3></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 				<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 			</tr>
@@ -200,7 +200,7 @@ function run($_GET)
 		}
 
 		$details .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$dateopt</td>
 				<td align='center'>$refopt</td>
 				<td>$desopt</td>
@@ -221,10 +221,10 @@ function run($_GET)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-view.php'>View High Speed Input Ledgers</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";
@@ -345,7 +345,7 @@ function error($_POST, $error)
 	$details = "
 		<h3>Enter Details</h3>
 		<table ".TMPL_tblDflts.">
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>High Speed Input Ledger : </th>
 				<td align='center'>&nbsp;&nbsp;&nbsp;&nbsp;$led[lname]&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				$vatopt
@@ -362,7 +362,7 @@ function error($_POST, $error)
 				<td width='50%'><h3>Debit</h3></td>
 				<td width='50%'><h3>Credit</h3></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 				<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 			</tr>
@@ -381,7 +381,7 @@ function error($_POST, $error)
 
 	for($i = 0; $i < $led['numtran']; $i++){
 		$details .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>$dateopt[$i]</td>
 				<td align='center'>$refopt[$i]</td>
 				<td>$desopt[$i]</td>
@@ -402,10 +402,10 @@ function error($_POST, $error)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-view.php'>View High Speed Input Ledgers</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";
@@ -497,7 +497,7 @@ function confirm($_POST)
 		if(floatval($amount[$key]) != 0){
 			$amount[$key] = sprint($amount[$key]);
 			$trans .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td align='center'><input type='hidden' name='date[]' value='$date[$key]'>$date[$key]</td>
 					<td align='center'><input type='hidden' name='refnum[]' value='$refnum[$key]'>$refnum[$key]</td>
 					<td><input type='hidden' name='descript[]' value='$descript[$key]'>$descript[$key]</td>
@@ -516,7 +516,7 @@ function confirm($_POST)
 	$confirm = "
 		<h3>Confirm Details</h3>
 		<table ".TMPL_tblDflts.">
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th>High Speed Input Ledger :</th>
 				<td align='center'>&nbsp;&nbsp;&nbsp;&nbsp;$led[lname]&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				$vatopt
@@ -533,7 +533,7 @@ function confirm($_POST)
 				<td width='50%'><h3>Debit</h3></td>
 				<td width='50%'><h3>Credit</h3></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 				<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 			</tr>
@@ -559,10 +559,10 @@ function confirm($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-view.php'>View High Speed Input Ledgers</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";
@@ -627,12 +627,12 @@ function write($_POST)
 		$vataccRs = get("core","*","accounts","accid",$led['vataccid']);
 		$vatacc  = pg_fetch_array($vataccRs);
 		$vatopt = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td> Vat Account: </td>
 				<td>$vatacc[topacc]/$vatacc[accnum] - $vatacc[accname]</td>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>VAT </td>
 				<td>$VATP %</td>
 			</tr>";
@@ -737,7 +737,7 @@ function write($_POST)
 				<td width='50%'><h3>Debit</h3></td>
 				<td width='50%'><h3>Credit</h3></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$dtacc[topacc]/$dtacc[accnum] - $dtacc[accname]</td>
 				<td>$ctacc[topacc]/$ctacc[accnum] - $ctacc[accname]</td>
 			</tr>
@@ -746,11 +746,11 @@ function write($_POST)
 				<th colspan='2'>Details</td>
 			</tr>
 			$vatopt
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Number of transactions</td>
 				<td>$ret</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><b>Total amount</b></td>
 				<td><b>".CUR." $tot</b></td>
 			</tr>
@@ -760,13 +760,13 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-view.php'>View High Speed Input Ledgers</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='ledger-new.php'>New High Speed Input Ledgers</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'><a href='../main.php'>Main Menu</td>
 			</tr>
 		</table>";

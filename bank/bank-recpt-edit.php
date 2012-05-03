@@ -112,7 +112,7 @@ function add()
 						<th>Field</th>
 						<th>Value</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Bank Account</td>
 						<td valign='center'>
 							<select name='bankid'>";
@@ -178,33 +178,33 @@ function add()
 		</select>
 		</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Date</td>
 		<td>
 			".mkDateSelect("o", $o_year, $o_month, $o_day)."
 		</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Received from</td>
 		<td valign='center'><input size='20' name='name' value='$name'></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Description</td>
 		<td valign='center'><textarea col='18' rows='3' name='descript'>$descript</textarea></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Reference</td>
 		<td valign='center'><input size='20' name='reference' value='$reference'></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Cheque Number</td>
 		<td valign='center'><input size='20' name='cheqnum' value='$cheqnum'></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>Amount</td>
 		<td valign='center'>".CUR." <input type='text' size='10' name='amount' value='".sprint($amount)."'></td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>VAT </td>
 		<td>
 			<input type='radio' name='chrgvat' value='inc' $sel1>Inclusive &nbsp;&nbsp;
@@ -212,11 +212,11 @@ function add()
 			<input type='radio' name='chrgvat' value='nov' $sel3>No VAT
 		</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td>VAT Code</td>
 		<td>$Vatcodes</td>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td valign='top'>Select Contra Account</td>
 		<td>$glacc</td>
 	</tr>
@@ -351,43 +351,43 @@ function confirm($_POST)
 						<th>Field</th>
 						<th>Value</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Account</td>
 						<td>$bank[accname] - $bank[bankname]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Account Balance</td>
 						<td>".CUR." $bal[bal]</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Date</td>
 						<td valign='center'>$date</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Received from</td>
 						<td valign='center'>$name</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Description</td>
 						<td valign='center'>$descript</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Reference</td>
 						<td valign='center'>$reference</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Cheque Number</td>
 						<td valign='center'>$cheqnum</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Amount</td>
 						<td valign='center'>".CUR." ".sprint($totamt)."</td>
 					</tr>
-					<tr bgcolor='".TMPL_tblDataColor1."'>
+					<tr class='bg-odd'>
 						<td>VAT </td>
 						<td>$vatin</td>
 					</tr>
-					<tr bgcolor='".TMPL_tblDataColor2."'>
+					<tr class='bg-even'>
 						<td>Ledger Account Received from</td>
 						<td valign='center'>$accnt[topacc]/$accnt[accnum] - $accnt[accname]</td>
 					</tr>

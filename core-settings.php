@@ -2011,7 +2011,7 @@ function debtors($tran, $cacc, $refnum, $day, $mon, $year){
 							<th>Field</th>
 							<th>Value</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td valign='top'>Select Customer</td>
 							<td>$custs</td>
 						</tr>
@@ -2067,7 +2067,7 @@ function creditors($tran, $cacc, $refnum, $day, $mon, $year){
 						<input type='hidden' name='accid' value='$cacc'>
 					<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=300>
 						<tr><th>Field</th><th>Value</th></tr>
-						<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Select Supplier</td><td>$sups</td></tr>
+						<tr class='bg-odd'><td valign=top>Select Supplier</td><td>$sups</td></tr>
 						<tr><td><br></td></tr>
 						<tr><td align=center><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=center><input type=submit value='Continue &raquo;'></td></tr>
 					</table>";
@@ -2099,7 +2099,7 @@ function stock($tran, $cacc, $refnum, $day, $mon, $year){
 		<th>Field</th>
 		<th>Value</th>
 	</tr>
-	<tr bgcolor='".bgcolorg()."'>
+	<tr class='".bg_class()."'>
 		<td valign='top'>Select Stock Item</td>
 		<td>$stks</td>
 	</tr>

@@ -110,7 +110,7 @@ function slct($_GET, $err = "")
 
 	//Removed option
 	// <tr><th colspan=2> Purchase Details </th></tr>
-	// <tr bgcolor='".TMPL_tblDataColor1."' ".ass("Select when tranferring goods between Departments or Stores")."><td colspan=2><input type=
+	// <tr class='bg-odd' ".ass("Select when tranferring goods between Departments or Stores")."><td colspan=2><input type=
 	//radio name=ctyp value='c' checked=yes>Accounts Purchase</td></tr>
 
 	$details = "<center>
@@ -122,9 +122,9 @@ function slct($_GET, $err = "")
 	<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 	<tr><td colspan=2>$err</td></tr>
  	<tr><th colspan=2> Purchase Details </th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."' ".ass("Select when purchasing non stock goods from your suppliers")."><td><input type=radio name=ctyp value='s' checked> Select Supplier</td><td>$sups</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."' ".ass("Select when the purchase of non stock goods is a cash purchase")."><td><input type=radio name=ctyp value='c'>Cash Order</td><td>$depts</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=2><input type=radio name=ctyp value='p'>Petty Cash Purchase</td></tr>
+	<tr class='bg-even' ".ass("Select when purchasing non stock goods from your suppliers")."><td><input type=radio name=ctyp value='s' checked> Select Supplier</td><td>$sups</td></tr>
+	<tr class='bg-odd' ".ass("Select when the purchase of non stock goods is a cash purchase")."><td><input type=radio name=ctyp value='c'>Cash Order</td><td>$depts</td></tr>
+	<tr class='bg-even'><td colspan=2><input type=radio name=ctyp value='p'>Petty Cash Purchase</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=center><input type=submit value='Continue &raquo;'></td></tr>
 	</table>";
@@ -266,7 +266,7 @@ function details($_POST, $error="")
 		list($syear, $smon, $sday) = explode("-", $stkd['ddate']);
 
 		# put in product
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'><td><input type=hidden size=4 name=cod[] value='$stkd[cod]'>$stkd[cod]</td><td>$stkd[des]</td><td><input type=hidden name=qts[] value='$stkd[qty]'><input type=text size=5 name=qtys[] value='$stkd[qty]'></td><td><input type=hidden size=4 name=unitcost[] value='$stkd[unitcost]'>$stkd[unitcost]</td><td>$sday-$smon-$syear</td><td>".CUR." $stkd[amt]</td></tr>";
+		$products .="<tr class='bg-odd'><td><input type=hidden size=4 name=cod[] value='$stkd[cod]'>$stkd[cod]</td><td>$stkd[des]</td><td><input type=hidden name=qts[] value='$stkd[qty]'><input type=text size=5 name=qtys[] value='$stkd[qty]'></td><td><input type=hidden size=4 name=unitcost[] value='$stkd[unitcost]'>$stkd[unitcost]</td><td>$sday-$smon-$syear</td><td>".CUR." $stkd[amt]</td></tr>";
 		$key++;
 	}
 	# look above(if i = 0 then there are no products)
@@ -301,14 +301,14 @@ function details($_POST, $error="")
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Supplier Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Supplier</td><td valign=center>$pur[supplier]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Supplier Address</td><td valign=center><pre>$pur[supaddr]</pre></td></tr>
+			<tr class='bg-odd'><td>Supplier</td><td valign=center>$pur[supplier]</td></tr>
+			<tr class='bg-even'><td>Supplier Address</td><td valign=center><pre>$pur[supaddr]</pre></td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Non-Stock Purchase Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Non-Stock Purchase No.</td><td valign=center>$pur[purnum]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT Inclusive</td><td valign=center>$pur[vatinc]</td></tr>
+			<tr class='bg-odd'><td>Non-Stock Purchase No.</td><td valign=center>$pur[purnum]</td></tr>
+			<tr class='bg-odd'><td>VAT Inclusive</td><td valign=center>$pur[vatinc]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -317,15 +317,15 @@ function details($_POST, $error="")
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th width=25%>Quick Links</th><th width=25%>Remarks</th><td rowspan=5 valign=top width=50%>$error</td></tr>
-			<tr><td bgcolor='".TMPL_tblDataColor1."'><a href='nons-purchase-new.php'>New purchase</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top><textarea name=remarks rows=4 cols=20>$pur[remarks]</textarea></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='nons-purchase-view.php'>View purchases</a></td></tr>
+			<tr><td class='bg-odd'><a href='nons-purchase-new.php'>New purchase</a></td><td class='bg-odd' rowspan=4 align=center valign=top><textarea name=remarks rows=4 cols=20>$pur[remarks]</textarea></td></tr>
+			<tr class='bg-odd'><td><a href='nons-purchase-view.php'>View purchases</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>SUBTOTAL</td><td align=right>".CUR." $SUBTOT</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT @ ".TAX_VAT." %</td><td align=right>".CUR." $pur[vat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><th>GRAND TOTAL</th><td align=right>".CUR." $TOTAL</td></tr>
+			<tr class='bg-even'><td>SUBTOTAL</td><td align=right>".CUR." $SUBTOT</td></tr>
+			<tr class='bg-odd'><td>VAT @ ".TAX_VAT." %</td><td align=right>".CUR." $pur[vat]</td></tr>
+			<tr class='bg-even'><th>GRAND TOTAL</th><td align=right>".CUR." $TOTAL</td></tr>
 		</table>
 	</td></tr>
 	<tr><td align=right><input type=button value='&laquo Back' onClick='javascript:history.back()'> | <input type=submit name='upBtn' value='Write'></td></tr>
@@ -752,12 +752,12 @@ pglib_transaction ("COMMIT") or errDie("Unable to commit a database transaction.
 	$write = "
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Non-Stock Purchase received</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor2."'><td>Non-Stock Purchase receipt has been recorded.</td></tr>
+		<tr class='bg-even'><td>Non-Stock Purchase receipt has been recorded.</td></tr>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='nons-purchase-view.php'>View purchases</a></td></tr>
+		<tr class='bg-odd'><td><a href='nons-purchase-view.php'>View purchases</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
 	</table>";
 

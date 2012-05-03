@@ -196,7 +196,7 @@ function get_die ()
 <input type=hidden name=key value=confirm>
 <input type=hidden name=For value='$For'>
 <tr><th colspan=2>Select Date</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=2 align=center>
+<tr class='bg-odd'><td colspan=2 align=center>
 <table border=0 cellpadding=1 cellspacing=1>
 	<tr><td>
 		$days
@@ -213,8 +213,8 @@ function get_die ()
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor2."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+        <tr class='bg-even'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
         return $get_die;
@@ -365,9 +365,9 @@ $Tab
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>View another date</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+        <tr class='bg-odd'><td><a href='".SELF."'>View another date</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+        <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
 
@@ -459,9 +459,9 @@ $Tab
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>View another date</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+        <tr class='bg-odd'><td><a href='".SELF."'>View another date</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+        <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 ";
 
@@ -523,9 +523,9 @@ function wri_die ($_POST)
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='".SELF."'>Make another appointment</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='index_die.php'>Diary</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='".SELF."'>Make another appointment</a></td></tr>
+        <tr class='bg-odd'><td><a href='index_die.php'>Diary</a></td></tr>
+        <tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>
 
 ";

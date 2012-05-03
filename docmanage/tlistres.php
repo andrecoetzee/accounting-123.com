@@ -66,11 +66,11 @@ function get_data ($_GET)
 <input type=hidden name=key value=confirm>
 
 <tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Ref</td><td><input type=text size=10 name=docref value='$Data[docref]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Document Name</td><td><input type=text size=20 name=docname value='$Data[docname]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td><input type=text size=2 name=day maxlength=2  value='$day'>-<input type=text size=2 name=mon maxlength=2  value='$mon'>-<input type=text size=4 name=year maxlength=4 value='$year'></td></tr>
+	<tr class='bg-even'><td>Ref</td><td><input type=text size=10 name=docref value='$Data[docref]'></td></tr>
+	<tr class='bg-odd'><td>Document Name</td><td><input type=text size=20 name=docname value='$Data[docname]'></td></tr>
+	<tr class='bg-even'><td>Date</td><td><input type=text size=2 name=day maxlength=2  value='$day'>-<input type=text size=2 name=mon maxlength=2  value='$mon'>-<input type=text size=4 name=year maxlength=4 value='$year'></td></tr>
 	
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Decription</td><td><textarea name=descrip rows=4 cols=18>$Data[descrip]</textarea></td></tr>
+	<tr class='bg-even'><td>Decription</td><td><textarea name=descrip rows=4 cols=18>$Data[descrip]</textarea></td></tr>
 	<tr><td><br></td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 </form>
@@ -78,7 +78,7 @@ function get_data ($_GET)
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tlist-docview.php'>List Removed Documents</a></td></tr>
+	<tr class='bg-odd'><td><a href='tlist-docview.php'>List Removed Documents</a></td></tr>
         </table>
 ";
         return $get_data;
@@ -117,19 +117,19 @@ function enter_err($_POST, $err="")
 <tr><td>$err<br></td><tr>
 <input type=hidden name=key value=confirm>
 <tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Ref</td><td><input type=text size=10 name=docref value='$docref'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Document Name</td><td><input type=text size=20 name=docname value='$docname'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td><input type=text size=2 name=day maxlength=2  value='$day'>-<input type=text size=2 name=mon maxlength=2  value='$mon'>-<input type=text size=4 name=year maxlength=4 value='$year'></td></tr>
+	<tr class='bg-even'><td>Ref</td><td><input type=text size=10 name=docref value='$docref'></td></tr>
+	<tr class='bg-odd'><td>Document Name</td><td><input type=text size=20 name=docname value='$docname'></td></tr>
+	<tr class='bg-even'><td>Date</td><td><input type=text size=2 name=day maxlength=2  value='$day'>-<input type=text size=2 name=mon maxlength=2  value='$mon'>-<input type=text size=4 name=year maxlength=4 value='$year'></td></tr>
 	
 	
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Decription</td><td><textarea name=descrip rows=4 cols=18>$descrip</textarea></td></tr>
+	<tr class='bg-even'><td>Decription</td><td><textarea name=descrip rows=4 cols=18>$descrip</textarea></td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 </form>
 </table>
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tlist-docview.php'>List Removed Documents</a></td></tr>
+	<tr class='bg-odd'><td><a href='tlist-docview.php'>List Removed Documents</a></td></tr>
         </table>
 ";
         return $get_data;
@@ -179,17 +179,17 @@ function con_data ($_POST)
 	<input type=hidden name=descrip value='$descrip'>
  	
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Ref</td><td>$docref</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Document Name</td><td>$docname</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Date</td><td align=center>$date</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Description</td><td>$descrip</td></tr>
+	<tr class='bg-odd'><td>Ref</td><td>$docref</td></tr>
+	<tr class='bg-even'><td>Document Name</td><td>$docname</td></tr>
+	<tr class='bg-even'><td>Date</td><td align=center>$date</td></tr>
+	<tr class='bg-even'><td>Description</td><td>$descrip</td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table>
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='list_consdel.php'>List Documents</a></td></tr>
+	<tr class='bg-odd'><td><a href='list_consdel.php'>List Documents</a></td></tr>
         </table>";
         return $con_data;
 }
@@ -257,8 +257,8 @@ function write_data ($_POST)
 	<p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>	
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tlist-docview.php'>View Removed Documents</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='tlist-docview.php'>View Removed Documents</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
         </table>";
 	return $write_data;
 }

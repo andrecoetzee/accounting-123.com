@@ -74,7 +74,7 @@ function slct()
 			<tr>
 				<th colspan='2'>By Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center'>
 					".mkDateSelect("from",date("Y"),date("m"),"01")."
 					&nbsp;&nbsp;&nbsp; TO &nbsp;&nbsp;&nbsp;
@@ -209,7 +209,7 @@ function printInv ($_POST)
 			
 			$inv['total'] = sprint($inv['total']);
 			$printInv .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$inv[username]</td>
 					<td>$inv[deptname]</td>
 					<td>$inv[salespn]</td>
@@ -230,7 +230,7 @@ function printInv ($_POST)
 	// Layout
 	if($i > 0) {
 		$printInv .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='7'><b>Total</b></td>
 				<td colspan='7'><b>".CUR." ".sprint ($totgrd)."</b></td>
 			<tr>
@@ -350,23 +350,23 @@ function removeInv ($_POST)
 				<tr>
 					<th colspan='2'>Details</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Invoice Number</td>
 					<td>TI $each</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Department</td>
 					<td valign='center'>$dept[deptname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Sales Person</td>
 					<td>$inv[salespn]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Customer</td>
 					<td valign='center'>$cust[cusname] $cust[surname]</td>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>Sub Total</td>
 					<td>".CUR." $inv[subtot]</td>
 				</tr>
@@ -476,7 +476,7 @@ foreach ($remids as $each => $own){
 
 	/* -- Final Layout -- */
 	$write .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Invoice No. <b>$remids[$each]</b> has been cancelled.</td>
 		</tr>";
 }

@@ -192,7 +192,7 @@ function customize($_POST)
 
 	if (!pg_num_rows($sisacc_rslt)) {
 		$accounts_out = "
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td>No accounts have been selected, ALL accounts will be displayed</td>
 		</tr>";
 	} else {
@@ -266,53 +266,53 @@ function customize($_POST)
 			<tr>
 				<th colspan=2>Headings</th>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td>Heading 1</td>
 				<td><input type=text name='heading_1' value='$heading_1' style='width: 100%'></td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td>Heading 2</td>
 				<td><input type=text name='heading_2' value='$heading_2' style='width: 100%'></td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td>Heading 3</td>
 				<td><input type=text name='heading_3' value='$heading_3' style='width: 100%'></td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td width='0%'>Heading 4</td>
 				<td><input type=text name='heading_4' value='$heading_4' style='width: 100%'></td>
 			</tr>
 			<tr>
 				<th colspan=2>Display</th>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td>Last Year - Same Month</td>
 				<td><input type='checkbox' name='last_year_same_month' value='true' $lysm \></td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td>This Year - To Month</td>
 				<td><input type='checkbox' name='this_year_year_to_date' value='true' $tyytd \></td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td>Last Year - Year To Date</td>
 				<td><input type='checkbox' name='last_year_year_to_date' value='true' $lyytd \></td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td>Month Budget</td>
 				<td><input type='checkbox' name='budget' value='true' $budget \></td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td>This Year Budget To Month</td>
 				<td><input type='checkbox' name='this_year_budget' value='true' $tybudget \></td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'>
+			<tr class='bg-even'>
 				<td>Zero Balances</td>
 				<td><input type='checkbox' name='zero_balance' value='checked' $zero_balance \></td>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td colspan='2'>
 					<table border='0' cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
-					<tr bgcolor='".TMPL_tblDataColor1."'>
+					<tr class='bg-odd'>
 						<td>Year</td>
 						<td align='center'>$year_sel</td>
 					</tr>
@@ -328,7 +328,7 @@ function customize($_POST)
 			<!--<tr>
 				<th colspan='2'>Add Account</th>
 			</tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'>
+			<tr class='bg-odd'>
 				<td align='center'>\$acc_sel</td>
 				<td align='center'><input type='submit' name='key' value='Add'></td>
 			</tr>//-->
@@ -399,7 +399,7 @@ function note_view($_POST, $msg="")
 		<tr>
 			<th>$note_data[accname]</th>
 		</tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'>
+		<tr class='bg-odd'>
 			<td><textarea name='note' rows='30' cols='50'>".base64_decode($note_data["note"])."</textarea></td>
 		</tr>
 		<tr>
@@ -484,7 +484,7 @@ function note_save($_POST)
 		$sbsacc_rslt = db_exec($sql) or errDie("Unable to insert account information into the accounts list.");
 	}
 
-	return note_view($_POST, "<tr bgcolor='".TMPL_tblDataColor1."'><td><li>Note has been updated.</li></td></tr>");
+	return note_view($_POST, "<tr class='bg-odd'><td><li>Note has been updated.</li></td></tr>");
 }
 
 ?>

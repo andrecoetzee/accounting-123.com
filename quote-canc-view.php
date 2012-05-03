@@ -54,7 +54,7 @@ function slct()
 					<tr>
 						<th colspan='2'>By Date Range</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td nowrap>
 							".mkDateSelect("from",date("Y"),date("m"),"01")."
 							&nbsp;TO&nbsp;
@@ -69,15 +69,15 @@ function slct()
 					<tr>
 						<th>Quick Links</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='quote-canc-view.php'>View Canceled Quotes</a></td>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='quote-unf-view.php'>View Incomplete Quotes</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='quote-new.php'>New Quote</a></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><a href='main.php'>Main Menu</a></td>
 					</tr>
 				</table>
@@ -154,7 +154,7 @@ function printQuo ($_POST)
 			$quo['date'] = $quo['date'][2]."-".$quo['date'][1]."-".$quo['date'][0];
 
 			$printQuo .= "
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td align='center'>$quo[date]</td>
 								<td>$quo[username]</td>
 								<td>$quo[deptname]</td>

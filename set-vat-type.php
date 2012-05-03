@@ -72,7 +72,7 @@ function enter()
 		<form action='".SELF."' method='POST'>
 			<input type='hidden' name='key' value='confirm'>
 			<tr><th colspan='2'>Vat type on stock selling price</th></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='radio' size='20' name='typ' value='Inclusive' $chin>Vat Inclusive</td>
 				<td><input type='radio' size='20' name='typ' value='Exclusive' $chex>Vat Exclusive</td>
 			</tr>
@@ -128,7 +128,7 @@ function confirm($_POST)
 			<tr>
 				<th colspan>Vat type on stock selling price</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align=center>Vat $typ</td>
 			</tr>
 			<tr><td><br></td></tr>
@@ -243,7 +243,7 @@ function printSet ()
 					<th>Setting Type</th>
 					<th>Current Setting</th>
 				</tr>
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$set[type]</td>
 					<td>$set[descript]</td>
 				</tr>

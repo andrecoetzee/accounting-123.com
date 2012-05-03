@@ -67,7 +67,7 @@ function printDepts ()
 		// display all stock
 		for ($i = 0; $dep =pg_fetch_array ($Rslt); $i++) {
 			$OUTPUT .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$dep[dept]</td>
 					<td><a href='admin-deptedit.php?deptid=$dep[deptid]'>Edit</a></td>
 					<td><a href='admin-deptrem.php?deptid=$dep[deptid]'>Remove</td>
@@ -82,7 +82,7 @@ function printDepts ()
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='admin-deptadd.php'>Add Department</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>

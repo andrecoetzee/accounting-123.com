@@ -162,13 +162,13 @@ function printSupp ($_POST,$err="")
 						<tr>
 							<th colspan='4'>Show Only</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='4'>$sub_list</td>
 						</tr>
 						<tr>
 							<th colspan='4'>Date Range (With Balances)</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='4'>
 								<select name='search' onChange='document.form1.submit();'>
 									<option value='' disabled $sel1>Select An Option</option>
@@ -184,13 +184,13 @@ function printSupp ($_POST,$err="")
 						<tr>
 							<th colspan='4'>Select Bank Account To Use</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='4'>$bankacclist</td>
 						</tr>
 						<tr>
 							<th colspan='4'>Process Date</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='4'>".mkDateSelect("date")."</td>
 						</tr>
 						".TBL_BR."
@@ -200,7 +200,7 @@ function printSupp ($_POST,$err="")
 						</tr>
 						<tr>
 							<td colspan='8'></td>
-							<td bgcolor='".bgcolorg()."' align='center'><input type='text' size='5' name='cheq_start'></td>
+							<td class='".bg_class()."' align='center'><input type='text' size='5' name='cheq_start'></td>
 						</tr>
 						".TBL_BR."
 						<tr>
@@ -386,7 +386,7 @@ function printSupp ($_POST,$err="")
 						<input type='hidden' name='supno[]' value='$supp[supid]'>
 						<input type='hidden' name='conid[]' value='$parr[purid]'>
 						<input type='hidden' name='remit[]' value='0'>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$supp[supno]</td>
 							<td><a target='_blank' href='recon_statement_ct.php?key=display&supid=$supp[supid]'>$supp[supname]</a></td>
 							<td>".CUR." $curr</td>
@@ -419,7 +419,7 @@ function printSupp ($_POST,$err="")
 
 	$printSupp .= "
 							<tr><td><br></td></tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td colspan='2'><b>Totals</b></td>
 								<td nowrap><b>".CUR." $totcurr</b></td>
 								<td nowrap><b>".CUR." $tot30</b></td>

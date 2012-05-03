@@ -57,7 +57,7 @@ function slct()
 					<tr>
 						<th>By Date Range</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td align='center'>
 							".mkDateSelect("from",date("Y"),date("m"),"01")."
 							&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;
@@ -155,7 +155,7 @@ function printCallout ($_POST)
 			$callout['date'] = $callout['date'][2]."-".$callout['date'][1]."-".$callout['date'][0];
 
 			$printCallout .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td align='center'>$callout[date]</td>
 									<td>$callout[username]</td>
 									<td>$callout[deptname]</td>

@@ -79,7 +79,7 @@ function confirmFringe ($id)
 <input type=hidden name=key value=rem>
 <input type=hidden name=id value='$id'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Fringe benefit</td><td align=center>$myFringe[fringeben]</td></tr>
+<tr class='bg-odd'><td>Fringe benefit</td><td align=center>$myFringe[fringeben]</td></tr>
 <tr><td colspan=1 align=left><input type=button value='Back' onclick='javascript:history.back();'</td><td valign=center><input type=submit value='Delete &raquo;'></td></tr>
 </form>
 </table>"

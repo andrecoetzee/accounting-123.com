@@ -36,7 +36,7 @@ function show_centers ($_POST,$err="")
 	$run_scpops = db_exec($get_scpops) or errDie("Unable to get sc popups.");
 	if(pg_numrows($run_scpops) < 1){
 		$sclisting = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='6'>No Outstanding Transactions</td>
 						</tr>
 					";
@@ -44,7 +44,7 @@ function show_centers ($_POST,$err="")
 		$sclisting = "";
 		while ($scarr = pg_fetch_array($run_scpops)){
 			$sclisting .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>$scarr[descrip]</td>
 									<td>$scarr[amount]</td>
 									<td>$scarr[edate]</td>
@@ -60,7 +60,7 @@ function show_centers ($_POST,$err="")
 	$run_ccpops = db_exec($get_ccpops) or errDie("Unable to get cc popups.");
 	if(pg_numrows($run_ccpops) < 1){
 		$cclisting = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='6'>No Outstanding Transactions</td>
 						</tr>
 					";
@@ -68,7 +68,7 @@ function show_centers ($_POST,$err="")
 		$cclisting = "";
 		while ($ccarr = pg_fetch_array($run_ccpops)){
 			$cclisting .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>$ccarr[descrip]</td>
 									<td>$ccarr[amount]</td>
 									<td>$ccarr[edate]</td>
@@ -84,7 +84,7 @@ function show_centers ($_POST,$err="")
 	$run_ncpops = db_exec($get_ncpops) or errDie("Unable to get sc popups.");
 	if(pg_numrows($run_ncpops) < 1){
 		$nclisting = "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td colspan='6'>No Outstanding Transactions</td>
 						</tr>
 					";
@@ -92,7 +92,7 @@ function show_centers ($_POST,$err="")
 		$nclisting = "";
 		while ($ncarr = pg_fetch_array($run_ncpops)){
 			$nclisting .= "
-								<tr bgcolor='".bgcolorg()."'>
+								<tr class='".bg_class()."'>
 									<td>$ncarr[descrip]</td>
 									<td>$ncarr[amount]</td>
 									<td>$ncarr[edate]</td>
@@ -179,7 +179,7 @@ function confirm_remove ($_POST)
 			if(pg_numrows($run_info) > 0){
 				$arr = pg_fetch_array($run_info);
 				$sclisting .= "
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>$arr[descrip]</td>
 										<td>$arr[amount]</td>
 										<td>$arr[edate]</td>
@@ -190,7 +190,7 @@ function confirm_remove ($_POST)
 			}
 		}
 	}else {
-		$sclisting .= "<tr bgcolor='".bgcolorg()."'><td colspan='4'>No Entries Selected For Removal.</td></tr>";
+		$sclisting .= "<tr class='".bg_class()."'><td colspan='4'>No Entries Selected For Removal.</td></tr>";
 	}
 
 	if (isset($ccremids) AND is_array($ccremids)){
@@ -200,7 +200,7 @@ function confirm_remove ($_POST)
 			if(pg_numrows($run_info) > 0){
 				$arr = pg_fetch_array($run_info);
 				$cclisting .= "
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>$arr[descrip]</td>
 										<td>$arr[amount]</td>
 										<td>$arr[edate]</td>
@@ -211,7 +211,7 @@ function confirm_remove ($_POST)
 			}
 		}
 	}else {
-		$cclisting .= "<tr bgcolor='".bgcolorg()."'><td colspan='4'>No Entries Selected For Removal.</td></tr>";
+		$cclisting .= "<tr class='".bg_class()."'><td colspan='4'>No Entries Selected For Removal.</td></tr>";
 	}
 
 	if (isset($ncremids) AND is_array($ncremids)){
@@ -221,7 +221,7 @@ function confirm_remove ($_POST)
 			if(pg_numrows($run_info) > 0){
 				$arr = pg_fetch_array($run_info);
 				$nclisting .= "
-									<tr bgcolor='".bgcolorg()."'>
+									<tr class='".bg_class()."'>
 										<td>$arr[descrip]</td>
 										<td>$arr[amount]</td>
 										<td>$arr[edate]</td>
@@ -232,7 +232,7 @@ function confirm_remove ($_POST)
 			}
 		}
 	}else {
-		$nclisting .= "<tr bgcolor='".bgcolorg()."'><td colspan='4'>No Entries Selected For Removal.</td></tr>";
+		$nclisting .= "<tr class='".bg_class()."'><td colspan='4'>No Entries Selected For Removal.</td></tr>";
 	}
 
 	$display = "
@@ -314,7 +314,7 @@ function remove ($_POST)
 						<tr>
 							<th>Entries Removed.</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Selected Entries Have Been Removed.</td>
 						</tr>
 						".TBL_BR."

@@ -88,59 +88,59 @@ function confirm_emp ($_GET,$err="")
 						<tr>
 							<th colspan='2'>Employee Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Surname</td>
 							<td valign='center'>$myEmpl[sname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>First Names</td>
 							<td valign='center'>$myEmpl[fnames]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Sex</td>
 							<td valign='center'>$myEmpl[sex]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Marital Status</td>
 							<td valign='center'>$myEmpl[marital]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Resident</td>
 							<td valign='center'>$myEmpl[resident]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Hire Date</td>
 							<td valign='center'>$myEmpl[hiredate]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Telephone No</td>
 							<td valign='center'>$myEmpl[telno]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>E-mail</td>
 							<td valign='center'>$myEmpl[email]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Basic Salary</td>
 							<td valign='center'>".CUR." $myEmpl[basic_sal]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Pay Type</td>
 							<td valign='center'>$myEmpl[paytype]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Name</td>
 							<td valign='center'>$myEmpl[bankname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch Code</td>
 							<td valign='center'>$myEmpl[bankcode]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Account Type</td>
 							<td valign='center'>$myEmpl[bankacctype]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Account No</td>
 							<td valign='center'>$myEmpl[bankaccno]</td>
 						</tr>
@@ -151,58 +151,58 @@ function confirm_emp ($_GET,$err="")
 						<tr>
 							<th colspan='2'>Employee Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Residential Address</td>
 							<td valign='center'>$myEmpl[res1]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$myEmpl[res2]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$myEmpl[res3]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$myEmpl[res4]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Postal Address</td>
 							<td valign='center'>$myEmpl[pos1]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$myEmpl[pos2]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Postal Code</td>
 							<td valign='center'>$myEmpl[pcode]</td>
 						</tr>
 						<tr>
 							<th colspan='2'>Friend Not Living With Employee</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Surname</td>
 							<td valign='center'>$myEmpl[contsname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>First Names</td>
 							<td valign='center'>$myEmpl[contfnames]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Residential Address</td>
 							<td valign='center'>$myEmpl[contres1]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$myEmpl[contres2]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$myEmpl[contres3]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Telephone No</td>
 							<td valign='center'>$myEmpl[conttelno]</td>
 						</tr>
@@ -213,11 +213,11 @@ function confirm_emp ($_GET,$err="")
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reason for Leaving</td>
 				<td><input type='text' size='20' name='reason'></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>".mkDateSelect("date")."</td>
 			</tr>
@@ -228,89 +228,89 @@ function confirm_emp ($_GET,$err="")
 			<tr>
 				<th colspan='2'>Employee Initiated:</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='dissat_payben' value='yes'> Dissatisfaction with Pay or Benefits</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='dissat_jobcon' value='yes'> Dissatisfaction with Job Content</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='dissat_env' value='yes'> Dissatisfaction with Working Environment</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='emigration' value='yes'> Emigration</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='incom_supman' value='yes'> Incompatibility with Supervisor or Manager</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='incom_orgcul' value='yes'> Incompatibility with Organisational Culture</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='incom_collea' value='yes'> Incompatibility with Colleagues</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='lack_perdev' value='yes'> Lack of Personal Development Opportunities</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='lack_caradv' value='yes'> Lack of Career Advancement Oppertunities</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='lack_recogn' value='yes'> Lack of Recognition</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='lack_culsen' value='yes'> Lack of Cultural Sensitivity</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='self_empl' value='yes'> Self Employment</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='unsuit_locorg' value='yes'> Unsuitable Geographic Location of Organisation</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Employer Instigated:</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='redundantretrench' value='yes'> Redundancy or Retrenchment</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='dismissmisconduct' value='yes'> Dismissal or Misconduct</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='incapablepoorperc' value='yes'> Incapacity or Poor Performance</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='negosettle' value='yes'> Negotiated Settlement</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='desertion' value='yes'> Desertion</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Unavoidable Separations:</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='death' value='yes'> Death</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='retirement' value='yes'> Retirement</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='illhealth' value='yes'> Ill Health</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='pregnan' value='yes'> Pregnancy</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='famcircums' value='yes'> Family Circumstances</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><input type='checkbox' name='intercomptrans' value='yes'> Inter Company or Group Transfer</td>
 			</tr>
 			<tr><td><br></td></tr>
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><textarea name='description' rows='5' cols='65'></textarea></td>
 			</tr>
 			<tr>
@@ -385,32 +385,32 @@ function confirm_rem ($_POST)
 	$list2 = "<tr><th colspan='2'>Employer Instigated:</th></tr>";
 	$list3 = "<tr><th colspan='2'>Unavoidable Separations:</th></tr>";
 
-	if(isset($dissat_payben) AND ($dissat_payben == "yes")) {$list1 .= "<input type='hidden' name='dissat_payben' value='$dissat_payben'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Dissatisfaction with Pay or Benefits</td></tr>";}
-	if(isset($dissat_jobcon) AND ($dissat_jobcon == "yes")) {$list1 .= "<input type='hidden' name='dissat_jobcon' value='$dissat_jobcon'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Dissatisfaction with Job Content</td></tr>";}
-	if(isset($dissat_env) AND ($dissat_env == "yes")) {$list1 .= "<input type='hidden' name='dissat_env' value='$dissat_env'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Dissatisfaction with Working Environment</td></tr>";}
-	if(isset($emigration) AND ($emigration == "yes")) {$list1 .= "<input type='hidden' name='emigration' value='$emigration'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Emigration</td></tr>";}
-	if(isset($incom_supman) AND ($incom_supman == "yes")) {$list1 .= "<input type='hidden' name='incom_supman' value='$incom_supman'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Incompatibility with Supervisor or Manager</td></tr>";}
-	if(isset($incom_orgcul) AND ($incom_orgcul == "yes")) {$list1 .= "<input type='hidden' name='incom_orgcul' value='$incom_orgcul'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Incompatibility with Organisational Culture</td></tr>";}
-	if(isset($incom_collea) AND ($incom_collea == "yes")) {$list1 .= "<input type='hidden' name='incom_collea' value='$incom_collea'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Incompatibility with Colleagues</td></tr>";}
-	if(isset($lack_perdev) AND ($lack_perdev == "yes")) {$list1 .= "<input type='hidden' name='lack_perdev' value='$lack_perdev'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Lack of Personal Development Opportunities</td></tr>";}
-	if(isset($lack_caradv) AND ($lack_caradv == "yes")) {$list1 .= "<input type='hidden' name='lack_caradv' value='$lack_caradv'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Lack of Career Advancement Oppertunities</td></tr>";}
-	if(isset($lack_recogn) AND ($lack_recogn == "yes")) {$list1 .= "<input type='hidden' name='lack_recogn' value='$lack_recogn'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Lack of Recognition</td></tr>";}
-	if(isset($lack_culsen) AND ($lack_culsen == "yes")) {$list1 .= "<input type='hidden' name='lack_culsen' value='$lack_culsen'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Lack of Cultural Sensitivity</td></tr>";}
-	if(isset($self_empl) AND ($self_empl == "yes")) {$list1 .= "<input type='hidden' name='self_empl' value='$self_empl'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Self Employment</td></tr>";}
-	if(isset($unsuit_locorg) AND ($unsuit_locorg == "yes")) {$list1 .= "<input type='hidden' name='unsuit_locorg' value='$unsuit_locorg'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Unsuitable Geographic Location of Organisation</td></tr>";}
+	if(isset($dissat_payben) AND ($dissat_payben == "yes")) {$list1 .= "<input type='hidden' name='dissat_payben' value='$dissat_payben'><tr class='".bg_class()."'><td colspan='2'>Dissatisfaction with Pay or Benefits</td></tr>";}
+	if(isset($dissat_jobcon) AND ($dissat_jobcon == "yes")) {$list1 .= "<input type='hidden' name='dissat_jobcon' value='$dissat_jobcon'><tr class='".bg_class()."'><td colspan='2'>Dissatisfaction with Job Content</td></tr>";}
+	if(isset($dissat_env) AND ($dissat_env == "yes")) {$list1 .= "<input type='hidden' name='dissat_env' value='$dissat_env'><tr class='".bg_class()."'><td colspan='2'>Dissatisfaction with Working Environment</td></tr>";}
+	if(isset($emigration) AND ($emigration == "yes")) {$list1 .= "<input type='hidden' name='emigration' value='$emigration'><tr class='".bg_class()."'><td colspan='2'>Emigration</td></tr>";}
+	if(isset($incom_supman) AND ($incom_supman == "yes")) {$list1 .= "<input type='hidden' name='incom_supman' value='$incom_supman'><tr class='".bg_class()."'><td colspan='2'>Incompatibility with Supervisor or Manager</td></tr>";}
+	if(isset($incom_orgcul) AND ($incom_orgcul == "yes")) {$list1 .= "<input type='hidden' name='incom_orgcul' value='$incom_orgcul'><tr class='".bg_class()."'><td colspan='2'>Incompatibility with Organisational Culture</td></tr>";}
+	if(isset($incom_collea) AND ($incom_collea == "yes")) {$list1 .= "<input type='hidden' name='incom_collea' value='$incom_collea'><tr class='".bg_class()."'><td colspan='2'>Incompatibility with Colleagues</td></tr>";}
+	if(isset($lack_perdev) AND ($lack_perdev == "yes")) {$list1 .= "<input type='hidden' name='lack_perdev' value='$lack_perdev'><tr class='".bg_class()."'><td colspan='2'>Lack of Personal Development Opportunities</td></tr>";}
+	if(isset($lack_caradv) AND ($lack_caradv == "yes")) {$list1 .= "<input type='hidden' name='lack_caradv' value='$lack_caradv'><tr class='".bg_class()."'><td colspan='2'>Lack of Career Advancement Oppertunities</td></tr>";}
+	if(isset($lack_recogn) AND ($lack_recogn == "yes")) {$list1 .= "<input type='hidden' name='lack_recogn' value='$lack_recogn'><tr class='".bg_class()."'><td colspan='2'>Lack of Recognition</td></tr>";}
+	if(isset($lack_culsen) AND ($lack_culsen == "yes")) {$list1 .= "<input type='hidden' name='lack_culsen' value='$lack_culsen'><tr class='".bg_class()."'><td colspan='2'>Lack of Cultural Sensitivity</td></tr>";}
+	if(isset($self_empl) AND ($self_empl == "yes")) {$list1 .= "<input type='hidden' name='self_empl' value='$self_empl'><tr class='".bg_class()."'><td colspan='2'>Self Employment</td></tr>";}
+	if(isset($unsuit_locorg) AND ($unsuit_locorg == "yes")) {$list1 .= "<input type='hidden' name='unsuit_locorg' value='$unsuit_locorg'><tr class='".bg_class()."'><td colspan='2'>Unsuitable Geographic Location of Organisation</td></tr>";}
 
-	if(isset($redundantretrench) AND ($redundantretrench == "yes")) {$list2 .= "<input type='hidden' name='redundantretrench' value='$redundantretrench'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Redundancy or Retrenchment</td></tr>";}
-	if(isset($dismissmisconduct) AND ($dismissmisconduct == "yes")) {$list2 .= "<input type='hidden' name='dismissmisconduct' value='$dismissmisconduct'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Dismissal or Misconduct</td></tr>";}
-	if(isset($incapablepoorperc) AND ($incapablepoorperc == "yes")) {$list2 .= "<input type='hidden' name='incapablepoorperc' value='$incapablepoorperc'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Incapacity or Poor Performance</td></tr>";}
-	if(isset($negosettle) AND ($negosettle == "yes")) {$list2 .= "<input type='hidden' name='negosettle' value='$negosettle'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Negotiated Settlement</td></tr>";}
-	if(isset($desertion) AND ($desertion == "yes")) {$list2 .= "<input type='hidden' name='desertion' value='$desertion'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Desertion</td></tr>";}
+	if(isset($redundantretrench) AND ($redundantretrench == "yes")) {$list2 .= "<input type='hidden' name='redundantretrench' value='$redundantretrench'><tr class='".bg_class()."'><td colspan='2'>Redundancy or Retrenchment</td></tr>";}
+	if(isset($dismissmisconduct) AND ($dismissmisconduct == "yes")) {$list2 .= "<input type='hidden' name='dismissmisconduct' value='$dismissmisconduct'><tr class='".bg_class()."'><td colspan='2'>Dismissal or Misconduct</td></tr>";}
+	if(isset($incapablepoorperc) AND ($incapablepoorperc == "yes")) {$list2 .= "<input type='hidden' name='incapablepoorperc' value='$incapablepoorperc'><tr class='".bg_class()."'><td colspan='2'>Incapacity or Poor Performance</td></tr>";}
+	if(isset($negosettle) AND ($negosettle == "yes")) {$list2 .= "<input type='hidden' name='negosettle' value='$negosettle'><tr class='".bg_class()."'><td colspan='2'>Negotiated Settlement</td></tr>";}
+	if(isset($desertion) AND ($desertion == "yes")) {$list2 .= "<input type='hidden' name='desertion' value='$desertion'><tr class='".bg_class()."'><td colspan='2'>Desertion</td></tr>";}
 
-	if(isset($death) AND ($death == "yes")) {$list3 .= "<input type=hidden name='death' value='$death'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Death</td></tr>";}
-	if(isset($retirement) AND ($retirement == "yes")) {$list3 .= "<input type='hidden' name='retirement value='$retirement'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Retirement</td></tr>";}
-	if(isset($illhealth) AND ($illhealth == "yes")) {$list3 .= "<input type='hidden' name='illhealth' value='$illhealth'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Ill Health</td></tr>";}
-	if(isset($pregnan) AND ($pregnan == "yes")) {$list3 .= "<input type='hidden' name='pregnan' value='$pregnan'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Pregnancy</td></tr>";}
-	if(isset($famcircums) AND ($famcircums == "yes")) {$list3 .= "<input type='hidden' name='famcircums' value='$famcircums'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Family Circumstances</td></tr>";}
-	if(isset($intercomptrans) AND ($intercomptrans == "yes")) {$list3 .= "<input type='hidden' name='intercomptrans' value='$intercomptrans'><tr bgcolor='".bgcolorg()."'><td colspan='2'>Inter Company or Group Transfer</td></tr>";}
+	if(isset($death) AND ($death == "yes")) {$list3 .= "<input type=hidden name='death' value='$death'><tr class='".bg_class()."'><td colspan='2'>Death</td></tr>";}
+	if(isset($retirement) AND ($retirement == "yes")) {$list3 .= "<input type='hidden' name='retirement value='$retirement'><tr class='".bg_class()."'><td colspan='2'>Retirement</td></tr>";}
+	if(isset($illhealth) AND ($illhealth == "yes")) {$list3 .= "<input type='hidden' name='illhealth' value='$illhealth'><tr class='".bg_class()."'><td colspan='2'>Ill Health</td></tr>";}
+	if(isset($pregnan) AND ($pregnan == "yes")) {$list3 .= "<input type='hidden' name='pregnan' value='$pregnan'><tr class='".bg_class()."'><td colspan='2'>Pregnancy</td></tr>";}
+	if(isset($famcircums) AND ($famcircums == "yes")) {$list3 .= "<input type='hidden' name='famcircums' value='$famcircums'><tr class='".bg_class()."'><td colspan='2'>Family Circumstances</td></tr>";}
+	if(isset($intercomptrans) AND ($intercomptrans == "yes")) {$list3 .= "<input type='hidden' name='intercomptrans' value='$intercomptrans'><tr class='".bg_class()."'><td colspan='2'>Inter Company or Group Transfer</td></tr>";}
 
 	# Set up table & form
 	$confirmEmp = "
@@ -428,59 +428,59 @@ function confirm_rem ($_POST)
 						<tr>
 							<th colspan='2'>Employee Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Surname</td>
 							<td valign='center'>$myEmpl[sname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>First Names</td>
 							<td valign='center'>$myEmpl[fnames]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Sex</td>
 							<td valign='center'>$myEmpl[sex]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Marital Status</td>
 							<td valign='center'>$myEmpl[marital]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Resident</td>
 							<td valign='center'>$myEmpl[resident]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Hire Date</td>
 							<td valign='center'>$myEmpl[hiredate]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Telephone No</td>
 							<td valign='center'>$myEmpl[telno]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>E-mail</td>
 							<td valign='center'>$myEmpl[email]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Basic Salary</td>
 							<td valign='center'>".CUR." $myEmpl[basic_sal]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Pay Type</td>
 							<td valign='center'>$myEmpl[paytype]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Name</td>
 							<td valign='center'>$myEmpl[bankname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch Code</td>
 							<td valign='center'>$myEmpl[bankcode]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Account Type</td>
 							<td valign='center'>$myEmpl[bankacctype]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Bank Account No</td>
 							<td valign='center'>$myEmpl[bankaccno]</td>
 						</tr>
@@ -491,58 +491,58 @@ function confirm_rem ($_POST)
 						<tr>
 							<th colspan='2'>Employee Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Residential Address</td>
 							<td valign='center'>$myEmpl[res1]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$myEmpl[res2]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$myEmpl[res3]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$myEmpl[res4]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Postal Address</td>
 							<td valign='center'>$myEmpl[pos1]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$myEmpl[pos2]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Postal Code</td>
 							<td valign='center'>$myEmpl[pcode]</td>
 						</tr>
 						<tr>
 							<th colspan='2'>Friend Not Living With Employee</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Surname</td>
 							<td valign='center'>$myEmpl[contsname]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>First Names</td>
 							<td valign='center'>$myEmpl[contfnames]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Residential Address</td>
 							<td valign='center'>$myEmpl[contres1]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$myEmpl[contres2]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td><br></td>
 							<td valign='center'>$myEmpl[contres3]</td>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Telephone No</td>
 							<td valign='center'>$myEmpl[conttelno]</td>
 						</tr>
@@ -552,11 +552,11 @@ function confirm_rem ($_POST)
 			<tr>
 				<th colspan='2'>Details of leaving</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Reason for Leaving</td>
 				<td>$reason</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Date</td>
 				<td>$date</td>
 			</tr>
@@ -571,7 +571,7 @@ function confirm_rem ($_POST)
 			<tr>
 				<th colspan='2'>Details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><pre>$description</pre></td>
 			</tr>
 			<tr>

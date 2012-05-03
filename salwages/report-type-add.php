@@ -57,7 +57,7 @@ function enterType ()
 <form action='".SELF."' method=post>
 <input type=hidden name=key value=confirm>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Type of report</td><td align=center><input type=text size=20 name=type></td></tr>
+<tr class='bg-odd'><td>Type of report</td><td align=center><input type=text size=20 name=type></td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 </form>
 </table>"
@@ -100,7 +100,7 @@ function confirmType ($_POST)
 <input type=hidden name=key value=write>
 <input type=hidden name=type value='$type'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Type of report</td><td align=center>$type</td></tr>
+<tr class='bg-odd'><td>Type of report</td><td align=center>$type</td></tr>
 <tr><td colspan=2 align=right><input type=submit value='Write &raquo;'></td></tr>
 </form>
 </table>"

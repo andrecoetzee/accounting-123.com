@@ -60,10 +60,10 @@ function enter ()
 <form action='".SELF."' method=post>
 <input type=hidden name=key value=confirm>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Minimum</td><td align=center><table><tr><td>".CUR."</td><td><input type=text size=10 name=min class=right></td></tr></table></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Maximum</td><td align=center><table><tr><td>".CUR."</td><td><input type=text size=10 name=max class=right></td></tr></table></td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Percentage</td><td align=center><table><tr><td><input type=text size=10 name=percentage class=right></td><td>%</td></tr></table></td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Amount</td><td align=center><table><tr><td>".CUR."</td><td><input type=text size=10 name=extra class=right></td></td></tr></table></tr>
+<tr class='bg-odd'><td>Minimum</td><td align=center><table><tr><td>".CUR."</td><td><input type=text size=10 name=min class=right></td></tr></table></td></tr>
+<tr class='bg-even'><td>Maximum</td><td align=center><table><tr><td>".CUR."</td><td><input type=text size=10 name=max class=right></td></tr></table></td></tr>
+<tr class='bg-odd'><td>Percentage</td><td align=center><table><tr><td><input type=text size=10 name=percentage class=right></td><td>%</td></tr></table></td></tr>
+<tr class='bg-even'><td>Amount</td><td align=center><table><tr><td>".CUR."</td><td><input type=text size=10 name=extra class=right></td></td></tr></table></tr>
 <tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 </form>
 </table>"
@@ -111,10 +111,10 @@ function confirm ($_POST)
 <input type=hidden name=percentage value='$percentage'>
 <input type=hidden name=extra value='$extra'>
 <tr><th>Field</th><th>Value</th></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Minimum</td><td align=right>".CUR." $min</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Maximum</td><td align=right>".CUR." $max</td></tr>
-<tr bgcolor='".TMPL_tblDataColor1."'><td>Percentage</td><td align=right>$percentage %</td></tr>
-<tr bgcolor='".TMPL_tblDataColor2."'><td>Amount</td><td align=right>".CUR." $extra</td></tr>
+<tr class='bg-odd'><td>Minimum</td><td align=right>".CUR." $min</td></tr>
+<tr class='bg-even'><td>Maximum</td><td align=right>".CUR." $max</td></tr>
+<tr class='bg-odd'><td>Percentage</td><td align=right>$percentage %</td></tr>
+<tr class='bg-even'><td>Amount</td><td align=right>".CUR." $extra</td></tr>
 <tr><td colspan=1 align=left><input type=button value='Back' onclick='javascript:history.back();'</td><td valign=left><input type=submit value='Write &raquo;'></td></tr>
 </form>
 </table>"

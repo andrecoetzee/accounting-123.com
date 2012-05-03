@@ -25,7 +25,7 @@ function display($_POST)
 	$listing = "";
 	while ($garr = pg_fetch_array($group_rslt)) {
 		$listing .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$garr[grouptitle]</td>
 							<td>$garr[groupname]</td>
 							<td><a href='email-group-remove.php?id=$garr[id]'>Remove</a></td>
@@ -34,7 +34,7 @@ function display($_POST)
 
 	if (empty($listing)) {
 		$team_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='3'><li>No groups found</li></td>
 		</tr>";
 	}

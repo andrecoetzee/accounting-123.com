@@ -85,42 +85,42 @@ function get_grievance ($err = "")
 			<tr>
 				<th colspan='2'>Select Staff Member</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>$emp_drop</td>
 			</tr>
 			<tr><td><br></td></tr>
 			<tr>
 				<th colspan='2'>Date First Recorded</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>".mkDateSelect("first_rec")."</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Details of grievance</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><textarea name='griev_details' cols='40' rows'4'></textarea></td>
 			</tr>
 			<tr>
 				<th colspan='2'>Status Of Grievance</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Company: </td>
 				<td>".mkDateSelect("company")."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>CCMA: </td>
 				<td>".mkDateSelect("ccma")."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>CCMA Appeal: </td>
 				<td>".mkDateSelect("ccma_app")."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Court: </td>
 				<td>".mkDateSelect("court")."</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Court Appeal: </td>
 				<td>".mkDateSelect("court_app")."</td>
 			</tr>
@@ -128,11 +128,11 @@ function get_grievance ($err = "")
 			<tr>
 				<th colspan='2'>Input:</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'><textarea name='input' cols='40' rows='4'></textarea></td>
 			</tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Close this grievance:</td>
 				<td>
 					Yes <input type='radio' name='close_griev' value='yes'> 
@@ -296,35 +296,35 @@ function confirm_grievance ($_POST)
 			<tr>
 				<th colspan='2'>Date First Recorded</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>$first_rec_date</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Details of grievance</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>".nl2br($griev_details)."</td>
 			</tr>
 			<tr>
 				<th colspan='2'>Status Of Grievance</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Company: </td>
 				<td>$company_date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>CCMA: </td>
 				<td>$ccma_date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>CCMA Appeal: </td>
 				<td>$ccma_app_date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Court: </td>
 				<td>$court_date</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Court Appeal: </td>
 				<td>$court_app_date</td>
 			</tr>
@@ -332,11 +332,11 @@ function confirm_grievance ($_POST)
 			<tr>
 				<th colspan='2'>Input:</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='2'>".nl2br($input)."</td>
 			</tr>
 			<tr><td><br></td></tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Close this grievance:</td>
 				<td>$close_griev</td>
 			</tr>

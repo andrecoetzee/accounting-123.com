@@ -118,7 +118,7 @@ function results_db ()
 		$exclude = " AND ";
 		$results = "";
 		while ($sarr = pg_fetch_array($run_search)){
-			$results .= "<tr><td bgcolor='".TMPL_tblDataColor1."'><a href='support_search.php?id=$sarr[id]'>$sarr[heading]</a></td></tr>";
+			$results .= "<tr><td class='bg-odd'><a href='support_search.php?id=$sarr[id]'>$sarr[heading]</a></td></tr>";
 			$exclude .= " (id != '$sarr[id]') AND";
 		}
 		$exclude = substr($exclude,0,-4);
@@ -143,7 +143,7 @@ if($do_loose){
 	}else {
 		$results = "";
 		while ($sarr = pg_fetch_array($run_search)){
-			$results .= "<tr><td bgcolor='".TMPL_tblDataColor1."'><a href='support_search.php?id=$sarr[id]'>$sarr[heading]</a></td></tr>";
+			$results .= "<tr><td class='bg-odd'><a href='support_search.php?id=$sarr[id]'>$sarr[heading]</a></td></tr>";
 		}
 	}
 
@@ -159,7 +159,7 @@ if($do_loose){
 			<br>
 			<table ".TMPL_tblDflts." width=15%>
 				<tr><th>Quick Links</th></tr>
-				<td bgcolor='".TMPL_tblDataColor1."'><a href='support_search.php'>New Search</a></td>
+				<td class='bg-odd'><a href='support_search.php'>New Search</a></td>
 				<script>document.write(getQuicklinkSpecial());</script>
 			</table>
 		";
@@ -182,7 +182,7 @@ function show_question ($id = "")
 	$get_info = "SELECT * FROM supp_db_questions WHERE id = '$id' LIMIT 1";
 	$run_info = db_exec($get_info) or errDie("Unable to get support question information");
 	if(pg_numrows($run_info) < 1){
-		$info = "<tr><td bgcolor='".TMPL_tblDataColor1."'>Invalid ID Supplied</td></tr>";
+		$info = "<tr><td class='bg-odd'>Invalid ID Supplied</td></tr>";
 	}else {
 		$arr = pg_fetch_array($run_info);
 		$info = "
@@ -190,14 +190,14 @@ function show_question ($id = "")
 					<th>Result Heading</th>
 				</tr>
 				<tr>
-					<td bgcolor='".TMPL_tblDataColor1."'>$arr[heading]</td>
+					<td class='bg-odd'>$arr[heading]</td>
 				</tr>
 				<tr><td><br></td></tr>
 				<tr>
 					<th>Result Content</th>
 				</tr>
 				<tr>
-					<td bgcolor='".TMPL_tblDataColor2."'>".nl2br($arr['content'])."</td>
+					<td class='bg-even'>".nl2br($arr['content'])."</td>
 				</tr>
 			";
 	}
@@ -214,7 +214,7 @@ function show_question ($id = "")
 			<br>
 			<table ".TMPL_tblDflts." width=15%>
 				<tr><th>Quick Links</th></tr>
-				<td bgcolor='".TMPL_tblDataColor1."'><a href='support_search.php'>New Search</a></td>
+				<td class='bg-odd'><a href='support_search.php'>New Search</a></td>
 				<script>document.write(getQuicklinkSpecial());</script>
 			</table>
 		";

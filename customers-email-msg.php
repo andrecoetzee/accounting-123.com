@@ -114,16 +114,16 @@ function writeMsg() {
 	// the body
 	$OUTPUT .= "
 		<tr>
-			<td width=25% bgcolor='".bgcolorg()."'>To:</td>
-			<td width=75% bgcolor='".bgcolorg()."'><input type='text' name='send_to' size='50' value='$send_to'></td>
+			<td width=25% class='".bg_class()."'>To:</td>
+			<td width=75% class='".bg_class()."'><input type='text' name='send_to' size='50' value='$send_to'></td>
 		</tr>
 		<tr>
-			<td width=25% bgcolor='".bgcolorg()."'>Subject:</td>
-			<td width=75% bgcolor='".bgcolorg()."'><input type='text' name='subject' size='50' value='$subject'></td>
+			<td width=25% class='".bg_class()."'>Subject:</td>
+			<td width=75% class='".bg_class()."'><input type='text' name='subject' size='50' value='$subject'></td>
 		</tr>
 		<tr>
-			<td width=25% bgcolor='".bgcolorg()."'>Attachment:</td>
-			<td width=75% bgcolor='".bgcolorg()."'><input type='file' name='attachment' size='50' value='$attachment'></td>
+			<td width=25% class='".bg_class()."'>Attachment:</td>
+			<td width=75% class='".bg_class()."'><input type='file' name='attachment' size='50' value='$attachment'></td>
 		</tr>
 		<tr>
 			<td width=100% colspan=2>

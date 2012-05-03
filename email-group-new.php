@@ -44,7 +44,7 @@ function enter($_POST,$errors="")
 					<tr>
 						<th colspan='2'>Group Details</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Group</td>
 						<td><input type='text' name='group' value='$group' /></td>
 					</tr>
@@ -81,7 +81,7 @@ function confirm($_POST)
 					<tr>
 						<th colspan='2'>Confirm</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Group</td>
 						<td>$group</td>
 					</tr>
@@ -129,7 +129,7 @@ function write($_POST)
 		<tr>
 			<th>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Successfully saved the group.</li></td>
 		</tr>
 	</table>";

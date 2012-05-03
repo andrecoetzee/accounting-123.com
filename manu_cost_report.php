@@ -39,7 +39,7 @@ function display()
 	$hist_out = "";
 	while ($main_data = pg_fetch_array($main_rslt)) {
 		$hist_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><b>".date("d-m-Y", $main_data["e_time"])."</b></td>
 				<td><b>($main_data[stkcod]) $main_data[stkdes]</b></td>
 				<td align='center'><b>$main_data[qty]</b></td>
@@ -57,7 +57,7 @@ function display()
 
 		while ($sub_data = pg_fetch_array($sub_rslt)) {
 			$hist_out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>&nbsp;</td>
 					<td>($sub_data[stkcod]) $sub_data[stkdes]</td>
 					<td align='center'>$sub_data[qty]</td>
@@ -69,7 +69,7 @@ function display()
 
 	if (empty($hist_out)) {
 		$hist_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='5'><li>No results found.</li></td>
 			</tr>";
 	}
@@ -82,7 +82,7 @@ function display()
 			<tr>
 				<th colspan='4'>Date Range</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>".mkDateSelect("from", $from_year, $from_month, $from_day)."</td>
 				<td>&nbsp; <b>To</b> &nbsp;</td>
 				<td>".mkDateSelect("to", $to_year, $to_month, $to_day)."</td>

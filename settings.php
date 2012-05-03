@@ -147,14 +147,14 @@ function flashRed($ar_vals, $msg="", $return_to_sender=array())
 			<tr>
 				<td>$msg</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<li class='err' style='font-size: 48px; font-weight: bold;
 						text-align: center; text-decoration: blink;
 						list-style: none'>$display</li>
 				</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>
 					<input type='text' name='$varname' style='font-size: 48px;
 						width: 100%; text-align: center' id='textbox'>
@@ -1556,6 +1556,16 @@ function newacc($topacc, $accnum, $accname, $acctype, $vat, $ttype = false) {
 
 }
 
+function bg_class($reset = false) {
+	  global $BGCOLOR_COUNTER;
+	  if ($reset) $BGCOLOR_COUNTER = 0;
+          if ($BGCOLOR_COUNTER++ % 2) {
+              return "bg-even";
+            } else {
+              return "bg-odd";
+            }
+}
+
 /**
  * calculates vat
  *
@@ -2905,7 +2915,7 @@ function login ($div, $err="")
 		}
 	}
 
-//<tr bgcolor='".TMPL_tblDataColor2."'><td>Branch</td><td>$brans</td></tr>
+//<tr class='bg-even'><td>Branch</td><td>$brans</td></tr>
 
 	$OUTPUT = "
 		<h3>Login screen</h3>
@@ -2920,11 +2930,11 @@ function login ($div, $err="")
 					<tr>
 						<th colspan='2'>Please login</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>User name</td>
 						<td><input type='text' size='20' name='login_user'></td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Password</td>
 						<td><input type='password' size='20' name='login_pass'></td>
 					</tr>
@@ -2942,7 +2952,7 @@ function login ($div, $err="")
 					<tr>
 						<th>Splash Message</th>
 					</tr>
-					<tr bgcolor='".TMPL_tblDataColor2."'>
+					<tr class='bg-even'>
 						<td style='font-size: 12;'><pre>$splashmess</pre></td>
 					</tr>
 				</table>
@@ -2994,7 +3004,7 @@ function logindiv ($err="")
 						<tr>
 							<th colspan='2'>Please Select Branch</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Branch</td>
 							<td>$brans</td>
 						</tr>
@@ -3044,7 +3054,7 @@ function logincomp ()
 						<tr>
 							<th colspan='2'>Please Select Company</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Company Name</td>
 							<td>$comps</td>
 						</tr>

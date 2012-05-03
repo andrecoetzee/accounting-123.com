@@ -87,7 +87,7 @@ function slctEmployee ()
                 <tr><th>Select Month</th></tr>
                 <tr><td align=center>".mlist("mon")."</td></tr>
 		<tr><th>Employee</th></tr>
-                <tr bgcolor='".TMPL_tblDataColor1."'><td align=center>$employees</td></tr>
+                <tr class='bg-odd'><td align=center>$employees</td></tr>
                 <tr><td colspan=2 align=right><input type=submit value='View &raquo;'></td></tr>
                 </form>
         </table>"
@@ -206,7 +206,7 @@ function slip ($_POST)
                 $totsal = sprintf("%01.2f", round($totsal, 2));
 
                 $slip .= "
-                <tr bgcolor='".TMPL_tblDataColor2."'><td><b>Total</b></td><td><b>".CUR." $totgross</b></td><td><b>".CUR." $totcomm</b></td><td><b>".CUR." $totins</b></td><td><b>".CUR." $totuif</b></td><td><b>".CUR." $totpaye</b></td><td><b>".CUR." $totded</b></td><td><b>".CUR." $totsal</b></td><td colspan=2></td></tr>
+                <tr class='bg-even'><td><b>Total</b></td><td><b>".CUR." $totgross</b></td><td><b>".CUR." $totcomm</b></td><td><b>".CUR." $totins</b></td><td><b>".CUR." $totuif</b></td><td><b>".CUR." $totpaye</b></td><td><b>".CUR." $totded</b></td><td><b>".CUR." $totsal</b></td><td colspan=2></td></tr>
                 ";
         }else{
                 return "<li> - There are no salary payments for the selected month";

@@ -86,15 +86,15 @@ function edit($calloutpid)
 				<input type='hidden' name='key' value='confirm'>
 				<input type='hidden' name='calloutpid' value='$calloutp[calloutpid]'>
 				<tr><th>Field</th><th>Value</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td>Call Out Person</td><td align='center'><input type='text' size='20' name='calloutp' value='$calloutp[calloutp]'></td></tr>
-				<tr bgcolor='".TMPL_tblDataColor2."'><td>Contact Number</td><td align='center'><input type='text' size='20' name='telno' value='$calloutp[telno]'></td></tr>
+				<tr class='bg-odd'><td>Call Out Person</td><td align='center'><input type='text' size='20' name='calloutp' value='$calloutp[calloutp]'></td></tr>
+				<tr class='bg-even'><td>Contact Number</td><td align='center'><input type='text' size='20' name='telno' value='$calloutp[telno]'></td></tr>
 				<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 			</table></form>
 			<p>
 			<table border='0' cellpadding='2' cellspacing='1'>
 				<tr><th>Quick Links</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='calloutp-view.php'>View Call Out Persons</a></td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+				<tr class='bg-odd'><td><a href='calloutp-view.php'>View Call Out Persons</a></td></tr>
+				<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 			</table>";
 
 	return $enter;
@@ -133,15 +133,15 @@ function confirm ($_POST)
 				<input type='hidden' name='calloutpid' value='$calloutpid'>
 				<input type='hidden' name='telno' value='$telno'>
 				<tr><th>Field</th><th>Value</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td>Call Out Person</td><td>$calloutp</td></tr>
-				<tr bgcolor='".TMPL_tblDataColor2."'><td>Contact Number</td><td>$telno</td></tr>
+				<tr class='bg-odd'><td>Call Out Person</td><td>$calloutp</td></tr>
+				<tr class='bg-even'><td>Contact Number</td><td>$telno</td></tr>
 				<tr><td align='right'></td><td valign='left'><input type='submit' value='Write &raquo;'></td></tr>
 			</table></form>
 			<p>
 			<table border=0 cellpadding='2' cellspacing='1'>
 				<tr><th>Quick Links</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='calloutp-view.php'>View Call Out Persons</a></td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+				<tr class='bg-odd'><td><a href='calloutp-view.php'>View Call Out Persons</a></td></tr>
+				<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 			</table>";
 
 	return $confirm;
@@ -189,8 +189,8 @@ function write ($_POST)
 			<p>
 			<table border=0 cellpadding='2' cellspacing='1'>
 				<tr><th>Quick Links</th></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='calloutp-view.php'>View Call Out Persons</a></td></tr>
-				<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+				<tr class='bg-odd'><td><a href='calloutp-view.php'>View Call Out Persons</a></td></tr>
+				<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 			</table>";
 
 	return $write;

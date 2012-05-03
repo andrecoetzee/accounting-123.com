@@ -61,7 +61,7 @@ function enter()
 					<tr>
 						<th colspan='2'>Cost Center Usage</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td><input type='radio' size='20' name='typ' value='use' checked='yes'>Use Cost Centers</td>
 						<td><input type='radio' size='20' name='typ' value='nuse'>Don't Use Cost Centers</td>
 					</tr>
@@ -126,7 +126,7 @@ function confirm($_POST)
 						<tr>
 							<th colspan='2'>Cost Center Usage</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>";
+						<tr class='".bg_class()."'>";
 
 	if($typ == "use"){
 		$confirm .= "<td colspan='2'>Use Cost Centers</td>";
@@ -258,7 +258,7 @@ function printSet ()
 
 
 		$OUTPUT .= "
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$set[type]</td>
 							<td>$set[descript]</td>
 						</tr>";

@@ -70,19 +70,19 @@ function view_data ($_GET)
 <input type=hidden name=docid value='$docid'>
 
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Ref</td><td><input type=text size=10 name=docref value='$Data[docref]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Document Name</td><td><input type=text size=20 name=docname value='$Data[docname]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td>$Data[docdate]</td></tr>
+	<tr class='bg-even'><td>Ref</td><td><input type=text size=10 name=docref value='$Data[docref]'></td></tr>
+	<tr class='bg-odd'><td>Document Name</td><td><input type=text size=20 name=docname value='$Data[docname]'></td></tr>
+	<tr class='bg-odd'><td>Date</td><td>$Data[docdate]</td></tr>
 	
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Decription</td><td><textarea name=descrip rows=4 cols=18>$Data[descrip]</textarea></td></tr>
+	<tr class='bg-even'><td>Decription</td><td><textarea name=descrip rows=4 cols=18>$Data[descrip]</textarea></td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=2 align=right><input type=submit name=conf value='Confirm &raquo;'></td></tr>
 	</table></form>
 	<p>
 	<table border=0 cellpadding='2' cellspacing='1'>
 		<tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tlist-docview.php'>List Removed Documents</a></td></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='tlist-docview.php'>List Removed Documents</a></td></tr>
+		<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>";
         return $view_data;
 }
@@ -123,9 +123,9 @@ function con_data ($_POST)
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tlist-docview.php'>List Documents</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocadd.php'>New Document</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='tlist-docview.php'>List Documents</a></td></tr>
+        <tr class='bg-odd'><td><a href='tdocadd.php'>New Document</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>
 
 ";
@@ -193,9 +193,9 @@ function write_data ($_POST)
 <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>Quick Links</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tlist-docview.php'>List Documents</a></td></tr>
-        <tr bgcolor='".TMPL_tblDataColor1."'><td><a href='tdocadd.php'>New Document</a></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='../main.php'>Main Menu</a></td></tr>
+	<tr class='bg-odd'><td><a href='tlist-docview.php'>List Documents</a></td></tr>
+        <tr class='bg-odd'><td><a href='tdocadd.php'>New Document</a></td></tr>
+	<tr class='bg-odd'><td><a href='../main.php'>Main Menu</a></td></tr>
 	</table>
 ";
 	return $write_data;

@@ -102,7 +102,7 @@ function select_file ()
 			<tr>
 				<th colspan='2'>File details</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Please select Trial Balance csv</td>
 				<td><input type='file' name='compfile'></td>
 			</tr>
@@ -637,7 +637,7 @@ function enter_data2($_POST)
 	$tot_credit = sprint($tot_credit);
 
 	$out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>Total</td>
 			<td align='right'>$tot_debit</td>
 			<td align='right'>$tot_credit</td>
@@ -677,7 +677,7 @@ function enter_data2($_POST)
 			}
 
 			$out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$cd[accno]</td>
 				<td>$cd[surname]</td>
 				<td><input type='text' size='12' name='cbalance[$cid]' value='$cbalance[$cid]'></td>
@@ -685,7 +685,7 @@ function enter_data2($_POST)
 		}
 
 		$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'><b>Total</b></td>
 					<td align='right'><b>".CUR." $cc_tot</b></td>
 				</tr>
@@ -731,7 +731,7 @@ function enter_data2($_POST)
 			}
 
 			$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cd[supno]</td>
 					<td>$cd[supname]</td>
 					<td><input type='text' size='12' name='sbalance[$sid]' value='$sbalance[$sid]'></td>
@@ -739,7 +739,7 @@ function enter_data2($_POST)
 		}
 
 		$out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'><b>Total</b></td>
 			<td align='right'><b>".CUR." $sc_tot</b></td>
 		</tr>";
@@ -777,7 +777,7 @@ function enter_data2($_POST)
 			}
 
 			$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cd[enum]</td>
 					<td>$cd[sname], $cd[fnames]</td>
 					<td><input type='text' size='12' name='ebalance[$eid]' value='$ebalance[$eid]'></td>
@@ -788,7 +788,7 @@ function enter_data2($_POST)
 		}
 
 		$out .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'><b>Total</b></td>
 						<td align='right'><b>".CUR." $sal_tot</b></td>
 					</tr>
@@ -851,7 +851,7 @@ function enter_data2($_POST)
 			}
 
 			$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cd[stkcod]</td>
 					<td>$cd[stkdes]</td>
 					<td><input type=text size=12 name=ibalance[$iid] value='$ibalance[$iid]'></td>
@@ -1029,7 +1029,7 @@ function confirm_data($_POST)
 
 		$out .= "
 			<input type='hidden' name='accounts[$fid]' value='$accounts[$fid]' />
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$fd[des1]</td>
 				<td>$fd[des2]</td>
 				<td>$fd[des3]</td>
@@ -1048,7 +1048,7 @@ function confirm_data($_POST)
 	$tot_credit = sprint($tot_credit);
 
 	$out .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>Total</td>
 			<td align='right'>$tot_debit</td>
 			<td align='right'>$tot_credit</td>
@@ -1084,7 +1084,7 @@ function confirm_data($_POST)
 			$cbalance[$cid] = sprint($cbalance[$cid]);
 
 			$out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$cd[accno]</td>
 				<td>$cd[surname]</td>
 				<td align='right'><input type='hidden' size='12' name='cbalance[$cid]' value='$cbalance[$cid]' />$cbalance[$cid]</td>
@@ -1094,7 +1094,7 @@ function confirm_data($_POST)
 		}
 
 		$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'><b>Total</b></td>
 					<td align='right'><b>".CUR." $cc_tot</b></td>
 				</tr>
@@ -1141,7 +1141,7 @@ function confirm_data($_POST)
 			$sbalance[$sid] = sprint($sbalance[$sid]);
 
 			$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cd[supno]</td>
 					<td>$cd[supname]</td>
 					<td align='right'><input type='hidden' size='12' name='sbalance[$sid]' value='$sbalance[$sid]'>".CUR." $sbalance[$sid]</td>
@@ -1153,7 +1153,7 @@ function confirm_data($_POST)
 		}
 
 		$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td colspan='2'><b>Total</b></td>
 					<td align='right'><b>".CUR." $sc_tot</b></td>
 				</tr>
@@ -1207,7 +1207,7 @@ function confirm_data($_POST)
 			$ebalance[$eid] = sprint($ebalance[$eid]);
 
 			$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cd[enum]</td>
 					<td>$cd[sname], $cd[fnames]</td>
 					<td align=right><input type='hidden' size='12' name='ebalance[$eid]' value='$ebalance[$eid]'>".CUR." $ebalance[$eid]</td>
@@ -1220,7 +1220,7 @@ function confirm_data($_POST)
 		}
 
 		$out .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'><b>Total</b></td>
 						<td align='right'><b>".CUR." $sal_tot</b></td>
 					</tr>
@@ -1277,7 +1277,7 @@ function confirm_data($_POST)
 			}
 
 			$out .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td>$cd[stkcod]</td>
 					<td>$cd[stkdes]</td>
 					<td><input type='hidden' size='12' name='ibalance[$iid]' value='$ibalance[$iid]'>$ibalance[$iid]</td>
@@ -1289,7 +1289,7 @@ function confirm_data($_POST)
 		}
 
 		$out .= "
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'><b>Total</b></td>
 						<td align='right'><b>".CUR." $i_tot</b></td>
 						<td></td>

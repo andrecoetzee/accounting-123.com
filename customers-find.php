@@ -69,8 +69,8 @@ function printCust ($_GET)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<form action='".SELF."' method=get>
 	<tr><th>.: Filter :.</th><th>.: Value :.</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>$filtersel</td><td><input type=text size=20 name=fval value='$fval'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td align=center><input type=submit name=all value='View All'></td><td align=center><input type=submit value='Apply Filter'></td></tr>
+	<tr class='bg-odd'><td>$filtersel</td><td><input type=text size=20 name=fval value='$fval'></td></tr>
+	<tr class='bg-even'><td align=center><input type=submit name=all value='View All'></td><td align=center><input type=submit value='Apply Filter'></td></tr>
 	</form>
 	</table>
 	<p>";
@@ -92,7 +92,7 @@ function printCust ($_GET)
 		$sql = "SELECT * FROM customers WHERE (div = '".USER_DIV."' OR  ddiv = '".USER_DIV."') $sqlfilter ORDER BY surname ASC";
 		$custRslt = db_exec ($sql) or errDie ("Unable to retrieve Customers from database.");
 		if (pg_numrows ($custRslt) < 1) {
-			$printCust .= "<tr bgcolor='".TMPL_tblDataColor1."'><td colspan=20><li>There are no Customers in Cubit.</td></tr>";
+			$printCust .= "<tr class='bg-odd'><td colspan=20><li>There are no Customers in Cubit.</td></tr>";
 		}else{
 			while ($cust = pg_fetch_array ($custRslt)) {
 				
@@ -166,9 +166,9 @@ function printCust ($_GET)
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=15%>
         <tr><td><br></td></tr>
         <tr><th>Quick Links</th></tr>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='customers-new.php'>Add Customer</a></td></tr>
+		<tr class='bg-odd'><td><a href='customers-new.php'>Add Customer</a></td></tr>
 		<script>document.write(getQuicklinkSpecial());</script>
-		<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='main.php'>Main Menu</a></td></tr>
+		<tr class='bg-odd'><td><a href='main.php'>Main Menu</a></td></tr>
 	</table>";
 
 	return $printCust;

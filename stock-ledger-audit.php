@@ -76,7 +76,7 @@ function select_year() {
 	<form action='".SELF."' method=post>
 	<input type=hidden name=key value=slctacc>
 	<tr><th>Select Year</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>$years</td></tr>
+	<tr class='bg-odd'><td>$years</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=right><input type=submit value='Next &raquo;'></td></tr>
 	</form>
@@ -145,9 +145,9 @@ function slctacc($_POST)
 	<input type=hidden name=key value=viewtran>
 	<input type=hidden name=year value='$year'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td valign=top>Stock Items</td><td><input type=radio name=accnt value=slct checked=yes>Selected Items | <input type=radio name=accnt value=all>All Items</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td valign=top>Select Stock Item(s)</td><td>$stks</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Select period</td><td>$prds</td></tr>
+	<tr class='bg-even'><td valign=top>Stock Items</td><td><input type=radio name=accnt value=slct checked=yes>Selected Items | <input type=radio name=accnt value=all>All Items</td></tr>
+	<tr class='bg-odd'><td valign=top>Select Stock Item(s)</td><td>$stks</td></tr>
+	<tr class='bg-even'><td>Select period</td><td>$prds</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td align=center></td><td align=right><input type=submit value='Continue &raquo;'></td></tr>
 	</table>";
@@ -244,8 +244,8 @@ function viewtran($_POST)
 		$balance = sprint($bal['balance']);
 		$hide .= "<input type=hidden name=stkids[] value='$stkid'>";
 
-		$trans .= "<tr bgcolor='".TMPL_tblDataColor2."'><td colspan=5><b>($stk[stkcod]) $stk[stkdes]</b></td></tr>";
-		$trans .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><br></td><td>Balance Brought Forward</td><td align=right>$bal[bqty]</td><td align=right>$balance </td><td align=right>$balance </td></tr>";
+		$trans .= "<tr class='bg-even'><td colspan=5><b>($stk[stkcod]) $stk[stkdes]</b></td></tr>";
+		$trans .= "<tr class='bg-even'><td><br></td><td>Balance Brought Forward</td><td align=right>$bal[bqty]</td><td align=right>$balance </td><td align=right>$balance </td></tr>";
 
 		# --> transactio reding comes here <--- #
 		$dbal['balance'] = 0;
@@ -265,11 +265,11 @@ function viewtran($_POST)
 			$tran['edate'] = explode("-", $tran['edate']);
 			$tran['edate'] = $tran['edate'][2]."-".$tran['edate'][1]."-".$tran['edate'][0];
 
-			$trans .= "<tr bgcolor='".TMPL_tblDataColor1."'><td>$tran[edate]</td><td>$tran[details]</td><td>$tran[qty]</td><td align=right>$tran[csamt]</td><td align=right>$tran[balance]</td></tr>";
+			$trans .= "<tr class='bg-odd'><td>$tran[edate]</td><td>$tran[details]</td><td>$tran[qty]</td><td align=right>$tran[csamt]</td><td align=right>$tran[balance]</td></tr>";
 		}
 		$dbal['balance'] = sprint($dbal['balance']);
 
-		$trans .= "<tr bgcolor='".TMPL_tblDataColor2."'><td><br></td><td>Total for period $prdname to Date :</td><td align=right>$dbal[bqty]</td><td align=right>$dbal[balance] </td><td align=right>$dbal[balance] </td></tr>";
+		$trans .= "<tr class='bg-even'><td><br></td><td>Total for period $prdname to Date :</td><td align=right>$dbal[bqty]</td><td align=right>$dbal[balance] </td><td align=right>$dbal[balance] </td></tr>";
 		$trans .= "<tr><td colspan=5><br></td></tr>";
 	}
 

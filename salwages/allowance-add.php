@@ -86,23 +86,23 @@ function enterAllow ()
 						<tr>
 							<th colspan='2'>Allowance Details</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Name of allowance</td>
 							<td align='center'><input type='text' size='20' name='allowance'></td>
 						</tr>
 						<!--
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Account Category</td>
 							<td align='center'>$allcat</td>
 						</tr>
 						//-->
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Add Before PAYE</td>
 							<td align='center'>$taxables</td>
 						</tr>
 						<input type='hidden' name='type' value='Amount'>
 						<!--
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Allowance Type</td>
 							<td>$seltype</td>
 						</tr>
@@ -192,20 +192,20 @@ function confirmAllow ($_POST)
 							<tr>
 								<th colspan='2'>Allowance Details</th>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Name of allowance</td>
 								<td align='center'>$allowance</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Allowance Account</td>
 								<td align='center'>$allacc</td>
 							</tr>
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Add Before PAYE</td>
 								<td align='center'>$taxable</td>
 							</tr>
 							<!--
-							<tr bgcolor='".bgcolorg()."'>
+							<tr class='".bg_class()."'>
 								<td>Allowance Type</td>
 								<td align='center'>$type</td>
 							</tr>

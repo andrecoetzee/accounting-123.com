@@ -94,7 +94,7 @@ function details($_GET)
 		$i++;
 
 		# put in product
-		$products .="<tr bgcolor='".TMPL_tblDataColor1."'>
+		$products .="<tr class='bg-odd'>
 			<td align=center>$i</td>
 			<td>$stkd[description]</td>
 			<td>$stkd[qty]</td>
@@ -131,16 +131,16 @@ function details($_GET)
 	<tr><td valign=top>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Customer Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer</td><td valign=center>$inv[cusname]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>Customer Address</td><td valign=center><pre>$inv[cusaddr]</pre></td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Customer Vat Number</td><td valign=center>$inv[cusvatno]</td></tr>
+			<tr class='bg-odd'><td>Customer</td><td valign=center>$inv[cusname]</td></tr>
+			<tr class='bg-even'><td>Customer Address</td><td valign=center><pre>$inv[cusaddr]</pre></td></tr>
+			<tr class='bg-odd'><td>Customer Vat Number</td><td valign=center>$inv[cusvatno]</td></tr>
 		</table>
 	</td><td valign=top align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0>
 			<tr><th colspan=2> Non-Stock Quote Details </th></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Non-Stock Quote No.</td><td valign=center>$inv[invnum]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>Date</td><td valign=center>$oday-$omon-$oyear</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><td>VAT Inclusive</td><td valign=center>$inv[chrgvat]</td></tr>
+			<tr class='bg-odd'><td>Non-Stock Quote No.</td><td valign=center>$inv[invnum]</td></tr>
+			<tr class='bg-odd'><td>Date</td><td valign=center>$oday-$omon-$oyear</td></tr>
+			<tr class='bg-even'><td>VAT Inclusive</td><td valign=center>$inv[chrgvat]</td></tr>
 		</table>
 	</td></tr>
 	<tr><td><br></td></tr>
@@ -150,15 +150,15 @@ function details($_GET)
 	<tr><td>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 			<tr><th width=40%>Quick Links</th><th width=45%>Remarks</th><td rowspan=5 valign=top width=15%><br></td></tr>
-			<tr><td bgcolor='".TMPL_tblDataColor1."'><a href='nons-quote-new.php'>New Non-Stock Quotes</a></td><td bgcolor='".TMPL_tblDataColor1."' rowspan=4 align=center valign=top>".nl2br($inv['remarks'])."</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td><a href='nons-quote-view.php'>View Non-Stock Quotes</a></td></tr>
+			<tr><td class='bg-odd'><a href='nons-quote-new.php'>New Non-Stock Quotes</a></td><td class='bg-odd' rowspan=4 align=center valign=top>".nl2br($inv['remarks'])."</td></tr>
+			<tr class='bg-odd'><td><a href='nons-quote-view.php'>View Non-Stock Quotes</a></td></tr>
 			<script>document.write(getQuicklinkSpecial());</script>
 		</table>
 	</td><td align=right>
 		<table cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' border=0 width=80%>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>SUBTOTAL</td><td align=right>".CUR." $inv[subtot]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor1."'><td>VAT @ ".TAX_VAT." %</td><td align=right>".CUR." $inv[vat]</td></tr>
-			<tr bgcolor='".TMPL_tblDataColor2."'><th>GRAND TOTAL</th><td align=right>".CUR." $inv[total]</td></tr>
+			<tr class='bg-odd'><td>SUBTOTAL</td><td align=right>".CUR." $inv[subtot]</td></tr>
+			<tr class='bg-odd'><td>VAT @ ".TAX_VAT." %</td><td align=right>".CUR." $inv[vat]</td></tr>
+			<tr class='bg-even'><th>GRAND TOTAL</th><td align=right>".CUR." $inv[total]</td></tr>
 		</table>
 	</td></tr>
 	</table></form>

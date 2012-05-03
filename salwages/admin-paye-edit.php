@@ -87,10 +87,10 @@ function editPaye ($_GET)
 	<input type=hidden name=key value=confirm>
 	<input type=hidden name=id value='$id'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Minimum gross</td><td align=center>".CUR." <input type=text size=20 name=min class=right value='$myPaye[min]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Maximum gross</td><td align=center>".CUR." <input type=text size=20 name=max class=right value='$myPaye[max]'></td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Percentage to deduct</td><td align=center><input type=text size=20 name=percentage class=right value='$myPaye[percentage]'>%</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Exstra Amount</td><td align=center>".CUR." <input type=text size=20 name=extra class=right value='$myPaye[extra]'></td></tr>
+	<tr class='bg-odd'><td>Minimum gross</td><td align=center>".CUR." <input type=text size=20 name=min class=right value='$myPaye[min]'></td></tr>
+	<tr class='bg-even'><td>Maximum gross</td><td align=center>".CUR." <input type=text size=20 name=max class=right value='$myPaye[max]'></td></tr>
+	<tr class='bg-odd'><td>Percentage to deduct</td><td align=center><input type=text size=20 name=percentage class=right value='$myPaye[percentage]'>%</td></tr>
+	<tr class='bg-even'><td>Exstra Amount</td><td align=center>".CUR." <input type=text size=20 name=extra class=right value='$myPaye[extra]'></td></tr>
 	<tr><td colspan=2 align=right><input type=submit value='Confirm &raquo;'></td></tr>
 	</form>
 	</table><p>
@@ -144,10 +144,10 @@ function confirmPaye ($_POST)
 	<input type=hidden name=percentage value='$percentage'>
 	<input type=hidden name=extra value='$extra'>
 	<tr><th>Field</th><th>Value</th></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Minimum gross</td><td align=right>".CUR." $min</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Maximum gross</td><td align=right>".CUR." $max</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor1."'><td>Percentage to deduct</td><td align=right>$percentage %</td></tr>
-	<tr bgcolor='".TMPL_tblDataColor2."'><td>Exstra</td><td align=right>".CUR." $extra</td></tr>
+	<tr class='bg-odd'><td>Minimum gross</td><td align=right>".CUR." $min</td></tr>
+	<tr class='bg-even'><td>Maximum gross</td><td align=right>".CUR." $max</td></tr>
+	<tr class='bg-odd'><td>Percentage to deduct</td><td align=right>$percentage %</td></tr>
+	<tr class='bg-even'><td>Exstra</td><td align=right>".CUR." $extra</td></tr>
 	<tr><td><input type=submit name=back value='&laquo; Correction'></td><td align=right><input type=submit value='Write &raquo;'></td></tr>
 	</form>
 	</table><p>

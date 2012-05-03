@@ -57,7 +57,7 @@ class Gantt
 
 		$out .= "<th rowspan='2'>BUDGET</th>";
 		$out .= "<th rowspan='2'>ACTUAL</th>";
-		$out .= "<tr bgcolor='".bgcolorg()."'>";
+		$out .= "<tr class='".bg_class()."'>";
 
 		$months_list = array("jan", "feb", "mar", "apr", "may", "jun", "jul",
 			"aug", "sep","oct", "nov", "dec");
@@ -116,7 +116,7 @@ class Gantt
 				}
 			}
 
-			$task_out .= "<tr bgcolor='".bgcolorg()."'>
+			$task_out .= "<tr class='".bg_class()."'>
 				<td>$task_data[name]</td>
 				$task_disp
 				<td>&nbsp;</td>

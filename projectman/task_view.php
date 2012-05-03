@@ -53,7 +53,7 @@ function slct()
 			<tr>
 				<th>Select Project</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$proj_sel</td>
 				<td><input type='submit' value='Select'></td>
 			</tr>
@@ -108,7 +108,7 @@ function display()
 			$task_data['end_date'] = "";
 
 		$tasks_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$project</td>
 				<td>$task_data[name]</td>
 				<td>$user_data[username]</td>
@@ -121,7 +121,7 @@ function display()
 
 	if (empty($tasks_out)) {
 		$tasks_out = "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td colspan='10'><li>No tasks found</li></td>
 			</tr>";
 	}

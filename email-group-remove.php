@@ -62,11 +62,11 @@ function confirm($_POST,$err="")
 					<tr>
 						<th colspan='2'>Confirm</th>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Group Title</td>
 						<td>$grouptitle</td>
 					</tr>
-					<tr bgcolor='".bgcolorg()."'>
+					<tr class='".bg_class()."'>
 						<td>Group Name</td>
 						<td>$groupname</td>
 					</tr>
@@ -116,7 +116,7 @@ function write($_POST)
 		<tr>
 			<th>Write</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>Successfully removed the group.</li></td>
 		</tr>
 	</table>";

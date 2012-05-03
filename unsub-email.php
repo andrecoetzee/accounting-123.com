@@ -40,7 +40,7 @@ function confirm_email ($_GET)
 						<tr>
 							<th>Confirm Removal Of This Email Address From Email Groups</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>$email</td>
 						</tr>
 						".TBL_BR."
@@ -80,7 +80,7 @@ function write_remove ($_POST)
 						<tr>
 							<th>Address Removed</th>
 						</tr>
-						<tr bgcolor='".bgcolorg()."'>
+						<tr class='".bg_class()."'>
 							<td>Email Address Has Beeen Removed</td>
 						</tr>
 					</table>

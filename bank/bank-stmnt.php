@@ -102,7 +102,7 @@ function view()
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Bank Account</td>
 				<td>$bankaccs</td>
 			</tr>
@@ -198,7 +198,7 @@ function enter($_POST, $error="")
 			<tr>
 				<td colspan='4'>$error</td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<th align='center' colspan='10'>Bank Account : <b>($bank[accnum]) $bank[accname]</b></th>
 			</tr>
 			<tr>
@@ -309,7 +309,7 @@ function enter($_POST, $error="")
 		$vats .= "</select>";
 
 		$enter .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' nowrap='t'>".mkDateSelectA("o", $i, $o_year[$i], $o_month[$i], $o_day[$i])."</td>
 				<td align='center'><input type='text' name='to[]' value='$to[$i]'></td>
 				<td align='center'>
@@ -348,7 +348,7 @@ function enter($_POST, $error="")
 	}
 
 	$enter .= "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td colspan='6' align='right'><b>Total:</b></td>
 			<td align='right'>".CUR." ".sprint($total_amount)."</td>
 			<td colspan='3'></td>
@@ -440,7 +440,7 @@ function confirm($_POST)
 			<input type='hidden' name='bankid' value='$bankid'>
 			<input type='hidden' name='number' value='$number'>
 		<table ".TMPL_tblDflts.">
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td align='center' colspan='4'>Bank Account : <b>($bank[accnum]) $bank[accname]</b></td>
 			</tr>
 			<tr>

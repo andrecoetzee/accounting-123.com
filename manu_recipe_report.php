@@ -42,7 +42,7 @@ function display()
 		$s_stock_rslt = db_exec($sql) or errDie("Unable to retrieve stock.");
 		while (list($s_stkcod, $s_stkdes) = pg_fetch_array($s_stock_rslt)) {
 			$recipe_out .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><li>($s_stkcod) $s_stkdes</li></td>
 			</tr>";
 		}
@@ -50,7 +50,7 @@ function display()
 
 	if (empty($recipe_out)) {
 		$recipe_out = "
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><li>No results found.</li></td>
 		</tr>";
 	}
@@ -63,7 +63,7 @@ function display()
 		<tr>
 			<th colspan='2'>Search Recipe</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='search' value='$search' /></td>
 			<td><input type='submit' value='Search' /></td>
 		</tr>

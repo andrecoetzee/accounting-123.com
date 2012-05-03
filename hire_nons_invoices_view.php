@@ -39,7 +39,7 @@ function display()
 			$cnote = "<td>&nbsp;</td>";
 		}
 
-		$inv_out .= "<tr bgcolor='".bgcolorg()."'>
+		$inv_out .= "<tr class='".bg_class()."'>
 			<td>
 				<a href='javascript:printer(\"hire/hire_note_reprint.php?invid=$inv_data[hire_invid]\")'>
 					H$inv_data[hire_invnum]
@@ -54,7 +54,7 @@ function display()
 	}
 
 	if (empty($inv_out)) {
-		$inv_out = "<tr bgcolor='".bgcolorg()."'>
+		$inv_out = "<tr class='".bg_class()."'>
 			<td colspan='5'><li>Please enter customer name or hire no.</li></td>
 		</tr>";
 	}
@@ -65,7 +65,7 @@ function display()
 		<tr>
 			<th colspan='2'>Enter Hire No or Customer Name</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><input type='text' name='search' value='$search' /></td>
 			<td><input type='submit' value='Search' style='width: 100%' /></td>
 		</tr>

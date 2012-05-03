@@ -43,7 +43,7 @@ function get_file ($err="")
 			<tr>
 				<th>Select File To Import</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='file' name='debt_import'></td>
 			</tr>
 			<tr>
@@ -147,7 +147,7 @@ function confirm_file ($_POST)
 			<input type='hidden' name='date[]' value='$date'>
 			<input type='hidden' name='description[]' value='$description'>
 			<input type='hidden' name='ref[]' value='$ref'>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>$cusacc</td>
 				<td>$dtacc</td>
 				<td>$ctacc</td>
@@ -273,7 +273,7 @@ function write_file ($_POST)
 			<tr>
 				<th>Import Complete</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>Transaction(s) have been imported.</td>
 			</tr>
 		</table>";

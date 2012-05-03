@@ -108,11 +108,11 @@ function edit($fcid)
 				<th>Field</th>
 				<th>Value</th>
 			</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Currency Name</td>
 			<td>$cur[descrip]</td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td>Symbol</td>
 			<td>$cur[symbol]</td>
 		</tr>
@@ -127,10 +127,10 @@ function edit($fcid)
 		<tr>
 			<th>Quick Links</th>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='currency-view.php'>View Currency</a></td>
 		</tr>
-		<tr bgcolor='".bgcolorg()."'>
+		<tr class='".bg_class()."'>
 			<td><a href='main.php'>Main Menu</a></td>
 		</tr>
 	</table>";

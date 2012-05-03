@@ -123,14 +123,14 @@ function details($_GET)
 				<th>Change All To This Month</th>
 			</tr>
 			<tr>
-				<td bgcolor='".bgcolorg()."' align='center'>
+				<td class='".bg_class()."' align='center'>
 					<input type='text' size='2' name='all_day' value='$all_day'> 
 					<input type='text' size='2' name='all_month' value='$all_month'> 
 					<input type='text' size='4' name='all_year' value='$all_year'> 
 					<input type='submit' name='set_date' value='Set All Dates'>
 				</td>
 				<td></td>
-				<td bgcolor='".bgcolorg()."' align='center'>
+				<td class='".bg_class()."' align='center'>
 					<input type='text' size='2' name='just_month' value='$just_month'> 
 					<input type='submit' name='set_month' value='Change'>
 				</td>
@@ -186,7 +186,7 @@ function details($_GET)
 			$o_month = $just_month;
 
 		$printInv .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><input type='hidden' name='invids[]' value='$inv[invid]'>$inv[deptname]</td>
 				<td>$inv[salespn]</td>
 				<td>RI $inv[invid]</td>
@@ -207,7 +207,7 @@ function details($_GET)
 
 
 	$printInv .= "
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><b>Totals:</b></td>
 				<td colspan='5' align='right'>Invoices : $i</td>
 				<td align='right'>".CUR." ".sprint ($inv_tot)."</td>
@@ -222,10 +222,10 @@ function details($_GET)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='rec-invoice-new.php'>New Recurring Invoice</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='rec-invoice-view.php'>View Recurring Invoices</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -440,7 +440,7 @@ function write($_POST)
 			<tr>
 				<th>Recurring Invoices Proccesed</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td>New Invoices have been created from Recurring Invoices</td>
 			</tr>
 		</table>
@@ -449,10 +449,10 @@ function write($_POST)
 			<tr>
 				<th>Quick Links</th>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='invoice-view.php'>View Invoices</a></td>
 			</tr>
-			<tr bgcolor='".bgcolorg()."'>
+			<tr class='".bg_class()."'>
 				<td><a href='rec-invoice-view.php'>View Recurring Invoices</a></td>
 			</tr>
 			<script>document.write(getQuicklinkSpecial());</script>
@@ -508,7 +508,7 @@ function edit_items ($_POST,$err="")
 
 			#compile a list of the items ...
 			$listing .= "
-				<tr bgcolor='".bgcolorg()."'>
+				<tr class='".bg_class()."'>
 					<td width='50%'>$stock_desc <input type='hidden' size='10' name='stkid[]' value='$iarr[stkid]'></td>
 					<td>".CUR." $unitcost</td>
 					<td>".CUR." <input type='text' size='10' name='unitcost[]' value='$unitcost'></td>
