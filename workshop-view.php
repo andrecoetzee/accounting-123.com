@@ -422,7 +422,7 @@ function update($_POST)
 	 						<form method='POST' action='".SELF."'>
 				 				<input type='hidden' name='key' value='update'>
 				 				<input type='hidden' name='update' value='client_collect'>
-				 				<input type='hidden' name='refnum' value='$refnum'
+				 				<input type='hidden' name='refnum' value='$refnum'>
 				 				<input type='hidden' name='printed' value='true'>
 							<table ".TMPL_tblDflts." width='400'>
 								<tr>
