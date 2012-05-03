@@ -10,8 +10,6 @@ if (basename (getenv ("SCRIPT_NAME")) == "core-settings.php") {
 	exit;
 }
 
-require("uselog.php");
-
 $allowed = array("yr-close.php", "set-bal-sheet-edit.php", "set-bal-sheet.php");
 
 # Get all diabled accounts
