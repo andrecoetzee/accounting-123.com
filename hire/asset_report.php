@@ -49,11 +49,12 @@ function display()
 					LEFT JOIN cubit.asset_types
 						ON assets.type_id=asset_types.id
 				WHERE done='y' $type_sql AND remaction IS NULL AND
-					printed='y' AND (qty ILIKE '%$search%' OR
+					printed='y' AND (cast(qty as text) ILIKE '%$search%' OR
 					serial ILIKE '%$search%' OR
 					customers.cusname ILIKE '$search%' OR
 					customers.surname ILIKE '$search%' OR
-					to_date ILIKE '%$search%' OR invnum ILIKE '%$search%'
+					cast(to_date as text) ILIKE '%$search%' OR
+					cast(invnum as text) ILIKE '%$search%'
 					OR grpname ILIKE '%$search%' OR name ILIKE '%$search%')
 				ORDER BY des ASC";
 	$asset_rslt = db_exec($sql) or errDie("Unable to retrieve assets.");
