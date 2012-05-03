@@ -3595,7 +3595,7 @@ function cust_age($cusnum, $days, $fcid, $loc, $month, $stdate="now",$sfdate="no
 			FROM cubit.stmnt
 			WHERE 
 				cusnum='$cusnum' AND
-				CASE WHEN (length(allocation_date) > 0) THEN allocation_date
+				CASE WHEN (length(cast(allocation_date as text)) > 0) THEN allocation_date
 				ELSE date
 				END
 			BETWEEN '$from_date' AND '$to_date'";
