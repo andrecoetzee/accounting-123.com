@@ -686,7 +686,6 @@ function getPRDDB($date = false) {
  * @param string $details description for ledger entry
  */
 function writetrans($dtacc, $ctacc, $date, $refnum, $amount, $details) {
-	global $uselog;
 	global $MONPRD, $PRDMON;
 	$amount = sprint($amount);
 	if($amount < 0.01) {
@@ -725,14 +724,6 @@ function writetrans($dtacc, $ctacc, $date, $refnum, $amount, $details) {
 			$v->addError("", "Cannot do transaction in future financial year. ".(DEBUG>0?"\"$details\"":""));
 		}
 	}
-
-	/* start usage log */
-	if (empty($uselog["firsttrans"]["date"])) {
-		setUsage("firsttrans", "");
-	}
-
-	setUsage("lasttrans", "");
-	/* end usage log */
 
 	if(floatval($amount) == floatval(0)){
 		return;
@@ -939,7 +930,6 @@ function writetrans($dtacc, $ctacc, $date, $refnum, $amount, $details) {
  * @param string $details description for ledger entry
  */
 function recordtrans($ttype, $dtacc, $ctacc, $date, $refnum, $amount,$vat, $details,$iid='0') {
-	global $uselog;
 	global $MONPRD, $PRDMON;
 	$amount=sprint($amount);
 //	if($amount<0.01) {
@@ -979,14 +969,6 @@ function recordtrans($ttype, $dtacc, $ctacc, $date, $refnum, $amount,$vat, $deta
 			$v->addError("", "Cannot do transaction in future financial year. ".(DEBUG>0?"\"$details\"":""));
 		}
 	}
-
-	/* start usage log */
-	if (empty($uselog["firsttrans"]["date"])) {
-		setUsage("firsttrans", "");
-	}
-
-	setUsage("lasttrans", "");
-	/* end usage log */
 
 	if(floatval($amount) == floatval(0)){
 		return;
