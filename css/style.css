@@ -1,0 +1,212 @@
+html {
+background: #4477BB;
+}
+
+body {
+	font-family: arial;
+	background-color: #4477BB;
+	font-size: 10pt;
+	color: #ffffff;
+	left: 0;
+	margin: 10px;
+}
+
+td, p, .text {
+	font-family: arial;
+	font-size: 10pt;
+	color: #000000;
+}
+
+a {
+	color: #0000DD;
+       text-decoration: none;
+}
+
+a:hover {
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+a.nav {
+	color: #CCCCCC;
+}
+
+a:hover.nav {
+	color: #FFFFFF;
+}
+
+a#xpopup_cls {
+	color: #0000DD;
+	text-decoration: none;
+}
+
+a:hover#xpopup_cls {
+	color: #FF0000;
+	text-decoration: none;
+}
+
+.text {
+	background: #88BBFF;
+}
+
+.quicklinks td {
+	background: #88BBFF;
+	text-align: center;
+}
+
+h2, .h2
+{
+	font-size: 14pt;
+	color: #FFFFFF;
+}
+h3, .h3
+{
+	font-size: 12pt;
+	color: #FFFFFF;
+}
+h4, .h4
+{
+	font-size: 10pt;
+	color: #FFFFFF;
+}
+
+.datacell
+{
+	background-color: #88BBFF;
+}
+.datacell2
+{
+	background-color: #77AAEE;
+}
+
+th
+{
+	background-color: #114488;
+	font-size: 10pt;
+	color: #FFFFFF;
+}
+th.plain
+{
+	background-color: #4477BB;
+	font-size: 10pt;
+}
+input, textarea, select
+{
+	font-size: 10pt;
+	border: 1px solid #000000;
+	padding: 2px;
+	color: #000000;
+}
+.right
+{
+	text-align: right;
+}
+.frmerr {
+	border: 2px solid red;
+}
+.err
+{
+	color: #FF0000;
+	background-color: #FFFFFF;
+	border: 2px solid #114488;
+}
+.yay 
+{
+	color: green;
+	background-color: #FFFFFF;
+	border: 2px solid #5eff4d;
+}
+hr
+{
+	color: #000000;
+}
+.white
+{
+	color: #FFFFFF;
+}
+.tot
+{
+	border-top: 2px solid #000000;
+	border-bottom: 2px solid #000000;
+}
+.select
+{
+	width: 100%;
+}
+
+a#calNotices
+{
+	color: #E8E8E8
+}
+a:hover#calNotices
+{
+	color: #FFFFFF
+}
+
+a#calSmallMonthOMLink
+{
+	color: #A1A5A9
+}
+a:hover#calSmallMonthOMLink
+{
+	color: #A1A5A9
+}
+a#calSmallMonthCMLink
+{
+	color: #0066FF
+}
+a#calSmallMonthCMLink:hover
+{
+	color: #000099
+}
+a#calSmallMonthCMLinkToday
+{
+	color: #FFFFFF
+}
+a#calSmallMonthCMLinkToday:hover
+{
+	color: #000099
+}
+a#calSmallMonthCMLinkSelected
+{
+	color: red
+}
+a#calSmallMonthCMLinkSelected:hover
+{
+	color:  #000099
+}
+
+#a_notify_msgs {
+	font-size: 14px;
+	color: #FFFFFF;
+}
+
+a#a_notify_msgs, a#a_notify_msgs:visited {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+a#a_notify_msgs:hover {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+a.maildef, a.maildef:visited {
+	color: #000000;
+	text-decoration: none;
+}
+
+a.maildef:hover {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+a.mailtree, a.mailtree:visited {
+	color: #4477BB;
+	text-decoration: none;
+}
+
+a.mailtree:hover {
+	color: #4477BB;
+	text-decoration: underline;
+}
