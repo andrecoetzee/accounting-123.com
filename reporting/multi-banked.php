@@ -151,9 +151,6 @@ function viewcash($_POST)
 		for ($i=0; $i < $numrows; $i++) {
 			$accnt = pg_fetch_array ($accntRslt, $i);
 
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 			if(strlen($accnt['accids']) > 0){
 				$acc['accname'] = "Multiple Accounts";
 				$acc['accnum'] = "000";
@@ -181,7 +178,7 @@ function viewcash($_POST)
 			$accnt['date'] = $accnt['date'][2]."-".$accnt['date'][1]."-".$accnt['date'][0];
 
 			$rtotal += $accnt['amount']; // add to rtotal
-			$OUTPUT .= "<tr bgcolor='$bgColor'><td>$accnt[date]</td><td>$bname[accname]</td><td align=center>$accnt[cheqnum]</td><td align=center>$accnt[name]</td><td>$accnt[descript]</td><td>$acc[topacc]/$acc[accnum]  $acc[accname]</td><td>".CUR." $accnt[amount]</td></tr>";
+			$OUTPUT .= "<tr class='".bg_class()."'><td>$accnt[date]</td><td>$bname[accname]</td><td align=center>$accnt[cheqnum]</td><td align=center>$accnt[name]</td><td>$accnt[descript]</td><td>$acc[topacc]/$acc[accnum]  $acc[accname]</td><td>".CUR." $accnt[amount]</td></tr>";
 		}
 
 		# print the total
@@ -212,9 +209,6 @@ function viewcash($_POST)
 			for ($i=0; $i < $numrows; $i++) {
 			$accnt = pg_fetch_array ($accntRslt, $i);
 
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 					if(strlen($accnt['accids']) > 0){
 						$acc['accname'] = "Multiple Accounts";
 						$acc['accnum'] = "000";
@@ -242,7 +236,7 @@ function viewcash($_POST)
 					$accnt['date'] = $accnt['date'][2]."-".$accnt['date'][1]."-".$accnt['date'][0];
 
 					$ptotal += $accnt['amount']; # add to total
-					$OUTPUT .= "<tr bgcolor='$bgColor'><td>$accnt[date]</td><td>$bname[accname]</td><td align=center>$accnt[cheqnum]</td><td align=center>$accnt[name]</td><td>$accnt[descript]</td><td>$acc[topacc]/$acc[accnum]  $acc[accname]</td><td>".CUR." $accnt[amount]</td></tr>";
+					$OUTPUT .= "<tr class='".bg_class()."'><td>$accnt[date]</td><td>$bname[accname]</td><td align=center>$accnt[cheqnum]</td><td align=center>$accnt[name]</td><td>$accnt[descript]</td><td>$acc[topacc]/$acc[accnum]  $acc[accname]</td><td>".CUR." $accnt[amount]</td></tr>";
 			}
 			# print the total
 			$OUTPUT .= "<tr class='bg-even''><td colspan=6><b>Total Payments</b></td><td><b>".CUR." ".sprintf("%01.2f",$ptotal)."</b></td></tr>";

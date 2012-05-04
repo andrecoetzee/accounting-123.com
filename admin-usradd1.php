@@ -135,8 +135,7 @@ function confirmUser ($_POST)
         $rslt = db_exec($sql);
         $i = 0;
         while($scr = pg_fetch_array($rslt)){
-                $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-                $confirmUser .="<tr bgcolor='$bgColor'><td colspan=2><input type=checkbox name=perm[] value='$scr[name]'>$scr[script]</td></tr>";
+                $confirmUser .="<tr class='".bg_class()."'><td colspan=2><input type=checkbox name=perm[] value='$scr[name]'>$scr[script]</td></tr>";
                 $i++;
         }
 

@@ -66,14 +66,11 @@ function printQuo ()
 					$dept = pg_fetch_array($deptRslt);
 				}
 
-				# alternate bgcolor
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 				# format date
 				$quo['odate'] = explode("-", $quo['odate']);
 				$quo['odate'] = $quo['odate'][2]."-".$quo['odate'][1]."-".$quo['odate'][0];
 
-				$printQuo .= "<tr bgcolor='$bgColor'><td>$quo[username]</td><td>$dept[deptname]</td><td>$quo[salespn]</td><td>$quo[quoid]</td><td align=center>$quo[odate]</td><td>$quo[cusname]</td><td align=right>$quo[ordno]</td><td>".CUR." $quo[total]</td>
+				$printQuo .= "<tr class='".bg_class()."'><td>$quo[username]</td><td>$dept[deptname]</td><td>$quo[salespn]</td><td>$quo[quoid]</td><td align=center>$quo[odate]</td><td>$quo[cusname]</td><td align=right>$quo[ordno]</td><td>".CUR." $quo[total]</td>
 				<td>".CUR." $quo[balance]</td>
 				<td><a href='pos-quote-new.php?quoid=$quo[quoid]&cont=true&done='>Continue</a></td>
 				<td><a href='pos-quote-unf-cancel.php?quoid=$quo[quoid]'>Cancel</a></td></tr>";

@@ -78,15 +78,12 @@ function display()
 	$i = 0;
 
 	while ($ws_data = pg_fetch_array($rslt)) {
-		// Alternate the background color
-		$bgcolor = ($i % 2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 		db_conn("cubit");
 		$sql = "SELECT surname FROM customers WHERE cusnum='$ws_data[cusnum]'";
 		$cus_rslt = db_exec($sql) or errDie("Unable to retrieve customer information from Cubit.");
 		$customers = pg_fetch_result($cus_rslt, 0);
 		
-		$ws_out = "<tr bgcolor='$bgcolor'>
+		$ws_out = "<tr class='".bg_class()."'>
 			<td>$ws_data[refnum]</td>
 			<td>$ws_data[cdate]</td>
 			<td><a href='cust-det.php?cusnum=$ws_data[cusnum]' target=_blank>$customers</a></td>

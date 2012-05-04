@@ -112,10 +112,8 @@ function enter($err) {
 
 	$i = 1;
 	while ( $row = pg_fetch_array($rslt) ) {
-		$bgcolor = ($i++ % 2)?TMPL_tblDataColor2:TMPL_tblDataColor1;
-
 		$OUTPUT .= "
-		<tr bgcolor='$bgcolor'>
+		<tr class='".bg_class()."'>
 			<td>$row[priv_owner]</td>
 			<td>$row[privilege]</td>
 			<td><input type=checkbox name='del[$row[id]]'></td>

@@ -229,14 +229,11 @@ function slctCust($_POST)
 				$invtot=0;
 				$i = 0;
 
-				# alternate bgcolor
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 				# Query server
 				$sql = "SELECT * FROM inv_discs WHERE cusnum = '$cust[cusnum]' AND div = '".USER_DIV."' ORDER BY inv_date DESC";
 				$discRslt = db_exec ($sql) or errDie ("Unable to retrieve invoices statement from database.");
 				if (pg_numrows ($discRslt) < 1) {
-					$discs .= "<tr bgcolor='$bgColor'><td>$cust[cusname] $cust[surname]</td><td>0</td><td>".CUR." 0</td><td>".CUR." 0</td><td>".CUR." 0</td></tr>";
+					$discs .= "<tr class='".bg_class()."'><td>$cust[cusname] $cust[surname]</td><td>0</td><td>".CUR." 0</td><td>".CUR." 0</td><td>".CUR." 0</td></tr>";
 				}else{
 					$invno = pg_numrows ($discRslt);
 					while ($disc = pg_fetch_array ($discRslt)) {
@@ -265,7 +262,7 @@ function slctCust($_POST)
 					vmoney($totdel);
 
 					$discs .= "
-						<tr bgcolor='$bgColor'>
+						<tr class='".bg_class()."'>
 							<td>$cust[cusname] $cust[surname]</td>
 							<td>$invno</td>
 							<td>".CUR." $tottrad</td>

@@ -333,7 +333,7 @@ function enterEmp ($err="")
 		$cd = pg_fetch_array($Rq);
 
 		$ctd .= "
-			<tr bgcolor='$bgcolor'>
+			<tr class='".bg_class()."'>
 				<td>$data[centername]</td>
 				<td><input type='text' name='ct[$data[ccid]]' size='5' value='$cd[amount]'>%</td>
 			</tr>";

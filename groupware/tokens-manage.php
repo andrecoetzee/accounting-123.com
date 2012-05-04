@@ -176,9 +176,7 @@ function seltoken() {
 		while($linkdata=pg_fetch_array($Ry)) {
 			$i++;
 
-			$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-			$teamlinks.="<tr bgcolor='$bgcolor'><td><a target=_blank href='$linkdata[script]'>$linkdata[name]</a></td></tr>";
+			$teamlinks.="<tr class='".bg_class()."'><td><a target=_blank href='$linkdata[script]'>$linkdata[name]</a></td></tr>";
 		}
 	}
 	
@@ -191,9 +189,7 @@ function seltoken() {
 	while($tokendata=pg_fetch_array($Ry)) {
 		$i++;
 
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-		$tokens.="<tr bgcolor='$bgcolor'><td>$tokendata[id]</td><td>$tokendata[name] - $tokendata[sub]</td><td><a href='tokens-manage.php?id=$tokendata[id]'>Open</a></td></tr>";
+		$tokens.="<tr class='".bg_class()."'><td>$tokendata[id]</td><td>$tokendata[name] - $tokendata[sub]</td><td><a href='tokens-manage.php?id=$tokendata[id]'>Open</a></td></tr>";
 	}
 	
 	$Sl="SELECT id,name,username,sub,lastdate,opendate FROM tokens WHERE nextdate<='$date' $whe ORDER BY id";
@@ -211,9 +207,7 @@ function seltoken() {
 		while($data=pg_fetch_array($Ry)) {
 			$i++;
 
-			$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-			$out.="<tr bgcolor='$bgcolor'><td>$data[id]</td><td>$data[name] - $data[sub]</td><td>$data[username]</td>
+			$out.="<tr class='".bg_class()."'><td>$data[id]</td><td>$data[name] - $data[sub]</td><td>$data[username]</td>
 			<td>$data[opendate]</td><td>$data[lastdate]</td>
 			<td><a href='tokens-manage.php?id=$data[id]'>Open</a></td></tr>";
 
@@ -240,9 +234,7 @@ function seltoken() {
 		while($data=pg_fetch_array($Ry)) {
 			$i++;
 
-			$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-			$future.="<tr bgcolor='$bgcolor'><td>$data[id]</td><td>$data[name] - $data[sub]</td><td>$data[username]</td>
+			$future.="<tr class='".bg_class()."'><td>$data[id]</td><td>$data[name] - $data[sub]</td><td>$data[username]</td>
 			<td>$data[opendate]</td><td>$data[lastdate]</td><td>$data[nextdate]</td>
 			<td><a href='tokens-manage.php?id=$data[id]'>Open</a></td></tr>";
 
@@ -523,16 +515,12 @@ function manage($_POST,$Notes="") {
                 if(in_array($tokendata['teamid'],$cteams)) {
 			$i++;
 
-			$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-			$tokens.="<tr bgcolor='$bgcolor'><td>$tokendata[id]</td><td>$tokendata[name] - ".substr($tokendata['sub'],0,14)."</td><td><a href='tokens-manage.php?id=$tokendata[id]'>Open</a></td></tr>";
+			$tokens.="<tr class='".bg_class()."'><td>$tokendata[id]</td><td>$tokendata[name] - ".substr($tokendata['sub'],0,14)."</td><td><a href='tokens-manage.php?id=$tokendata[id]'>Open</a></td></tr>";
 
 		}
 	}
 
-	$bgcolor=(($i+1)%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-	$tokens.="<tr bgcolor='$bgcolor'><td colspan=3>Outstanding Queries: $i</td></tr>";
+	$tokens.="<tr class='".bg_class()."'><td colspan=3>Outstanding Queries: $i</td></tr>";
 	$tokens.="<tr><td><br></td></tr>";
 	
 	if($i==0) {
@@ -550,15 +538,11 @@ function manage($_POST,$Notes="") {
 		if(in_array($tokendata['teamid'],$cteams)) {
 			$i++;
 
-			$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-			$future_tokens.="<tr bgcolor='$bgcolor'><td>$tokendata[id]</td><td>$tokendata[name] - ".substr($tokendata['sub'],0,10)."</td><td>$tokendata[nextdate]</td><td><a href='tokens-manage.php?id=$tokendata[id]'>Open</a></td></tr>";
+			$future_tokens.="<tr class='".bg_class()."'><td>$tokendata[id]</td><td>$tokendata[name] - ".substr($tokendata['sub'],0,10)."</td><td>$tokendata[nextdate]</td><td><a href='tokens-manage.php?id=$tokendata[id]'>Open</a></td></tr>";
 		}
 	}
 
-	$bgcolor=(($i+1)%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-	$future_tokens.="<tr bgcolor='$bgcolor'><td colspan=4>Forwarded Queries: $i</td></tr>";
+	$future_tokens.="<tr class='".bg_class()."'><td colspan=4>Forwarded Queries: $i</td></tr>";
 
 	if($i==0) {
 		$future_tokens="";
@@ -671,9 +655,7 @@ function manage($_POST,$Notes="") {
 		while($linkdata=pg_fetch_array($Ry)) {
 			$i++;
 
-			$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-			$teamlinks.="<tr bgcolor='$bgcolor'><td align=center><a target=_blank href='$linkdata[script]'>$linkdata[name]</a></td></tr>";
+			$teamlinks.="<tr class='".bg_class()."'><td align=center><a target=_blank href='$linkdata[script]'>$linkdata[name]</a></td></tr>";
 		}
 	}
 	
@@ -685,9 +667,7 @@ function manage($_POST,$Notes="") {
 	while($pdata=pg_fetch_array($Ry)) {
 		$i++;
 
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-		
-		$pactions.="<tr bgcolor='$bgcolor'><td>$pdata[donedate], ".substr($pdata['donetime'],0,5)."</td><td>$pdata[action]</td><td>$pdata[doneby]</td></tr>";
+		$pactions.="<tr class='".bg_class()."'><td>$pdata[donedate], ".substr($pdata['donetime'],0,5)."</td><td>$pdata[action]</td><td>$pdata[doneby]</td></tr>";
 
 	}
 	

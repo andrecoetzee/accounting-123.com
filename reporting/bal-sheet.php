@@ -191,7 +191,6 @@ function customize($_POST)
 	$i = 0;
 	while ($sbsacc_data = pg_fetch_array($sbsacc_rslt)) {
 		$i++;
-		$bgcolor = ($i % 2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
 		if (empty($sbsacc_data["toptype"])) {
 			db_conn("core");
@@ -220,7 +219,7 @@ function customize($_POST)
 			$checked = "";
 		}
 
-		$acc_list .= "<tr bgcolor='$bgcolor'>
+		$acc_list .= "<tr class='".bg_class()."'>
 			<td>$sbsacc_data[accname]</td>
 			<td>$categories_sel</td>
 			<td><a href='#' onclick='openwindow(\"".SELF."?key=note_view&accid=$sbsacc_data[accid]\")'>Note</a></td>

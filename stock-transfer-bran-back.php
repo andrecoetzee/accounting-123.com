@@ -196,9 +196,7 @@ function printStk ($_POST)
 	}
 
 	while ($stk = pg_fetch_array ($stkRslt)) {
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printStk .= "<tr bgcolor='$bgColor'><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>$stk[classname]</td><td align=right>$stk[units]</td><td align=right>".CUR." $stk[csamt]</td><td align=right>$stk[alloc]</td><td align=right>$stk[ordered]</td>
+		$printStk .= "<tr class='".bg_class()."'><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>$stk[classname]</td><td align=right>$stk[units]</td><td align=right>".CUR." $stk[csamt]</td><td align=right>$stk[alloc]</td><td align=right>$stk[ordered]</td>
 		<td>$stk[suom]</td>";
 
 		# If there is stock on hand

@@ -53,14 +53,11 @@ function viewEmp ()
 				<table width='100%'>
 					<tr>";
 	while ($docid = pg_fetch_array ($empRslt)) {
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$documents .= "<tr bgcolor='$bgColor'><td>$docid[docid]</td><td>$i</td><td>$docid[typeid]</td><td>$docid[typename]</td><td>$docid[filename]</td><td><a href='editdel.php?docid=$docid[docid]'>Edit</a></td><td><a href='rem_condel.php?docid=$docid[docid]'>Completly Remove Contact</a></td><td><a href='newdel.php?docid=$docid[docid]'>Copy Contact Back to Main List</a></td></tr>\n";
+		$documents .= "<tr class='".bg_class()."'><td>$docid[docid]</td><td>$i</td><td>$docid[typeid]</td><td>$docid[typename]</td><td>$docid[filename]</td><td><a href='editdel.php?docid=$docid[docid]'>Edit</a></td><td><a href='rem_condel.php?docid=$docid[docid]'>Completly Remove Contact</a></td><td><a href='newdel.php?docid=$docid[docid]'>Copy Contact Back to Main List</a></td></tr>\n";
 		
 		$i++;
 		$i1++;
 	}
-
-	$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 	# Set up table & form
 	$enterEmp .=
@@ -69,7 +66,7 @@ function viewEmp ()
 	<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>id</th><th>Nr.</th><th>Typeid</th><th>Type Nmae</th><th>Filename</th><th>Edit</th><th>Remove</th><th>Copy Contact Back to Main List</th></tr>
 	$documents
-	<tr bgcolor='$bgColor'><td colspan=8>Total: $i1</td></tr>
+	<tr class='".bg_class()."'><td colspan=8>Total: $i1</td></tr>
 	</table>
 	<p>
 	<table border=7 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>

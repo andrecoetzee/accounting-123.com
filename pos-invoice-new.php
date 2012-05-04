@@ -2747,7 +2747,6 @@ function recvpayment() {
 			if($open_out == 0) {
 				continue;
 			}
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 			$oid = $od['id'];
 			if($open_out >= $od['balance']) {
 				$open_amount[$oid] = $od['balance'];
@@ -3030,7 +3029,7 @@ function recvpayment_write()
 				$open_amount[$oid] = $od['balance'];
 				$open_out = sprint($open_out - $od['balance']);
 				$ox .= "
-					<tr bgcolor='$bgColor'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' size='20' name='open[$oid]' value='$oid'>$od[type]</td>
 						<td>".CUR." $od[balance]</td>
 						<td>$od[date]</td>
@@ -3044,7 +3043,7 @@ function recvpayment_write()
 				$open_amount[$oid] = $open_out;
 				$open_out = 0;
 				$ox .= "
-					<tr bgcolor='$bgColor'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' size='20' name='open[$oid]' value='$od[id]'>$od[type]</td>
 						<td>".CUR." $od[balance]</td>
 						<td>$od[date]</td>

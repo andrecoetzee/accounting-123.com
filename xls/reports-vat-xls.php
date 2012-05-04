@@ -172,8 +172,6 @@ function report($_POST)
 
 			while($vd=pg_fetch_array($Ry)) {
 
-				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 				//$amount=sprint($data['amount']);
 				//$vat=sprint($data['vat']);
 
@@ -205,8 +203,6 @@ function report($_POST)
 			$i=1;
 
 			while($vd=pg_fetch_array($Ri)) {
-				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 				$Sl="SELECT sum(amount) AS amount,sum(vat) AS vat FROM vatreport WHERE date>='$date' AND date<='$tdate' $whe AND cid='$vd[id]'";
 				$Ry=db_exec($Sl) or errDie("Unable to get vat rec.");
 				$data=pg_fetch_array($Ry);
@@ -240,8 +236,6 @@ function report($_POST)
 			$totvat=0;
 
 			while($vd=pg_fetch_array($Ry)) {
-
-				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
 				$amount=sprint($vd['amount']);
 				$vat=sprint($vd['vat']);

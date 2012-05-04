@@ -128,9 +128,7 @@ function list_tokens(){
 
 			$i++;
 
-			$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-			$out.="<tr bgcolor='$bgcolor'><td>$data[id]</td><td>$data[name] - $data[sub]</td><td>$data[username]</td>
+			$out.="<tr class='".bg_class()."'><td>$data[id]</td><td>$data[name] - $data[sub]</td><td>$data[username]</td>
 			<td>$data[opendate]</td><td>$data[lastdate]</td><td>$data[nextdate]</td>
 			<td><a href='tokens-manage.php?id=$data[id]'>Open</a></td></tr>";
 

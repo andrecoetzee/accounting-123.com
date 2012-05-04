@@ -170,9 +170,6 @@ function printrep($bankid)
 		for ($i=0; $i < $numrows; $i++) {
 			$accnt = pg_fetch_array ($accntRslt, $i);
 
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 			if(strlen($accnt['accids']) > 0){
 				$acc['accname'] = "Multiple Accounts";
 				$acc['accnum'] = "";
@@ -197,7 +194,7 @@ function printrep($bankid)
 
 			$accnt['amount'] = sprint ($accnt['amount']);
 
-			# $OUTPUT .= "<tr bgcolor='$bgColor'><td>$accnt[bankname]</td><td align=center>$bname[accname]</td><td align=center>$accnt[date]</td><td>$accnt[descript]</td><td align=center>$accnt[ref]</td><td align=center>$accnt[trantype]</td><td align=center>".CUR." $accnt[amount]<td align=center>$acc[accname]</td></td>";
+			# $OUTPUT .= "<tr class='".bg_class()."'><td>$accnt[bankname]</td><td align=center>$bname[accname]</td><td align=center>$accnt[date]</td><td>$accnt[descript]</td><td align=center>$accnt[ref]</td><td align=center>$accnt[trantype]</td><td align=center>".CUR." $accnt[amount]<td align=center>$acc[accname]</td></td>";
 			$OUTPUT .= "
 					<tr class='".bg_class()."'>
 						<td>$bank[bankname]</td>
@@ -268,9 +265,6 @@ function printdep($bankid)
 		$tot = 0;
 		for ($i=0; $i < $numrows; $i++) {
 			$accnt = pg_fetch_array ($accntRslt, $i);
-
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 			if(strlen($accnt['accids']) > 0){
 				$acc['accname'] = "Multiple Accounts";

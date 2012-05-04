@@ -161,15 +161,13 @@ function printacc($_POST)
 
 		if($zero == "no"){
 			while($acc = pg_fetch_array ($accRslt)){
-				# alternate bgcolor
 				$i++;
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 				if(floatval($acc['debit']) == 0 && floatval($acc['credit']) == 0){
 					$i++;
 					continue;
 				}
-				$OUTPUT .= "<tr bgcolor='$bgColor'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td>";
+				$OUTPUT .= "<tr class='".bg_class()."'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td>";
 
 				if(floatval($acc['debit']) == 0){
 					$OUTPUT .="<td align=center> - </td>";
@@ -190,10 +188,8 @@ function printacc($_POST)
 			}
 		}elseif($zero == "yes"){
 			while($acc = pg_fetch_array ($accRslt)){
-				# alternate bgcolor
 				$i++;
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-				$OUTPUT .= "<tr bgcolor='$bgColor'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td>";
+				$OUTPUT .= "<tr class='".bg_class()."'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td>";
 
 				if(floatval($acc['debit']) == 0){
 					$OUTPUT .="<td align=center> - </td>";
@@ -213,7 +209,7 @@ function printacc($_POST)
 				$tlcredit += $acc['credit'];
 			}
 		}
-        $OUTPUT .= "<tr bgcolor='$bgColor'><td colspan=2><b>Total</b></td><td align=center><b>".CUR." $tldebit</b></td><td align=center><b>".CUR." $tlcredit</b></td></tr>
+        $OUTPUT .= "<tr class='".bg_class()."'><td colspan=2><b>Total</b></td><td align=center><b>".CUR." $tldebit</b></td><td align=center><b>".CUR." $tlcredit</b></td></tr>
         </table>
 		<p>
 		<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=25%>
@@ -256,14 +252,12 @@ function print_saveacc($_POST)
 
 		if($zero == "no"){
 			while($acc = pg_fetch_array ($accRslt)){
-				# alternate bgcolor
 				$i++;
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 				if(floatval($acc['debit']) == 0 && floatval($acc['credit']) == 0){
 					continue;
 				}
-				$OUTPUT .= "<tr bgcolor='$bgColor'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td>";
+				$OUTPUT .= "<tr class='".bg_class()."'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td>";
 
 				if(floatval($acc['debit']) == 0){
 					$OUTPUT .="<td align=center> - </td>";
@@ -284,10 +278,8 @@ function print_saveacc($_POST)
 			}
 		}elseif($zero == "yes"){
 			while($acc = pg_fetch_array ($accRslt)){
-				# alternate bgcolor
 				$i++;
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-				$OUTPUT .= "<tr bgcolor='$bgColor'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td>";
+				$OUTPUT .= "<tr class='".bg_class()."'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td>";
 
 				if(floatval($acc['debit']) == 0){
 					$OUTPUT .="<td align=center> - </td>";
@@ -307,7 +299,7 @@ function print_saveacc($_POST)
 				$tlcredit += $acc['credit'];
 			}
 		}
-        $OUTPUT .= "<tr bgcolor='$bgColor'><td colspan=2><b>Total</b></td><td align=center><b>".CUR." $tldebit</b></td><td align=center><b>".CUR." $tlcredit</b></td></tr>
+        $OUTPUT .= "<tr class='".bg_class()."'><td colspan=2><b>Total</b></td><td align=center><b>".CUR." $tldebit</b></td><td align=center><b>".CUR." $tlcredit</b></td></tr>
 		</table><br>";
 
 		$output = base64_encode($OUTPUT);

@@ -203,7 +203,6 @@ function customize($_POST)
 	while ($sisacc_data = pg_fetch_array($sisacc_rslt)) {
 		// Alternate the background colour
 		$i++;
-		$bgcolor = ($i % 2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
 		if (isset($rem[$sisacc_data["id"]])) {
 			$checked = "checked";
@@ -212,7 +211,7 @@ function customize($_POST)
 		}
 
 		$accounts_out .= "
-		<tr bgcolor='$bgcolor'>
+		<tr class='".bg_class()."'>
 			<td>$sisacc_data[accname]</td>
 			<td><input type='checkbox' name='rem[$sisacc_data[id]]' value='$sisacc_data[id]' $checked></td>
 		</tr>";

@@ -131,13 +131,7 @@ function view_cons ($_POST)
 
 		for ($i=0; $i < $numrows; $i++) {
 			$Data = pg_fetch_array($Rslt);
-
-			if ($i % 2) {
-				$bgColor = TMPL_tblDataColor1;
-			} else {
-				$bgColor = TMPL_tblDataColor2;
-			}
-			$OutPut .= "<tr bgcolor='$bgColor'><td>$Data[name]</td><td>$Data[surname]</td><td>$Data[comp]</td><td>$Data[ref]</td><td><a href='view_con.php?id=$Data[id]'>View</a></td><td><a href='mod_con.php?id=$Data[id]'>Edit</a></td><td><a href='rem_con.php?id=$Data[id]'>Remove</td></tr>\n";
+			$OutPut .= "<tr class='".bg_class()."'><td>$Data[name]</td><td>$Data[surname]</td><td>$Data[comp]</td><td>$Data[ref]</td><td><a href='view_con.php?id=$Data[id]'>View</a></td><td><a href='mod_con.php?id=$Data[id]'>Edit</a></td><td><a href='rem_con.php?id=$Data[id]'>Remove</td></tr>\n";
 		}
 		$OutPut .= "</table>\n
 

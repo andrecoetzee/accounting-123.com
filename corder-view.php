@@ -132,9 +132,6 @@ function printSord ($_POST)
 					</table>";
 		}else{
 			while ($sord = pg_fetch_array ($sordRslt)) {
-				# alternate bgcolor
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 				# format date
 				$sord['odate'] = explode("-", $sord['odate']);
 				$sord['odate'] = $sord['odate'][2]."-".$sord['odate'][1]."-".$sord['odate'][0];

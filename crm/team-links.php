@@ -121,8 +121,6 @@ function allocate($_POST){
 	db_conn('crm');
 
 	while($linkdata=pg_fetch_array($Ry)) {
-		$bgcolor = ($i % 2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 		$lid=$linkdata['id'];
 		
 		$Sl="SELECT * FROM teamlinks WHERE team='$id' AND name='$linkdata[name]'";
@@ -138,7 +136,7 @@ function allocate($_POST){
 		}
 
 		$out .= "
-			<tr bgcolor='$bgcolor'>
+			<tr class='".bg_class()."'>
 				<td>$linkdata[name]</td>
 				<td><input type='text' size='2' name=order[$lid] value='$num'></td>
 				<td><input type='checkbox' name=sel[$lid] $ch></td>
@@ -186,7 +184,7 @@ function update($_POST) {
 	
 	while($linkdata=pg_fetch_array($Ry)) {
 		$lid=$linkdata['id'];
-		//$out.="<tr bgcolor='$bgcolor'><td>$linkdata[name]</td><td><input type=text size=2 name=order[$lid]></td><td><input type=checkbox name=sel[$lid]></td></tr>";
+		//$out.="<tr class='".bg_class()."'><td>$linkdata[name]</td><td><input type=text size=2 name=order[$lid]></td><td><input type=checkbox name=sel[$lid]></td></tr>";
 
 		if(isset($sel[$lid])) {
 

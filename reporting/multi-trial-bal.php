@@ -143,16 +143,14 @@ function printacc($_POST)
 			}
 		}
 
-		# Alternate bgcolor
 		$i++;
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 		# To get the account name
 		$sql = "SELECT * FROM trial_bal WHERE accnum = '$acc[accnum]' AND topacc = '$acc[topacc]' LIMIT 1";
 		$acccRslt = db_exec ($sql) or errDie ("ERROR: Unable to retrieve account details from database.", SELF);
 		$accc = pg_fetch_array ($acccRslt);
 
-		$OUTPUT .= "<tr bgcolor='$bgColor'><td>$accc[topacc]/$accc[accnum]</td><td>$accc[accname]</td>";
+		$OUTPUT .= "<tr class='".bg_class()."'><td>$accc[topacc]/$accc[accnum]</td><td>$accc[accname]</td>";
 
 		$tldeb = 0;
 		$tlcred = 0;
@@ -266,14 +264,12 @@ function print_saveacc($_POST)
 
 	if($zero == "no"){
 		while($acc = pg_fetch_array ($accRslt)){
-			# alternate bgcolor
 			$i++;
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 			if(intval($acc['debit']) == 0 && intval($acc['credit']) == 0){
 				continue;
 			}
-			$OUTPUT .= "<tr bgcolor='$bgColor'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td>";
+			$OUTPUT .= "<tr class='".bg_class()."'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td>";
 
 			if(intval($acc['debit']) == 0){
 				$OUTPUT .="<td align=center> - </td>";
@@ -294,10 +290,8 @@ function print_saveacc($_POST)
 		}
 	}elseif($zero == "yes"){
 		while($acc = pg_fetch_array ($accRslt)){
-			# alternate bgcolor
 			$i++;
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$OUTPUT .= "<tr bgcolor='$bgColor'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td>";
+			$OUTPUT .= "<tr class='".bg_class()."'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td>";
 
 			if(intval($acc['debit']) == 0){
 				$OUTPUT .="<td align=center> - </td>";
@@ -317,7 +311,7 @@ function print_saveacc($_POST)
 			$tlcredit += $acc['credit'];
 		}
 	}
-	$OUTPUT .= "<tr bgcolor='$bgColor'><td colspan=2><b>Total</b></td><td align=center><b>".CUR." $tldebit</b></td><td align=center><b>".CUR." $tlcredit</b></td></tr>
+	$OUTPUT .= "<tr class='".bg_class()."'><td colspan=2><b>Total</b></td><td align=center><b>".CUR." $tldebit</b></td><td align=center><b>".CUR." $tlcredit</b></td></tr>
 	</table><br>";
 
 	$output = base64_encode($OUTPUT);

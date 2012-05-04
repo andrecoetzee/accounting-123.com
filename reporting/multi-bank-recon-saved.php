@@ -148,16 +148,11 @@ function viewsaved($_POST)
 
 			// display all statements
 			for ($i=0; $recon = pg_fetch_array ($Rslt); $i++) {
-				if ($i % 2) {                                                              // every other row gets a diff color
-					$bgColor = TMPL_tblDataColor2;
-				} else {
-					$bgColor = TMPL_tblDataColor1;
-				}
 				# date format
 	    	    $date = explode("-", $recon['gendate']);
     	    	$date = $date[2]."-".$date[1]."-".$date[0];
 
-				$OUTPUT .= "<tr bgcolor='$bgColor'><td>$recon[id]</td><td>$date</td><td><a target='_blank' href='bank-recon-print.php?id=$recon[id]'>Print</a></td></tr>";
+				$OUTPUT .= "<tr class='".bg_class()."'><td>$recon[id]</td><td>$date</td><td><a target='_blank' href='bank-recon-print.php?id=$recon[id]'>Print</a></td></tr>";
 			}
 			$OUTPUT .= "</table>";
 		}

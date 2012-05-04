@@ -48,9 +48,7 @@ function showPaye ()
 	$payeRslt = db_exec ($sql) or errDie ("Unable to select PAYE brackets from database.", SELF);
 	if (pg_numrows ($payeRslt) > 0) {
 		while ($myPaye = pg_fetch_array ($payeRslt)) {
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$showPaye .= "<tr bgcolor='$bgColor'><td align=right>".CUR." $myPaye[min]</td><td align=right>".CUR." $myPaye[max]</td><td align=right>$myPaye[percentage]%</td><td align=right>".CUR." $myPaye[extra]</td></tr>\n";
+			$showPaye .= "<tr class='".bg_class()."'><td align=right>".CUR." $myPaye[min]</td><td align=right>".CUR." $myPaye[max]</td><td align=right>$myPaye[percentage]%</td><td align=right>".CUR." $myPaye[extra]</td></tr>\n";
 			$i++;
 		}
 	} else {

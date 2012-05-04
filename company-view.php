@@ -53,7 +53,7 @@ function printComp() {
 		$status = ucfirst($comp["status"]);
 
 		$OUT .= "
-		<tr bgcolor='$bgcolor'>
+		<tr class='".bg_class()."'>
 			<td>$comp[code]</td>
 			<td>$comp[name]</td>
 			<td>$status</td>";

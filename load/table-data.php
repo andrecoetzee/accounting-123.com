@@ -113,7 +113,7 @@ function confirm ($_POST)
         <h4>Database: $db </h4>
         <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
                 <tr><th colspan=$fldnum align=center>Sql [ ".pg_numrows($Rs)." rows affected ]</th></tr>
-                <tr bgcolor='". TMPL_tblDataColor1."'><td colspan=$fldnum align=center>$sql;</td></tr>
+                <tr class='".bg_class()."'><td colspan=$fldnum align=center>$sql;</td></tr>
                 <tr><td colspan=$fldnum><br></td></tr>";
 
                 foreach($flds as $key => $value){
@@ -125,8 +125,7 @@ function confirm ($_POST)
                 $i=0;
                 if(pg_numrows($Rs) > 0){
                         while($data = pg_fetch_array($Rs)){
-                                $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-                                $confirm .="<tr bgcolor='$bgColor'>";
+                                $confirm .="<tr class='".bg_class()."'>";
 
                                 foreach($flds as $key => $value){
                                         $confirm .= "<td>$data[$value]</td>";
@@ -135,7 +134,7 @@ function confirm ($_POST)
                                 $i++;
                         }
                 }else{
-                        $confirm .= "<tr bgcolor='". TMPL_tblDataColor1."'><td colspan=$fldnum align=center>There are results for you query</td></tr>";
+                        $confirm .= "<tr class='".bg_class()."'><td colspan=$fldnum align=center>There are results for you query</td></tr>";
                 }
         $confirm .="</table>
         <form action='".SELF."' method=post>

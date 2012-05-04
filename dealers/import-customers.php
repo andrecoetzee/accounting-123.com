@@ -266,7 +266,7 @@ function write($_POST)
 
 	while($fd = pg_fetch_array($Rt)) {
 
-		//$out.="<tr bgcolor='$bgcolor'><td>$fd[des1]</td><td>$fd[des2]</td><td>$fd[des3]</td></tr>";
+		//$out.="<tr class='".bg_class()."'><td>$fd[des1]</td><td>$fd[des2]</td><td>$fd[des3]</td></tr>";
 
 		$i++;
 

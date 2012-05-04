@@ -101,7 +101,7 @@ function confirms($_POST)
                 }
                 $ctacc = pg_fetch_array($ctaccRs);
 
-                $trans .= "<tr bgcolor=".TMPL_tblDataColor1."><td><input type=hidden size=20 name=bank[] value='$value'>$tran[date]</td>
+                $trans .= "<tr class='bg-odd'><td><input type=hidden size=20 name=bank[] value='$value'>$tran[date]</td>
                                 <td>$tran[refnum]</td>
                                 <td valign=center>$dtacc[accname]</td>
                                 <td valign=center>$ctacc[accname]</td>
@@ -194,7 +194,7 @@ function write($_POST)
         <tr><th>Date</th><th>Ref num</th><th>Debit</th><th>Credit</th><th>Amount</th><th>Description</th></tr>";
 
                 foreach($bank as $key => $value){
-                        $write .= "<tr bgcolor=".TMPL_tblDataColor1."><td>$date[$key]</td><td>$refnum[$key]</td>
+                        $write .= "<tr class='bg-odd'><td>$date[$key]</td><td>$refnum[$key]</td>
                         <td valign=center>".$dtacc[$key]['topacc']."/".$dtacc[$key]['accnum']." ".$dtacc[$key]['accname']."</td>
                         <td valign=center>".$ctacc[$key]['topacc']."/".$ctacc[$key]['accnum']." ".$ctacc[$key]['accname']."</td>
                         <td>".CUR." $amount[$key]</td><td>$descript[$key]</td></tr>";

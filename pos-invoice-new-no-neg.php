@@ -2560,7 +2560,6 @@ function recvpayment() {
 			if($open_out==0) {
 				continue;
 			}
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 			$oid=$od['id'];
 			if($open_out>=$od['balance']) {
 				$open_amount[$oid]=$od['balance'];
@@ -2825,7 +2824,7 @@ function recvpayment_write() {
 			if ($open_out>=$od['balance']) {
 				$open_amount[$oid]=$od['balance'];
 				$open_out=sprint($open_out-$od['balance']);
-				$ox.="<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
+				$ox.="<tr class='".bg_class()."'><td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
 					<td>".CUR." $od[balance]</td><td>$od[date]</td><td><input type=hidden name='open_amount[$oid]' value='$open_amount[$oid]'>
 					".CUR." $open_amount[$oid]</td></tr>";
 
@@ -2835,7 +2834,7 @@ function recvpayment_write() {
 			} elseif($open_out<$od['balance']) {
 				$open_amount[$oid]=$open_out;
 				$open_out=0;
-				$ox.="<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=open[$oid] value='$od[id]'>$od[type]</td>
+				$ox.="<tr class='".bg_class()."'><td><input type=hidden size=20 name=open[$oid] value='$od[id]'>$od[type]</td>
 					<td>".CUR." $od[balance]</td><td>$od[date]</td><td><input type=hidden name='open_amount[$oid]' value='$open_amount[$oid]'>
 					".CUR." $open_amount[$oid]</td></tr>";
 

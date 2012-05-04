@@ -72,7 +72,7 @@ function printyr()
 		}
 
 		$yrs .= "
-		<tr bgcolor='$bgColor'>
+		<tr class='".bg_class()."'>
 			<td>$yr[yrname]</td>
 			<td align='right'>$yr[yrdb]</td>
 			<td align='center'>$status</td>

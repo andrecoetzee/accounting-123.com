@@ -100,8 +100,6 @@ function viewCat($type)
 			$$key = $value;
 		}
 
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 		$view .= viewacc($type,$catid,$catname);
 	}
 	return $view;
@@ -137,8 +135,6 @@ function viewacc($type,$catid,$catname)
 			$$key = $value;
 		}
 
-		# alternate bgcolor
-		$bgColor = TMPL_tblDataColor2;
 		$OUTPUT .= "<tr><td>$topacc/$accnum</td><td>$accname</td></tr>";
 	}
 

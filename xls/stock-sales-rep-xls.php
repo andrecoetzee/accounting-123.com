@@ -142,8 +142,6 @@ function printStk ($_POST)
 		$excvat = sprint($rec['total'] - $rec['vat']);
 		$totexc += $excvat;
 
-		# Alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 		$report .= "<tr><td>$rec[invnum]</td><td>$rec[edate]</td><td>".CUR." $rec[vat]</td><td>".CUR." $excvat</td><td>".CUR." $rec[total]</td></tr>";
 		$i++;
 	}
@@ -176,8 +174,6 @@ function printStk ($_POST)
 		$excvat = sprint($rec['total'] - $rec['vat']);
 		$ntotexc += $excvat;
 
-		# Alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 		$report .= "<tr><td>$rec[invnum]</td><td>$rec[edate]</td><td>".CUR." $rec[vat]</td><td>".CUR." $excvat</td><td>".CUR." $rec[total]</td></tr>";
 		$i++;
 	}

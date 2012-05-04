@@ -139,10 +139,10 @@ function listAccounts($all) {
 			<td align=right>$editlink</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				Public:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				$public
 			</td>
 		</tr>
@@ -152,26 +152,26 @@ function listAccounts($all) {
 			<td align=right>&nbsp;</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				Server:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				$row[server_host]
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor2.">
+			<td width=150 class='bg-even'>
 				User:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor2.">
+			<td class='bg-even'>
 				$row[server_user]
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				Leave Message on Server:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				$leavemsgs
 			</td>
 		</tr>
@@ -181,34 +181,34 @@ function listAccounts($all) {
 			<td align=right>&nbsp;</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				Enabled:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				$smtp_enabled
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor2.">
+			<td width=150 class='bg-even'>
 				Host:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor2.">
+			<td class='bg-even'>
 				$row[smtp_host]
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				Auth:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				$smtp_auth
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor2.">
+			<td width=150 class='bg-even'>
 				Username:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor2.">
+			<td class='bg-even'>
 				$row[smtp_user]
 			</td>
 		</tr>
@@ -318,50 +318,50 @@ function editAccount() {
 			<td align=right>&nbsp;</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				Account owner:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				$userselect
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor2.">
+			<td width=150 class='bg-even'>
 				".REQ."Account name:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor2.">
+			<td class='bg-even'>
 				<input type='text' name='account_name' value='$det[account_name]'>
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				Public:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				<input type='checkbox' name='public' $public>
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor2.">
+			<td width=150 class='bg-even'>
 				Active:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor2.">
+			<td class='bg-even'>
 				<input type='checkbox' name='active' $active>
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				User may edit this account:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				<input type='checkbox' name='user_edit' $user_edit>
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor2.">
+			<td width=150 class='bg-even'>
 				Signature:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor2.">
+			<td class='bg-even'>
 				<textarea name='signature'>$det[signature]</textarea>
 			</td>
 		</tr>
@@ -371,42 +371,42 @@ function editAccount() {
 			<td align=right>&nbsp;</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				Server:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				<input type=text name='server_host' value='$det[server_host]'>
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor2.">
+			<td width=150 class='bg-even'>
 				User:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor2.">
+			<td class='bg-even'>
 				<input type=text name='server_user' value='$det[server_user]'>
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				Password:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				<input type=password name='server_pass' value=''>
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor2.">
+			<td width=150 class='bg-even'>
 				Confirm:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor2.">
+			<td class='bg-even'>
 				<input type=password name='server_passconfirm' value=''>
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				Leave Message on Server:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				<input type=checkbox name='leave_msgs' $leave_msgs>
 			</td>
 		</tr>
@@ -416,34 +416,34 @@ function editAccount() {
 			<td align=right>&nbsp;</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				Enabled:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				<input type=checkbox name='enable_smtp' $smtp_enable>
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor2.">
+			<td width=150 class='bg-even'>
 				Host:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor2.">
+			<td class='bg-even'>
 				<input type=text name='smtp_host' value='$det[smtp_host]'>
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor1.">
+			<td width=150 class='bg-odd'>
 				From address:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor1.">
+			<td class='bg-odd'>
 				<input type=text name='smtp_from' value='$det[smtp_from]'>
 			</td>
 		</tr>
 		<tr>
-			<td width=150 bgcolor=".TMPL_tblDataColor2.">
+			<td width=150 class='bg-even'>
 				Reply address:
 			</td>
-			<td bgcolor=".TMPL_tblDataColor2.">
+			<td class='bg-even'>
 				<input type=text name='smtp_reply' value='$det[smtp_reply]'>
 			</td>
 		</tr>

@@ -56,8 +56,7 @@ function AssetLedg ()
 	}
 	while ($Led = pg_fetch_array ($Rs))
 	{
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$Assets .= "<tr bgcolor='$bgColor'><td>$Led[date]</td><td>$Led[description]</td><td align=right>".CUR." $Led[amount]</td>
+		$Assets .= "<tr class='".bg_class()."'><td>$Led[date]</td><td>$Led[description]</td><td align=right>".CUR." $Led[amount]</td>
 		<td><a href='cfe-edit.php?id=$Led[id]'>Edit</a></td><td><a href='cfe-rem.php?id=$Led[id]'>Remove</a></td></tr>";
 		$i++;
 	}

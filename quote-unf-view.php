@@ -111,9 +111,6 @@ function printQuo ()
 					$dept = pg_fetch_array($deptRslt);
 				}
 
-				# alternate bgcolor
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 				# format date
 				$quo['odate'] = explode("-", $quo['odate']);
 				$quo['odate'] = $quo['odate'][2]."-".$quo['odate'][1]."-".$quo['odate'][0];
@@ -125,7 +122,7 @@ function printQuo ()
 				}
 
 				$printQuo .= "
-				<tr bgcolor='$bgColor'>
+				<tr class='".bg_class()."'>
 					<td>$quo[username]</td>
 					<td>$dept[deptname]</td>
 					<td>$quo[salespn]</td>

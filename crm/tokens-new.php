@@ -186,16 +186,12 @@ function listr ($_POST) {
 
 				$i++;
 
-				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-				$out.="<tr bgcolor='$bgcolor'><td>$cdata[surname]</td><td><a href='tokens-new.php?id=$cdata[id]&poken=$poken'>Add Query</a></td><td><a href='../conper-add.php?id=$cdata[id]&type=contact&crm=yes'>Add new Contact Person</a></td></tr>";
+				$out.="<tr class='".bg_class()."'><td>$cdata[surname]</td><td><a href='tokens-new.php?id=$cdata[id]&poken=$poken'>Add Query</a></td><td><a href='../conper-add.php?id=$cdata[id]&type=contact&crm=yes'>Add new Contact Person</a></td></tr>";
 
 				while ($cpdata=pg_fetch_array($Rt)) {
 					$i++;
 
-					$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-					$out.="<tr bgcolor='$bgcolor'><td>*******$cpdata[name]</td><td><a href='tokens-new.php?id=$cdata[id]&conper=$cpdata[id]&poken=$poken'>Add Query</a></td></tr>";
+					$out.="<tr class='".bg_class()."'><td>*******$cpdata[name]</td><td><a href='tokens-new.php?id=$cdata[id]&conper=$cpdata[id]&poken=$poken'>Add Query</a></td></tr>";
 				}
 			}
 		} else {
@@ -216,14 +212,10 @@ function listr ($_POST) {
 
 				$i++;
 
-				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 				$cons.="<option value='$cdata[id]'>$cdata[surname]</option>";
 
 				while ($cpdata=pg_fetch_array($Rt)) {
 					$i++;
-
-					$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
 					$cons.="<option value='$cdata[id]|$cpdata[id]'>
 						*******$cpdata[name]
@@ -260,16 +252,12 @@ function listr ($_POST) {
 			if(pg_num_rows($Rt)>0) {
 				$i++;
 
-				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-				$out.="<tr bgcolor='$bgcolor'><td>$cdata[surname]</td><td><a href='tokens-new.php?id=$cdata[id]&poken=$poken'>Add Query</a></td><td><a href='../conper-add.php?id=$cdata[id]&type=contact&crm=yes'>||Add new Contact Person</a></td></tr>";
+				$out.="<tr class='".bg_class()."'><td>$cdata[surname]</td><td><a href='tokens-new.php?id=$cdata[id]&poken=$poken'>Add Query</a></td><td><a href='../conper-add.php?id=$cdata[id]&type=contact&crm=yes'>||Add new Contact Person</a></td></tr>";
 
 				while ($cpdata=pg_fetch_array($Rt)) {
 					$i++;
 
-					$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-					$out.="<tr bgcolor='$bgcolor'><td>*******$cpdata[name]</td><td><a href='tokens-new.php?id=$cdata[id]&conper=$cpdata[id]&poken=$poken'>Add Query</a></td></tr>";
+					$out.="<tr class='".bg_class()."'><td>*******$cpdata[name]</td><td><a href='tokens-new.php?id=$cdata[id]&conper=$cpdata[id]&poken=$poken'>Add Query</a></td></tr>";
 				}
 			}
 		}

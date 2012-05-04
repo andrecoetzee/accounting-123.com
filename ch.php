@@ -55,9 +55,7 @@ function printComp ()
 		return "<li>There are no companies in Cubit.";
 	}
 	while ($comp = pg_fetch_array ($compRslt)) {
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printComp .= "<tr bgcolor='$bgColor'><td>$comp[code]</td><td>$comp[name]</td><td>$comp[ver]</td></tr>";
+		$printComp .= "<tr class='".bg_class()."'><td>$comp[code]</td><td>$comp[name]</td><td>$comp[ver]</td></tr>";
 		$i++;
 	}
 // 	<!--<td><a href='company-rem.php?compid=$comp[compid]'>Remove</a></td>-->
@@ -80,9 +78,7 @@ function printComp ()
 		$printComp .=  "</table><li>There is no update data in Cubit.";
 	}
 	while ($d = pg_fetch_array ($compRslt)) {
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printComp .= "<tr bgcolor='$bgColor'><td>$d[code]</td><td>$d[comp]</td><td>$d[des]</td><td>$d[f]</td><td>$d[t]</td><td>$d[date]</td></tr>";
+		$printComp .= "<tr class='".bg_class()."'><td>$d[code]</td><td>$d[comp]</td><td>$d[des]</td><td>$d[f]</td><td>$d[t]</td><td>$d[date]</td></tr>";
 		$i++;
 	}
 // 	<!--<td><a href='company-rem.php?compid=$comp[compid]'>Remove</a></td>-->

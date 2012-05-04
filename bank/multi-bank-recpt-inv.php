@@ -1064,7 +1064,7 @@ function confirm($_POST)
 						$ox .= "
 							<input type='hidden' size='20' name='open[$t][$oid]' value='$oid'>
 							<input type='hidden' name='open_amount[$t][$oid]' value='$open_amount[$t][$oid]'>
-							<tr bgcolor='$bgColor'>
+							<tr class='".bg_class()."'>
 								<td>$od[type]</td>
 								<td>".CUR." $od[balance]</td>
 								<td>$od[date]</td>

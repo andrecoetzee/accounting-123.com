@@ -184,9 +184,7 @@ function printStk ($_POST)
 		$catRslt = db_exec($sql);
 		$cat = pg_fetch_array($catRslt);
 
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printStk .= "<tr bgcolor='$bgColor'><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>$stk[prdcls]</td><td align=right>$stk[units] x $stk[suom]</td><td align=right>".CUR." $stk[csamt]</td><td align=right>$stk[alloc] x $stk[suom]</td><td align=right>$stk[ordered] x $stk[suom]</td>
+		$printStk .= "<tr class='".bg_class()."'><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>$stk[prdcls]</td><td align=right>$stk[units] x $stk[suom]</td><td align=right>".CUR." $stk[csamt]</td><td align=right>$stk[alloc] x $stk[suom]</td><td align=right>$stk[ordered] x $stk[suom]</td>
 		<td><a href='#' onclick='openwindow(\"stock-amt-det.php?stkid=$stk[stkid]\")'>View Report</a></td><td><a href='stock-det.php?stkid=$stk[stkid]'>Details</a></td><td><a href='stock-edit.php?stkid=$stk[stkid]'>Edit</a></td><td><a href='pos.php?id=$stk[stkid]'>Allocate Barcode</a></td>";
 
 		if($stk['blocked'] == 'y'){

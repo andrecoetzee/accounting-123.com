@@ -53,14 +53,11 @@ function printOrders ()
 		return "No previous invoices.";
 	}
 	while ($myInv = pg_fetch_array ($invRslt)) {
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
                 # Date Format
                 $myInv['invdate'] = explode("-", $myInv['invdate']);
                 $myInv['invdate'] = $myInv['invdate'][2]."-".$myInv['invdate'][1]."-".$myInv['invdate'][0];
 
-                $printOrders .= "<tr bgcolor='$bgColor'><td>$myInv[salesrep]</td><td align=center>$myInv[invdate]</td><td>$myInv[cusname]</td><td align=right>$myInv[ordnum]</td><td>$myInv[grdtot]</td>
+                $printOrders .= "<tr class='".bg_class()."'><td>$myInv[salesrep]</td><td align=center>$myInv[invdate]</td><td>$myInv[cusname]</td><td align=right>$myInv[ordnum]</td><td>$myInv[grdtot]</td>
                 <td>$myInv[terms] days</td><td><a target='_blank' href='credit-invoices-details.php?ordnum=$myInv[ordnum]'>Print</a></td>";
 
 

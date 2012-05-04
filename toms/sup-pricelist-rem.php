@@ -114,9 +114,7 @@ function rem($listid)
 			$stkRslt = db_exec ($sql) or errDie ("Unable to retrieve stocks from database.");
 			$stk = pg_fetch_array ($stkRslt);
 
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$enter .= "<tr bgcolor='$bgColor'><td>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td><td align=right>".CUR." $stkp[price] $vattype</td></tr>";
+			$enter .= "<tr class='".bg_class()."'><td>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td><td align=right>".CUR." $stkp[price] $vattype</td></tr>";
 		}
 
 	$enter .= "

@@ -325,7 +325,7 @@ function enter_data($_POST,$_FILES="")
 		}
 
 		$out .= "
-			<tr bgcolor='$bgcolor'>
+			<tr class='".bg_class()."'>
 				<td>$showerr $fd[des1]</td>
 				<td>$fd[des2]</td>
 				<td>$fd[des3]</td>
@@ -344,7 +344,7 @@ function enter_data($_POST,$_FILES="")
 	$tot_credit = sprint($tot_credit);
 
 	$out .= "
-		<tr bgcolor='$bgcolor'>
+		<tr class='".bg_class()."'>
 			<td colspan='2'>Total</td>
 			<td align='right'>$tot_debit</td>
 			<td align='right'>$tot_credit</td>
@@ -621,7 +621,7 @@ function enter_data2($_POST)
 
 		$out .= "
 			<input type='hidden' name='accounts[$fid]' value='$accounts[$fid]' />
-			<tr bgcolor='$bgcolor'>
+			<tr class='".bg_class()."'>
 				<td>$accnum</td>
 				<td>$fd[des2]</td>
 				<td>$fd[des3]</td>
@@ -867,12 +867,12 @@ function enter_data2($_POST)
 		$stocktot = sprint ($stocktot);
 
 		$out .= "
-					<tr bgcolor='$bgcolor'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'><b>Import Stock Total</b></td>
 						<td align='right'><b>".CUR." $stocktot</b></td>
 						<td></td>
 					</tr>
-					<tr bgcolor='$bgcolor'>
+					<tr class='".bg_class()."'>
 						<td colspan='2'><b>Total</b></td>
 						<td align='right'><b>".CUR." $i_tot</b></td>
 						<td>&nbsp;</td>
@@ -1476,8 +1476,6 @@ function write_data($_POST)
 	while($fd = pg_fetch_array($Ri)) {
 		$fid = $fd['id'];
 
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 		$accs=explode('/',$fd['des1']);
 
 		$topacc=$accs[0];
@@ -1589,8 +1587,6 @@ function write_data($_POST)
 
 	}
 
-	$bgcolor = ($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 	$tot_debit = sprint($tot_debit);
 	$tot_credit = sprint($tot_credit);
 
@@ -1688,8 +1684,6 @@ function write_data($_POST)
 
 		}
 
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 
 	}
 
@@ -1761,8 +1755,6 @@ function write_data($_POST)
 
 		}
 
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 
 
 		if(sprint($sc_tot) != sprint($tot)) {
@@ -1811,8 +1803,6 @@ function write_data($_POST)
 			$tot += $ebalance[$eid];
 
 		}
-
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
 		if(sprint($sal_tot) != sprint($tot)) {
 			return enter_data2($_POST)."<li class='err'>The total amount for balances for employees you entered is: ".CUR." $tot, the
@@ -1935,7 +1925,7 @@ function write($_POST)
 
 	while($fd = pg_fetch_array($Rt)) {
 
-		//$out.="<tr bgcolor='$bgcolor'><td>$fd[des1]</td><td>$fd[des2]</td><td>$fd[des3]</td></tr>";
+		//$out.="<tr class='".bg_class()."'><td>$fd[des1]</td><td>$fd[des2]</td><td>$fd[des3]</td></tr>";
 
 		$i++;
 

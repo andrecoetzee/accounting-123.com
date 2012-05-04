@@ -121,7 +121,6 @@ function printacc($_POST)
 	if ($display == "detailed") {
 		while ($acc = pg_fetch_array($accRslt)) {
 			$i++;
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 			if ($zero == "no") {
 				if(floatval($acc['debit']) == floatval($acc['credit'])) {
@@ -166,7 +165,6 @@ function printacc($_POST)
 /*		if ($display == "main") {
 			while ($acc = pg_fetch_array($accRslt)) {
 				$i++;
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 				if ($zero == "no") {
 					if(floatval($acc['debit']) == floatval($acc['credit'])) {
@@ -230,8 +228,6 @@ function printacc($_POST)
 
 		if ($display == "main") {
 			while ($acc = pg_fetch_array($accRslt)) {
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 				$mdebit = 0;
 				$mcredit = 0;
 

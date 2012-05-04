@@ -2193,9 +2193,8 @@ function printSet ()
 
 		// display all settings
 		$set = pg_fetch_array ($rslt);
-		$bgColor = TMPL_tblDataColor1;
 
-		$OUTPUT .= "<tr bgcolor='$bgColor'><td colspan=2>Cubit Account creation is already set to $set[descript], the quick setup cannot be used for this setting</td></tr>";
+		$OUTPUT .= "<tr class='".bg_class()."'><td colspan=2>Cubit Account creation is already set to $set[descript], the quick setup cannot be used for this setting</td></tr>";
 		$OUTPUT .= "</table>";
 	}
 

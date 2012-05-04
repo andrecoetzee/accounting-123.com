@@ -110,6 +110,7 @@ input, textarea, select
 	background-color: #FFFFFF;
 	border: 2px solid #114488;
 }
+
 .bg-even {
         background: #77AAEE;
 }
@@ -117,7 +118,6 @@ input, textarea, select
 .bg-odd {
         background: #88BBFF;
 }
-
 
 .yay 
 {

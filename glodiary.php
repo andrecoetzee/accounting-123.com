@@ -163,7 +163,7 @@ function order($_POST,$errors="")
 	if ($ppmon==-1) {$ppy=$ppy-1;$ppmon=11;}
 
 	
-	$bgColor =TMPL_tblDataColor2;
+	$bgColor = TMPL_tblDataColor2;
 	pglib_transaction("commit");
 
 	$account_dets =

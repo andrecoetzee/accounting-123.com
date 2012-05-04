@@ -68,7 +68,6 @@ function enter() {
 	db_conn('crm');
 
 	while($data=pg_fetch_array($Ry)) {
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 		$userid=$data['userid'];
 		
 		$Sl="SELECT teamid FROM crms WHERE userid='$userid'";
@@ -102,7 +101,7 @@ function enter() {
 
 		$teams.="</select>";
 
-		$out.="<tr bgcolor='$bgcolor'><td>$data[username]</td><td>$teams</td></tr>";
+		$out.="<tr class='".bg_class()."'><td>$data[username]</td><td>$teams</td></tr>";
 		
 		$i++;
 
@@ -134,7 +133,6 @@ function confirm($_POST) {
 	db_conn('crm');
 
 	while($data=pg_fetch_array($Ry)) {
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 		$userid=$data['userid'];
 		$team[$userid]+=0;
 
@@ -147,7 +145,7 @@ function confirm($_POST) {
 			$teamdata['name']="Not Active";
 		}
 
-		$out.="<tr bgcolor='$bgcolor'><td>$data[username]</td><td>$teamdata[name]<input type=hidden name='team[$userid]' value='$team[$userid]'></td></tr>";
+		$out.="<tr class='".bg_class()."'><td>$data[username]</td><td>$teamdata[name]<input type=hidden name='team[$userid]' value='$team[$userid]'></td></tr>";
 
 		$i++;
 

@@ -77,9 +77,7 @@ function prnCreditors ()
                         $paidaccname = $acc['accname'];
 
                         if($ct['amount'] > 0){
-                                # alternate bgcolor and write list
-                                $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-                                $view .= "<tr bgcolor='$bgColor'><td>$itemname</td><td>$descript</td><td>$quantity</td><td>".CUR." $tlcost</td><td>".CUR." $ct[amount]</td><td>$ct[terms] $ct[period]</td><td>$paidaccname</td><td>$usedaccname</td>";
+                                $view .= "<tr class='".bg_class()."'><td>$itemname</td><td>$descript</td><td>$quantity</td><td>".CUR." $tlcost</td><td>".CUR." $ct[amount]</td><td>$ct[terms] $ct[period]</td><td>$paidaccname</td><td>$usedaccname</td>";
                                 $view .= "<td><input type=checkbox name='pay[]' value='$purchid'><a href='credit-purch-pay.php?purchid=$purchid'> Pay</a></td></tr>";
                         }else{
                                 continue;

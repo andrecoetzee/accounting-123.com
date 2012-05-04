@@ -928,10 +928,8 @@ function salary() {
 
   	$i = 0;
   	foreach ( $frin as $fid ) {
-  		$bgColor = (++$i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
   		$OUTPUT .= "
-			<tr bgcolor='$bgColor'>
+			<tr class='".bg_class()."'>
 				<td><div id='divfrin[$fid]'></div></td>
 				<td>
 					<table><tr>
@@ -963,10 +961,8 @@ function salary() {
 
 	$i = 1;
 	foreach ( $all as $aid ) {
-		$bgColor = (++$i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 		$OUTPUT .= "
-		<tr bgcolor='$bgColor'>
+		<tr class='".bg_class()."'>
 			<td><div id='divall[$aid]'></div></td>
 			<td>
 				<table>
@@ -992,7 +988,7 @@ function salary() {
 		$bgcolor = bgcolor($i);
 
 		$OUTPUT .= "
-			<tr bgcolor='$bgcolor'>
+			<tr class='".bg_class()."'>
 				<td><div id='subsname[$sid]'></div></td>
 				<td>
 					<table>
@@ -1076,10 +1072,8 @@ function salary() {
 
 	$i = 0;
 	foreach ( $ded as $did ) {
-		$bgColor = (++$i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 /*		$OUTPUT .= "
-		<tr bgcolor='$bgColor'>
+		<tr class='".bg_class()."'>
 			<td><div id='divcomp_ded[$did]'></div></td>
 			<td>
 				<table><tr>
@@ -1191,10 +1185,8 @@ function salary() {
 
 	$i = 1;
 	foreach ( $ded as $did ) {
-		$bgColor = (++$i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 		$OUTPUT .= "
-			<tr bgcolor='$bgColor'>
+			<tr class='".bg_class()."'>
 				<td><div id='divded[$did]'></div></td>
 				<td>
 					<table>

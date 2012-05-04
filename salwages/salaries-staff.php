@@ -2336,8 +2336,6 @@ function confirm ($_POST)
 
 	if (pg_num_rows($Ri) > 0) {
 		while($td = pg_fetch_array($Ri)) {
-			$bgcolor = ($i%2)?TMPL_tblDataColor1:TMPL_tblDataColor2;
-
 			if (!isset($rbsa[$td['id']]) || $rbsa[$td['id']] < 1) {
 				continue;
 			}
@@ -2349,7 +2347,7 @@ function confirm ($_POST)
 			}
 
 			$rt .= "
-				<tr bgcolor='$bgcolor'>
+				<tr class='".bg_class()."'>
 					<td><input type='hidden' name='rbs[$td[id]]' value='$td[id]'>$td[name]</td>
 					<td>".CUR." <input type='hidden' name='rbsa[$td[id]]' value='".$rbsa[$td['id']]."'>".$rbsa[$td['id']]."</td>
 				</tr>";

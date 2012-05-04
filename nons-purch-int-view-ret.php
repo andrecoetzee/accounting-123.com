@@ -209,9 +209,7 @@ function printPurch ($_POST)
 
 		$tot += $pi_data['subtot'];
 
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printOrd .= "<tr bgcolor='$bgColor'>
+		$printOrd .= "<tr class='".bg_class()."'>
 			<td>$stkp[purnum]</td>
 			<td>$date</td>
 			<td>$stkp[supplier]</td>
@@ -222,8 +220,7 @@ function printPurch ($_POST)
 	}
 	$tot = sprint($tot);
 
-	$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-	$printOrd .= "<tr bgcolor='$bgColor'><td colspan=3>Totals</td><td align=right>".CUR." $tot</td><td><br></td></tr>
+	$printOrd .= "<tr class='".bg_class()."'><td colspan=3>Totals</td><td align=right>".CUR." $tot</td><td><br></td></tr>
 
 	<tr><td><br></td></tr>
 	<form action='".SELF."' method=post>
@@ -320,13 +317,11 @@ function export ($_POST)
 		$tot += $stkp['subtot'];
 
 		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 		$printOrd .= "<tr><td>$stkp[purnum]</td><td>$date</td><td>$stkp[supname]</td><td align=right>".CUR." $stkp[subtot]</td></tr>";
 		$i++;
 	}
 	$tot = sprint($tot);
 
-	$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 	$printOrd .= "<tr><td colspan=3>Totals</td><td align=right>".CUR." $tot</td><td><br></td></tr>
 	</table>";
 

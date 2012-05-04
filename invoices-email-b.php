@@ -68,8 +68,6 @@ function confirm($_GET) {
 	foreach($invoices as $id) {
 		$id+=0;
 
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 		if(!isset($t)) {
 			$Sl="SELECT invnum,cusnum FROM invoices WHERE invid='$id'";
 			$Ri=db_exec($Sl);
@@ -87,7 +85,7 @@ function confirm($_GET) {
 
 		$cd=pg_fetch_array($Ri);
 
-		$out.="<tr bgcolor='$bgcolor'><td>$idd[invnum]</td><td>$cd[surname]</td><td>$cd[email]</td></tr>
+		$out.="<tr class='".bg_class()."'><td>$idd[invnum]</td><td>$cd[surname]</td><td>$cd[email]</td></tr>
 		<input type=hidden name=evs[] value='$id'>";
 		$i++;
 	}
@@ -113,8 +111,6 @@ function send($_POST) {
 	foreach($evs as $id) {
 		$id+=0;
 
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 		if(!isset($t)) {
 			$Sl="SELECT invnum,cusnum FROM invoices WHERE invid='$id'";
 			$Ri=db_exec($Sl);
@@ -133,9 +129,9 @@ function send($_POST) {
 		$cd=pg_fetch_array($Ri);
 
 		if(!isset($t)) {
-			$out.="<tr bgcolor='$bgcolor'><td>$idd[invnum]</td><td>$cd[surname]</td><td>$cd[email]</td><td>".sendvoice($id)."</td></tr>";
+			$out.="<tr class='".bg_class()."'><td>$idd[invnum]</td><td>$cd[surname]</td><td>$cd[email]</td><td>".sendvoice($id)."</td></tr>";
 		} else {
-			$out.="<tr bgcolor='$bgcolor'><td>$idd[invnum]</td><td>$cd[surname]</td><td>$cd[email]</td><td>".sendnvoice($id)."</td></tr>";
+			$out.="<tr class='".bg_class()."'><td>$idd[invnum]</td><td>$cd[surname]</td><td>$cd[email]</td><td>".sendnvoice($id)."</td></tr>";
 		}
 
 		$i++;

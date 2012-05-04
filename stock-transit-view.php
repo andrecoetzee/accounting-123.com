@@ -98,10 +98,7 @@ function printStk ()
 		$swhRslt = db_exec($sql);
 		$swh = pg_fetch_array($swhRslt);
 
-
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printStk .= "<tr bgcolor='$bgColor'><td>$bran[branname]</td><td>$wh[whname]</td><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td align=right>$tran[tunits]</td><td align=right>".CUR." $tran[cstamt]</td><td>$sbran[branname]</td><td>$swh[whname]</td>";
+		$printStk .= "<tr class='".bg_class()."'><td>$bran[branname]</td><td>$wh[whname]</td><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td align=right>$tran[tunits]</td><td align=right>".CUR." $tran[cstamt]</td><td>$sbran[branname]</td><td>$swh[whname]</td>";
 		$printStk .= "<td><a href='stock-transit-can.php?id=$tran[id]'>Cancel</a></td><td><a href='stock-transit-del.php?id=$tran[id]'>Delivered</a></td></tr>";
 		$i++;
 	}

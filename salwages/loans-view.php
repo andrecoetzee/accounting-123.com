@@ -51,10 +51,9 @@ function viewLoans ()
 		);
 	}
 	while ($myEmp = pg_fetch_array ($empRslt)) {
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 		$totloan = sprint($myEmp['loaninstall']*$myEmp['loanperiod']);
 		$totout= sprint($myEmp['loanamt']);
-		$employees .= "<tr bgcolor='$bgColor'><td>$myEmp[sname], $myEmp[fnames] ($myEmp[empnum])</td><td align=right>".CUR." $totloan</td><td align=right>".CUR." $totout</td><td align=right>".CUR." $myEmp[loaninstall]</td><td align=right>$myEmp[loanint] %</td><td align=right>$myEmp[loanperiod] months</td><td><a href='loan-edit.php?empnum=$myEmp[empnum]'>Edit</a></td></tr>\n";
+		$employees .= "<tr class='".bg_class()."'><td>$myEmp[sname], $myEmp[fnames] ($myEmp[empnum])</td><td align=right>".CUR." $totloan</td><td align=right>".CUR." $totout</td><td align=right>".CUR." $myEmp[loaninstall]</td><td align=right>$myEmp[loanint] %</td><td align=right>$myEmp[loanperiod] months</td><td><a href='loan-edit.php?empnum=$myEmp[empnum]'>Edit</a></td></tr>\n";
 		$i++;
 	}
 

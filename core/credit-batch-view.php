@@ -84,7 +84,7 @@ function prnCreditors ()
                         $acc = pg_fetch_array($accRslt);
                         $paidaccname = $acc['accname'];
 
-                        $view .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                        $view .= "<tr class='bg-odd'>
                                 <td>$retailer</td>
                                 <td>$itemname</td>
                                 <td>$descript</td>

@@ -106,8 +106,6 @@ function inc($_POST)
                 $balRslt = db_exec($sql) or errDie("Unable to retrieve Account Balance information from the Database.",SELF);
                 $bal = pg_fetch_array($balRslt);
 
-                # alternate bgcolor
-                $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
                 $total = ($bal['credit'] - $bal['debit']);
 				if($zero == "no"){
 					if(intval($total == 0)){
@@ -116,7 +114,7 @@ function inc($_POST)
 					}
 				}
 				$tlinc += $total;
-                $income .= "<tr bgcolor='$bgColor'><td>$bal[accname]</td><td align=center>".CUR." $total</td></tr>";
+                $income .= "<tr class='".bg_class()."'><td>$bal[accname]</td><td align=center>".CUR." $total</td></tr>";
                 $i++;
         }
 
@@ -143,8 +141,6 @@ function inc($_POST)
                 $balRslt = db_exec($sql) or errDie("Unable to retrieve Account Balance information from the Database.",SELF);
                 $bal = pg_fetch_array($balRslt);
 
-                # alternate bgcolor
-                $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
                 $total = ($bal['debit'] - $bal['credit']);
 				if($zero == "no"){
 					if(intval($total == 0)){
@@ -154,7 +150,7 @@ function inc($_POST)
 				}
 				$tlexp += $total;        // And increment the balance for expenditure
 
-                $income .= "<tr bgcolor='$bgColor'><td>$bal[accname]</td><td align=center>".CUR." $total</td></tr>";
+                $income .= "<tr class='".bg_class()."'><td>$bal[accname]</td><td align=center>".CUR." $total</td></tr>";
                 $i++;
         }
         $income .= "<tr class='bg-odd'><td><b>Total<b></td><td align=center><b>".CUR." $tlexp</b></td></tr>
@@ -208,15 +204,13 @@ function income_save()
                 $balRslt = db_exec($sql) or errDie("Unable to retrieve Account Balance information from the Database.",SELF);
                 $bal = pg_fetch_array($balRslt);
 
-                # alternate bgcolor
-                $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
                 $total = ($bal['credit'] - $bal['debit']);
 				if(intval($total == 0)){
 					$i++;
 					continue;
 				}
 				$tlinc += $total;
-                $income .= "<tr bgcolor='$bgColor'><td>$bal[accname]</td><td align=center>".CUR." $total</td></tr>";
+                $income .= "<tr class='".bg_class()."'><td>$bal[accname]</td><td align=center>".CUR." $total</td></tr>";
                 $i++;
         }
 
@@ -243,8 +237,6 @@ function income_save()
                 $balRslt = db_exec($sql) or errDie("Unable to retrieve Account Balance information from the Database.",SELF);
                 $bal = pg_fetch_array($balRslt);
 
-                # alternate bgcolor
-                $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
                 $total = ($bal['debit'] - $bal['credit']);
 				if(intval($total == 0)){
 					$i++;
@@ -252,7 +244,7 @@ function income_save()
 				}
 				$tlexp += $total;        // And increment the balance for expenditure
 
-                $income .= "<tr bgcolor='$bgColor'><td>$bal[accname]</td><td align=center>".CUR." $total</td></tr>";
+                $income .= "<tr class='".bg_class()."'><td>$bal[accname]</td><td align=center>".CUR." $total</td></tr>";
                 $i++;
         }
         $income .= "<tr class='bg-odd'><td><b>Total<b></td><td align=center><b>".CUR." $tlexp</b></td></tr>

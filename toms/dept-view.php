@@ -66,9 +66,7 @@ function printDept ()
 		$accRslt = db_exec($sql);
 		$acccred = pg_fetch_array($accRslt);
 
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printDept .= "<tr bgcolor='$bgColor'><td>$dept[deptno]</td><td>$dept[deptname]</td><td>$accinc[accname]</td><td>$accdebt[accname]</td><td>$acccred[accname]</td><td><a href='dept-edit.php?deptid=$dept[deptid]'>Edit</a></td>";
+		$printDept .= "<tr class='".bg_class()."'><td>$dept[deptno]</td><td>$dept[deptname]</td><td>$accinc[accname]</td><td>$accdebt[accname]</td><td>$acccred[accname]</td><td><a href='dept-edit.php?deptid=$dept[deptid]'>Edit</a></td>";
 		$printDept .= "<td><a href='dept-rem.php?deptid=$dept[deptid]'>Remove</a></td></tr>";
 		$i++;
 	}

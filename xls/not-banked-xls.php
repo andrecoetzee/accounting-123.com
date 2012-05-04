@@ -119,9 +119,6 @@ function printrep($bankid)
 	for ($i=0; $i < $numrows; $i++) {
 		$accnt = pg_fetch_array ($accntRslt, $i);
 
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 		# get account name for account involved
 		$accRslt = get("core", "accname", "accounts", "accid", $accnt['accinv']);
 		$acc = pg_fetch_array($accRslt);
@@ -167,9 +164,6 @@ function printdep($bankid)
 	$tot = 0;
 	for ($i=0; $i < $numrows; $i++) {
 		$accnt = pg_fetch_array ($accntRslt, $i);
-
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 		# get account name for account involved
 		$accRslt = get("core", "accname", "accounts", "accid", $accnt['accinv']);

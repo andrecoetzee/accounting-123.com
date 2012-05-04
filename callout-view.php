@@ -58,9 +58,6 @@ function printInv ()
 		$printCallout = "<li>No previous call out documents.";
 	}else{
 		while ($callout = pg_fetch_array ($calloutRslt)) {
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 			# format date
 			$callout['odate'] = explode("-", $callout['odate']);
 			$callout['odate'] = $callout['odate'][2]."-".$callout['odate'][1]."-".$callout['odate'][0];
@@ -75,7 +72,7 @@ function printInv ()
 			}
 
 			$printCallout .= "
-				<tr bgcolor='$bgColor'>
+				<tr class='".bg_class()."'>
 					<td>$callout[deptname]</td>
 					<td>$callout[calloutp]</td>
 					<td>$callout[calloutid]</td>

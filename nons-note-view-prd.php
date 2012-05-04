@@ -178,9 +178,7 @@ function printPurch ($_POST)
 		# Get documents
 		$docs = doclib_getdocs("npur", $stkp['purnum']);
 
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printOrd .= "<tr bgcolor='$bgColor'><td>$stkp[purnum]</td><td>$date</td><td>$stkp[supplier]</td><td align=right>".CUR." $subtot</td><td align=right>".CUR." $stkp[shipchrg]</td><td align=right>".CUR." $vat</td><td align=right>".CUR." $stkp[total]</td><td>$stkp[refno]</td><td>$docs</td>";
+		$printOrd .= "<tr class='".bg_class()."'><td>$stkp[purnum]</td><td>$date</td><td>$stkp[supplier]</td><td align=right>".CUR." $subtot</td><td align=right>".CUR." $stkp[shipchrg]</td><td align=right>".CUR." $vat</td><td align=right>".CUR." $stkp[total]</td><td>$stkp[refno]</td><td>$docs</td>";
 
 		if($stkp['returned'] != 'y'){
 			$printOrd .= "<td><a href='nons-purch-return.php?purid=$stkp[purid]&prd=$prd'>Return</a></td><td><a href='nons-purch-det-prd.php?purid=$stkp[purid]&prd=$prd'>Details</a></td></tr>";
@@ -190,8 +188,7 @@ function printPurch ($_POST)
 		$i++;
 	}
 	
-	$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-	$printOrd .= "<tr bgcolor='$bgColor'><td colspan=3>Totals</td><td align=right>".CUR." $tot1</td><td align=right>".CUR." $tot2</td><td align=right>".CUR." $tot4</td><td align=right>".CUR." $tot3</td></tr>
+	$printOrd .= "<tr class='".bg_class()."'><td colspan=3>Totals</td><td align=right>".CUR." $tot1</td><td align=right>".CUR." $tot2</td><td align=right>".CUR." $tot4</td><td align=right>".CUR." $tot3</td></tr>
 	</table>
     <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>

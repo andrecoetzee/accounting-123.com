@@ -86,8 +86,6 @@ function enter($args="")
 
 	$bgcolor = "";
 	while ($jrn = pg_fetch_array($rslt)) {
-		// Get the background color for the selected row
-		$bgcolor = ($i % 2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 		$i++;
 
 		$deb_totl += $jrn['debit'];
@@ -104,7 +102,7 @@ function enter($args="")
 
 		// Display the saved data
 		$saved_data .= "
-		<tr bgcolor='$bgcolor'>
+		<tr class='".bg_class()."'>
 			<td>
 		  		<input type=checkbox name=rem[$jrn[id]]>
 		  	</td>
@@ -160,10 +158,8 @@ function enter($args="")
 		$cus_accs = extlib_cpsel("ncusnum", $arr_cus, $ncusnum, $nledger!=2?"style='visibility: hidden;'");
 		$sup_accs = extlib_cpsel("nsupid", $arr_sup, $nsupid, $nledger!=3?"style='visibility: hidden;'");
 
-		$bgcolor = ($bgcolor == TMPL_tblDataColor1) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		
 		// New Data
-		$new_data .= "<tr bgcolor='$bgcolor'>
+		$new_data .= "<tr class='".bg_class()."'>
 	  	<td>
 	    	<input type=checkbox name=nrem>
 	  	</td>
@@ -194,8 +190,6 @@ function enter($args="")
 		</tr>";
 	}
 
-	$bgcolor = ($bgcolor == TMPL_tblDataColor1) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-	
 	// Start the output
 	$OUTPUT = "<h3 align=center>Journal Transactions</h3>
 	<form method=post action='".SELF."'>
@@ -220,8 +214,8 @@ function enter($args="")
 				<input type=submit name=save value='Save'>
 				<input type=submit name=process value='Process &raquo'>
 			</td>
-			<td bgcolor='$bgcolor' align=center><b>".sprint($deb_totl)."</b></td>
-			<td bgcolor='$bgcolor' align=center><b>".sprint($cred_totl)."</b></td>
+			<td class='".bg_class()."' align=center><b>".sprint($deb_totl)."</b></td>
+			<td class='".bg_class()."' align=center><b>".sprint($cred_totl)."</b></td>
 		</tr>
 	</table>
 	</form>";

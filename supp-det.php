@@ -126,7 +126,7 @@ function view($supid)
 				$bgcolor = ($i%2) ? bgcolorg() : bgcolorg();
 
 				$conpers .= "
-					<tr bgcolor='$bgcolor'>
+					<tr class='".bg_class()."'>
 						<td>$cp[name]</td>
 						<td>$cp[pos]</td>
 						<td>$cp[tell]</td>

@@ -100,14 +100,13 @@ function editUser ($username)
         $i = 0;
         while($scr = pg_fetch_array($rslt)){
                // print nl2br ($scr["name"]); exit;
-                $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 
                 $Sql = "SELECT script FROM userscripts WHERE username='$username' and script='$scr[name]'";
                 $Ex = db_exec($Sql);                                                                              $e=(pg_numrows ($Ex));
               //  print $Sql;
                 if (pg_numrows ($Ex) > 0) {$Ch ="checked";}      else {$Ch="";} // print"<br><br>user:$username<br>script:$scr[name]<br>num:$e<br><br>";  exit;  // exit;
-                $Out .="<tr bgcolor='$bgColor'><td colspan=2><input type=checkbox $Ch name=perm[] value='$scr[name]'>$scr[script]</td></tr>";
+                $Out .="<tr class='".bg_class()."'><td colspan=2><input type=checkbox $Ch name=perm[] value='$scr[name]'>$scr[script]</td></tr>";
                 $i++;
         }
         $Out .="</table>";
@@ -120,12 +119,11 @@ function editUser ($username)
         $rslt = db_exec($sql);
 
         while($scr = pg_fetch_array($rslt)){
-                $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
                 $Sql = "SELECT script FROM userscripts WHERE username='$username' and script='$scr[name]'";
               //  print $Sql;
                 $Ex = db_exec($Sql);
                 if (pg_numrows ($Ex) > 0) {$Ch ="checked";}      else {$Ch="";}
-                $Out .="<tr bgcolor='$bgColor'><td colspan=2><input type=checkbox $Ch name=perm[] value='$scr[name]'>$scr[script]</td></tr>";
+                $Out .="<tr class='".bg_class()."'><td colspan=2><input type=checkbox $Ch name=perm[] value='$scr[name]'>$scr[script]</td></tr>";
                 $i++;
         }
            $Out .="</td>"; $Out .="</tr>";

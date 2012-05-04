@@ -140,7 +140,7 @@ function det($_POST)
                 $acc = pg_fetch_array($accRslt);
                 $paidaccname = $acc['accname'];
 
-                $proc .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                $proc .= "<tr class='bg-odd'>
                                 <input type=hidden name=pay[] value='$purchid'>
                                 <input type=hidden name=bat[] value='$batch[batchid]'>
                                 <td>$retailer</td><td>$itemname</td>
@@ -232,7 +232,7 @@ function confirm($_POST)
                 $acc= pg_fetch_array($accRslt);
                 $usedacc =  $acc['accname'];
 
-                $pays .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                $pays .= "<tr class='bg-odd'>
                                 <input type=hidden name=pay[] value='$pay[$key]'>
                                 <input type=hidden name=bat[] value='$bat[$key]'>
                                 <td>$purch[retailer]</td>
@@ -256,7 +256,7 @@ function confirm($_POST)
                 <tr><th>Retailer</th><th>Item Name</th><th>Description</th><th>Quantity</th><th>Outstanding amount</th><th>Amount Paid</th><th>Account used</th><th>Account paid</th></tr>
                 $pays
                 <tr><td><br></td></tr>
-                <tr bgcolor=".TMPL_tblDataColor2."><td colspan=5><b>Total Amount Paid</b></td><td colspan=2><b>".CUR." ".sprintf("%01.2f", round($tot, 2))."</b></td></tr>
+                <tr class='bg-even'><td colspan=5><b>Total Amount Paid</b></td><td colspan=2><b>".CUR." ".sprintf("%01.2f", round($tot, 2))."</b></td></tr>
                 <tr><td align=right colspan=6><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right colspan=1><input type=submit value='Confirm &raquo'></td></tr>
         </form></table>
         <br><br><br>
@@ -331,7 +331,7 @@ function write($_POST)
                 $acc= pg_fetch_array($accRslt);
                 $usedacc =  $acc['accname'];
 
-                $pays .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                $pays .= "<tr class='bg-odd'>
                                 <td>$purch[retailer]</td>
                                 <td>$purch[itemname]</td>
                                 <td>$purch[descript]</td>
@@ -364,7 +364,7 @@ function write($_POST)
                 <tr><th>Retailer</th><th>Item Name</th><th>Description</th><th>Quantity</th><th>Outstanding amount</th><th>Amount Paid</th><th>Account used</th><th>Account paid</th></tr>
                 $pays
                 <tr><td><br></td></tr>
-                <tr bgcolor=".TMPL_tblDataColor2."><td colspan=5><b>Total Amount Paid</b></td><td colspan=2><b>".CUR." ".sprintf("%01.2f", round($tot, 2))."</b></td></tr>
+                <tr class='bg-even'><td colspan=5><b>Total Amount Paid</b></td><td colspan=2><b>".CUR." ".sprintf("%01.2f", round($tot, 2))."</b></td></tr>
         </table>
         <br><br><br>
         <table border=0 cellpadding='2' cellspacing='1' width=15%>
@@ -494,7 +494,7 @@ function detrem($_POST)
                 $acc = pg_fetch_array($accRslt);
                 $paidaccname = $acc['accname'];
 
-                $proc .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                $proc .= "<tr class='bg-odd'>
                                 <input type=hidden name=pay[] value='$purchid'>
                                 <input type=hidden name=bat[] value='$batch[batchid]'>
                                 <td>$retailer</td>
@@ -591,7 +591,7 @@ function writerem($_POST)
                 $acc= pg_fetch_array($accRslt);
                 $usedacc =  $acc['accname'];
 
-                $pays .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                $pays .= "<tr class='bg-odd'>
                                 <td>$purch[retailer]</td>
                                 <td>$purch[itemname]</td>
                                 <td>$purch[descript]</td>
@@ -616,7 +616,7 @@ function writerem($_POST)
                 <tr><th>Retailer</th><th>Item Name</th><th>Description</th><th>Quantity</th><th>Outstanding amount</th><th>Amount Paid</th><th>Account used</th><th>Account paid</th></tr>
                 $pays
                 <tr><td><br></td></tr>
-                <tr bgcolor=".TMPL_tblDataColor2."><td colspan=5><b>Total Amount Paid</b></td><td colspan=2><b>".CUR." ".sprintf("%01.2f", round($tot, 2))."</b></td></tr>
+                <tr class='bg-even'><td colspan=5><b>Total Amount Paid</b></td><td colspan=2><b>".CUR." ".sprintf("%01.2f", round($tot, 2))."</b></td></tr>
         </table>
         <br><br><br>
         <table border=0 cellpadding='2' cellspacing='1' width=15%>

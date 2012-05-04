@@ -178,7 +178,7 @@ function printSord () {
 				$bcurr = $sord['currency'];
 			}
 
-			$printSord .= "<tr bgcolor='$bgColor'>
+			$printSord .= "<tr class='".bg_class()."'>
 				<td>$sord[deptname]</td>
 				<td>$sord[salespn]</td>
 				<td>$sord[sordid]</td>

@@ -101,9 +101,8 @@ function do_search ()
 				$employee_name = "$earr[fnames] $earr[sname]";
 			}
 
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 			$results .= "
-					<tr bgcolor='$bgColor'>
+					<tr class='".bg_class()."'>
 						<td>$employee_name</td>
 						<td>$tarr[course_name]</td>
 						<td>$tarr[date_date]</td>

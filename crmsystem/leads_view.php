@@ -150,7 +150,7 @@ function viewLead ()
 	$i++;
 	$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
-	$conpers.="<tr bgcolor='$bgcolor'><td>$cp[name]</td><td>$cp[pos]</td><td>$cp[tell]</td><td>$cp[cell]</td><td>$cp[fax]</td><td>$cp[email]</td>
+	$conpers.="<tr class='".bg_class()."'><td>$cp[name]</td><td>$cp[pos]</td><td>$cp[tell]</td><td>$cp[cell]</td><td>$cp[fax]</td><td>$cp[email]</td>
 	<td>$cp[notes]</td><td><a href='conper-edit.php?id=$cp[id]&type=edit'>Edit</a></td><td><a href='conper-rem.php?id=$cp[id]'>Delete</a></td></tr>";
 	}
 

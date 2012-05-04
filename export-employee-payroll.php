@@ -580,7 +580,7 @@ var_dump ($sal["totded"]);
 print "</pre>";
 				$bgColor = bgcolorg();
 				$slip .= "
-					<tr bgcolor='$bgColor'>
+					<tr class='".bg_class()."'>
 						<td>$emp[fnames] $emp[sname]</td>
 						<td nowrap>".CUR." ".sprint($sal["gross"])."</td>
 						<td nowrap>".CUR." ".sprint($sal["comm"])."</td>

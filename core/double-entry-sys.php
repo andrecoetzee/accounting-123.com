@@ -69,7 +69,7 @@ function slctacc()
         <tr><th>Account</th><th>DAte</th><th>Ref num</th><th>Debit</th><th>Credit</th><th>Description</th></tr>";
 
         for($i=0; $i != 5; $i++){
-                $view .= "<tr bgcolor=".TMPL_tblDataColor2."><td valign=center>
+                $view .= "<tr class='bg-even'><td valign=center>
                                 <select name='accid[]'>";
                                 core_connect();
                                 $sql = "SELECT * FROM accounts ORDER BY topacc, accnum ASC";
@@ -164,7 +164,7 @@ function confirm($_POST)
 
          foreach($accid as $key => $value){
                 if($debit[$key] > 0 || $credit[$key] > 0){
-                        $confirm .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                        $confirm .= "<tr class='bg-odd'>
                                 <td valign=center><input type=hidden name='accid[]' value='".$acc[$key]['accid']."'>".$acc[$key]['accname']."</td>
                                 <td><input type=hidden size=10 name=date[] value='$date[$key]'>$date[$key]</td>
                                 <td><input type=hidden size=10 name=refnum[] value='$refnum[$key]'>$refnum[$key]</td>
@@ -248,7 +248,7 @@ function write($_POST)
                 <tr><th>Account</th><th>Date</th><th>Ref num</th><th>Debit</th><th>Credit</th><th>Description</th></tr>";
 
          foreach($accid as $key => $value){
-                $confirm .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                $confirm .= "<tr class='bg-odd'>
                                 <td>".$acc[$key]['accname']."</td>
                                 <td>$date[$key]</td>
                                 <td>$refnum[$key]</td>
@@ -349,7 +349,7 @@ function writes($_POST)
         <tr><th>Date</th><th>Ref num</th><th>Debit</th><th>Credit</th><th>Amount</th><th>Description</th></tr>";
 
                 foreach($amount as $key => $value){
-                        $write .= "<tr bgcolor=".TMPL_tblDataColor1."><td>$date[$key]</td><td>$refnum[$key]</td>
+                        $write .= "<tr class='bg-odd'><td>$date[$key]</td><td>$refnum[$key]</td>
                         <td valign=center>".$dtacc[$key]['topacc']."/".$dtacc[$key]['accnum']." ".$dtacc[$key]['accname']."</td>
                         <td valign=center>".$ctacc[$key]['topacc']."/".$ctacc[$key]['accnum']." ".$ctacc[$key]['accname']."</td>
                         <td>".CUR." $amount[$key]</td><td>$descript[$key]</td></tr>";

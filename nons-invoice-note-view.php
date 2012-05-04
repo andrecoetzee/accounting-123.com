@@ -144,9 +144,6 @@ function printNote ($_POST)
 			$printNote = "<li>No previous credit notes.";
 		}else{
 			while ($note = pg_fetch_array ($noteRslt)) {
-				# alternate bgcolor
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 				$note['total']=sprint($note['total']);
 				$tot1=$tot1+$note['total'];
 

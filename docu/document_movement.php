@@ -43,7 +43,7 @@ function display()
 	while ($dm_data = pg_fetch_array($dm_rslt)) {
 		$bgcolor = bgcolorg();
 
-		$dm_out .= "<tr bgcolor='$bgcolor'>
+		$dm_out .= "<tr class='".bg_class()."'>
 			<td>".date("d-m-Y G:i:s", $dm_data["e_time"])."</td>
 			<td>$dm_data[doc_id]</td>
 			<td>$dm_data[project]</td>
@@ -62,7 +62,7 @@ function display()
 			<td>$dm_data[qs]</td>
 			<td>$dm_data[status]</td>
 		</tr>
-		<tr bgcolor='$bgcolor'>
+		<tr class='".bg_class()."'>
 			<td colspan='20'>$dm_data[movement_description]</td>
 		</tr>";
 	}

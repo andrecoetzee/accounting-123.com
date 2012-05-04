@@ -168,9 +168,6 @@ function report($_POST)
 			$totinc=0;
 
 			while($vd=pg_fetch_array($Ry)) {
-
-				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 				$out.="<tr class='bg-odd'><td>$vd[date]</td><td>$vd[des]</td>
 				<td align=right>".CUR." $vd[exl]</td><td align=right>".CUR." $vd[vat]</td><td align=right>".CUR." $vd[inc]</td></tr>";
 
@@ -201,8 +198,6 @@ function report($_POST)
 			$i=1;
 
 			while($vd=pg_fetch_array($Ri)) {
-				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 				$Sl="SELECT sum(exl) AS exl,sum(vat) AS vat, sum(inc) AS inc FROM sj WHERE date>='$date' AND date<='$tdate' $whe AND cid='$vd[cid]'";
 				$Ry=db_exec($Sl) or errDie("Unable to get sales journal.");
 				$data=pg_fetch_array($Ry);
@@ -215,17 +210,15 @@ function report($_POST)
 				$totvat+=$vat;
 				$totinc+=$inc;
 
-				$out.="<tr bgcolor='$bgcolor'><td>$vd[name]</td><td align=right>".CUR." $exl</td><td align=right>".CUR." $vat</td><td align=right>".CUR." $inc</td></tr>";
+				$out.="<tr class='".bg_class()."'><td>$vd[name]</td><td align=right>".CUR." $exl</td><td align=right>".CUR." $vat</td><td align=right>".CUR." $inc</td></tr>";
 				$i++;
 			}
-
-			$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
 			$totexl=sprint($totexl);
 			$totvat=sprint($totvat);
 			$totinc=sprint($totinc);
 
-			$out.="<tr bgcolor='$bgcolor'><td>Total</td><td align=right>".CUR." $totexl</td><td align=right>".CUR." $totvat</td><td align=right>".CUR." $totinc</td></tr>";
+			$out.="<tr class='".bg_class()."'><td>Total</td><td align=right>".CUR." $totexl</td><td align=right>".CUR." $totvat</td><td align=right>".CUR." $totinc</td></tr>";
 
 		} else {
 			$Sl="SELECT * FROM sj WHERE date>='$date' AND date<='$tdate' $whe  ORDER BY id";
@@ -240,8 +233,6 @@ function report($_POST)
 			$totinc=0;
 
 			while($vd=pg_fetch_array($Ry)) {
-
-				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
 				$exl=sprint($vd['exl']);
 				$vat=sprint($vd['vat']);
@@ -361,8 +352,6 @@ function export($_POST)
 
 			while($vd=pg_fetch_array($Ry)) {
 
-				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 				$out.="<tr><td>$vd[date]</td><td>$vd[des]</td>
 				<td align=right>".CUR." $vd[exl]</td><td align=right>".CUR." $vd[vat]</td><td align=right>".CUR." $vd[inc]</td></tr>";
 
@@ -393,8 +382,6 @@ function export($_POST)
 			$i=1;
 
 			while($vd=pg_fetch_array($Ri)) {
-				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 				$Sl="SELECT sum(exl) AS exl,sum(vat) AS vat, sum(inc) AS inc FROM sj WHERE date>='$date' AND date<='$tdate' $whe AND cid='$vd[cid]'";
 				$Ry=db_exec($Sl) or errDie("Unable to get sales journal.");
 				$data=pg_fetch_array($Ry);
@@ -410,8 +397,6 @@ function export($_POST)
 				$out.="<tr><td>$vd[name]</td><td align=right>".CUR." $exl</td><td align=right>".CUR." $vat</td><td align=right>".CUR." $inc</td></tr>";
 				$i++;
 			}
-
-			$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
 			$totexl=sprint($totexl);
 			$totvat=sprint($totvat);
@@ -432,8 +417,6 @@ function export($_POST)
 			$totinc=0;
 
 			while($vd=pg_fetch_array($Ry)) {
-
-				$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
 				$exl=sprint($vd['exl']);
 				$vat=sprint($vd['vat']);

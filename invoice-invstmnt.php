@@ -267,14 +267,11 @@ function printInv ($_POST)
 				$cust = pg_fetch_array($custRslt);
 			}
 
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 			# format date
 			$st['odate'] = explode("-", $st['odate']);
 			$st['odate'] = $st['odate'][2]."-".$st['odate'][1]."-".$st['odate'][0];
 
-			$stmnt .= "<tr bgcolor='$bgColor'><td>$st[invid]</td><td>".CUR." $st[balance]</td></tr>";
+			$stmnt .= "<tr class='".bg_class()."'><td>$st[invid]</td><td>".CUR." $st[balance]</td></tr>";
 
 			# keep track of da totals
 			$totout += $st['amount'];

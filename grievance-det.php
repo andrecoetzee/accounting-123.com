@@ -119,8 +119,7 @@ function show_grievance ($err = "")
 							<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 							<tr><th>Input</th><th>Date Added</th></tr>";
 					while ($garr2 = pg_fetch_array($run_inp)){
-						$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-						$enterEmp .= "<tr bgcolor='$bgColor'><td>".nl2br($garr2['input'])."</td><td>$garr2[date_added]</td></tr>";
+						$enterEmp .= "<tr class='".bg_class()."'><td>".nl2br($garr2['input'])."</td><td>$garr2[date_added]</td></tr>";
 						$i++;
 					}
 					$enterEmp .= "</table><table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>";

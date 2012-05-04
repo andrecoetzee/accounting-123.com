@@ -139,9 +139,7 @@ function viewcat($_POST)
 		        $$key = $value;
 	        }
 
-                # alternate bgcolor
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-                $OUTPUT .= "<tr bgcolor='$bgColor'><td>$catid</td><td>$catname</td><td><a href='accat-edit.php?catid=$catid'>Edit</a></td>";
+                $OUTPUT .= "<tr class='".bg_class()."'><td>$catid</td><td>$catname</td><td><a href='accat-edit.php?catid=$catid'>Edit</a></td>";
 
                 # check if accounts are available on catagory
                 $sql = "SELECT * FROM accounts WHERE catid = '$catid' AND acctype='$type' AND div = '".USER_DIV."'";

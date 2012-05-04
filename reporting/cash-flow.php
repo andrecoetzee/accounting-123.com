@@ -149,7 +149,6 @@ function slct($errors = "") {
 
 			foreach ($$key as $accid) {
 				$i++;
-				$bgcolor = ($i % 2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
 
 				// Retrieve the account info from the trial balance
 				db_conn("core");
@@ -159,7 +158,7 @@ function slct($errors = "") {
 
 				$acc_out .= "
 				<input type='hidden' name='acc_${key}[]' value='$accid'>
-				<tr bgcolor='$bgcolor'>
+				<tr class='".bg_class()."'>
 					<td>$acc_data[accname]</td>
 					<td align='center'><input type='checkbox' name='rem[$acc_data[accid]]' value='$acc_data[accid]'></td>
 				</tr>";

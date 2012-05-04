@@ -200,9 +200,7 @@ function confirm($_POST)
 		$csprice = round(($csprice + $stk['csprice']), 2);
 		$stk['csprice'] = round($stk['csprice'], 2);
 
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printStk .= "<tr bgcolor='$bgColor'><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>".CUR." $stk[csprice]</td><td align=right>".CUR." $csprice</td></tr>";
+		$printStk .= "<tr class='".bg_class()."'><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>".CUR." $stk[csprice]</td><td align=right>".CUR." $csprice</td></tr>";
 		$i++;
 	}
 	$printStk .= "</table>";

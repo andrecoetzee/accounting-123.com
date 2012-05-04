@@ -167,9 +167,6 @@ function printInvoice ($_POST)
 		$tot_total += $nonstks["total"];
 
 		# calculate the Sub-Total
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 		if($nonstks['invnum']==0) {
 			$nonstks['invnum']=$nonstks['invid'];
 		}
@@ -211,7 +208,7 @@ function printInvoice ($_POST)
 			$chbox="";
 		}
 		
-		$printOrd .= "<tr bgcolor='$bgColor'>
+		$printOrd .= "<tr class='".bg_class()."'>
 			<td>$nonstks[invnum]</td>
 			<td>$nonstks[docref]</td>
 			<td>$date</td>
@@ -243,8 +240,7 @@ function printInvoice ($_POST)
 	$tot_total=sprint($tot_total);
 	
 
-	$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-	$printOrd .= "<tr bgcolor='$bgColor'><td colspan=4>Totals</td><td align=right>".CUR." $tot_total</td><td colspan=3 align=right><input type=submit value='Process Selected' name=print></td><td colspan=3 align=right><input type=submit value='Email Selected' name=email></td></tr>
+	$printOrd .= "<tr class='".bg_class()."'><td colspan=4>Totals</td><td align=right>".CUR." $tot_total</td><td colspan=3 align=right><input type=submit value='Process Selected' name=print></td><td colspan=3 align=right><input type=submit value='Email Selected' name=email></td></tr>
 	</table>
     <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>

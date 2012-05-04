@@ -69,9 +69,7 @@ function printSupp ()
 		# Suppliers total
 		$supptot = ($curr + $age30 + $age60 + $age90 + $age120);
 
-		# Alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printSupp .= "<tr bgcolor='$bgColor'><td>$supp[div]-$supp[supno]</td><td>$supp[supname]</td><td>".CUR." $curr</td><td>".CUR." $age30</td><td>".CUR." $age60</td><td>".CUR." $age90</td><td>".CUR." $age120</td><td>".CUR." $supptot</td></tr>";
+		$printSupp .= "<tr class='".bg_class()."'><td>$supp[div]-$supp[supno]</td><td>$supp[supname]</td><td>".CUR." $curr</td><td>".CUR." $age30</td><td>".CUR." $age60</td><td>".CUR." $age90</td><td>".CUR." $age120</td><td>".CUR." $supptot</td></tr>";
 
 		# hold totals
 		$totcurr += $curr;

@@ -134,9 +134,7 @@ function select($_POST)
         // display customers to choose from
 		for ($i=0; $i < $numrows; $i++) {
 			$myCust = pg_fetch_array ($prnCustRslt);
-			// every other row gets a diff color
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$select .= "<tr bgcolor='$bgColor'><td align=center>$myCust[cusnum]</td><td align=center><a href='quote-new.php?cusnum=$myCust[cusnum]'>$myCust[cusname]</a></td></tr>";
+			$select .= "<tr class='".bg_class()."'><td align=center>$myCust[cusnum]</td><td align=center><a href='quote-new.php?cusnum=$myCust[cusnum]'>$myCust[cusname]</a></td></tr>";
 		}
 
 		$select .= "</table>

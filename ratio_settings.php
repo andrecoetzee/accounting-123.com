@@ -47,7 +47,7 @@ function display()
 		$results = pg_num_rows($acc_rslt);
 
 		$ratios_out .= "
-		<tr bgcolor='$bgcolor'>
+		<tr class='".bg_class()."'>
 			<td rowspan='$rows'><b>$type_data[rname]</b></td>";
 
 		$i = 0;
@@ -55,7 +55,7 @@ function display()
 		while ($acc_data = pg_fetch_array($acc_rslt)) {
 			// Should a new row be created
 			if ($i) {
-				$tr = "<tr bgcolor='$bgcolor'>";
+				$tr = "<tr class='".bg_class()."'>";
 			} else {
 				$tr = "";
 			}
@@ -91,7 +91,7 @@ function display()
 
 		// New row
 		if ($results) {
-			$tr = "<tr bgcolor='$bgcolor'>";
+			$tr = "<tr class='".bg_class()."'>";
 		} else {
 			$tr = "";
 		}

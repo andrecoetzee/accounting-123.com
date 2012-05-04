@@ -86,9 +86,7 @@ function prnDebtors ()
                                 $$keys = $values;
                         }
 
-                        # alternate bgcolor and write list
-                        $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-                        $view .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                        $view .= "<tr class='bg-odd'>
                                 <td>$cusname</td>
                                 <td align=center>$orddate</td>
                                 <td align=center>$invdate</td>
@@ -102,7 +100,7 @@ function prnDebtors ()
                 }
 
                 $view .= "<tr><td><br></td></tr>
-                <tr bgcolor=".TMPL_tblDataColor2."><td colspan=5><b>Total Amount Received</b></td><td colspan=2><b>".CUR." ".sprintf("%01.2f", round($tot, 2))."</b></td></tr>
+                <tr class='bg-even'><td colspan=5><b>Total Amount Received</b></td><td colspan=2><b>".CUR." ".sprintf("%01.2f", round($tot, 2))."</b></td></tr>
                 <tr><td><br></td></tr>
                 <tr><td colspan=6><br></td><td colspan=2 align=right><input type=submit value='Process Selected' name=proc> <input type=submit value='Remove Selected' name=rem></td><tr></table>
                 <table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=100>

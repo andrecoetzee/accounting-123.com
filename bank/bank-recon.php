@@ -188,9 +188,6 @@ function viewcash($_POST)
                 # display all bank Deposits
                 for ($i=0; $tran = pg_fetch_array ($tranRslt); $i++) {
 
-					# alternate bgcolor
-					$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 					# get account name for account involved
 					$accRslt = get("core", "accname,topacc,accnum", "accounts", "accid", $tran['accinv']);
 					$acc = pg_fetch_array($accRslt);
@@ -200,7 +197,7 @@ function viewcash($_POST)
 					$tran['date'] = $tran['date'][2]."-".$tran['date'][1]."-".$tran['date'][0];
 
 					# $rtotal += $accnt['amount']; // add to rtotal
-					$OUTPUT .= "<tr bgcolor='$bgColor'><td>$tran[date]</td><td>$tran[name]</td><td>$tran[descript]</td>";
+					$OUTPUT .= "<tr class='".bg_class()."'><td>$tran[date]</td><td>$tran[name]</td><td>$tran[descript]</td>";
 
 					if($tran['trantype'] == "deposit"){
 

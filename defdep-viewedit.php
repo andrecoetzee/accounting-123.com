@@ -230,10 +230,7 @@ function accounts ($_POST)
 			return "<li>There are no stock items in the selected category.";
 		}
 		while ($acc = pg_fetch_array ($accRslt)) {
-
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$confirm .= "<tr bgcolor='$bgColor'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td></tr>";
+			$confirm .= "<tr class='".bg_class()."'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td></tr>";
 			$i++;
 		}
 
@@ -254,10 +251,7 @@ function accounts ($_POST)
 			return "<li>There are no stock items in the selected category.";
 		}
 		while ($acc = pg_fetch_array ($accRslt)) {
-
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$confirm .= "<tr bgcolor='$bgColor'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td></tr>";
+			$confirm .= "<tr class='".bg_class()."'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td></tr>";
 			$i++;
 		}
 
@@ -278,10 +272,7 @@ function accounts ($_POST)
 			return "<li>There are no stock items in the selected category.";
 		}
 		while ($acc = pg_fetch_array ($accRslt)) {
-
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$confirm .= "<tr bgcolor='$bgColor'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td></tr>";
+			$confirm .= "<tr class='".bg_class()."'><td>$acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td></tr>";
 			$i++;
 		}
 

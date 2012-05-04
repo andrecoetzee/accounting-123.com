@@ -77,7 +77,7 @@ function slctacc()
         <tr><th>Date</th><th>Ref num</th><th>Debit (Acc No.)</th><th>Credit (Acc No.)</th><th>Amount</th><th>Description</th></tr>";
 
         for($i=0; $i != 15; $i++){
-                $view .= "<tr bgcolor=".TMPL_tblDataColor2.">
+                $view .= "<tr class='bg-even'>
                               <td><input type=text size=2 name=day[] maxlength=2>-<input type=text size=2 name=mon[] maxlength=2  value='".date("m")."'>-<input type=text size=4 name=year[] maxlength=4 value='".date("Y")."'></td>
                               <td><input type=text size=10 name=refnum[] value='".($refnum++)."'></td>
                               <td valign=center><input type=text size=12 name='dtaccnum[]'></td>
@@ -196,7 +196,7 @@ function confirm($_POST)
 
          foreach($amount as $key => $value){
                 if($amount[$key] > 0){
-                        $confirm .= "<tr bgcolor=".TMPL_tblDataColor1."><td><input type=hidden size=10 name=date[] value='$date[$key]'>$date[$key]</td>
+                        $confirm .= "<tr class='bg-odd'><td><input type=hidden size=10 name=date[] value='$date[$key]'>$date[$key]</td>
                               <td><input type=hidden size=10 name=refnum[] value='$refnum[$key]'>$refnum[$key]</td>
                               <td valign=center><input type=hidden name='dtaccid[]' value='".$dtacc[$key]['accid']."'>".$dtacc[$key]['topacc']."/".$dtacc[$key]['accnum']."&nbsp;&nbsp;&nbsp;".$dtacc[$key]['accname']."</td>
                               <td valign=center><input type=hidden name='ctaccid[]' value='".$ctacc[$key]['accid']."'>".$ctacc[$key]['topacc']."/".$ctacc[$key]['accnum']."&nbsp;&nbsp;&nbsp;".$ctacc[$key]['accname']."</td>
@@ -293,7 +293,7 @@ function write($_POST)
         <tr><th>Date</th><th>Ref num</th><th>Debit</th><th>Credit</th><th>Amount</th><th>Description</th></tr>";
 
                 foreach($amount as $key => $value){
-                        $write .= "<tr bgcolor=".TMPL_tblDataColor1."><td>$date[$key]</td><td>$refnum[$key]</td>
+                        $write .= "<tr class='bg-odd'><td>$date[$key]</td><td>$refnum[$key]</td>
                         <td valign=center>".$dtacc[$key]['topacc']."/".$dtacc[$key]['accnum']."&nbsp;&nbsp;&nbsp;".$dtacc[$key]['accname']."</td>
                         <td valign=center>".$ctacc[$key]['topacc']."/".$ctacc[$key]['accnum']."&nbsp;&nbsp;&nbsp;".$ctacc[$key]['accname']."</td>
                         <td>".CUR." $amount[$key]</td><td>$descript[$key]</td></tr>";

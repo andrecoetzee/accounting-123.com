@@ -135,9 +135,6 @@ function printrep($bankid)
 		for ($i=0; $i < $numrows; $i++) {
 			$accnt = pg_fetch_array ($accntRslt, $i);
 
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 			if(strlen($accnt['accids']) > 0){
 				$acc['accname'] = "Multiple Accounts";
 				$acc['accnum'] = "000";
@@ -160,8 +157,8 @@ function printrep($bankid)
 			$bankRslt = db_exec($sql);
 			$bank = pg_fetch_array($bankRslt);
 
-			# $OUTPUT .= "<tr bgcolor='$bgColor'><td>$accnt[bankname]</td><td align=center>$bname[accname]</td><td align=center>$accnt[date]</td><td>$accnt[descript]</td><td align=center>$accnt[ref]</td><td align=center>$accnt[trantype]</td><td align=center>".CUR." $accnt[amount]<td align=center>$acc[accname]</td></td>";
-			$OUTPUT .= "<tr bgcolor='$bgColor'><td>$bank[bankname]</td><td align=center>$bank[accname]</td><td align=center>$accnt[date]</td><td align=center>$accnt[name]</td><td>$accnt[descript]</td><td align=center>$accnt[trantype]</td><td align=center>".CUR." $accnt[amount]<td align=center>$acc[accname]</td></td>
+			# $OUTPUT .= "<tr class='".bg_class()."'><td>$accnt[bankname]</td><td align=center>$bname[accname]</td><td align=center>$accnt[date]</td><td>$accnt[descript]</td><td align=center>$accnt[ref]</td><td align=center>$accnt[trantype]</td><td align=center>".CUR." $accnt[amount]<td align=center>$acc[accname]</td></td>";
+			$OUTPUT .= "<tr class='".bg_class()."'><td>$bank[bankname]</td><td align=center>$bank[accname]</td><td align=center>$accnt[date]</td><td align=center>$accnt[name]</td><td>$accnt[descript]</td><td align=center>$accnt[trantype]</td><td align=center>".CUR." $accnt[amount]<td align=center>$acc[accname]</td></td>
 						<td><a href='../bank/cheq-cancel.php?cashid=$accnt[cashid]'>Cancel</td></tr>";
 			$tot += $accnt['amount'];
 		}
@@ -199,9 +196,6 @@ function printdep($bankid)
 		for ($i=0; $i < $numrows; $i++) {
 			$accnt = pg_fetch_array ($accntRslt, $i);
 
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 			if(strlen($accnt['accids']) > 0){
 				$acc['accname'] = "Multiple Accounts";
 				$acc['accnum'] = "000";
@@ -224,7 +218,7 @@ function printdep($bankid)
 			$bankRslt = db_exec($sql);
 			$bank = pg_fetch_array($bankRslt);
 
-			$OUTPUT .= "<tr bgcolor='$bgColor'><td>$bank[bankname]</td><td align=center>$bank[accname]</td><td align=center>$accnt[date]</td><td align=center>$accnt[name]</td><td align=center>$accnt[descript]</td><td align=center>$accnt[trantype]</td><td align=right>".CUR." $accnt[amount]</td><td align=center>$acc[accname]</td>
+			$OUTPUT .= "<tr class='".bg_class()."'><td>$bank[bankname]</td><td align=center>$bank[accname]</td><td align=center>$accnt[date]</td><td align=center>$accnt[name]</td><td align=center>$accnt[descript]</td><td align=center>$accnt[trantype]</td><td align=right>".CUR." $accnt[amount]</td><td align=center>$acc[accname]</td>
 			<td><a href='../bank/cheq-cancel.php?cashid=$accnt[cashid]'>Cancel</td></tr>";
 
 			$tot += $accnt['amount'];

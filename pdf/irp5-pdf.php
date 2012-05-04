@@ -208,7 +208,7 @@ function slct($errors="")
 //		$rf_ind_sel .= "</select>";
 //
 //		$income_sources_out .= "
-//		<tr bgcolor='$bgcolor'>
+//		<tr class='".bg_class()."'>
 //			<td width='20%'>$income_codes_sel</td>
 //			<td align='center'><input type='text' name='income_description[$income_data[id]]' size='100%' value='$income_data[description]'></td>
 //			<td align='center'>$rf_ind_sel</td>
@@ -262,7 +262,7 @@ function slct($errors="")
 //		$deductions_sel .= "</select>";
 //
 //		$deductions_out .= "
-//		<tr bgcolor='$bgcolor'>
+//		<tr class='".bg_class()."'>
 //			<td>$deductions_sel</td>
 //			<td align='center'><input type='text' name='deduction_description[$ded_data[id]]' value='$ded_data[description]' size='100%'></td>
 //			<td align='center'><input type='text' name='deduction_clearance_no[$ded_data[id]]' value='$ded_data[clearance_no]' size='10%'></td>

@@ -263,11 +263,6 @@ function con_data ($_POST)
 
                 while ($Data = pg_fetch_array($Rslt)) {
 
-			if ($i % 2) {                                                              // every other row gets a diff color
-				$bgColor = TMPL_tblDataColor1;
-			} else {
-				$bgColor = TMPL_tblDataColor2;
-			}
                         $i=$i+1;
                         $date = $Data['date'];
                         $day=substr($date,0,2);
@@ -303,7 +298,7 @@ function con_data ($_POST)
 
 
 
-			$Tab .= "<tr bgcolor='$bgColor'><td>$day</td><td>$time</td><td>$Data[des]</td><td>$Data[by]</td><td>$Day $M $Year</td><td><a href='rem_die.php?id=$Data[id]'>Remove</td></tr>";
+			$Tab .= "<tr class='".bg_class()."'><td>$day</td><td>$time</td><td>$Data[des]</td><td>$Data[by]</td><td>$Day $M $Year</td><td><a href='rem_die.php?id=$Data[id]'>Remove</td></tr>";
 		};}
 		$Tab .= "</table>";
 

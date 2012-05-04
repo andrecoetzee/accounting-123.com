@@ -140,8 +140,7 @@ function printCust ($_GET)
 				}
 	
 				# alternate bgcolor
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-				$printCust .= "<tr bgcolor='$bgColor'><td>$cust[accno]</td><td>$cust[surname]</td><td align=center>$loc</td><td align=center>$cust[currency]</td><td>$cust[bustel]</td><td>$cust[catname]</td><td>$cust[classname]</td><td align=right>".CUR." $cust[balance]</td><td align=right>$fbal</td><td align=right>$ocurr $overd</td><td><a href='cust-det.php?cusnum=$cust[cusnum]'>Details</a></td>";
+				$printCust .= "<tr class='".bg_class()."'><td>$cust[accno]</td><td>$cust[surname]</td><td align=center>$loc</td><td align=center>$cust[currency]</td><td>$cust[bustel]</td><td>$cust[catname]</td><td>$cust[classname]</td><td align=right>".CUR." $cust[balance]</td><td align=right>$fbal</td><td align=right>$ocurr $overd</td><td><a href='cust-det.php?cusnum=$cust[cusnum]'>Details</a></td>";
 				$printCust .= "<td><a href='cust-edit.php?cusnum=$cust[cusnum]'>Edit</a></td><td><a href='#' onclick='openPrintWin(\"cust-stmnt.php?cusnum=$cust[cusnum]\")'>Statement</a></td>$trans $inv";
 				if($cust['blocked'] == 'yes'){
 					$printCust .= "<td><a href='cust-unblock.php?cusnum=$cust[cusnum]'>Unblock</a></td>";
@@ -153,10 +152,9 @@ function printCust ($_GET)
 				$i++;
 			}
 			if ($i > 1){$s = "s";} else {$s = "";}
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 			$tot = sprint($tot);
 			$totoverd = sprint($totoverd);
-			$printCust .= "<tr bgcolor='$bgColor'><td colspan=7>Total Amount Outstanding, from $i client$s </td><td align=right>".CUR." $tot</td><td></td><td align=right>".CUR." $totoverd</td></tr>";
+			$printCust .= "<tr class='".bg_class()."'><td colspan=7>Total Amount Outstanding, from $i client$s </td><td align=right>".CUR." $tot</td><td></td><td align=right>".CUR." $totoverd</td></tr>";
 		}
 		$printCust .= "</table>";
 	}

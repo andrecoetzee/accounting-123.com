@@ -265,9 +265,7 @@ function printStk ($_POST)
     <tr><th>Code</th><th>Description</th><th>Units Purchased/Increase</th><th>Units Sold</th><th>Total Selling Price</th><th>Gross Profit</th></tr>";
 
 	foreach($items as $key => $item){
-		# Alternate bgcolor
-		$bgColor = ($key % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$report .= "<tr bgcolor='$bgColor'><td>$item[stkcod]</td><td>$item[stkdes]</td><td align=right>$item[pqty]</td><td align=right>$item[qty]</td><td align=right>".CUR." $item[csprice]</td><td align=right>".CUR." $item[profit]</td></tr>";
+		$report .= "<tr class='".bg_class()."'><td>$item[stkcod]</td><td>$item[stkdes]</td><td align=right>$item[pqty]</td><td align=right>$item[qty]</td><td align=right>".CUR." $item[csprice]</td><td align=right>".CUR." $item[profit]</td></tr>";
 	}
 
 	$report .= "<tr><td><br></td></tr>

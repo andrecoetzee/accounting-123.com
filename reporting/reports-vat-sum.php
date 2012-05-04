@@ -189,8 +189,6 @@ function report($_POST)
 	$Ri = db_exec($Sl) or errDie("Unable to get data.");
 
 	while($vd = pg_fetch_array($Ri)) {
-		$bgcolor = ($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 		$Sl = "SELECT sum(amount) AS amount, sum(vat) AS vat FROM vatreport WHERE date >= '$date' AND date <= '$tdate' AND type = 'INPUT' AND cid='$vd[id]'";
 		$Ry = db_exec($Sl) or errDie("Unable to get vat rec.");
 		$data = pg_fetch_array($Ry);

@@ -51,12 +51,7 @@ function view ()
 
 		// display all statements
 		for ($i=0; $bal = pg_fetch_array ($Rslt); $i++) {
-			if ($i % 2) {                                                              // every other row gets a diff color
-				$bgColor = TMPL_tblDataColor2;
-			} else {
-				$bgColor = TMPL_tblDataColor1;
-			}
-			$OUTPUT .= "<tr bgcolor='$bgColor'><td>$bal[id]($bal[des])</td><td>$bal[gendate]</td><td><a target='_blank' href='trial_bal-print.php?id=$bal[id]'>Print</a></td><td><a href='../xls/tb-xls.php?id=$bal[id]'>Spreadsheet</a></td></tr>";
+			$OUTPUT .= "<tr class='".bg_class()."'><td>$bal[id]($bal[des])</td><td>$bal[gendate]</td><td><a target='_blank' href='trial_bal-print.php?id=$bal[id]'>Print</a></td><td><a href='../xls/tb-xls.php?id=$bal[id]'>Spreadsheet</a></td></tr>";
 		}
 		$OUTPUT .= "</table>";
 	}

@@ -290,7 +290,7 @@ function printSupp ()
 
 			# Alternate bgcolor
 			$bgColor = bgcolor($i);
-			$printSupp .= "<tr bgcolor='$bgColor'><td>$deptname</td>";
+			$printSupp .= "<tr class='".bg_class()."'><td>$deptname</td>";
 
 			if ( $action == "contact_acc" ) {
 				$updatelink = "javascript: updateAccountInfo(\"$supp[supid]\", \"$supp[supno]\");";
@@ -506,8 +506,6 @@ function export ($_GET)
 				$trans = "<a href='core/intsupp-trans.php?supid=$supp[supid]'>Transaction</a>";
 			}
 
-			# Alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 			$printSupp .= "<tr><td>$deptname</td>";
 
 			if ( $action == "contact_acc" ) {
@@ -536,7 +534,6 @@ function export ($_GET)
 			$i++;
 		}
 		if ($i>1){$s="s";} else {$s="";}
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 			$tot=sprint($tot);
 			$printSupp .= "<tr><td colspan=7>Total Amount Owed, to $i supplier$s </td><td align=right>".CUR." $tot</td></tr>";
 	}

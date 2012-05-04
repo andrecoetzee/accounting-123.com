@@ -50,12 +50,7 @@ function view ()
 
 		// display all statements
 		for ($i=0; $st = pg_fetch_array ($Rslt); $i++) {
-			if ($i % 2) {                                                              // every other row gets a diff color
-				$bgColor = TMPL_tblDataColor2;
-			} else {
-				$bgColor = TMPL_tblDataColor1;
-			}
-			$OUTPUT .= "<tr bgcolor='$bgColor'><td>$st[id]($st[des])</td><td>$st[gendate]</td>
+			$OUTPUT .= "<tr class='".bg_class()."'><td>$st[id]($st[des])</td><td>$st[gendate]</td>
 			<td><a target='_blank' href='income-stmnt-print.php?id=$st[id]'>Print</a></td>
 			<td><a href='../xls/income-xls.php?id=$st[id]'>Spreadsheet</a></td></tr>";
 		}

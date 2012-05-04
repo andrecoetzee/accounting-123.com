@@ -80,12 +80,11 @@ function show_listing ()
 // 		);
 	}else {
 		while ($myEmp = pg_fetch_array ($empRslt)) {
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 			$totloan = sprint($myEmp['loaninstall']*$myEmp['loanperiod']);
 			$totout= sprint($myEmp['loanamt']);
 
 			$employees .= "
-						<tr bgcolor='$bgColor'>
+						<tr class='".bg_class()."'>
 							<td>$myEmp[sname], $myEmp[fnames] ($myEmp[enum])</td>
 							<td align='right'>".CUR." $totloan</td>
 							<td align='right'>".CUR." $totout</td>

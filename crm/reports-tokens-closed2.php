@@ -104,9 +104,7 @@ function report($_POST){
 	while($data=pg_fetch_array($Ry)) {
 		$i++;
 
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-		$out.="<tr bgcolor='$bgcolor'><td>$data[tid]</td><td>$data[sub]</td><td>$data[username]</td>
+		$out.="<tr class='".bg_class()."'><td>$data[tid]</td><td>$data[sub]</td><td>$data[username]</td>
 		<td>$data[opendate]</td><td>$data[closedate]</td>
 		<td><a href='tokens-closed-details.php?id=$data[id]'>View Details</a></td></tr>";
 

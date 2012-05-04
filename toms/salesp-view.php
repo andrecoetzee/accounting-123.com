@@ -50,7 +50,7 @@ function printSalesp () {
 		}
 
 		$OUT .= "
-		<tr bgcolor='$bgColor'>
+		<tr class='".bg_class()."'>
 			<td>$salesp[salespno]</td>
 			<td>$salesp[salesp]</td>
 			<td>$com_disp</td>

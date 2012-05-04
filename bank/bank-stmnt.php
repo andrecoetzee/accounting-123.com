@@ -501,7 +501,7 @@ function confirm($_POST)
 				<input type='hidden' name='chrgvat[$key]' value='$chrgvat[$key]' />
 				<input type='hidden' name='vatcode[$key]' value='$vatcode[$key]' />
 				<input type='hidden' name='accinv[$key]' value='$accinv[$key]' />
-				<tr bgcolor='$bgColor'>
+				<tr class='".bg_class()."'>
 					<td align='center'>$date[$key]</td>
 					<td align='center'>$to[$key]</td>
 					<td align='center'>$trantype[$key]</td>

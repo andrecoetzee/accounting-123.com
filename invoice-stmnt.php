@@ -279,14 +279,11 @@ function printInv ($_POST)
 			}
 			$inv = pg_fetch_array($invRslt);
 
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 			# format date
 			$st['date'] = explode("-", $st['date']);
 			$st['date'] = $st['date'][2]."-".$st['date'][1]."-".$st['date'][0];
 
-			$stmnt .= "<tr bgcolor='$bgColor'><td>$st[date]</td><td>$st[invid]</td><td>$st[type]</td><td>".CUR." $st[amount]</td></tr>";
+			$stmnt .= "<tr class='".bg_class()."'><td>$st[date]</td><td>$st[invid]</td><td>$st[type]</td><td>".CUR." $st[amount]</td></tr>";
 
 			# keep track of da totals
 			$totout += $st['amount'];

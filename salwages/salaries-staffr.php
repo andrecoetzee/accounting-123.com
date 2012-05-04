@@ -2154,8 +2154,6 @@ function confirm ($_POST)
 	if( isset($deductions) ) {
 		foreach( $deductions as $key => $value ){
 			if( $deductions[$key] > 0) {
-				$bgColor = (++$i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 				$deduct .= "
 					<input type='hidden' size='10' name='deductname[]' value='$deductname[$key]'>
 					<input type='hidden' size='10' name='deductid[]' value='$deductid[$key]'>
@@ -2230,8 +2228,6 @@ function confirm ($_POST)
 
 	if (pg_num_rows($Ri) > 0) {
 		while($td = pg_fetch_array($Ri)) {
-			$bgcolor = ($i%2)?TMPL_tblDataColor1:TMPL_tblDataColor2;
-
 			if (!isset($rbsa[$td['id']]) || $rbsa[$td['id']] < 1) {
 				continue;
 			}

@@ -46,8 +46,6 @@ function entries($_GET) {
 
 	while($cd=pg_fetch_array($Ri)) {
 
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 		if($cd['trantype']!="deposit") {
 			$cd['amount']=-$cd['amount'];
 		}

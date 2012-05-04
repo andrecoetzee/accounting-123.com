@@ -235,9 +235,7 @@ function printStk ($_POST)
 		# Limit to 30 chars
 		$stk['stkdes'] = extlib_rstr($stk['stkdes'], 30);
 
-		# Alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$report .= "<tr bgcolor='$bgColor'><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>$rec[qty]</td><td>".CUR." $rec[csprice]</td><td>".CUR." $prof</td></tr>";
+		$report .= "<tr class='".bg_class()."'><td>$stk[stkcod]</td><td>$stk[stkdes]</td><td>$rec[qty]</td><td>".CUR." $rec[csprice]</td><td>".CUR." $prof</td></tr>";
 		$i++;
 	}
 

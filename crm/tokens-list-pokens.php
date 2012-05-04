@@ -52,9 +52,7 @@ function listall() {
 	while ($pdata=pg_fetch_array($Ry)) {
 		$i++;
 		
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-		
-		$out.="<tr bgcolor='$bgcolor'><td>$pdata[sub]</td><td><pre>$pdata[notes]</pre></td><td>$pdata[rdate]</td>
+		$out.="<tr class='".bg_class()."'><td>$pdata[sub]</td><td><pre>$pdata[notes]</pre></td><td>$pdata[rdate]</td>
 		<td>".substr($pdata['rtime'],0,5)."</td><td><a href='tokens-allocate.php?id=$pdata[id]'>Allocate</a></td></tr>";
 	}
 	

@@ -97,9 +97,7 @@ function slctInc()
                         $ch = "";
                 }
 
-                # alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-                $OUTPUT .= "<tr bgcolor='$bgColor'><td><input type=checkbox name=inc[] value='$accid' $ch> $topacc/$accnum</td><td>$accname</td></tr>";
+                $OUTPUT .= "<tr class='".bg_class()."'><td><input type=checkbox name=inc[] value='$accid' $ch> $topacc/$accnum</td><td>$accname</td></tr>";
         }
         $OUTPUT .= "</table><br>
         <input type=button value='&laquo Cancel' onClick='javascript:history.back();'> <input type=submit value='Continue &raquo'>
@@ -140,11 +138,10 @@ function confirm($_POST)
 
         # strip inc array back to HTML
         foreach($inc as $key => $accid) {
-                $bgColor = ($key % 2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
                 $accRslt = get("core","accname,topacc,accnum","accounts","accid",$accid);
                 $acc = pg_fetch_array($accRslt);
                 $confirm .="<input type=hidden name='inc[]' value='$inc[$key]'>
-                <tr bgcolor='$bgColor'><td> $acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td></tr>";
+                <tr class='".bg_class()."'><td> $acc[topacc]/$acc[accnum]</td><td>$acc[accname]</td></tr>";
         }
 
         $confirm .= "</table>

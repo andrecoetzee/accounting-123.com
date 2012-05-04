@@ -75,8 +75,7 @@ function printAgeInv ()
 		$custtot = ($curr + $age30 + $age60 + $age90 + $age120);
 
 		# Alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printCust .= "<tr bgcolor='$bgColor'><td>$cust[accno]</td><td>$cust[surname]</td><td>$cust[contname]</td><td>$cust[tel]</td><td>".CUR." $curr</td><td>".CUR." $age30</td><td>".CUR." $age60</td><td>".CUR." $age90</td><td>".CUR." $age120</td><td>".CUR." $custtot</td></tr>";
+		$printCust .= "<tr class='".bg_class()."'><td>$cust[accno]</td><td>$cust[surname]</td><td>$cust[contname]</td><td>$cust[tel]</td><td>".CUR." $curr</td><td>".CUR." $age30</td><td>".CUR." $age60</td><td>".CUR." $age90</td><td>".CUR." $age120</td><td>".CUR." $custtot</td></tr>";
 
 		# Hold totals
 		$totcurr += $curr;
@@ -153,8 +152,7 @@ function printAgeAge ()
 		$custtot = ($curr + $age30 + $age60 + $age90 + $age120);
 
 		# Alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printCust .= "<tr bgcolor='$bgColor'><td>$cust[accno]</td><td>$cust[surname]</td><td>$cust[contname]</td><td>$cust[tel]</td><td>".CUR." $curr</td><td>".CUR." $age30</td><td>".CUR." $age60</td><td>".CUR." $age90</td><td>".CUR." $age120</td><td>".CUR." $custtot</td></tr>";
+		$printCust .= "<tr class='".bg_class()."'><td>$cust[accno]</td><td>$cust[surname]</td><td>$cust[contname]</td><td>$cust[tel]</td><td>".CUR." $curr</td><td>".CUR." $age30</td><td>".CUR." $age60</td><td>".CUR." $age90</td><td>".CUR." $age120</td><td>".CUR." $custtot</td></tr>";
 
 		# Hold totals
 		$totcurr += $curr;

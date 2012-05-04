@@ -148,8 +148,7 @@ $view = "
 <tr><th>Field</th><th>Value</th></tr>";
 
         foreach($cprd as $key => $value){
-                $bgColor = ($key % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-                $view .= "<tr bgcolor='$bgColor'><td>Period ".($key+1)."</td><td valign=center>".$$value."</td></tr>";
+                $view .= "<tr class='".bg_class()."'><td>Period ".($key+1)."</td><td valign=center>".$$value."</td></tr>";
         }
 
 $view .= "

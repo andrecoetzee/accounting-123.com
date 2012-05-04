@@ -57,7 +57,6 @@ function editSettings ()
 
 	/* static settings for dumb sars thing... you might as well just make your percentage 0 */
 	$i = 0;
-	$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 	if (!isset($sdlpayable)) $sdlpayable = getCSetting("SDLPAYABLE");
 	if (!isset($emploan_int)) $emploan_int = getCSetting("EMPLOAN_INT");
 
@@ -84,7 +83,7 @@ function editSettings ()
 		XPopupShow(help_msgs[item], obj);
 	}
 	</script>
-	<tr bgcolor='$bgColor'>
+	<tr class='".bg_class()."'>
 		<!--<td><a href='#top'>Top</a> | <a href='#bottom'>Bottom</a></td>//-->
 		<td align='center'>SDL Payable [<a href='#' onClick='javascript:showhelp(this, 0);'>about</a>]</td>
 		<td>
@@ -94,7 +93,7 @@ function editSettings ()
 			</select>
 		</td>
 	</tr>
-	<tr bgcolor='$bgColor'>
+	<tr class='".bg_class()."'>
 		<!--<td><a href='#top'>Top</a> | <a href='#bottom'>Bottom</a></td>//-->
 		<td align='center'>Default Interest on Employee Loans [<a href='#' onClick='javascript:showhelp(this, 1);'>about</a>]</td>
 		<td>
@@ -111,10 +110,9 @@ function editSettings ()
 		errDie ("No settings found in database!");
 	}
 	while ($mySet = pg_fetch_array ($setRslt)) {
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 		//$menu .= (($i+1) % 4) ? "<a href='#$mySet[constant]' class=nav>$mySet[label]</a> | " : "<a href='#$mySet[constant]' class=nav>$mySet[label]</a><p>\n";
 		$settings .= "
-		<tr bgcolor='$bgColor'>
+		<tr class='".bg_class()."'>
 			<!--<td><a href='#top'>Top</a> | <a href='#bottom'>Bottom</a></td>//-->
 			<td align=center><a name='$mySet[constant]'></a>$mySet[label]</td>
 			<td><input type=text size=20 name='$mySet[constant]' value='$mySet[value]'></td>
@@ -122,7 +120,6 @@ function editSettings ()
 		$i++;
 	}
 
-	$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 	$Sl="SELECT * FROM salset";
 	$Ri=db_exec($Sl);
@@ -179,18 +176,16 @@ function confirmSettings ($_POST)
 	$i = 0;
 
 	$hidden_fields .= "<input type=hidden name='sdlpayable' value='$sdlpayable'>";
-	$bgColor = ($i++ % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 	$settings .= "
-	<tr bgcolor='$bgColor'>
+	<tr class='".bg_class()."'>
 		<td>SDL Payable</td>
 		<td>".($sdlpayable == 'y' ? "Yes" : "No")."</td>
 	</tr>";
 
 	$hidden_fields .= "<input type='hidden' name='emploan_int' value='$emploan_int'>";
-	$bgColor = ($i++ % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 	$settings .= "
-	<tr bgcolor='$bgColor'>
+	<tr class='".bg_class()."'>
 		<td>Default Interest on Employee Loans</td>
 		<td>$emploan_int %</td>
 	</tr>";
@@ -203,14 +198,13 @@ function confirmSettings ($_POST)
 		errDie ("No settings found in database!");
 	}
 	while ($mySet = pg_fetch_array ($setRslt)) {
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 		if($mySet['label']=="Currency symbol") {
 			$$mySet["constant"]=legal($$mySet["constant"]);
 		} else  {
 			$v->isOk ($$mySet["constant"], $mySet["datatype"], 1, 255, "Invalid setting: $mySet[label].");
 		}
 		$settings .= "
-		<tr bgcolor='$bgColor'>
+		<tr class='".bg_class()."'>
 			<td>$mySet[label]</td>
 			<td>".$$mySet["constant"]."</td>
 		</tr>\n";
@@ -218,7 +212,6 @@ function confirmSettings ($_POST)
 		$i++;
 	}
 
-	$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 	# display errors, if any
 	if ($v->isError ()) {
@@ -274,7 +267,6 @@ function writeSettings ($_POST)
 		errDie ("No settings found in database!");
 	}
 	while ($mySet = pg_fetch_array ($setRslt)) {
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 		if($mySet['label']=="Currency symbol") {
 			$$mySet["constant"]=legal($$mySet["constant"]);
 		} else  {

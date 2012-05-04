@@ -104,7 +104,7 @@ function printaccnt()
 		# alternate bgcolor
 		$bgColor = bgcolorc($i);
 		$OUTPUT .= "
-			<tr bgcolor='$bgColor'>
+			<tr class='".bg_class()."'>
 				<td>$bankacc[acctype]</td>
 				<td>$bankacc[bankname]</td>
 				<td>$type</td>

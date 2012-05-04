@@ -128,11 +128,11 @@ function display()
 	<table ".TMPL_tblDflts.">
 		<tr><th colspan='2'>Display Heart on Main Menu</th></tr>
 		<tr>
-			<td bgcolor='$bgcolor' align='center'>
+			<td class='".bg_class()."' align='center'>
 				Yes <input type='radio' name='heart' value='1'
 				onchange='javascript:document.form.submit()' $heart_yes />
 			</td>
-			<td bgcolor='$bgcolor' align='center'>
+			<td class='".bg_class()."' align='center'>
 				No <input type='radio' name='heart' value='0'
 				onchange='javascript:document.form.submit()' $heart_no />
 			</td>

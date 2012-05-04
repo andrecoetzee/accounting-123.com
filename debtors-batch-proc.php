@@ -141,7 +141,7 @@ function det($_POST)
                         $$keys = $values;
                 }
 
-                $pay .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                $pay .= "<tr class='bg-odd'>
                                 <td><input type=hidden size=20 name=ord[] value='$bat[ordnum]'>
                                 <input type=hidden size=20 name=bat[] value='$bat[batchid]'>$cusname</td>
                                 <td align=center>$orddate</td>
@@ -242,7 +242,7 @@ function confirm($_POST)
                         $$keys = $values;
                 }
 
-                $pay .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                $pay .= "<tr class='bg-odd'>
                                 <td><input type=hidden size=20 name=ord[] value='$ord[$key]'>
                                 <input type=hidden size=20 name=bat[] value='$bat[$key]'>$cusname</td>
                                 <td align=center>$orddate</td>
@@ -265,7 +265,7 @@ function confirm($_POST)
         <tr><th>Customer Name</th><th>Order Date</th><th>Invoice Date</th><th>Outstanding Amount</th><th>Terms</th><th>Amount Paid</th><th>Account Paid</th></tr>
         $pay
         <tr><td><br></td></tr>
-        <tr bgcolor=".TMPL_tblDataColor2."><td colspan=5>Total Amount Received</td><td colspan=2>".CUR." ".round($tot, 2)."</td></tr>
+        <tr class='bg-even'><td colspan=5>Total Amount Received</td><td colspan=2>".CUR." ".round($tot, 2)."</td></tr>
         <tr><td align=right colspan=6><input type=button value='&laquo Back' onClick='javascript:history.back()'></td><td align=right colspan=1><input type=submit value='Confirm &raquo'></td></tr>
         </form></table>
         <table border=0 cellpadding='2' cellspacing='1' width=15%>
@@ -360,7 +360,7 @@ function write($_POST)
                 # credit acc used debit acc paid
                 writetrans($accpaid[$key], $debtorsacc, date("d-m-Y"), $refnum, $paidamt[$key],  "Payment received from debtor $cusname.");
 
-                $pay .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                $pay .= "<tr class='bg-odd'>
                                 <td>$cusname</td>
                                 <td align=center>$orddate</td>
                                 <td align=center>$invdate</td>
@@ -508,7 +508,7 @@ function rembat($_POST)
                         $$keys = $values;
                 }
 
-                $pay .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                $pay .= "<tr class='bg-odd'>
                                 <td><input type=hidden name=bats[] value='$bat[batchid]'>$cusname</td>
                                 <td align=center>$orddate</td>
                                 <td align=center>$invdate</td>
@@ -612,7 +612,7 @@ function writerem($_POST)
                 $sql = "DELETE FROM debtors_batch WHERE batchid = '$bat[batchid]'";
                 $Rs = db_exec($sql);
 
-                $pay .= "<tr bgcolor=".TMPL_tblDataColor1.">
+                $pay .= "<tr class='bg-odd'>
                                 <td>$cusname</td>
                                 <td align=center>$orddate</td>
                                 <td align=center>$invdate</td>

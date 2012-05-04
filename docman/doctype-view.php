@@ -51,9 +51,7 @@ function printCat ()
 		return "<li>There are no Document types in Cubit.";
 	}
 	while($typ = pg_fetch_array ($typRslt)) {
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printTyp .= "<tr bgcolor='$bgColor'><td>$typ[typeref]</td><td>$typ[typename]</td><!--<td><a href='doctype-edit.php?typeid=$typ[typeid]'>Edit</a></td>-->";
+		$printTyp .= "<tr class='".bg_class()."'><td>$typ[typeref]</td><td>$typ[typename]</td><!--<td><a href='doctype-edit.php?typeid=$typ[typeid]'>Edit</a></td>-->";
 		$printTyp .= "<td><a href='doctype-rem.php?typeid=$typ[typeid]'>Remove</a></td></tr>";
 		$i++;
 	}

@@ -81,7 +81,7 @@ function display()
 				<td>$dm_data[location]</td>
 				<td>$dm_data[status]</td>
 			</tr>
-			<tr bgcolor='$bgcolor'>
+			<tr class='".bg_class()."'>
 				<td colspan='20' align='center'><b>$dm_data[movement_description]</b></td>
 			</tr>";
 	}

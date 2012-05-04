@@ -192,7 +192,7 @@ function confirm($_POST)
 
          foreach($amount as $key => $value){
                 if($amount[$key] > 0){
-                        $confirm .= "<tr bgcolor=".TMPL_tblDataColor1."><td><input type=hidden size=10 name=date[] value='$date[$key]'>$date[$key]</td>
+                        $confirm .= "<tr class='bg-odd'><td><input type=hidden size=10 name=date[] value='$date[$key]'>$date[$key]</td>
                               <td><input type=hidden size=10 name=refnum[] value='$refnum[$key]'>$refnum[$key]</td>
                               <td valign=center><input type=hidden name='dtaccid[]' value='".$dtacc[$key]['accid']."'>".$dtacc[$key]['accname']."</td>
                               <td valign=center><input type=hidden name='ctaccid[]' value='".$ctacc[$key]['accid']."'>".$ctacc[$key]['accname']."</td>
@@ -283,7 +283,7 @@ function write($_POST)
         <tr><th>Date</th><th>Ref num</th><th>Debit</th><th>Credit</th><th>Amount</th><th>Description</th></tr>";
 
                 foreach($amount as $key => $value){
-                        $write .= "<tr bgcolor=".TMPL_tblDataColor1."><td>$date[$key]</td><td>$refnum[$key]</td>
+                        $write .= "<tr class='bg-odd'><td>$date[$key]</td><td>$refnum[$key]</td>
                         <td valign=center>".$dtacc[$key]['topacc']."/".$dtacc[$key]['accnum']." ".$dtacc[$key]['accname']."</td>
                         <td valign=center>".$ctacc[$key]['topacc']."/".$ctacc[$key]['accnum']." ".$ctacc[$key]['accname']."</td>
                         <td>".CUR." $amount[$key]</td><td>$descript[$key]</td></tr>";

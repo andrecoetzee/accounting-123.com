@@ -98,8 +98,7 @@ function order($_POST,$errors="")
 		{
 			$i++;
 			$Tpdes=substr($Tp['timemade'],0,2).":".substr($Tp['timemade'],2,2);
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$Pals .= "<tr bgcolor='$bgColor'><td>$Tp[datemade]</td><td>$Tpdes</td><td>$Tp[des]</td><td><input type=checkbox name=done[$Tp[id]] OnClick='javascript:document.form.submit();'></td></tr>";
+			$Pals .= "<tr class='".bg_class()."'><td>$Tp[datemade]</td><td>$Tpdes</td><td>$Tp[des]</td><td><input type=checkbox name=done[$Tp[id]] OnClick='javascript:document.form.submit();'></td></tr>";
 		}
 	}
 

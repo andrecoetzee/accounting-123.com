@@ -260,8 +260,7 @@ function printCust () {
 			$trans = "";
 
 			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$ajaxCust .= "<tr bgcolor='$bgColor'>";
+			$ajaxCust .= "<tr class='".bg_class()."'>";
 
 			if ( $action == "contact_acc" ) {
 				$updatelink = "javascript: updateAccountInfo(\"$cust[cusnum]\", \"$cust[accno]\");";
@@ -299,11 +298,10 @@ function printCust () {
 			$s = "";
 		}
 		
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 		$tot = sprint($tot);
 		$totoverd = sprint($totoverd);
 		$ajaxCust .= "
-		<tr bgcolor='$bgColor'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'>Total Amount Outstanding, from $i client$s </td>
 			<td align='right'>".CUR." $tot</td>
 			<td></td>

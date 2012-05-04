@@ -63,9 +63,6 @@ function printSord ()
 			$printSord = "<li>No Sales Orders.";
 		}else{
 			while ($sord = pg_fetch_array ($sordRslt)) {
-				# alternate bgcolor
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 				# format date
 				$sord['odate'] = explode("-", $sord['odate']);
 				$sord['odate'] = $sord['odate'][2]."-".$sord['odate'][1]."-".$sord['odate'][0];
@@ -89,7 +86,7 @@ function printSord ()
 					$bcurr = $sord['currency'];
 				}
 
-				$printSord .= "<tr bgcolor='$bgColor'>
+				$printSord .= "<tr class='".bg_class()."'>
 					<td>$sord[deptname]</td>
 					<td>$sord[salespn]</td>
 					<td>$sord[sordid]</td>

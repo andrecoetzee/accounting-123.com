@@ -1014,7 +1014,7 @@ function multiple_salary($counter=0,$empnum=0)
 	foreach ( $ded as $did ) {
 
 /*		$OUTPUT .= "
-		<tr bgcolor='$bgColor'>
+		<tr class='".bg_class()."'>
 			<td><div id='divcomp_ded[$did]'></div></td>
 			<td>
 				<table><tr>

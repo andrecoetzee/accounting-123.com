@@ -160,7 +160,7 @@ function save()
 	pglib_transaction("COMMIT");
 
 	$message = "
-		<li style='background: ".TMPL_tblDataColor1."; width: 100%'>
+		<li class='yay'>
 			Successfully saved service days.
 		</li>";
 	return display($message);

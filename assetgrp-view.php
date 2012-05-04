@@ -71,8 +71,7 @@ function printGrp ()
 		$accdep = pg_fetch_array($accRslt);
 
 		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printGrp .= "<tr bgcolor='$bgColor'><td>$Grp[grpname]</td><td>$acccost[accname]</td><td>$acdacc[accname]</td><td>$accdep[accname]</td><td><a href='assetgrp-edit.php?grpid=$Grp[grpid]'>Edit</a></td>";
+		$printGrp .= "<tr class='".bg_class()."'><td>$Grp[grpname]</td><td>$acccost[accname]</td><td>$acdacc[accname]</td><td>$accdep[accname]</td><td><a href='assetgrp-edit.php?grpid=$Grp[grpid]'>Edit</a></td>";
 		$printGrp .= "<td><a href='assetgrp-rem.php?grpid=$Grp[grpid]'>Remove</a></td></tr>";
 		$i++;
 	}

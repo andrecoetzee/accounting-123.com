@@ -56,9 +56,7 @@ function printCat ()
 		</table>";
 	}
 	while ($cat = pg_fetch_array ($catRslt)) {
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printCat .= "<tr bgcolor='$bgColor'><td>$cat[days]</td><td><a href='od-edit.php?id=$cat[id]'>Edit</a></td>";
+		$printCat .= "<tr class='".bg_class()."'><td>$cat[days]</td><td><a href='od-edit.php?id=$cat[id]'>Edit</a></td>";
 		$printCat .= "<td><a href='od-rem.php?id=$cat[id]'>Remove</a></td></tr>";
 		$i++;
 	}

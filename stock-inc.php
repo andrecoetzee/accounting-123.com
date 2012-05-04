@@ -203,9 +203,7 @@ function details($_POST)
 			$stkRslt = db_exec ($sql) or errDie ("Unable to retrieve stocks from database.");
 			$stk = pg_fetch_array ($stkRslt);
 
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$enter .= "<tr bgcolor='$bgColor'><td><input type=hidden name=stkids[] value='$stk[stkid]'>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td><td>".CUR." $stkp[price]</td><td align=right>".CUR." <input type=text name=prices[] size=8 value='$stkp[price]'></td></tr>";
+			$enter .= "<tr class='".bg_class()."'><td><input type=hidden name=stkids[] value='$stk[stkid]'>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td><td>".CUR." $stkp[price]</td><td align=right>".CUR." <input type=text name=prices[] size=8 value='$stkp[price]'></td></tr>";
 		}
 
 	$enter .= "
@@ -344,9 +342,7 @@ function confirm ($_POST)
 		$rslt = db_exec($sql) or errDie("Unable to fetch price list items from Cubit.",SELF);
 		$stkp = pg_fetch_array ($rslt);
 
-		# Alternate bgcolor
-		$bgColor = ($key % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden name=stkids[] value='$stk[stkid]'>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td><td>".CUR." $stkp[price]</td><td>".CUR." <input type=hidden name=prices[] size=8 value='$prices[$key]'>$prices[$key]</td></tr>";
+		$confirm .= "<tr class='".bg_class()."'><td><input type=hidden name=stkids[] value='$stk[stkid]'>$stk[stkcod] - ".extlib_rstr($stk['stkdes'], 30)."</td><td>".CUR." $stkp[price]</td><td>".CUR." <input type=hidden name=prices[] size=8 value='$prices[$key]'>$prices[$key]</td></tr>";
 	}
 
 	$confirm .= "

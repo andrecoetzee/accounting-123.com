@@ -90,7 +90,7 @@ function confirm($_POST)
 	<form method='post' action='".SELF."'>
 	<input type='hidden' name='key' value='write'>
 	<input type='hidden' name='posdisc' value='$posdisc'>
-	<table border='0' cellpadding='".TMPL_tblDataColor1."' cellspacing='".TMPL_tblDataColor2."'>
+	<table border='0' cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 		<tr>
 			<th colspan='2'>Confirm</th>
 		</tr>

@@ -50,9 +50,7 @@ function printCust ()
 		return "<li>There are no Customers in Cubit.";
 	}
 	while ($cust = pg_fetch_array ($custRslt)) {
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printCust .= "<tr bgcolor='$bgColor'><td>$cust[accno]</td><td align=center>$cust[title]</td><td>$cust[surname]</td><td>$cust[init]</td><td>$cust[bustel]</td><td>$cust[hometel]</td><td>$cust[category]</td><td>$cust[class]</td><td>".CUR." $cust[overdue]</td><td><a href='cust-det.php?custid=$cust[custid]'>Details</a></td><td><a href='cust-edit.php?custid=$cust[custid]'>Edit</a></td>";
+		$printCust .= "<tr class='".bg_class()."'><td>$cust[accno]</td><td align=center>$cust[title]</td><td>$cust[surname]</td><td>$cust[init]</td><td>$cust[bustel]</td><td>$cust[hometel]</td><td>$cust[category]</td><td>$cust[class]</td><td>".CUR." $cust[overdue]</td><td><a href='cust-det.php?custid=$cust[custid]'>Details</a></td><td><a href='cust-edit.php?custid=$cust[custid]'>Edit</a></td>";
 		$printCust .= "<td><a href='cust-rem.php?custid=$cust[custid]'>Remove</a></td></tr>";
 		$i++;
 	}

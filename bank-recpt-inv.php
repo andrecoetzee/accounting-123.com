@@ -330,7 +330,6 @@ function method($cusid)
 	# Customer total
 	$custtot = ($curr + $age30 + $age60 + $age90 + $age120);
 
-	# Alternate bgcolor
 	$printCust .= "
 						<tr class='".bg_class()."'>
 							<td>$cus[accno]</td>
@@ -505,11 +504,9 @@ function alloc($_POST)
 									<th>Amount</th>
 								</tr>";
 			}
-			# alternate bgcolor and write list
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 			$invid = $inv['invid'];
 			$confirm .= "
-							<tr bgcolor='$bgColor'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 								<td>".CUR." $inv[balance]</td>
 								<td>$inv[terms] days</td>
@@ -540,11 +537,9 @@ function alloc($_POST)
 									<th>Amount</th>
 								</tr>";
 			}
-			# alternate bgcolor and write list
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 			$invid = $inv['invid'];
 			$confirm .= "
-							<tr bgcolor='$bgColor'>
+							<tr class='".bg_class()."'>
 								<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td>
 								<td>".CUR." $inv[balance]</td>
 								<td></td>
@@ -576,13 +571,12 @@ function alloc($_POST)
 				if($open_out==0) {
 					continue;
 				}
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$oid=$od['id'];
 				if($open_out>=$od['balance']) {
 					$open_amount[$oid]=$od['balance'];
 					$open_out=sprint($open_out-$od['balance']);
 					$ox.= "
-							<tr bgcolor='$bgColor'>
+							<tr class='".bg_class()."'>
 								<td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
 								<td>".CUR." $od[balance]</td>
 								<td>$od[date]</td>
@@ -592,7 +586,7 @@ function alloc($_POST)
 					$open_amount[$oid]=$open_out;
 					$open_out=0;
 					$ox.= "
-							<tr bgcolor='$bgColor'>
+							<tr class='".bg_class()."'>
 								<td><input type=hidden size=20 name=open[$oid] value='$od[id]'>$od[type]</td>
 								<td>".CUR." $od[balance]</td>
 								<td>$od[date]</td>
@@ -650,7 +644,6 @@ function alloc($_POST)
 			$OUT5="";
 		}
 
-		# Alternate bgcolor
 		$confirm .= "<tr class='bg-odd'><td>".CUR." $curr</td><td>".CUR." $age30</td><td>".CUR." $age60</td><td>".CUR." $age90</td><td>".CUR." $age120</td><td>".CUR." $custtot</td></tr>";
 		$confirm .= "<tr class='bg-odd'><td><input type=text size=7 name=out1 value='$OUT1'></td><td><input type=text size=7 name=out2 value='$OUT2'></td><td><input type=text size=7 name=out3 value='$OUT3'></td><td><input type=text size=7 name=out4 value='$OUT4'></td><td><input type=text size=7 name=out5 value='$OUT5'></td><td></td></tr>";
 
@@ -686,12 +679,10 @@ function alloc($_POST)
 			$confirm .= "<tr><td colspan=2><br></td></tr>
 			<tr><td colspan=2><h3>Outstanding Invoices</h3></td></tr>
 			<tr><th>Invoice</th><th>Outstanding Amount</th><th>Terms</th><th>Date</th><th>Amount</th></tr>";
-			$i = 0; // for bgcolor
+			$i = 0; 
 			while($inv = pg_fetch_array($prnInvRslt)){
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
 				$val='';
 				if(pg_numrows($prnInvRslt)==1) {$val=$amt;}
 				if(isset($paidamt[$i])) {
@@ -708,12 +699,9 @@ function alloc($_POST)
 			$confirm .= "<tr><td colspan=2><br></td></tr>
 			<tr><td colspan=2><h3>Outstanding Invoices</h3></td></tr>
 			<tr><th>Invoice</th><th>Outstanding Amount</th><th></th><th>Date</th><th>Amount</th></tr>";
-			//$i = 0; // for bgcolor
 			while($inv = pg_fetch_array($prnInvRslt)){
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
 				$val='';
 				if(pg_numrows($prnInvRslt)==1) {$val=$amt;}
 				if(isset($paidamt[$i])) {
@@ -744,8 +732,7 @@ function alloc($_POST)
 				if(!isset($open_amount[$oid])) {
 					$open_amount[$oid]="";
 				}
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-				$ox.="<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
+				$ox.="<tr class='".bg_class()."'><td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
 				<td>".CUR." $od[balance]</td><td>$od[date]</td><td><input type=text name='open_amount[$oid]' value='$open_amount[$oid]'>
 				</td></tr>";
 
@@ -932,7 +919,6 @@ function confirm($_POST)
         <tr class='bg-odd'><td>Cheque Number</td><td valign=center>$cheqnum</td></tr>
         <tr class='bg-even'><td>Amount</td><td valign=center>".CUR." $amt</td></tr>";
 
-	$bgColor =TMPL_tblDataColor2;
 	if($all==0)
 	{
 		// Layout
@@ -949,7 +935,7 @@ function confirm($_POST)
 			<th>Amount</th>
 		</tr>";
 
-		$i = 0; // for bgcolor
+		$i = 0; 
 		if(isset($invids)) {
 			foreach ($invids as $key => $value) {
 				if ($paidamt[$invids[$key]] < 0.01) {
@@ -971,10 +957,8 @@ function confirm($_POST)
 
 					$invid = $inv['invid'];
 
-					# alternate bgcolor and write list
-					$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 					$confirm .= "
-					<tr bgcolor='$bgColor'>
+					<tr class='".bg_class()."'>
 						<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
 					$confirm .= "<td>".CUR." <input type=hidden name='paidamt[]' size=7 value='$paidamt[$invid]'>$paidamt[$invid]</td></tr>";
 					$i++;
@@ -990,9 +974,7 @@ function confirm($_POST)
 
 					$invid = $inv['invid'];
 
-					# alternate bgcolor and write list
-					$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-					$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
+					$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
 					$confirm .= "<td>".CUR." <input type=hidden name='paidamt[]' size=7 value='$paidamt[$invid]'> <input type=hidden name=itype[$invid] value='y'>$paidamt[$invid]</td></tr>";
 					$i++;
 				}
@@ -1015,18 +997,17 @@ function confirm($_POST)
 				if($open_out==0) {
 					continue;
 				}
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$oid=$od['id'];
 				if($open_out>=$od['balance']) {
 					$open_amount[$oid]=$od['balance'];
 					$open_out=sprint($open_out-$od['balance']);
-					$ox.="<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
+					$ox.="<tr class='".bg_class()."'><td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
 					<td>".CUR." $od[balance]</td><td>$od[date]</td><td><input type=hidden name='open_amount[$oid]' value='$open_amount[$oid]'>
 					".CUR." $open_amount[$oid]</td></tr>";
 				} elseif($open_out<$od['balance']) {
 					$open_amount[$oid]=$open_out;
 					$open_out=0;
-					$ox.="<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=open[$oid] value='$od[id]'>$od[type]</td>
+					$ox.="<tr class='".bg_class()."'><td><input type=hidden size=20 name=open[$oid] value='$od[id]'>$od[type]</td>
 					<td>".CUR." $od[balance]</td><td>$od[date]</td><td><input type=hidden name='open_amount[$oid]' value='$open_amount[$oid]'>
 					".CUR." $open_amount[$oid]</td></tr>";
 				}
@@ -1084,10 +1065,8 @@ function confirm($_POST)
 					<tr><td colspan=2><h3>Outstanding Invoices</h3></td></tr>
 					<tr><th>Invoice</th><th>Outstanding Amount</th><th>Terms</th><th>Date</th><th>Amount</th></tr>";
 				}
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
 				if($out1>=$inv['balance']) {$val=$inv['balance'];$out1=$out1-$inv['balance'];}
 				else {$val=$out1;$out1=0;}
 
@@ -1111,10 +1090,8 @@ function confirm($_POST)
 					<tr><td colspan=2><h3>Outstanding Invoices</h3></td></tr>
 					<tr><th>Invoice</th><th>Outstanding Amount</th><th></th><th>Date</th><th>Amount</th></tr>";
 				}
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
 				if($out1>=$inv['balance']) {$val=$inv['balance'];$out1=$out1-$inv['balance'];}
 				else {$val=$out1;$out1=0;}
 
@@ -1123,7 +1100,7 @@ function confirm($_POST)
 			}
 
 			$out1=sprint($out1);
-			if($out1>0) {$confirm .="<tr bgcolor='$bgColor'><td colspan=5><b>A general transaction will credit the client's account with ".CUR." $out1 (Current) </b></td></tr>";}
+			if($out1>0) {$confirm .="<tr class='".bg_class()."'><td colspan=5><b>A general transaction will credit the client's account with ".CUR." $out1 (Current) </b></td></tr>";}
 		}
 		if($out2>0)
 		{
@@ -1154,10 +1131,8 @@ function confirm($_POST)
 					<tr><td colspan=2><h3>Outstanding Invoices</h3></td></tr>
 					<tr><th>Invoice</th><th>Outstanding Amount</th><th>Terms</th><th>Date</th><th>Amount</th></tr>";
 				}
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
 				if($out2>=$inv['balance']) {$val=$inv['balance'];$out2=$out2-$inv['balance'];}
 				else {$val=$out2;$out2=0;}
 
@@ -1181,10 +1156,8 @@ function confirm($_POST)
 					<tr><td colspan=2><h3>Outstanding Invoices</h3></td></tr>
 					<tr><th>Invoice</th><th>Outstanding Amount</th><th></th><th>Date</th><th>Amount</th></tr>";
 				}
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
 				if($out2>=$inv['balance']) {$val=$inv['balance'];$out2=$out2-$inv['balance'];}
 				else {$val=$out2;$out2=0;}
 
@@ -1192,7 +1165,7 @@ function confirm($_POST)
 				$i++;
 			}
 			$out2=sprint($out2);
-			if($out2>0) {$confirm .="<tr bgcolor='$bgColor'><td colspan=5><b>A general transaction will credit the client's account with ".CUR." $out2 (30 days)</b></td></tr>";}
+			if($out2>0) {$confirm .="<tr class='".bg_class()."'><td colspan=5><b>A general transaction will credit the client's account with ".CUR." $out2 (30 days)</b></td></tr>";}
 		}
 		if($out3>0)
 		{
@@ -1223,10 +1196,8 @@ function confirm($_POST)
 					<tr><td colspan=2><h3>Outstanding Invoices</h3></td></tr>
 					<tr><th>Invoice</th><th>Outstanding Amount</th><th>Terms</th><th>Date</th><th>Amount</th></tr>";
 				}
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
 				if($out3>=$inv['balance']) {$val=$inv['balance'];$out3=$out3-$inv['balance'];}
 				else {$val=$out3;$out3=0;}
 
@@ -1248,10 +1219,8 @@ function confirm($_POST)
 					<tr><td colspan=2><h3>Outstanding Invoices</h3></td></tr>
 					<tr><th>Invoice</th><th>Outstanding Amount</th><th></th><th>Date</th><th>Amount</th></tr>";
 				}
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
 				if($out3>=$inv['balance']) {$val=$inv['balance'];$out3=$out3-$inv['balance'];}
 				else {$val=$out3;$out3=0;}
 
@@ -1259,7 +1228,7 @@ function confirm($_POST)
 				$i++;
 			}
 			$out3=sprint($out3);
-			if($out3>0) {$confirm .="<tr bgcolor='$bgColor'><td colspan=5><b>A general transaction will credit the client's account with ".CUR." $out3 (60 days)</b></td></tr>";}
+			if($out3>0) {$confirm .="<tr class='".bg_class()."'><td colspan=5><b>A general transaction will credit the client's account with ".CUR." $out3 (60 days)</b></td></tr>";}
 		}
 		if($out4>0)
 		{
@@ -1289,10 +1258,8 @@ function confirm($_POST)
 					<tr><td colspan=2><h3>Outstanding Invoices</h3></td></tr>
 					<tr><th>Invoice</th><th>Outstanding Amount</th><th>Terms</th><th>Date</th><th>Amount</th></tr>";
 				}
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
 				if($out4>=$inv['balance']) {$val=$inv['balance'];$out4=$out4-$inv['balance'];}
 				else {$val=$out4;$out4=0;}
 
@@ -1316,10 +1283,8 @@ function confirm($_POST)
 					<tr><td colspan=2><h3>Outstanding Invoices</h3></td></tr>
 					<tr><th>Invoice</th><th>Outstanding Amount</th><th></th><th>Date</th><th>Amount</th></tr>";
 				}
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
 				if($out4>=$inv['balance']) {$val=$inv['balance'];$out4=$out4-$inv['balance'];}
 				else {$val=$out4;$out4=0;}
 
@@ -1327,7 +1292,7 @@ function confirm($_POST)
 				$i++;
 			}
 			$out4=sprint($out4);
-			if($out4>0) {$confirm .="<tr bgcolor='$bgColor'><td colspan=5><b>A general transaction will credit the client's account with ".CUR." $out4 (90 days)</b></td></tr>";}
+			if($out4>0) {$confirm .="<tr class='".bg_class()."'><td colspan=5><b>A general transaction will credit the client's account with ".CUR." $out4 (90 days)</b></td></tr>";}
 		}
 		if($out5>0)
 		{
@@ -1357,10 +1322,8 @@ function confirm($_POST)
 					<tr><td colspan=2><h3>Outstanding Invoices</h3></td></tr>
 					<tr><th>Invoice</th><th>Outstanding Amount</th><th>Terms</th><th>Date</th><th>Amount</th></tr>";
 				}
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
 				if($out5>=$inv['balance']) {$val=$inv['balance'];$out5=$out5-$inv['balance'];}
 				else {$val=$out5;$out5=0;}
 
@@ -1384,10 +1347,8 @@ function confirm($_POST)
 					<tr><td colspan=2><h3>Outstanding Invoices</h3></td></tr>
 					<tr><th>Invoice</th><th>Outstanding Amount</th><th></th><th>Date</th><th>Amount</th></tr>";
 				}
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
 				if($out5>=$inv['balance']) {$val=$inv['balance'];$out5=$out5-$inv['balance'];}
 				else {$val=$out5;$out5=0;}
 
@@ -1395,7 +1356,7 @@ function confirm($_POST)
 				$i++;
 			}
 			$out5=sprint($out5);
-			if($out5>0) {$confirm .="<tr bgcolor='$bgColor'><td colspan=5><b>A general transaction will credit the client's account with ".CUR." $out5 (120 days)</b></td></tr>";}
+			if($out5>0) {$confirm .="<tr class='".bg_class()."'><td colspan=5><b>A general transaction will credit the client's account with ".CUR." $out5 (120 days)</b></td></tr>";}
 		}
 	}
 
@@ -1407,7 +1368,7 @@ function confirm($_POST)
 		<!--<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."' width=90%>-->
 		<tr><th>Invoice Number</th><th>Outstanding amount</th><th>Terms</th><th>Date</th><th>Amount</th></tr>";
 
-		$i = 0; // for bgcolor
+		$i = 0; 
 		foreach($invids as $key => $value){
 			if($paidamt[$invids[$key]] < 0.01){
 				continue;
@@ -1427,9 +1388,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td>$inv[terms] days</td><td>$inv[odate]</td>";
 				$confirm .= "<td>".CUR." <input type=hidden name='paidamt[]' size=7 value='$paidamt[$invid]'>$paidamt[$invid]</td></tr>";
 				$i++;
 			} else {
@@ -1445,9 +1404,7 @@ function confirm($_POST)
 
 				$invid = $inv['invid'];
 
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invnum]</td><td>".CUR." $inv[balance]</td><td></td><td>$inv[odate]</td>";
 				$confirm .= "<td>".CUR." <input type=hidden name='paidamt[]' size=7 value='$paidamt[$invid]'><input type=hidden name=itype[$invid] value='PcP'>$paidamt[$invid]</td></tr>";
 				$i++;
 			}
@@ -1471,8 +1428,7 @@ function confirm($_POST)
 					continue;
 				}
 
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-				$ox.="<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
+				$ox.="<tr class='".bg_class()."'><td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
 				<td>".CUR." $od[balance]</td><td>$od[date]</td><td><input type=hidden name='open_amount[$oid]' value='$open_amount[$oid]'>
 				".CUR." $open_amount[$oid]</td></tr>";
 
@@ -1710,12 +1666,11 @@ function write($_POST)
 					if($open_out==0) {
 						continue;
 					}
-					$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 					$oid=$od['id'];
 					if($open_out>=$od['balance']) {
 						$open_amount[$oid]=$od['balance'];
 						$open_out=sprint($open_out-$od['balance']);
-						$ox.="<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
+						$ox.="<tr class='".bg_class()."'><td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
 						<td>".CUR." $od[balance]</td><td>$od[date]</td><td><input type=hidden name='open_amount[$oid]' value='$open_amount[$oid]'>
 						".CUR." $open_amount[$oid]</td></tr>";
 
@@ -1725,7 +1680,7 @@ function write($_POST)
 					} elseif($open_out<$od['balance']) {
 						$open_amount[$oid]=$open_out;
 						$open_out=0;
-						$ox.="<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=open[$oid] value='$od[id]'>$od[type]</td>
+						$ox.="<tr class='".bg_class()."'><td><input type=hidden size=20 name=open[$oid] value='$od[id]'>$od[type]</td>
 						<td>".CUR." $od[balance]</td><td>$od[date]</td><td><input type=hidden name='open_amount[$oid]' value='$open_amount[$oid]'>
 						".CUR." $open_amount[$oid]</td></tr>";
 
@@ -1995,8 +1950,7 @@ function write($_POST)
 						continue;
 					}
 
-					$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-					$ox.="<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
+					$ox.="<tr class='".bg_class()."'><td><input type=hidden size=20 name=open[$oid] value='$oid'>$od[type]</td>
 					<td>".CUR." $od[balance]</td><td>$od[date]</td><td><input type=hidden name='open_amount[$oid]' value='$open_amount[$oid]'>
 					".CUR." $open_amount[$oid]</td></tr>";
 

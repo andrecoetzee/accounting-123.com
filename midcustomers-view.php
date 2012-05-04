@@ -370,7 +370,7 @@ if (!isset($findcust)) {
 
 			# alternate bgcolor
 			$bgColor = bgcolor($i);
-			$ajaxCust .= "<tr bgcolor='$bgColor'>";
+			$ajaxCust .= "<tr class='".bg_class()."'>";
 
 			if ($action == "contact_acc") {
 				$updatelink = "javascript: updateAccountInfo(\"$cust[cusnum]\", \"$cust[accno]\");";
@@ -433,7 +433,7 @@ if (!isset($findcust)) {
 		$i--;
 
 		$ajaxCust .= "
-		<tr bgcolor='$bgColor'>
+		<tr class='".bg_class()."'>
 			<td colspan='5'>Total Amount Outstanding, from $i ".($i > 1 ? "clients" : "client")."</td>
 			<td align='right' nowrap>".CUR." $tot</td>
 			<td></td>

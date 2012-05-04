@@ -159,9 +159,7 @@ function printCat ($_POST)
 		</table>";
 	}
 	while($doc = pg_fetch_array ($docRslt)) {
-		# Alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printCat .= "<tr bgcolor='$bgColor'>
+		$printCat .= "<tr class='".bg_class()."'>
 			<td>$doc[typename]</td>
 			<td>$doc[docref]</td>
 			<td>$doc[docname]</td>

@@ -161,14 +161,11 @@ function cashbook($_POST, $err="")
 		$totrecon = 0;
 		for ($i=0; $tran = pg_fetch_array ($cashRslt); $i++) {
 
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 			# get account name for account involved
 			$accRslt = get("core", "accname", "accounts", "accid", $tran['accinv']);
 			$acc = pg_fetch_array($accRslt);
 
-			$cashbook .= "<tr bgcolor='$bgColor'><td>$tran[descript]</td><td align=center>$tran[date]</td>";
+			$cashbook .= "<tr class='".bg_class()."'><td>$tran[descript]</td><td align=center>$tran[date]</td>";
 
 			# If it is checked
 			$arrecon = explode(",", $recon);

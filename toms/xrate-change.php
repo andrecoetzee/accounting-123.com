@@ -73,12 +73,10 @@ function enter ($_POST)
 	
 	$i = 0;
 	while ($cur = pg_fetch_array ($curRslt)) {
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 		if (isset($rates[$i])) {
 			$cur["rate"] = $rates[$i];
 		}
-		$enter .= "<tr bgcolor='$bgColor'>
+		$enter .= "<tr class='".bg_class()."'>
 			<td>
 				<input type='hidden' name=fcids[$i] value='$cur[fcid]'>
 				$cur[symbol] - $cur[descrip] $sp4
@@ -153,9 +151,7 @@ function confirm ($_POST)
 
 		$rates[$key] = sprint($rates[$key]);
 
-		# alternate bgcolor
-		$bgColor = ($key % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$confirm .= "<tr bgcolor='$bgColor'><td><input type='hidden' name=fcids[] value='$fcid'>$cur[symbol] - $cur[descrip] $sp4</td><td align='right'>$sp4 ".CUR." / $cur[symbol] <input type='hidden' name=rates[] value='$rates[$key]'> $rates[$key]</td></tr>";
+		$confirm .= "<tr class='".bg_class()."'><td><input type='hidden' name=fcids[] value='$fcid'>$cur[symbol] - $cur[descrip] $sp4</td><td align='right'>$sp4 ".CUR." / $cur[symbol] <input type='hidden' name=rates[] value='$rates[$key]'> $rates[$key]</td></tr>";
 	}
 
 	$confirm .= "

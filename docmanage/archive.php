@@ -54,14 +54,11 @@ function viewDoc ()
 				<table width='100%'>
 					<tr>";
 	while ($docid = pg_fetch_array ($docRslt)) {
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$documents .= "<tr bgcolor='$bgColor'><td>$docid[docid]</td><td>$i</td><td>$docid[typeid]</td><td>$docid[typename]</td><td>$docid[filename]</td>";
+		$documents .= "<tr class='".bg_class()."'><td>$docid[docid]</td><td>$i</td><td>$docid[typeid]</td><td>$docid[typename]</td><td>$docid[filename]</td>";
 		
 		$i++;
 		$i1++;
 	}
-
-	$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 	# Set up table & form
 	$enterDoc.=
@@ -70,7 +67,7 @@ function viewDoc ()
 	<table border=1 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>
 	<tr><th>id</th><th>Type</th><th>Type Name</th><th>Typename</th><th>Filename</th></tr>
 	$documents
-	<tr bgcolor='$bgColor'><td colspan=5>Total: $i1</td></tr>
+	<tr class='".bg_class()."'><td colspan=5>Total: $i1</td></tr>
 	</table>
 	
 	<p>

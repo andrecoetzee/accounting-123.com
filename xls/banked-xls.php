@@ -154,9 +154,6 @@ function viewcash($_POST)
 			for ($i=0; $i < $numrows; $i++) {
 				$accnt = pg_fetch_array ($accntRslt, $i);
 
-				# alternate bgcolor
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 				if(strlen($accnt['accids']) > 0){
 					$acc['accname'] = "Multiple Accounts";
 					$acc['accnum'] = "000";
@@ -214,9 +211,6 @@ function viewcash($_POST)
 			# Display all bank Deposits
 			for ($i=0; $i < $numrows; $i++) {
 				$accnt = pg_fetch_array ($accntRslt, $i);
-
-				# alternate bgcolor
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 
 				if(strlen($accnt['accids']) > 0){
 					$acc['accname'] = "Multiple Accounts";

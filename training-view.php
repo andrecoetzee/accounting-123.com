@@ -118,8 +118,7 @@ function show_training ($empnum = "")
 		$listing = "";
 		$i = 0;
 		while($tarr = pg_fetch_array($run_trains)){
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$listing .= "<tr bgcolor='$bgColor'><td>$tarr[course_name]</td><td>$tarr[commence_date]</td><td>$tarr[completed_date]</td><td><a href='employee-training-edit.php?trainnum=$tarr[trainnum]'>Edit</a></td></tr>";
+			$listing .= "<tr class='".bg_class()."'><td>$tarr[course_name]</td><td>$tarr[commence_date]</td><td>$tarr[completed_date]</td><td><a href='employee-training-edit.php?trainnum=$tarr[trainnum]'>Edit</a></td></tr>";
 			$i++;
 		}
 	}

@@ -306,12 +306,6 @@ function con_die ($_POST)
 
 
                 while ($Data = pg_fetch_array($Rslt)) {
-
-			if ($i % 2) {                                                              // every other row gets a diff color
-				$bgColor = TMPL_tblDataColor1;
-			} else {
-				$bgColor = TMPL_tblDataColor2;
-			}
                         $i=$i+1;
                         $date = $Data['date'];
                         $day=substr($date,0,2);
@@ -348,7 +342,7 @@ function con_die ($_POST)
                          $time=substr($time,0,2).":".substr($time,2,2)."-".substr($time,5,2).":".substr($time,7,2);
 
 
-                        $Tab .= "<tr bgcolor='$bgColor'>$V<td>$day</td><td>$time</td><td>$Data[des]</td><td>$Data[by]</td><td>$Day $M $Year</td></tr>";
+                        $Tab .= "<tr class='".bg_class()."'>$V<td>$day</td><td>$time</td><td>$Data[des]</td><td>$Data[by]</td><td>$Day $M $Year</td></tr>";
 		};}
 		$Tab .= "</table>";
 
@@ -397,12 +391,6 @@ $Tab
 
 
                 while ($Data = pg_fetch_array($Rslt)) {
-
-			if ($i % 2) {                                                              // every other row gets a diff color
-				$bgColor = TMPL_tblDataColor1;
-			} else {
-				$bgColor = TMPL_tblDataColor2;
-			}
                         $i=$i+1;
                         $date = $Data['date'];
 
@@ -439,7 +427,7 @@ $Tab
                          $time=substr($time,0,2).":".substr($time,2,2)."-".substr($time,5,2).":".substr($time,7,2);
 
 
-                        $Tab .= "<tr bgcolor='$bgColor'>$V<td>$time</td><td>$Data[des]</td><td>$Data[by]</td><td>$Day $M $Year</td></tr>";
+                        $Tab .= "<tr class='".bg_class()."'>$V<td>$time</td><td>$Data[des]</td><td>$Data[by]</td><td>$Day $M $Year</td></tr>";
 		};}
 		$Tab .= "</table>";
 

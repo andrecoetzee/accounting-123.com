@@ -119,8 +119,6 @@ function viewEmp ()
 		}
 	}
 
-	$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 	$get_egroups = "SELECT * FROM emp_groups ORDER BY emp_group";
 	$run_egroups = db_exec($get_egroups) or errDie ("Unable to get employee group information.");
 	if(pg_numrows($run_egroups) < 1){
@@ -183,7 +181,7 @@ function viewEmp ()
 				<th colspan='4'>Options</th>
 			</tr>
 			$employees
-			<tr bgcolor='$bgColor'>
+			<tr class='".bg_class()."'>
 				<td colspan='6'>Total: $i</td>
 			</tr>
 			".TBL_BR."

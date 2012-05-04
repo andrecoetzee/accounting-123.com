@@ -132,9 +132,7 @@ function printSupp ($_GET)
 					$trans = "<a href='core/intsupp-trans.php?supid=$supp[supid]'>Transaction</a>";
 				}
 	
-				# Alternate bgcolor
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-				$printSupp .= "<tr bgcolor='$bgColor'><td>$deptname</td><td>$supp[supno]</td><td align=center>$supp[supname]</td>
+				$printSupp .= "<tr class='".bg_class()."'><td>$deptname</td><td>$supp[supno]</td><td align=center>$supp[supname]</td>
 				<td align=center>$loc</td><td align=center>$supp[currency]</td><td>$supp[contname]</td><td>$supp[tel]</td>
 				<td>$supp[fax]</td><td align=right>$sp4 ".CUR." $supp[balance]</td><td align=right>$fbal</td><td><a href='supp-det.php?supid=$supp[supid]'>Details</a></td>
 				<td><a href='#' onclick='openPrintWin(\"supp-stmnt.php?supid=$supp[supid]\")'>Statement</a></td>
@@ -151,9 +149,8 @@ function printSupp ($_GET)
 				$i++;
 			}
 			if ($i>1){$s="s";} else {$s="";}
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$tot=sprint($tot);
-				$printSupp .= "<tr bgcolor='$bgColor'><td colspan=8>Total Amount Owed, to $i supplier$s </td><td align=right>".CUR." $tot</td></tr>";
+				$printSupp .= "<tr class='".bg_class()."'><td colspan=8>Total Amount Owed, to $i supplier$s </td><td align=right>".CUR." $tot</td></tr>";
 		}
 		$printSupp .= "</table>";
 	}

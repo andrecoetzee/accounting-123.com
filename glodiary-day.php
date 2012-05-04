@@ -93,7 +93,6 @@ foreach ($_GET as $key => $value) {
 		{
 		if ($m==0) {$m="00";}
 		$i++;
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 		$t="$h"."$m";
 
 		$Sl = "SELECT des FROM die WHERE datefor='$datefor' AND time='$t' AND userfor='global'";
@@ -112,7 +111,7 @@ foreach ($_GET as $key => $value) {
 		$remops .=  "</select>";
 
 
-		$Out .="<tr bgcolor='$bgColor'><td>$h:$m</td><td align=center><table><tr><td><input type=text size=15 name=$t value='$Data[des]'></td><td>$remops</td></tr></table></td></tr>";
+		$Out .="<tr class='".bg_class()."'><td>$h:$m</td><td align=center><table><tr><td><input type=text size=15 name=$t value='$Data[des]'></td><td>$remops</td></tr></table></td></tr>";
 		$m=$m+30;
 		}
 	$h++;
@@ -197,7 +196,6 @@ function con_data ($_POST)
 		{
 		if ($m==0) {$m="00";}
 		$i++;
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 		$t="$h"."$m";
 		$tt =$$t;
 		$rem0=$remops[$t];
@@ -240,7 +238,7 @@ function con_data ($_POST)
 		$remdate = "$rem_year-$rem_month-$rem_day";
 		$remtime = "$rem_hour"."$rem_min";
 
-		$Out .="<input type=hidden size=25 name=rem_Options[$t] value='$rem0'><tr bgcolor='$bgColor'><td width='15%'>$h:$m) </td><td><table cellpadding='0' cellspacing='0'><tr><td><input type=hidden size=25 name=$t value='$tt'>$tt</td><td><input type=hidden name='remops[$t]' value='$remdate $remtime'>$remdate $remtime</td></tr></table></td></tr>";
+		$Out .="<input type=hidden size=25 name=rem_Options[$t] value='$rem0'><tr class='".bg_class()."'><td width='15%'>$h:$m) </td><td><table cellpadding='0' cellspacing='0'><tr><td><input type=hidden size=25 name=$t value='$tt'>$tt</td><td><input type=hidden name='remops[$t]' value='$remdate $remtime'>$remdate $remtime</td></tr></table></td></tr>";
 
 		$m=$m+30;
 		}

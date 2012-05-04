@@ -203,15 +203,12 @@ function printacc($_POST)
 	$ttldeb = 0;
 	$ttlcred = 0;
 	while($acc = pg_fetch_array ($accRslt)){
-		# Alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 		# To get the account name
 		$sql = "SELECT * FROM trial_bal WHERE accnum = '$acc[accnum]' AND topacc = '$acc[topacc]' AND div = '".USER_DIV."' LIMIT 1";
 		$acccRslt = db_exec ($sql) or errDie ("ERROR: Unable to retrieve account details from database.", SELF);
 		$accc = pg_fetch_array ($acccRslt);
 
-		$OUTPUT .= "<tr bgcolor='$bgColor'><td><input type=hidden name=accno[] value='$accc[topacc]/$accc[accnum]'>$accc[topacc]/$accc[accnum]</td><td>$accc[accname]</td>";
+		$OUTPUT .= "<tr class='".bg_class()."'><td><input type=hidden name=accno[] value='$accc[topacc]/$accc[accnum]'>$accc[topacc]/$accc[accnum]</td><td>$accc[accname]</td>";
 
 		$tldeb = 0;
 		$tlcred = 0;
@@ -250,7 +247,7 @@ function printacc($_POST)
 	}
 
 	# Totals
-	$OUTPUT .= "<tr bgcolor='$bgColor'><td colspan=2><b>Total</b></td>";
+	$OUTPUT .= "<tr class='".bg_class()."'><td colspan=2><b>Total</b></td>";
 	foreach($brans as $key => $value){
 		$tldebit[$key] = sprint($tldebit[$key]);
 		$tlcredit[$key] = sprint($tlcredit[$key]);

@@ -142,10 +142,7 @@ function printInvoice ($_POST)
 		$tot_total += $nonstks["total"];
 
 		# calculate the Sub-Total
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
-		$printOrd .= "<tr bgcolor='$bgColor'>
+		$printOrd .= "<tr class='".bg_class()."'>
 			<td>$date</td>
 			<td>$nonstks[cusname]</td>
 			<td align=right>".CUR." $nonstks[subtot]</td>
@@ -166,8 +163,7 @@ function printInvoice ($_POST)
 		$i++;
 	}
 
-	$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-	$printOrd .= "<tr bgcolor='$bgColor'><td colspan=2>Totals</td><td align=right>".CUR." $tot_subtot</td><td align=right>".CUR." $tot_total</td></tr>
+	$printOrd .= "<tr class='".bg_class()."'><td colspan=2>Totals</td><td align=right>".CUR." $tot_subtot</td><td align=right>".CUR." $tot_total</td></tr>
 	</table>
     <p>
 	<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>

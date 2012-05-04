@@ -92,10 +92,6 @@ function printSord ()
 				$cust['cusname'] = $sord['cusname'];
 				$cust['surname'] = $sord['surname'];
 
-
-				# alternate bgcolor
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 				# format date
 				$sord['odate'] = explode("-", $sord['odate']);
 				$sord['odate'] = $sord['odate'][2]."-".$sord['odate'][1]."-".$sord['odate'][0];
@@ -107,7 +103,7 @@ function printSord ()
 				}
 
 				$printSord .= "
-				<tr bgcolor='$bgColor'>
+				<tr class='".bg_class()."'>
 					<td>$sord[username]</td>
 					<td>$sord[deptname]</td>
 					<td>$sord[salespn]</td>

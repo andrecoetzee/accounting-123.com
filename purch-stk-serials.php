@@ -96,9 +96,7 @@ function enter ($_POST)
 		<tr class='bg-even'><td>$stk[stkcod]</td><td align=center>$stk[stkcod] $stk[stkdes]</td></tr>
 		<tr><th colspan=2>Serial Numbers</th></tr>";
 		for($i = 0; $i < $qtys[$key]; $i++){
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$data .= "<tr bgcolor='$bgColor'><td align=center colspan=2><input type=text name=sers[$stkid][] size=20 value=''></td></tr>";
+			$data .= "<tr class='".bg_class()."'><td align=center colspan=2><input type=text name=sers[$stkid][] size=20 value=''></td></tr>";
 		}
 	}
 
@@ -175,8 +173,7 @@ function confirm ($_POST)
 
 		foreach($sers as $key => $serno){
 			if(strlen($serno) < 1) continue;
-			$bgColor = ($key % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$confirm .= "<tr bgcolor='$bgColor'><td align=center colspan=2><input type=hidden name=sers[] size=20 value='$serno'>$serno</td></tr>";
+			$confirm .= "<tr class='".bg_class()."'><td align=center colspan=2><input type=hidden name=sers[] size=20 value='$serno'>$serno</td></tr>";
 		}
 
 		$confirm .= "

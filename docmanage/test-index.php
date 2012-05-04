@@ -91,9 +91,7 @@ if($typeid!='0') {
 		</table>";
 		}
 	while($doc = pg_fetch_array ($docRslt)) {
-		# Alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$OUTPUT.="<tr bgcolor='$bgColor'><td>$doc[typename]</td><td>$doc[docref]</td><td>$doc[docname]</td><td>$doc[docdate]</td><td>$doc[descrip]</td><td>$doc[filename]</td><td><a href='docedit.php?docid=$doc[docid]'>Edit</a></td>";
+		$OUTPUT.="<tr class='".bg_class()."'><td>$doc[typename]</td><td>$doc[docref]</td><td>$doc[docname]</td><td>$doc[docdate]</td><td>$doc[descrip]</td><td>$doc[filename]</td><td><a href='docedit.php?docid=$doc[docid]'>Edit</a></td>";
 		$OUTPUT.="<td><a href='docdload.php?docid=$doc[docid]'>Download</a></td><td><a href='docrem.php?docid=$doc[docid]'>Remove</a></td></tr>";
 		$i++;
 	}

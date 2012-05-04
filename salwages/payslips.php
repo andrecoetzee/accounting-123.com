@@ -594,7 +594,7 @@ function slip ($_POST, $pure = false)
 				$bgColor = bgcolorg();
 
 				$slip .= "
-					<tr bgcolor='$bgColor'>
+					<tr class='".bg_class()."'>
 						<td>$emp[fnames] $emp[sname]</td>
 						<td nowrap>".CUR." ".sprint($sal["gross"])."</td>
 						<td nowrap>".CUR." ".sprint($sal["comm"])."</td>

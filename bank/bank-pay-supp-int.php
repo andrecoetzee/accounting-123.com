@@ -899,7 +899,6 @@ function confirm($_POST)
 		$age60 = sage($supid, 89);
 		$age90 = sage($supid, 119);
 		$age120 = sage($supid, 149);
-		$bgColor = TMPL_tblDataColor2;
 		$i = 0;
 		if($out1 > 0)
 		{
@@ -975,8 +974,6 @@ function confirm($_POST)
 								<th>Amount</th>
 							</tr>";
 				}
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
 				$confirm .= "
 							<tr class='".bg_class()."'>
@@ -1089,7 +1086,7 @@ function confirm($_POST)
 				$confirm .= "<td><input type='hidden' name='paidamt[]' size='10' value='$val'>$sup[currency] $val</td></tr>";
 				$i++;
 			}
-			if($out4 > 0) {$confirm .= "<tr bgcolor='$bgColor'><td colspan=5><b>A general transaction will debit the supplier's account with $sup[currency] $out4 (90 days)</b></td></tr>";}
+			if($out4 > 0) {$confirm .= "<tr class='".bg_class()."'><td colspan=5><b>A general transaction will debit the supplier's account with $sup[currency] $out4 (90 days)</b></td></tr>";}
 		}
 		if($out5 > 0)
 		{
@@ -1109,17 +1106,15 @@ function confirm($_POST)
 						<tr><td colspan=2><h3>Outstanding Purchases</h3></td></tr>
 						<tr><th>Purchase</th><th>Outstanding Amount</th><th>Date</th><th>Amount</th></tr>";
 				}
-				# alternate bgcolor and write list
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				$invid = $inv['invid'];
-				$confirm .= "<tr bgcolor='$bgColor'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invid]</td><td>$sup[currency] $inv[fbalance]</td><td>$inv[odate]</td>";
+				$confirm .= "<tr class='".bg_class()."'><td><input type=hidden size=20 name=invids[] value='$inv[invid]'>$inv[invid]</td><td>$sup[currency] $inv[fbalance]</td><td>$inv[odate]</td>";
 				if($out5 >= $inv['fbalance']) {$val = $inv['fbalance'];$out5 = $out5 - $inv['fbalance'];}
 				else {$val = $out5;$out5 = 0;}
 
 				$confirm .= "<td><input type=hidden name='paidamt[]' size=10 value='$val'>$sup[currency] $val</td></tr>";
 				$i++;
 			}
-			if($out5 > 0) {$confirm .= "<tr bgcolor='$bgColor'><td colspan=5><b>A general transaction will debit the supplier's account with $sup[currency] $out5 (120 days)</b></td></tr>";}
+			if($out5 > 0) {$confirm .= "<tr class='".bg_class()."'><td colspan=5><b>A general transaction will debit the supplier's account with $sup[currency] $out5 (120 days)</b></td></tr>";}
 		}
 	}
 
@@ -1163,7 +1158,7 @@ function confirm($_POST)
 				$invid = $inv['invid'];
 
 				$confirm .= "
-						<tr bgcolor='$bgColor'>
+						<tr class='".bg_class()."'>
 							<td><input type='hidden' size='20' name='invids[]' value='$inv[invid]'>$inv[invid]</td>
 							<td>$sup[currency] $inv[fbalance]</td>
 							<td>$inv[odate]</td>

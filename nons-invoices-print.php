@@ -115,7 +115,7 @@ function details($_GET)
 
 		$printInv .= "
 		<input type=hidden name='invids[]' value='$inv[invid]'>
-		<tr bgcolor='$bgColor'>
+		<tr class='".bg_class()."'>
 			<td>T $inv[invid]</td>
 			<td valign='center'>$inv[odate]</td>
 			<td>$inv[cusname]</td>
@@ -125,7 +125,7 @@ function details($_GET)
 
 	$bgColor = bgcolor($i);
 
-	$printInv .= "<tr bgcolor='$bgColor'><td colspan=6 align=right>Totals Invoices : $i</td></tr>
+	$printInv .= "<tr class='".bg_class()."'><td colspan=6 align=right>Totals Invoices : $i</td></tr>
 	<tr><td><br></td></tr>
 	<tr><td colspan=6 align=right><input type=submit value='Process >>'></td></tr>
 	</form></table>

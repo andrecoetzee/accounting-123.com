@@ -51,9 +51,7 @@ function printBran ()
 		return "<li>There are no branches in Cubit.";
 	}
 	while ($bran = pg_fetch_array ($branRslt)) {
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printBran .= "<tr bgcolor='$bgColor'><td>$bran[brancod]</td><td align=center>$bran[branname]</td><td>$bran[brandet]</td><td><a href='admin-branedit.php?div=$bran[div]'>Edit</a></td>";
+		$printBran .= "<tr class='".bg_class()."'><td>$bran[brancod]</td><td align=center>$bran[branname]</td><td>$bran[brandet]</td><td><a href='admin-branedit.php?div=$bran[div]'>Edit</a></td>";
 
 		core_connect();
 		$sql = "SELECT accid FROM accounts WHERE div = '$bran[div]' AND accnum != '999'";

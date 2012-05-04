@@ -55,9 +55,7 @@ function report() {
 
 	while($tdata=pg_fetch_array($Ry)) {
 		$i++;
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-		$out.="<tr bgcolor='$bgcolor'><td colspan=5>$tdata[name]</td></tr>";
+		$out.="<tr class='".bg_class()."'><td colspan=5>$tdata[name]</td></tr>";
 
 		$Sl="SELECT name,userid FROM crms WHERE teamid='$tdata[id]' ORDER BY name";
 		$Rt=db_exec($Sl) or errDie("Unabel to get users from system.");
@@ -69,8 +67,6 @@ function report() {
 
 		while($udata=pg_fetch_array($Rt)) {
 			$i++;
-			$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 			$Sl="SELECT count(id) FROM tokens WHERE userid='$udata[userid]'";
 			$Rx=db_exec($Sl) or errDie("Unable to get user queries.");
 			$data=pg_fetch_array($Rx);
@@ -91,7 +87,7 @@ function report() {
 			$data=pg_fetch_array($Rx);
 			$userold=$data['count'];
 
-			$out.="<tr bgcolor='$bgcolor'><td>$udata[name]</td><td>$usertot</td><td>$userout</td>
+			$out.="<tr class='".bg_class()."'><td>$udata[name]</td><td>$usertot</td><td>$userout</td>
 			<td>$userfor</td><td>$userold</td></tr>";
 
 			$teamtot+=$usertot;
@@ -101,9 +97,7 @@ function report() {
 		}
 
 		$i++;
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-		$out.="<tr bgcolor='$bgcolor'><td>Team Total</td><td>$teamtot</td><td>$teamout</td><td>$teamfor</td>
+		$out.="<tr class='".bg_class()."'><td>Team Total</td><td>$teamtot</td><td>$teamout</td><td>$teamfor</td>
 		<td>$teamold</td></tr>
 
 		<tr><td><br></td></tr>";
@@ -116,9 +110,7 @@ function report() {
 	}
 
 	$i++;
-	$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-	$out.="<tr bgcolor='$bgcolor'><td><b>Total</b></td><td>$tottot</td><td>$totout</td><td>$totfor</td><td>$totold</td></tr>
+	$out.="<tr class='".bg_class()."'><td><b>Total</b></td><td>$tottot</td><td>$totout</td><td>$totfor</td><td>$totold</td></tr>
 	</table>";
 
 	return $out;

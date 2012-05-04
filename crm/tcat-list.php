@@ -60,9 +60,7 @@ function list_cats() {
 	while($tcatdata=pg_fetch_array($Ry)) {
 		$i++;
 
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-		$out.="<tr bgcolor='$bgcolor'><td>$tcatdata[name]</td><td>$tcatdata[des]</td><td><a href='tcat-edit.php?id=$tcatdata[id]'>Edit</a></td><td><a href='tcat-rem.php?id=$tcatdata[id]'>Remove</a></td></tr>";
+		$out.="<tr class='".bg_class()."'><td>$tcatdata[name]</td><td>$tcatdata[des]</td><td><a href='tcat-edit.php?id=$tcatdata[id]'>Edit</a></td><td><a href='tcat-rem.php?id=$tcatdata[id]'>Remove</a></td></tr>";
 
 	}
 

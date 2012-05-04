@@ -104,9 +104,7 @@ function slctInc()
                         $ch = "";
                 }
 
-                # alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-                $OUTPUT .= "<tr bgcolor='$bgColor'><td><input type=checkbox name=inc[] value='$accid' $ch> $topacc/$accnum</td><td>$accname</td><td align=right>$acctype</td></tr>";
+                $OUTPUT .= "<tr class='".bg_class()."'><td><input type=checkbox name=inc[] value='$accid' $ch> $topacc/$accnum</td><td>$accname</td><td align=right>$acctype</td></tr>";
         }
         $OUTPUT .= "</table><br>
         <input type=button value='< Cancel' onClick='javascript:history.back();'> <input type=submit value='Select Expenditure Accounts>'>
@@ -193,9 +191,7 @@ function slctExp($_POST)
                         continue;
                 }
 
-                # alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-                $OUTPUT .= "<tr bgcolor='$bgColor'><td><input type=checkbox name=exp[] value='$accid' $ch>$topacc/$accnum</td><td>$accname</td><td align=right>$acctype</td></tr>";
+                $OUTPUT .= "<tr class='".bg_class()."'><td><input type=checkbox name=exp[] value='$accid' $ch>$topacc/$accnum</td><td>$accname</td><td align=right>$acctype</td></tr>";
         }
         $OUTPUT .= "</table><br>
         <input type=button value='< Cancel' onClick='javascript:history.back();'> <input type=submit value='Continue >'>
@@ -236,11 +232,10 @@ function confirm($_POST)
 
         # strip inc array back to HTML
         foreach($inc as $key => $accid) {
-                $bgColor = ($key % 2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
                 $accRslt = get("core","accname","accounts","accid",$accid);
                 $accname = pg_fetch_array($accRslt);
                 $income .="<input type=hidden name='inc[]' value='$inc[$key]'>
-                <tr bgcolor='$bgColor'><td>$inc[$key]</td><td>$accname[accname]</td><td align=right>Income</td></tr>";
+                <tr class='".bg_class()."'><td>$inc[$key]</td><td>$accname[accname]</td><td align=right>Income</td></tr>";
         }
 
         $expenditure = "<tr><td colspan = 3 align=center><b><h3>Expediture</h3></td></tr>
@@ -248,10 +243,9 @@ function confirm($_POST)
 
                 # strip inc array back to HTML
                 foreach($exp as $key => $accid) {
-                        $bgColor = ($key % 2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
                         $accRslt = get("core","accname","accounts","accid",$accid);
                         $accname = pg_fetch_array($accRslt);
-                        $expenditure .="<input type=hidden name='exp[]' value='$exp[$key]'><tr bgcolor='$bgColor'>
+                        $expenditure .="<input type=hidden name='exp[]' value='$exp[$key]'><tr class='".bg_class()."'>
                         <td>$exp[$key]</td><td>$accname[accname]</td><td align=right>Expenditure</td></tr>";
                 }
 

@@ -79,9 +79,6 @@ function confirm($_POST)
                 for ($i=0; $i < $numrows; $i++) {
 	        	$cash = pg_fetch_array ($cashRslt, $i);
 
-		        # alternate bgcolor
-		        $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
                         # Get account name for account involved
                         $accRslt = get("core", "accname", "accounts", "accid", $cash['accinv']);
                         $acc = pg_fetch_array($accRslt);
@@ -92,7 +89,7 @@ function confirm($_POST)
                         $bankRslt = db_exec($sql);
                         $bank = pg_fetch_array($bankRslt);
 
-                        $OUTPUT .= "<input type=hidden name=bank[] value='$cashid'><tr bgcolor='$bgColor'><td>$bank[bankname]</td><td align=center>$bank[accname]</td>
+                        $OUTPUT .= "<input type=hidden name=bank[] value='$cashid'><tr class='".bg_class()."'><td>$bank[bankname]</td><td align=center>$bank[accname]</td>
                         <td align=center><input type=text size=2 name=day[] maxlength=2 value='".date("d")."'>-<input type=text size=2 name=mon[] maxlength=2 value='".date("m")."'>-<input type=text size=4 name=year[] maxlength=4 value='".date("Y")."'></td>
                         <td align=center><input type=text size=7 name=refnum[] value='".($refnum++)."'></td><td align=center>$cash[name]</td><td align=center>$cash[descript]</td><td align=center>$cash[trantype]</td>
                         <td align=right>".CUR." $cash[amount]</td><td align=center>$acc[accname]</td></tr>";

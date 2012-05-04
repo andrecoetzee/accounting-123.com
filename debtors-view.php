@@ -60,9 +60,7 @@ function prnDebtors ()
                                 $$key = $value;
                         }
 
-                        # alternate bgcolor and write list
-                        $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-                        $view .= "<tr bgcolor='$bgColor'><td>$ordnum</td><td>$cusname</td><td>$tel</td><td>$fax</td><td>$email</td><td>$amount</td><td>$terms days</td>";
+                        $view .= "<tr class='".bg_class()."'><td>$ordnum</td><td>$cusname</td><td>$tel</td><td>$fax</td><td>$email</td><td>$amount</td><td>$terms days</td>";
                         $view .= "<td><input type=checkbox name='ord[]' value='$ordnum'><a href='debtors-pay.php?ordnum=$ordnum'>Pay</a></td></tr>";
                 }
 

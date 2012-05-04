@@ -84,8 +84,6 @@ function enter($_GET) {
 	while($data=pg_fetch_array($Ry)) {
         	$tid=$data['id'];
 
-        	$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 		if(in_array($data['id'],$tar)) {
 			$ch="checked";
 		} else {

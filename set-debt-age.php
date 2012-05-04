@@ -220,9 +220,8 @@ function printSet ()
 		<tr><th>Setting Type</th><th>Current Setting</th></tr>";
 
 		$set =pg_fetch_array ($rslt);
-		$bgColor = TMPL_tblDataColor1;
 
-		$OUTPUT .= "<tr bgcolor='$bgColor'><td>$set[type]</td><td>$set[descript]</td></tr>";
+		$OUTPUT .= "<tr class='".bg_class()."'><td>$set[type]</td><td>$set[descript]</td></tr>";
 		$OUTPUT .= "</table>";
 	}
 

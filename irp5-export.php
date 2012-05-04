@@ -122,8 +122,6 @@ function slct($errors="")
 
 	$i = 0;
 	while ($income_data = pg_fetch_array($rslt)) {
-		$bgcolor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 		// Income sources dropdown
 		$income_codes_sel = "<select name='income_code[$income_data[id]]' style='width: 180px'>
 			<option value='0'>Please select</option>";
@@ -153,7 +151,7 @@ function slct($errors="")
 		}
 		$rf_ind_sel .= "</select>";
 	
-		$income_sources_out .= "<tr bgcolor='$bgcolor'>
+		$income_sources_out .= "<tr class='".bg_class()."'>
 			<td width=20%>$income_codes_sel</td>
 			<td align=center><input type=text name='income_description[$income_data[id]]' size=100% value='$income_data[description]'></td>
 			<td align=center>$rf_ind_sel</td>

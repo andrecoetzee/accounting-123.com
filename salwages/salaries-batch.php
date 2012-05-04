@@ -1130,8 +1130,6 @@ function enter ($_POST, $err = "")
 			$rt = "<table ".TMPL_tblDflts.">";
 
 			while($td = pg_fetch_array($Rl)) {
-				$bgcolor = ($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 				if(!isset($rbsa[$id][$td['id']])) {
 					$rbsa[$id][$td['id']] = "";
 				}
@@ -1233,7 +1231,7 @@ function enter ($_POST, $err = "")
 		vsprint($data["basic_sal"]);
 
 		$out .= "
-			<tr bgcolor='$bgcolor'>
+			<tr class='".bg_class()."'>
 				<input type='hidden' name='emps[$id]' value='$id'>
 				<input type='hidden' name='saltyp[$id]' value='$data[saltyp]'>
 				<input type='hidden' name='process_comp_deductions[$id]' value='$process_comp_deductions'>
@@ -1789,8 +1787,6 @@ function confirm ($_POST)
 			continue;*/
 		}
 
-		$bgcolor = ($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 		if(isset($basic_sal[$id])) {
 
 		} else {
@@ -1847,10 +1843,8 @@ function confirm ($_POST)
 		$fringes = "<table ".TMPL_tblDflts.">";
 		if ( isset($fringeid[$id]) && is_array($fringeid[$id]) ) {
 			foreach ( $fringeid[$id] as $i => $fid ) {
-				$bgColor = (++$c % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 				$fringes .= "
-					<tr bgcolor='$bgColor'>
+					<tr class='".bg_class()."'>
 						<td>".$fringename[$id][$i]."</td>
 						<td>".CUR."</td>
 						<td>".$fringebens[$id][$i]."</td>
@@ -1884,8 +1878,6 @@ function confirm ($_POST)
 
 			$Allowances = "<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>";
 			while ($myAllow = pg_fetch_array ($allowRslt)) {
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 				# check if employee has allowance
 				$sql = "SELECT * FROM empallow WHERE allowid='$myAllow[id]' AND empnum='$data[empnum]' AND div = '".USER_DIV."'";
 				$empAllowRslt = db_exec ($sql) or errDie ("Unable to select allowance info from database.");
@@ -2011,7 +2003,6 @@ function confirm ($_POST)
 		} else {
 			$Deductions = "<table border=0 cellpadding='".TMPL_tblCellPadding."' cellspacing='".TMPL_tblCellSpacing."'>";
 			while ($myDeduct = pg_fetch_array ($deductRslt)) {
-				$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 				# check if employee has deduction
 				$sql = "SELECT * FROM empdeduct WHERE dedid='$myDeduct[id]' AND empnum='$data[empnum]' AND div = '".USER_DIV."'";
 				$empDeductRslt = db_exec ($sql) or errDie ("Unable to select Deduction info from database.");
@@ -2100,8 +2091,6 @@ function confirm ($_POST)
 			$rt = "<table ".TMPL_tblDflts." width='100%'>";
 
 			while($td = pg_fetch_array($Rl)) {
-				$bgcolor = ($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
 				if(!isset($rbsa[$id][$td['id']])) {
 					$rbsa[$id][$td['id']] = "";
 				}
@@ -2539,7 +2528,7 @@ function confirm ($_POST)
 		$out .= "
 			<input type='hidden' name='mpaye_amount[$id]' value='$mpaye_amount[$id]'>
 			$che
-			<tr bgcolor='$bgcolor'>
+			<tr class='".bg_class()."'>
 				<input type='hidden' name='overamt[$id]' value='$overamt[$id]'>
 				<input type='hidden' name='comp_sdl[$id]' value='$comp_sdl[$id]'>
 				<input type='hidden' name='process_comp_deductions[$id]' value='$process_comp_deductions[$id]'>

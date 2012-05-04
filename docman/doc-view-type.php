@@ -58,9 +58,7 @@ function printDocs ($_GET)
 		$printDocs .= "<tr class='bg-odd'><td colspan=10>There are no Documents found.</td></tr>";
 	}else{
 		while($doc = pg_fetch_array ($docRslt)) {
-			# Alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-			$printDocs .= "<tr bgcolor='$bgColor'><td>$doc[typename]</td><td>$doc[docref]</td><td>$doc[docname]</td><td>$doc[docdate]</td><td>$doc[descrip]</td><td>$doc[filename]</td><td><a href='doc-edit.php?docid=$doc[docid]'>Edit</a></td>";
+			$printDocs .= "<tr class='".bg_class()."'><td>$doc[typename]</td><td>$doc[docref]</td><td>$doc[docname]</td><td>$doc[docdate]</td><td>$doc[descrip]</td><td>$doc[filename]</td><td><a href='doc-edit.php?docid=$doc[docid]'>Edit</a></td>";
 			$printDocs .= "<td><a href='doc-dload.php?docid=$doc[docid]'>Download</a></td><td><a href='doc-rem.php?docid=$doc[docid]'>Remove</a></td></tr>";
 			$i++;
 		}

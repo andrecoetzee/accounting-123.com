@@ -67,7 +67,6 @@ function AssetLedg ()
 		$Assets .= "<tr><td>$grp[grpname]</td><td>$Led[serial]</td><td>$Led[locat]</td><td>$Led[des]</td><td>$Led[bdate]</td><td>$Led[date]</td><td align=right>".CUR." $Led[amount]</td><td align=right>".CUR." $netval</td></tr>";
 		$i++;
 	}
-	$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
 	$tot = sprint($tot);
 	$totnet = sprint($totnet);
 	$Assets .= "<tr><td colspan=6>Total Assets: $i </td><td align=right>".CUR." $tot</td><td align=right>".CUR." $totnet</td></tr>";

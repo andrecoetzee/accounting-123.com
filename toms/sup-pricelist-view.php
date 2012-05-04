@@ -50,9 +50,7 @@ function printList ()
 		return "<li>There are no Price Lists in Cubit.";
 	}
 	while ($list = pg_fetch_array ($listRslt)) {
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printList .= "<tr bgcolor='$bgColor'><td>$list[listname]</td><td><a href='sup-pricelist-det.php?listid=$list[listid]'>Details</a></td>";
+		$printList .= "<tr class='".bg_class()."'><td>$list[listname]</td><td><a href='sup-pricelist-det.php?listid=$list[listid]'>Details</a></td>";
 		$printList .= "<td><a href='sup-pricelist-edit.php?listid=$list[listid]'>Edit</a></td><td><a href='sup-pricelist-copy.php?listid=$list[listid]'>Copy</a></td><td><a href='sup-pricelist-rem.php?listid=$list[listid]'>Remove</a></td></tr>";
 		$i++;
 	}

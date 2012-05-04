@@ -52,9 +52,7 @@ function listcrms() {
 	<tr><th>Name</th><th>Options</th>";
 
 	while($cdata=pg_fetch_array($Ry)) {
-        	$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-
-                $out.="<tr bgcolor='$bgcolor'><td>$cdata[name]</td><td><a href='crms-teams.php?id=$cdata[id]'>Select teams</a></td></tr>";
+                $out.="<tr class='".bg_class()."'><td>$cdata[name]</td><td><a href='crms-teams.php?id=$cdata[id]'>Select teams</a></td></tr>";
 
 	}
 

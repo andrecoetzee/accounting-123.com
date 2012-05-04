@@ -56,9 +56,7 @@ function printClass ()
 		</table>";
 	}
 	while ($class = pg_fetch_array ($classRslt)) {
-		# alternate bgcolor
-		$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-		$printClass .= "<tr bgcolor='$bgColor'><td>$class[code]</td><td>$class[description]</td><td>$class[zero]</td>
+		$printClass .= "<tr class='".bg_class()."'><td>$class[code]</td><td>$class[description]</td><td>$class[zero]</td>
 		<td>$class[vat_amount]</td><td><a href='vatcodes-edit.php?id=$class[id]'>Edit</a></td>";
 		$printClass .= "<td><a href='vatcodes-rem.php?id=$class[id]'>Remove</a></td></tr>";
 		$i++;

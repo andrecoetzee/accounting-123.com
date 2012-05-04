@@ -183,8 +183,7 @@ function slip ($_POST)
                         # Calculate gross salary from nettpay
                         $gross = sprint(round(($pay['salary'] - $pay['totallow'] - $pay['comm'] + $pay['totded'] + $pay['uif'] + $pay['paye'] + $pay['loanins']), 2));
 
-                        $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-                        $slip .= "<tr bgcolor='$bgColor'><td>$emp[fnames] $emp[sname]</td><td>".CUR." $gross</td><td>".CUR." $pay[comm]</td><td>".CUR." $pay[loanins]</td><td>".CUR." $pay[uif]</td><td>".CUR." $pay[paye]</td><td>".CUR." $pay[totded]</td><td>".CUR." $pay[salary]</td><td><a href='payslip-view.php?empnum=$pay[empnum]&mon=$mon&id=$pay[id]'>View</a></td><td><a target='_blank' href='payslip-print.php?id=$pay[id]'>Print</a></td></tr>";
+                        $slip .= "<tr class='".bg_class()."'><td>$emp[fnames] $emp[sname]</td><td>".CUR." $gross</td><td>".CUR." $pay[comm]</td><td>".CUR." $pay[loanins]</td><td>".CUR." $pay[uif]</td><td>".CUR." $pay[paye]</td><td>".CUR." $pay[totded]</td><td>".CUR." $pay[salary]</td><td><a href='payslip-view.php?empnum=$pay[empnum]&mon=$mon&id=$pay[id]'>View</a></td><td><a target='_blank' href='payslip-print.php?id=$pay[id]'>Print</a></td></tr>";
 
                         $totgross += $gross;
                         $totcomm += $pay['comm'];
@@ -304,7 +303,6 @@ function export ($_POST)
                         # Calculate gross salary from nettpay
                         $gross = round(($pay['salary'] - $pay['totallow'] - $pay['comm'] + $pay['totded'] + $pay['uif'] + $pay['paye'] + $pay['loanins']), 2);
 
-                        $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
                         $slip .= "<tr><td>$emp[fnames] $emp[sname]</td><td>".CUR." $gross</td><td>".CUR." $pay[comm]</td><td>".CUR." $pay[loanins]</td><td>".CUR." $pay[uif]</td><td>".CUR." $pay[paye]</td><td>".CUR." $pay[totded]</td><td>".CUR." $pay[salary]</td></tr>";
 
                         $totgross += $gross;

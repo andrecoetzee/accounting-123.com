@@ -118,9 +118,7 @@ function details($_GET) {
 	while($pdata=pg_fetch_array($Ry)) {
 		$i++;
 
-		$bgcolor=($i%2) ? TMPL_tblDataColor1 : TMPL_tblDataColor2;
-		
-		$pactions.="<tr bgcolor='$bgcolor'><td>$pdata[donedate], ".substr($pdata['donetime'],0,5)."</td><td>$pdata[action]</td><td>$pdata[doneby]</td></tr>";
+		$pactions.="<tr class='".bg_class()."'><td>$pdata[donedate], ".substr($pdata['donetime'],0,5)."</td><td>$pdata[action]</td><td>$pdata[doneby]</td></tr>";
 		
 	}
 	

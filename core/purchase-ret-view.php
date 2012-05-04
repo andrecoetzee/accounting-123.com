@@ -66,9 +66,7 @@ function view()
                         $acc = pg_fetch_array($accRslt);
                         $paidaccname = $acc['accname'];
 
-                        # alternate bgcolor and write list
-		        $bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-                        $view .= "<tr bgcolor='$bgColor'><td>$itemname</td><td>$descript</td><td>$quantity</td><td>".CUR." $tlcost</td><td>$paytype</td><td>$paidaccname</td><td>$usedaccname</td></tr>";
+                        $view .= "<tr class='".bg_class()."'><td>$itemname</td><td>$descript</td><td>$quantity</td><td>".CUR." $tlcost</td><td>$paytype</td><td>$paidaccname</td><td>$usedaccname</td></tr>";
                         $i++;
                 }
         }

@@ -140,9 +140,6 @@ function viewRep($_POST)
 		$vatin = 0;
 		$vattot = 0;
 		while($vat = pg_fetch_array($vatRslt)){
-			# alternate bgcolor
-			$bgColor = ($i % 2) ? TMPL_tblDataColor2 : TMPL_tblDataColor1;
-
 			# format date
 			$vat['edate'] = explode("-", $vat['edate']);
 			$vat['edate'] = $vat['edate'][2]."-".$vat['edate'][1]."-".$vat['edate'][0];
@@ -150,7 +147,7 @@ function viewRep($_POST)
 			$vattot += $vat['amount'];
 
 			$vat['amount'] = sprint($vat['amount']);
-			$printRep .= "<tr bgcolor='$bgColor'><td>$vat[edate]</td><td>$vat[ref]</td><td>".CUR." $vat[amount]</td><td>$vat[descript]</td></tr>";
+			$printRep .= "<tr class='".bg_class()."'><td>$vat[edate]</td><td>$vat[ref]</td><td>".CUR." $vat[amount]</td><td>$vat[descript]</td></tr>";
 			$i++;
 		}
 	}
