@@ -1798,10 +1798,13 @@ function confirm ($_POST)
 		}
 		foreach ($subsname as $sid => $sn) {
 			if ($subsrep[$sid] == "yes") {
-				$nontax = $subsdays[$sid] * ($subsmeal[$sid] == "yes" ? 276 : 85);
+				//2012
+				$nontax = $subsdays[$sid] * ($subsmeal[$sid] == "yes" ? 303 : 93);
 				$subs_total += $subsamt[$sid];
 			} else {
-				// outside republic, 196 dollars
+				//2012
+				//TODO
+				// outside republic, 215 dollars
 				$nontax = $subsdays[$sid] * (215 / $subs_exch);
 				$subs_total += $subsamt[$sid] * $subs_exch;
 			}
@@ -1924,69 +1927,26 @@ function confirm ($_POST)
 		$fringe_loan = "0.00";
 	}
 
-	/*
-	$car_count = ($myEmp["fringe_car1"] > 0?1:0) + ($myEmp["fringe_car2"] > 0?1:0);
-
-	// if car count is one and employee gets a travel allowance, that car's fringe benefit is calculated
-	// as if the second car, and ALSO: contribitions/fuel/service amounts are not deducted from benefit
-	$car1_travelall = $car_count == 1 && $all_travel > 0;
-
-	if ( $car1_travelall ) {
-		$PERC1 = 0.025;
-	} else {
-		$PERC1 = 0.04;
-	}
-	*/
-	$car1_travelall = false;
-	
 	payedbg("sal/annum: $myEmp[basic_sal_annum]<br />", false);
 	payedbg("divisor: $divisor<br />", false);
 
+	//2012
 	// calculate motor car fringe benefit
-	if ( $myEmp["fringe_car1"] > 0 ) {
-		$PD = 0;
-		if ( $myEmp["fringe_car1_fuel"] == 1 && ! $car1_travelall ) {
-			$PD += 0.0022;
-		}
-
-		if ( $myEmp["fringe_car1_service"] == 1 && ! $car1_travelall ) {
-			$PD += 0.0018;
-		}
-
-		$fringe_car1 = $myEmp["fringe_car1"] * ($myEmp["fringe_car1"]>=$myEmp["fringe_car2"]?0.025-$PD:0.04-$PD);
-
-		if ( $myEmp["fringe_car1_contrib"] > 0 && ! $car1_travelall ) {
-			$fringe_car1 -= ($myEmp["fringe_car1_contrib"]);
-		}
-
-		$fringe_car1 /= $divisor;
+	if ($myEmp["fringe_car1"] > 0) {
+		$deduct_perc = 0;
 		
-		if ( $fringe_car1 < 0 ) $fringe_car1 = 0;
-	} else {
-		$fringe_car1 = 0;
+		// Employee has travel allowance?
+		if ($myEmp["all_travel"] > 0) {	
+			$deduct_perc = 0.0325;
+		} else {
+			$deduct_perc = 0.035;
+		}
+
+		$fringe_car1 = $myEmp["fringe_car1"] * $deduct_perc;
 	}
-
-	if ( $myEmp["fringe_car2"] > 0 ) {
-		$PD = 0;
-		if ( $myEmp["fringe_car2_fuel"] == 1 && ! $car1_travelall ) {
-			$PD += 0.0022;
-		}
-
-		if ( $myEmp["fringe_car2_service"] == 1 && ! $car1_travelall ) {
-			$PD += 0.0018;
-		}
-
-		$fringe_car2 = $myEmp["fringe_car2"] * ($myEmp["fringe_car2"]>$myEmp["fringe_car1"]?0.025-$PD:0.04-$PD);
-
-		if ( $myEmp["fringe_car2_contrib"] > 0 && ! $car1_travelall ) {
-			$fringe_car2 -= ($myEmp["fringe_car2_contrib"]);
-		}
-
-		$fringe_car2 /= $divisor;
-		
-		if ( $fringe_car2 < 0 ) $fringe_car2 = 0;
-	} else {
-		$fringe_car2 = 0;
+	// Second fringe car will always be 3.25%
+	if ($myEmp["fringe_car2"] > 0) {
+		$fringe_car2 = $myEmp["fringe_car2"] * 0.0325;
 	}
 
 	$fringe_car1 = sprint($fringe_car1);
@@ -2009,12 +1969,17 @@ function confirm ($_POST)
 		//2010
 		// calculate paragraph 12A amount
 		//first 2 dependants are 625 each (1250) rest is 380 each. 
-		$p12A_amt = ($myEmp["emp_meddeps"] > 1 ? 1250 : 625) + ($tmp_deps * 380);
+		//$p12A_amt = ($myEmp["emp_meddeps"] > 1 ? 1250 : 625) + ($tmp_deps * 380);
 
 		//2011
 		// calculate paragraph 12A amount
 		//first 2 dependants are 670 each (1340) rest is 410 each. 
-		$p12A_amt = ($myEmp["emp_meddeps"] > 1 ? 1340 : 820) + ($tmp_deps * 410);
+		//$p12A_amt = ($myEmp["emp_meddeps"] > 1 ? 1340 : 820) + ($tmp_deps * 410);
+
+		//2012
+		// calculate paragraph 12A amount
+		//first 2 dependants are 230 each (460) rest is 154 each. 
+		$p12A_amt = ($myEmp["emp_meddeps"] > 1 ? 460 : 230) + ($tmp_deps * 154);
 
 		// calculate taxable fringe benefit amount
 		$fringe_medical = sprint($comp_medical - ($p12A_amt / $divisor));
@@ -2193,8 +2158,13 @@ function confirm ($_POST)
 		//2010
 // 		if ( ($age >= 65 && ($paye_salary * $tyear) < 84200) || ($paye_salary * $tyear) < 54200 ) {
 		//2011
-		if ( ($age >= 65 && ($paye_salary * $tyear) < 88528) || ($paye_salary * $tyear) < 57000 ) {
-			$paye = "0.00";
+//		if ( ($age >= 65 && ($paye_salary * $tyear) < 88528) || ($paye_salary * $tyear) < 57000 ) {
+		//2012
+		if (($age >= 65 && $age < 75 && ($paye_salary * $tyear) < 99056) ||
+			($age >= 75 && ($paye_salary * $tyear) < 110889) ||
+			($paye_salary * $tyear) < 63556) {
+				
+				$paye = "0.00";
 		} else {
 			if ($myEmp["payprd"] == "w" || $myEmp["payprd"] == "f") {
 				$paye_prd = "$MON:$week";

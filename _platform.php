@@ -14,7 +14,7 @@
 #
 
 /* debug levels: 1=ALL except NOTICE, 2=ALL */
-define("DEBUG", 2);
+define("DEBUG", 0);
 define("ERRORNET", 0);
 
 if (defined("CUBIT_WD")) {

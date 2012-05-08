@@ -162,14 +162,25 @@ function tabiast($sal) {
 // 	);
 
 	//2011
+//	$ptables = array(
+//		/* percentage, extra, min, max */
+//		array(18, 0, 0, 140000.99),
+//		array(25, 25200, 140001, 221000.99),
+//		array(30, 45450, 221001, 305000.99),
+//		array(35, 70650, 305001, 431000.99),
+//		array(38, 114750, 431001, 552000.99),
+//		array(40, 160730, 552001, 999999999)
+//	);
+
+	//2012
 	$ptables = array(
 		/* percentage, extra, min, max */
-		array(18, 0, 0, 140000.99),
-		array(25, 25200, 140001, 221000.99),
-		array(30, 45450, 221001, 305000.99),
-		array(35, 70650, 305001, 431000.99),
-		array(38, 114750, 431001, 552000.99),
-		array(40, 160730, 552001, 999999999)
+		array(18, 0, 0, 160000.99),
+		array(25, 28800, 160001, 250000.99),
+		array(30, 51300, 250001, 346000.99),
+		array(35, 80100, 346001, 484000.99),
+		array(38, 128400, 484001, 617000.99),
+		array(40, 178940, 617001, 999999999)
 	);
 
 	foreach ($ptables as $t) {
@@ -387,9 +398,19 @@ function bracket_calcpaye($age, $paye_salary) {
 
 	//2011
 	// Get paye rebate
-	$rebate = 10260;
-	if ( $age >= 65 ) {
-		$rebate += 5675;
+//	$rebate = 10260;
+//	if ( $age >= 65 ) {
+//		$rebate += 5675;
+//	}
+
+	//2012
+	// Get paye rebate
+	$rebate = 11440;
+	if ($age >= 65) {
+		$rebate += 6390;
+	} 
+	if ($age >= 75) {
+		$rebate += 2130;
 	}
 
 	if ( $min > 0 ) --$min;
@@ -594,10 +615,21 @@ function bracket_calcpaye_old($age, $paye_salary, $tyear) {
 
 	//2011
 	// Get paye rebate
-	$rebate = 10260;
-	if ( $age >= 65 ) {
-		$rebate += 5675;
+//	$rebate = 10260;
+//	if ( $age >= 65 ) {
+//		$rebate += 5675;
+//	}
+
+	//2012
+	// Get paye rebate
+	$rebate = 11440;
+	if ($age >= 65) {
+		$rebate += 6390;
 	}
+	if ($age >= 75) {
+		$rebate += 2130;
+	}
+
 
 	if ( $min > 0 ) --$min;
 

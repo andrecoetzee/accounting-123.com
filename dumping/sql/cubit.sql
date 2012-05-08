@@ -1389,7 +1389,7 @@ INSERT INTO settings ("constant","label","value","type","datatype","minlen","max
 INSERT INTO settings ("constant","label","value","type","datatype","minlen","maxlen","div","readonly") VALUES('CUST_PRINT_RECPT','Default Print Customer Receipt','yes','general','allstring','0','50','0','f');
 INSERT INTO settings ("constant","label","value","type","datatype","minlen","maxlen","div","readonly") VALUES('REBATE_65UNDER','Tax rebate for persons under 65','10260','accounting','num','1','9','0','t');
 INSERT INTO settings ("constant","label","value","type","datatype","minlen","maxlen","div","readonly") VALUES('REBATE_65PLUS','Tax rebate for persons over 65','5675','accounting','num','1','9','0','t');
-INSERT INTO settings ("constant","label","value","type","datatype","minlen","maxlen","div","readonly") VALUES('EMP_TAXYEAR','Employee Tax Year','2011','accounting','num','4','4','0','t');
+INSERT INTO settings ("constant","label","value","type","datatype","minlen","maxlen","div","readonly") VALUES('EMP_TAXYEAR','Employee Tax Year','2013','accounting','num','4','4','0','t');
 INSERT INTO settings ("constant","label","value","type","datatype","minlen","maxlen","div","readonly") VALUES('EMPLOAN_FRINGEINT','Interest Rate on which Loan Fringe Benifit is calculated','13','static','float','1','5','0','t');
 CREATE TABLE statement_data ("id" serial NOT NULL PRIMARY KEY ,"date" date ,"amount" numeric(16, 2) DEFAULT 0,"description" varchar ,"contra" varchar ,"code" varchar ,"ex1" varchar ,"ex2" varchar ,"ex3" varchar ,"by" varchar ,"bank" varchar ,"account" int4 DEFAULT 0) WITH OIDS;
 SELECT setval('statement_data_id_seq',1);

@@ -163,9 +163,9 @@ function edit()
 			employee to whom an allowance or advance has been granted or paid:
 			<li>Where the accommodation to which that allowance or advance
 			relate is the Republic and that allowance or the advance is paid
-			or granted to defray Incidental costs only, an amount equal to R85
+			or granted to defray Incidental costs only, an amount equal to R93
 			per day; or<br />
-			The cost of meals and incidental costs, an amount equal to R276
+			The cost of meals and incidental costs, an amount equal to R303
 			per day; or</li>
 			<li>Where the accommodation to which that allowance or advance
 			relates is outside the Republic and that the allowance or advance
