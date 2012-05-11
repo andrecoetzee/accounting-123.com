@@ -392,6 +392,14 @@ function require_lib($lib, $safe = false) {
 	return false;
 }
 
-
+function bg_class($reset = false) {
+          global $BGCOLOR_COUNTER;
+          if ($reset) $BGCOLOR_COUNTER = 0;
+          if ($BGCOLOR_COUNTER++ % 2) {
+              return "bg-even";
+            } else {
+              return "bg-odd";
+            }
+}
 
 ?>

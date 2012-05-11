@@ -75,7 +75,7 @@ function printComp ()
     $sql = "SELECT * FROM ch ORDER BY code ASC,id ASC";
     $compRslt = db_exec($sql) or errDie ("Unable to retrieve companies from database.");
 	if (pg_numrows ($compRslt) < 1) {
-		$printComp .=  "</table><li>There is no update data in Cubit.";
+		$printComp .=  "</table><li>There is no update data in Cubit.</li>";
 	}
 	while ($d = pg_fetch_array ($compRslt)) {
 		$printComp .= "<tr class='".bg_class()."'><td>$d[code]</td><td>$d[comp]</td><td>$d[des]</td><td>$d[f]</td><td>$d[t]</td><td>$d[date]</td></tr>";
